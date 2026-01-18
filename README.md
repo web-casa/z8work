@@ -1,17 +1,17 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/bf441748-0ec5-4c8a-b3e5-11301ee3f0bd" alt="VERT's logo" height="100">
 </p>
-<h1 align="center"><a href="https://vert.sh">VERT.sh</a></h1>
+<h1 align="center"><a href="https://ii.pe">II.PE</a></h1>
 
-VERT is a file conversion utility that uses WebAssembly to convert files on your device instead of a cloud. Check out the live instance at [vert.sh](https://vert.sh).
+II.PE is a file conversion utility that uses WebAssembly to convert files on your device instead of a cloud. Check out the live instance at [ii.pe](https://ii.pe).
 
-VERT is built in Svelte and TypeScript.
+II.PE is built in Svelte and TypeScript.
 
 ## Screenshots
 
 |                     Upload page                      |                     Conversion page                      |
 | :--------------------------------------------------: | :------------------------------------------------------: |
-| ![VERT upload page](docs/images/screenshot-home.png) | ![VERT convert page](docs/images/screenshot-convert.png) |
+| ![II.PE upload page](docs/images/screenshot-home.png) | ![II.PE convert page](docs/images/screenshot-convert.png) |
 
 ## Features
 

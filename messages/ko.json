@@ -130,7 +130,7 @@
 			"advanced_settings": "고급 설정",
 			"filename_format": "파일 이름 형식",
 			"filename_description": "다운로드할 파일의 이름을 설정합니다. <b>파일 확장자(포맷)는 포함되지 않습니다.</b> 다음 템플릿을 형식에 넣을 수 있으며, 관련 정보로 대체됩니다: <b>%name%</b> 원본 파일 이름, <b>%extension%</b> 원본 파일 확장자, <b>%date%</b> 파일이 변환된 날짜 문자열.",
-			"placeholder": "VERT_%name%",
+			"placeholder": "IIPE_%name%",
 			"default_format": "기본 변환 형식",
 			"default_format_description": "파일 유형의 파일을 업로드할 때 선택되는 기본 형식을 변경합니다.",
 			"default_format_image": "이미지",

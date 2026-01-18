@@ -140,7 +140,7 @@
       "advanced_settings": "Napredne postavke",
       "filename_format": "Format imena datoteke",
       "filename_description": "Ovo određuje ime datoteke pri preuzimanju, <b>bez ekstenzije</b>. Možete koristiti sljedeće šablone: <b>%name%</b> originalno ime, <b>%extension%</b> originalna ekstenzija, <b>%date%</b> datum konverzije.",
-      "placeholder": "VERT_%name%",
+      "placeholder": "IIPE_%name%",
       "default_format": "Podrazumijevani format konverzije",
       "default_format_enable": "Uključi",
       "default_format_disable": "Isključi",

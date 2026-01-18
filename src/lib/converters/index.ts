@@ -2,19 +2,13 @@ import type { Categories } from "$lib/types";
 import type { Converter } from "./converter.svelte";
 import { FFmpegConverter } from "./ffmpeg.svelte";
 import { PandocConverter } from "./pandoc.svelte";
-import { VertdConverter } from "./vertd.svelte";
 import { MagickConverter } from "./magick.svelte";
-import { DISABLE_ALL_EXTERNAL_REQUESTS } from "$lib/util/consts";
 
 const getConverters = (): Converter[] => {
 	const converters: Converter[] = [
 		new MagickConverter(),
 		new FFmpegConverter(),
 	];
-
-	if (!DISABLE_ALL_EXTERNAL_REQUESTS) {
-		converters.push(new VertdConverter());
-	}
 
 	converters.push(new PandocConverter());
 	return converters;
@@ -34,7 +28,7 @@ export function getConverterByFormat(format: string) {
 export const categories: Categories = {
 	image: { formats: [""], canConvertTo: [] },
 	video: { formats: [""], canConvertTo: ["audio"] },
-	audio: { formats: [""], canConvertTo: ["video"] },
+	audio: { formats: [""], canConvertTo: [] },
 	doc: { formats: [""], canConvertTo: [] },
 };
 
@@ -45,8 +39,8 @@ categories.audio.formats =
 		.map((f) => f.name) || [];
 categories.video.formats =
 	converters
-		.find((c) => c.name === "vertd")
-		?.supportedFormats.filter((f) => f.toSupported && f.isNative)
+		.find((c) => c.name === "ffmpeg")
+		?.supportedFormats.filter((f) => !f.toSupported && f.isNative)
 		.map((f) => f.name) || [];
 categories.image.formats =
 	converters

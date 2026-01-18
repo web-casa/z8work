@@ -131,7 +131,7 @@
 			"advanced_settings": "進階設定",
 			"filename_format": "檔案名稱格式",
 			"filename_description": "這將決定下載時的檔案名稱，<b>不包括副檔名。</b>你可以在格式中使用以下範本，它們將被替換為相關資訊：<b>%name%</b>表示原始檔案名稱，<b>%extension%</b>表示原始副檔名，<b>%date%</b>表示檔案轉換時的日期字串。",
-			"placeholder": "VERT_%name%",
+			"placeholder": "IIPE_%name%",
 			"default_format": "預設轉換格式",
 			"default_format_description": "這將更改上傳此檔案類型時自動選擇的預設格式。",
 			"default_format_image": "圖片",

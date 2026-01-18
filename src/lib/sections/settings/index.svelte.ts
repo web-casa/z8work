@@ -35,7 +35,7 @@ export class Settings {
 	public static instance = new Settings();
 
 	public settings: ISettings = $state({
-		filenameFormat: "VERT_%name%",
+		filenameFormat: "IIPE_%name%",
 		defaultFormat: {
 			image: ".png",
 			video: ".mp4",
@@ -68,11 +68,16 @@ export class Settings {
 			const vertdBlockedHashes = new Map<string, Date[]>(
 				Object.entries(
 					settings.vertdBlockedHashes ||
-						this.settings.vertdBlockedHashes,
+					this.settings.vertdBlockedHashes,
 				),
 			);
 
 			settings.vertdBlockedHashes = vertdBlockedHashes;
+
+			// Migration: Update old default filename format
+			if (settings.filenameFormat === "VERT_%name%") {
+				settings.filenameFormat = "IIPE_%name%";
+			}
 
 			this.settings = {
 				...this.settings,

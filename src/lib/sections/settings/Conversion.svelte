@@ -47,7 +47,7 @@
 					</p>
 				</div>
 				<FancyTextInput
-					placeholder="VERT_%name%"
+					placeholder="IIPE_%name%"
 					bind:value={settings.filenameFormat}
 					extension={".ext"}
 					type="text"

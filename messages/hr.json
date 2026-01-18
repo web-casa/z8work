@@ -34,7 +34,7 @@
 				"not_initialized": "nije inicijalizirano",
 				"downloading": "preuzimanje...",
 				"initializing": "inicijaliziranje...",
-				"unknown": "nepoznati status"    
+				"unknown": "nepoznati status"
 			},
 			"supported_formats": "Podržani formati:"
 		},
@@ -73,7 +73,7 @@
 			"cant_convert": "Ne možemo pretvoriti ovu datoteku.",
 			"vertd_server": "Sunce ti žarko, što ti radiš!? Moraš pokrenuti vertd server!",
 			"unsupported_format": "Podržane su samo slike, videozapisi, audio i dokumenti",
-			"vertd_not_found": "Nismo mogli pronači vertd da započnemo pretvaranje. Jeste li sigurni da je URL točno postavljen?",    
+			"vertd_not_found": "Nismo mogli pronači vertd da započnemo pretvaranje. Jeste li sigurni da je URL točno postavljen?",
 			"worker_downloading": "{type} pretvarač se trenutno koristi, molimo pričekajte malo.",
 			"worker_error": "{type} pretvaraču se javila pogreška pri inicijalizaciji, molimo pokušajte ponovno kasnije.",
 			"worker_timeout": "{type} pretvaraču treba duže nego očekivano da se inicijalizira, molimo još malo pričekajte ili osvježite stranicu.",
@@ -102,7 +102,7 @@
 			"title": "Pretvaranje",
 			"filename_format": "Način imenovanja datoteke",
 			"filename_description": "Ovo će odrediti ime datoteke pri preuzimanju, <b>ali ne i nastavak.</b> Možete staviti navedene prijedloge u način imenovanja, koji će biti zamijenjeni sa relevatnim informacijama: <b>%name%</b> za originalni naziv datoteke, <b>%extension%</b> za originalni nastavak, i <b>%date%</b> za datum kada je datoteka bila pretvorena.",
-			"placeholder": "VERT_%name%",
+			"placeholder": "IIPE_%name%",
 			"default_format": "Zadan format za pretvaranje",
 			"default_format_description": "Ovo će promijeniti zadani format koji je izabran kada prenesete datoteku te vrste.",
 			"default_format_image": "Slike",
@@ -126,7 +126,7 @@
 			"loading": "učitavanje...",
 			"available": "dostupno, commit id {commitId}",
 			"unavailable": "nedostupno (Je li URL točan?)",
-			"description": "<code>vertd</code> projekt je serverski omot za FFmpeg. Ovo omogućuje da pretvarate videozapise sa lakoćom VERTovog web sučelja, dok još uvijek možete iskoristiti snagu vašeg GPU da odradi što brže moguće.",    
+			"description": "<code>vertd</code> projekt je serverski omot za FFmpeg. Ovo omogućuje da pretvarate videozapise sa lakoćom VERTovog web sučelja, dok još uvijek možete iskoristiti snagu vašeg GPU da odradi što brže moguće.",
 			"hosting_info": "Mi držimo javnu instancu za Vašu lakoću, ali je veoma lako hostati na Vašem računalu ili serveru ako znate što radite. Možete preuzeti serverske programe [vertd_link]ovdje[/vertd_link] - Proces namještanja će biti lakši u budućnosti, pa njuškajte malo za nove vijesti!",
 			"instance_url": "URL instance",
 			"url_placeholder": "Na primjer: http://localhost:24153",

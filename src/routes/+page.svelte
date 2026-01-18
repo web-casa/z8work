@@ -2,9 +2,8 @@
 	import Uploader from "$lib/components/functional/Uploader.svelte";
 	import Tooltip from "$lib/components/visual/Tooltip.svelte";
 	import { converters } from "$lib/converters";
-	import { vertdLoaded } from "$lib/store/index.svelte";
 	import clsx from "clsx";
-	import { AudioLines, BookText, Check, Film, Image } from "lucide-svelte";
+	import { AudioLines, BookText, Check, Image } from "lucide-svelte";
 	import { m } from "$lib/paraglide/messages";
 	import { OverlayScrollbarsComponent } from "overlayscrollbars-svelte";
 	import { browser } from "$app/environment";
@@ -12,7 +11,6 @@
 	import { onMount } from "svelte";
 	import type { WorkerStatus } from "$lib/converters/converter.svelte";
 	import { sanitize } from "$lib/store/index.svelte";
-	import { DISABLE_ALL_EXTERNAL_REQUESTS } from "$lib/util/consts";
 
 	const getSupportedFormats = (name: string) =>
 		converters
@@ -65,14 +63,6 @@
 			},
 		};
 
-		if (!DISABLE_ALL_EXTERNAL_REQUESTS) {
-			output.Video = {
-				formats: getSupportedFormats("vertd"),
-				icon: Film,
-				title: m["upload.cards.video"](),
-				status: $vertdLoaded === true ? "ready" : "not-ready", // not using converter.status for this
-			};
-		}
 
 		return output;
 	});

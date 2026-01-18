@@ -23,7 +23,7 @@ class Files {
 		this.files.length === 0
 			? false
 			: this.requiredConverters.every((f) => f?.status === "ready") &&
-					this.files.every((f) => !f.processing),
+			this.files.every((f) => !f.processing),
 	);
 	public results = $derived(
 		this.files.length === 0 ? false : this.files.every((f) => f.result),
@@ -383,7 +383,7 @@ class Files {
 		const url = URL.createObjectURL(blob);
 
 		const settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
-		const filenameFormat = settings.filenameFormat || "VERT_%name%";
+		const filenameFormat = settings.filenameFormat || "IIPE_%name%";
 
 		const format = (name: string) => {
 			const date = new Date().toISOString();
