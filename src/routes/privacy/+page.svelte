@@ -31,17 +31,7 @@
 				{@html sanitize(m["privacy.conversions.description"]())}
 			</p>
 
-			<h2 class="text-2xl mb-3">{m["privacy.donations.title"]()}</h2>
-			<p class="mb-4">
-				{@html sanitize(
-					link(
-						["about_link", "stripe_link"],
-						m["privacy.donations.description"](),
-						["/about", "https://stripe.com/docs/disputes/prevention/advanced-fraud-detection"],
-						[false, true],
-					),
-				)}
-			</p>
+
 
 			<h2 class="text-2xl mb-3">
 				{m["privacy.conversion_errors.title"]()}

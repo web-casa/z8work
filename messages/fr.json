@@ -13,7 +13,7 @@
 		"discord_server": "Serveur Discord"
 	},
 	"upload": {
-		"title": "Le convertisseur de fichiers que vous allez adorer.",
+		"title": "Un outil de conversion de fichiers sans téléchargement, basé sur navigateur.",
 		"subtitle": "Tous les traitements d'images, d'audio et de documents sont convertis localement sur votre appareil, protégeant votre vie privée. Aucune limite de taille de fichier, ultra-léger et super facile à utiliser.",
 		"uploader": {
 			"text": "Déposer ou cliquer pour {action}",

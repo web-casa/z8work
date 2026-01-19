@@ -14,7 +14,7 @@
 		"privacy_policy": "Privacy policy"
 	},
 	"upload": {
-		"title": "The file converter you'll love.",
+		"title": "A zero-upload, browser-based file conversion tool.",
 		"subtitle": "All image, audio, and document processing is done locally on your device, protecting your privacy. No file size limit, ultra-lightweight, and super easy to use.",
 		"uploader": {
 			"text": "Drop or click to {action}",

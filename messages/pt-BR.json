@@ -14,7 +14,7 @@
 		"privacy_policy": "Política de privacidade"
 	},
 	"upload": {
-		"title": "O conversor de arquivos que você vai adorar.",
+		"title": "Uma ferramenta de conversão de arquivos baseada em navegador e sem upload.",
 		"subtitle": "Todo o processamento de imagens, áudio e documentos é feito localmente no seu dispositivo, protegendo sua privacidade. Sem limite de tamanho de arquivo, ultraleve e super fácil de usar.",
 		"uploader": {
 			"text": "Arraste ou clique para {action}",

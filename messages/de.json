@@ -14,7 +14,7 @@
 		"privacy_policy": "Datenschutzerklärung"
 	},
 	"upload": {
-		"title": "Der Dateikonverter, den du lieben wirst.",
+		"title": "Ein uploadfreies, browserbasiertes Dateikonvertierungstool.",
 		"subtitle": "Die gesamte Verarbeitung von Bildern, Audio und Dokumenten wird lokal auf Ihrem Gerät konvertiert, um Ihre Privatsphäre zu schützen. Keine Dateigrößenbeschränkung, ultraleicht und super einfach zu bedienen.",
 		"uploader": {
 			"text": "Dateien hier ablegen oder klicken zum {action}",

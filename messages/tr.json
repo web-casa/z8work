@@ -13,7 +13,7 @@
 		"discord_server": "Discord sunucusu"
 	},
 	"upload": {
-		"title": "Sevdiğiniz dosya dönüştürücü.",
+		"title": "Sıfır yükleme, tarayıcı tabanlı dosya dönüştürme aracı.",
 		"subtitle": "Tüm resim, ses ve belge işlemleri cihazınızda yerel olarak dönüştürülür, gizliliğinizi korur. Dosya boyutu sınırı yok, ultra hafif ve kullanımı süper kolay.",
 		"uploader": {
 			"text": "{action} için sürükleyip bırakın veya dosya seçin",

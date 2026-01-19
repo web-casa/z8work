@@ -13,7 +13,7 @@
 		"discord_server": "Peladen Discord"
 	},
 	"upload": {
-		"title": "Konverter berkas andalanmu.",
+		"title": "Alat konversi file berbasis browser tanpa unggah.",
 		"subtitle": "Semua pemrosesan gambar, audio, dan dokumen dilakukan secara lokal di perangkat Anda, melindungi privasi Anda. Tidak ada batasan ukuran file, sangat ringan, dan sangat mudah digunakan.",
 		"uploader": {
 			"text": "Jatuhkan dan klik untuk {action}",

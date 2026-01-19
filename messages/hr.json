@@ -13,7 +13,7 @@
 		"discord_server": "Discord server"
 	},
 	"upload": {
-		"title": "Pretvarač datoteka koji ćeš obožavati.",
+		"title": "Alat za pretvorbu datoteka temeljen na pregledniku bez učitavanja.",
 		"subtitle": "Sva obrada slika, zvuka i dokumenata se odvija lokalno na vašem uređaju, štiteći vašu privatnost. Nema ograničenja veličine datoteke, ultra lagan i super jednostavan za korištenje.",
 		"uploader": {
 			"text": "Ubaci ili klikni da {action}",

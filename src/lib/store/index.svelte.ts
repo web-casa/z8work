@@ -8,7 +8,7 @@ import { addDialog } from "./DialogProvider";
 import PQueue from "p-queue";
 import { getLocale, setLocale } from "$lib/paraglide/runtime";
 import { m } from "$lib/paraglide/messages";
-import sanitizeHtml from "sanitize-html";
+import DOMPurify from "isomorphic-dompurify";
 import { ToastManager } from "$lib/util/toast.svelte";
 import { GB } from "$lib/util/consts";
 
@@ -504,13 +504,10 @@ export function sanitize(
 	html: string,
 	allowedTags: string[] = ["a", "b", "code", "br"],
 ): string {
-	return sanitizeHtml(html, {
-		allowedTags: allowedTags,
-		allowedAttributes: {
-			a: ["href", "target", "rel", "class"],
-			"*": ["class"],
-		},
-		allowedSchemes: ["http", "https", "mailto", "blob"],
+	return DOMPurify.sanitize(html, {
+		ALLOWED_TAGS: allowedTags,
+		ALLOWED_ATTR: ["href", "target", "rel", "class"],
+		ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp|blob):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
 	});
 }
 
