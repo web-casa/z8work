@@ -5,6 +5,7 @@
 		"convert": "변환",
 		"settings": "설정",
 		"about": "정보",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "테마 전환"
 	},
 	"footer": {
@@ -44,7 +45,8 @@
 			"direction_input": "입력 (from)",
 			"direction_output": "출력 (to)",
 			"video_server_processing": "동영상은 기본적으로 처리를 위해 서버로 업로드됩니다. 로컬로 처리하도록 설정하는 방법은 여기에서 확인하세요."
-		}
+		},
+		"friend_links": "친구 링크"
 	},
 	"convert": {
 		"archive_file": {
@@ -197,9 +199,47 @@
 	},
 	"about": {
 		"title": "정보",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "왜 ii.Pe인가?",
-			"description": "<b>파일 변환기들은 항상 저희 기대치에 충족하지 못했습니다.</b> 못생긴 UI에, 광고로 떡칠하고, 그리고 가장 중요한 것은 느리다는겁니다. 그래서 저희가 이 모든 문제를 한 번에 해결할 대안을 직접 만들기로 했습니다. 기존 변환기들의 단점을 해결한 것은 물론이고, 그 이상의 기능도 제공하죠<br/><br/>동영상을 제외한 모든 파일은 사용자의 기기에서 바로 변환됩니다. 즉, 서버로 파일을 보냈다가 다시 받는 시간이 전혀 필요 없고, 저희가 여러분의 파일을 엿볼 일도 전혀 없다는 뜻입니다.<br/><br/>예외적으로 동영상 파일은 초고속 RTX 4000 Ada 서버로 업로드됩니다. 변환하지 않으면 영상은 서버에 1시간 동안 유지됩니다. 변환한 경우에도 영상은 서버에 최대 1시간 또는 다운로드될 때까지 보관되며, 그 후 서버에서 삭제됩니다."
+			"description": "<b>파일 변환기들은 항상 저희 기대치에 충족하지 못했습니다.</b> 못생긴 UI에, 광고로 떡칠하고, 그리고 가장 중요한 것은 느리다는겁니다. 그래서 저희가 이 모든 문제를 한 번에 해결할 대안을 직접 만들기로 했습니다. 기존 변환기들의 단점을 해결한 것은 물론이고, 그 이상의 기능도 제공하죠<br/><br/>모든 파일은 기기에서 직접 변환됩니다. 즉, 서버로 파일을 전송하거나 수신할 필요가 없으므로 지연 시간이 없으며, 저희가 변환하는 파일을 엿볼 일도 없습니다."
 		},
 		"sponsors": {
 			"title": "후원자",

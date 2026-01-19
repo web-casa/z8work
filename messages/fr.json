@@ -4,7 +4,8 @@
 		"upload": "Transférer",
 		"convert": "Convertir",
 		"settings": "Paramètres",
-		"about": "A propos",
+		"about": "À propos",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "Changer de thème"
 	},
 	"footer": {
@@ -40,10 +41,10 @@
 		},
 		"tooltip": {
 			"partial_support": "Ce format ne peut être converti qu'en {direction}.",
-			"direction_input": "Entrée (de)",
-			"direction_output": "Sortie (vers)",
-			"video_server_processing": "Les vidéos sont téléchargées sur un serveur pour un traitement par défaut, découvrez comment les configurer localement ici."
-		}
+			"direction_output": "sortie (vers)",
+			"video_server_processing": "Les vidéos sont téléchargées sur un serveur pour être traitées par défaut, apprenez comment configurer cela localement ici."
+		},
+		"friend_links": "Liens Amis"
 	},
 	"convert": {
 		"panel": {
@@ -158,9 +159,47 @@
 	},
 	"about": {
 		"title": "A propos",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Pourquoi ii.Pe?",
-			"description": "<b>Les convertisseurs de fichiers nous ont toujours déçus.</b> Ils sont laids, infestés de publicités et, surtout, lents. Nous avons décidé de résoudre ce problème une fois pour toutes en créant une alternative qui résout tous ces problèmes, et bien plus encore.<br/><br/>Tous les fichiers non vidéo sont entièrement convertis sur l'appareil; cela signifie qu'il n'y a aucun délai entre l'envoi et la réception des fichiers depuis un serveur, et nous ne pouvons jamais espionner les fichiers que vous convertissez.<br/><br/>Les fichiers vidéo sont téléchargés sur notre serveur RTX 4000 Ada ultra-rapide. Vos vidéos y restent pendant une heure si vous ne les convertissez pas. Si vous convertissez le fichier, la vidéo restera sur le serveur pendant une heure, ou jusqu'à son téléchargement. Le fichier sera ensuite supprimé de notre serveur."
+			"description": "<b>Les convertisseurs de fichiers nous ont toujours déçus.</b> Ils sont laids, infestés de publicités et, surtout, lents. Nous avons décidé de résoudre ce problème une fois pour toutes en créant une alternative qui résout tous ces problèmes, et bien plus encore.<br/><br/>Tous les fichiers sont convertis entièrement sur l'appareil; cela signifie qu'il n'y a aucun délai entre l'envoi et la réception des fichiers depuis un serveur, et nous ne pouvons jamais espionner les fichiers que vous convertissez."
 		},
 		"sponsors": {
 			"title": "Sponsors",

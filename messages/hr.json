@@ -4,8 +4,9 @@
 		"upload": "Prenesi",
 		"convert": "Pretvori",
 		"settings": "Postavke",
-		"about": "O Stranici",
-		"toggle_theme": "Promjeni izgled"
+		"about": "O nama",
+		"screenhello": "ScreenHello",
+		"toggle_theme": "Promijeni temu"
 	},
 	"footer": {
 		"copyright": "© {year} ii.Pe.",
@@ -42,8 +43,9 @@
 			"partial_support": "Ovaj format se može pretvoriti u {direction}.",
 			"direction_input": "ulaz (iz)",
 			"direction_output": "izlaz (u)",
-			"video_server_processing": "Videozapisi se uobičajeno prenose na servere za obradu, nauči ovdje kako namjestiti da se događa lokalno."
-		}
+			"video_server_processing": "Videozapisi se prema zadanim postavkama prenose na poslužitelj radi obrade, saznajte kako to lokalno postaviti ovdje."
+		},
+		"friend_links": "Prijateljski Linkovi"
 	},
 	"convert": {
 		"panel": {
@@ -155,9 +157,47 @@
 	},
 	"about": {
 		"title": "O stranici",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Zašto baš ii.Pe?",
-			"description": "<b>Pretvarači datoteka su nas uvijek razočarali.</b> Izuzetno su ružni, prepuni reklama, i najvažnije; spori! Odlučili smo riješiti problem jednom i zauvijek praveći alternativu koja riješava sve ove probleme, i više.<br/><br/>Sve datoteke koji nisu videozapisi su pretvoreni direktno na Vašem uređaju; To znači da nema nikakve stanke između slanja i primanja datoteka sa servera, i nikada ne dobijemo šansu gurati nos u vaše datoteke koje pretvarate. <br/><br/>Videozapisi se prenose na naše izuzetno brze RTX 4000 Ada servere. Vaši videozapisi tamo ostano sat vremena ako ih ne pretvorite. Ako ih i pretvorite, videozapis će ostati na serveru na sat vremena, ili dok se ne preuzme. Datoteka će zatim biti obrisana sa našeg servera."
+			"description": "<b>Pretvarači datoteka su nas uvijek razočarali.</b> Izuzetno su ružni, prepuni reklama, i najvažnije; spori! Odlučili smo riješiti problem jednom i zauvijek praveći alternativu koja riješava sve ove probleme, i više.<br/><br/>Sve datoteke su pretvoreni direktno na Vašem uređaju; To znači da nema nikakve stanke između slanja i primanja datoteka sa servera, i nikada ne dobijemo šansu gurati nos u vaše datoteke koje pretvarate."
 		},
 		"sponsors": {
 			"title": "Sponzori",

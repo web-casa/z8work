@@ -5,6 +5,7 @@
 		"convert": "Konvertieren",
 		"settings": "Optionen",
 		"about": "Über",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "Design wechseln"
 	},
 	"footer": {
@@ -44,7 +45,8 @@
 			"direction_input": "Eingabe (von)",
 			"direction_output": "Ausgabe (nach)",
 			"video_server_processing": "Videos werden standardmäßig zur Verarbeitung auf einen Server hochgeladen. Erfahre hier, wie du die Verarbeitung lokal einrichten kannst."
-		}
+		},
+		"friend_links": "Partnerlinks"
 	},
 	"convert": {
 		"archive_file": {
@@ -217,9 +219,47 @@
 	},
 	"about": {
 		"title": "Über",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Warum ii.Pe?",
-			"description": "<b>Dateikonverter haben uns schon immer enttäuscht.</b> Sie sind hässlich, voller Werbung und vor allem langsam. Wir haben beschlossen, dieses Problem ein für alle Mal zu lösen, indem wir eine Alternative schaffen, die all diese Probleme und noch mehr behebt.<br/><br/>Alle Nicht-Videodateien werden vollständig auf deinem Gerät konvertiert; das bedeutet, es gibt keine Verzögerung beim Senden und Empfangen der Dateien von einem Server, und wir können niemals die von dir konvertierten Dateien einsehen.<br/><br/>Videodateien werden auf unseren blitzschnellen RTX 4000 Ada Server hochgeladen. Deine Videos bleiben dort für eine Stunde, wenn du sie nicht konvertierst. Wenn du die Datei konvertierst, bleibt das Video für eine Stunde auf dem Server oder bis es heruntergeladen wird. Anschließend wird die Datei von unserem Server gelöscht."
+			"description": "<b>Dateikonverter haben uns schon immer enttäuscht.</b> Sie sind hässlich, voller Werbung und vor allem langsam. Wir haben beschlossen, dieses Problem ein für alle Mal zu lösen, indem wir eine Alternative schaffen, die all diese Probleme und noch mehr behebt.<br/><br/>Alle Dateien werden vollständig auf deinem Gerät konvertiert; das bedeutet, es gibt keine Verzögerung beim Senden und Empfangen der Dateien von einem Server, und wir können niemals die von dir konvertierten Dateien einsehen."
 		},
 		"sponsors": {
 			"title": "Sponsoren",

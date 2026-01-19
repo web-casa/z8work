@@ -5,7 +5,8 @@
 		"convert": "Μετατροπή",
 		"settings": "Ρυθμίσεις",
 		"about": "Σχετικά",
-		"toggle_theme": "Εναλλαγή θέματος"
+		"screenhello": "ScreenHello",
+		"toggle_theme": "Αλλαγή θέματος"
 	},
 	"footer": {
 		"copyright": "© {year} ii.Pe.",
@@ -41,9 +42,10 @@
 		"tooltip": {
 			"partial_support": "Αυτή η μορφή μπορεί να μετατραπεί μόνο ως {direction}.",
 			"direction_input": "είσοδος (από)",
-			"direction_output": "έξοδος (προς)",
-			"video_server_processing": "Τα βίντεο μεταφορτώνονται σε σέρβερ για επεξεργασία από προεπιλογή, μάθετε πώς να το ρυθμίσετε τοπικά εδώ."
-		}
+			"direction_output": "έξοδος (σε)",
+			"video_server_processing": "Τα βίντεο μεταφορτώνονται σε διακομιστή για επεξεργασία από προεπιλογή, μάθετε πώς να το ρυθμίσετε τοπικά εδώ."
+		},
+		"friend_links": "Σύνδεσμοι Φίλων"
 	},
 	"convert": {
 		"external_warning": {
@@ -181,9 +183,47 @@
 	},
 	"about": {
 		"title": "Σχετικά",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Γιατί το ii.Pe;",
-			"description": "<b>Οι μετατροπείς αρχείων μας απογοήτευαν πάντα.</b> Είναι άσχημοι, γεμάτοι διαφημίσεις και το πιο σημαντικό· αργοί. Αποφασίσαμε να λύσουμε αυτό το πρόβλημα μια για πάντα δημιουργώντας μια εναλλακτική που λύνει όλα αυτά τα προβλήματα και περισσότερα.<br/><br/>Όλα τα αρχεία που δεν είναι βίντεο μετατρέπονται εντελώς στη συσκευή σας· αυτό σημαίνει ότι δεν υπάρχει καθυστέρηση μεταξύ της αποστολής και της λήψης των αρχείων από έναν σέρβερ και δεν αποκτούμε ποτέ πρόσβαση στα αρχεία που μετατρέπετε.<br/><br/>Τα αρχεία βίντεο μεταφορτώνονται στον αστραπιαία γρήγορο σέρβερ μας RTX 4000 Ada. Τα βίντεό σας παραμένουν εκεί για μία ώρα εάν δεν τα μετατρέψετε. Εάν μετατρέψετε το αρχείο, το βίντεο θα παραμείνει στον σέρβερ για μία ώρα ή μέχρι να ληφθεί. Στη συνέχεια, το αρχείο θα διαγραφεί από τον σέρβερ μας."
+			"description": "<b>Οι μετατροπείς αρχείων μας απογοήτευαν πάντα.</b> Είναι άσχημοι, γεμάτοι διαφημίσεις και το πιο σημαντικό· αργοί. Αποφασίσαμε να λύσουμε αυτό το πρόβλημα μια για πάντα δημιουργώντας μια εναλλακτική που λύνει όλα αυτά τα προβλήματα και περισσότερα.<br/><br/>Όλα τα αρχεία μετατρέπονται εντελώς στη συσκευή σας· αυτό σημαίνει ότι δεν υπάρχει καθυστέρηση μεταξύ της αποστολής και της λήψης των αρχείων από έναν σέρβερ και δεν αποκτούμε ποτέ πρόσβαση στα αρχεία που μετατρέπετε."
 		},
 		"sponsors": {
 			"title": "Χορηγοί",

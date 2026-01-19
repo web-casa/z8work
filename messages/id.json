@@ -5,7 +5,8 @@
 		"convert": "Konversi",
 		"settings": "Pengaturan",
 		"about": "Tentang",
-		"toggle_theme": "Ganti Tema"
+		"screenhello": "ScreenHello",
+		"toggle_theme": "Ubah tema"
 	},
 	"footer": {
 		"copyright": "© {year} ii.Pe.",
@@ -41,10 +42,11 @@
 		},
 		"tooltip": {
 			"partial_support": "Format ini hanya dapat dikonversi ke {direction}.",
-			"direction_input": "sumber asal (dari)",
-			"direction_output": "target (ke)",
-			"video_server_processing": "Video upload ke server untuk diproses secara baku, belajar bagaimana mengaturnya di sini."
-		}
+			"direction_input": "masukan (dari)",
+			"direction_output": "keluaran (ke)",
+			"video_server_processing": "Video diunggah ke server untuk diproses secara default, pelajari cara mengaturnya secara lokal di sini."
+		},
+		"friend_links": "Tautan Teman"
 	},
 	"convert": {
 		"external_warning": {
@@ -182,9 +184,47 @@
 	},
 	"about": {
 		"title": "Tentang",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Mengapa ii.Pe?",
-			"description": "<b>Konverter berkas selalu mengecewakan kami.</b> Mereka jelek, penuh iklan, dan yang paling penting; lambat. Kami memutuskan untuk menyelesaikan masalah ini sekali untuk selamanya dengan membuat alternatif yang memperbaiki semua masalah itu, dan lebih banyak lagi.<br/><br/>Semua berkas non-video dikonversi sepenuhnya di perangkat; artinya tidak ada jeda antara pengiriman dan penerimaan berkas, dan kami tidak pernah melihat berkas yang kamu konversi.<br/><br/>File video diunggah ke server RTX 4000 Ada super cepat kami. Videomu akan tetap di sana selama satu jam jika tidak dikonversi. Jika dikonversi, video akan bertahan satu jam atau hingga diunduh. Setelah itu, berkas akan dihapus dari server kami."
+			"description": "<b>Konverter berkas selalu mengecewakan kami.</b> Mereka jelek, penuh iklan, dan yang paling penting; lambat. Kami memutuskan untuk menyelesaikan masalah ini sekali untuk selamanya dengan membuat alternatif yang memperbaiki semua masalah itu, dan lebih banyak lagi.<br/><br/>Semua berkas dikonversi sepenuhnya di perangkat; artinya tidak ada jeda antara pengiriman dan penerimaan berkas, dan kami tidak pernah melihat berkas yang kamu konversi."
 		},
 		"sponsors": {
 			"title": "Sponsor",

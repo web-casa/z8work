@@ -5,6 +5,7 @@
 		"convert": "Dönüştür",
 		"settings": "Ayarlar",
 		"about": "Hakkımızda",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "Temayı değiştir"
 	},
 	"footer": {
@@ -40,10 +41,11 @@
 		},
 		"tooltip": {
 			"partial_support": "Bu format yalnızca şu şekilde dönüştürülebilir: {direction}.",
-			"direction_input": "kaynak",
-			"direction_output": "çıktı",
-			"video_server_processing": "Videolar varsayılan olarak işlenmek üzere sunucuya yüklenir. Yerel olarak nasıl ayarlayacağınızı buradan öğrenebilirsiniz."
-		}
+			"direction_input": "giriş (nereden)",
+			"direction_output": "çıkış (nereye)",
+			"video_server_processing": "Videolar varsayılan olarak işlenmek üzere bir sunucuya yüklenir, buradan yerel olarak nasıl ayarlayacağınızı öğrenin."
+		},
+		"friend_links": "Arkadaş Linkler"
 	},
 	"convert": {
 		"external_warning": {
@@ -175,9 +177,47 @@
 	},
 	"about": {
 		"title": "Hakkımızda",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Neden ii.Pe?",
-			"description": "<b>Dosya dönüştürücüler bizi her zaman hayal kırıklığına uğratmıştır. </b> Çoğu dönüştürücü site, kötü ve reklamlarla dolu arayüze sahiptir ve en önemlisi yavaştır. Tüm bu sorunları ve daha fazlasını çözen bir alternatif oluşturarak bu sorunu sonsuza kadar çözmeye karar verdik. <br/><br/>Video dışındaki tüm dosyalar tamamen cihazınızda dönüştürülür; bu, sunucuya dosya yükleme ve sunucudan dosya indirme sırasında gecikme olmaması ve dönüştürdüğünüz dosyaların asla başka biri tarafından görüntülenememesi anlamına gelir. <br/><br/>Video dosyaları, ışık hızındaki RTX 4000 Ada sunucumuza yüklenir. Videolarınızı dönüştürseniz de dönüştürmeseniz de bir saat sonra sunucularımızdan silinir. Video dönüştürme işlemi gerçekleştirirseniz, bir saat içinde dönüştürülmüş dosyayı indirebilirsiniz. Dosya daha sonra sunucumuzdan silinir."
+			"description": "<b>Dosya dönüştürücüler bizi her zaman hayal kırıklığına uğratmıştır. </b> Çoğu dönüştürücü site, kötü ve reklamlarla dolu arayüze sahiptir ve en önemlisi yavaştır. Tüm bu sorunları ve daha fazlasını çözen bir alternatif oluşturarak bu sorunu sonsuza kadar çözmeye karar verdik. <br/><br/>Tüm dosyalar tamamen cihazınızda dönüştürülür; bu, sunucuya dosya yükleme ve sunucudan dosya indirme sırasında gecikme olmaması ve dönüştürdüğünüz dosyaların asla başka biri tarafından görüntülenememesi anlamına gelir."
 		},
 		"sponsors": {
 			"title": "Sponsorlar",

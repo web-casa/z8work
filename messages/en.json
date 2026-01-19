@@ -5,6 +5,7 @@
 		"convert": "Convert",
 		"settings": "Settings",
 		"about": "About",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "Toggle theme"
 	},
 	"footer": {
@@ -43,14 +44,6 @@
 			"partial_support": "This format can only be converted as {direction}.",
 			"direction_input": "input (from)",
 			"direction_output": "output (to)",
-			"video_server_processing": "Video uploads to a server for processing by default, learn how to set it up locally here."
-		}
-	},
-	"convert": {
-		"archive_file": {
-			"extract": "Extract archive",
-			"extracting": "Detected archive: {filename}",
-			"extracted": "Extracted {extract_count} files from {filename}. {ignore_count} items were ignored.",
 			"detected": "Detected {type} files in {filename}.",
 			"audio": "audio",
 			"video": "video",
@@ -58,6 +51,9 @@
 			"image": "image",
 			"extract_error": "Error extracting {filename}: {error}"
 		},
+		"friend_links": "Friend Links"
+	},
+	"convert": {
 		"large_file_warning": "Due to browser / device limitations, video to audio conversion is disabled for this file as it is larger than {limit}GB. We recommend using Firefox or Safari for files of this size since they have less limitations.",
 		"external_warning": {
 			"title": "External server warning",
@@ -215,11 +211,52 @@
 			"description": "Select your preferred language for the ii.Pe interface."
 		}
 	},
+	"acknowledgements": {
+		"title": "Acknowledgements"
+	},
 	"about": {
 		"title": "About",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "Why ii.Pe?",
-			"description": "<b>File converters have always disappointed us.</b> They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.<br/><br/>All non-video files are converted completely on-device; this means that there's no delay between sending and receiving the files from a server, and we never get to snoop on the files you convert.<br/><br/>Video files get uploaded to our lightning-fast RTX 4000 Ada server. Your videos stay on there for an hour if you do not convert them. If you do convert the file, the video will stay on the server for an hour, or until it is downloaded. The file will then be deleted from our server."
+			"description": "<b>File converters have always disappointed us.</b> They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.<br/><br/>All files are converted completely on-device; this means that there's no delay between sending and receiving the files from a server, and we never get to snoop on the files you convert."
 		},
 		"sponsors": {
 			"title": "Sponsors",
@@ -267,7 +304,8 @@
 		},
 		"errors": {
 			"github_contributors": "Error fetching GitHub contributors"
-		}
+		},
+		"acknowledgements_link": "View Acknowledgements"
 	},
 	"workers": {
 		"errors": {

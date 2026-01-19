@@ -5,6 +5,7 @@
     "convert": "Konvertuj",
     "settings": "Postavke",
     "about": "O nama",
+    "screenhello": "ScreenHello",
     "toggle_theme": "Promijeni temu"
   },
   "footer": {
@@ -41,10 +42,11 @@
     },
     "tooltip": {
       "partial_support": "Ovaj format može biti konvertovan samo kao {direction}.",
-      "direction_input": "ulazni (iz)",
-      "direction_output": "izlazni (u)",
-      "video_server_processing": "Video se podrazumijevano otprema na server radi obrade, ovdje možete naučiti kako to postaviti lokalno."
-    }
+      "direction_input": "ulaz (iz)",
+      "direction_output": "izlaz (u)",
+      "video_server_processing": "Videozapisi se prema zadanim postavkama prenose na server radi obrade, saznajte kako to lokalno postaviti ovdje."
+    },
+    "friend_links": "Prijateljski Linkovi"
   },
   "convert": {
     "archive_file": {
@@ -217,9 +219,47 @@
   },
   "about": {
     "title": "O nama",
+    "features": {
+      "privacy": {
+        "title": "Privacy First",
+        "description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+      },
+      "local": {
+        "title": "Fully Local",
+        "description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+      },
+      "localization": {
+        "title": "Global Support",
+        "description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+      },
+      "no_limits": {
+        "title": "No Limit",
+        "description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+      },
+      "free": {
+        "title": "100% Free",
+        "description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+      },
+      "formats": {
+        "title": "Massive Support",
+        "description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+      },
+      "offline": {
+        "title": "Offline Capable",
+        "description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+      },
+      "ui": {
+        "title": "Modern UI",
+        "description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+      },
+      "green": {
+        "title": "Green & Sustainable",
+        "description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+      }
+    },
     "why": {
       "title": "Zašto ii.Pe?",
-      "description": "<b>Konverteri datoteka su nas uvijek razočaravali.</b> Ružni su, puni reklama i, najvažnije, spori. Odlučili smo to riješiti jednom zauvijek.<br/><br/>Sve ne-video datoteke se obrađuju lokalno, što znači da nema slanja datoteka na server — i mi nikad ne vidimo vaše podatke.<br/><br/>Video se otprema na naš brzi RTX 4000 Ada server. Vaši video snimci ostaju tamo sat vremena ako ih ne konvertujete. Ako ih konvertujete, ostaju sat ili dok ih preuzmete, nakon čega se brišu."
+      "description": "<b>Konverteri datoteka su nas uvijek razočaravali.</b> Ružni su, puni reklama i, najvažnije, spori. Odlučili smo to riješiti jednom zauvijek.<br/><br/>Sve datoteke se obrađuju lokalno, što znači da nema slanja datoteka na server — i mi nikad ne vidimo vaše podatke."
     },
     "sponsors": {
       "title": "Sponzori",

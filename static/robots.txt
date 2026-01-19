@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vert.sh/sitemap.xml
+Sitemap: https://ii.pe/sitemap.xml

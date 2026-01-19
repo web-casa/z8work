@@ -3,7 +3,7 @@
 	import Tooltip from "$lib/components/visual/Tooltip.svelte";
 	import { converters } from "$lib/converters";
 	import clsx from "clsx";
-	import { AudioLines, BookText, Check, Image } from "lucide-svelte";
+	import { AudioLines, BookText, Check, Image, Link } from "lucide-svelte";
 	import { m } from "$lib/paraglide/messages";
 	import { OverlayScrollbarsComponent } from "overlayscrollbars-svelte";
 	import { browser } from "$app/environment";
@@ -281,6 +281,56 @@
 			{/if}
 		</div>
 	</div>
+
+	<div class="mt-10 md:mt-16 pb-12">
+		<h2 class="text-center text-4xl mb-8 flex items-center justify-center gap-3">
+			<Link size="32" />
+			{m["upload.friend_links"]()}
+		</h2>
+		<div class="file-category-card w-full">
+			<div class="flex flex-wrap justify-center gap-4 text-center friend-links">
+				<a href="https://debian.club/" target="_blank" rel="noopener noreferrer">Debian.Club</a>
+				<a href="https://hestiacp.cn/" target="_blank" rel="noopener noreferrer">Hestiacp.cn</a>
+				<a href="https://portcyou.com/" target="_blank" rel="noopener noreferrer">PortCyou</a>
+				<a href="https://cloud.fan/" target="_blank" rel="noopener noreferrer">CloudFan</a>
+				<a href="https://www.almalinux.com.cn/" target="_blank" rel="noopener noreferrer">AlmaLinuxCN</a>
+				<a href="https://p.cafe/" target="_blank" rel="noopener noreferrer">P.Cafe</a>
+				<a href="https://www.rank.fan/" target="_blank" rel="noopener noreferrer">RankFan</a>
+				<a href="https://www.apponarm.com/" target="_blank" rel="noopener noreferrer">APP on ARM</a>
+				<a href="https://mf8.biz/" target="_blank" rel="noopener noreferrer">MF8</a>
+				<a href="https://aat.ee/" target="_blank" rel="noopener noreferrer">AAT.ee</a>
+				<a href="https://ii.pe/" target="_blank" rel="noopener noreferrer">II.Pe</a>
+				<a href="https://geo.fan/" target="_blank" rel="noopener noreferrer">GEO.Fan</a>
+				<a href="https://llstack.com/" target="_blank" rel="noopener noreferrer">LLStack</a>
+			</div>
+			<div class="flex flex-wrap justify-center gap-4 mt-6 items-center">
+				<a href="https://www.aat.ee/" target="_blank" rel="noopener noreferrer">
+					<img
+						src="https://www.aat.ee/images/badges/featured-badge-light.svg"
+						alt="AAT Featured"
+						class="h-8 dark:hidden"
+					/>
+					<img
+						src="https://www.aat.ee/images/badges/featured-badge-dark.svg"
+						alt="AAT Featured"
+						class="h-8 hidden dark:block"
+					/>
+				</a>
+				<a href="https://www.hicyou.com/" target="_blank" rel="noopener noreferrer">
+					<img
+						src="https://hicyou.com/badge/featured-light.svg"
+						alt="HicYou Featured"
+						class="h-8 dark:hidden"
+					/>
+					<img
+						src="https://hicyou.com/badge/featured-dark.svg"
+						alt="HicYou Featured"
+						class="h-8 hidden dark:block"
+					/>
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style lang="postcss">
@@ -302,5 +352,9 @@
 
 	.icon-container {
 		@apply p-2 rounded-full text-on-accent;
+	}
+
+	.friend-links a {
+		@apply text-muted hover:text-foreground transition-colors;
 	}
 </style>

@@ -5,6 +5,7 @@
 		"convert": "转换",
 		"settings": "设置",
 		"about": "关于",
+		"screenhello": "ScreenHello",
 		"toggle_theme": "切换主题"
 	},
 	"footer": {
@@ -44,7 +45,8 @@
 			"direction_input": "输入（来源）",
 			"direction_output": "输出（目标）",
 			"video_server_processing": "视频默认上传到服务器进行处理，点击这里了解如何在本地设置。"
-		}
+		},
+		"friend_links": "友情链接"
 	},
 	"convert": {
 		"archive_file": {
@@ -204,11 +206,52 @@
 			"description": "选择 ii.Pe 界面的首选语言。"
 		}
 	},
+	"acknowledgements": {
+		"title": "致谢"
+	},
 	"about": {
 		"title": "关于",
+		"features": {
+			"privacy": {
+				"title": "隐私优先",
+				"description": "我们严格遵守<b>无日志政策</b>。您的文件从未离开您的设备，确保彻底的<b>数据隐私</b>安全。"
+			},
+			"local": {
+				"title": "完全本地",
+				"description": "由先进的 <b>WebAssembly</b> 技术驱动。体验零延迟转换，<b>无需上传</b>（视频除外）。"
+			},
+			"localization": {
+				"title": "全球支持",
+				"description": "自豪地支持 <b>15+ 种语言</b>。我们使用<b>母语</b>协助全球的创作者和专业人士。"
+			},
+			"no_limits": {
+				"title": "无限制",
+				"description": "转换<b>任何大小</b>或数量的文件。我们对您的工作流程<b>没有任何限制</b>。"
+			},
+			"free": {
+				"title": "100% 免费",
+				"description": "完全<b>开源</b>且永久免费。没有恼人的广告，没有隐藏的付费墙，只有<b>纯粹的工具</b>。"
+			},
+			"formats": {
+				"title": "海量支持",
+				"description": "从<b>图片</b>、<b>音频</b>到<b>视频</b>和<b>文档</b>。我们覆盖了您可能需要的每一种格式。"
+			},
+			"offline": {
+				"title": "离线可用",
+				"description": "加载后<b>无需网络</b>即可完美工作。安装为 <b>PWA</b>，享受原生般的桌面体验。"
+			},
+			"ui": {
+				"title": "现代 UI",
+				"description": "令人惊叹的、<b>深色模式优化</b>的界面，专为专注和<b>易用性</b>而设计。"
+			},
+			"green": {
+				"title": "绿色环保",
+				"description": "<b>本地处理</b>显著降低了服务器负载，最小化我们将集体的<b>碳足迹</b>。"
+			}
+		},
 		"why": {
 			"title": "为什么选择 ii.Pe？",
-			"description": "<b>文件转换器一直让我们失望。</b>它们很丑陋，充满广告，最重要的是；很慢。我们决定通过制作一个解决所有这些问题的替代方案，一劳永逸地解决这个问题。<br/><br/>所有非视频文件都完全在设备上转换；这意味着不需要在服务器之间发送和接收文件的延迟，而且我们永远不会窥探你转换的文件。<br/><br/>视频文件会上传到我们超快速的 RTX 4000 Ada 服务器。如果你不转换视频，它们会在服务器上保留一小时。如果你转换文件，视频将在服务器上保留一小时，或直到下载完成。然后文件将从我们的服务器中删除。"
+			"description": "<b>文件转换器一直让我们失望。</b>它们很丑陋，充满广告，最重要的是；很慢。我们决定通过制作一个解决所有这些问题的替代方案，一劳永逸地解决这个问题。<br/><br/>所有文件都完全在设备上转换；这意味着不需要在服务器之间发送和接收文件的延迟，而且我们永远不会窥探你转换的文件。"
 		},
 		"sponsors": {
 			"title": "赞助商",
@@ -254,7 +297,8 @@
 		},
 		"errors": {
 			"github_contributors": "获取 GitHub 贡献者时出错"
-		}
+		},
+		"acknowledgements_link": "查看鸣谢"
 	},
 	"workers": {
 		"errors": {

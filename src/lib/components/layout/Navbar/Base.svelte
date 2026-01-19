@@ -16,6 +16,7 @@
 		SettingsIcon,
 		SunIcon,
 		UploadIcon,
+        Monitor,
 		type Icon as IconType,
 	} from "lucide-svelte";
 	import { quintOut } from "svelte/easing";
@@ -32,6 +33,7 @@
 			activeMatch: (pathname: string) => boolean;
 			icon: typeof IconType;
 			badge?: number;
+			target?: string;
 		}[]
 	>([
 		{
@@ -59,6 +61,13 @@
 			url: "/about/",
 			activeMatch: (pathname) => pathname.startsWith("/about"),
 			icon: InfoIcon,
+		},
+		{
+			name: m["navbar.screenhello"](),
+			url: "https://screenhello.com",
+			activeMatch: () => false,
+			icon: Monitor,
+			target: "_blank",
 		},
 	]);
 
@@ -105,6 +114,8 @@
 	<a
 		bind:this={links[index]}
 		href={item.url}
+		target={item.target}
+		rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
 		aria-label={item.name}
 		class={clsx(
 			"min-w-16 md:min-w-32 h-full relative z-10 rounded-xl flex flex-1 items-center justify-center gap-3 overflow-hidden",
@@ -169,7 +180,7 @@
 {/snippet}
 
 <div bind:this={container}>
-	<Panel class="max-w-[778px] w-screen h-20 flex items-center gap-3 relative">
+	<Panel class="max-w-[950px] w-screen h-20 flex items-center gap-3 relative">
 		{@const linkRect = linkRects.at(selectedIndex) || linkRects[0]}
 		{#if linkRect && isInitialized}
 			<div

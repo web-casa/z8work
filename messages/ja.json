@@ -4,8 +4,9 @@
 		"upload": "アップロード",
 		"convert": "変換",
 		"settings": "設定",
-		"about": "について",
-		"toggle_theme": "テーマを切り替える"
+		"about": "概要",
+		"screenhello": "ScreenHello",
+		"toggle_theme": "テーマ切り替え"
 	},
 	"footer": {
 		"copyright": "© {year} ii.Pe.",
@@ -40,10 +41,10 @@
 		},
 		"tooltip": {
 			"partial_support": "このフォーマットは{direction}としてのみ変換可能です。",
-			"direction_input": "入力（変換元）",
-			"direction_output": "出力（変換先）",
-			"video_server_processing": "動画はデフォルトでサーバーにアップロードされて処理されます。ローカルで設定する方法はこちら。"
-		}
+			"direction_output": "出力（先）",
+			"video_server_processing": "動画はデフォルトでサーバーにアップロードされて処理されます。ローカルで設定する方法はこちらをご覧ください。"
+		},
+		"friend_links": "リンク"
 	},
 	"convert": {
 		"external_warning": {
@@ -175,9 +176,47 @@
 	},
 	"about": {
 		"title": "について",
+		"features": {
+			"privacy": {
+				"title": "Privacy First",
+				"description": "We rigorously adhere to a <b>no-logs policy</b>. Your files never leave your device, ensuring complete <b>data privacy</b>."
+			},
+			"local": {
+				"title": "Fully Local",
+				"description": "Powered by advanced <b>WebAssembly</b> technology. Experience zero-latency conversions with <b>no uploads</b> required (except video)."
+			},
+			"localization": {
+				"title": "Global Support",
+				"description": "Proudly supporting <b>15+ languages</b>. We assist creators and professionals <b>worldwide</b> in their native tongue."
+			},
+			"no_limits": {
+				"title": "No Limit",
+				"description": "Convert files of <b>any size</b> or quantity. We impose <b>no restrictions</b> on your workflow."
+			},
+			"free": {
+				"title": "100% Free",
+				"description": "Completely <b>Open Source</b> and free forever. No annoying ads, no hidden paywalls, just <b>pure utility</b>."
+			},
+			"formats": {
+				"title": "Massive Support",
+				"description": "From <b>Images</b> and <b>Audio</b> to <b>Video</b> and <b>Documents</b>. We cover every format you might need."
+			},
+			"offline": {
+				"title": "Offline Capable",
+				"description": "Works perfectly <b>without internet</b> once loaded. Install as a <b>PWA</b> for a native-like desktop experience."
+			},
+			"ui": {
+				"title": "Modern UI",
+				"description": "A stunning, <b>dark-mode optimized</b> interface designed for focus and <b>ease of use</b>."
+			},
+			"green": {
+				"title": "Green & Sustainable",
+				"description": "<b>Local processing</b> significantly reduces server load, minimizing our collective <b>carbon footprint</b>."
+			}
+		},
 		"why": {
 			"title": "なぜii.Pe？",
-			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにii.Peを作りました。<br/><br/>動画以外のファイルは完全にデバイス上で変換されるため、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。<br/><br/>動画は超高速RTX 4000 Adaサーバーで処理され、変換しなかった場合は1時間以内に削除されます。変換された動画も1時間またはダウンロード完了後に削除されます。"
+			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにii.Peを作りました。<br/><br/>すべてのファイルは完全にデバイス上で変換されます。つまり、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。"
 		},
 		"sponsors": {
 			"title": "スポンサー",

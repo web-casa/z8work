@@ -1,25 +1,16 @@
 <script lang="ts">
 	import { error } from "$lib/util/logger";
 	import * as About from "$lib/sections/about";
-	import { InfoIcon } from "lucide-svelte";
+	import { InfoIcon, HeartHandshakeIcon } from "lucide-svelte";
 	import { onMount } from "svelte";
 	import avatarNullptr from "$lib/assets/avatars/nullptr.jpg";
 	import avatarLiam from "$lib/assets/avatars/liam.jpg";
 	import avatarJovannMC from "$lib/assets/avatars/jovannmc.jpg";
 	import avatarRealmy from "$lib/assets/avatars/realmy.jpg";
 	import avatarAzurejelly from "$lib/assets/avatars/azurejelly.jpg";
-	import { PUB_DONATION_URL, PUB_STRIPE_KEY } from "$env/static/public";
 	import { DISABLE_ALL_EXTERNAL_REQUESTS, GITHUB_API_URL } from "$lib/util/consts";
 	import { m } from "$lib/paraglide/messages";
 	import { ToastManager } from "$lib/util/toast.svelte";
-	// import { dev } from "$app/environment";
-	// import { page } from "$app/state";
-
-	/* interface Donator {
-		name: string;
-		amount?: string | number;
-		avatar: string;
-	} */
 
 	interface Contributor {
 		name: string;
@@ -27,8 +18,6 @@
 		avatar: string;
 		role?: string;
 	}
-
-	// const donors: Donator[] = [];
 
 	const mainContribs: Contributor[] = [
 		{
@@ -136,30 +125,21 @@
 			error(["general"], `Error fetching GitHub contributors: ${e}`);
 		}
 	});
-
-	const donationsEnabled = PUB_STRIPE_KEY
-		&& PUB_DONATION_URL
-		&& !DISABLE_ALL_EXTERNAL_REQUESTS;
 </script>
 
 <div class="flex flex-col h-full items-center">
 	<h1 class="hidden md:block text-[40px] tracking-tight leading-[72px] mb-6">
-		<InfoIcon size="40" class="inline-block -mt-2 mr-2" />
-		{m["about.title"]()}
+		<HeartHandshakeIcon size="40" class="inline-block -mt-2 mr-2" />
+		{m["acknowledgements.title"]()}
 	</h1>
 
 	<div
-		class="w-full max-w-[1280px] flex flex-col gap-4 p-4 md:px-4 md:py-0"
+		class="w-full max-w-[1280px] flex flex-col md:flex-row gap-4 p-4 md:px-4 md:py-0"
 	>
-		<About.Why />
-		<About.Features />
-		<div class="w-full flex justify-center py-4">
-			<a
-				href="/acknowledgements"
-				class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors duration-200 font-medium"
-			>
-				{m["about.acknowledgements_link"]()}
-			</a>
+		<!-- Resources & Credits -->
+		<div class="flex flex-col gap-4 flex-1">
+			<About.Resources />
+			<About.Credits {mainContribs} {notableContribs} {ghContribs} />
 		</div>
 	</div>
 </div>

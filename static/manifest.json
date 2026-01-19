@@ -1,11 +1,11 @@
 {
-	"name": "VERT",
-	"short_name": "VERT",
-	"description": "The file converter you'll love",
+	"name": "ii.Pe",
+	"short_name": "ii.Pe",
+	"description": "A zero-upload, browser-based file conversion tool.",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#ffffff",
-	"theme_color": "#F2ABEE",
+	"theme_color": "#ffc685",
 	"icons": [
 		{
 			"src": "lettermark.jpg",
