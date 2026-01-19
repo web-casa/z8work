@@ -8,14 +8,14 @@
 		"toggle_theme": "Design wechseln"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "Quellcode",
 		"discord_server": "Discord-Server",
 		"privacy_policy": "Datenschutzerklärung"
 	},
 	"upload": {
 		"title": "Der Dateikonverter, den du lieben wirst.",
-		"subtitle": "Die Verarbeitung aller Bild-, Audio- und Dokumentdateien findet direkt auf deinem Gerät statt. Videos werden auf unseren blitzschnellen Servern konvertiert. Kein Dateigrößenlimit, keine Werbung und vollständig Open Source.",
+		"subtitle": "Die gesamte Verarbeitung von Bildern, Audio und Dokumenten wird lokal auf Ihrem Gerät konvertiert, um Ihre Privatsphäre zu schützen. Keine Dateigrößenbeschränkung, ultraleicht und super einfach zu bedienen.",
 		"uploader": {
 			"text": "Dateien hier ablegen oder klicken zum {action}",
 			"convert": "Konvertieren"
@@ -166,7 +166,7 @@
 			"loading": "lädt...",
 			"available": "verfügbar, Commit-ID {commitId}",
 			"unavailable": "nicht verfügbar (ist die URL korrekt?)",
-			"description": "Das Projekt <code>vertd</code> ist ein Server-Wrapper für FFmpeg. Dies ermöglicht es dir, Videos bequem über die Weboberfläche von VERT zu konvertieren und dabei die Leistung deiner GPU für maximale Geschwindigkeit zu nutzen.",
+			"description": "Das Projekt <code>vertd</code> ist ein Server-Wrapper für FFmpeg. Dies ermöglicht es dir, Videos bequem über die Weboberfläche von ii.Pe zu konvertieren und dabei die Leistung deiner GPU für maximale Geschwindigkeit zu nutzen.",
 			"hosting_info": "Wir hosten eine öffentliche Instanz für deine Bequemlichkeit, aber es ist einfach, eine eigene auf deinem PC oder Server zu hosten, wenn du weißt, was du tust. Du kannst die Server-Binärdateien [vertd_link]hier[/vertd_link] herunterladen – der Einrichtungsprozess wird in Zukunft noch einfacher!",
 			"instance": "Instanz",
 			"url_placeholder": "Beispiel: http://localhost:24153",
@@ -202,7 +202,7 @@
 			"cache_cleared": "Cache erfolgreich geleert!",
 			"cache_clear_error": "Fehler beim Leeren des Caches.",
 			"site_data_title": "Seitendaten-Verwaltung",
-			"site_data_description": "Lösche alle Seitendaten einschließlich Einstellungen und gecachten Dateien, um VERT auf den Standardzustand zurückzusetzen und die Seite neu zu laden.",
+			"site_data_description": "Lösche alle Seitendaten einschließlich Einstellungen und gecachten Dateien, um ii.Pe auf den Standardzustand zurückzusetzen und die Seite neu zu laden.",
 			"clear_all_data": "Alle Seitendaten löschen",
 			"clear_all_data_confirm_title": "Alle Seitendaten löschen?",
 			"clear_all_data_confirm": "Dies setzt alle Einstellungen und den Cache zurück und lädt die Seite neu. Diese Aktion kann nicht rückgängig gemacht werden.",
@@ -212,13 +212,13 @@
 		},
 		"language": {
 			"title": "Sprache",
-			"description": "Wähle deine bevorzugte Sprache für die VERT-Benutzeroberfläche."
+			"description": "Wähle deine bevorzugte Sprache für die ii.Pe-Benutzeroberfläche."
 		}
 	},
 	"about": {
 		"title": "Über",
 		"why": {
-			"title": "Warum VERT?",
+			"title": "Warum ii.Pe?",
 			"description": "<b>Dateikonverter haben uns schon immer enttäuscht.</b> Sie sind hässlich, voller Werbung und vor allem langsam. Wir haben beschlossen, dieses Problem ein für alle Mal zu lösen, indem wir eine Alternative schaffen, die all diese Probleme und noch mehr behebt.<br/><br/>Alle Nicht-Videodateien werden vollständig auf deinem Gerät konvertiert; das bedeutet, es gibt keine Verzögerung beim Senden und Empfangen der Dateien von einem Server, und wir können niemals die von dir konvertierten Dateien einsehen.<br/><br/>Videodateien werden auf unseren blitzschnellen RTX 4000 Ada Server hochgeladen. Deine Videos bleiben dort für eine Stunde, wenn du sie nicht konvertierst. Wenn du die Datei konvertierst, bleibt das Video für eine Stunde auf dem Server oder bis es heruntergeladen wird. Anschließend wird die Datei von unserem Server gelöscht."
 		},
 		"sponsors": {
@@ -233,8 +233,8 @@
 			"email": "E-Mail"
 		},
 		"donate": {
-			"title": "An VERT spenden",
-			"description": "Mit deiner Unterstützung können wir VERT weiter pflegen und verbessern.",
+			"title": "An ii.Pe spenden",
+			"description": "Mit deiner Unterstützung können wir ii.Pe weiter pflegen und verbessern.",
 			"one_time": "Einmalig",
 			"monthly": "Monatlich",
 			"custom": "Benutzerdefiniert",
@@ -244,19 +244,19 @@
 			"payment_failed": "Zahlung fehlgeschlagen: {message}{period} Dir wurde nichts berechnet.",
 			"donation_error": "Bei der Verarbeitung deiner Spende ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
 			"payment_error": "Fehler beim Abrufen der Zahlungsdetails. Bitte versuche es später erneut.",
-			"donation_notice_official": "Deine Spenden hier gehen an die offizielle VERT-Instanz (vert.sh) und helfen, die Entwicklung des Projekts zu unterstützen.",
-			"donation_notice_unofficial": "Deine Spenden hier gehen an den Betreiber dieser VERT-Instanz. Wenn du die offiziellen VERT-Entwickler unterstützen möchtest, besuche bitte [official_link]vert.sh[/official_link]."
+			"donation_notice_official": "Deine Spenden hier gehen an die offizielle ii.Pe-Instanz (ii.pe) und helfen, die Entwicklung des Projekts zu unterstützen.",
+			"donation_notice_unofficial": "Deine Spenden hier gehen an den Betreiber dieser ii.Pe-Instanz. Wenn du die offiziellen ii.Pe-Entwickler unterstützen möchtest, besuche bitte [official_link]ii.pe[/official_link]."
 		},
 		"credits": {
 			"title": "Credits",
 			"contact_team": "Wenn du das Entwicklungsteam kontaktieren möchtest, verwende bitte die E-Mail-Adresse auf der Karte „Ressourcen“.",
 			"notable_contributors": "Nennenswerte Beiträge",
-			"notable_description": "Wir möchten diesen Personen für ihre wichtigen Beiträge zu VERT danken.",
+			"notable_description": "Wir möchten diesen Personen für ihre wichtigen Beiträge zu ii.Pe danken.",
 			"github_contributors": "GitHub-Mitwirkende",
 			"github_description": "Ein großes Dankeschön an alle für ihre Hilfe! [github_link]Möchtest du auch helfen?[/github_link]",
 			"no_contributors": "Scheint, als hätte noch niemand beigetragen... [contribute_link]Sei der Erste![/contribute_link]",
 			"libraries": "Bibliotheken",
-			"libraries_description": "Ein großes Dankeschön an FFmpeg (Audio, Video), ImageMagick (Bilder) und Pandoc (Dokumente) für die Pflege solch exzellenter Bibliotheken über so viele Jahre. VERT verlässt sich auf sie, um dir deine Konvertierungen zu ermöglichen.",
+			"libraries_description": "Ein großes Dankeschön an FFmpeg (Audio, Video), ImageMagick (Bilder) und Pandoc (Dokumente) für die Pflege solch exzellenter Bibliotheken über so viele Jahre. ii.Pe verlässt sich auf sie, um dir deine Konvertierungen zu ermöglichen.",
 			"roles": {
 				"lead_developer": "Lead Developer; Backend, UI-Implementierung",
 				"developer": "Developer; UI-Implementierung",
@@ -285,11 +285,11 @@
 		"title": "Datenschutzerklärung",
 		"summary": {
 			"title": "Zusammenfassung",
-			"description": "Die Datenschutzrichtlinie von VERT ist sehr einfach: Wir sammeln oder speichern keinerlei Daten über dich. Wir verwenden keine Cookies oder Tracker, Analysen sind vollständig privat, und alle Konvertierungen (außer Videos) finden lokal in deinem Browser statt. Videos werden nach dem Herunterladen oder nach einer Stunde gelöscht, es sei denn, du gibst uns ausdrücklich die Erlaubnis zur Speicherung; dies wird nur zur Fehlerbehebung verwendet. VERT hostet selbst eine Coolify-Instanz für die Website und vertd (für Videokonvertierung) sowie eine Plausible-Instanz für vollständig anonyme und aggregierte Analysen. Wir nutzen Stripe zur Verarbeitung von Spenden, was einige Daten zur Betrugsprävention sammeln kann.<br/><br/>Beachte, dass dies möglicherweise nur für die offizielle VERT-Instanz unter [vert_link]vert.sh[/vert_link] gilt; Drittanbieter-Instanzen könnten deine Daten anders behandeln."
+			"description": "Die Datenschutzrichtlinie von ii.Pe ist sehr einfach: Wir sammeln oder speichern keinerlei Daten über dich. Wir verwenden keine Cookies oder Tracker, Analysen sind vollständig privat, und alle Konvertierungen (außer Videos) finden lokal in deinem Browser statt. Videos werden nach dem Herunterladen oder nach einer Stunde gelöscht, es sei denn, du gibst uns ausdrücklich die Erlaubnis zur Speicherung; dies wird nur zur Fehlerbehebung verwendet. ii.Pe hostet selbst eine Coolify-Instanz für die Website und vertd (für Videokonvertierung) sowie eine Plausible-Instanz für vollständig anonyme und aggregierte Analysen. Wir nutzen Stripe zur Verarbeitung von Spenden, was einige Daten zur Betrugsprävention sammeln kann.<br/><br/>Beachte, dass dies möglicherweise nur für die offizielle ii.Pe-Instanz unter [vert_link]ii.pe[/vert_link] gilt; Drittanbieter-Instanzen könnten deine Daten anders behandeln."
 		},
 		"conversions": {
 			"title": "Konvertierungen",
-			"description": "Die meisten Konvertierungen (Bilder, Dokumente, Audio) erfolgen vollständig lokal auf deinem Gerät unter Verwendung von WebAssembly-Versionen der entsprechenden Tools (z. B. ImageMagick, Pandoc, FFmpeg). Das bedeutet, dass deine Dateien dein Gerät nie verlassen und wir niemals Zugriff darauf haben.<br/><br/>Videokonvertierungen werden auf unseren Servern durchgeführt, da sie mehr Rechenleistung erfordern und im Browser noch nicht schnell genug durchgeführt werden können. Videos, die du mit VERT konvertierst, werden nach dem Herunterladen oder nach einer Stunde gelöscht, es sei denn, du gibst uns ausdrücklich die Erlaubnis, sie länger zu speichern, rein zu Fehlerbehebungszwecken."
+			"description": "Die meisten Konvertierungen (Bilder, Dokumente, Audio) erfolgen vollständig lokal auf deinem Gerät unter Verwendung von WebAssembly-Versionen der entsprechenden Tools (z. B. ImageMagick, Pandoc, FFmpeg). Das bedeutet, dass deine Dateien dein Gerät nie verlassen und wir niemals Zugriff darauf haben.<br/><br/>Videokonvertierungen werden auf unseren Servern durchgeführt, da sie mehr Rechenleistung erfordern und im Browser noch nicht schnell genug durchgeführt werden können. Videos, die du mit ii.Pe konvertierst, werden nach dem Herunterladen oder nach einer Stunde gelöscht, es sei denn, du gibst uns ausdrücklich die Erlaubnis, sie länger zu speichern, rein zu Fehlerbehebungszwecken."
 		},
 		"donations": {
 			"title": "Spenden",
@@ -315,7 +315,7 @@
 		},
 		"contact": {
 			"title": "Kontakt",
-			"description": "Für Fragen sende uns eine E-Mail an: [email_link]hello@vert.sh[/email_link]. Wenn du eine Drittanbieter-Instanz von VERT verwendest, kontaktiere bitte stattdessen den Hoster dieser Instanz."
+			"description": "Für Fragen sende uns eine E-Mail an: [email_link]hello@ii.pe[/email_link]. Wenn du eine Drittanbieter-Instanz von ii.Pe verwendest, kontaktiere bitte stattdessen den Hoster dieser Instanz."
 		},
 		"last_updated": "Zuletzt aktualisiert: 29.10.2025"
 	}

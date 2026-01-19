@@ -8,13 +8,13 @@
 		"toggle_theme": "Ganti Tema"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "Kode sumber",
 		"discord_server": "Peladen Discord"
 	},
 	"upload": {
 		"title": "Konverter berkas andalanmu.",
-		"subtitle": "Semua gambar, audio, dan pemrosesan dokumen dilakukan pada perangkatmu. Video dikonversi pada peladen kilat kami. Tidak ada batas ukuran berkas, tidak ada iklan, dan benar-benar sumber terbuka.",
+		"subtitle": "Semua pemrosesan gambar, audio, dan dokumen dilakukan secara lokal di perangkat Anda, melindungi privasi Anda. Tidak ada batasan ukuran file, sangat ringan, dan sangat mudah digunakan.",
 		"uploader": {
 			"text": "Jatuhkan dan klik untuk {action}",
 			"convert": "Konversi",
@@ -139,7 +139,7 @@
 			"loading": "memuat...",
 			"available": "tersedia, commit id {commitId}",
 			"unavailable": "tidak tersedia (apakah URL sudah benar?)",
-			"description": "Proyek <code>vertd</code> adalah server wrapper untuk FFmpeg. Ini memungkinkan kamu mengonversi video melalui antarmuka web VERT, sambil memanfaatkan kekuatan GPU untuk mempercepat proses.",
+			"description": "Proyek <code>vertd</code> adalah server wrapper untuk FFmpeg. Ini memungkinkan kamu mengonversi video melalui antarmuka web ii.Pe, sambil memanfaatkan kekuatan GPU untuk mempercepat proses.",
 			"hosting_info": "Kami menyediakan instance publik untuk kemudahanmu, tetapi kamu juga bisa dengan mudah meng-host sendiri di PC atau server jika tahu caranya. Kamu dapat mengunduh binary server [vertd_link]di sini[/vertd_link] - proses penyiapan akan semakin mudah di masa depan, jadi tetap pantau!",
 			"instance": "Instance",
 			"url_placeholder": "Contoh: http://localhost:24153",
@@ -177,13 +177,13 @@
 		},
 		"language": {
 			"title": "Bahasa",
-			"description": "Pilih bahasa pilihanmu untuk antarmuka VERT."
+			"description": "Pilih bahasa pilihanmu untuk antarmuka ii.Pe."
 		}
 	},
 	"about": {
 		"title": "Tentang",
 		"why": {
-			"title": "Mengapa VERT?",
+			"title": "Mengapa ii.Pe?",
 			"description": "<b>Konverter berkas selalu mengecewakan kami.</b> Mereka jelek, penuh iklan, dan yang paling penting; lambat. Kami memutuskan untuk menyelesaikan masalah ini sekali untuk selamanya dengan membuat alternatif yang memperbaiki semua masalah itu, dan lebih banyak lagi.<br/><br/>Semua berkas non-video dikonversi sepenuhnya di perangkat; artinya tidak ada jeda antara pengiriman dan penerimaan berkas, dan kami tidak pernah melihat berkas yang kamu konversi.<br/><br/>File video diunggah ke server RTX 4000 Ada super cepat kami. Videomu akan tetap di sana selama satu jam jika tidak dikonversi. Jika dikonversi, video akan bertahan satu jam atau hingga diunduh. Setelah itu, berkas akan dihapus dari server kami."
 		},
 		"sponsors": {
@@ -198,8 +198,8 @@
 			"email": "Email"
 		},
 		"donate": {
-			"title": "Donasi untuk VERT",
-			"description": "Dengan dukunganmu, kami dapat terus memelihara dan meningkatkan VERT.",
+			"title": "Donasi untuk ii.Pe",
+			"description": "Dengan dukunganmu, kami dapat terus memelihara dan meningkatkan ii.Pe.",
 			"one_time": "Sekali",
 			"monthly": "Bulanan",
 			"custom": "Kustom",
@@ -214,12 +214,12 @@
 			"title": "Kredit",
 			"contact_team": "Jika kamu ingin menghubungi tim pengembang, gunakan email yang ada di kartu \"Sumber Daya\".",
 			"notable_contributors": "Kontributor penting",
-			"notable_description": "Kami ingin berterima kasih kepada orang-orang ini atas kontribusi besar mereka untuk VERT.",
+			"notable_description": "Kami ingin berterima kasih kepada orang-orang ini atas kontribusi besar mereka untuk ii.Pe.",
 			"github_contributors": "Kontributor GitHub",
 			"github_description": "[jpegify_link]Terima kasih[/jpegify_link] banyak kepada semua orang yang telah membantu! [github_link]Ingin membantu juga?[/github_link]",
 			"no_contributors": "Sepertinya belum ada yang berkontribusi... [contribute_link]jadilah yang pertama berkontribusi![/contribute_link]",
 			"libraries": "Pustaka",
-			"libraries_description": "Terima kasih besar kepada FFmpeg (audio, video), ImageMagick (gambar), dan Pandoc (dokumen) atas pemeliharaannya selama bertahun-tahun. VERT bergantung pada mereka untuk menyediakan konversi berkas.",
+			"libraries_description": "Terima kasih besar kepada FFmpeg (audio, video), ImageMagick (gambar), dan Pandoc (dokumen) atas pemeliharaannya selama bertahun-tahun. ii.Pe bergantung pada mereka untuk menyediakan konversi berkas.",
 			"roles": {
 				"lead_developer": "Pengembang utama; backend konversi, implementasi UI",
 				"developer": "Pengembang; implementasi UI",

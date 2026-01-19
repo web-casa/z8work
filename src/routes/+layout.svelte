@@ -125,7 +125,7 @@
 
 <svelte:head>
 	<title>{VERT_NAME}</title>
-	<meta name="theme-color" content="#F2ABEE" />
+	<meta name="theme-color" content="#ffbd85" />
 	<meta
 		name="title"
 		content="{VERT_NAME} — Free, fast, and awesome file converter"

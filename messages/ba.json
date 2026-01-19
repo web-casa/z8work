@@ -8,14 +8,14 @@
     "toggle_theme": "Promijeni temu"
   },
   "footer": {
-    "copyright": "© {year} VERT.",
+    "copyright": "© {year} ii.Pe.",
     "source_code": "Izvorni kod",
     "discord_server": "Discord server",
     "privacy_policy": "Politika privatnosti"
   },
   "upload": {
     "title": "Konverter datoteka koji ćete voljeti.",
-    "subtitle": "Sva obrada slika, zvuka i dokumenata obavlja se na vašem uređaju. Video zapisi se konvertuju na našim izuzetno brzim serverima. Bez ograničenja veličine, bez reklama i potpuno otvorenog koda.",
+    "subtitle": "Sva obrada slika, zvuka i dokumenata pretvara se lokalno na vašem uređaju, štiteći vašu privatnost. Bez ograničenja veličine datoteke, ultra lagan i super jednostavan za korištenje.",
     "uploader": {
       "text": "Prevucite ili kliknite da {action}",
       "convert": "konvertujete"
@@ -166,7 +166,7 @@
       "loading": "učitavam...",
       "available": "dostupan, commit id {commitId}",
       "unavailable": "nedostupan (da li je URL tačan?)",
-      "description": "<code>vertd</code> je serverski omotač za FFmpeg, omogućava brzo konvertovanje videa koristeći vaš GPU putem VERT web interfejsa.",
+      "description": "<code>vertd</code> je serverski omotač za FFmpeg, omogućava brzo konvertovanje videa koristeći vaš GPU putem ii.Pe web interfejsa.",
       "hosting_info": "Imamo javnu instancu radi praktičnosti, ali možete lako hostati svoju. Preuzmite server [vertd_link]ovdje[/vertd_link].",
       "instance": "Instanca",
       "url_placeholder": "Primjer: http://localhost:24153",
@@ -202,7 +202,7 @@
       "cache_cleared": "Cache uspješno obrisan!",
       "cache_clear_error": "Neuspješno brisanje cachea.",
       "site_data_title": "Upravljanje podacima stranice",
-      "site_data_description": "Obriši sve podatke stranice uključujući postavke i cache i resetuj VERT.",
+      "site_data_description": "Obriši sve podatke stranice uključujući postavke i cache i resetuj ii.Pe.",
       "clear_all_data": "Obriši sve podatke",
       "clear_all_data_confirm_title": "Obrisati sve podatke stranice?",
       "clear_all_data_confirm": "Resetovat će sve postavke i cache i osvježiti stranicu. Ova akcija je nepovratna.",
@@ -212,13 +212,13 @@
     },
     "language": {
       "title": "Jezik",
-      "description": "Odaberite željeni jezik VERT interfejsa."
+      "description": "Odaberite željeni jezik ii.Pe interfejsa."
     }
   },
   "about": {
     "title": "O nama",
     "why": {
-      "title": "Zašto VERT?",
+      "title": "Zašto ii.Pe?",
       "description": "<b>Konverteri datoteka su nas uvijek razočaravali.</b> Ružni su, puni reklama i, najvažnije, spori. Odlučili smo to riješiti jednom zauvijek.<br/><br/>Sve ne-video datoteke se obrađuju lokalno, što znači da nema slanja datoteka na server — i mi nikad ne vidimo vaše podatke.<br/><br/>Video se otprema na naš brzi RTX 4000 Ada server. Vaši video snimci ostaju tamo sat vremena ako ih ne konvertujete. Ako ih konvertujete, ostaju sat ili dok ih preuzmete, nakon čega se brišu."
     },
     "sponsors": {
@@ -233,8 +233,8 @@
       "email": "Email"
     },
     "donate": {
-      "title": "Donirajte VERT-u",
-      "description": "Vaša podrška pomaže da nastavimo razvijati i unapređivati VERT.",
+      "title": "Donirajte ii.Pe-u",
+      "description": "Vaša podrška pomaže da nastavimo razvijati i unapređivati ii.Pe.",
       "one_time": "Jednokratno",
       "monthly": "Mjesečno",
       "custom": "Prilagođeno",
@@ -244,19 +244,19 @@
       "payment_failed": "Plaćanje nije uspjelo: {message}{period}. Novac nije skinut s vašeg računa.",
       "donation_error": "Došlo je do greške pri obradi donacije. Pokušajte ponovo kasnije.",
       "payment_error": "Greška pri dohvaćanju podataka o plaćanju. Pokušajte ponovo.",
-      "donation_notice_official": "Donacije ovdje idu za zvaničnu VERT instancu (vert.sh) i pomažu razvoj projekta.",
-      "donation_notice_unofficial": "Donacije ovdje idu operateru ove VERT instance. Ako želite podržati zvanične developere, posjetite [official_link]vert.sh[/official_link]."
+      "donation_notice_official": "Donacije ovdje idu za zvaničnu ii.Pe instancu (ii.pe) i pomažu razvoj projekta.",
+      "donation_notice_unofficial": "Donacije ovdje idu operateru ove ii.Pe instance. Ako želite podržati zvanične developere, posjetite [official_link]ii.pe[/official_link]."
     },
     "credits": {
       "title": "Zasluge",
       "contact_team": "Ako želite kontaktirati razvojni tim, koristite email iz kartice \"Resursi\".",
       "notable_contributors": "Istaknuti doprinosioci",
-      "notable_description": "Želimo zahvaliti ovim osobama na velikim doprinosima VERT-u.",
+      "notable_description": "Želimo zahvaliti ovim osobama na velikim doprinosima ii.Pe-u.",
       "github_contributors": "GitHub doprinosioci",
       "github_description": "Veliko hvala svima! [github_link]Želite pomoći i vi?[/github_link]",
       "no_contributors": "Izgleda da još niko nije doprinio... [contribute_link]budite prvi![/contribute_link]",
       "libraries": "Biblioteke",
-      "libraries_description": "Veliko hvala FFmpeg-u (audio, video), ImageMagick-u (slike) i Pandoc-u (dokumenti). VERT se na njima temelji.",
+      "libraries_description": "Veliko hvala FFmpeg-u (audio, video), ImageMagick-u (slike) i Pandoc-u (dokumenti). ii.Pe se na njima temelji.",
       "roles": {
         "lead_developer": "Glavni developer; backend konverzije, UI implementacija",
         "developer": "Developer; UI implementacija",
@@ -285,7 +285,7 @@
     "title": "Politika privatnosti",
     "summary": {
       "title": "Sažetak",
-      "description": "VERT-ova politika privatnosti je vrlo jednostavna: ne prikupljamo niti pohranjujemo ikakve podatke o vama. Ne koristimo kolačiće ni trackere, analitika je potpuno privatna, a konverzije (osim videa) rade lokalno. Video se briše nakon preuzimanja ili nakon sat vremena, osim ako nam ne date dozvolu da ga čuvamo radi rješavanja problema. Koristimo Coolify za hosting i Plausible za anonimnu analitiku. Stripe obrađuje donacije i može prikupiti podatke za prevenciju prevara.<br/><br/>Ovo vrijedi za zvaničnu instancu [vert_link]vert.sh[/vert_link]; treće strane mogu raditi drugačije."
+      "description": "ii.Pe-ova politika privatnosti je vrlo jednostavna: ne prikupljamo niti pohranjujemo ikakve podatke o vama. Ne koristimo kolačiće ni trackere, analitika je potpuno privatna, a konverzije (osim videa) rade lokalno. Video se briše nakon preuzimanja ili nakon sat vremena, osim ako nam ne date dozvolu da ga čuvamo radi rješavanja problema. Koristimo Coolify za hosting i Plausible za anonimnu analitiku. Stripe obrađuje donacije i može prikupiti podatke za prevenciju prevara.<br/><br/>Ovo vrijedi za zvaničnu instancu [vert_link]ii.pe[/vert_link]; treće strane mogu raditi drugačije."
     },
     "conversions": {
       "title": "Konverzije",
@@ -315,7 +315,7 @@
     },
     "contact": {
       "title": "Kontakt",
-      "description": "Za pitanja, pišite nam na: [email_link]hello@vert.sh[/email_link]. Ako koristite treću stranu, kontaktirajte njihovog hostera."
+      "description": "Za pitanja, pišite nam na: [email_link]hello@ii.pe[/email_link]. Ako koristite treću stranu, kontaktirajte njihovog hostera."
     },
     "last_updated": "Posljednje ažuriranje: 2025-10-29"
   }

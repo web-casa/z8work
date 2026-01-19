@@ -15,7 +15,7 @@
 	},
 	"upload": {
 		"title": "The file converter you'll love.",
-		"subtitle": "All image, audio, and document processing is done on your device. Videos are converted on our lightning-fast servers. No file size limit, no ads, and completely open source.",
+		"subtitle": "All image, audio, and document processing is done locally on your device, protecting your privacy. No file size limit, ultra-lightweight, and super easy to use.",
 		"uploader": {
 			"text": "Drop or click to {action}",
 			"convert": "convert"
@@ -202,7 +202,7 @@
 			"cache_cleared": "Cache cleared successfully!",
 			"cache_clear_error": "Failed to clear cache.",
 			"site_data_title": "Site data management",
-			"site_data_description": "Clear all site data including settings and cached files, resetting VERT to its default state and reloading the page.",
+			"site_data_description": "Clear all site data including settings and cached files, resetting ii.Pe to its default state and reloading the page.",
 			"clear_all_data": "Clear all site data",
 			"clear_all_data_confirm_title": "Clear all site data?",
 			"clear_all_data_confirm": "This will reset all settings & cache, then reload the page. This action cannot be undone.",
@@ -212,7 +212,7 @@
 		},
 		"language": {
 			"title": "Language",
-			"description": "Select your preferred language for the VERT interface."
+			"description": "Select your preferred language for the ii.Pe interface."
 		}
 	},
 	"about": {

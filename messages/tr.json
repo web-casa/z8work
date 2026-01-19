@@ -8,13 +8,13 @@
 		"toggle_theme": "Temayı değiştir"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "Kaynak kodu",
 		"discord_server": "Discord sunucusu"
 	},
 	"upload": {
 		"title": "Sevdiğiniz dosya dönüştürücü.",
-		"subtitle": "Tüm görüntü, ses ve belge işlemleri cihazınızda gerçekleştirilir. Videolar, ışık hızındaki sunucularımızda dönüştürülür. Dosya boyutu sınırı ve reklam yoktur. Tamamen açık kaynaklıdır.",
+		"subtitle": "Tüm resim, ses ve belge işlemleri cihazınızda yerel olarak dönüştürülür, gizliliğinizi korur. Dosya boyutu sınırı yok, ultra hafif ve kullanımı süper kolay.",
 		"uploader": {
 			"text": "{action} için sürükleyip bırakın veya dosya seçin",
 			"convert": "dönüştürmek"
@@ -133,7 +133,7 @@
 			"loading": "yükleniyor...",
 			"available": "uygun, işlem no: {commitId}",
 			"unavailable": "uygun değil (url doğru mu?)",
-			"description": "<code>vertd</code> projesi, FFmpeg için bir sunucu sarmalayıcısıdır (server wrapper). Bu ayar, VERT'in web arayüzünün kullanım kolaylığı ile videoları dönüştürmenize olanak sağlarken, ekran kartınızın gücünden yararlanarak işlemi mümkün olan en hızlı şekilde yapmanızı sağlar.",
+			"description": "<code>vertd</code> projesi, FFmpeg için bir sunucu sarmalayıcısıdır (server wrapper). Bu ayar, ii.Pe'in web arayüzünün kullanım kolaylığı ile videoları dönüştürmenize olanak sağlarken, ekran kartınızın gücünden yararlanarak işlemi mümkün olan en hızlı şekilde yapmanızı sağlar.",
 			"hosting_info": "Kolaylık sağlaması açısından herkese açık bir dönüştürücü sunuyoruz, ancak kendi bilgisayarınızda veya sunucunuzda kendi dönüştürücünüzü kurmak da oldukça kolaydır. Sunucu binary dosyalarını [vertd_link]buradan[/vertd_link] indirebilirsiniz. Kurulum işlemini gelecekte daha kolay hale getirmeye çalışıyoruz, bu nedenle bizi takip etmeyi unutmayın!",
 			"instance": "Sunucu",
 			"url_placeholder": "Örneğin: http://localhost:24153",
@@ -170,13 +170,13 @@
 		},
 		"language": {
 			"title": "Dil",
-			"description": "VERT arayüzü için tercih ettiğiniz dili seçin."
+			"description": "ii.Pe arayüzü için tercih ettiğiniz dili seçin."
 		}
 	},
 	"about": {
 		"title": "Hakkımızda",
 		"why": {
-			"title": "Neden VERT?",
+			"title": "Neden ii.Pe?",
 			"description": "<b>Dosya dönüştürücüler bizi her zaman hayal kırıklığına uğratmıştır. </b> Çoğu dönüştürücü site, kötü ve reklamlarla dolu arayüze sahiptir ve en önemlisi yavaştır. Tüm bu sorunları ve daha fazlasını çözen bir alternatif oluşturarak bu sorunu sonsuza kadar çözmeye karar verdik. <br/><br/>Video dışındaki tüm dosyalar tamamen cihazınızda dönüştürülür; bu, sunucuya dosya yükleme ve sunucudan dosya indirme sırasında gecikme olmaması ve dönüştürdüğünüz dosyaların asla başka biri tarafından görüntülenememesi anlamına gelir. <br/><br/>Video dosyaları, ışık hızındaki RTX 4000 Ada sunucumuza yüklenir. Videolarınızı dönüştürseniz de dönüştürmeseniz de bir saat sonra sunucularımızdan silinir. Video dönüştürme işlemi gerçekleştirirseniz, bir saat içinde dönüştürülmüş dosyayı indirebilirsiniz. Dosya daha sonra sunucumuzdan silinir."
 		},
 		"sponsors": {
@@ -191,8 +191,8 @@
 			"email": "E-posta"
 		},
 		"donate": {
-			"title": "VERT'e bağış yapın",
-			"description": "Desteğinizle VERT'i çalıştırmaya ve geliştirmeye devam edebiliriz.",
+			"title": "ii.Pe'e bağış yapın",
+			"description": "Desteğinizle ii.Pe'i çalıştırmaya ve geliştirmeye devam edebiliriz.",
 			"one_time": "Tek seferlik",
 			"monthly": "Aylık",
 			"custom": "Özel",
@@ -207,12 +207,12 @@
 			"title": "Katkıda bulunanlar",
 			"contact_team": "Geliştirme ekibiyle iletişime geçmek isterseniz, \"Bağlantılar\" kısmında bulunan e-posta adresini kullanabilirsiniz.",
 			"notable_contributors": "Önemli katılımcılar",
-			"notable_description": "VERT'e sağladıkları büyük katkılardan dolayı bu kişilere teşekkür ederiz.",
+			"notable_description": "ii.Pe'e sağladıkları büyük katkılardan dolayı bu kişilere teşekkür ederiz.",
 			"github_contributors": "GitHub katılımcıları",
 			"github_description": "Yardımcı olan herkese çok teşekkürler! [github_link]Sen de yardım etmek ister misin?[/github_link]",
 			"no_contributors": "Henüz kimse katkıda bulunmamış gibi görünüyor... [contribute_link]ilk katkıda bulunan sen ol![/contribute_link]",
 			"libraries": "Kütüphaneler",
-			"libraries_description": "Bu mükemmel kütüphaneleri yıllardır geliştirdikleri için FFmpeg (ses, video), ImageMagick (görseller) ve Pandoc (belgeler)'a çok teşekkür ederiz. VERT, dönüştürme işlemleri için bu kütüphaneleri kullanmaktadır.",
+			"libraries_description": "Bu mükemmel kütüphaneleri yıllardır geliştirdikleri için FFmpeg (ses, video), ImageMagick (görseller) ve Pandoc (belgeler)'a çok teşekkür ederiz. ii.Pe, dönüştürme işlemleri için bu kütüphaneleri kullanmaktadır.",
 			"roles": {
 				"lead_developer": "Lead developer; conversion backend, UI implementation",
 				"developer": "Developer; UI implementation",

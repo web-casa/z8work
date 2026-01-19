@@ -8,13 +8,13 @@
 		"toggle_theme": "テーマを切り替える"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "ソースコード",
 		"discord_server": "Discordサーバー"
 	},
 	"upload": {
 		"title": "きっと気に入るファイル変換ツール。",
-		"subtitle": "すべての画像・音声・ドキュメント処理はデバイス上で行われます。動画は超高速サーバーで変換されます。ファイルサイズ制限なし、広告なし、完全オープンソース。",
+		"subtitle": "すべての画像、音声、ドキュメントの処理はデバイス上でローカルに変換され、プライバシーを保護します。ファイルサイズ制限なし、超軽量、そして非常に使いやすいです。",
 		"uploader": {
 			"text": "ドロップまたはクリックして{action}",
 			"convert": "変換"
@@ -133,7 +133,7 @@
 			"loading": "読み込み中...",
 			"available": "利用可能（コミットID {commitId}）",
 			"unavailable": "利用不可（URLが正しいですか？）",
-			"description": "<code>vertd</code>プロジェクトはFFmpegのサーバーラッパーです。これにより、GPUの性能を活かして高速に変換しつつ、VERTのウェブインターフェイスから簡単に動画を変換できます。",
+			"description": "<code>vertd</code>プロジェクトはFFmpegのサーバーラッパーです。これにより、GPUの性能を活かして高速に変換しつつ、ii.Peのウェブインターフェイスから簡単に動画を変換できます。",
 			"hosting_info": "私たちは利便性のために公開インスタンスをホストしていますが、自分のPCやサーバーでも簡単にホストできます。バイナリは[vertd_link]こちら[/vertd_link]からダウンロードできます。今後さらにセットアップが簡単になる予定です！",
 			"instance": "インスタンス",
 			"url_placeholder": "例: http://localhost:24153",
@@ -170,14 +170,14 @@
 		},
 		"language": {
 			"title": "言語",
-			"description": "VERTインターフェイスの表示言語を選択してください。"
+			"description": "ii.Peインターフェイスの表示言語を選択してください。"
 		}
 	},
 	"about": {
 		"title": "について",
 		"why": {
-			"title": "なぜVERT？",
-			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにVERTを作りました。<br/><br/>動画以外のファイルは完全にデバイス上で変換されるため、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。<br/><br/>動画は超高速RTX 4000 Adaサーバーで処理され、変換しなかった場合は1時間以内に削除されます。変換された動画も1時間またはダウンロード完了後に削除されます。"
+			"title": "なぜii.Pe？",
+			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにii.Peを作りました。<br/><br/>動画以外のファイルは完全にデバイス上で変換されるため、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。<br/><br/>動画は超高速RTX 4000 Adaサーバーで処理され、変換しなかった場合は1時間以内に削除されます。変換された動画も1時間またはダウンロード完了後に削除されます。"
 		},
 		"sponsors": {
 			"title": "スポンサー",
@@ -191,8 +191,8 @@
 			"email": "メール"
 		},
 		"donate": {
-			"title": "VERTを支援する",
-			"description": "あなたの支援でVERTの維持と改善を続けられます。",
+			"title": "ii.Peを支援する",
+			"description": "あなたの支援でii.Peの維持と改善を続けられます。",
 			"one_time": "一度きり",
 			"monthly": "毎月",
 			"custom": "カスタム",
@@ -207,12 +207,12 @@
 			"title": "クレジット",
 			"contact_team": "開発チームに連絡したい場合は、「リソース」カードに記載されたメールをご利用ください。",
 			"notable_contributors": "特筆すべき貢献者",
-			"notable_description": "VERTに大きく貢献してくださった方々に感謝します。",
+			"notable_description": "ii.Peに大きく貢献してくださった方々に感謝します。",
 			"github_contributors": "GitHubの貢献者",
 			"github_description": "多くの方々に感謝します！[github_link]あなたも参加してみませんか？[/github_link]",
 			"no_contributors": "まだ誰も貢献していないようです… [contribute_link]最初の貢献者になりましょう！[/contribute_link]",
 			"libraries": "ライブラリ",
-			"libraries_description": "長年にわたり優れたライブラリを提供してくれているFFmpeg（音声・動画）、ImageMagick（画像）、Pandoc（ドキュメント）に感謝します。VERTはこれらに依存して動作しています。",
+			"libraries_description": "長年にわたり優れたライブラリを提供してくれているFFmpeg（音声・動画）、ImageMagick（画像）、Pandoc（ドキュメント）に感謝します。ii.Peはこれらに依存して動作しています。",
 			"roles": {
 				"lead_developer": "リード開発者；変換バックエンド、UI実装",
 				"developer": "開発者；UI実装",

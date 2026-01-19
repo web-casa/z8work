@@ -8,14 +8,14 @@
 		"toggle_theme": "切换主题"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "源代码",
 		"discord_server": "Discord 服务器",
 		"privacy_policy": "隐私政策"
 	},
 	"upload": {
 		"title": "你一定会喜欢的文件转换工具。",
-		"subtitle": "所有图片、音频和文档处理都在你的设备上进行。视频通过超快速服务器转换。无文件大小限制，无广告，完全开源。",
+		"subtitle": "所有图片、音频和文档处理都在你的设备上进行本地转换，保护您的隐私。无文件大小限制，超轻量，超好用。",
 		"uploader": {
 			"text": "拖放或点击以{action}",
 			"convert": "转换"
@@ -155,7 +155,7 @@
 			"loading": "加载中...",
 			"available": "可用（提交 ID {commitId}）",
 			"unavailable": "不可用（URL 正确吗？）",
-			"description": "<code>vertd</code>项目是 FFmpeg 的服务器包装器。这允许你通过 VERT 网页界面方便地转换视频，同时仍能利用 GPU 的强大性能以尽可能快的速度完成转换。",
+			"description": "<code>vertd</code>项目是 FFmpeg 的服务器包装器。这允许你通过 ii.Pe 网页界面方便地转换视频，同时仍能利用 GPU 的强大性能以尽可能快的速度完成转换。",
 			"hosting_info": "我们为你提供了一个公共实例以方便使用，但如果你知道如何操作，在自己的电脑或服务器上托管也很容易。你可以在[vertd_link]这里[/vertd_link]下载服务器二进制文件 - 设置过程将来会变得更简单，敬请期待！",
 			"instance": "实例",
 			"url_placeholder": "例如：http://localhost:24153",
@@ -191,7 +191,7 @@
 			"cache_cleared": "缓存已成功清除！",
 			"cache_clear_error": "清除缓存失败。",
 			"site_data_title": "网站数据管理",
-			"site_data_description": "清除所有网站数据，包括设置和缓存文件，将 VERT 重置为默认状态并重新加载页面。",
+			"site_data_description": "清除所有网站数据，包括设置和缓存文件，将 ii.Pe 重置为默认状态并重新加载页面。",
 			"clear_all_data": "清除所有网站数据",
 			"clear_all_data_confirm_title": "清除所有网站数据？",
 			"clear_all_data_confirm": "这将重置所有设置和缓存，然后重新加载页面。此操作无法撤消。",
@@ -201,13 +201,13 @@
 		},
 		"language": {
 			"title": "语言",
-			"description": "选择 VERT 界面的首选语言。"
+			"description": "选择 ii.Pe 界面的首选语言。"
 		}
 	},
 	"about": {
 		"title": "关于",
 		"why": {
-			"title": "为什么选择 VERT？",
+			"title": "为什么选择 ii.Pe？",
 			"description": "<b>文件转换器一直让我们失望。</b>它们很丑陋，充满广告，最重要的是；很慢。我们决定通过制作一个解决所有这些问题的替代方案，一劳永逸地解决这个问题。<br/><br/>所有非视频文件都完全在设备上转换；这意味着不需要在服务器之间发送和接收文件的延迟，而且我们永远不会窥探你转换的文件。<br/><br/>视频文件会上传到我们超快速的 RTX 4000 Ada 服务器。如果你不转换视频，它们会在服务器上保留一小时。如果你转换文件，视频将在服务器上保留一小时，或直到下载完成。然后文件将从我们的服务器中删除。"
 		},
 		"sponsors": {
@@ -222,8 +222,8 @@
 			"email": "电子邮件"
 		},
 		"donate": {
-			"title": "捐赠给 VERT",
-			"description": "有了你的支持，我们可以继续维护和改进 VERT。",
+			"title": "捐赠给 ii.Pe",
+			"description": "有了你的支持，我们可以继续维护和改进 ii.Pe。",
 			"one_time": "一次性",
 			"monthly": "每月",
 			"custom": "自定义",
@@ -238,12 +238,12 @@
 			"title": "致谢",
 			"contact_team": "如果你想联系开发团队，请使用“资源”卡片上的电子邮件。",
 			"notable_contributors": "杰出贡献者",
-			"notable_description": "我们要感谢这些人对 VERT 的重大贡献。",
+			"notable_description": "我们要感谢这些人对 ii.Pe 的重大贡献。",
 			"github_contributors": "GitHub 贡献者",
 			"github_description": "非常感谢所有这些人的帮助！[github_link]也想帮忙吗？[/github_link]",
 			"no_contributors": "似乎还没有人贡献……[contribute_link]成为第一个贡献者！[/contribute_link]",
 			"libraries": "库",
-			"libraries_description": "非常感谢 FFmpeg（音频、视频）、ImageMagick（图片）和 Pandoc（文档）多年来维护如此出色的库。VERT 依赖它们为你提供转换服务。",
+			"libraries_description": "非常感谢 FFmpeg（音频、视频）、ImageMagick（图片）和 Pandoc（文档）多年来维护如此出色的库。ii.Pe 依赖它们为你提供转换服务。",
 			"roles": {
 				"lead_developer": "首席开发者；转换后端、UI 实现",
 				"developer": "开发者；UI 实现",
@@ -272,11 +272,11 @@
 		"title": "隐私政策",
 		"summary": {
 			"title": "摘要",
-			"description": "VERT 的隐私政策非常简单：我们根本不收集或存储你的任何数据。我们不使用 cookie 或跟踪器，分析是完全私密的，所有转换（视频除外）都在你的浏览器本地进行。视频在下载后或一小时后删除，除非你明确授权存储；它只会用于故障排查。VERT 自托管 Coolify 实例用于托管网站和 vertd（用于视频转换），以及用于完全匿名和聚合分析的 Plausible 实例。<br/><br/>请注意，这可能仅适用于[vert_link]vert.sh[/vert_link]的官方 VERT 实例；第三方实例可能以不同方式处理你的数据。"
+			"description": "ii.Pe 的隐私政策非常简单：我们根本不收集或存储你的任何数据。我们不使用 cookie 或跟踪器，分析是完全私密的，所有转换（视频除外）都在你的浏览器本地进行。视频在下载后或一小时后删除，除非你明确授权存储；它只会用于故障排查。ii.Pe 自托管 Coolify 实例用于托管网站和 vertd（用于视频转换），以及用于完全匿名和聚合分析的 Plausible 实例。<br/><br/>请注意，这可能仅适用于[vert_link]ii.pe[/vert_link]的官方 ii.Pe 实例；第三方实例可能以不同方式处理你的数据。"
 		},
 		"conversions": {
 			"title": "转换",
-			"description": "大多数转换（图片、文档、音频）完全在你的设备上本地使用相关工具的 WebAssembly 版本（例如 ImageMagick、Pandoc、FFmpeg）进行。这意味着你的文件永远不会离开你的设备，我们也永远无法访问它们。<br/><br/>视频转换在我们的服务器上进行，因为它们需要更多的处理能力，并且目前无法在浏览器上非常快速地完成。你使用 VERT 转换的视频在下载后或一小时后删除，除非你明确授权我们将它们存储更长时间，纯粹用于故障排查。"
+			"description": "大多数转换（图片、文档、音频）完全在你的设备上本地使用相关工具的 WebAssembly 版本（例如 ImageMagick、Pandoc、FFmpeg）进行。这意味着你的文件永远不会离开你的设备，我们也永远无法访问它们。<br/><br/>视频转换在我们的服务器上进行，因为它们需要更多的处理能力，并且目前无法在浏览器上非常快速地完成。你使用 ii.Pe 转换的视频在下载后或一小时后删除，除非你明确授权我们将它们存储更长时间，纯粹用于故障排查。"
 		},
 		"conversion_errors": {
 			"title": "转换错误",
@@ -298,7 +298,7 @@
 		},
 		"contact": {
 			"title": "联系",
-			"description": "如有问题，请发送电子邮件至：[email_link]hello@vert.sh[/email_link]。如果你使用的是第三方 VERT 实例，请联系该实例的托管者。"
+			"description": "如有问题，请发送电子邮件至：[email_link]hello@ii.pe[/email_link]。如果你使用的是第三方 ii.Pe 实例，请联系该实例的托管者。"
 		},
 		"last_updated": "最后更新：2025-10-19"
 	}

@@ -8,13 +8,13 @@
 		"toggle_theme": "Cambia tema"
 	},
 	"footer": {
-		"copyright": "© {year} VERT.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "Codice sorgente",
 		"discord_server": "Server Discord"
 	},
 	"upload": {
 		"title": "Il convertitore di file che amerai.",
-		"subtitle": "Tutta l'elaborazione di immagini, audio e documenti avviene sul tuo dispositivo. I video sono convertiti sui nostri server velocissimi. Nessun limite di dimensione, nessuna pubblicità e completamente open source.",
+		"subtitle": "Tutta l'elaborazione di immagini, audio e documenti viene convertita localmente sul tuo dispositivo, proteggendo la tua privacy. Nessun limite di dimensione del file, ultra leggero e super facile da usare.",
 		"uploader": {
 			"text": "Trascina o clicca per {action}",
 			"convert": "convertire"
@@ -138,7 +138,7 @@
 			"loading": "caricamento...",
 			"available": "disponibile, ID commit {commitId}",
 			"unavailable": "non disponibile (l'URL è corretto?)",
-			"description": "Il progetto <code>vertd</code> è un *server wrapper* per FFmpeg. Questo ti permette di convertire video attraverso la comodità dell'interfaccia web di VERT, pur essendo in grado di sfruttare la potenza della tua GPU per farlo il più rapidamente possibile.",
+			"description": "Il progetto <code>vertd</code> è un *server wrapper* per FFmpeg. Questo ti permette di convertire video attraverso la comodità dell'interfaccia web di ii.Pe, pur essendo in grado di sfruttare la potenza della tua GPU per farlo il più rapidamente possibile.",
 			"hosting_info": "Ospitiamo un'istanza pubblica per la tua comodità, ma è abbastanza facile ospitarne una tua sul tuo PC o server se sai cosa stai facendo. Puoi scaricare i binari del server [vertd_link]qui[/vertd_link] - il processo di configurazione diventerà più semplice in futuro, quindi resta sintonizzato!",
 			"instance": "Istanza",
 			"url_placeholder": "Esempio: http://localhost:24153",
@@ -176,13 +176,13 @@
 		},
 		"language": {
 			"title": "Lingua",
-			"description": "Seleziona la tua lingua preferita per l'interfaccia di VERT."
+			"description": "Seleziona la tua lingua preferita per l'interfaccia di ii.Pe."
 		}
 	},
 	"about": {
 		"title": "Informazioni",
 		"why": {
-			"title": "Perché VERT?",
+			"title": "Perché ii.Pe?",
 			"description": "<b>I convertitori di file ci hanno sempre deluso.</b> Sono brutti, pieni di pubblicità e, soprattutto, lenti. Abbiamo deciso di risolvere questo problema una volta per tutte creando un'alternativa che risolve tutti questi problemi e non solo.<br/><br/>Tutti i file non video vengono convertiti completamente sul dispositivo; questo significa che non ci sono ritardi tra l'invio e la ricezione dei file da un server e non possiamo mai spiare i file che converti.<br/><br/>I file video vengono caricati sul nostro velocissimo server RTX 4000 Ada. I tuoi video rimangono lì per un'ora se non li converti. Se converti il file, il video rimarrà sul server per un'ora o fino a quando non viene scaricato. Il file verrà quindi eliminato dal nostro server."
 		},
 		"sponsors": {
@@ -197,8 +197,8 @@
 			"email": "E-mail"
 		},
 		"donate": {
-			"title": "Fai una donazione a VERT",
-			"description": "Con il tuo supporto, possiamo continuare a mantenere e migliorare VERT.",
+			"title": "Fai una donazione a ii.Pe",
+			"description": "Con il tuo supporto, possiamo continuare a mantenere e migliorare ii.Pe.",
 			"one_time": "Una tantum",
 			"monthly": "Mensile",
 			"custom": "Personalizzato",
@@ -213,12 +213,12 @@
 			"title": "Crediti",
 			"contact_team": "Se desideri contattare il team di sviluppo, utilizza l'e-mail che trovi sulla scheda \"Risorse\".",
 			"notable_contributors": "Contributori di rilievo",
-			"notable_description": "Vorremmo ringraziare queste persone per i loro importanti contributi a VERT.",
+			"notable_description": "Vorremmo ringraziare queste persone per i loro importanti contributi a ii.Pe.",
 			"github_contributors": "Contributori GitHub",
 			"github_description": "Un grande grazie a tutte queste persone per aver dato una mano! [github_link]Vuoi aiutare anche tu?[/github_link]",
 			"no_contributors": "Sembra che nessuno abbia ancora contribuito... [contribute_link]sii il primo a contribuire![/contribute_link]",
 			"libraries": "Librerie",
-			"libraries_description": "Un grande ringraziamento a FFmpeg (audio, video), ImageMagick (immagini) e Pandoc (documenti) per aver mantenuto librerie così eccellenti per così tanti anni. VERT si affida a loro per fornirti le tue conversioni.",
+			"libraries_description": "Un grande ringraziamento a FFmpeg (audio, video), ImageMagick (immagini) e Pandoc (documenti) per aver mantenuto librerie così eccellenti per così tanti anni. ii.Pe si affida a loro per fornirti le tue conversioni.",
 			"roles": {
 				"lead_developer": "Sviluppatore principale; backend di conversione, implementazione UI",
 				"developer": "Sviluppatore; implementazione UI",
