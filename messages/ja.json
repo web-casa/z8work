@@ -20,7 +20,7 @@
 			"convert": "変換"
 		},
 		"cards": {
-			"title": "VERTがサポートしている形式",
+			"title": "ii.Peがサポートしている形式",
 			"images": "画像",
 			"audio": "音声",
 			"documents": "ドキュメント",
@@ -109,7 +109,7 @@
 			"advanced_settings": "詳細設定",
 			"filename_format": "ファイル名フォーマット",
 			"filename_description": "これはダウンロード時のファイル名を決定します（拡張子を除く）。以下のテンプレートを使用できます：<b>%name%</b>（元のファイル名）、<b>%extension%</b>（元の拡張子）、<b>%date%</b>（変換日時）。",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "デフォルト変換フォーマット",
 			"default_format_description": "このファイルタイプをアップロードしたときに自動で選択される形式を変更します。",
 			"default_format_image": "画像",

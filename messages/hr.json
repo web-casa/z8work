@@ -20,7 +20,7 @@
 			"convert": "pretvori"
 		},
 		"cards": {
-			"title": "VERT podržava...",
+			"title": "ii.Pe podržava...",
 			"images": "Slike",
 			"audio": "Audio",
 			"documents": "Dokumente",
@@ -102,7 +102,7 @@
 			"title": "Pretvaranje",
 			"filename_format": "Način imenovanja datoteke",
 			"filename_description": "Ovo će odrediti ime datoteke pri preuzimanju, <b>ali ne i nastavak.</b> Možete staviti navedene prijedloge u način imenovanja, koji će biti zamijenjeni sa relevatnim informacijama: <b>%name%</b> za originalni naziv datoteke, <b>%extension%</b> za originalni nastavak, i <b>%date%</b> za datum kada je datoteka bila pretvorena.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Zadan format za pretvaranje",
 			"default_format_description": "Ovo će promijeniti zadani format koji je izabran kada prenesete datoteku te vrste.",
 			"default_format_image": "Slike",

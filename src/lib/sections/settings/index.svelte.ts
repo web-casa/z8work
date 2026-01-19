@@ -35,7 +35,7 @@ export class Settings {
 	public static instance = new Settings();
 
 	public settings: ISettings = $state({
-		filenameFormat: "IIPE_%name%",
+		filenameFormat: "ii.Pe_%name%",
 		defaultFormat: {
 			image: ".png",
 			video: ".mp4",
@@ -76,7 +76,7 @@ export class Settings {
 
 			// Migration: Update old default filename format
 			if (settings.filenameFormat === "VERT_%name%") {
-				settings.filenameFormat = "IIPE_%name%";
+				settings.filenameFormat = "ii.Pe_%name%";
 			}
 
 			this.settings = {

@@ -47,7 +47,7 @@
 					</p>
 				</div>
 				<FancyTextInput
-					placeholder="IIPE_%name%"
+					placeholder="ii.Pe_%name%"
 					bind:value={settings.filenameFormat}
 					extension={".ext"}
 					type="text"

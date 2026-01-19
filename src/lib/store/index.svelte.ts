@@ -383,7 +383,7 @@ class Files {
 		const url = URL.createObjectURL(blob);
 
 		const settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
-		const filenameFormat = settings.filenameFormat || "IIPE_%name%";
+		const filenameFormat = settings.filenameFormat || "ii.Pe_%name%";
 
 		const format = (name: string) => {
 			const date = new Date().toISOString();

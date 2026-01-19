@@ -1,17 +1,17 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/bf441748-0ec5-4c8a-b3e5-11301ee3f0bd" alt="VERT's logo" height="100">
 </p>
-<h1 align="center"><a href="https://ii.pe">II.PE</a></h1>
+<h1 align="center"><a href="https://ii.pe">ii.Pe</a></h1>
 
-II.PE is a file conversion utility that uses WebAssembly to convert files on your device instead of a cloud. Check out the live instance at [ii.pe](https://ii.pe).
+ii.Pe is a file conversion utility that uses WebAssembly to convert files on your device instead of a cloud. Check out the live instance at [ii.pe](https://ii.pe).
 
-II.PE is built in Svelte and TypeScript.
+ii.Pe is built in Svelte and TypeScript.
 
 ## Screenshots
 
 |                     Upload page                      |                     Conversion page                      |
 | :--------------------------------------------------: | :------------------------------------------------------: |
-| ![II.PE upload page](docs/images/screenshot-home.png) | ![II.PE convert page](docs/images/screenshot-convert.png) |
+| ![ii.Pe upload page](docs/images/screenshot-home.png) | ![ii.Pe convert page](docs/images/screenshot-convert.png) |
 
 ## Features
 

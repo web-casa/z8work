@@ -21,7 +21,7 @@
 			"convert": "Konvertieren"
 		},
 		"cards": {
-			"title": "VERT unterstützt...",
+			"title": "ii.Pe unterstützt...",
 			"images": "Bilder",
 			"audio": "Audio",
 			"documents": "Dokumente",
@@ -140,7 +140,7 @@
 			"advanced_settings": "Erweiterte Einstellungen",
 			"filename_format": "Dateinamensformat",
 			"filename_description": "Dies bestimmt den Namen der Datei beim Herunterladen, <b>ohne die Dateiendung.</b> Du kannst folgende Platzhalter verwenden: <b>%name%</b> für den ursprünglichen Dateinamen, <b>%extension%</b> für die ursprüngliche Dateiendung und <b>%date%</b> für das Datum der Konvertierung.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Standard-Format",
 			"default_format_enable": "Aktivieren",
 			"default_format_disable": "Deaktivieren",

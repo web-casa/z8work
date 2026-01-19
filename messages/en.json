@@ -8,7 +8,7 @@
 		"toggle_theme": "Toggle theme"
 	},
 	"footer": {
-		"copyright": "© {year} II.PE.",
+		"copyright": "© {year} ii.Pe.",
 		"source_code": "Source code",
 		"discord_server": "Discord server",
 		"privacy_policy": "Privacy policy"
@@ -21,7 +21,7 @@
 			"convert": "convert"
 		},
 		"cards": {
-			"title": "II.PE supports...",
+			"title": "ii.Pe supports...",
 			"images": "Images",
 			"audio": "Audio",
 			"documents": "Documents",
@@ -140,7 +140,7 @@
 			"advanced_settings": "Advanced settings",
 			"filename_format": "File name format",
 			"filename_description": "This will determine the name of the file on download, <b>not including the file extension.</b> You can put these following templates in the format, which will be replaced with the relevant information: <b>%name%</b> for the original file name, <b>%extension%</b> for the original file extension, and <b>%date%</b> for a date string of when the file was converted.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Default conversion format",
 			"default_format_enable": "Enable",
 			"default_format_disable": "Disable",
@@ -166,7 +166,7 @@
 			"loading": "loading...",
 			"available": "available, commit id {commitId}",
 			"unavailable": "unavailable (is the url right?)",
-			"description": "The <code>vertd</code> project is a server wrapper for FFmpeg. This allows you to convert videos through the convenience of II.PE's web interface, while still being able to harness the power of your GPU to do it as quickly as possible.",
+			"description": "The <code>vertd</code> project is a server wrapper for FFmpeg. This allows you to convert videos through the convenience of ii.Pe's web interface, while still being able to harness the power of your GPU to do it as quickly as possible.",
 			"hosting_info": "We host a public instance for your convenience, but it is quite easy to host your own on your PC or server if you know what you are doing. You can download the server binaries [vertd_link]here[/vertd_link] - the process of setting this up will become easier in the future, so stay tuned!",
 			"instance": "Instance",
 			"url_placeholder": "Example: http://localhost:24153",
@@ -218,7 +218,7 @@
 	"about": {
 		"title": "About",
 		"why": {
-			"title": "Why II.PE?",
+			"title": "Why ii.Pe?",
 			"description": "<b>File converters have always disappointed us.</b> They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.<br/><br/>All non-video files are converted completely on-device; this means that there's no delay between sending and receiving the files from a server, and we never get to snoop on the files you convert.<br/><br/>Video files get uploaded to our lightning-fast RTX 4000 Ada server. Your videos stay on there for an hour if you do not convert them. If you do convert the file, the video will stay on the server for an hour, or until it is downloaded. The file will then be deleted from our server."
 		},
 		"sponsors": {
@@ -233,8 +233,8 @@
 			"email": "Email"
 		},
 		"donate": {
-			"title": "Donate to II.PE",
-			"description": "With your support, we can keep maintaining and improving II.PE.",
+			"title": "Donate to ii.Pe",
+			"description": "With your support, we can keep maintaining and improving ii.Pe.",
 			"one_time": "One-time",
 			"monthly": "Monthly",
 			"custom": "Custom",
@@ -244,19 +244,19 @@
 			"payment_failed": "Payment failed: {message}{period} You have not been charged.",
 			"donation_error": "An error occurred while processing your donation. Please try again later.",
 			"payment_error": "Error fetching payment details. Please try again later.",
-			"donation_notice_official": "Your donations here go to the official II.PE instance (ii.pe), and helps to support the development of the project.",
-			"donation_notice_unofficial": "Your donations here go to the operator of this II.PE instance. If you wish to support the official II.PE developers, please visit [official_link]ii.pe[/official_link] instead."
+			"donation_notice_official": "Your donations here go to the official ii.Pe instance (ii.pe), and helps to support the development of the project.",
+			"donation_notice_unofficial": "Your donations here go to the operator of this ii.Pe instance. If you wish to support the official ii.Pe developers, please visit [official_link]ii.pe[/official_link] instead."
 		},
 		"credits": {
 			"title": "Credits",
 			"contact_team": "If you would like to contact the development team, please use the email found on the \"Resources\" card.",
 			"notable_contributors": "Notable contributors",
-			"notable_description": "We'd like to thank these people for their major contributions to II.PE.",
+			"notable_description": "We'd like to thank these people for their major contributions to ii.Pe.",
 			"github_contributors": "GitHub contributors",
 			"github_description": "Big thanks to all these people for helping out! [github_link]Want to help too?[/github_link]",
 			"no_contributors": "Seems like no one has contributed yet... [contribute_link]be the first to contribute![/contribute_link]",
 			"libraries": "Libraries",
-			"libraries_description": "A big thanks to FFmpeg (audio, video), ImageMagick (images) and Pandoc (documents) for maintaining such excellent libraries for so many years. II.PE relies on them to provide you with your conversions.",
+			"libraries_description": "A big thanks to FFmpeg (audio, video), ImageMagick (images) and Pandoc (documents) for maintaining such excellent libraries for so many years. ii.Pe relies on them to provide you with your conversions.",
 			"roles": {
 				"lead_developer": "Lead developer; conversion backend, UI implementation",
 				"developer": "Developer; UI implementation",
@@ -285,11 +285,11 @@
 		"title": "Privacy Policy",
 		"summary": {
 			"title": "Summary",
-			"description": "II.PE's privacy policy is very simple: we do not collect or store any data on you at all. We don't use cookies or trackers, analytics are completely private, and all conversions (except videos) happen locally on your browser. Videos are deleted after being downloaded, or an hour, unless explicitly given permission by you to be stored; it will only be used for the purpose of troubleshooting. II.PE self-hosts a Coolify instance for hosting the website and vertd (for video conversion), and a Plausible instance for completely anonymous and aggregated analytics. We use Stripe to process donations, which may collect some data used for fraud prevention.<br/><br/>Note this may only apply to the official II.PE instance at [vert_link]ii.pe[/vert_link]; third-party instances may handle your data differently."
+			"description": "ii.Pe's privacy policy is very simple: we do not collect or store any data on you at all. We don't use cookies or trackers, analytics are completely private, and all conversions (except videos) happen locally on your browser. Videos are deleted after being downloaded, or an hour, unless explicitly given permission by you to be stored; it will only be used for the purpose of troubleshooting. ii.Pe self-hosts a Coolify instance for hosting the website and vertd (for video conversion), and a Plausible instance for completely anonymous and aggregated analytics. We use Stripe to process donations, which may collect some data used for fraud prevention.<br/><br/>Note this may only apply to the official ii.Pe instance at [vert_link]ii.pe[/vert_link]; third-party instances may handle your data differently."
 		},
 		"conversions": {
 			"title": "Conversions",
-			"description": "Most conversions (images, documents, audio) happen entirely locally on your device using WebAssembly versions of the relevant tools (e.g. ImageMagick, Pandoc, FFmpeg). This means your files never leave your device and we will never have access to them.<br/><br/>Video conversions are performed on our servers because they require more processing power and cannot be done very quickly on the browser yet. Videos you convert with II.PE are deleted after being downloaded, or after one hour, unless you explicitly give permission for us to store them longer purely for troubleshooting purposes."
+			"description": "Most conversions (images, documents, audio) happen entirely locally on your device using WebAssembly versions of the relevant tools (e.g. ImageMagick, Pandoc, FFmpeg). This means your files never leave your device and we will never have access to them.<br/><br/>Video conversions are performed on our servers because they require more processing power and cannot be done very quickly on the browser yet. Videos you convert with ii.Pe are deleted after being downloaded, or after one hour, unless you explicitly give permission for us to store them longer purely for troubleshooting purposes."
 		},
 		"donations": {
 			"title": "Donations",
@@ -315,11 +315,11 @@
 		},
 		"contact": {
 			"title": "Contact",
-			"description": "For questions, email us at: [email_link]hello@ii.pe[/email_link]. If you are using a third-party instance of II.PE, please contact the hoster of that instance instead."
+			"description": "For questions, email us at: [email_link]hello@ii.pe[/email_link]. If you are using a third-party instance of ii.Pe, please contact the hoster of that instance instead."
 		},
 		"last_updated": "Last updated: 2025-10-29"
 	},
 	"toast": {
-		"insecure_context": "You are visiting II.PE in an insecure context (e.g. accessing over HTTP instead of HTTPS). Some features may not work as expected."
+		"insecure_context": "You are visiting ii.Pe in an insecure context (e.g. accessing over HTTP instead of HTTPS). Some features may not work as expected."
 	}
 }

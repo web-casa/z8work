@@ -20,7 +20,7 @@
 			"convert": "dönüştürmek"
 		},
 		"cards": {
-			"title": "VERT'in desteklediği formatlar...",
+			"title": "ii.Pe'in desteklediği formatlar...",
 			"images": "Görsel",
 			"audio": "Ses",
 			"documents": "Belge",
@@ -109,7 +109,7 @@
 			"advanced_settings": "Gelişmiş ayarlar",
 			"filename_format": "Dosya adı formatı",
 			"filename_description": "Bu ayar, <b>dosya uzantısını etkilemeden</b> indirilen dosyanın adını belirleyecektir. Aşağıdaki şablonları formata ekleyebilirsiniz, bunlar ilgili bilgilerle değiştirilecektir: orijinal dosya adı için <b>%name%</b>, orijinal dosya uzantısı için <b>%extension%</b> ve dosyanın dönüştürüldüğü tarihin tarih için <b>%date%</b>.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Varsayılan dönüştürme formatı",
 			"default_format_description": "Bu ayar, bu dosya türünde bir dosya yüklediğinizde seçili olan varsayılan formatı değiştirecektir.",
 			"default_format_image": "Görsel",

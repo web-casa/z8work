@@ -20,7 +20,7 @@
 			"convert": "convertir"
 		},
 		"cards": {
-			"title": "VERT soporta...",
+			"title": "ii.Pe soporta...",
 			"images": "Imágenes",
 			"audio": "Audio",
 			"documents": "Documentos",
@@ -109,7 +109,7 @@
 			"advanced_settings": "Configuraciones avanzadas",
 			"filename_format": "Formato del nombre de archivo",
 			"filename_description": "Esto va a determinar el nombre del archivo al ser descargado <b>sin incluir la extensión</b>. Puedes poner las siguientes plantillas en el formato, las cuales serán reemplazadas con la información que les corresponde: <b>%name%</b> para el nombre original, <b>%extension%</b> para la extensión original del archivo y <b>%date%</b> para la fecha de cuando el archivo fue convertido.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Formato de conversión predeterminado",
 			"default_format_description": "Esto cambiará el formato predeterminado seleccionado cuando subes un archivo de este tipo.",
 			"default_format_image": "Imágenes",

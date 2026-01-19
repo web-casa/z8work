@@ -21,7 +21,7 @@
 			"jpegify": "jpegify"
 		},
 		"cards": {
-			"title": "Dapat Ditangani VERT ...",
+			"title": "Dapat Ditangani ii.Pe ...",
 			"images": "Gambar",
 			"audio": "Audio",
 			"documents": "Dokumen",
@@ -115,7 +115,7 @@
 			"advanced_settings": "Pengaturan lanjutan",
 			"filename_format": "Format nama berkas",
 			"filename_description": "Ini akan menentukan nama berkas saat diunduh, <b>tidak termasuk ekstensi berkas.</b> Kamu dapat menggunakan template berikut dalam format, yang akan diganti dengan informasi terkait: <b>%name%</b> untuk nama berkas asli, <b>%extension%</b> untuk ekstensi berkas asli, dan <b>%date%</b> untuk tanggal saat berkas dikonversi.",
-			"placeholder": "IIPE_%name%",
+			"placeholder": "ii.Pe_%name%",
 			"default_format": "Format konversi baku",
 			"default_format_description": "Ini akan mengubah format baku yang dipilih saat kamu mengunggah berkas dengan tipe tersebut.",
 			"default_format_image": "Gambar",

@@ -132,7 +132,7 @@
 	/>
 	<meta
 		name="description"
-		content="With II.PE, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
+		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
 	/>
 	<meta property="og:url" content="https://ii.pe" />
 	<meta property="og:type" content="website" />
@@ -142,7 +142,7 @@
 	/>
 	<meta
 		property="og:description"
-		content="With II.PE, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
+		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
 	/>
 	<meta property="og:image" content={featuredImage} />
 	<meta name="twitter:card" content="summary_large_image" />
@@ -154,7 +154,7 @@
 	/>
 	<meta
 		property="twitter:description"
-		content="With II.PE, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
+		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
 	/>
 	<meta property="twitter:image" content={featuredImage} />
 	<link rel="manifest" href="/manifest.json" />

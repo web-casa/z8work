@@ -6,10 +6,10 @@ export const GITHUB_API_URL = "https://api.github.com/repos/VERT-sh/VERT";
 export const DISCORD_URL = "https://discord.gg/kqevGxYPak";
 export const VERT_NAME =
 	PUB_ENV === "development"
-		? "II.PE Local"
+		? "ii.Pe Local"
 		: PUB_ENV === "nightly"
-			? "II.PE Nightly"
-			: "II.PE";
+			? "ii.Pe Nightly"
+			: "ii.Pe";
 export const CONTACT_EMAIL = "hello@ii.pe";
 
 // i'm not entirely sure this should be in consts.ts, but it is technically a constant as .env is static for VERT
