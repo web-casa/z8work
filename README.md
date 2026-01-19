@@ -1,46 +1,33 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/bf441748-0ec5-4c8a-b3e5-11301ee3f0bd" alt="VERT's logo" height="100">
-</p>
 <h1 align="center"><a href="https://ii.pe">ii.Pe</a></h1>
 
-ii.Pe is a file conversion utility that uses WebAssembly to convert files on your device instead of a cloud. Check out the live instance at [ii.pe](https://ii.pe).
+> **A zero-upload, browser-based file conversion tool.**
 
-ii.Pe is built in Svelte and TypeScript.
+All image, audio, and document processing is done locally on your device, protecting your privacy. No file size limit, ultra-lightweight, and super easy to use.
 
-## Screenshots
+Check out the live instance at [ii.pe](https://ii.pe).
 
-|                     Upload page                      |                     Conversion page                      |
-| :--------------------------------------------------: | :------------------------------------------------------: |
-| ![ii.Pe upload page](docs/images/screenshot-home.png) | ![ii.Pe convert page](docs/images/screenshot-convert.png) |
+## Why ii.Pe?
+
+**File converters have always disappointed us.** They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.
+
+All files are converted completely on-device; this means that there's no delay between sending and receiving the files from a server, and we never get to snoop on the files you convert.
 
 ## Features
 
-- Convert files directly on your device using WebAssembly\*
-- No file or file size limits
-- Convert images, audio, documents, and video\*
-- Supports over **250+** file formats
-- Conversion settings
-- User-friendly interface built with Svelte
+- **Privacy First**: We rigorously adhere to a **no-logs policy**. Your files never leave your device, ensuring complete **data privacy**.
+- **Fully Local**: Powered by advanced **WebAssembly** technology. Experience zero-latency conversions with **no uploads** required (except video).
+- **Global Support**: Proudly supporting **15+ languages**. We assist creators and professionals **worldwide** in their native tongue.
+- **No Limit**: Convert files of **any size** or quantity. We impose **no restrictions** on your workflow.
+- **100% Free**: Completely **Open Source** and free forever. No annoying ads, no hidden paywalls, just **pure utility**.
+- **Massive Support**: From **Images** and **Audio** to **Video** and **Documents**. We cover every format you might need.
+- **Offline Capable**: Works perfectly **without internet** once loaded. Install as a **PWA** for a native-like desktop experience.
+- **Modern UI**: A stunning, **dark-mode optimized** interface designed for focus and **ease of use**.
+- **Green & Sustainable**: **Local processing** significantly reduces server load, minimizing our collective **carbon footprint**.
 
-<sup>\* Non-local video conversion is available with our official instance, but the [daemon](https://github.com/VERT-sh/vertd) is easily self-hostable to maintain privacy and fully local functionality.</sup>
+## Acknowledgements
 
-## Documentation
-
-- [FAQ](./docs/FAQ.md)
-- [Getting Started](./docs/GETTING_STARTED.md)
-- [Using Docker](./docs/DOCKER.md)
-- [Video Conversion](./docs/VIDEO_CONVERSION.md)
+This project is a secondary development based on [VERT](https://github.com/VERT-sh/VERT). We would like to express our sincere gratitude to the VERT team for their open-source contribution and excellent foundation.
 
 ## License
 
 This project is licensed under the AGPL-3.0 License, please see the [LICENSE](LICENSE) file for details.
-
-## Star History
-
-<a href="https://www.star-history.com/#VERT-sh/VERT&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=VERT-sh/VERT&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=VERT-sh/VERT&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=VERT-sh/VERT&type=Date" />
- </picture>
-</a>
