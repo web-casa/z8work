@@ -8,7 +8,7 @@
 	import avatarJovannMC from "$lib/assets/avatars/jovannmc.jpg";
 	import avatarRealmy from "$lib/assets/avatars/realmy.jpg";
 	import avatarAzurejelly from "$lib/assets/avatars/azurejelly.jpg";
-	import { PUB_DONATION_URL, PUB_STRIPE_KEY } from "$env/static/public";
+
 	import { DISABLE_ALL_EXTERNAL_REQUESTS, GITHUB_API_URL } from "$lib/util/consts";
 	import { m } from "$lib/paraglide/messages";
 	import { ToastManager } from "$lib/util/toast.svelte";
@@ -137,9 +137,7 @@
 		}
 	});
 
-	const donationsEnabled = PUB_STRIPE_KEY
-		&& PUB_DONATION_URL
-		&& !DISABLE_ALL_EXTERNAL_REQUESTS;
+
 </script>
 
 <div class="flex flex-col h-full items-center">

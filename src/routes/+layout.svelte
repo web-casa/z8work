@@ -2,7 +2,6 @@
 	import { onMount } from "svelte";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
 
-	import { PUB_PLAUSIBLE_URL, PUB_HOSTNAME } from "$env/static/public";
 	import { DISABLE_ALL_EXTERNAL_REQUESTS, VERT_NAME } from "$lib/util/consts.js";
 	import * as Layout from "$lib/components/layout";
 	import * as Navbar from "$lib/components/layout/Navbar";
@@ -27,7 +26,7 @@
 	import { log } from "$lib/util/logger.js";
 
 	let { children, data } = $props();
-	let enablePlausible = $state(false);
+
 
 	let scrollPositions = new Map<string, number>();
 
@@ -111,16 +110,7 @@
 		};
 	});
 
-	$effect(() => {
-		enablePlausible =
-			!!PUB_PLAUSIBLE_URL &&
-			Settings.instance.settings.plausible &&
-			!DISABLE_ALL_EXTERNAL_REQUESTS;
-		if (!enablePlausible && browser) {
-			// reset pushState on opt-out so that plausible stops firing events on page navigation
-			history.pushState = History.prototype.pushState;
-		}
-	});
+
 </script>
 
 <svelte:head>
@@ -159,13 +149,15 @@
 	<meta property="twitter:image" content={featuredImage} />
 	<link rel="manifest" href="/manifest.json" />
 	<link rel="canonical" href="https://ii.pe/" />
-	{#if enablePlausible}
-		<script
-			defer
-			data-domain={PUB_HOSTNAME || "ii.pe"}
-			src="{PUB_PLAUSIBLE_URL}/js/script.js"
-		></script>
-	{/if}
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WKQWH1SXJ"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-4WKQWH1SXJ');
+	</script>
 	{#if data.isAprilFools}
 		<style>
 			* {
