@@ -1,0 +1,21 @@
+{
+	"singleWebP": "passed",
+	"zipCRC": "passed",
+	"entries": [
+		{
+			"name": "forest.webp",
+			"size": 105416,
+			"crc32": "0xa81f8db6"
+		},
+		{
+			"name": "coast.webp",
+			"size": 63508,
+			"crc32": "0x50891115"
+		},
+		{
+			"name": "studio.webp",
+			"size": 46558,
+			"crc32": "0xac9dc4af"
+		}
+	]
+}

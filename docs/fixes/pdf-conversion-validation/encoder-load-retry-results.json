@@ -1,0 +1,6 @@
+{
+	"engine": "magick",
+	"initialWasmFetchFailed": true,
+	"retryComplete": true,
+	"wasmFetchAttempts": 3
+}

@@ -1,0 +1,51 @@
+{
+	"base": "http://localhost:5184",
+	"pngInputs": [
+		{
+			"name": "普通.png",
+			"mimeType": "image/png"
+		},
+		{
+			"name": "大写.PNG",
+			"mimeType": "application/octet-stream"
+		},
+		{
+			"name": ".png",
+			"mimeType": ""
+		},
+		{
+			"name": "尾随空白.png ",
+			"mimeType": "image/png"
+		},
+		{
+			"name": "剪贴板图片",
+			"mimeType": "image/png"
+		},
+		{
+			"name": "错误MIME.png",
+			"mimeType": "application/zip"
+		}
+	],
+	"completed": 6,
+	"spreadsheetInputs": [
+		{
+			"name": "正常.xlsx",
+			"mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+		},
+		{
+			"name": "ZIP类型.xlsx",
+			"mimeType": "application/zip"
+		},
+		{
+			"name": "后缀拼写.xlxs",
+			"mimeType": "application/octet-stream"
+		}
+	],
+	"spreadsheetRowsRetained": 3,
+	"download": {
+		"name": "ii.Pe_剪贴板图片.jpeg",
+		"bytes": 294
+	},
+	"pageErrors": [],
+	"nonReadRequests": []
+}

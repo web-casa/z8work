@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { effects, files, isMobile } from "$lib/store/index.svelte";
-	import { FolderArchiveIcon, RefreshCw, Trash2Icon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import Panel from "../visual/Panel.svelte";
 	import Dropdown from "./Dropdown.svelte";
 	import Tooltip from "../visual/Tooltip.svelte";
@@ -27,7 +27,7 @@
 					: '!scale-100'} highlight flex gap-3 max-md:w-full md:max-w-[15.5rem]"
 				disabled={!files.ready}
 			>
-				<RefreshCw size="24" />
+				<PixelIcon name="reload" size={24} />
 				<p>{m["convert.panel.convert_all"]()}</p>
 			</button>
 			<button
@@ -37,7 +37,7 @@
 				disabled={!files.ready || !files.results}
 				onclick={() => files.downloadAll()}
 			>
-				<FolderArchiveIcon size="24" />
+				<PixelIcon name="archive" size={24} />
 				<p>{m["convert.panel.download_all"]()}</p>
 			</button>
 			{#if $isMobile}
@@ -46,9 +46,9 @@
 						? ''
 						: '!scale-100'} flex gap-3 max-md:w-full"
 					disabled={files.files.length === 0}
-					onclick={() => (files.files = [])}
+					onclick={() => files.clear()}
 				>
-					<Trash2Icon size="24" />
+					<PixelIcon name="trash" size={24} />
 					<p>{m["convert.panel.remove_all"]()}</p>
 				</button>
 			{:else}
@@ -61,9 +61,9 @@
 							? ''
 							: '!scale-100'} flex gap-3 max-md:w-full"
 						disabled={files.files.length === 0}
-						onclick={() => (files.files = [])}
+						onclick={() => files.clear()}
 					>
-						<Trash2Icon size="24" />
+						<PixelIcon name="trash" size={24} />
 					</button>
 				</Tooltip>
 			{/if}

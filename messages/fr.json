@@ -9,7 +9,7 @@
 		"toggle_theme": "Changer de thème"
 	},
 	"footer": {
-		"copyright": "© {year} ii.Pe.",
+		"copyright": "© {year} Z8.Work.",
 		"source_code": "Code source",
 		"discord_server": "Serveur Discord"
 	},
@@ -21,7 +21,7 @@
 			"convert": "convertir"
 		},
 		"cards": {
-			"title": "ii.Pe supports...",
+			"title": "Z8.Work supports...",
 			"images": "Images",
 			"audio": "Audio",
 			"documents": "Documents",
@@ -104,7 +104,7 @@
 			"advanced_settings": "Paramètres avancés",
 			"filename_format": "Format du nom de fichier",
 			"filename_description": "Cela déterminera le nom du fichier lors du téléchargement, <b>sans inclure l'extension du fichier.</b> Vous pouvez mettre les modèles suivants dans le format, qui seront remplacés par les informations pertinentes: <b>%name%</b> pour le nom du fichier d'origine, <b>%extension%</b> pour l'extension du fichier d'origine et <b>%date%</b> pour une chaîne de date indiquant quand le fichier a été converti.",
-			"placeholder": "ii.Pe_%name%",
+			"placeholder": "Z8.Work_%name%",
 			"default_format": "Format de conversion par défaut",
 			"default_format_enable": "Activer",
 			"default_format_disable": "Désactiver",
@@ -130,7 +130,7 @@
 			"loading": "Chargement...",
 			"available": "disponible, identifiant de validation {commitId}",
 			"unavailable": "indisponible (l'url est-elle correcte ?)",
-			"description": "Le projet <code>vertd</code> est un serveur de wrapper utilisant FFmpeg. Il vous permet de convertir des vidéos grâce à l'interface web pratique de ii.Pe'tout en exploitant la puissance de votre GPU pour une exécution rapide.",
+			"description": "Le projet <code>vertd</code> est un serveur de wrapper utilisant FFmpeg. Il vous permet de convertir des vidéos grâce à l'interface web pratique de Z8.Work'tout en exploitant la puissance de votre GPU pour une exécution rapide.",
 			"hosting_info": "Nous hébergeons une instance publique pour vous faciliter la tâche, mais il est assez facile d'héberger la vôtre sur votre PC ou votre serveur si vous savez ce que vous faites. Vous pouvez télécharger les binaires pour serveur [vertd_link]ici[/vertd_link] - le processus de mise en place deviendra plus facile à l'avenir, alors restez à l'écoute !",
 			"instance_url": "URL de l'instance",
 			"url_placeholder": "Exemple: http://localhost:24153",
@@ -154,7 +154,7 @@
 		},
 		"language": {
 			"title": "Langue",
-			"description": "Sélectionnez votre langue préférée pour l'interface de ii.Pe"
+			"description": "Sélectionnez votre langue préférée pour l'interface de Z8.Work"
 		}
 	},
 	"about": {
@@ -198,7 +198,7 @@
 			}
 		},
 		"why": {
-			"title": "Pourquoi ii.Pe?",
+			"title": "Pourquoi Z8.Work?",
 			"description": "<b>Les convertisseurs de fichiers nous ont toujours déçus.</b> Ils sont laids, infestés de publicités et, surtout, lents. Nous avons décidé de résoudre ce problème une fois pour toutes en créant une alternative qui résout tous ces problèmes, et bien plus encore.<br/><br/>Tous les fichiers sont convertis entièrement sur l'appareil; cela signifie qu'il n'y a aucun délai entre l'envoi et la réception des fichiers depuis un serveur, et nous ne pouvons jamais espionner les fichiers que vous convertissez."
 		},
 		"sponsors": {
@@ -212,29 +212,16 @@
 			"source": "Source",
 			"email": "Courriel"
 		},
-		"donate": {
-			"title": "Faire un don à ii.Pe",
-			"description": "Avec votre soutien, nous pouvons continuer à maintenir et à améliorer ii.Pe.",
-			"one_time": "Une fois",
-			"monthly": "Mensuel",
-			"custom": "Personnaliser",
-			"pay_now": "Payer maintenant",
-			"donate_amount": "Faire un don de ${amount} USD",
-			"thank_you": "Merci pour votre don!",
-			"payment_failed": "Paiement échoué: {message}{period} Vous n'avez pas été facturé.",
-			"donation_error": "Une erreur s'est produite lors du traitement de votre don. Veuillez réessayer ultérieurement.",
-			"payment_error": "Erreur lors de la récupération des informations de paiement. Veuillez réessayer ultérieurement."
-		},
 		"credits": {
 			"title": "Credits",
 			"contact_team": "Si vous souhaitez contacter l'équipe de développement, veuillez utiliser le courriel figurant sur la carte \"Resources\".",
 			"notable_contributors": "Contributeurs notables",
-			"notable_description": "Nous tenons à remercier ces personnes pour leurs contributions majeures à ii.Pe.",
+			"notable_description": "Nous tenons à remercier ces personnes pour leurs contributions majeures à Z8.Work.",
 			"github_contributors": "Les contributeurs de GitHub",
 			"github_description": "Un grand merci à toutes ces personnes pour leur aide ! [github_link]Vous voulez aussi aider ?[/github_link]",
 			"no_contributors": "Il semble que personne n'ait encore contribué... [contribute_link]soyez le premier à contribuer ![/contribute_link]",
 			"libraries": "Bibliothèques",
-			"libraries_description": "un grand merci à FFmpeg (audio, video), ImageMagick (images) et Pandoc (documents) pour avoir maintenu d'aussi excellentes bibliothèques pendant tant d'années, ii.Pe compte sur eux pour vous fournir vos conversions.",
+			"libraries_description": "un grand merci à FFmpeg (audio, video), ImageMagick (images) et Pandoc (documents) pour avoir maintenu d'aussi excellentes bibliothèques pendant tant d'années, Z8.Work compte sur eux pour vous fournir vos conversions.",
 			"roles": {
 				"lead_developer": "Lead developer; conversion backend, UI implementation",
 				"developer": "Developer; UI implementation",

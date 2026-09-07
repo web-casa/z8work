@@ -1,15 +1,24 @@
 <script lang="ts">
-	import { duration, fade, transition } from "$lib/util/animation";
+	import { tick } from "svelte";
 	import { m } from "$lib/paraglide/messages";
 	import { isMobile, files, dropdownStates } from "$lib/store/index.svelte";
-	import type { Categories } from "$lib/types";
-	import clsx from "clsx";
-	import { ChevronDown, SearchIcon } from "lucide-svelte";
-	import { onMount } from "svelte";
-	import { quintOut } from "svelte/easing";
-	import { VertFile } from "$lib/types";
+	import { VertFile, type Categories } from "$lib/types";
+	import { converters } from "$lib/converters";
+	import { outputFormats } from "$lib/util/output-formats";
+	import { ToastManager } from "$lib/util/toast.svelte";
+	import { formatLabel } from "$lib/components/pixel/presentation";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 
-	type Props = {
+	let {
+		categories,
+		from,
+		selected = $bindable(""),
+		onselect,
+		disabled = false,
+		dropdownSize = "default",
+		file,
+		allowedFormats,
+	}: {
 		categories: Categories;
 		from?: string;
 		selected?: string;
@@ -17,489 +26,585 @@
 		disabled?: boolean;
 		dropdownSize?: "default" | "large" | "small";
 		file?: VertFile;
-	};
-
-	let {
-		categories,
-		from,
-		selected = $bindable(""),
-		onselect,
-		disabled,
-		dropdownSize = "default",
-		file,
-	}: Props = $props();
+		allowedFormats?: readonly string[];
+	} = $props();
+	const id = $props.id();
 	let open = $state(false);
-	let dropdown = $state<HTMLDivElement>();
-	let currentCategory = $state<string | null>();
-	let searchQuery = $state("");
-	let dropdownMenu: HTMLElement | undefined = $state();
-	let rootCategory: string | null = null;
-	let dropdownPosition = $state<"left" | "center" | "right">("center");
-
-	// initialize current category
-	$effect(() => {
-		if (currentCategory) return;
-
-		// find the category whose formats overlap most with the converters for this file (or all files)
-		// this finds the best matching category based on the formats supported by the converters
-		const pickCategoryFromConverters = (
-			convList: VertFile["converters"],
-		) => {
-			let bestCategory: string | null = null;
-			let maxOverlap = 0;
-
-			for (const cat of Object.keys(categories)) {
-				const overlapCount = categories[cat].formats.filter((fmt) =>
-					convList.some((conv) => conv.formatStrings().includes(fmt)),
-				).length;
-
-				if (overlapCount > maxOverlap) {
-					maxOverlap = overlapCount;
-					bestCategory = cat;
-				}
-			}
-
-			return bestCategory;
-		};
-
-		// decide which converters to use to detect category:
-		// - if file provided, prefer its primary converter -- individual file dropdown
-		// - if no file provided, use all converters from all files -- "set all to" dropdown
-		const convertersToCheck = file
-			? file.findConverter()
-				? [file.findConverter()!]
-				: file.converters
-			: files.files.flatMap((f) => f.converters);
-
-		// pick the best matching category, or fall back to first category
-		// TODO: if something fails for some reason, maybe show all categories?
-		const detectedCategory =
-			pickCategoryFromConverters(convertersToCheck) ||
-			Object.keys(categories)[0];
-
-		currentCategory = detectedCategory;
-		rootCategory = detectedCategory;
-	});
-
-	// other available categories based on current category (e.g. converting between video and audio)
-	const availableCategories = $derived.by(() => {
-		if (!rootCategory) return Object.keys(categories);
-
-		let finalCategories = Object.keys(categories).filter(
-			(cat) =>
-				cat === rootCategory ||
-				categories[rootCategory!]?.canConvertTo?.includes(cat),
-		);
-		if (from === ".gif") finalCategories.push("video");
-
-		// filter out categories that can't handle large files (due to browser/device limitations)
-		if (file && file.isLarge()) {
-			// if file is large video, disable audio conversion
-			if (rootCategory === "video")
-				finalCategories = finalCategories.filter(
-					(cat) => cat !== "audio",
-				);
-		}
-
-		return finalCategories;
-	});
-
-	const shouldInclude = (format: string, category: string): boolean => {
-		// if converting from audio to video, dont show gifs
-		if (
-			categories["audio"]?.formats.includes(from ?? "") &&
-			format === ".gif"
-		) {
-			return false;
-		}
-
-		return true;
+	let trigger: HTMLButtonElement;
+	let dialog: HTMLDialogElement;
+	let results = $state<HTMLDivElement>();
+	let search = $state<HTMLInputElement>();
+	let query = $state("");
+	let category = $state("");
+	let expanded = $state(false);
+	let extracting = $state(false);
+	// Presentation only: every entry is intersected with the existing legal
+	// candidates below. Aliases remain separate, searchable output extensions.
+	const commonFormatGroups = [
+		[".jpeg", ".jpg"],
+		[".png"],
+		[".webp"],
+		[".avif"],
+		[".gif"],
+		[".tiff", ".tif"],
+		[".mp3"],
+		[".wav"],
+		[".flac"],
+		[".m4a"],
+		[".ogg"],
+		[".opus"],
+		[".docx"],
+		[".odt"],
+		[".md"],
+		[".html"],
+		[".epub"],
+	];
+	const purposeLabels: Record<string, () => string> = {
+		".jpg": m["formats.purpose.jpeg"],
+		".jpeg": m["formats.purpose.jpeg"],
+		".png": m["formats.purpose.png"],
+		".webp": m["formats.purpose.webp"],
+		".avif": m["formats.purpose.avif"],
+		".gif": m["formats.purpose.gif"],
+		".tiff": m["formats.purpose.tiff"],
+		".tif": m["formats.purpose.tiff"],
+		".mp3": m["formats.purpose.mp3"],
+		".wav": m["formats.purpose.wav"],
+		".flac": m["formats.purpose.flac"],
+		".m4a": m["formats.purpose.m4a"],
+		".ogg": m["formats.purpose.ogg"],
+		".opus": m["formats.purpose.opus"],
+		".docx": m["formats.purpose.docx"],
+		".odt": m["formats.purpose.odt"],
+		".md": m["formats.purpose.md"],
+		".html": m["formats.purpose.html"],
+		".epub": m["formats.purpose.epub"],
 	};
-
-	const filteredData = $derived.by(() => {
-		const normalize = (str: string) => str.replace(/^\./, "").toLowerCase();
-
-		// if no query, return formats for current category
-		if (!searchQuery) {
-			let formats = currentCategory
-				? categories[currentCategory].formats.filter((format) =>
-						shouldInclude(format, currentCategory!),
-					)
-				: [];
-
-			return {
-				categories: availableCategories,
-				formats,
-			};
-		}
-		const searchLower = normalize(searchQuery);
-
-		// find all categories that have formats matching the search query
-		const matchingCategories = availableCategories.filter((cat) =>
-			categories[cat].formats.some(
-				(format) =>
-					normalize(format).includes(searchLower) &&
-					shouldInclude(format, cat),
+	const categoryLabels = {
+		image: m["convert.dropdown.image"],
+		audio: m["convert.dropdown.audio"],
+		video: m["convert.dropdown.video"],
+		doc: m["convert.dropdown.doc"],
+	};
+	const candidates = $derived.by(() => {
+		const all = [
+			...new Set(
+				Object.values(categories)
+					.flatMap((c) => c.formats)
+					.filter((format) =>
+						converters.some((converter) =>
+							converter.supportedFormats.some(
+								(f) => f.name === format && f.toSupported,
+							),
+						),
+					),
 			),
-		);
-		if (matchingCategories.length === 0) {
-			return {
-				categories: availableCategories,
-				formats: [],
-			};
-		}
-
-		// if current category has no matches, switch to first category that does
-		const currentCategoryHasMatches =
-			currentCategory &&
-			matchingCategories.some((cat) => cat === currentCategory);
-		if (!currentCategoryHasMatches && matchingCategories.length > 0) {
-			const newCategory = matchingCategories[0];
-			currentCategory = newCategory;
-		}
-
-		// return formats only from the current category that match the search
-		let filteredFormats = currentCategory
-			? categories[currentCategory].formats.filter(
-					(format) =>
-						normalize(format).includes(searchLower) &&
-						shouldInclude(format, currentCategory!),
-				)
-			: [];
-
-		// sorting exact match first, then others
-		filteredFormats = filteredFormats.sort((a, b) => {
-			const aExact = normalize(a) === searchLower;
-			const bExact = normalize(b) === searchLower;
-			if (aExact && !bExact) return -1;
-			if (!aExact && bExact) return 1;
-			return 0;
-		});
-
-		return {
-			categories:
-				matchingCategories.length > 0
-					? matchingCategories
-					: availableCategories,
-			formats: filteredFormats,
-		};
-	});
-
-	const selectOption = (option: string) => {
-		selected = option;
-		open = false;
-
-		// save user's selection to dropdownStates for this session
-		if (file) {
-			dropdownStates.update((states) => {
-				const updated = { ...states, [file.name]: option };
-				return updated;
-			});
-		}
-
-		// find the category of this option if it's not in the current category
-		if (
-			currentCategory &&
-			!categories[currentCategory].formats.includes(option)
-		) {
-			const formatCategory = Object.keys(categories).find((cat) =>
-				categories[cat].formats.includes(option),
-			);
-
-			if (formatCategory) {
-				currentCategory = formatCategory;
-			}
-		}
-
-		onselect?.(option);
-	};
-
-	const selectCategory = (category: string) => {
-		if (!categories[category]) return;
-		currentCategory = category;
-	};
-
-	const handleSearch = (event: Event) => {
-		const query = (event.target as HTMLInputElement).value;
-		searchQuery = query;
-
-		// find which categories have matching formats & switch
-		if (query) {
-			const queryLower = query.toLowerCase();
-			const categoriesWithMatches = availableCategories.filter((cat) =>
-				categories[cat].formats.some((format) =>
-					format.toLowerCase().includes(queryLower),
+		];
+		const legal = allowedFormats
+			? all.filter((f) => allowedFormats.includes(f))
+			: file
+				? outputFormats(file, all)
+				: all;
+		return legal.filter(
+			(format) =>
+				!(
+					categories.audio?.formats.includes(from ?? "") &&
+					format === ".gif"
 				),
+		);
+	});
+	const availableCategories = $derived(
+		Object.keys(categories).filter((key) =>
+			categories[key].formats.some((f) => candidates.includes(f)),
+		),
+	);
+	const activeCategory = $derived(
+		availableCategories.includes(category)
+			? category
+			: availableCategories[0],
+	);
+	const normalizedQuery = $derived(
+		query.trim().toLowerCase().replace(/^\./, ""),
+	);
+	const categoryFormats = $derived(
+		candidates.filter((f) =>
+			categories[activeCategory]?.formats.includes(f),
+		),
+	);
+	const frequentFormats = $derived(
+		commonFormatGroups
+			.map(
+				(group) =>
+					group.find(
+						(f) => f === selected && categoryFormats.includes(f),
+					) ?? group.find((f) => categoryFormats.includes(f)),
+			)
+			.filter((f): f is string => !!f),
+	);
+	const otherFormats = $derived(
+		categoryFormats.filter((f) => !frequentFormats.includes(f)),
+	);
+	const filtered = $derived.by(() => {
+		if (!normalizedQuery)
+			return frequentFormats.length ? frequentFormats : categoryFormats;
+		return candidates
+			.filter((f) => f.slice(1).includes(normalizedQuery))
+			.sort(
+				(a, b) =>
+					Number(b.slice(1) === normalizedQuery) -
+					Number(a.slice(1) === normalizedQuery),
 			);
+	});
+	const canExpand = $derived(
+		!normalizedQuery &&
+			frequentFormats.length > 0 &&
+			otherFormats.length > 0,
+	);
+	const visibleCount = $derived(
+		filtered.length + (canExpand && expanded ? otherFormats.length : 0),
+	);
 
-			if (categoriesWithMatches.length > 0) {
-				const currentHasMatches =
-					currentCategory &&
-					categories[currentCategory].formats.some((format) =>
-						format.toLowerCase().includes(queryLower),
-					);
-
-				if (!currentHasMatches) {
-					currentCategory = categoriesWithMatches[0];
-				}
-			}
-		}
-	};
-
-	const onEnter = (event: KeyboardEvent) => {
-		if (event.key === "Enter") {
-			event.preventDefault();
-			if (filteredData.formats.length > 0) {
-				selectOption(filteredData.formats[0]);
-			}
-		}
-	};
-
-	const clickDropdown = () => {
-		open = !open;
+	async function show() {
+		if (disabled) return;
+		query = "";
+		category =
+			availableCategories.find((key) =>
+				categories[key].formats.includes(selected),
+			) || availableCategories[0];
+		// Keep an already selected uncommon extension visible when reopening.
+		expanded =
+			candidates.includes(selected) &&
+			!frequentFormats.includes(selected);
+		open = true;
+		await tick();
+		if (!open || !dialog?.isConnected) return;
+		dialog.showModal();
+		if (expanded)
+			dialog
+				.querySelector('.format-options button[aria-pressed="true"]')
+				?.scrollIntoView({ block: "nearest", behavior: "instant" });
+		if (!$isMobile) search?.focus();
+	}
+	function close() {
+		dialog.close();
+		open = false;
+		trigger?.focus({ preventScroll: true });
+	}
+	function select(format: string) {
+		if (disabled || !candidates.includes(format)) return;
+		const changed = selected !== format;
+		selected = format;
+		if (file)
+			dropdownStates.update((value) => ({
+				...value,
+				[file.name]: format,
+			}));
+		close();
+		if (changed) onselect?.(format);
+	}
+	$effect(() => {
 		if (!open) return;
-
-		// keep within viewport
-		if (dropdown) {
-			const rect = dropdown.getBoundingClientRect();
-			const viewportWidth = window.innerWidth;
-
-			let dropdownWidth: number;
-			if (dropdownSize === "large") {
-				dropdownWidth = rect.width * 3.2;
-			} else if (dropdownSize === "default") {
-				dropdownWidth = rect.width * 2.5;
-			} else {
-				dropdownWidth = rect.width * 1.5;
+		const viewport = window.visualViewport;
+		const initialWidth = window.innerWidth;
+		const position = () => {
+			if (window.innerWidth !== initialWidth) {
+				close();
+				return;
 			}
-
-			const centerX = rect.left + rect.width / 2;
-			const leftEdge = centerX - dropdownWidth / 2;
-			const rightEdge = centerX + dropdownWidth / 2;
-
-			if (leftEdge < 0) {
-				dropdownPosition = "left";
-			} else if (rightEdge > viewportWidth) {
-				dropdownPosition = "right";
-			} else {
-				dropdownPosition = "center";
-			}
-		}
-
-		setTimeout(() => {
-			if (!dropdownMenu) return;
-			const searchInput = dropdownMenu.querySelector(
-				"#format-search",
-			) as HTMLInputElement;
-			if (searchInput) {
-				searchInput.focus();
-				searchInput.select();
-			}
-		}, 0); // let dropdown open first
-	};
-
-	const extract = async () => {
-		// extract all files in zip, then add all extracted files to files store
-		if (!file) return;
-		const { extractZip } = await import("$lib/util/zip");
-		const extractedFiles = await extractZip(file.file);
-
-		if (!Array.isArray(extractedFiles) || extractedFiles.length === 0)
-			return;
-
-		const newFiles = extractedFiles
-			.map(({ filename, data }) => {
-				try {
-					const f = new File([new Uint8Array(data)], filename, {
-						type: "application/octet-stream",
-					});
-					const ext = filename.split(".").pop() ?? "";
-					return new VertFile(f, ext);
-				} catch (err) {
-					return null;
-				}
-			})
-			.filter(Boolean);
-
-		files.files = files.files.filter((f) => f !== file);
-		newFiles.forEach((f) => files.add(f));
-	};
-
-	onMount(() => {
-		const handleClickOutside = (e: MouseEvent) => {
-			if (dropdown && !dropdown.contains(e.target as Node)) {
-				open = false;
-			}
+			const height = viewport?.height ?? window.innerHeight;
+			dialog.style.maxHeight = `${Math.max(80, height - 24)}px`;
+			const free = Math.max(
+				12,
+				height - dialog.getBoundingClientRect().height,
+			);
+			dialog.style.top = `${(viewport?.offsetTop ?? 0) + ($isMobile ? free - 8 : free / 2)}px`;
 		};
-
-		const handleResize = () => {
-			if (open) {
-				// recalculate dropdown position on resize
-				clickDropdown();
-				open = true;
-			}
-		};
-
-		window.addEventListener("click", handleClickOutside);
-		window.addEventListener("resize", handleResize);
+		const observer = new ResizeObserver(position);
+		observer.observe(dialog);
+		viewport?.addEventListener("resize", position);
+		viewport?.addEventListener("scroll", position);
+		window.addEventListener("resize", position);
+		const overflow = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
 		return () => {
-			window.removeEventListener("click", handleClickOutside);
-			window.removeEventListener("resize", handleResize);
+			observer.disconnect();
+			viewport?.removeEventListener("resize", position);
+			viewport?.removeEventListener("scroll", position);
+			window.removeEventListener("resize", position);
+			document.body.style.overflow = overflow;
 		};
 	});
+	$effect(() => {
+		if (disabled && open) close();
+	});
+	$effect(() => {
+		// A fresh search/category starts at the first match, even after the user
+		// scrolled through a long expanded list. Reopening scrolls to selection.
+		if (!normalizedQuery && !activeCategory) return;
+		if (open && results) results.scrollTop = 0;
+	});
+	async function extract() {
+		if (!file || extracting) return;
+		const source = file;
+		extracting = true;
+		try {
+			const { extractZip } = await import("$lib/util/zip");
+			const entries = await extractZip(source.file);
+			if (
+				!entries.length ||
+				!files.files.includes(source) ||
+				source.processing ||
+				source.queued
+			)
+				return;
+			const added = entries.map(
+				({ filename, data }) =>
+					new VertFile(
+						new File([new Uint8Array(data)], filename),
+						filename.split(".").pop() ?? "",
+					),
+			);
+			close();
+			await files.remove(source);
+			files.add(added);
+		} catch (error) {
+			ToastManager.add({
+				type: "error",
+				message: m["convert.archive_file.extract_error"]({
+					filename: source.name,
+					error: String(error),
+				}),
+			});
+		} finally {
+			extracting = false;
+		}
+	}
 </script>
 
-<div
-	class="relative w-full min-w-fit text-xl font-medium text-center"
-	bind:this={dropdown}
->
+{#snippet options(formats: string[])}
+	<div class="format-options">
+		{#each formats as format}
+			{@const purpose = purposeLabels[format]?.()}
+			<button
+				type="button"
+				aria-label={format}
+				aria-describedby={purpose
+					? `${id}-purpose-${format}`
+					: undefined}
+				aria-pressed={format === selected}
+				onclick={() => select(format)}
+			>
+				<span>{format}</span>
+				{#if purpose}<small id={`${id}-purpose-${format}`}
+						>{purpose}</small
+					>{/if}
+			</button>
+		{:else}<p>
+				{normalizedQuery
+					? m["convert.dropdown.no_results"]()
+					: m["convert.dropdown.no_formats"]()}
+			</p>{/each}
+	</div>
+{/snippet}
+
+<div class="pixel-format-selector" data-size={dropdownSize}>
 	<button
-		class="relative flex items-center justify-center w-full font-display px-3 py-3.5 bg-button rounded-full overflow-hidden cursor-pointer focus:!outline-none
-		{disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}"
-		onclick={() => clickDropdown()}
+		type="button"
+		bind:this={trigger}
 		{disabled}
+		onclick={show}
+		aria-label={`${m["pixel.output"]()}${selected ? `: ${formatLabel(selected)}` : ""}`}
+		aria-haspopup="dialog"
+		aria-expanded={open}
+		aria-controls={id}
 	>
-		<!-- <p>{selected}</p> -->
-		<div
-			class="grid grid-cols-1 grid-rows-1 w-fit flex-grow-0 max-h-[2.5rem] overflow-hidden"
-		>
-			{#key selected}
-				<p
-					in:fade={{
-						duration,
-						easing: quintOut,
-					}}
-					out:fade={{
-						duration,
-						easing: quintOut,
-					}}
-					class="col-start-1 row-start-1 text-center font-body font-medium truncate max-w-[4rem]"
-				>
-					{selected || "N/A"}
-				</p>
-			{/key}
-			{#if currentCategory}
-				{#each categories[currentCategory].formats as option}
-					<p
-						class="col-start-1 row-start-1 invisible pointer-events-none truncate max-w-[2.5rem]"
-					>
-						{option}
-					</p>
-				{/each}
-			{/if}
-		</div>
-		<ChevronDown
-			class="w-4 h-4 ml-3 mt-0.5 flex-shrink-0"
-			style="transform: rotate({open
-				? 180
-				: 0}deg); transition: transform {duration}ms {transition};"
-		/>
+		<span>{selected ? formatLabel(selected) : m["pixel.select"]()}</span
+		><PixelIcon name="chevron" size={20} />
 	</button>
-	{#if open}
-		<div
-			bind:this={dropdownMenu}
-			transition:fade={{
-				duration,
-				easing: quintOut,
-			}}
-			class={clsx(
-				$isMobile
-					? "fixed inset-x-0 bottom-0 w-full z-[200] shadow-xl bg-panel-alt shadow-black/25 rounded-t-2xl overflow-hidden"
-					: "min-w-full shadow-xl bg-panel-alt shadow-black/25 absolute top-full mt-2 z-50 rounded-2xl overflow-hidden",
-				!$isMobile && {
-					"w-[320%]": dropdownSize === "large",
-					"w-[250%]": dropdownSize === "default",
-					"w-[150%]": dropdownSize === "small",
-				},
-				!$isMobile && {
-					"-translate-x-1/2 left-1/2": dropdownPosition === "center",
-					"left-0": dropdownPosition === "left",
-					"right-0": dropdownPosition === "right",
-				},
-			)}
-		>
-			<!-- search box -->
-			<div class="p-3 w-full">
-				<div class="relative">
-					<input
-						type="text"
-						placeholder={m["convert.dropdown.placeholder"]()}
-						class="flex-grow w-full !pl-11 !pr-3 rounded-lg bg-panel text-foreground"
-						bind:value={searchQuery}
-						oninput={handleSearch}
-						onkeydown={onEnter}
-						onfocus={() => {}}
-						id="format-search"
-						autocomplete="off"
-					/>
-					<span
-						class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center"
-					>
-						<SearchIcon class="w-4 h-4" />
-					</span>
-					{#if searchQuery}
-						<span
-							class="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted"
-							style="font-size: 0.7rem;"
-						>
-							{filteredData.formats.length}
-							{filteredData.formats.length === 1
-								? "result"
-								: "results"}
-						</span>
-					{/if}
-				</div>
-			</div>
-			<!-- available categories -->
-			<div class="flex items-center justify-between">
-				{#each filteredData.categories as category}
+	<dialog
+		bind:this={dialog}
+		{id}
+		class="pixel-format-menu"
+		onkeydown={(event) => {
+			if (event.key === "Escape") {
+				event.preventDefault();
+				close();
+			}
+			if (event.key === "Tab") {
+				const controls = [
+					...dialog.querySelectorAll<HTMLElement>(
+						"button:enabled, input:enabled",
+					),
+				].filter((element) => element.getClientRects().length);
+				const first = controls[0];
+				const last = controls.at(-1);
+				if (event.shiftKey && document.activeElement === first) {
+					event.preventDefault();
+					last?.focus();
+				} else if (!event.shiftKey && document.activeElement === last) {
+					event.preventDefault();
+					first?.focus();
+				}
+			}
+		}}
+		aria-label={m["pixel.output"]()}
+		onclose={() => {
+			// close() already restored focus. The native close event arrives
+			// later, so it must not steal a subsequent focus or close a reopened menu.
+			if (!open || dialog.open) return;
+			open = false;
+			trigger?.focus({ preventScroll: true });
+		}}
+		onclick={(event) => {
+			if (event.target === dialog) {
+				const r = dialog.getBoundingClientRect();
+				if (
+					event.clientX < r.left ||
+					event.clientX > r.right ||
+					event.clientY < r.top ||
+					event.clientY > r.bottom
+				)
+					close();
+			}
+		}}
+	>
+		{#if open}
+			<header>
+				<strong>{m["pixel.output"]()}</strong><button
+					type="button"
+					onclick={close}
+					aria-label={m["workspace.close"]()}
+					><PixelIcon name="close" /></button
+				>
+			</header>
+			<input
+				bind:this={search}
+				type="search"
+				bind:value={query}
+				placeholder={m["convert.dropdown.placeholder"]()}
+				aria-label={m["convert.dropdown.placeholder"]()}
+				autocomplete="off"
+				onkeydown={(event) => {
+					if (event.key === "Enter" && !event.isComposing) {
+						event.preventDefault();
+						if (filtered[0]) select(filtered[0]);
+					}
+				}}
+			/>
+			{#if !normalizedQuery}<div class="format-categories">
+					{#each availableCategories as key}<button
+							type="button"
+							aria-pressed={activeCategory === key}
+							onclick={() => {
+								category = key;
+								expanded = false;
+							}}
+							>{categoryLabels[
+								key as keyof typeof categoryLabels
+							]?.() || key}</button
+						>{/each}
+				</div>{/if}
+			<p class="format-count" role="status">
+				{normalizedQuery
+					? m["workspace.matches"]({ count: filtered.length })
+					: m["formats.shown"]({
+							count: visibleCount,
+							total: categoryFormats.length,
+						})}
+			</p>
+			<div class="format-results" bind:this={results}>
+				{#if !normalizedQuery && frequentFormats.length}<h3>
+						{m["formats.common"]()}
+					</h3>{/if}
+				{@render options(filtered)}
+				{#if canExpand}
 					<button
-						class="flex-grow text-lg hover:text-muted/20 border-b-[1px] pb-2 capitalize
-                        {currentCategory === category
-							? 'text-accent border-b-accent'
-							: 'border-b-separator text-muted'}"
-						onclick={() => selectCategory(category)}
+						type="button"
+						class="format-expand"
+						aria-expanded={expanded}
+						aria-controls={`${id}-other`}
+						onclick={() => (expanded = !expanded)}
 					>
-						{(m as any)[`convert.dropdown.${category}`]?.()}
-					</button>
-				{/each}
-			</div>
-			<!-- available formats -->
-			<div class="max-h-80 overflow-y-auto grid grid-cols-3 gap-2 p-2">
-				{#if filteredData.formats.length > 0}
-					{#each filteredData.formats as format}
-						<button
-							class="w-full p-2 text-center rounded-xl
-							{format === selected
-								? 'bg-accent text-black'
-								: format === from
-									? 'bg-separator'
-									: 'hover:bg-panel'}"
-							onclick={() => selectOption(format)}
+						<span
+							>{expanded
+								? m["formats.collapse"]()
+								: m["formats.expand"]({
+										count: categoryFormats.length,
+									})}</span
 						>
-							{format}
-						</button>
-					{/each}
-				{:else}
-					<div class="col-span-3 text-center p-4 text-muted">
-						{searchQuery
-							? m["convert.dropdown.no_results"]()
-							: m["convert.dropdown.no_formats"]()}
+						<span class:rotated={expanded}
+							><PixelIcon name="chevron" size={20} /></span
+						>
+					</button>
+					<div id={`${id}-other`} hidden={!expanded}>
+						{#if expanded}<h3>{m["formats.other"]()}</h3>
+							{@render options(otherFormats)}{/if}
 					</div>
 				{/if}
 			</div>
-			<!-- format options -->
-			<!-- TODO: extract zip, image sequence & fps -->
-			{#if file?.name.toLowerCase().endsWith(".zip")}
-				<div class="border-t border-separator text-base p-2">
-					<button
-						class="w-full p-2 text-center rounded-lg bg-accent text-black"
-						onclick={() => extract()}
-					>
-						{m["convert.archive_file.extract"]()}
-					</button>
-				</div>
-			{/if}
-		</div>
-	{/if}
+			{#if file?.isZip()}<button
+					class="format-extract"
+					type="button"
+					disabled={extracting}
+					onclick={extract}
+					>{m["convert.archive_file.extract"]()}</button
+				>{/if}
+		{/if}
+	</dialog>
 </div>
+
+<style>
+	.pixel-format-selector {
+		width: 100%;
+		min-width: 0;
+	}
+	.pixel-format-selector > button {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		width: 100%;
+		min-height: 44px;
+		font: 600 15px/1.3 var(--font-body);
+	}
+	.pixel-format-selector > button span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	dialog.pixel-format-menu {
+		position: fixed;
+		inset: auto;
+		left: 50%;
+		transform: translateX(-50%);
+		margin: 0;
+		padding: 16px;
+		width: min(540px, calc(100vw - 24px));
+		max-width: none;
+		border: 2px solid var(--pixel-line);
+		border-radius: 0;
+		background: var(--bg-panel);
+		color: var(--fg);
+		overflow: hidden;
+		text-align: left;
+		font: 400 15px/1.5 var(--font-body);
+	}
+	dialog.pixel-format-menu[open] {
+		display: flex;
+		flex-direction: column;
+	}
+	dialog > :not(.format-results) {
+		flex-shrink: 0;
+	}
+	dialog::backdrop {
+		background: #0008;
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 12px;
+		margin-bottom: 12px;
+	}
+	header button {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		min-height: 44px;
+		border: 1px solid currentColor;
+	}
+	input {
+		width: 100%;
+		min-height: 44px;
+		font-size: 16px;
+		background: var(--bg-panel);
+		color: var(--fg);
+		border: 1px solid currentColor;
+		padding: 10px;
+	}
+	.format-categories {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 12px;
+	}
+	.format-categories button {
+		padding: 8px;
+		min-height: 44px;
+	}
+	.format-count {
+		margin: 12px 0 8px;
+		font-size: 13px;
+	}
+	.format-options {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 8px;
+	}
+	.format-results {
+		min-height: 0;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		padding: 4px;
+		margin: -4px;
+	}
+	h3 {
+		font: 600 13px/1.4 var(--font-body);
+		margin: 0 0 8px;
+	}
+	.format-options button {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+		min-height: 44px;
+		padding: 10px;
+		border: 1px solid var(--pixel-line);
+		overflow-wrap: anywhere;
+		text-align: left;
+	}
+	.format-options button > span {
+		font-weight: 600;
+	}
+	.format-options small {
+		font: 400 12px/1.45 var(--font-body);
+	}
+	.format-expand {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 8px;
+		width: 100%;
+		min-height: 44px;
+		margin: 12px 0;
+		padding: 8px 0;
+		border-block: 1px solid var(--pixel-line);
+		text-align: left;
+		font-weight: 600;
+	}
+	.rotated {
+		transform: rotate(180deg);
+	}
+	@media (max-width: 520px) {
+		.format-options {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	.format-options > p {
+		grid-column: 1 / -1;
+	}
+	button[aria-pressed="true"] {
+		background: var(--pixel-peach);
+		color: #171e20;
+	}
+	.format-extract {
+		margin-top: 12px;
+		min-height: 44px;
+		width: 100%;
+		border: 1px solid currentColor;
+	}
+	dialog button:focus-visible,
+	dialog input:focus-visible {
+		outline: 3px solid var(--fg-accent) !important;
+		outline-offset: 2px;
+	}
+</style>

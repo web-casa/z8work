@@ -1,0 +1,109 @@
+{
+	"file": "IMG_0217.PNG",
+	"inputBytes": 1673838,
+	"comparison": "Decoded 8-bit RGBA; the before column already includes the previous AVIF fix.",
+	"results": [
+		{
+			"to": ".tiff",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 17776081,
+				"ms": 56,
+				"depth": 16,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 582853,
+				"ms": 774,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		},
+		{
+			"to": ".jxl",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 520510,
+				"ms": 1261,
+				"depth": 16,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 486680,
+				"ms": 1208,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		},
+		{
+			"to": ".jp2",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 4148049,
+				"ms": 715,
+				"depth": 16,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 1345758,
+				"ms": 281,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		},
+		{
+			"to": ".psd",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 7864477,
+				"ms": 261,
+				"depth": 16,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 7709378,
+				"ms": 213,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		},
+		{
+			"to": ".avif",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 746659,
+				"ms": 5821,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 746659,
+				"ms": 5710,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		},
+		{
+			"to": ".webp",
+			"quality": 100,
+			"keepMetadata": true,
+			"before": {
+				"bytes": 329380,
+				"ms": 1341,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			},
+			"after": {
+				"bytes": 329380,
+				"ms": 1047,
+				"depth": 8,
+				"decodedPixelsUnchanged": true
+			}
+		}
+	]
+}

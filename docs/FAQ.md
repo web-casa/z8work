@@ -13,25 +13,26 @@ This file covers frequently asked questions.
 
 **File converters have always disappointed us.** They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.
 
-All non-video files are converted completely on-device; this means that there's no delay between sending and receiving the files from a server, and we never get to snoop on the files you convert.
+The active converters process files on-device. The files selected for conversion are not uploaded.
 
 ### What happens with video files?
 
-Video files get uploaded to our lightning-fast RTX 4000 Ada server. Your videos stay on there for an hour if you do not convert them. If you do convert the file, the video will stay on the server for an hour, or until it is downloaded. The file will then be deleted from our server.
+This fork supports local audio extraction from video using FFmpeg. A remote video converter is not registered, so this version does not upload video files to VERT's servers or offer general video-to-video conversion.
 
 ### Can I host my own video file converter?
 
-Yes. Check out the [Video Conversion](./VIDEO_CONVERSION.md) page.
+The upstream [Video Conversion](./VIDEO_CONVERSION.md) guide describes vertd. Enabling it in this fork would require explicitly integrating a remote converter and updating the local-processing disclosures; setting a server URL alone does not enable it.
 
 ### What about analytics?
 
-We use [Plausible](https://plausible.io/privacy-focused-web-analytics), a privacy-focused analytics tool, to gather completely anonymous statistics. All data is anonymized and aggregated, and no identifiable information is ever sent or stored. You can view the analytics [here](https://ats.vert.sh/vert.sh) and choose to opt out in the [Settings](https://vert.sh/settings/) page.
+This version does not load Google Analytics or send conversion telemetry. Website hosting still involves network connections, and host logs depend on the deployment. See the application's privacy page for its current disclosures.
 
 ### Is it possible to fully prevent VERT from making requests to external services?
 
-Yes! If you would prefer VERT to not make any requests to external services (video conversion, analytics, among others), you can set the `PUB_DISABLE_ALL_EXTERNAL_REQUESTS` environment variable to `true` **during build time**.
+Set `PUB_DISABLE_ALL_EXTERNAL_REQUESTS` to `true` **during build time** to disable automatic requests to external services, including GitHub contributor information.
 
-The only external request VERT will make with this option is to `cdn.jsdelivr.net`, which is used to download FFmpeg's WebAssembly build.
+All conversion engines, including FFmpeg, are served by the deployment itself. With this option, the app does not automatically request third-party services. Audio and video-to-audio conversion remain available. This setting does not block external links opened by the user, server-side hosting logs, or package downloads during installation and builds.
 
 ### What libraries does VERT use?
-VERT uses FFmpeg for audio and video conversion, imagemagick for images and Pandoc for documents. A big thanks to them for maintaining such excellent libraries for so many years.
+
+This fork uses FFmpeg for audio and video-to-audio conversion, ImageMagick for images, Pandoc for documents, and MuPDF for rendering PDF pages.

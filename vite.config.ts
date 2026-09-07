@@ -53,7 +53,22 @@ export default defineConfig(({ command }) => {
 			format: "es",
 		},
 		optimizeDeps: {
-			exclude: ["@ffmpeg/core-mt", "@ffmpeg/ffmpeg", "@ffmpeg/util"],
+			// These imports are only discovered when the first image Worker starts.
+			// Pre-bundle them at startup so Vite does not reload an active conversion.
+			include: [
+				"@imagemagick/magick-wasm",
+				"vert-wasm",
+				"riff-file",
+				"byte-data",
+			],
+			// Keep MuPDF as ESM so its WASM URL stays relative to its module in dev.
+			exclude: [
+				"@ffmpeg/core",
+				"@ffmpeg/core-mt",
+				"@ffmpeg/ffmpeg",
+				"@ffmpeg/util",
+				"mupdf",
+			],
 		},
 		css: {
 			preprocessorOptions: {

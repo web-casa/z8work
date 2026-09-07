@@ -1,0 +1,392 @@
+{
+	"depth": [
+		{
+			"from": "PNG48",
+			"to": "png",
+			"bytes": 1039,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "tiff",
+			"bytes": 147720,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "jxl",
+			"bytes": 4584,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "jp2",
+			"bytes": 43647,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "psd",
+			"bytes": 103686,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "ppm",
+			"bytes": 147473,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "webp",
+			"bytes": 62,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PNG48",
+			"to": "avif",
+			"bytes": 36939,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "png",
+			"bytes": 1116,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "tiff",
+			"bytes": 196886,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "jxl",
+			"bytes": 4593,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "jp2",
+			"bytes": 14589,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "psd",
+			"bytes": 393344,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "ppm",
+			"bytes": 147473,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "webp",
+			"bytes": 62,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "TIFF",
+			"to": "avif",
+			"bytes": 37121,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "png",
+			"bytes": 1039,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "tiff",
+			"bytes": 147720,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "jxl",
+			"bytes": 4584,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "jp2",
+			"bytes": 43647,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "psd",
+			"bytes": 295032,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "ppm",
+			"bytes": 147473,
+			"depth": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "webp",
+			"bytes": 62,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "PPM",
+			"to": "avif",
+			"bytes": 36939,
+			"depth": 8,
+			"changed": 0,
+			"max": 0
+		}
+	],
+	"orientation": [
+		{
+			"to": "png",
+			"keep": true,
+			"w": 192,
+			"h": 128,
+			"orientation": 6,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		},
+		{
+			"to": "png",
+			"keep": false,
+			"w": 192,
+			"h": 128,
+			"orientation": 6,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		},
+		{
+			"to": "webp",
+			"keep": true,
+			"w": 192,
+			"h": 128,
+			"orientation": 0,
+			"display": {
+				"changed": 73344,
+				"max": 255
+			}
+		},
+		{
+			"to": "webp",
+			"keep": false,
+			"w": 192,
+			"h": 128,
+			"orientation": 0,
+			"display": {
+				"changed": 73344,
+				"max": 255
+			}
+		},
+		{
+			"to": "avif",
+			"keep": true,
+			"w": 128,
+			"h": 192,
+			"orientation": 1,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		},
+		{
+			"to": "avif",
+			"keep": false,
+			"w": 128,
+			"h": 192,
+			"orientation": 1,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		},
+		{
+			"to": "jpeg",
+			"keep": true,
+			"w": 192,
+			"h": 128,
+			"orientation": 0,
+			"display": {
+				"changed": 73430,
+				"max": 255
+			}
+		},
+		{
+			"to": "jpeg",
+			"keep": false,
+			"w": 192,
+			"h": 128,
+			"orientation": 0,
+			"display": {
+				"changed": 73430,
+				"max": 255
+			}
+		},
+		{
+			"to": "tiff",
+			"keep": true,
+			"w": 192,
+			"h": 128,
+			"orientation": 6,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		},
+		{
+			"to": "tiff",
+			"keep": false,
+			"w": 192,
+			"h": 128,
+			"orientation": 6,
+			"display": {
+				"changed": 0,
+				"max": 0
+			}
+		}
+	],
+	"alpha": [
+		{
+			"to": "jpeg",
+			"bytes": 576,
+			"pixels": [254, 0, 0, 255, 254, 0, 0, 255]
+		},
+		{
+			"to": "webp",
+			"bytes": 58,
+			"pixels": [0, 0, 0, 0, 255, 0, 0, 128]
+		},
+		{
+			"to": "avif",
+			"bytes": 513,
+			"pixels": [255, 0, 0, 0, 255, 0, 0, 128]
+		},
+		{
+			"to": "png",
+			"bytes": 140,
+			"pixels": [255, 0, 0, 0, 255, 0, 0, 128]
+		},
+		{
+			"to": "jxl",
+			"bytes": 57,
+			"pixels": [255, 0, 0, 0, 255, 0, 0, 128]
+		},
+		{
+			"to": "gif",
+			"bytes": 645,
+			"pixels": [0, 0, 0, 0, 255, 0, 0, 255]
+		},
+		{
+			"to": "bmp",
+			"bytes": 98442,
+			"pixels": [255, 0, 0, 0, 255, 0, 0, 128]
+		},
+		{
+			"to": "tiff",
+			"bytes": 24854,
+			"pixels": [255, 0, 0, 0, 255, 0, 0, 85]
+		}
+	],
+	"tiff": [
+		{
+			"from": "jpeg",
+			"bytes": 73992,
+			"compression": 16,
+			"changed": 0,
+			"max": 0
+		},
+		{
+			"from": "bmp",
+			"bytes": 98582,
+			"compression": 16,
+			"changed": 0,
+			"max": 0
+		}
+	],
+	"icc": [
+		{
+			"to": "png",
+			"profile": false,
+			"changed": 67779,
+			"max": 135
+		},
+		{
+			"to": "webp",
+			"profile": false,
+			"changed": 67779,
+			"max": 135
+		},
+		{
+			"to": "avif",
+			"profile": false,
+			"changed": 67779,
+			"max": 135
+		},
+		{
+			"to": "jxl",
+			"profile": true,
+			"changed": 67779,
+			"max": 135
+		}
+	]
+}

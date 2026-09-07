@@ -1,0 +1,47 @@
+[
+	{
+		"name": "Failure survives navigation and clears on target change",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Quality is clamped visibly; reconversion uses the new quality",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Cancelling active image releases the single batch slot",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Removing a queued file prevents its worker from starting",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "A queued file can be cancelled without cancelling the active file",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Cancelling a document releases the next Pandoc task",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Cancelling a ZIP stops its active and queued entries",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Converted ZIP entries use the actual output extension",
+		"status": "passed",
+		"pageErrors": []
+	},
+	{
+		"name": "Cancelling a rasterized SVG targets its active image worker",
+		"status": "passed",
+		"pageErrors": []
+	}
+]

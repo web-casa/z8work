@@ -1,0 +1,53 @@
+{
+	"base": "http://localhost:5184",
+	"cases": [
+		{
+			"name": "透明索引.png",
+			"to": ".tiff",
+			"keepMetadata": false,
+			"bytes": 346
+		},
+		{
+			"name": "透明索引.png",
+			"to": ".psd",
+			"keepMetadata": false,
+			"bytes": 987
+		},
+		{
+			"name": "透明索引.png",
+			"to": ".webp",
+			"keepMetadata": false,
+			"bytes": 52
+		},
+		{
+			"name": "方向.tiff",
+			"to": ".webp",
+			"keepMetadata": false,
+			"bytes": 52
+		},
+		{
+			"name": "广色域.png",
+			"to": ".png",
+			"keepMetadata": false,
+			"bytes": 595,
+			"browserColorError": {
+				"maximum": 1,
+				"mean": 0.013997395833333334
+			}
+		},
+		{
+			"name": "保留色彩.png",
+			"to": ".png",
+			"keepMetadata": true,
+			"bytes": 1130
+		},
+		{
+			"name": "透明转白底.png",
+			"to": ".jpeg",
+			"keepMetadata": false,
+			"bytes": 352
+		}
+	],
+	"pageErrors": [],
+	"nonReadRequests": []
+}

@@ -1,0 +1,127 @@
+{
+	"base": "http://localhost:5174",
+	"downloads": [
+		{
+			"name": "ii.Pe_单页.png",
+			"bytes": 1189
+		},
+		{
+			"name": "ii.Pe_单页.jpeg",
+			"bytes": 1221
+		},
+		{
+			"name": "ii.Pe_单页.jpg",
+			"bytes": 1221
+		},
+		{
+			"name": "ii.Pe_单页.webp",
+			"bytes": 510
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 4210
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 4207
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 2052
+		},
+		{
+			"name": "ii.Pe_无后缀.png",
+			"bytes": 1189
+		},
+		{
+			"name": "ii.Pe_重试.zip",
+			"bytes": 353256
+		},
+		{
+			"name": "ii.Pe_归档二.zip",
+			"bytes": 2749
+		}
+	],
+	"failures": [
+		"加密.pdf",
+		"损坏.pdf",
+		"空白文档.pdf",
+		"大页面.pdf",
+		"页数超限.pdf"
+	],
+	"viewports": [320, 390, 1100],
+	"pageErrors": [],
+	"nonReadRequests": [],
+	"pdfRequests": [
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker&url",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm",
+		"http://localhost:5174/src/lib/workers/pdf.ts?worker_file&type=module",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.js?v=f9594314",
+		"http://localhost:5174/node_modules/mupdf/dist/mupdf-wasm.wasm"
+	]
+}

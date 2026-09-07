@@ -1,0 +1,6 @@
+{
+	"engine": "mupdf",
+	"initialWasmFetchFailed": true,
+	"retryComplete": true,
+	"wasmFetchAttempts": 4
+}

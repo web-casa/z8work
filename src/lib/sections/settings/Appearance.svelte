@@ -8,13 +8,7 @@
 		updateLocale,
 		availableLocales,
 	} from "$lib/store/index.svelte";
-	import {
-		MoonIcon,
-		PaletteIcon,
-		PauseIcon,
-		PlayIcon,
-		SunIcon,
-	} from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { onMount, onDestroy } from "svelte";
 	import { m } from "$lib/paraglide/messages";
 	import { getLocale } from "$lib/paraglide/runtime";
@@ -97,11 +91,10 @@
 <Panel class="flex flex-col gap-8 p-6">
 	<div class="flex flex-col gap-3">
 		<h2 class="text-2xl font-bold">
-			<PaletteIcon
-				size="40"
-				class="inline-block -mt-1 mr-2 bg-accent-purple p-2 rounded-full"
-				color="black"
-			/>
+			<span
+				class="text-black inline-block -mt-1 mr-2 bg-accent-purple pixel-icon-badge"
+				><PixelIcon name="palette" size={24} /></span
+			>
 			{m["settings.appearance.title"]()}
 		</h2>
 		<div class="flex flex-col gap-8">
@@ -123,7 +116,11 @@
 								? ''
 								: '!scale-100'} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 						>
-							<SunIcon size="24" class="inline-block mr-2" />
+							<PixelIcon
+								name="sun"
+								size={24}
+								class="inline-block mr-2"
+							/>
 							{m["settings.appearance.light"]()}
 						</button>
 
@@ -134,7 +131,11 @@
 								? ''
 								: '!scale-100'} flex-1 p-4 rounded-lg text-black flex items-center justify-center"
 						>
-							<MoonIcon size="24" class="inline-block mr-2" />
+							<PixelIcon
+								name="moon"
+								size={24}
+								class="inline-block mr-2"
+							/>
 							{m["settings.appearance.dark"]()}
 						</button>
 					</div>
@@ -158,7 +159,11 @@
 								? ''
 								: '!scale-100'} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 						>
-							<PlayIcon size="24" class="inline-block mr-2" />
+							<PixelIcon
+								name="play"
+								size={24}
+								class="inline-block mr-2"
+							/>
 							{m["settings.appearance.enable"]()}
 						</button>
 
@@ -169,7 +174,11 @@
 								? ''
 								: '!scale-100'} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 						>
-							<PauseIcon size="24" class="inline-block mr-2" />
+							<PixelIcon
+								name="pause"
+								size={24}
+								class="inline-block mr-2"
+							/>
 							{m["settings.appearance.disable"]()}
 						</button>
 					</div>
@@ -179,7 +188,8 @@
 				<div class="flex flex-col gap-2">
 					<p class="text-base font-bold">
 						{m["settings.language.title"]()}
-						{#if currentLocale !== "en"} (Language){/if}
+						{#if currentLocale !== "en"}
+							(Language){/if}
 					</p>
 					<p class="text-sm text-muted font-normal italic">
 						{m["settings.language.description"]()}

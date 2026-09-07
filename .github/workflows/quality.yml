@@ -1,0 +1,43 @@
+name: Quality checks
+
+on:
+    pull_request:
+        branches: [main]
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    verify:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        env:
+            PUB_ENV: production
+            PUB_HOSTNAME: localhost:5186
+            PUB_PLAUSIBLE_URL: ""
+            PUB_VERTD_URL: ""
+            PUB_DISABLE_ALL_EXTERNAL_REQUESTS: "true"
+            PUB_DISABLE_FAILURE_BLOCKS: "false"
+            LINT_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+            IIPE_EXPECT_NO_EXTERNAL: "true"
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: bun install --frozen-lockfile
+            - run: bun run i18n:compile
+            - run: bun run check
+            - run: bun run test
+            - run: bun run lint:changed
+            - run: bun run build
+            - run: bunx playwright install --with-deps chromium
+            - run: bun run test:browser

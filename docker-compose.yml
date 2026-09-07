@@ -1,17 +1,15 @@
 services:
-  vert:
-    container_name: vert
-    image: ghcr.io/vert-sh/vert:latest
-    build:
-      context: .
-      args:
-        PUB_HOSTNAME: ${PUB_HOSTNAME:-localhost:5173}
-        PUB_PLAUSIBLE_URL: ${PUB_PLAUSIBLE_URL:-}
-        PUB_ENV: ${PUB_ENV:-production}
-        PUB_DISABLE_ALL_EXTERNAL_REQUESTS: ${PUB_DISABLE_ALL_EXTERNAL_REQUESTS:-false}
-        PUB_VERTD_URL: ${PUB_VERTD_URL:-}
-        PUB_DONATION_URL: ${PUB_DONATION_URL:-https://donations.vert.sh}
-        PUB_STRIPE_KEY: ${PUB_STRIPE_KEY:-pk_live_51RDVmAGSxPVad6bQwzVNnbc28nlmzA30krLWk1fefCMpUPiSRPkavMMbGqa8A3lUaOCMlsUEVy2CWDYg0ip3aPpL00ZJlsMkf2}
-    restart: unless-stopped
-    ports:
-      - ${PORT:-3000}:80
+    vert:
+        container_name: vert
+        image: z8-work:local
+        build:
+            context: .
+            args:
+                PUB_HOSTNAME: ${PUB_HOSTNAME:-z8.work}
+                PUB_PLAUSIBLE_URL: ${PUB_PLAUSIBLE_URL:-}
+                PUB_ENV: ${PUB_ENV:-production}
+                PUB_DISABLE_ALL_EXTERNAL_REQUESTS: ${PUB_DISABLE_ALL_EXTERNAL_REQUESTS:-false}
+                PUB_VERTD_URL: ${PUB_VERTD_URL:-}
+        restart: unless-stopped
+        ports:
+            - ${PORT:-3000}:80

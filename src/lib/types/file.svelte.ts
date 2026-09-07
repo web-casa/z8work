@@ -1,6 +1,14 @@
 import { byNative, converters } from "$lib/converters";
+import { converterSupports } from "$lib/util/output-formats";
+import { inputFormat, normalizedInputName } from "$lib/util/input-format";
+import {
+	downloadSnapshot,
+	downloadName,
+	saveDownload,
+} from "$lib/util/download";
 import type { Converter } from "$lib/converters/converter.svelte";
 import { m } from "$lib/paraglide/messages";
+import { DEFAULT_FILENAME_FORMAT } from "$lib/util/consts";
 import { ToastManager } from "$lib/util/toast.svelte";
 import type { Component } from "svelte";
 import { MAX_ARRAY_BUFFER_SIZE } from "$lib/store/index.svelte";
@@ -10,7 +18,7 @@ export class VertFile {
 	public readonly file: File;
 
 	public get from() {
-		return ("." + this.file.name.split(".").pop() || "").toLowerCase();
+		return inputFormat(this.file);
 	}
 
 	public get name() {
@@ -18,6 +26,9 @@ export class VertFile {
 	}
 
 	public progress = $state(0);
+	public pageProgress = $state<{ current: number; total: number } | null>(
+		null,
+	);
 	public result = $state<VertFile | null>(null);
 
 	public to = $state("");
@@ -27,6 +38,14 @@ export class VertFile {
 	public processing = $state(false);
 
 	public cancelled = $state(false);
+	public queued = $state(false);
+	public failed = $state(false);
+	public errorMessage = $state("");
+	public conversionPhase = $state<
+		"waiting" | "loading" | "decoding" | "encoding" | null
+	>(null);
+	private conversionVersion = 0;
+	private archiveConversions = new Map<number, Set<VertFile>>();
 
 	public converters: Converter[] = [];
 
@@ -47,24 +66,9 @@ export class VertFile {
 		// zip will always only be added if there's one converter that supports all files - handled in store's _handleZipFile()
 		if (this.isZip()) return this.converters[0];
 
-		const converter = this.converters.find((converter) => {
-			if (
-				!converter.formatStrings().includes(this.from) ||
-				!converter.formatStrings().includes(this.to)
-			) {
-				return false;
-			}
-
-			const theirFrom = converter.supportedFormats.find(
-				(f) => f.name === this.from,
-			);
-			const theirTo = converter.supportedFormats.find(
-				(f) => f.name === this.to,
-			);
-			if (!theirFrom || !theirTo) return false;
-			if (!theirFrom.isNative && !theirTo.isNative) return false;
-			return true;
-		});
+		const converter = this.converters.find((converter) =>
+			converterSupports(converter, this.from, this.to),
+		);
 		return converter;
 	}
 
@@ -80,16 +84,24 @@ export class VertFile {
 	}
 
 	constructor(file: File, to: string, blobUrl?: string) {
-		const ext = file.name.split(".").pop();
 		const newFile = new File(
 			[file.slice(0, file.size, file.type)],
-			`${file.name.split(".").slice(0, -1).join(".")}.${ext?.toLowerCase()}`,
+			normalizedInputName(file.name),
+			{ type: file.type, lastModified: file.lastModified },
 		);
 		this.file = newFile;
 		this.to = to.startsWith(".") ? to : `.${to}`;
-		this.converters = converters.filter((c) =>
+		const matching = converters.filter((c) =>
 			c.formatStrings().includes(this.from),
 		);
+		const readers = matching.filter((c) =>
+			c.supportedFormats.some(
+				(f) => f.name === this.from && f.fromSupported,
+			),
+		);
+		// Output-only formats remain identifiable for the existing error message.
+		// PDF image writers must not become candidate readers for ordinary images.
+		this.converters = readers.length ? readers : matching;
 		this.convert = this.convert.bind(this);
 		this.download = this.download.bind(this);
 		this.blobUrl = blobUrl;
@@ -97,30 +109,74 @@ export class VertFile {
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public async convert(...args: any[]) {
-		if (!this.converters.length) throw new Error("No converters found");
-		const converter = this.findConverter();
-		if (!converter) throw new Error("No converter found");
+		if (this.processing) return;
+		const version = ++this.conversionVersion;
+		this.queued = false;
 		this.result = null;
 		this.progress = 0;
+		this.pageProgress = null;
 		this.processing = true;
 		this.cancelled = false;
+		this.failed = false;
+		this.errorMessage = "";
+		this.conversionPhase = null;
 		let res;
 		try {
+			const converter = this.findConverter();
+			if (!converter) throw new Error("No converter found");
 			// for zips: extract > convert each > re-zip
 			// else convert normally
 			res = this.isZip()
-				? await this.convertZip(converter)
+				? await this.convertZip(converter, version)
 				: await converter.convert(this, this.to, ...args);
-			this.result = res;
+			if (version === this.conversionVersion && !this.cancelled)
+				this.result = res;
 		} catch (err) {
-			if (!this.cancelled) this.toastErr(err);
-			this.result = null;
+			if (version === this.conversionVersion && !this.cancelled) {
+				this.failed = true;
+				this.errorMessage =
+					err instanceof Error
+						? err.message
+						: typeof err === "string"
+							? err
+							: "";
+				this.toastErr(err);
+			}
+			if (version === this.conversionVersion) this.result = null;
+		} finally {
+			if (version === this.conversionVersion) {
+				this.processing = false;
+				this.conversionPhase = null;
+			}
 		}
-		this.processing = false;
 		return res;
 	}
 
-	private async convertZip(converter: Converter): Promise<VertFile> {
+	private async convertZip(
+		converter: Converter,
+		version: number,
+	): Promise<VertFile> {
+		const activeFiles = new Set<VertFile>();
+		this.archiveConversions.set(version, activeFiles);
+		try {
+			return await this.convertZipEntries(
+				converter,
+				version,
+				activeFiles,
+			);
+		} finally {
+			this.archiveConversions.delete(version);
+		}
+	}
+
+	private async convertZipEntries(
+		converter: Converter,
+		version: number,
+		activeFiles: Set<VertFile>,
+	): Promise<VertFile> {
+		const cancelled = () =>
+			this.cancelled || version !== this.conversionVersion;
+		const target = this.to;
 		const { extractZip, createZip } = await import("$lib/util/zip");
 		const { default: PQueue } = await import("p-queue");
 
@@ -134,6 +190,7 @@ export class VertFile {
 		});
 
 		const updateProgress = () => {
+			if (cancelled()) return;
 			const totalProgress = fileProgress.reduce((sum, p) => sum + p, 0);
 			this.progress = Math.round(totalProgress / totalFiles);
 		};
@@ -141,65 +198,46 @@ export class VertFile {
 		// convert all files in the zip
 		await queue.addAll(
 			entries.map(({ filename, data }, index) => async () => {
-				if (this.cancelled) {
+				if (cancelled()) {
 					throw new Error("Conversion cancelled");
 				}
 
 				const file = new File([new Uint8Array(data)], filename, {
 					type: "application/octet-stream",
 				});
-				const tempVFile = new VertFile(file, this.to);
+				const tempVFile = new VertFile(file, target);
 				tempVFile.converters = [converter];
-
-				if (converter.reportsProgress) {
-					// track progress of individual files
-					const progressInterval = setInterval(() => {
-						fileProgress[index] = tempVFile.progress;
-						updateProgress();
-					}, 100);
-
-					try {
-						const converted = await converter.convert(
-							tempVFile,
-							this.to,
-						);
-
-						let outputExt = this.to;
-						if (!outputExt.startsWith("."))
-							outputExt = `.${outputExt}`;
-
-						convertedFiles[index] = new File(
-							[await converted.file.arrayBuffer()],
-							converted.name,
-						);
-
-						fileProgress[index] = 100;
-						updateProgress();
-					} finally {
-						clearInterval(progressInterval);
-					}
-				} else {
-					// else track progress via completions only
+				activeFiles.add(tempVFile);
+				const progressInterval = converter.reportsProgress
+					? setInterval(() => {
+							fileProgress[index] = tempVFile.progress;
+							updateProgress();
+						}, 100)
+					: undefined;
+				try {
 					const converted = await converter.convert(
 						tempVFile,
-						this.to,
+						target,
 					);
-
-					let outputExt = this.to;
-					if (!outputExt.startsWith(".")) outputExt = `.${outputExt}`;
-
+					if (cancelled()) throw new Error("Conversion cancelled");
+					const outputExt = converted.to.startsWith(".")
+						? converted.to
+						: `.${converted.to}`;
 					convertedFiles[index] = new File(
 						[await converted.file.arrayBuffer()],
-						converted.name,
+						converted.name.replace(/\.[^/.]+$/, outputExt),
 					);
-
 					fileProgress[index] = 100;
 					updateProgress();
+				} finally {
+					clearInterval(progressInterval);
+					activeFiles.delete(tempVFile);
 				}
 			}),
 		);
 
 		// return zip of converted files
+		if (cancelled()) throw new Error("Conversion cancelled");
 		const resultArray = await createZip(convertedFiles);
 		const outputFilename = this.file.name.replace(/\.[^/.]+$/, ".zip");
 		const resultFile = new File(
@@ -210,14 +248,34 @@ export class VertFile {
 	}
 
 	public async cancel() {
+		if (this.queued) {
+			this.queued = false;
+			this.cancelled = true;
+			return;
+		}
 		if (!this.processing) return;
+		const version = this.conversionVersion;
 		const converter = this.findConverter();
 		if (!converter) throw new Error("No converter found");
 		this.cancelled = true;
 		try {
-			await converter.cancel(this);
-			this.processing = false;
-			this.result = null;
+			if (this.isZip()) {
+				await Promise.all(
+					Array.from(
+						this.archiveConversions.get(version) ?? [],
+						(file) => {
+							file.cancelled = true;
+							return converter.cancel(file);
+						},
+					),
+				);
+			} else {
+				await converter.cancel(this);
+			}
+			if (version === this.conversionVersion) {
+				this.processing = false;
+				this.result = null;
+			}
 		} catch (err) {
 			this.toastErr(err);
 		}
@@ -253,10 +311,20 @@ export class VertFile {
 		if (typeof toastMsg === "string") {
 			ToastManager.add({
 				type: "error",
-				message: m["workers.errors.general"]({
-					file: this.file.name,
-					message: toastMsg,
-				}),
+				message:
+					this.failed && this.errorMessage
+						? m["workspace.conversion_failed"]({
+								name:
+									[...this.file.name].length > 60
+										? [...this.file.name]
+												.slice(0, 57)
+												.join("") + "…"
+										: this.file.name,
+							})
+						: m["workers.errors.general"]({
+								file: this.file.name,
+								message: toastMsg,
+							}),
 			});
 		} else {
 			ToastManager.add({
@@ -267,41 +335,27 @@ export class VertFile {
 		}
 	}
 
+	public setTarget(to: string) {
+		if (this.processing || this.queued || this.to === to) return;
+		this.to = to;
+		this.pageProgress = null;
+		this.result = null;
+		this.failed = false;
+		this.cancelled = false;
+		this.errorMessage = "";
+		this.conversionPhase = null;
+	}
+
 	public async download() {
-		if (!this.result) throw new Error("No result found");
-
-		// give the freedom to the converter to set the extension (ie. pandoc uses this to output zips)
-		let to = this.result.to;
-		if (!to.startsWith(".")) to = `.${to}`;
-
+		const [snapshot] = downloadSnapshot([this]);
+		if (!snapshot) throw new Error("No result found");
 		const settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
-		const filenameFormat = settings.filenameFormat || "ii.Pe_%name%";
-
-		const format = (name: string) => {
-			const date = new Date().toISOString();
-			const baseName = this.file.name.replace(/\.[^/.]+$/, "");
-			const originalExtension = this.file.name.split(".").pop()!;
-			return name
-				.replace(/%date%/g, date)
-				.replace(/%name%/g, baseName)
-				.replace(/%extension%/g, originalExtension);
-		};
-
-		const blob = URL.createObjectURL(
-			new Blob([await this.result.file.arrayBuffer()], {
-				// type: to.slice(1),
-				type: "application/octet-stream", // use generic type to prevent browsers changing extension
-			}),
+		const name = downloadName(
+			settings.filenameFormat || DEFAULT_FILENAME_FORMAT,
+			snapshot.originalName,
+			snapshot.to,
 		);
-		const a = document.createElement("a");
-		a.href = blob;
-		a.download = `${format(filenameFormat)}${to}`;
-		// force it to not open in a new tab
-		a.target = "_blank";
-		a.style.display = "none";
-		a.click();
-		URL.revokeObjectURL(blob);
-		a.remove();
+		saveDownload(snapshot.input, name);
 	}
 
 	public hash(): Promise<string> {

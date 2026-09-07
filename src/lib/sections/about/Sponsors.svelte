@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
-	import { PiggyBankIcon, CopyIcon, CheckIcon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import HotMilk from "$lib/assets/hotmilk.svg?component";
 	import { DISCORD_URL } from "$lib/util/consts";
 	import { error } from "$lib/util/logger";
@@ -9,7 +9,7 @@
 	import { ToastManager } from "$lib/util/toast.svelte";
 
 	let copied = false;
-	let timeoutId: NodeJS.Timeout | null = null;
+	let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
 	function copyToClipboard() {
 		try {
@@ -31,9 +31,9 @@
 <Panel class="flex flex-col gap-3 p-6 min-h-[280px]">
 	<h2 class="text-2xl font-bold flex items-center">
 		<div
-			class="rounded-full bg-accent-pink p-2 inline-block mr-3 w-10 h-10"
+			class="pixel-icon-badge bg-accent-pink inline-block mr-3 w-10 h-10"
 		>
-			<PiggyBankIcon color="black" />
+			<PixelIcon class="text-black" name="coins" />
 		</div>
 		{m["about.sponsors.title"]()}
 	</h2>
@@ -48,12 +48,15 @@
 			</a>
 		</div>
 		<p class="text-muted">
-			{@html sanitize(link(
-				"discord_link",
-				m["about.sponsors.description"](),
-				DISCORD_URL,
-				true
-			))}
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
+			{@html sanitize(
+				link(
+					"discord_link",
+					m["about.sponsors.description"](),
+					DISCORD_URL,
+					true,
+				),
+			)}
 			<span class="inline-block mx-[2px] relative top-[2px]">
 				<button
 					id="email"
@@ -62,9 +65,9 @@
 					aria-label="Copy email to clipboard"
 				>
 					{#if copied}
-						<CheckIcon size="14"></CheckIcon>
+						<PixelIcon name="check" size={14}></PixelIcon>
 					{:else}
-						<CopyIcon size="14"></CopyIcon>
+						<PixelIcon name="copy" size={14}></PixelIcon>
 					{/if}
 					hello@vert.sh
 				</button>

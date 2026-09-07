@@ -1,0 +1,21 @@
+{
+	"checks": [
+		"Empty state and supported-format explanation",
+		"Unsupported input has an error and cannot convert",
+		"Corrupt PNG reports failure and allows retry",
+		"Mixed file types use individual targets; filenames render as text",
+		"No clipped controls or horizontal overflow at 320px",
+		"No clipped controls or horizontal overflow at 390px",
+		"No clipped controls or horizontal overflow at 768px",
+		"No clipped controls or horizontal overflow at 1024px",
+		"No clipped controls or horizontal overflow at 1487px",
+		"Escape from a format option closes menu and restores focus",
+		"Drag and drop adds a real file",
+		"File picker can select the same file again",
+		"Language switch persists and updates the application",
+		"Queue survives language switch; English mobile layout fits",
+		"About route works",
+		"Privacy route works"
+	],
+	"pageErrors": []
+}

@@ -9,7 +9,7 @@
 		"toggle_theme": "Promijeni temu"
 	},
 	"footer": {
-		"copyright": "© {year} ii.Pe.",
+		"copyright": "© {year} Z8.Work.",
 		"source_code": "Source kod",
 		"discord_server": "Discord server"
 	},
@@ -21,7 +21,7 @@
 			"convert": "pretvori"
 		},
 		"cards": {
-			"title": "ii.Pe podržava...",
+			"title": "Z8.Work podržava...",
 			"images": "Slike",
 			"audio": "Audio",
 			"documents": "Dokumente",
@@ -104,7 +104,7 @@
 			"title": "Pretvaranje",
 			"filename_format": "Način imenovanja datoteke",
 			"filename_description": "Ovo će odrediti ime datoteke pri preuzimanju, <b>ali ne i nastavak.</b> Možete staviti navedene prijedloge u način imenovanja, koji će biti zamijenjeni sa relevatnim informacijama: <b>%name%</b> za originalni naziv datoteke, <b>%extension%</b> za originalni nastavak, i <b>%date%</b> za datum kada je datoteka bila pretvorena.",
-			"placeholder": "ii.Pe_%name%",
+			"placeholder": "Z8.Work_%name%",
 			"default_format": "Zadan format za pretvaranje",
 			"default_format_description": "Ovo će promijeniti zadani format koji je izabran kada prenesete datoteku te vrste.",
 			"default_format_image": "Slike",
@@ -128,7 +128,7 @@
 			"loading": "učitavanje...",
 			"available": "dostupno, commit id {commitId}",
 			"unavailable": "nedostupno (Je li URL točan?)",
-			"description": "<code>vertd</code> projekt je serverski omot za FFmpeg. Ovo omogućuje da pretvarate videozapise sa lakoćom ii.Peovog web sučelja, dok još uvijek možete iskoristiti snagu vašeg GPU da odradi što brže moguće.",
+			"description": "<code>vertd</code> projekt je serverski omot za FFmpeg. Ovo omogućuje da pretvarate videozapise sa lakoćom Z8.Workovog web sučelja, dok još uvijek možete iskoristiti snagu vašeg GPU da odradi što brže moguće.",
 			"hosting_info": "Mi držimo javnu instancu za Vašu lakoću, ali je veoma lako hostati na Vašem računalu ili serveru ako znate što radite. Možete preuzeti serverske programe [vertd_link]ovdje[/vertd_link] - Proces namještanja će biti lakši u budućnosti, pa njuškajte malo za nove vijesti!",
 			"instance_url": "URL instance",
 			"url_placeholder": "Na primjer: http://localhost:24153",
@@ -152,7 +152,7 @@
 		},
 		"language": {
 			"title": "Jezik",
-			"description": "Izaberi svoj preferirani jezik za ii.Peovo sučelje."
+			"description": "Izaberi svoj preferirani jezik za Z8.Workovo sučelje."
 		}
 	},
 	"about": {
@@ -196,7 +196,7 @@
 			}
 		},
 		"why": {
-			"title": "Zašto baš ii.Pe?",
+			"title": "Zašto baš Z8.Work?",
 			"description": "<b>Pretvarači datoteka su nas uvijek razočarali.</b> Izuzetno su ružni, prepuni reklama, i najvažnije; spori! Odlučili smo riješiti problem jednom i zauvijek praveći alternativu koja riješava sve ove probleme, i više.<br/><br/>Sve datoteke su pretvoreni direktno na Vašem uređaju; To znači da nema nikakve stanke između slanja i primanja datoteka sa servera, i nikada ne dobijemo šansu gurati nos u vaše datoteke koje pretvarate."
 		},
 		"sponsors": {
@@ -210,29 +210,16 @@
 			"source": "Source kod",
 			"email": "Email"
 		},
-		"donate": {
-			"title": "Donirajte nam",
-			"description": "Sa vašom podrškom mi možemo nastaviti održavati i poboljšavati ii.Pe.",
-			"one_time": "Jednokratno",
-			"monthly": "Mjesečno",
-			"custom": "Prilagođeno",
-			"pay_now": "Plati sada",
-			"donate_amount": "Doniraj ${amount} USD",
-			"thank_you": "Hvala Vam na Vašoj donaciji!!",
-			"payment_failed": "Plaćanje neuspjelo: {message}{period} Niste naplaćeni.",
-			"donation_error": "Dogodila se pogreška pri obradi donacije. Molimo pokušajte kasnije.",
-			"payment_error": "Dogodila se pogreška pri prihvaćanju detalja o naplati. Molimo pokušajte kasnije."
-		},
 		"credits": {
 			"title": "Zasluge",
 			"contact_team": "Ako želite kontaktirati developere, molimo koristite email koji se nalazi u odjeljku \"resursi\".",
 			"notable_contributors": "Značajni suradnici",
-			"notable_description": "Želimo zahvaliti ovim ljudima za njihove ogromne doprinose ii.Peu.",
+			"notable_description": "Želimo zahvaliti ovim ljudima za njihove ogromne doprinose Z8.Worku.",
 			"github_contributors": "GitHub suradnici",
 			"github_description": "Velike zahvale svim ovim ljudima koji su nam pomogli! [github_link]Želiš nam i ti pomoći?[/github_link]",
 			"no_contributors": "Čini se kako nitko nije još doprinio... [contribute_link]budite prvi koji će doprinjeti![/contribute_link]",
 			"libraries": "Biblioteke",
-			"libraries_description": "Velike zahvale prema FFmpeg (audio, video), ImageMagick (slike) i Pandoc (dokumenti) što su održavali tako odlične biblioteke svih ovih godina. ii.Pe se oslanja na njih da bi Vam pružili pretvorbu.",
+			"libraries_description": "Velike zahvale prema FFmpeg (audio, video), ImageMagick (slike) i Pandoc (dokumenti) što su održavali tako odlične biblioteke svih ovih godina. Z8.Work se oslanja na njih da bi Vam pružili pretvorbu.",
 			"roles": {
 				"lead_developer": "Glavni developer; Pretvarački backend, UI implementacija",
 				"developer": "Developer; UI implementacija",

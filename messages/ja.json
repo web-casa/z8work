@@ -9,7 +9,7 @@
 		"toggle_theme": "テーマ切り替え"
 	},
 	"footer": {
-		"copyright": "© {year} ii.Pe.",
+		"copyright": "© {year} Z8.Work.",
 		"source_code": "ソースコード",
 		"discord_server": "Discordサーバー"
 	},
@@ -21,7 +21,7 @@
 			"convert": "変換"
 		},
 		"cards": {
-			"title": "ii.Peがサポートしている形式",
+			"title": "Z8.Workがサポートしている形式",
 			"images": "画像",
 			"audio": "音声",
 			"documents": "ドキュメント",
@@ -110,7 +110,7 @@
 			"advanced_settings": "詳細設定",
 			"filename_format": "ファイル名フォーマット",
 			"filename_description": "これはダウンロード時のファイル名を決定します（拡張子を除く）。以下のテンプレートを使用できます：<b>%name%</b>（元のファイル名）、<b>%extension%</b>（元の拡張子）、<b>%date%</b>（変換日時）。",
-			"placeholder": "ii.Pe_%name%",
+			"placeholder": "Z8.Work_%name%",
 			"default_format": "デフォルト変換フォーマット",
 			"default_format_description": "このファイルタイプをアップロードしたときに自動で選択される形式を変更します。",
 			"default_format_image": "画像",
@@ -134,7 +134,7 @@
 			"loading": "読み込み中...",
 			"available": "利用可能（コミットID {commitId}）",
 			"unavailable": "利用不可（URLが正しいですか？）",
-			"description": "<code>vertd</code>プロジェクトはFFmpegのサーバーラッパーです。これにより、GPUの性能を活かして高速に変換しつつ、ii.Peのウェブインターフェイスから簡単に動画を変換できます。",
+			"description": "<code>vertd</code>プロジェクトはFFmpegのサーバーラッパーです。これにより、GPUの性能を活かして高速に変換しつつ、Z8.Workのウェブインターフェイスから簡単に動画を変換できます。",
 			"hosting_info": "私たちは利便性のために公開インスタンスをホストしていますが、自分のPCやサーバーでも簡単にホストできます。バイナリは[vertd_link]こちら[/vertd_link]からダウンロードできます。今後さらにセットアップが簡単になる予定です！",
 			"instance": "インスタンス",
 			"url_placeholder": "例: http://localhost:24153",
@@ -171,7 +171,7 @@
 		},
 		"language": {
 			"title": "言語",
-			"description": "ii.Peインターフェイスの表示言語を選択してください。"
+			"description": "Z8.Workインターフェイスの表示言語を選択してください。"
 		}
 	},
 	"about": {
@@ -215,8 +215,8 @@
 			}
 		},
 		"why": {
-			"title": "なぜii.Pe？",
-			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにii.Peを作りました。<br/><br/>すべてのファイルは完全にデバイス上で変換されます。つまり、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。"
+			"title": "なぜZ8.Work？",
+			"description": "<b>従来のファイルコンバーターにはいつもがっかりしてきました。</b>見た目が悪く、広告だらけで、そして何より遅い。私たちはそれらの問題をすべて解決するためにZ8.Workを作りました。<br/><br/>すべてのファイルは完全にデバイス上で変換されます。つまり、サーバーとのやり取りによる遅延もなく、あなたのファイルを覗き見ることもありません。"
 		},
 		"sponsors": {
 			"title": "スポンサー",
@@ -229,29 +229,16 @@
 			"source": "ソース",
 			"email": "メール"
 		},
-		"donate": {
-			"title": "ii.Peを支援する",
-			"description": "あなたの支援でii.Peの維持と改善を続けられます。",
-			"one_time": "一度きり",
-			"monthly": "毎月",
-			"custom": "カスタム",
-			"pay_now": "今すぐ支払う",
-			"donate_amount": "${amount} USDを寄付",
-			"thank_you": "ご支援ありがとうございます！",
-			"payment_failed": "支払いに失敗しました: {message}{period} 請求は行われていません。",
-			"donation_error": "寄付の処理中にエラーが発生しました。後でもう一度お試しください。",
-			"payment_error": "支払い情報の取得中にエラーが発生しました。後でもう一度お試しください。"
-		},
 		"credits": {
 			"title": "クレジット",
 			"contact_team": "開発チームに連絡したい場合は、「リソース」カードに記載されたメールをご利用ください。",
 			"notable_contributors": "特筆すべき貢献者",
-			"notable_description": "ii.Peに大きく貢献してくださった方々に感謝します。",
+			"notable_description": "Z8.Workに大きく貢献してくださった方々に感謝します。",
 			"github_contributors": "GitHubの貢献者",
 			"github_description": "多くの方々に感謝します！[github_link]あなたも参加してみませんか？[/github_link]",
 			"no_contributors": "まだ誰も貢献していないようです… [contribute_link]最初の貢献者になりましょう！[/contribute_link]",
 			"libraries": "ライブラリ",
-			"libraries_description": "長年にわたり優れたライブラリを提供してくれているFFmpeg（音声・動画）、ImageMagick（画像）、Pandoc（ドキュメント）に感謝します。ii.Peはこれらに依存して動作しています。",
+			"libraries_description": "長年にわたり優れたライブラリを提供してくれているFFmpeg（音声・動画）、ImageMagick（画像）、Pandoc（ドキュメント）に感謝します。Z8.Workはこれらに依存して動作しています。",
 			"roles": {
 				"lead_developer": "リード開発者；変換バックエンド、UI実装",
 				"developer": "開発者；UI実装",

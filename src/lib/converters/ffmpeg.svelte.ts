@@ -1,11 +1,11 @@
 import { VertFile } from "$lib/types";
 import { Converter, FormatInfo } from "./converter.svelte";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
-import { browser } from "$app/environment";
 import { error, log } from "$lib/util/logger";
 import { m } from "$lib/paraglide/messages";
 import { Settings } from "$lib/sections/settings/index.svelte";
-import { ToastManager } from "$lib/util/toast.svelte";
+import coreURL from "@ffmpeg/core?url";
+import wasmURL from "@ffmpeg/core/wasm?url";
 
 // TODO: differentiate in UI? (not native formats)
 const videoFormats = [
@@ -34,9 +34,8 @@ const videoFormats = [
 ];
 
 export class FFmpegConverter extends Converter {
-	private ffmpeg: FFmpeg = null!;
 	public name = "ffmpeg";
-	public ready = $state(false);
+	public readonly processingLocation = "local" as const;
 
 	private activeConversions = new Map<string, FFmpeg>();
 
@@ -77,32 +76,9 @@ export class FFmpegConverter extends Converter {
 
 	constructor() {
 		super();
-		log(["converters", this.name], `created converter`);
-		if (!browser) return;
-		try {
-			// this is just to cache the wasm and js for when we actually use it. we're not using this ffmpeg instance
-			this.ffmpeg = new FFmpeg();
-			(async () => {
-				const baseURL =
-					"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm";
-
-				this.status = "downloading";
-
-				await this.ffmpeg.load({
-					coreURL: `${baseURL}/ffmpeg-core.js`,
-					wasmURL: `${baseURL}/ffmpeg-core.wasm`,
-				});
-
-				this.status = "ready";
-			})();
-		} catch (err) {
-			error(["converters", this.name], `Error loading ffmpeg: ${err}`);
-			this.status = "error";
-			ToastManager.add({
-				type: "error",
-				message: m["workers.errors.ffmpeg"](),
-			});
-		}
+		// Availability does not require an idle WASM instance. Load on first use.
+		this.status = "ready";
+		this.clearTimeout();
 	}
 
 	public async convert(input: VertFile, to: string): Promise<VertFile> {
@@ -112,82 +88,91 @@ export class FFmpegConverter extends Converter {
 		if (isAlac) to = ".m4a";
 
 		let conversionError: string | null = null;
-		const ffmpeg = await this.setupFFmpeg(input);
-
+		const ffmpeg = new FFmpeg();
 		this.activeConversions.set(input.id, ffmpeg);
+		try {
+			await this.setupFFmpeg(input, ffmpeg);
 
-		// listen for errors during conversion
-		const errorListener = (l: { message: string }) => {
-			const msg = l.message;
-			if (
-				msg.includes("Specified sample rate") &&
-				msg.includes("is not supported")
-			) {
-				const rate = Settings.instance.settings.ffmpegCustomSampleRate;
-				conversionError = m["workers.errors.invalid_rate"]({
-					rate,
-				});
-			} else if (msg.includes("Stream map '0:a:0' matches no streams.")) {
-				conversionError = m["workers.errors.no_audio"]();
-			} else if (
-				msg.includes("Error initializing output stream") ||
-				msg.includes("Error while opening encoder") ||
-				msg.includes("Error while opening decoder") ||
-				(msg.includes("Error") && msg.includes("stream")) ||
-				msg.includes("Conversion failed!")
-			) {
-				// other general errors
-				if (!conversionError) conversionError = msg;
+			// listen for errors during conversion
+			const errorListener = (l: { message: string }) => {
+				const msg = l.message;
+				if (
+					msg.includes("Specified sample rate") &&
+					msg.includes("is not supported")
+				) {
+					const rate =
+						Settings.instance.settings.ffmpegCustomSampleRate;
+					conversionError = m["workers.errors.invalid_rate"]({
+						rate,
+					});
+				} else if (
+					msg.includes("Stream map '0:a:0' matches no streams.")
+				) {
+					conversionError = m["workers.errors.no_audio"]();
+				} else if (
+					msg.includes("Error initializing output stream") ||
+					msg.includes("Error while opening encoder") ||
+					msg.includes("Error while opening decoder") ||
+					(msg.includes("Error") && msg.includes("stream")) ||
+					msg.includes("Conversion failed!")
+				) {
+					// other general errors
+					if (!conversionError) conversionError = msg;
+				}
+			};
+
+			ffmpeg.on("log", errorListener);
+
+			const buf = new Uint8Array(await input.file.arrayBuffer());
+			await ffmpeg.writeFile("input", buf);
+			log(
+				["converters", this.name],
+				`wrote ${input.name} to ffmpeg virtual fs`,
+			);
+
+			const command = await this.buildConversionCommand(
+				ffmpeg,
+				input,
+				to,
+				isAlac,
+			);
+			log(
+				["converters", this.name],
+				`FFmpeg command: ${command.join(" ")}`,
+			);
+			await ffmpeg.exec(command);
+			log(["converters", this.name], "executed ffmpeg command");
+
+			if (conversionError) {
+				ffmpeg.off("log", errorListener);
+				throw new Error(conversionError);
 			}
-		};
 
-		ffmpeg.on("log", errorListener);
+			const output = (await ffmpeg.readFile(
+				"output" + to,
+			)) as unknown as Uint8Array;
 
-		const buf = new Uint8Array(await input.file.arrayBuffer());
-		await ffmpeg.writeFile("input", buf);
-		log(
-			["converters", this.name],
-			`wrote ${input.name} to ffmpeg virtual fs`,
-		);
+			if (!output || output.length === 0) {
+				ffmpeg.off("log", errorListener);
+				throw new Error("empty file returned");
+			}
 
-		const command = await this.buildConversionCommand(
-			ffmpeg,
-			input,
-			to,
-			isAlac,
-		);
-		log(["converters", this.name], `FFmpeg command: ${command.join(" ")}`);
-		await ffmpeg.exec(command);
-		log(["converters", this.name], "executed ffmpeg command");
+			const outputFileName =
+				input.name.split(".").slice(0, -1).join(".") + to;
+			log(
+				["converters", this.name],
+				`read ${outputFileName} from ffmpeg virtual fs`,
+			);
 
-		if (conversionError) {
 			ffmpeg.off("log", errorListener);
+
+			const outBuf = new Uint8Array(output).buffer.slice(0);
+			return new VertFile(new File([outBuf], outputFileName), to);
+		} finally {
 			ffmpeg.terminate();
-			throw new Error(conversionError);
+			if (this.activeConversions.get(input.id) === ffmpeg)
+				this.activeConversions.delete(input.id);
 		}
-
-		const output = (await ffmpeg.readFile(
-			"output" + to,
-		)) as unknown as Uint8Array;
-
-		if (!output || output.length === 0) {
-			ffmpeg.off("log", errorListener);
-			ffmpeg.terminate();
-			throw new Error("empty file returned");
-		}
-
-		const outputFileName =
-			input.name.split(".").slice(0, -1).join(".") + to;
-		log(
-			["converters", this.name],
-			`read ${outputFileName} from ffmpeg virtual fs`,
-		);
-
-		ffmpeg.off("log", errorListener);
-		ffmpeg.terminate();
-
-		const outBuf = new Uint8Array(output).buffer.slice(0);
-		return new VertFile(new File([outBuf], outputFileName), to);
 	}
 
 	public async cancel(input: VertFile): Promise<void> {
@@ -209,9 +194,7 @@ export class FFmpegConverter extends Converter {
 		this.activeConversions.delete(input.id);
 	}
 
-	private async setupFFmpeg(input: VertFile): Promise<FFmpeg> {
-		const ffmpeg = new FFmpeg();
-
+	private async setupFFmpeg(input: VertFile, ffmpeg: FFmpeg): Promise<void> {
 		ffmpeg.on("progress", (progress) => {
 			input.progress = progress.progress * 100;
 		});
@@ -220,14 +203,8 @@ export class FFmpegConverter extends Converter {
 			log(["converters", this.name], l.message);
 		});
 
-		const baseURL =
-			"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm";
-		await ffmpeg.load({
-			coreURL: `${baseURL}/ffmpeg-core.js`,
-			wasmURL: `${baseURL}/ffmpeg-core.wasm`,
-		});
-
-		return ffmpeg;
+		// Vite emits both resources with fingerprints on this site's origin.
+		await ffmpeg.load({ coreURL, wasmURL });
 	}
 
 	private async detectAudioBitrate(ffmpeg: FFmpeg): Promise<number | null> {

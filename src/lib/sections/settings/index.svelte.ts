@@ -1,7 +1,13 @@
 import { PUB_VERTD_URL } from "$env/static/public";
+import { DEFAULT_FILENAME_FORMAT } from "$lib/util/consts";
 import type { ConversionBitrate } from "$lib/converters/ffmpeg.svelte";
 import type { ConversionSpeed } from "$lib/converters/vertd.svelte";
 import { VertdInstance } from "./vertdSettings.svelte";
+import {
+	imageQualityMode,
+	normalizeImageQuality,
+	type ImageQualityMode,
+} from "$lib/util/image-quality";
 
 export { default as Appearance } from "./Appearance.svelte";
 export { default as Conversion } from "./Conversion.svelte";
@@ -25,6 +31,7 @@ export interface ISettings {
 	vertdURL: string;
 	vertdSpeed: ConversionSpeed; // videos
 	magickQuality: number; // images
+	magickQualityMode: ImageQualityMode;
 	ffmpegQuality: ConversionBitrate; // audio (or audio <-> video)
 	ffmpegSampleRate: string; // audio (or audio <-> video)
 	ffmpegCustomSampleRate: number; // audio (or audio <-> video) - only used when ffmpegSampleRate is "custom"
@@ -35,7 +42,7 @@ export class Settings {
 	public static instance = new Settings();
 
 	public settings: ISettings = $state({
-		filenameFormat: "ii.Pe_%name%",
+		filenameFormat: DEFAULT_FILENAME_FORMAT,
 		defaultFormat: {
 			image: ".png",
 			video: ".mp4",
@@ -47,7 +54,8 @@ export class Settings {
 		plausible: true,
 		vertdURL: PUB_VERTD_URL,
 		vertdSpeed: "slow",
-		magickQuality: 100,
+		magickQuality: 80,
+		magickQualityMode: "balanced",
 		ffmpegQuality: "auto",
 		ffmpegSampleRate: "auto",
 		ffmpegCustomSampleRate: 44100,
@@ -65,24 +73,40 @@ export class Settings {
 			const ls = localStorage.getItem("settings");
 			if (!ls) return;
 			const settings: ISettings = JSON.parse(ls);
+			settings.magickQualityMode = imageQualityMode(settings);
+			settings.magickQuality = normalizeImageQuality(
+				settings.magickQuality,
+			);
 			const vertdBlockedHashes = new Map<string, Date[]>(
 				Object.entries(
 					settings.vertdBlockedHashes ||
-					this.settings.vertdBlockedHashes,
+						this.settings.vertdBlockedHashes,
 				),
 			);
 
 			settings.vertdBlockedHashes = vertdBlockedHashes;
 
 			// Migration: Update old default filename format
-			if (settings.filenameFormat === "VERT_%name%") {
-				settings.filenameFormat = "ii.Pe_%name%";
+			const migrateFilename = ["VERT_%name%", "ii.Pe_%name%"].includes(
+				settings.filenameFormat,
+			);
+			if (migrateFilename) {
+				settings.filenameFormat = DEFAULT_FILENAME_FORMAT;
 			}
 
 			this.settings = {
 				...this.settings,
 				...settings,
 			};
+			// Downloads also read persisted preferences. Change only the old default.
+			if (migrateFilename)
+				localStorage.setItem(
+					"settings",
+					JSON.stringify({
+						...JSON.parse(ls),
+						filenameFormat: DEFAULT_FILENAME_FORMAT,
+					}),
+				);
 		} catch {
 			// ignore errors, use default settings
 		}

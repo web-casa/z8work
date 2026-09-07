@@ -1,95 +1,52 @@
 <script lang="ts">
 	import { m } from "$lib/paraglide/messages";
-	import { link, sanitize } from "$lib/store/index.svelte";
-	import { ShieldCheckIcon } from "lucide-svelte";
+	import { CONTACT_EMAIL, SITE_NAME } from "$lib/util/consts";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
+	import PrivacyStatus from "$lib/components/pixel/PrivacyStatus.svelte";
 </script>
 
-<div class="flex flex-col h-full items-center">
-	<h1 class="hidden md:block text-[40px] tracking-tight leading-[72px] mb-6">
-		<ShieldCheckIcon size="40" class="inline-block -mt-2 mr-2" />
-		{m["privacy.title"]()}
-	</h1>
+<svelte:head>
+	<title>{m["footer.privacy_policy"]()} · {SITE_NAME}</title>
+	<meta name="description" content={m["trust.intro"]()} />
+</svelte:head>
 
-	<div
-		class="w-full max-w-[1280px] flex flex-col md:flex-row gap-4 p-4 md:px-4 md:py-0"
+<article class="pixel-story privacy-story">
+	<header>
+		<p class="eco-eyebrow">
+			<PixelIcon name="lock" size={24} />{m["trust.local"]()}
+		</p>
+		<h1>{m["trust.privacyTitle"]()}</h1>
+		<p class="eco-lead">{m["trust.intro"]()}</p>
+	</header>
+	<PrivacyStatus />
+	<section>
+		<h2>{m["trust.filesTitle"]()}</h2>
+		<p>{m["trust.filesBody"]()}</p>
+	</section>
+	<section>
+		<h2>{m["trust.connectionsTitle"]()}</h2>
+		<p>{m["trust.connectionsBody"]()}</p>
+	</section>
+	<section>
+		<h2>{m["trust.analyticsTitle"]()}</h2>
+		<p>{m["trust.analyticsBody"]()}</p>
+	</section>
+	<section>
+		<h2>{m["trust.storageTitle"]()}</h2>
+		<p>
+			{m["trust.storageBody"]()}
+			<a href="/settings/">{m["navbar.settings"]()} →</a>
+		</p>
+	</section>
+	<section>
+		<h2>{m["trust.contactTitle"]()}</h2>
+		<p>
+			{m["trust.contactBody"]()}
+			<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+		</p>
+	</section>
+	<p class="eco-small">{m["trust.updated"]()}</p>
+	<a class="eco-cta" href="/"
+		>{m["pixel.workspace"]()}<PixelIcon name="arrow" size={24} /></a
 	>
-		<div class="bg-panel rounded-2xl p-6 shadow-panel text-lg font-normal">
-			<h2 class="text-2xl mb-3">{m["privacy.summary.title"]()}</h2>
-			<p class="mb-4">
-				{@html sanitize(
-					link(
-						["vert_link"],
-						m["privacy.summary.description"](),
-						["https://vert.sh"],
-						[true],
-					),
-				)}
-			</p>
-
-			<h2 class="text-2xl mb-3">{m["privacy.conversions.title"]()}</h2>
-			<p class="mb-4">
-				{@html sanitize(m["privacy.conversions.description"]())}
-			</p>
-
-
-
-			<h2 class="text-2xl mb-3">
-				{m["privacy.conversion_errors.title"]()}
-			</h2>
-			<div class="mb-4">
-				{m["privacy.conversion_errors.description"]()}
-				<ul class="list-disc list-inside mt-2 mb-2">
-					<li>{m["privacy.conversion_errors.list_job_id"]()}</li>
-					<li>{m["privacy.conversion_errors.list_format_from"]()}</li>
-					<li>{m["privacy.conversion_errors.list_format_to"]()}</li>
-					<li>{m["privacy.conversion_errors.list_stderr"]()}</li>
-					<li>{m["privacy.conversion_errors.list_video"]()}</li>
-				</ul>
-				{m["privacy.conversion_errors.footer"]()}
-			</div>
-
-			<h3 class="text-xl mt-4 mb-2">{m["privacy.analytics.title"]()}</h3>
-			<p class="mb-4">
-				{@html sanitize(
-					link(
-						["settings_link", "plausible_link"],
-						m["privacy.analytics.description"](),
-						[
-							"/settings",
-							"https://plausible.io/privacy-focused-web-analytics",
-						],
-						[false, true],
-					),
-				)}
-			</p>
-
-			<h3 class="text-xl mt-4 mb-2">
-				{m["privacy.local_storage.title"]()}
-			</h3>
-			<p class="mb-4">
-				{@html sanitize(
-					link(
-						["settings_link"],
-						m["privacy.local_storage.description"](),
-						["/settings"],
-						[false],
-					),
-				)}
-			</p>
-
-			<h3 class="text-xl mt-4 mb-2">{m["privacy.contact.title"]()}</h3>
-			<p class="mb-0">
-				{@html sanitize(
-					link(
-						["email_link"],
-						m["privacy.contact.description"](),
-						["mailto:hello@vert.sh"],
-						[false],
-					),
-				)}
-			</p>
-
-			<p class="text-sm text-muted mt-6">{m["privacy.last_updated"]()}</p>
-		</div>
-	</div>
-</div>
+</article>

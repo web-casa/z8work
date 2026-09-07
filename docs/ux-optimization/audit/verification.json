@@ -1,0 +1,18 @@
+{
+	"date": "2026-09-06",
+	"preview": "http://localhost:5174/",
+	"developmentCacheBefore": {
+		"matchesInstalled": false,
+		"cachedSourceLength": 362992,
+		"installedSourceLength": 409198
+	},
+	"developmentCacheAfter": {
+		"matchesInstalled": true,
+		"sourceLength": 409198
+	},
+	"productionConversion": "JPG to PNG succeeded",
+	"developmentConversionAfterRefresh": "JPG to PNG succeeded",
+	"pageErrorsAfterRefresh": [],
+	"applicationSourceModified": false,
+	"accessibilityScope": "DOM and visual observations; no full screen-reader or WCAG audit"
+}

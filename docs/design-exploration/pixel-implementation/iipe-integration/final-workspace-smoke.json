@@ -1,0 +1,15 @@
+{
+	"workspace": "/home/ivmm/VERT",
+	"locale": "es-ES (browser preference, no saved locale)",
+	"brand": "ii.Pe",
+	"projectLinks": 15,
+	"imageConversion": {
+		"input": "lettermark.jpg",
+		"output": "ii.Pe_lettermark.webp",
+		"bytes": 36748,
+		"validWebPHeader": true
+	},
+	"mobileWidth": 390,
+	"noHorizontalOverflow": true,
+	"pageErrors": []
+}

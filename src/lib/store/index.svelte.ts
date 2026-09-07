@@ -6,14 +6,25 @@ import { parseBlob, selectCover } from "music-metadata";
 import { writable } from "svelte/store";
 import { addDialog } from "./DialogProvider";
 import PQueue from "p-queue";
-import { getLocale, setLocale } from "$lib/paraglide/runtime";
+import { baseLocale, getLocale, setLocale } from "$lib/paraglide/runtime";
 import { m } from "$lib/paraglide/messages";
 import DOMPurify from "isomorphic-dompurify";
 import { ToastManager } from "$lib/util/toast.svelte";
-import { GB } from "$lib/util/consts";
+import { GB, DEFAULT_FILENAME_FORMAT } from "$lib/util/consts";
+import { inputFormat } from "$lib/util/input-format";
+import { batchTargets } from "$lib/util/queue-state";
+import { generateMediaThumbnail } from "$lib/util/thumbnail";
+import {
+	downloadSnapshot,
+	zipEntries,
+	downloadName,
+	saveDownload,
+} from "$lib/util/download";
 
 class Files {
 	public files = $state<VertFile[]>([]);
+	private batch: Promise<void> | null = null;
+	public downloading = $state(false);
 
 	public requiredConverters = $derived(
 		Array.from(new Set(files.files.map((f) => f.converters).flat())),
@@ -23,120 +34,105 @@ class Files {
 		this.files.length === 0
 			? false
 			: this.requiredConverters.every((f) => f?.status === "ready") &&
-			this.files.every((f) => !f.processing),
+					this.files.every((f) => !f.processing && !f.queued),
 	);
 	public results = $derived(
 		this.files.length === 0 ? false : this.files.every((f) => f.result),
 	);
 
 	private thumbnailQueue = new PQueue({
-		concurrency: browser ? navigator.hardwareConcurrency || 4 : 4,
+		concurrency: browser
+			? Math.min(navigator.hardwareConcurrency || 4, 4)
+			: 4,
 	});
+	private thumbnails = new Map<VertFile, AbortController>();
 
-	private _addThumbnail = async (file: VertFile) => {
-		this.thumbnailQueue.add(async () => {
-			const isAudio = converters
-				.find((c) => c.name === "ffmpeg")
-				?.supportedFormats.filter((f) => f.isNative)
-				.map((f) => f.name)
-				?.includes(file.from.toLowerCase());
-			const isVideo = converters
-				.find((c) => c.name === "vertd")
-				?.supportedFormats.filter((f) => f.isNative)
-				.map((f) => f.name)
-				?.includes(file.from.toLowerCase());
+	private releaseThumbnail(file: VertFile) {
+		this.thumbnails.get(file)?.abort();
+		this.thumbnails.delete(file);
+		if (file.blobUrl?.startsWith("blob:"))
+			URL.revokeObjectURL(file.blobUrl);
+		file.blobUrl = undefined;
+	}
 
+	public async remove(file: VertFile): Promise<void> {
+		if (!this.files.includes(file)) return;
+		// Invalidate thumbnail work before awaiting conversion cancellation.
+		this.releaseThumbnail(file);
+		this.files = this.files.filter((candidate) => candidate !== file);
+		if (file.processing || file.queued) {
 			try {
-				if (isAudio) {
-					// try to get the thumbnail from the audio via music-metadata
-					const { common } = await parseBlob(file.file, {
-						skipPostHeaders: true,
-					});
-					const cover = selectCover(common.picture);
-					if (cover) {
-						const arrayBuffer =
-							cover.data.buffer instanceof ArrayBuffer
-								? cover.data.buffer
-								: new Uint8Array(cover.data).buffer;
-						const blob = new Blob([new Uint8Array(arrayBuffer)], {
-							type: cover.format,
-						});
-						file.blobUrl = URL.createObjectURL(blob);
-					}
-				} else if (isVideo) {
-					// video
-					file.blobUrl = await this._generateThumbnailFromMedia(
-						file.file,
-						true,
-					);
-				} else {
-					// image
-					file.blobUrl = await this._generateThumbnailFromMedia(
-						file.file,
-						false,
-					);
-				}
-			} catch (e) {
-				error(["files"], e);
+				await file.cancel();
+			} catch (err) {
+				error(["files", "cancel"], err);
 			}
-		});
-	};
-
-	private async _generateThumbnailFromMedia(
-		file: File,
-		isVideo: boolean,
-	): Promise<string | undefined> {
-		const maxSize = 180;
-		const mediaElement = isVideo
-			? document.createElement("video")
-			: new Image();
-		mediaElement.src = URL.createObjectURL(file);
-
-		await new Promise((resolve, reject) => {
-			if (isVideo) {
-				const video = mediaElement as HTMLVideoElement;
-				// seek to 10% of video time or 2 seconds in
-				video.onloadeddata = () => {
-					const seekTime = Math.min(video.duration * 0.1, 2);
-					video.currentTime = seekTime;
-				};
-				video.onseeked = resolve;
-				video.onerror = reject;
-			} else {
-				(mediaElement as HTMLImageElement).onload = resolve;
-				(mediaElement as HTMLImageElement).onerror = reject;
-			}
-		});
-
-		const canvas = document.createElement("canvas");
-		const ctx = canvas.getContext("2d");
-		if (!ctx) return undefined;
-
-		const width = isVideo
-			? (mediaElement as HTMLVideoElement).videoWidth
-			: (mediaElement as HTMLImageElement).width;
-		const height = isVideo
-			? (mediaElement as HTMLVideoElement).videoHeight
-			: (mediaElement as HTMLImageElement).height;
-
-		const scale = Math.max(maxSize / width, maxSize / height);
-		canvas.width = width * scale;
-		canvas.height = height * scale;
-		ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-
-		// check if completely transparent
-		const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-		const isTransparent = Array.from(imageData.data).every((value, index) => {
-			return (index + 1) % 4 !== 0 || value === 0;
-		});
-		if (isTransparent) {
-			canvas.remove();
-			return undefined;
 		}
+	}
 
-		const url = canvas.toDataURL();
-		canvas.remove();
-		return url;
+	public async clear(): Promise<void> {
+		await Promise.all(this.files.map((file) => this.remove(file)));
+	}
+
+	private _addThumbnail(file: VertFile): void {
+		// PDF rendering remains on demand; archives and documents have no preview.
+		if ([".pdf", ".zip"].includes(file.from)) return;
+		const formats = converters.find(
+			(c) => c.name === "ffmpeg",
+		)?.supportedFormats;
+		const isAudio = !!formats?.some(
+			(f) => f.name === file.from && f.isNative,
+		);
+		const isVideo = !!formats?.some(
+			(f) => f.name === file.from && !f.isNative,
+		);
+		const isImage = file.converters.some((c) => c.name === "imagemagick");
+		if (!isAudio && !isVideo && !isImage) return;
+		this.releaseThumbnail(file);
+		const controller = new AbortController();
+		const { signal } = controller;
+		this.thumbnails.set(file, controller);
+		const current = () =>
+			!signal.aborted &&
+			this.thumbnails.get(file) === controller &&
+			this.files.includes(file);
+		void this.thumbnailQueue
+			.add(
+				async () => {
+					if (!current()) return;
+					let url: string | undefined;
+					if (isAudio) {
+						const { common } = await parseBlob(file.file, {
+							skipPostHeaders: true,
+						});
+						if (!current()) return;
+						const cover = selectCover(common.picture);
+						if (cover) {
+							// Copy only the view's bytes, not unrelated ID3 data in its backing buffer.
+							url = URL.createObjectURL(
+								new Blob([new Uint8Array(cover.data)], {
+									type: cover.format,
+								}),
+							);
+						}
+					} else {
+						url = await generateMediaThumbnail(
+							file.file,
+							isVideo,
+							signal,
+						);
+					}
+					if (current()) file.blobUrl = url;
+					else if (url?.startsWith("blob:")) URL.revokeObjectURL(url);
+				},
+				{ signal },
+			)
+			.catch((err) => {
+				if (!signal.aborted) error(["files", "thumbnail"], err);
+			})
+			.finally(() => {
+				if (this.thumbnails.get(file) === controller)
+					this.thumbnails.delete(file);
+			});
 	}
 
 	private async _handleZipFile(file: File): Promise<void> {
@@ -160,7 +156,7 @@ class Files {
 			let incompatibleFiles = false;
 
 			for (const { filename } of entries) {
-				const format = "." + filename.split(".").pop()?.toLowerCase();
+				const format = inputFormat({ name: filename });
 				if (!format || format === ".zip") {
 					incompatibleFiles = true;
 					continue;
@@ -175,7 +171,10 @@ class Files {
 			}
 
 			const converterCount = convertersUsed.size;
-			const canConvertAsOne = converterCount === 1 && !incompatibleFiles;
+			const canConvertAsOne =
+				converterCount === 1 &&
+				!incompatibleFiles &&
+				!convertersUsed.has("pdf");
 
 			log(
 				["files"],
@@ -195,7 +194,7 @@ class Files {
 						? "image"
 						: converterName === "ffmpeg"
 							? "audio"
-							: converterName === "pandoc"
+							: ["pandoc", "pdf"].includes(converterName)
 								? "doc"
 								: "video";
 
@@ -241,10 +240,8 @@ class Files {
 			this._addThumbnail(file);
 		} else {
 			// if zip, extract and add contents
-			const isZip =
-				file.name.toLowerCase().endsWith(".zip") ||
-				file.type === "application/zip" ||
-				file.type === "application/x-zip-compressed";
+			const format = inputFormat(file);
+			const isZip = format === ".zip";
 
 			if (isZip) {
 				try {
@@ -264,20 +261,19 @@ class Files {
 			}
 
 			// regular files
-			const format = "." + file.name.split(".").pop()?.toLowerCase();
-			if (!format) {
-				log(["files"], `no extension found for ${file.name}`);
-				return;
-			}
 			const converter = converters
 				.sort(byNative(format))
-				.find((converter) => converter.formatStrings().includes(format));
+				.find((converter) =>
+					converter.formatStrings().includes(format),
+				);
 			if (!converter) {
 				log(["files"], `no converter found for ${file.name}`);
 				this.files.push(new VertFile(file, format));
 				return;
 			}
-			const to = converter.formatStrings().find((f) => f !== format);
+			const to = converter
+				.formatStrings((f) => f.toSupported)
+				.find((f) => f !== format);
 			if (!to) {
 				log(["files"], `no output format found for ${file.name}`);
 				return;
@@ -310,18 +306,21 @@ class Files {
 					{
 						text: m["convert.external_warning.no"](),
 						action: () => {
-							this.files = [
-								...this.files.filter(
-									(f) => !f.converters.map((c) => c.name).includes("vertd"),
-								),
-							];
+							for (const file of this.files.filter((f) =>
+								f.converters.some((c) => c.name === "vertd"),
+							)) {
+								void this.remove(file);
+							}
 							this._warningShown = false;
 						},
 					},
 					{
 						text: m["convert.external_warning.yes"](),
 						action: () => {
-							localStorage.setItem("acceptedExternalWarning", "true");
+							localStorage.setItem(
+								"acceptedExternalWarning",
+								"true",
+							);
 							this._warningShown = false;
 						},
 					},
@@ -337,7 +336,14 @@ class Files {
 	public add(file: VertFile[] | null | undefined): void;
 	public add(file: FileList | null | undefined): void;
 	public add(
-		file: VertFile | File | VertFile[] | File[] | FileList | null | undefined,
+		file:
+			| VertFile
+			| File
+			| VertFile[]
+			| File[]
+			| FileList
+			| null
+			| undefined,
 	) {
 		if (!file) return;
 		if (Array.isArray(file) || file instanceof FileList) {
@@ -349,56 +355,53 @@ class Files {
 		}
 	}
 
-	public async convertAll() {
-		const promiseFns = this.files.map((f) => () => f.convert());
+	public async convertAll(targets: readonly VertFile[] = this.files) {
+		if (this.batch) return this.batch;
+		const batchFiles = batchTargets(this.files, targets);
+		for (const file of batchFiles) file.queued = true;
 		const coreCount = navigator.hardwareConcurrency || 4;
 		const queue = new PQueue({ concurrency: coreCount });
-		await Promise.all(promiseFns.map((fn) => queue.add(fn)));
+		this.batch = Promise.all(
+			batchFiles.map((file) =>
+				queue.add(async () => {
+					if (!file.queued || !this.files.includes(file)) {
+						file.queued = false;
+						return;
+					}
+					await file.convert();
+				}),
+			),
+		)
+			.then(() => {})
+			.finally(() => {
+				for (const file of batchFiles) file.queued = false;
+				this.batch = null;
+			});
+		return this.batch;
 	}
 
 	public async downloadAll() {
-		if (files.files.length === 0) return;
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		const dlFiles: any[] = [];
-		for (let i = 0; i < files.files.length; i++) {
-			const file = files.files[i];
-			const result = file.result;
-
-			if (!result) {
-				error(["files"], "No result found");
-				continue;
-			}
-
-			let to = result.to;
-			if (!to.startsWith(".")) to = `.${to}`;
-
-			dlFiles.push({
-				name: file.file.name.replace(/\.[^/.]+$/, "") + to,
-				lastModified: Date.now(),
-				input: await result.file.arrayBuffer(),
-			});
+		if (this.downloading) return;
+		const snapshot = downloadSnapshot(
+			this.files.filter((file) => !file.processing && !file.queued),
+		);
+		if (!snapshot.length) return;
+		this.downloading = true;
+		try {
+			const settings = JSON.parse(
+				localStorage.getItem("settings") ?? "{}",
+			);
+			const filename = downloadName(
+				settings.filenameFormat || DEFAULT_FILENAME_FORMAT,
+				"Multi",
+				".zip",
+			);
+			const { downloadZip } = await import("client-zip");
+			const blob = await downloadZip(zipEntries(snapshot)).blob();
+			saveDownload(blob, filename);
+		} finally {
+			this.downloading = false;
 		}
-		const { downloadZip } = await import("client-zip");
-		const blob = await downloadZip(dlFiles, "converted.zip").blob();
-		const url = URL.createObjectURL(blob);
-
-		const settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
-		const filenameFormat = settings.filenameFormat || "ii.Pe_%name%";
-
-		const format = (name: string) => {
-			const date = new Date().toISOString();
-			return name
-				.replace(/%date%/g, date)
-				.replace(/%name%/g, "Multi")
-				.replace(/%extension%/g, "");
-		};
-
-		const a = document.createElement("a");
-		a.href = url;
-		a.download = `${format(filenameFormat)}.zip`;
-		a.click();
-		URL.revokeObjectURL(url);
-		a.remove();
 	}
 }
 
@@ -437,7 +440,9 @@ export const dropdownStates = writable<Record<string, string>>({});
 export const isMobile = writable(false);
 export const effects = writable(true);
 export const theme = writable<"light" | "dark">("light");
-export const locale = writable(getLocale());
+// Match the prerendered page until mounting, then remount translated HTML
+// when the browser's preferred or saved locale is applied.
+export const locale = writable<ReturnType<typeof getLocale>>(baseLocale);
 export const availableLocales = {
 	en: "English",
 	es: "Español",
@@ -456,11 +461,12 @@ export const availableLocales = {
 	"pt-BR": "Português (Brasil)",
 };
 
-export function updateLocale(newLocale: string) {
+export function updateLocale(newLocale: string = getLocale()) {
 	if (!Object.keys(availableLocales).includes(newLocale)) newLocale = "en";
 
 	log(["locale"], `set to ${newLocale}`);
 	localStorage.setItem("locale", newLocale);
+	document.documentElement.lang = newLocale;
 	// @ts-expect-error shush
 	setLocale(newLocale, { reload: false });
 	// @ts-expect-error shush
@@ -507,7 +513,8 @@ export function sanitize(
 	return DOMPurify.sanitize(html, {
 		ALLOWED_TAGS: allowedTags,
 		ALLOWED_ATTR: ["href", "target", "rel", "class"],
-		ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp|blob):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+		ALLOWED_URI_REGEXP:
+			/^(?:(?:(?:f|ht)tps?|mailto|tel|callto|cid|xmpp|blob):|[^a-z]|[a-z+.-]+(?:[^a-z+.\-:]|$))/i,
 	});
 }
 
@@ -548,7 +555,10 @@ export const getMaxArrayBufferSize = (): number => {
 	const cached = localStorage.getItem("maxArrayBufferSize");
 	if (cached) {
 		const parsed = Number(cached);
-		log(["converters"], `using cached max ArrayBuffer size: ${parsed} bytes`);
+		log(
+			["converters"],
+			`using cached max ArrayBuffer size: ${parsed} bytes`,
+		);
 		if (!isNaN(parsed) && parsed > 0) return parsed;
 	}
 

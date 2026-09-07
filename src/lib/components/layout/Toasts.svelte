@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="fixed bottom-28 md:bottom-0 right-0 p-4 flex flex-col-reverse gap-4 z-50"
+	class="workspace-toasts fixed right-0 p-4 flex flex-col-reverse gap-4 z-50"
 >
 	{#each ToastManager.toasts as toast (toast.id)}
 		<div class="flex justify-end">
@@ -12,3 +12,12 @@
 		</div>
 	{/each}
 </div>
+
+<style>
+	.workspace-toasts {
+		bottom: var(--workspace-action-height, 0px);
+		max-height: 40svh;
+		max-width: 100%;
+		overflow-y: auto;
+	}
+</style>

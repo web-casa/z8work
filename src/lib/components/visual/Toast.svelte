@@ -1,27 +1,22 @@
 <script lang="ts">
+	import { m } from "$lib/paraglide/messages";
 	import { fade, fly } from "$lib/util/animation";
-	import {
-		BanIcon,
-		CheckIcon,
-		InfoIcon,
-		TriangleAlert,
-		XIcon,
-	} from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { quintOut } from "svelte/easing";
 	import { ToastManager } from "$lib/util/toast.svelte";
-	import type { ToastProps } from "$lib/util/toast.svelte";
-	import type { SvelteComponent } from "svelte";
+	import type { ToastExports } from "$lib/util/toast.svelte";
 	import clsx from "clsx";
 	import type { Toast as ToastType } from "$lib/util/toast.svelte";
 
-	const props: {
+	const {
+		toast,
+	}: {
 		toast: ToastType<unknown>;
 	} = $props();
 
-	const { id, type, message, durations } = props.toast;
+	const { id, type, message, durations } = toast;
 
-	const additional =
-		"additional" in props.toast ? props.toast.additional : {};
+	const additional = "additional" in toast ? toast.additional : {};
 
 	const colors = {
 		success: "purple",
@@ -30,31 +25,32 @@
 		warning: "pink",
 	};
 
-	const Icons = {
-		success: CheckIcon,
-		error: BanIcon,
-		info: InfoIcon,
-		warning: TriangleAlert,
-	};
+	const icons = {
+		success: "check",
+		error: "cancel",
+		info: "info",
+		warning: "warning",
+	} as const;
 
 	let color = $derived(colors[type]);
-	let Icon = $derived(Icons[type]);
+	let icon = $derived(icons[type]);
 
-	let msg = $state<SvelteComponent<ToastProps>>();
-	const title = $derived(((msg as any)?.title as string) ?? "");
+	let msg = $state<ToastExports>();
+	const title = $derived(msg?.title ?? "");
 
-	// intentionally unused. this is so tailwind can generate the css for these colours as it doesn't detect if it's dynamically loaded
-	// this would lead to the colours not being generated in the final css file by tailwind
-	const colourVariants = [
-		"border-accent-pink-alt",
-		"border-accent-red-alt",
-		"border-accent-purple-alt",
-		"border-accent-blue-alt",
-	];
+	// Literal class names let Tailwind include each notification border color.
+	const colourVariants = {
+		success: "border-accent-purple-alt",
+		error: "border-accent-red-alt",
+		info: "border-accent-blue-alt",
+		warning: "border-accent-pink-alt",
+	};
 </script>
 
 <div
-	class="flex flex-col max-w-[100%] md:max-w-md p-4 gap-2 bg-accent-{color} border-accent-{color}-alt border-l-4 rounded-lg shadow-md"
+	class="flex flex-col max-w-[100%] md:max-w-md p-4 gap-2 bg-accent-{color} {colourVariants[
+		type
+	]} border-l-4 rounded-lg shadow-md"
 	in:fly={{
 		duration: durations.enter,
 		easing: quintOut,
@@ -68,11 +64,10 @@
 >
 	<div class="flex flex-row items-center justify-between w-full gap-4">
 		<div class="flex items-center gap-2">
-			<Icon
+			<PixelIcon
+				name={icon}
 				class="w-6 h-6 text-black flex-shrink-0"
-				size="24"
-				stroke="2"
-				fill="none"
+				size={24}
 			/>
 			<p
 				class={clsx("text-black whitespace-pre-wrap", {
@@ -83,10 +78,11 @@
 			</p>
 		</div>
 		<button
-			class="text-gray-600 hover:text-black flex-shrink-0"
+			class="toast-close text-gray-600 hover:text-black flex-shrink-0 min-w-11 min-h-11 flex items-center justify-center"
+			aria-label={m["workspace.close"]()}
 			onclick={() => ToastManager.remove(id)}
 		>
-			<XIcon size="16" />
+			<PixelIcon name="close" size={16} />
 		</button>
 	</div>
 	{#if typeof message !== "string"}

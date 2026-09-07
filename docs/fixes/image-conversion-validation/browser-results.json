@@ -1,0 +1,66 @@
+{
+	"avif": {
+		"inputBytes": 303842,
+		"outputBytes": 191129
+	},
+	"heic": {
+		"milliseconds": 3343,
+		"outputBytes": 11064020
+	},
+	"queue": {
+		"peak": 2,
+		"active": 0,
+		"jobs": [
+			{
+				"file": "photo.jpg",
+				"q": 60,
+				"phases": ["decoding", "encoding"],
+				"start": 1788717062447,
+				"ended": 1788717063550
+			},
+			{
+				"file": "large.heic",
+				"q": 80,
+				"phases": ["decoding", "encoding"],
+				"start": 1788717063967,
+				"ended": 1788717067110
+			},
+			{
+				"file": "large-2.heic",
+				"q": 80,
+				"phases": ["decoding", "encoding"],
+				"start": 1788717068048,
+				"ended": 1788717071090
+			},
+			{
+				"file": "large-1.heic",
+				"q": 80,
+				"phases": ["decoding", "encoding"],
+				"start": 1788717068049,
+				"ended": 1788717071078
+			},
+			{
+				"file": "large-3.heic",
+				"q": 80,
+				"phases": ["decoding", "encoding"],
+				"start": 1788717071157,
+				"ended": 1788717074079
+			}
+		]
+	},
+	"activeCancelAndRetry": true,
+	"corruptFileError": "InsufficientImageDataInFile `/tmp/magick-Z7glQUk5lD1wOKov9sJSR_XwODACPpGD' @ error/heic.c/ReadHEICImage/1029",
+	"timeoutAndRetry": true,
+	"svgToWebp": true,
+	"icoEntries": ["image0.png", "image1.png"],
+	"network": {
+		"nonReadRequests": [],
+		"pageErrors": []
+	},
+	"development": {
+		"url": "http://localhost:5174/",
+		"coldStartHeicToPng": true,
+		"workerDependencyReloadDuringConversion": false,
+		"mobileDarkLocales": ["zh-Hans", "en", "es", "zh-Hant"]
+	}
+}

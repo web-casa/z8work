@@ -5,28 +5,38 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://ii.pe/</loc>
-    <lastmod>2026-01-19T19:23:05+00:00</lastmod>
+    <loc>https://z8.work/</loc>
+    <lastmod>2026-09-07</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://ii.pe/convert/</loc>
-    <lastmod>2026-01-19T19:23:05+00:00</lastmod>
+    <loc>https://z8.work/convert/</loc>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://ii.pe/settings/</loc>
-    <lastmod>2026-01-19T19:23:05+00:00</lastmod>
+    <loc>https://z8.work/settings/</loc>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://ii.pe/about/</loc>
-    <lastmod>2026-01-19T19:23:05+00:00</lastmod>
+    <loc>https://z8.work/about/</loc>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://ii.pe/privacy/</loc>
-    <lastmod>2026-01-19T19:23:05+00:00</lastmod>
+    <loc>https://z8.work/privacy/</loc>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://z8.work/environment/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://z8.work/acknowledgements/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.50</priority>
   </url>
 </urlset>

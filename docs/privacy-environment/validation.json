@@ -1,0 +1,69 @@
+{
+	"date": "2026-09-07",
+	"node": "22.22.2",
+	"browser": "Chromium 149.0.7827.102",
+	"unitTests": {
+		"passed": 33,
+		"failed": 0
+	},
+	"build": "passed",
+	"svelteCheck": {
+		"errors": 0,
+		"warnings": 0
+	},
+	"eslint": "passed for this task’s changed source files",
+	"development": {
+		"conversion": {
+			"inputBytes": 5913,
+			"outputBytes": 2324,
+			"savedBytes": 3589,
+			"reconversionNotDoubleCounted": true,
+			"largerResultNotRewarded": true
+		},
+		"network": {
+			"requests": 2429,
+			"domains": ["localhost:5174", "cdn.jsdelivr.net"],
+			"nonGetRequests": 0,
+			"fileUploads": 0,
+			"pageErrors": [],
+			"localBlobResources": true
+		}
+	},
+	"production": {
+		"conversion": {
+			"inputBytes": 5913,
+			"outputBytes": 2324,
+			"savedBytes": 3589,
+			"reconversionNotDoubleCounted": true,
+			"largerResultNotRewarded": true
+		},
+		"network": {
+			"requests": 146,
+			"domains": ["localhost:5184", "cdn.jsdelivr.net"],
+			"nonGetRequests": 0,
+			"fileUploads": 0,
+			"pageErrors": [],
+			"localBlobResources": true
+		}
+	},
+	"locales": [
+		"zh-Hans",
+		"en",
+		"es",
+		"zh-Hant",
+		"fr (English fallback for new copy)"
+	],
+	"finalCopySmoke": ["zh-Hans", "en", "es", "zh-Hant"],
+	"pointerFormatSelection": ["WebP", "BMP"],
+	"calculator": {
+		"defaultHddDailyMB": 1,
+		"dailyBytes": 6000000000000000.0,
+		"yearEndBytes": 2.19e18,
+		"firstYearKWh": 6252012,
+		"firstYearGramsCO2": 2719625220,
+		"ssdFirstYearKWh": 11542176,
+		"emptyAndInvalidInputs": "passed",
+		"doublingInput": "passed"
+	},
+	"networkScope": "No HTTP request bodies, analytics, geolocation or remote conversion requests in the exercised flows. This is not a browser-wide live traffic meter."
+}

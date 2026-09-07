@@ -1,12 +1,18 @@
 <script lang="ts">
 	import { onMount } from "svelte";
+	import { page } from "$app/state";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
 
-	import { DISABLE_ALL_EXTERNAL_REQUESTS, VERT_NAME } from "$lib/util/consts.js";
+	import {
+		DISABLE_ALL_EXTERNAL_REQUESTS,
+		VERT_NAME,
+		SITE_NAME,
+		SITE_URL,
+	} from "$lib/util/consts.js";
 	import * as Layout from "$lib/components/layout";
-	import * as Navbar from "$lib/components/layout/Navbar";
-	import featuredImage from "$lib/assets/VERT_Feature.webp";
+	import PixelHeader from "$lib/components/pixel/PixelHeader.svelte";
 	import { Settings } from "$lib/sections/settings/index.svelte";
+	import { converters } from "$lib/converters";
 	import {
 		files,
 		isMobile,
@@ -18,15 +24,20 @@
 		updateLocale,
 	} from "$lib/store/index.svelte";
 	import "$lib/css/app.scss";
-	import { browser } from "$app/environment";
+	import "$lib/css/pixel.scss";
+	import "$lib/css/impact.scss";
+	import "$lib/css/workspace.scss";
 	import { initStores as initAnimStores } from "$lib/util/animation.js";
 	import { VertdInstance } from "$lib/sections/settings/vertdSettings.svelte.js";
 	import { ToastManager } from "$lib/util/toast.svelte.js";
 	import { m } from "$lib/paraglide/messages.js";
 	import { log } from "$lib/util/logger.js";
+	import "$lib/util/sw";
 
-	let { children, data } = $props();
-
+	let { children } = $props();
+	let isAprilFools = $state(false);
+	const canonicalUrl = $derived(new URL(page.url.pathname, SITE_URL).href);
+	const featuredImage = new URL("brand/social-card.png", SITE_URL).href;
 
 	let scrollPositions = new Map<string, number>();
 
@@ -66,13 +77,16 @@
 	};
 
 	onMount(() => {
+		const now = new Date();
+		isAprilFools = now.getDate() === 1 && now.getMonth() === 3;
+
 		initAnimStores();
 
 		const handleResize = () => {
-			isMobile.set(window.innerWidth <= 768);
+			isMobile.set(window.innerWidth <= 800);
 		};
 
-		isMobile.set(window.innerWidth <= 768); // initial page load
+		isMobile.set(window.innerWidth <= 800); // initial page load
 		window.addEventListener("resize", handleResize); // handle window resize
 		window.addEventListener("paste", handlePaste);
 
@@ -81,22 +95,33 @@
 			(localStorage.getItem("theme") as "light" | "dark") || "light",
 		);
 		const storedLocale = localStorage.getItem("locale");
-		if (storedLocale) updateLocale(storedLocale);
+		updateLocale(storedLocale ?? undefined);
 
 		Settings.instance.load();
 
-		if (!DISABLE_ALL_EXTERNAL_REQUESTS) {
+		if (
+			!DISABLE_ALL_EXTERNAL_REQUESTS &&
+			converters.some(
+				(converter) => converter.processingLocation === "remote",
+			)
+		) {
 			VertdInstance.instance
 				.url()
 				.then((u) => fetch(`${u}/api/version`))
 				.then((res) => {
-					if (res.ok) $vertdLoaded = true;
+					$vertdLoaded = res.ok;
+				})
+				.catch(() => {
+					$vertdLoaded = false;
 				});
 		}
 
 		// detect if insecure context
 		if (!window.isSecureContext) {
-			log(["layout"], "Insecure context (HTTP) detected, some features may not work as expected -- you may want to enable \"PUB_DISABLE_FAILURE_BLOCKS\" on local deployments.");
+			log(
+				["layout"],
+				'Insecure context (HTTP) detected, some features may not work as expected -- you may want to enable "PUB_DISABLE_FAILURE_BLOCKS" on local deployments.',
+			);
 			ToastManager.add({
 				type: "warning",
 				message: m["toast.insecure_context"](),
@@ -109,56 +134,42 @@
 			window.removeEventListener("resize", handleResize);
 		};
 	});
-
-
 </script>
 
 <svelte:head>
 	<title>{VERT_NAME}</title>
-	<meta name="theme-color" content="#ffbd85" />
+	<meta name="theme-color" content="#086B68" />
 	<meta
 		name="title"
 		content="{VERT_NAME} — Free, fast, and awesome file converter"
 	/>
-	<meta
-		name="description"
-		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
-	/>
-	<meta property="og:url" content="https://ii.pe" />
+	{#if !["/environment", "/privacy"].includes(page.url.pathname.replace(/\/$/, ""))}
+		<meta name="description" content={m["trust.body"]()} />
+	{/if}
+	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={SITE_NAME} />
 	<meta
 		property="og:title"
 		content="{VERT_NAME} — Free, fast, and awesome file converter"
 	/>
-	<meta
-		property="og:description"
-		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
-	/>
+	<meta property="og:description" content={m["trust.body"]()} />
 	<meta property="og:image" content={featuredImage} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={SITE_NAME} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="vert.sh" />
-	<meta property="twitter:url" content="https://ii.pe" />
+	<meta property="twitter:domain" content={new URL(SITE_URL).hostname} />
+	<meta property="twitter:url" content={canonicalUrl} />
 	<meta
 		property="twitter:title"
 		content="{VERT_NAME} — Free, fast, and awesome file converter"
 	/>
-	<meta
-		property="twitter:description"
-		content="With ii.Pe, you can quickly convert any image, video, audio, and document file. No ads, no tracking, open source, and all processing (other than video) is done on your device."
-	/>
+	<meta property="twitter:description" content={m["trust.body"]()} />
 	<meta property="twitter:image" content={featuredImage} />
 	<link rel="manifest" href="/manifest.json" />
-	<link rel="canonical" href="https://ii.pe/" />
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WKQWH1SXJ"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-4WKQWH1SXJ');
-	</script>
-	{#if data.isAprilFools}
+	<link rel="canonical" href={canonicalUrl} />
+	{#if isAprilFools}
 		<style>
 			* {
 				font-family: "Comic Sans MS", "Comic Sans", cursive !important;
@@ -170,7 +181,7 @@
 <!-- FIXME: if user resizes between desktop/mobile, highlight of page disappears (only shows on original size) -->
 {#key $locale}
 	<div
-		class="flex flex-col min-h-screen h-full w-full overflow-x-hidden"
+		class="pixel-app"
 		ondrop={dropFiles}
 		ondragenter={(e) => handleDrag(e, true)}
 		ondragover={(e) => handleDrag(e, true)}
@@ -179,10 +190,7 @@
 	>
 		<Layout.UploadRegion />
 
-		<div>
-			<Layout.MobileLogo />
-			<Navbar.Desktop />
-		</div>
+		<PixelHeader />
 
 		<!-- 
 		SvelteKit throws the following warning when developing - safe to ignore as we render the children in this component:
@@ -193,12 +201,6 @@
 		<Layout.Toasts />
 		<Layout.Dialogs />
 
-		<div>
-			<Layout.Footer />
-			<Navbar.Mobile />
-		</div>
+		<Layout.Footer />
 	</div>
 {/key}
-
-<!-- Gradients placed here to prevent it overlapping in transitions -->
-<Layout.Gradients />

@@ -3,11 +3,11 @@
 	import { log } from "$lib/util/logger";
 	import * as Settings from "$lib/sections/settings/index.svelte";
 
-	import { SettingsIcon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { onMount } from "svelte";
 	import { m } from "$lib/paraglide/messages";
 	import { ToastManager } from "$lib/util/toast.svelte";
-	import { DISABLE_ALL_EXTERNAL_REQUESTS } from "$lib/util/consts";
+	import { converters } from "$lib/converters";
 
 	let settings = $state(Settings.Settings.instance.settings);
 
@@ -55,7 +55,7 @@
 
 <div class="flex flex-col h-full items-center">
 	<h1 class="hidden md:block text-[40px] tracking-tight leading-[72px] mb-6">
-		<SettingsIcon size="40" class="inline-block -mt-2 mr-2" />
+		<PixelIcon name="sliders" size={40} class="inline-block -mt-2 mr-2" />
 		{m["settings.title"]()}
 	</h1>
 
@@ -64,10 +64,8 @@
 	>
 		<div class="flex flex-col gap-4 flex-1">
 			<Settings.Conversion bind:settings />
-			{#if !DISABLE_ALL_EXTERNAL_REQUESTS}
+			{#if converters.some((converter) => converter.processingLocation === "remote")}
 				<Settings.Vertd bind:settings />
-			{:else}
-				<Settings.Privacy bind:settings />
 			{/if}
 		</div>
 

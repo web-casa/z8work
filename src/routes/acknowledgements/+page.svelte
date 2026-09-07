@@ -1,14 +1,17 @@
 <script lang="ts">
 	import { error } from "$lib/util/logger";
 	import * as About from "$lib/sections/about";
-	import { InfoIcon, HeartHandshakeIcon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { onMount } from "svelte";
 	import avatarNullptr from "$lib/assets/avatars/nullptr.jpg";
 	import avatarLiam from "$lib/assets/avatars/liam.jpg";
 	import avatarJovannMC from "$lib/assets/avatars/jovannmc.jpg";
 	import avatarRealmy from "$lib/assets/avatars/realmy.jpg";
 	import avatarAzurejelly from "$lib/assets/avatars/azurejelly.jpg";
-	import { DISABLE_ALL_EXTERNAL_REQUESTS, GITHUB_API_URL } from "$lib/util/consts";
+	import {
+		DISABLE_ALL_EXTERNAL_REQUESTS,
+		GITHUB_API_URL,
+	} from "$lib/util/consts";
 	import { m } from "$lib/paraglide/messages";
 	import { ToastManager } from "$lib/util/toast.svelte";
 
@@ -129,7 +132,7 @@
 
 <div class="flex flex-col h-full items-center">
 	<h1 class="hidden md:block text-[40px] tracking-tight leading-[72px] mb-6">
-		<HeartHandshakeIcon size="40" class="inline-block -mt-2 mr-2" />
+		<PixelIcon name="heart" size={40} class="inline-block -mt-2 mr-2" />
 		{m["acknowledgements.title"]()}
 	</h1>
 

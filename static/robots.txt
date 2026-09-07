@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ii.pe/sitemap.xml
+Sitemap: https://z8.work/sitemap.xml

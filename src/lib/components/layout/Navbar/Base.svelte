@@ -9,16 +9,9 @@
 		setTheme,
 	} from "$lib/store/index.svelte";
 	import clsx from "clsx";
-	import {
-		InfoIcon,
-		MoonIcon,
-		RefreshCw,
-		SettingsIcon,
-		SunIcon,
-		UploadIcon,
-        Monitor,
-		type Icon as IconType,
-	} from "lucide-svelte";
+	import PixelIcon, {
+		type PixelIconName,
+	} from "$lib/components/pixel/PixelIcon.svelte";
 	import { quintOut } from "svelte/easing";
 	import Panel from "../../visual/Panel.svelte";
 	import Logo from "../../visual/svg/Logo.svelte";
@@ -31,7 +24,7 @@
 			name: string;
 			url: string;
 			activeMatch: (pathname: string) => boolean;
-			icon: typeof IconType;
+			icon: PixelIconName;
 			badge?: number;
 			target?: string;
 		}[]
@@ -40,33 +33,33 @@
 			name: m["navbar.upload"](),
 			url: "/",
 			activeMatch: (pathname) => pathname === "/",
-			icon: UploadIcon,
+			icon: "upload",
 		},
 		{
 			name: m["navbar.convert"](),
 			url: "/convert/",
 			activeMatch: (pathname) =>
 				pathname === "/convert/" || pathname === "/convert",
-			icon: RefreshCw,
+			icon: "reload",
 			badge: files.files.length,
 		},
 		{
 			name: m["navbar.settings"](),
 			url: "/settings/",
 			activeMatch: (pathname) => pathname.startsWith("/settings"),
-			icon: SettingsIcon,
+			icon: "sliders",
 		},
 		{
 			name: m["navbar.about"](),
 			url: "/about/",
 			activeMatch: (pathname) => pathname.startsWith("/about"),
-			icon: InfoIcon,
+			icon: "info",
 		},
 		{
 			name: m["navbar.screenhello"](),
 			url: "https://screenhello.com",
 			activeMatch: () => false,
-			icon: Monitor,
+			icon: "monitor",
 			target: "_blank",
 		},
 	]);
@@ -110,7 +103,6 @@
 </script>
 
 {#snippet link(item: (typeof items)[0], index: number)}
-	{@const Icon = item.icon}
 	<a
 		bind:this={links[index]}
 		href={item.url}
@@ -140,7 +132,7 @@
 					}}
 				>
 					<div class="relative">
-						<Icon />
+						<PixelIcon name={item.icon} />
 						{#if item.badge}
 							<div
 								class="absolute overflow-hidden grid grid-rows-1 grid-cols-1 -top-1 font-display -right-1 w-fit px-1.5 h-4 rounded-full bg-badge text-on-badge font-medium"
@@ -215,8 +207,12 @@
 				}}
 				class="w-14 h-full items-center justify-center hidden md:flex"
 			>
-				<SunIcon class="dynadark:hidden block" />
-				<MoonIcon class="dynadark:block hidden" />
+				<span class="dynadark:hidden block"
+					><PixelIcon name="sun" /></span
+				>
+				<span class="dynadark:block hidden"
+					><PixelIcon name="moon" /></span
+				>
 			</button>
 		</Tooltip>
 	</Panel>

@@ -1,0 +1,95 @@
+{
+	"base": "http://localhost:5184",
+	"cases": [
+		{
+			"name": "透明索引.png",
+			"to": ".tiff",
+			"keepMetadata": false,
+			"bytes": 346,
+			"depth": 8
+		},
+		{
+			"name": "透明索引.png",
+			"to": ".psd",
+			"keepMetadata": false,
+			"bytes": 987,
+			"depth": 8
+		},
+		{
+			"name": "透明索引.png",
+			"to": ".webp",
+			"keepMetadata": false,
+			"bytes": 52,
+			"depth": 8
+		},
+		{
+			"name": "方向.tiff",
+			"to": ".webp",
+			"keepMetadata": false,
+			"bytes": 52,
+			"depth": 8
+		},
+		{
+			"name": "广色域.png",
+			"to": ".png",
+			"keepMetadata": false,
+			"bytes": 595,
+			"depth": 8,
+			"browserColorError": {
+				"maximum": 1,
+				"mean": 0.013997395833333334
+			}
+		},
+		{
+			"name": "保留色彩.png",
+			"to": ".png",
+			"keepMetadata": true,
+			"bytes": 1130,
+			"depth": 8
+		},
+		{
+			"name": "透明转白底.png",
+			"to": ".jpeg",
+			"keepMetadata": false,
+			"bytes": 352,
+			"depth": 8
+		},
+		{
+			"name": "2-透明.tiff",
+			"to": ".jpeg",
+			"keepMetadata": true,
+			"bytes": 364,
+			"depth": 8
+		},
+		{
+			"name": "11-透明.tiff",
+			"to": ".jpeg",
+			"keepMetadata": true,
+			"bytes": 353,
+			"depth": 8
+		},
+		{
+			"name": "1位灰度.png",
+			"to": ".tiff",
+			"keepMetadata": false,
+			"bytes": 286,
+			"depth": 1
+		},
+		{
+			"name": "2位灰度.png",
+			"to": ".tif",
+			"keepMetadata": true,
+			"bytes": 290,
+			"depth": 2
+		},
+		{
+			"name": "4位灰度.png",
+			"to": ".tiff",
+			"keepMetadata": false,
+			"bytes": 320,
+			"depth": 4
+		}
+	],
+	"pageErrors": [],
+	"nonReadRequests": []
+}

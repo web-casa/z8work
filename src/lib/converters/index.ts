@@ -3,6 +3,7 @@ import type { Converter } from "./converter.svelte";
 import { FFmpegConverter } from "./ffmpeg.svelte";
 import { PandocConverter } from "./pandoc.svelte";
 import { MagickConverter } from "./magick.svelte";
+import { PdfConverter } from "./pdf.svelte";
 
 const getConverters = (): Converter[] => {
 	const converters: Converter[] = [
@@ -10,7 +11,7 @@ const getConverters = (): Converter[] => {
 		new FFmpegConverter(),
 	];
 
-	converters.push(new PandocConverter());
+	converters.push(new PandocConverter(), new PdfConverter());
 	return converters;
 };
 

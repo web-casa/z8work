@@ -1,12 +1,7 @@
 <script lang="ts">
 	import FancyTextInput from "$lib/components/functional/FancyInput.svelte";
 	import Panel from "$lib/components/visual/Panel.svelte";
-	import {
-		PauseIcon,
-		PlayIcon,
-		RefreshCwIcon,
-		ChevronDownIcon,
-	} from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import type { ISettings } from "./index.svelte";
 	import {
 		CONVERSION_BITRATES,
@@ -15,25 +10,26 @@
 		type SampleRate,
 	} from "$lib/converters/ffmpeg.svelte";
 	import { m } from "$lib/paraglide/messages";
+	import { DEFAULT_FILENAME_FORMAT } from "$lib/util/consts";
 	import Dropdown from "$lib/components/functional/Dropdown.svelte";
 	import FancyInput from "$lib/components/functional/FancyInput.svelte";
-	import { effects, sanitize } from "$lib/store/index.svelte";
+	import { effects } from "$lib/store/index.svelte";
 	import FormatDropdown from "$lib/components/functional/FormatDropdown.svelte";
 	import { categories } from "$lib/converters";
 	import clsx from "clsx";
+	import ImageQuality from "$lib/components/pixel/ImageQuality.svelte";
 
-	const { settings = $bindable() }: { settings: ISettings } = $props();
+	let { settings = $bindable() }: { settings: ISettings } = $props();
 	let showAdvanced = $state(false);
 </script>
 
 <Panel class="flex flex-col gap-8 p-6">
 	<div class="flex flex-col gap-3">
 		<h2 class="text-2xl font-bold">
-			<RefreshCwIcon
-				size="40"
-				class="inline-block -mt-1 mr-2 bg-accent p-2 rounded-full"
-				color="black"
-			/>
+			<span
+				class="text-black inline-block -mt-1 mr-2 bg-accent pixel-icon-badge"
+				><PixelIcon name="reload" size={24} /></span
+			>
 			{m["settings.conversion.title"]()}
 		</h2>
 		<div class="flex flex-col gap-4">
@@ -43,11 +39,13 @@
 						{m["settings.conversion.filename_format"]()}
 					</p>
 					<p class="text-sm text-muted font-normal">
-						{@html sanitize(m["settings.conversion.filename_description"]())}
+						{m[
+							"settings.conversion.filename_description"
+						]().replace(/<\/?b>/g, "")}
 					</p>
 				</div>
 				<FancyTextInput
-					placeholder="ii.Pe_%name%"
+					placeholder={DEFAULT_FILENAME_FORMAT}
 					bind:value={settings.filenameFormat}
 					extension={".ext"}
 					type="text"
@@ -61,8 +59,9 @@
 					<span class="text-base font-bold"
 						>{m["settings.conversion.advanced_settings"]()}</span
 					>
-					<ChevronDownIcon
-						size="20"
+					<PixelIcon
+						name="chevron"
+						size={20}
 						class={clsx("transition-transform duration-300", {
 							"rotate-180": showAdvanced,
 						})}
@@ -71,8 +70,14 @@
 				<div
 					class={clsx(
 						"flex flex-col gap-8 transition-all duration-300 ease-in-out",
-						{"max-h-[2000px] opacity-100 overflow-visible": showAdvanced},
-						{"max-h-0 opacity-0 overflow-hidden -mb-4": !showAdvanced},
+						{
+							"max-h-[2000px] opacity-100 overflow-visible":
+								showAdvanced,
+						},
+						{
+							"max-h-0 opacity-0 overflow-hidden -mb-4":
+								!showAdvanced,
+						},
 					)}
 				>
 					<div class="flex flex-col gap-8">
@@ -98,11 +103,14 @@
 											? 'selected'
 											: ''} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 									>
-										<PlayIcon
-											size="24"
+										<PixelIcon
+											name="play"
+											size={24}
 											class="inline-block mr-2"
 										/>
-										{m["settings.conversion.default_format_enable"]()}
+										{m[
+											"settings.conversion.default_format_enable"
+										]()}
 									</button>
 
 									<button
@@ -114,11 +122,14 @@
 											? ''
 											: 'selected'} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 									>
-										<PauseIcon
-											size="24"
+										<PixelIcon
+											name="pause"
+											size={24}
 											class="inline-block mr-2"
 										/>
-										{m["settings.conversion.default_format_disable"]()}
+										{m[
+											"settings.conversion.default_format_disable"
+										]()}
 									</button>
 								</div>
 							</div>
@@ -193,9 +204,7 @@
 								<p class="text-base font-bold">
 									{m["settings.conversion.metadata"]()}
 								</p>
-								<p
-									class="text-sm text-muted font-normal"
-								>
+								<p class="text-sm text-muted font-normal">
 									{m[
 										"settings.conversion.metadata_description"
 									]()}
@@ -212,8 +221,9 @@
 											? 'selected'
 											: ''} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 									>
-										<PlayIcon
-											size="24"
+										<PixelIcon
+											name="play"
+											size={24}
 											class="inline-block mr-2"
 										/>
 										{m["settings.conversion.keep"]()}
@@ -228,8 +238,9 @@
 											? ''
 											: 'selected'} flex-1 p-4 rounded-lg text-black dynadark:text-white flex items-center justify-center"
 									>
-										<PauseIcon
-											size="24"
+										<PixelIcon
+											name="pause"
+											size={24}
 											class="inline-block mr-2"
 										/>
 										{m["settings.conversion.remove"]()}
@@ -255,16 +266,7 @@
 											"settings.conversion.quality_images"
 										]()}
 									</p>
-									<FancyInput
-										bind:value={
-											settings.magickQuality as unknown as string
-										}
-										type="number"
-										min={1}
-										max={100}
-										placeholder={"100"}
-										extension={"%"}
-									/>
+									<ImageQuality bind:settings />
 								</div>
 								<div class="flex flex-col gap-2">
 									<p class="text-sm font-bold">

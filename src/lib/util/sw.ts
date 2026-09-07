@@ -24,6 +24,7 @@ class ServiceWorkerManager {
 				"/sw.js",
 				{
 					scope: "/",
+					updateViaCache: "none",
 				},
 			);
 

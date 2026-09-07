@@ -9,9 +9,10 @@
 		"toggle_theme": "Cambiar tema"
 	},
 	"footer": {
-		"copyright": "© {year} ii.Pe.",
+		"copyright": "© {year} Z8.Work.",
 		"source_code": "Código fuente",
-		"discord_server": "Servidor de Discord"
+		"discord_server": "Servidor de Discord",
+		"privacy_policy": "Política de privacidad"
 	},
 	"upload": {
 		"title": "Una herramienta de conversión de archivos basada en navegador y sin cargas.",
@@ -21,7 +22,7 @@
 			"convert": "convertir"
 		},
 		"cards": {
-			"title": "ii.Pe soporta...",
+			"title": "Z8.Work soporta...",
 			"images": "Imágenes",
 			"audio": "Audio",
 			"documents": "Documentos",
@@ -43,7 +44,13 @@
 			"partial_support": "Este formato solo se puede convertir a {direction}.",
 			"direction_input": "entrada (desde)",
 			"direction_output": "salida (a)",
-			"video_server_processing": "Los videos se suben a un servidor para ser procesados por defecto, aprenda cómo configurarlo localmente aquí."
+			"video_server_processing": "Los videos se suben a un servidor para ser procesados por defecto, aprenda cómo configurarlo localmente aquí.",
+			"detected": "Se han detectado archivos de tipo {type} en {filename}.",
+			"audio": "audio",
+			"video": "vídeo",
+			"doc": "documento",
+			"image": "imagen",
+			"extract_error": "Error al extraer {filename}: {error}"
 		},
 		"friend_links": "Enlaces Amigos"
 	},
@@ -66,7 +73,9 @@
 			"video": "Vídeo",
 			"doc": "Documento",
 			"image": "Imagen",
-			"placeholder": "Buscar formato"
+			"placeholder": "Buscar formato",
+			"no_formats": "No hay formatos disponibles",
+			"no_results": "Ningún formato coincide con su búsqueda"
 		},
 		"tooltips": {
 			"unknown_file": "Formato de archivo desconocido",
@@ -87,8 +96,36 @@
 			"worker_timeout": "El convertidor {type} está tardando más de lo esperado en inicializarse. Espere unos momentos más o actualice la página.",
 			"audio": "audio",
 			"doc": "documento",
-			"image": "imagen"
-		}
+			"image": "imagen",
+			"format_output_only": "Actualmente, este formato solo se puede utilizar como salida (convertido a), no como entrada.",
+			"vertd_details": "Ver detalles del error",
+			"vertd_details_body": "Si pulsas enviar, <b>tu vídeo también se adjuntará</b> junto con el registro de errores, que siempre se nos envía para su revisión. La siguiente información es el registro que recibimos automáticamente:",
+			"vertd_details_close": "Cerrar",
+			"vertd_details_error_message": "<b>Mensaje de error:</b> [view_link]Ver registros de errores[/view_link]",
+			"vertd_details_footer": "Esta información solo se utilizará para solucionar problemas y nunca se compartirá. Consulte nuestra [privacy_link]política de privacidad[/privacy_link] para obtener más detalles.",
+			"vertd_details_from": "<b>Desde formato:</b> {from}",
+			"vertd_details_job_id": "<b>ID de la tarea:</b> {jobId}",
+			"vertd_details_to": "<b>Formato de destino:</b> {to}",
+			"vertd_failed_to_keep": "No se pudo mantener el video en el servidor: {error}",
+			"vertd_generic_body": "Se produjo un error al intentar convertir su video. ¿Le gustaría enviar este video a los desarrolladores para ayudar a corregir este error? Sólo se enviará su archivo de vídeo. No se cargarán identificadores.",
+			"vertd_generic_no": "No enviar",
+			"vertd_generic_title": "Error de conversión de vídeo",
+			"vertd_generic_view": "Ver detalles del error",
+			"vertd_generic_yes": "Enviar vídeo",
+			"vertd_ratelimit": "La conversión de tu vídeo, {filename}, ha fallado varias veces. Para evitar la sobrecarga del servidor, se han bloqueado temporalmente los nuevos intentos de conversión de este archivo. Inténtalo de nuevo más tarde."
+		},
+		"archive_file": {
+			"audio": "audio",
+			"detected": "Se han detectado archivos de tipo {type} en {filename}.",
+			"doc": "documento",
+			"extract": "Extraer archivo",
+			"extract_error": "Error al extraer {filename}: {error}",
+			"extracted": "Se han extraído {extract_count} archivos de {filename}. Se han ignorado {ignore_count} elementos.",
+			"extracting": "Archivo detectado: {filename}",
+			"image": "imagen",
+			"video": "vídeo"
+		},
+		"large_file_warning": "Debido a limitaciones del navegador/dispositivo, la conversión de video a audio está deshabilitada para este archivo ya que su tamaño supera {limit}GB. Recomendamos utilizar Firefox o Safari para archivos de este tamaño ya que tienen menos limitaciones."
 	},
 	"settings": {
 		"title": "Ajustes",
@@ -103,15 +140,15 @@
 			"dark": "Oscuro",
 			"effect_settings": "Efectos",
 			"effect_description": "¿Prefieres efectos en la interfaz o una experiencia más estática?",
-			"enable": "Habilitar",
-			"disable": "Deshabilitar"
+			"enable": "Activar",
+			"disable": "Desactivar"
 		},
 		"conversion": {
 			"title": "Conversión",
 			"advanced_settings": "Configuraciones avanzadas",
 			"filename_format": "Formato del nombre de archivo",
 			"filename_description": "Esto va a determinar el nombre del archivo al ser descargado <b>sin incluir la extensión</b>. Puedes poner las siguientes plantillas en el formato, las cuales serán reemplazadas con la información que les corresponde: <b>%name%</b> para el nombre original, <b>%extension%</b> para la extensión original del archivo y <b>%date%</b> para la fecha de cuando el archivo fue convertido.",
-			"placeholder": "ii.Pe_%name%",
+			"placeholder": "Z8.Work_%name%",
 			"default_format": "Formato de conversión predeterminado",
 			"default_format_description": "Esto cambiará el formato predeterminado seleccionado cuando subes un archivo de este tipo.",
 			"default_format_image": "Imágenes",
@@ -127,7 +164,9 @@
 			"quality_video": "Esto cambia la calidad por defecto de los vídeos convertidos. Valores más altos pueden resultar en tiempos de conversión y tamaños de archivo más largos.",
 			"quality_audio": "Audio (kbps)",
 			"quality_images": "Imagen (%)",
-			"rate": "Tasa de muestreo (Hz)"
+			"rate": "Tasa de muestreo (Hz)",
+			"default_format_disable": "Desactivar",
+			"default_format_enable": "Activar"
 		},
 		"vertd": {
 			"title": "Conversión de vídeo",
@@ -135,7 +174,7 @@
 			"loading": "cargando...",
 			"available": "disponible, id del commit {commitId}",
 			"unavailable": "no disponible (¿has comprobado la url?)",
-			"description": "<code>vertd</code> es un proyecto que actúa como un servidor intermediario (\"wrapper\") para FFmpeg. Permite convertir vídeos sin dejar de lado la conveniente interfaz web de ii.Pe y, a la vez, aprovecha la potencia de tu GPU para hacerlo lo más rápido posible.",
+			"description": "<code>vertd</code> es un proyecto que actúa como un servidor intermediario (\"wrapper\") para FFmpeg. Permite convertir vídeos sin dejar de lado la conveniente interfaz web de Z8.Work y, a la vez, aprovecha la potencia de tu GPU para hacerlo lo más rápido posible.",
 			"hosting_info": "Alojamos una instancia pública para tu conveniencia, pero es bastante fácil alojar una propia en tu PC o servidor si sabes lo que estás haciendo. Puedes descargar los binarios del servidor [vertd_link]aquí[/vertd_link]. ¡El proceso de instalación será más fácil en el futuro, así que mantente atento!",
 			"instance": "Instancia",
 			"url_placeholder": "Ejemplo: http://localhost:24153",
@@ -168,11 +207,20 @@
 			"loading_cache": "Cargando...",
 			"total_size": "Tamaño total",
 			"files_cached_label": "Archivos en caché",
-			"cache_cleared": "¡Caché borrada exitosamente!"
+			"cache_cleared": "¡Caché borrada exitosamente!",
+			"all_data_clear_error": "No se han podido borrar todos los datos del sitio.",
+			"all_data_cleared": "¡Se han borrado todos los datos del sitio! Recargando la página...",
+			"cache_clear_error": "No se pudo borrar el caché.",
+			"clear_all_data": "Borrar todos los datos del sitio",
+			"clear_all_data_cancel": "Cancelar",
+			"clear_all_data_confirm": "Esto restablecerá todos los ajustes y la caché; después se recargará la página. Esta acción no se puede deshacer.",
+			"clear_all_data_confirm_title": "¿Borrar todos los datos del sitio?",
+			"site_data_title": "Gestión de datos del sitio",
+			"site_data_description": "Borra todos los datos del sitio, incluidos los ajustes y los archivos en caché, restableciendo Z8.Work a su estado predeterminado y recargando la página."
 		},
 		"language": {
 			"title": "Lenguaje",
-			"description": "Selecciona el lenguaje que prefieres usar para la interfaz de ii.Pe."
+			"description": "Selecciona el lenguaje que prefieres usar para la interfaz de Z8.Work."
 		}
 	},
 	"about": {
@@ -216,7 +264,7 @@
 			}
 		},
 		"why": {
-			"title": "¿Por qué ii.Pe?",
+			"title": "¿Por qué Z8.Work?",
 			"description": "<b>Los conversores de archivos siempre nos han decepcionado.</b> Son feos, están llenos de anuncios y, lo más importante, son lentos. Decidimos solucionar este problema de una vez por todas creando una alternativa que resuelve todo eso, y más.<br/><br/>Todos los archivos se convierten directamente en tu dispositivo; esto significa que no hay demoras por subir o bajar archivos de un servidor, y nunca tenemos acceso a los archivos que conviertes."
 		},
 		"sponsors": {
@@ -230,29 +278,16 @@
 			"source": "Fuente",
 			"email": "Email"
 		},
-		"donate": {
-			"title": "Donar a ii.Pe",
-			"description": "Con tu apoyo, podemos seguir manteniendo y mejorando ii.Pe.",
-			"one_time": "Una sola vez",
-			"monthly": "Mensual",
-			"custom": "Personalizado",
-			"pay_now": "Pagar ahora",
-			"donate_amount": "Donar ${amount} USD",
-			"thank_you": "¡Gracias por tu donación!",
-			"payment_failed": "Pago fallido: {message}{period} No se ha efectuado ningún cargo.",
-			"donation_error": "Ha ocurrido un error al procesar tu donación. Por favor, inténtalo de nuevo más tarde.",
-			"payment_error": "Ha ocurrido un error al obtener los detalles del pago. Por favor, inténtalo de nuevo más tarde."
-		},
 		"credits": {
 			"title": "Créditos",
 			"contact_team": "Si te gustaría contactar al equipo de desarrollo, por favor usa el email que se encuentra en la tarjeta de \"Recursos\".",
 			"notable_contributors": "Colaboradores destacados",
-			"notable_description": "Queremos dar las gracias a las siguientes personas por sus importantes contribuciones a ii.Pe.",
+			"notable_description": "Queremos dar las gracias a las siguientes personas por sus importantes contribuciones a Z8.Work.",
 			"github_contributors": "Contribuidores de GitHub",
 			"github_description": "¡Muchas gracias a todos los que han contribuido! [github_link]¿Quieres contribuir también?[/github_link]",
 			"no_contributors": "Parece que nadie ha contribuido todavía... [contribute_link]¡Sé el primero en hacerlo![/contribute_link]",
 			"libraries": "Librerías",
-			"libraries_description": "Muchas gracias a FFmpeg (audio, vídeo), ImageMagick (imágenes) y Pandoc (documentos) por mantener librerías excelentes por tantos años. ii.Pe depende de ellas para proporcionar tus conversiones.",
+			"libraries_description": "Muchas gracias a FFmpeg (audio, vídeo), ImageMagick (imágenes) y Pandoc (documentos) por mantener librerías excelentes por tantos años. Z8.Work depende de ellas para proporcionar tus conversiones.",
 			"roles": {
 				"lead_developer": "Líder de desarrollo; implementación del backend de conversión e interfaz",
 				"developer": "Desarrollador; implementación de la interfaz",
@@ -263,7 +298,8 @@
 		},
 		"errors": {
 			"github_contributors": "Ocurrió un error mientras se obtenían los contribuidores de GitHub."
-		}
+		},
+		"acknowledgements_link": "Ver agradecimientos"
 	},
 	"workers": {
 		"errors": {
@@ -272,7 +308,259 @@
 			"magick": "Ocurrió un error en el módulo de Magick, la conversión de imágenes puede que no funcione correctamente.",
 			"ffmpeg": "No se pudo cargar FFmpeg, algunas funciones podrían no funcionar.",
 			"no_audio": "No se encontró una pista de audio.",
-			"invalid_rate": "La tasa de muestreo especificada no es válida: {rate}Hz"
+			"invalid_rate": "La tasa de muestreo especificada no es válida: {rate}Hz",
+			"file_too_large": "Este archivo supera el límite de {limit}GB del navegador/dispositivo. Prueba con Firefox o Safari para convertir archivos de este tamaño, ya que suelen tener límites más altos.",
+			"pandoc": "Error al cargar el worker de Pandoc, es posible que la conversión de documentos no funcione como se espera."
 		}
-	}
+	},
+	"privacy": {
+		"analytics": {
+			"description": "Esta instancia carga Google Analytics para obtener estadísticas de uso del sitio. La sección «Privacidad y datos» de los [settings_link]ajustes[/settings_link] permite gestionar los datos guardados en tu navegador.",
+			"title": "Analítica"
+		},
+		"contact": {
+			"description": "Si tienes alguna pregunta, escribe a [email_link]contact@web.casa[/email_link]. Si utilizas otra instancia de Z8.Work, contacta con su administrador.",
+			"title": "Contacto"
+		},
+		"conversion_errors": {
+			"description": "Cuando la conversión de un vídeo falla, es posible que recopilemos algunos datos anónimos para ayudarnos a diagnosticar el problema. Estos datos pueden incluir:",
+			"footer": "Esta información se utiliza únicamente con el propósito de diagnosticar problemas de conversión. El archivo de vídeo real solo se recopilará si nos das tu permiso para ello, y únicamente se utilizará para la resolución de errores.",
+			"list_format_from": "Formato desde el que convertiste",
+			"list_format_to": "El formato al que convertiste el archivo",
+			"list_stderr": "La salida stderr de FFmpeg de tu tarea (mensaje de error)",
+			"list_job_id": "El ID de la tarea, que es el nombre de archivo anonimizado",
+			"list_video": "El archivo de vídeo real (si se otorga permiso explícito)",
+			"title": "Errores de conversión"
+		},
+		"conversions": {
+			"description": "Las conversiones de imágenes, documentos y audio se realizan localmente en tu dispositivo mediante WebAssembly (ImageMagick, Pandoc y FFmpeg), sin subir esos archivos a un servidor.<br/><br/>Los vídeos se envían a la instancia de vertd seleccionada en los ajustes para su conversión. Puedes configurar una instancia propia. La conservación de los vídeos depende del servidor que utilices.",
+			"title": "Conversiones"
+		},
+		"last_updated": "Última actualización: 06/09/2026",
+		"local_storage": {
+			"description": "Utilizamos el almacenamiento local del navegador para guardar tus ajustes y el almacenamiento de sesión para guardar temporalmente la lista de colaboradores de GitHub de la sección «Acerca de», evitando solicitudes repetidas a su API.<br/><br/>Las herramientas de conversión WebAssembly (FFmpeg, ImageMagick y Pandoc) también se guardan en la caché del navegador para no tener que descargarlas en cada visita. Puedes consultar o eliminar estos datos en la sección «Privacidad y datos» de los [settings_link]ajustes[/settings_link].",
+			"title": "Almacenamiento local"
+		},
+		"summary": {
+			"title": "Resumen"
+		},
+		"title": "Política de privacidad"
+	},
+	"toast": {
+		"insecure_context": "Estás visitando Z8.Work en un contexto inseguro (por ejemplo, accediendo a través de HTTP en lugar de HTTPS). Es posible que algunas funciones no funcionen como se espera."
+	},
+	"acknowledgements": {
+		"title": "Agradecimientos"
+	},
+	"pixel": {
+		"waiting": "En cola…",
+		"reconvert": "Volver a convertir",
+		"brand": "Conversión y procesamiento local de archivos",
+		"workspace": "Conversor de archivos",
+		"add": "Añadir archivos",
+		"queue": "Archivos para convertir",
+		"count": "{count} archivos",
+		"output": "Formato de salida",
+		"applies": "Se aplica a {count} archivos",
+		"convert": "Convertir {count} archivos",
+		"drop": "o arrastra tus archivos aquí",
+		"empty_title": "Dale a cada archivo un nuevo formato.",
+		"empty_body": "Imágenes, audio, documentos y vídeos. Añade tus archivos y elige el formato que necesitas.",
+		"empty_output": "Añade archivos para empezar",
+		"local": "Estos archivos se procesan en tu dispositivo.",
+		"local_images": "Estas {count} imágenes se procesan en tu dispositivo.",
+		"server": "Los vídeos usan un servidor configurable",
+		"mixed": "Elige un formato para cada archivo.",
+		"ready": "Listo",
+		"queued": "Listo para convertir",
+		"processing": "Convirtiendo…",
+		"complete": "Completado",
+		"failed": "La conversión ha fallado. Inténtalo de nuevo.",
+		"cancelled": "Cancelado",
+		"cancel": "Cancelar conversión",
+		"remove": "Eliminar {name}",
+		"settings": "Ajustes de conversión",
+		"supported": "Formatos compatibles",
+		"partial_formats": "Los formatos marcados con * solo admiten importación o exportación.",
+		"quality": "Calidad de imagen",
+		"metadata": "Conservar metadatos",
+		"details": "Más ajustes",
+		"skip": "Ir a los archivos",
+		"preparing": "Preparando el conversor…",
+		"select": "Elige un formato",
+		"retry": "Reintentar",
+		"all_done": "Todos los archivos convertidos",
+		"none": "Todavía no hay archivos",
+		"local_types": "Las imágenes, el audio y los documentos se procesan localmente.",
+		"save_failed": "No se han podido guardar los ajustes.",
+		"server_task": "Los vídeos se envían al servidor configurado en los ajustes.",
+		"input_only": "Esta combinación de formatos de entrada y salida no está disponible.",
+		"summary": "{count} / {total} completados"
+	},
+	"trust": {
+		"title": "Tus archivos se quedan en tu dispositivo.",
+		"body": "Las imágenes, el audio y los documentos se procesan en tu navegador. Sin subir archivos.",
+		"label": "Archivos enviados",
+		"details": "¿Qué significa 0 B?",
+		"scope": "0 B indica los archivos enviados en el modo de conversión local. Se basa en los conversores activos; no mide todo el tráfico del navegador.",
+		"network": "La aplicación y los motores de conversión necesitan descargarse. Esas solicitudes no contienen los archivos que seleccionas.",
+		"unknown": "No se ha podido confirmar que todo el procesamiento sea local.",
+		"local": "Procesado en tu dispositivo",
+		"privacyTitle": "Privacidad con archivos locales",
+		"intro": "Tú eliges los archivos. Tu navegador hace el trabajo. Z8.Work no sube tus archivos para convertirlos.",
+		"filesTitle": "Qué ocurre con tus archivos",
+		"filesBody": "Todas las conversiones habilitadas se ejecutan en tu dispositivo. El contenido, los nombres y los resultados no se envían a un servidor de conversión. Los resultados permanecen en la memoria de la página para descargarlos; al cerrar o recargar, debes volver a seleccionar los archivos. Los originales no se modifican.",
+		"connectionsTitle": "El procesamiento local también usa la web",
+		"connectionsBody": "Abrir el sitio y cargar los motores genera solicitudes a este sitio. El alojamiento puede recibir datos de conexión, como tu dirección IP. Todos los motores, incluido FFmpeg, se sirven desde este sitio. Salvo que el despliegue desactive las solicitudes externas, las páginas de información y agradecimientos pueden obtener datos públicos de colaboradores desde GitHub. Estas solicitudes no incluyen los archivos seleccionados. Los enlaces externos llevan a sitios de otros operadores.",
+		"analyticsTitle": "Sin estadísticas de visitas ni conversiones",
+		"analyticsBody": "Esta versión no carga Google Analytics ni envía estadísticas de conversión. No envía automáticamente tus archivos ni informes de errores a los desarrolladores.",
+		"storageTitle": "Lo que guarda tu navegador",
+		"storageBody": "Las preferencias y la caché de los motores se guardan localmente. El resumen de compresión usa los resultados de imágenes completadas en la cola actual; no se envía a una clasificación ni se guarda como un total histórico. Puedes borrar los datos del sitio en ajustes.",
+		"contactTitle": "Contacto",
+		"contactBody": "Para consultas sobre privacidad, escribe a",
+		"updated": "Actualizado el 7 de septiembre de 2026. Esta página describe esta versión de Z8.Work; otras instalaciones pueden funcionar de otra manera."
+	},
+	"eco": {
+		"nav": "Medioambiente",
+		"eyebrow": "Menos que almacenar",
+		"title": "Imágenes más ligeras. Un poco más de espacio.",
+		"intro": "Una imagen más pequeña ocupa menos espacio al guardarla y compartirla. Reducir la demanda innecesaria de almacenamiento es una contribución práctica, archivo a archivo.",
+		"back": "Comprimir una imagen",
+		"resultTitle": "Imágenes más ligeras para guardar.",
+		"queue": "Imágenes completadas en esta cola",
+		"saved": "Ahorro neto de espacio",
+		"carbonYear": "CO₂ de almacenamiento estimado · 1 año",
+		"condition": "Si los archivos pequeños sustituyen a los originales durante un año. Una copia en un HDD encendido; una estimación de escenario, no una reducción medida.",
+		"methodLink": "Cómo lo estimamos",
+		"noSaving": "Estos resultados no reducen el espacio ocupado. No se estima un ahorro de carbono.",
+		"increase": "El resultado ocupa {size} más. No se estima ahorro.",
+		"unchanged": "Mismo tamaño. No se estima ahorro.",
+		"perFile": "Ahorro de {size}",
+		"globalTitle": "¿Y si todos ahorráramos 1 MB al día?",
+		"globalIntro": "Explora un escenario con 6.000 millones de internautas, según la estimación de la UIT para 2025. Ajusta la reducción diaria para ver su escala.",
+		"dailyLabel": "Nuevo ahorro por persona y día (MB)",
+		"storageLabel": "Tipo de almacenamiento del ejemplo",
+		"hdd": "HDD · 0,65 W/TB",
+		"ssd": "SSD · 1,2 W/TB",
+		"invalid": "Introduce una cantidad entre 0,01 y 1.000 MB.",
+		"daily": "Nuevo ahorro de espacio diario",
+		"yearEnd": "Espacio ahorrado al final del año",
+		"energy": "Electricidad de almacenamiento del primer año · estimación",
+		"carbon": "CO₂ asociado del primer año · estimación",
+		"globalNote": "Cada día empieza con una nueva reducción que se conserva hasta fin de año: la del primer día cuenta durante 365 días; la del último, durante 1 día.",
+		"globalScope": "Una copia encendida continuamente. No incluye refrigeración, fabricación, transmisión ni energía de compresión. Se reparte la energía de almacenamiento por capacidad; borrar un archivo no reduce inmediatamente el consumo del disco.",
+		"whyTitle": "Los archivos son digitales. El almacenamiento es físico.",
+		"materialsTitle": "Materiales y fabricación",
+		"materialsBody": "Una unidad necesita materias primas y componentes electrónicos. La extracción, la producción y el transporte consumen recursos y energía. Usar durante más tiempo los dispositivos que siguen funcionando puede reducir la demanda de sustituciones.",
+		"powerTitle": "El espacio tiene un coste de funcionamiento",
+		"powerBody": "Los equipos de almacenamiento consumen electricidad mientras están encendidos y los centros de datos necesitan infraestructura adicional. Menos copias innecesarias y archivos más pequeños pueden contener la demanda de capacidad. El beneficio depende de cómo se asigna y utiliza el almacenamiento.",
+		"wasteTitle": "Al final de la vida del dispositivo",
+		"wasteBody": "El Monitor Mundial de Residuos Electrónicos registra 62 millones de toneladas de residuos en 2022; solo un 22,3 % consta como recogido y reciclado formalmente. Esto incluye todos los residuos electrónicos, no solo dispositivos de almacenamiento. Reparar, reutilizar y reciclar responsablemente también importa.",
+		"actionsTitle": "Conserva lo útil. Reduce lo que sobra.",
+		"actionsBody": "Revisa la calidad, descarga el resultado y sustituye el original cuando corresponda. Conserva las copias de seguridad necesarias, elimina duplicados, usa los dispositivos durante más tiempo y recíclalos por canales adecuados.",
+		"methodTitle": "Una estimación transparente",
+		"methodIntro": "El valor de cada imagen usa la diferencia real de tamaño y el escenario HDD indicado abajo. El total incluye tanto los resultados mayores como los menores. Repetir una conversión sustituye su resultado, sin acumular otro ahorro; se excluyen los archivos comprimidos y las conversiones sin terminar.",
+		"factor": "Parámetro",
+		"value": "Supuesto",
+		"source": "Fuente",
+		"popFactor": "Internautas",
+		"popValue": "6.000 millones · estimación de 2025",
+		"storageFactor": "Potencia por capacidad",
+		"storageValue": "HDD 0,65 / SSD 1,2 W/TB · estimaciones del modelo de 2020",
+		"electricityFactor": "Intensidad de CO₂ de la electricidad",
+		"electricityValue": "435 g CO₂/kWh · generación mundial en 2025",
+		"durationFactor": "Periodo por imagen",
+		"durationValue": "365 días · una copia encendida",
+		"formula": "Energía (kWh) = bytes ahorrados ÷ 10¹² × W/TB del almacenamiento × horas guardadas ÷ 1.000. CO₂ (g) = energía × 435.",
+		"limits": "Es un reparto ilustrativo de energía de funcionamiento, no una reducción verificada ni una compensación de carbono. El resultado real depende del dispositivo, la electricidad, el tiempo encendido y las copias de seguridad. No medimos la energía de compresión, por lo que no es un cálculo neto de carbono. Los impactos de fabricación descritos no se convierten en ahorro por archivo.",
+		"units": "Unidades decimales: 1 MB = 1.000.000 bytes; 1 TB = 1.000.000.000.000 bytes. CO₂ se refiere al dióxido de carbono de la generación eléctrica, no a una huella de CO₂e de todo el ciclo de vida.",
+		"version": "Modelo v1 · fuentes comprobadas el 7 de septiembre de 2026",
+		"privacyLink": "Tus archivos se quedan en tu dispositivo",
+		"feature": "Consulta el espacio real ahorrado y una estimación ilustrativa de la energía de almacenamiento, con sus supuestos y fuentes.",
+		"navShort": "Ecología",
+		"pollution": "El desmontaje inseguro y la quema al aire libre de residuos electrónicos pueden liberar sustancias tóxicas en el aire, el suelo y el agua."
+	},
+	"image_conversion": {
+		"mode": "Compresión de imágenes",
+		"balanced": "Compresión recomendada",
+		"custom": "Calidad personalizada",
+		"balanced_hint": "AVIF usa calidad 60; JPEG / WebP, 80. PNG sigue sin pérdidas. No se garantiza un archivo más pequeño.",
+		"custom_hint": "Una calidad menor puede reducir los archivos con pérdidas. PNG sigue sin pérdidas; este valor no controla su calidad visual.",
+		"lossless_hint": "100 activa la codificación sin pérdida de AVIF / WebP y puede aumentar mucho el tamaño y el tiempo de procesamiento. AVIF sin pérdida no garantiza un archivo más pequeño que WebP. JPEG a 100 sigue teniendo pérdida.",
+		"waiting": "Esperando un turno de procesamiento…",
+		"loading": "Cargando el motor de imágenes…",
+		"decoding": "Decodificando la imagen…",
+		"encoding": "Codificando el resultado…",
+		"timeout": "El motor de imágenes no terminó a tiempo. Prueba con una imagen a la vez o con la compresión recomendada. Si sigue fallando, el archivo puede usar una codificación no compatible.",
+		"error_details": "Detalles del error de conversión",
+		"still_hint": "Las imágenes animadas solo conservan el primer fotograma en este formato.",
+		"format_limits": "Límites de formato y calidad",
+		"precision_hint": "El motor de imágenes actual procesa canales de 8 bits. Al convertir originales de 16 bits o HDR, no se conserva toda su precisión ni su rango dinámico.",
+		"lossless_formats_hint": "PNG y TIFF comprimen sin pérdida los píxeles decodificados. La calidad 100 no supera los límites del formato: JPEG sigue teniendo pérdida y GIF limita los colores y la transparencia.",
+		"jpeg_hint": "JPEG no admite transparencia. Las zonas transparentes, incluidos los bordes semitransparentes, se combinan con un fondo blanco.",
+		"gif_hint": "GIF admite hasta 256 colores por fotograma y píxeles totalmente transparentes u opacos. Los degradados y los bordes suaves pueden cambiar."
+	},
+	"workspace.close": "Cerrar",
+	"workspace.matches": "{count} formatos disponibles",
+	"workspace.full_name": "Ver nombre completo",
+	"workspace.collapse_name": "Contraer nombre",
+	"workspace.cancelling": "Cancelando…",
+	"workspace.download_error": "No se pudo preparar la descarga: {error}",
+	"workspace.download_one": "Descargar {format}",
+	"workspace.download_many": "Descargar {count} archivos listos (ZIP)",
+	"workspace.retry": "Reintentar {count} archivos fallidos",
+	"workspace.resume": "Continuar {count} archivos cancelados",
+	"workspace.blocked_action": "Revisar problemas",
+	"workspace.separate": "Elegir por archivo",
+	"workspace.preparing": "Preparando descarga…",
+	"workspace.next_conversion": "La calidad y los metadatos se aplican en la próxima conversión. Los resultados actuales se conservan.",
+	"workspace.replace_results": "Esto reemplaza los resultados con la configuración actual. Se omiten los archivos que no puedan convertirse.",
+	"workspace.reconvert_all": "Reconvertir archivos disponibles",
+	"workspace.failed_count": "{count} fallidos",
+	"workspace.cancelled_count": "{count} cancelados",
+	"workspace.blocked_count": "{count} no disponibles",
+	"workspace.conversion_failed": "No se pudo convertir {name}. Consulta los detalles del error o vuelve a intentarlo.",
+	"file_support.unsupported": "Los conversores actuales no admiten el formato {format}.",
+	"file_support.spreadsheet": "La conversión de hojas de cálculo ({format}) aún no está disponible. La categoría de documentos no incluye todos los formatos de Office.",
+	"file_support.xlsx_typo": "XLXS no es una extensión reconocida; la extensión habitual de Excel es XLSX. La conversión de libros de Excel aún no está disponible.",
+	"file_support.unknown": "No se ha reconocido una extensión o un tipo de imagen compatible.",
+	"pdf_conversion.group": "PDF a imágenes",
+	"pdf_conversion.hint": "Exporta todas las páginas a 144 ppp. Una página se descarga como imagen; varias, como ZIP.",
+	"pdf_conversion.progress": "Páginas procesadas: {current} de {total}",
+	"pdf_conversion.password": "Este PDF requiere una contraseña. Elimínala localmente antes de convertirlo.",
+	"pdf_conversion.invalid": "No se puede leer este PDF. Puede estar dañado o no ser un PDF. Prueba con otro archivo.",
+	"pdf_conversion.empty": "Este PDF no tiene páginas para convertir.",
+	"pdf_conversion.input_size": "Se admiten PDF de hasta 100 MiB. Divide el archivo antes de convertirlo.",
+	"pdf_conversion.page_limit": "Se pueden convertir hasta 200 páginas a la vez. Divide el PDF en archivos más pequeños.",
+	"pdf_conversion.page_size": "Una página supera el límite de 16 megapíxeles a 144 ppp. Reduce las dimensiones de la página antes de convertirla.",
+	"pdf_conversion.output_size": "Las imágenes superan los 256 MiB. Divide el PDF y convierte menos páginas a la vez.",
+	"pdf_conversion.timeout": "Se agotó el tiempo de procesamiento. Prueba con un PDF más pequeño o con menos páginas.",
+	"pdf_conversion.balanced_hint": "Las páginas PDF usan calidad 60 para AVIF y 80 para JPEG / WebP. PNG conserva los píxeles renderizados. Las imágenes pueden ser más grandes que el PDF.",
+	"pdf_conversion.encoder_load": "No se pudo cargar el codificador de imágenes. Comprueba la conexión y vuelve a intentarlo, o elige PNG / JPEG.",
+	"pdf_conversion.encoder_format": "El codificador devolvió un formato inesperado. Vuelve a intentarlo o elige otro formato.",
+	"pdf_conversion.ico_hint": "ICO es para iconos: cada página se reduce proporcionalmente hasta un máximo de 256 × 256 píxeles.",
+	"pdf_conversion.psd_hint": "PSD contiene una imagen aplanada de la página; no conserva el texto ni las capas editables del PDF.",
+	"pdf_conversion.hdr_hint": "Las páginas se renderizan como imágenes RGB. Exportar HDR / EXR no añade rango dinámico HDR.",
+	"formats.common": "Formatos habituales",
+	"formats.other": "Otros formatos",
+	"formats.expand": "Ver todos los formatos ({count})",
+	"formats.collapse": "Ver menos formatos",
+	"formats.shown": "Se muestran {count} de {total} formatos",
+	"formats.purpose.jpeg": "Fotos · amplia compatibilidad",
+	"formats.purpose.png": "Capturas y transparencia",
+	"formats.purpose.webp": "Imágenes web y transparencia",
+	"formats.purpose.avif": "Imágenes web · codificación lenta",
+	"formats.purpose.gif": "Gráficos simples · pocos colores",
+	"formats.purpose.tiff": "Procesamiento y edición de imágenes",
+	"formats.purpose.mp3": "Música · amplia compatibilidad",
+	"formats.purpose.wav": "Edición de audio",
+	"formats.purpose.flac": "Archivo de audio",
+	"formats.purpose.m4a": "Música y reproducción móvil",
+	"formats.purpose.ogg": "Formato de audio abierto",
+	"formats.purpose.opus": "Voz y audio en streaming",
+	"formats.purpose.docx": "Edición en Word",
+	"formats.purpose.odt": "Edición en LibreOffice",
+	"formats.purpose.md": "Texto Markdown",
+	"formats.purpose.html": "Lectura en el navegador",
+	"formats.purpose.epub": "Lectores de libros electrónicos"
 }

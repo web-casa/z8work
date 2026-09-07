@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
-	import { HeartHandshakeIcon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import {
 		DISABLE_ALL_EXTERNAL_REQUESTS,
 		GITHUB_URL_VERT,
@@ -53,8 +53,8 @@
 
 <Panel class="flex flex-col gap-8 p-6">
 	<h2 class="text-2xl font-bold flex items-center">
-		<div class="rounded-full bg-blue-300 p-2 inline-block mr-3 w-10 h-10">
-			<HeartHandshakeIcon color="black" />
+		<div class="pixel-icon-badge bg-blue-300 inline-block mr-3 w-10 h-10">
+			<PixelIcon class="text-black" name="heart" />
 		</div>
 		{m["about.credits.title"]()}
 	</h2>
@@ -101,6 +101,7 @@
 					</h2>
 					{#if ghContribs && ghContribs.length > 0}
 						<p class="text-base text-muted font-normal">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
 							{@html sanitize(
 								link(
 									"github_link",
@@ -112,6 +113,7 @@
 						</p>
 					{:else}
 						<p class="text-base text-muted font-normal italic">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
 							{@html sanitize(
 								link(
 									"contribute_link",

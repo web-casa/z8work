@@ -1,4 +1,5 @@
 import type { VertFile } from "$lib/types";
+import type { ProcessingLocation } from "$lib/util/conversion-privacy";
 
 export type WorkerStatus = "not-ready" | "downloading" | "ready" | "error";
 
@@ -30,6 +31,7 @@ export class Converter {
 	 * The public name of the converter.
 	 */
 	public name: string = "Unknown";
+	public readonly processingLocation: ProcessingLocation = "unknown";
 	/**
 	 * List of supported formats.
 	 */

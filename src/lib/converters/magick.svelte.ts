@@ -1,4 +1,4 @@
-import { browser } from "$app/environment";
+import { browser, dev } from "$app/environment";
 import { error, log } from "$lib/util/logger";
 import { m } from "$lib/paraglide/messages";
 import { VertFile, type WorkerMessage } from "$lib/types";
@@ -8,13 +8,38 @@ import { imageFormats } from "./magick-automated";
 import { Settings } from "$lib/sections/settings/index.svelte";
 import magickWasm from "@imagemagick/magick-wasm/magick.wasm?url";
 import { ToastManager } from "$lib/util/toast.svelte";
+import {
+	waitForWorkerMessage,
+	WorkerTimeoutError,
+} from "$lib/util/worker-message";
+
+import PQueue from "p-queue";
+import {
+	imageConcurrency,
+	imageQuality,
+	normalizeImageQuality,
+} from "$lib/util/image-quality";
 
 export class MagickConverter extends Converter {
 	public name = "imagemagick";
+	public readonly processingLocation = "local" as const;
 	public ready = $state(false);
 	public wasm: ArrayBuffer = null!;
 
-	private activeConversions = new Map<string, Worker>();
+	private activeConversions = new Map<
+		string,
+		{ worker?: Worker; controller: AbortController }
+	>();
+
+	private queue = new PQueue({
+		concurrency: browser
+			? imageConcurrency(
+					navigator.hardwareConcurrency,
+					(navigator as Navigator & { deviceMemory?: number })
+						.deviceMemory,
+				)
+			: 2,
+	});
 
 	public supportedFormats = [
 		// manually tested formats
@@ -89,7 +114,13 @@ export class MagickConverter extends Converter {
 	private async initializeWasm() {
 		try {
 			this.status = "downloading";
-			const response = await fetch(magickWasm);
+			// Older service workers cached Vite's unversioned WASM URL. A fresh
+			// dev key also bypasses that old controller during its update.
+			const wasmUrl = new URL(magickWasm, window.location.href);
+			if (dev) wasmUrl.searchParams.set("t", String(Date.now()));
+			const response = await fetch(wasmUrl, {
+				cache: dev ? "no-store" : "default",
+			});
 			if (!response.ok) {
 				throw new Error(
 					`Failed to fetch WASM: ${response.status} ${response.statusText}`,
@@ -118,26 +149,60 @@ export class MagickConverter extends Converter {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		...args: any[]
 	): Promise<VertFile> {
-		let compression: number | undefined = args.at(0);
-		if (!compression) {
-			compression = Settings.instance.settings.magickQuality ?? 100;
-			log(
-				["converters", this.name],
-				`using user setting for quality: ${compression}%`,
+		const configured = imageQuality(
+			to,
+			Settings.instance.settings.magickQualityMode,
+			Settings.instance.settings.magickQuality,
+		);
+		const compression = normalizeImageQuality(args.at(0), configured);
+		const controller = new AbortController();
+		this.activeConversions.set(input.id, { controller });
+		input.conversionPhase = "waiting";
+		try {
+			return await this.queue.add(
+				() =>
+					this.convertWithWorker(input, to, compression, controller),
+				{ signal: controller.signal },
 			);
+		} finally {
+			if (this.activeConversions.get(input.id)?.controller === controller)
+				this.activeConversions.delete(input.id);
 		}
-		log(["converters", this.name], `converting ${input.name} to ${to}`);
+	}
+
+	private async convertWithWorker(
+		input: VertFile,
+		to: string,
+		compression: number,
+		controller: AbortController,
+		statusFile: VertFile = input,
+	): Promise<VertFile> {
+		controller.signal.throwIfAborted();
+		statusFile.conversionPhase = "loading";
+		log(
+			["converters", this.name],
+			`converting ${input.name} to ${to}, quality ${compression}`,
+		);
 
 		// handle converting from SVG manually because magick-wasm doesn't support it
 		if (input.from === ".svg") {
 			try {
-				const blob = await this.svgToImage(input);
+				const blob = await this.svgToImage(input, controller.signal);
+				if (input.cancelled) throw new Error("Conversion cancelled");
 				const pngFile = new VertFile(
 					new File([blob], input.name.replace(/\.svg$/i, ".png")),
 					input.to,
 				);
+				// Keep cancellation attached to the original file through SVG rasterization.
+				pngFile.id = input.id;
 				if (to === ".png") return pngFile; // if target is png, return it directly
-				return await this.convert(pngFile, to, ...args); // otherwise, recursively convert png to user's target format
+				return await this.convertWithWorker(
+					pngFile,
+					to,
+					compression,
+					controller,
+					statusFile,
+				); // otherwise, recursively convert png to user's target format
 			} catch (err) {
 				error(
 					["converters", this.name],
@@ -150,23 +215,20 @@ export class MagickConverter extends Converter {
 		const worker = new Worker(MagickWorker, {
 			type: "module",
 		});
-		this.activeConversions.set(input.id, worker);
+		this.activeConversions.set(input.id, { worker, controller });
+		const onPhase = (event: MessageEvent<WorkerMessage>) => {
+			if (event.data.type === "phase" && !controller.signal.aborted)
+				statusFile.conversionPhase = event.data.phase;
+		};
+		worker.addEventListener("message", onPhase);
 
 		try {
-			await Promise.race([
-				this.waitForMessage(worker, "ready"),
-				new Promise((_, reject) =>
-					setTimeout(
-						() =>
-							reject(
-								new Error(
-									"Magick worker ready timeout after 10 seconds",
-								),
-							),
-						10000,
-					),
-				),
-			]);
+			await waitForWorkerMessage(
+				worker,
+				"ready",
+				controller.signal,
+				10000,
+			);
 
 			const loadMsg: WorkerMessage = {
 				type: "load",
@@ -175,20 +237,12 @@ export class MagickConverter extends Converter {
 			};
 			worker.postMessage(loadMsg);
 
-			await Promise.race([
-				this.waitForMessage(worker, "loaded"),
-				new Promise((_, reject) =>
-					setTimeout(
-						() =>
-							reject(
-								new Error(
-									"Magick worker initialization timeout after 30 seconds",
-								),
-							),
-						30000,
-					),
-				),
-			]);
+			await waitForWorkerMessage(
+				worker,
+				"loaded",
+				controller.signal,
+				30000,
+			);
 
 			// every other format handled by magick worker
 			const keepMetadata: boolean =
@@ -209,7 +263,12 @@ export class MagickConverter extends Converter {
 			};
 			worker.postMessage(convertMsg);
 
-			const res = await this.waitForMessage(worker);
+			const res = await waitForWorkerMessage(
+				worker,
+				"finished",
+				controller.signal,
+				180000,
+			);
 			if (res.type === "finished") {
 				log(
 					["converters", this.name],
@@ -226,15 +285,22 @@ export class MagickConverter extends Converter {
 			}
 
 			throw new Error("Unknown message type");
+		} catch (err) {
+			if (err instanceof WorkerTimeoutError)
+				throw new Error(m["image_conversion.timeout"]());
+			throw err;
 		} finally {
-			this.activeConversions.delete(input.id);
+			worker.removeEventListener("message", onPhase);
+			if (this.activeConversions.get(input.id)?.worker === worker) {
+				this.activeConversions.delete(input.id);
+			}
 			worker.terminate();
 		}
 	}
 
 	public async cancel(input: VertFile): Promise<void> {
-		const worker = this.activeConversions.get(input.id);
-		if (!worker) {
+		const active = this.activeConversions.get(input.id);
+		if (!active) {
 			error(
 				["converters", this.name],
 				`no active conversion found for file ${input.name}`,
@@ -247,46 +313,19 @@ export class MagickConverter extends Converter {
 			`cancelling conversion for file ${input.name}`,
 		);
 
-		worker.terminate();
+		active.controller.abort();
+		active.worker?.terminate();
 		this.activeConversions.delete(input.id);
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	private waitForMessage(worker: Worker, type?: string): Promise<any> {
-		return new Promise((resolve, reject) => {
-			const onMessage = (e: MessageEvent) => {
-				if (type && e.data.type === type) {
-					worker.removeEventListener("message", onMessage);
-					worker.removeEventListener("error", onError);
-					resolve(e.data);
-				} else if (!type) {
-					worker.removeEventListener("message", onMessage);
-					worker.removeEventListener("error", onError);
-					resolve(e.data);
-				} else if (e.data.type === "error") {
-					worker.removeEventListener("message", onMessage);
-					worker.removeEventListener("error", onError);
-					reject(new Error(e.data.error));
-				}
-			};
-
-			const onError = (e: ErrorEvent) => {
-				worker.removeEventListener("message", onMessage);
-				worker.removeEventListener("error", onError);
-				reject(new Error(`Worker error: ${e.message}`));
-			};
-
-			worker.addEventListener("message", onMessage);
-			worker.addEventListener("error", onError);
-		});
-	}
-
-	private async svgToImage(input: VertFile): Promise<Blob> {
+	private async svgToImage(
+		input: VertFile,
+		signal: AbortSignal,
+	): Promise<Blob> {
 		log(["converters", this.name], `converting SVG to image (PNG)`);
 
 		const svgText = await input.file.text();
 		const svgBlob = new Blob([svgText], { type: "image/svg+xml" });
-		const svgUrl = URL.createObjectURL(svgBlob);
 
 		const canvas = document.createElement("canvas");
 		const ctx = canvas.getContext("2d");
@@ -311,7 +350,33 @@ export class MagickConverter extends Converter {
 			height = parseInt(viewBoxMatch[2]);
 		}
 
+		signal.throwIfAborted();
+		// Allocate only after synchronous setup succeeds; otherwise a missing
+		// Canvas context would leave an Object URL outside the cleanup path.
+		const svgUrl = URL.createObjectURL(svgBlob);
 		return new Promise((resolve, reject) => {
+			const cleanup = () => {
+				clearTimeout(timer);
+				signal.removeEventListener("abort", abort);
+				img.onload = null;
+				img.onerror = null;
+				URL.revokeObjectURL(svgUrl);
+			};
+			const fail = (err: unknown) => {
+				cleanup();
+				reject(err);
+			};
+			const abort = () => fail(signal.reason);
+			const timer = setTimeout(
+				() => fail(new Error(m["image_conversion.timeout"]())),
+				30000,
+			);
+			signal.addEventListener("abort", abort, { once: true });
+			if (signal.aborted) {
+				abort();
+				return;
+			}
+
 			img.onload = () => {
 				try {
 					canvas.width = img.naturalWidth || width;
@@ -320,7 +385,7 @@ export class MagickConverter extends Converter {
 					ctx.drawImage(img, 0, 0);
 
 					canvas.toBlob((blob) => {
-						URL.revokeObjectURL(svgUrl);
+						cleanup();
 						if (blob) {
 							resolve(blob);
 						} else {
@@ -330,17 +395,21 @@ export class MagickConverter extends Converter {
 						}
 					}, "image/png");
 				} catch (err) {
-					URL.revokeObjectURL(svgUrl);
+					cleanup();
 					reject(err);
 				}
 			};
 
 			img.onerror = () => {
-				URL.revokeObjectURL(svgUrl);
+				cleanup();
 				reject(new Error("Failed to load SVG image"));
 			};
 
-			img.src = svgUrl;
+			try {
+				img.src = svgUrl;
+			} catch (err) {
+				fail(err);
+			}
 		});
 	}
 }

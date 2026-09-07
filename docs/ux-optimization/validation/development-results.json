@@ -1,0 +1,52 @@
+{
+	"base": "http://localhost:5174",
+	"checks": [
+		"partial failure retry preserves success; one completed result downloads PNG directly",
+		"unchanged target keeps result; changed target clears only affected result; pending precedes failed retry",
+		"blocked input does not block valid files; footer reports partial and blocked state",
+		"cancelled worker settles; resume converts only cancelled file",
+		"ZIP content and naming verified; download error preserves results and releases lock",
+		"ICO result displays ZIP and downloads its two PNG entries without another wrapper",
+		"format dialog filters read-only outputs, searches case-insensitively, contains focus, restores it, closes on width change",
+		"privacy/settings/about/environment navigation preserves the queue; settings selector opens with unique IDs",
+		"long filename is plain text, expands with stable focus; footer accessible; route cleanup and empty queue have no fixed bar",
+		"20 files: unique control IDs and zero closed-menu format buttons",
+		"100 files: unique control IDs and zero closed-menu format buttons"
+	],
+	"layouts": [
+		{
+			"width": 320,
+			"fixed": true
+		},
+		{
+			"width": 390,
+			"fixed": true
+		},
+		{
+			"width": 768,
+			"fixed": true
+		},
+		{
+			"width": 769,
+			"fixed": true
+		},
+		{
+			"width": 800,
+			"fixed": true
+		},
+		{
+			"width": 801,
+			"fixed": false
+		},
+		{
+			"width": 1024,
+			"fixed": false
+		},
+		{
+			"width": 1366,
+			"fixed": false
+		}
+	],
+	"pageErrors": [],
+	"nonReadRequests": []
+}

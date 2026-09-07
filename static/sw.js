@@ -1,26 +1,16 @@
-const CACHE_NAME = "vert-wasm-cache-v2"; // updated when workers update
+const CACHE_NAME = "vert-wasm-cache-v4"; // remove old CDN engine cache entries
 
-const WASM_FILES = [
-	"/pandoc.wasm",
-	"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm/ffmpeg-core.js",
-	"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm/ffmpeg-core.wasm",
-];
+const WASM_FILES = ["/pandoc.wasm"];
 
-const WASM_URL_PATTERNS = [
-	/\/src\/lib\/workers\/.*\.js$/, // dev mode worker files
-	/\/assets\/.*worker.*\.js$/, // prod worker files
-	/magick.*\.wasm$/, // magick-wasm (unneeded?)
-];
-
+// Only this site's immutable engines are cached. Vite source modules stay fresh.
 function shouldCacheUrl(url) {
-	const urlObj = new URL(url);
-
-	if (WASM_FILES.includes(urlObj.pathname) || WASM_FILES.includes(url)) {
-		return true;
-	}
-
-	return WASM_URL_PATTERNS.some(
-		(pattern) => pattern.test(urlObj.pathname) || pattern.test(url),
+	const target = new URL(url);
+	if (target.origin !== self.location.origin || target.search) return false;
+	return (
+		target.pathname === "/pandoc.wasm" ||
+		/^\/_app\/immutable\/(?:assets\/(?:[^/]+\.wasm|ffmpeg-core[.-][^/]+\.js)|workers\/.+\.(?:js|wasm))$/.test(
+			target.pathname,
+		)
 	);
 }
 
@@ -69,63 +59,59 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
 	const request = event.request;
+	if (
+		request.method !== "GET" ||
+		request.headers.has("range") ||
+		!shouldCacheUrl(request.url)
+	)
+		return;
 
-	if (!shouldCacheUrl(request.url)) {
-		return; // Let the request go through normally if not a target URL
-	}
-
-    // else intercept request
-	event.respondWith(
-		caches.match(request).then((cachedResponse) => {
-			if (cachedResponse) {
-				console.log("[SW] serving from cache:", request.url);
-				return cachedResponse;
-			}
-
-			console.log("[SW] fetching and caching:", request.url);
-			return fetch(request)
-				.then((response) => {
-					if (!response.ok) {
+	const readCached = () =>
+		caches.open(CACHE_NAME).then((cache) => cache.match(request));
+	const fetchAndCache = async (revalidate = false) => {
+		const response = await fetch(
+			revalidate ? new Request(request, { cache: "no-cache" }) : request,
+		);
+		if (response.status === 200) {
+			const copy = response.clone();
+			event.waitUntil(
+				caches
+					.open(CACHE_NAME)
+					.then((cache) => cache.put(request, copy))
+					.catch((error) =>
 						console.warn(
-							"[SW] not caching failed response:",
-							response.status,
+							"[SW] failed to cache:",
 							request.url,
-						);
-						return response;
-					}
+							error,
+						),
+					),
+			);
+		}
+		return response;
+	};
 
-					const responseToCache = response.clone();
-					caches.open(CACHE_NAME).then((cache) => {
-						cache
-							.put(request, responseToCache)
-							.then(() => {
-								console.log(
-									"[SW] cached successfully:",
-									request.url,
-								);
-							})
-							.catch((err) => {
-								console.warn(
-									"[SW] failed to cache:",
-									request.url,
-									err,
-								);
-							});
-					});
-
-					return response;
-				})
-				.catch((err) => {
-					console.error("[SW] fetch failed for:", request.url, err);
-					throw err;
-				});
-		}),
+	event.respondWith(
+		(async () => {
+			// Pandoc has no fingerprint in its URL: revalidate online, use the
+			// current cache only when offline. Hashed/versioned assets are immutable.
+			if (new URL(request.url).pathname === "/pandoc.wasm") {
+				try {
+					return await fetchAndCache(true);
+				} catch (error) {
+					const cached = await readCached().catch(() => undefined);
+					if (cached) return cached;
+					throw error;
+				}
+			}
+			const cached = await readCached().catch(() => undefined);
+			return cached || fetchAndCache();
+		})(),
 	);
 });
 
 self.addEventListener("message", (event) => {
-    if (!event.data) return;
-    const type = event.data.type;
+	if (!event.data || !event.ports[0]) return;
+	const type = event.data.type;
 
 	if (type === "GET_CACHE_INFO") {
 		event.waitUntil(

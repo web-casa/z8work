@@ -1,0 +1,244 @@
+{
+	"base": "http://localhost:5184",
+	"formats": [
+		{
+			"format": ".png",
+			"singleBytes": 1189,
+			"zipBytes": 2749,
+			"pages": ["page-001.png", "page-002.png"]
+		},
+		{
+			"format": ".jpeg",
+			"singleBytes": 1221,
+			"zipBytes": 2776,
+			"pages": ["page-001.jpeg", "page-002.jpeg"]
+		},
+		{
+			"format": ".jpg",
+			"singleBytes": 1221,
+			"zipBytes": 2772,
+			"pages": ["page-001.jpg", "page-002.jpg"]
+		},
+		{
+			"format": ".webp",
+			"singleBytes": 510,
+			"zipBytes": 1350,
+			"pages": ["page-001.webp", "page-002.webp"]
+		},
+		{
+			"format": ".avif",
+			"singleBytes": 603,
+			"zipBytes": 1509,
+			"pages": ["page-001.avif", "page-002.avif"]
+		},
+		{
+			"format": ".jxl",
+			"singleBytes": 1133,
+			"zipBytes": 2588,
+			"pages": ["page-001.jxl", "page-002.jxl"]
+		},
+		{
+			"format": ".gif",
+			"singleBytes": 1465,
+			"zipBytes": 3229,
+			"pages": ["page-001.gif", "page-002.gif"]
+		},
+		{
+			"format": ".bmp",
+			"singleBytes": 41610,
+			"zipBytes": 83474,
+			"pages": ["page-001.bmp", "page-002.bmp"]
+		},
+		{
+			"format": ".tiff",
+			"singleBytes": 1524,
+			"zipBytes": 3464,
+			"pages": ["page-001.tiff", "page-002.tiff"]
+		},
+		{
+			"format": ".tif",
+			"singleBytes": 1524,
+			"zipBytes": 3460,
+			"pages": ["page-001.tif", "page-002.tif"]
+		},
+		{
+			"format": ".ico",
+			"singleBytes": 57278,
+			"zipBytes": 114810,
+			"pages": ["page-001.ico", "page-002.ico"]
+		},
+		{
+			"format": ".jp2",
+			"singleBytes": 1961,
+			"zipBytes": 4273,
+			"pages": ["page-001.jp2", "page-002.jp2"]
+		},
+		{
+			"format": ".psd",
+			"singleBytes": 5078,
+			"zipBytes": 10683,
+			"pages": ["page-001.psd", "page-002.psd"]
+		},
+		{
+			"format": ".qoi",
+			"singleBytes": 1221,
+			"zipBytes": 2770,
+			"pages": ["page-001.qoi", "page-002.qoi"]
+		},
+		{
+			"format": ".tga",
+			"singleBytes": 41490,
+			"zipBytes": 83234,
+			"pages": ["page-001.tga", "page-002.tga"]
+		},
+		{
+			"format": ".ppm",
+			"singleBytes": 41486,
+			"zipBytes": 83226,
+			"pages": ["page-001.ppm", "page-002.ppm"]
+		},
+		{
+			"format": ".pgm",
+			"singleBytes": 13838,
+			"zipBytes": 27930,
+			"pages": ["page-001.pgm", "page-002.pgm"]
+		},
+		{
+			"format": ".pbm",
+			"singleBytes": 1738,
+			"zipBytes": 3730,
+			"pages": ["page-001.pbm", "page-002.pbm"]
+		},
+		{
+			"format": ".pnm",
+			"singleBytes": 41486,
+			"zipBytes": 83226,
+			"pages": ["page-001.pnm", "page-002.pnm"]
+		},
+		{
+			"format": ".pcx",
+			"singleBytes": 3483,
+			"zipBytes": 7289,
+			"pages": ["page-001.pcx", "page-002.pcx"]
+		},
+		{
+			"format": ".dds",
+			"singleBytes": 7040,
+			"zipBytes": 14334,
+			"pages": ["page-001.dds", "page-002.dds"]
+		},
+		{
+			"format": ".exr",
+			"singleBytes": 84793,
+			"zipBytes": 169840,
+			"pages": ["page-001.exr", "page-002.exr"]
+		},
+		{
+			"format": ".hdr",
+			"singleBytes": 3912,
+			"zipBytes": 8174,
+			"pages": ["page-001.hdr", "page-002.hdr"]
+		}
+	],
+	"pageErrors": [],
+	"nonReadRequests": [],
+	"encoderRequests": [
+		"http://localhost:5184/_app/immutable/assets/magick.vfrxpA3V.wasm",
+		"http://localhost:5184/pandoc.wasm",
+		"http://localhost:5184/pandoc.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm/ffmpeg-core.wasm",
+		"https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm/ffmpeg-core.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/magick-vfrxpA3V.wasm"
+	]
+}

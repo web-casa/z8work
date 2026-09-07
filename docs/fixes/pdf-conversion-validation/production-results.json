@@ -1,0 +1,94 @@
+{
+	"base": "http://localhost:5184",
+	"downloads": [
+		{
+			"name": "ii.Pe_单页.png",
+			"bytes": 1189
+		},
+		{
+			"name": "ii.Pe_单页.jpeg",
+			"bytes": 1221
+		},
+		{
+			"name": "ii.Pe_单页.jpg",
+			"bytes": 1221
+		},
+		{
+			"name": "ii.Pe_单页.webp",
+			"bytes": 510
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 4210
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 4207
+		},
+		{
+			"name": "ii.Pe_多页.zip",
+			"bytes": 2052
+		},
+		{
+			"name": "ii.Pe_无后缀.png",
+			"bytes": 1189
+		},
+		{
+			"name": "ii.Pe_重试.zip",
+			"bytes": 353256
+		},
+		{
+			"name": "ii.Pe_归档二.zip",
+			"bytes": 2749
+		}
+	],
+	"failures": [
+		"加密.pdf",
+		"损坏.pdf",
+		"空白文档.pdf",
+		"大页面.pdf",
+		"页数超限.pdf"
+	],
+	"viewports": [320, 390, 1100],
+	"pageErrors": [],
+	"nonReadRequests": [],
+	"pdfRequests": [
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm",
+		"http://localhost:5184/_app/immutable/workers/pdf-C_jBtc7R.js",
+		"http://localhost:5184/_app/immutable/workers/assets/mupdf-wasm-Bvf0xebB.wasm"
+	]
+}

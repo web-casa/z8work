@@ -235,6 +235,7 @@ const downloadFile = async (url: string, file: VertFile): Promise<Blob> => {
 
 export class VertdConverter extends Converter {
 	public name = "vertd";
+	public readonly processingLocation = "remote" as const;
 	public ready = $state(false);
 	public reportsProgress = true;
 

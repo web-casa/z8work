@@ -1,0 +1,148 @@
+{
+	"source": {
+		"name": "IMG_0217.PNG",
+		"bytes": 1673838,
+		"width": 1170,
+		"height": 2532,
+		"inputDepth": 16
+	},
+	"engine": {
+		"magickWasm": "0.0.43",
+		"quantumDepth": 8,
+		"avifSpeed": 6,
+		"keepMetadata": true
+	},
+	"pixelComparison": "RGBA 8-bit pixels decoded by the existing Q8 engine; not the full original 16-bit precision.",
+	"before": [
+		{
+			"quality": 60,
+			"to": "webp",
+			"bytes": 70282,
+			"ms": 326,
+			"changedChannels": 6702253,
+			"meanAbsoluteError": 1.565283178731046,
+			"maxError": 81
+		},
+		{
+			"quality": 60,
+			"to": "avif",
+			"bytes": 88448,
+			"ms": 2765,
+			"changedChannels": 6188956,
+			"meanAbsoluteError": 1.1808650132998475,
+			"maxError": 88
+		},
+		{
+			"quality": 80,
+			"to": "webp",
+			"bytes": 131438,
+			"ms": 335,
+			"changedChannels": 6566024,
+			"meanAbsoluteError": 1.316346491405733,
+			"maxError": 79
+		},
+		{
+			"quality": 80,
+			"to": "avif",
+			"bytes": 157000,
+			"ms": 3491,
+			"changedChannels": 2698357,
+			"meanAbsoluteError": 0.36967086253223697,
+			"maxError": 86
+		},
+		{
+			"quality": 100,
+			"to": "webp",
+			"bytes": 329380,
+			"ms": 1304,
+			"changedChannels": 0,
+			"meanAbsoluteError": 0,
+			"maxError": 0
+		},
+		{
+			"quality": 100,
+			"to": "avif",
+			"bytes": 1513080,
+			"ms": 5953,
+			"changedChannels": 0,
+			"meanAbsoluteError": 0,
+			"maxError": 0
+		}
+	],
+	"after": [
+		{
+			"quality": 60,
+			"to": "webp",
+			"bytes": 70282,
+			"ms": 317,
+			"changedChannels": 6702253,
+			"meanAbsoluteError": 1.565283178731046,
+			"maxError": 81
+		},
+		{
+			"quality": 60,
+			"to": "avif",
+			"bytes": 95238,
+			"ms": 2585,
+			"changedChannels": 6135526,
+			"meanAbsoluteError": 1.0980197911181324,
+			"maxError": 93
+		},
+		{
+			"quality": 80,
+			"to": "webp",
+			"bytes": 131438,
+			"ms": 322,
+			"changedChannels": 6566024,
+			"meanAbsoluteError": 1.316346491405733,
+			"maxError": 79
+		},
+		{
+			"quality": 80,
+			"to": "avif",
+			"bytes": 155860,
+			"ms": 3082,
+			"changedChannels": 2790718,
+			"meanAbsoluteError": 0.38483673930948814,
+			"maxError": 84
+		},
+		{
+			"quality": 100,
+			"to": "webp",
+			"bytes": 329380,
+			"ms": 1260,
+			"changedChannels": 0,
+			"meanAbsoluteError": 0,
+			"maxError": 0
+		},
+		{
+			"quality": 100,
+			"to": "avif",
+			"bytes": 746659,
+			"ms": 5488,
+			"changedChannels": 0,
+			"meanAbsoluteError": 0,
+			"maxError": 0
+		}
+	],
+	"productionBrowser": {
+		"results": [
+			{
+				"mode": "custom",
+				"to": ".avif",
+				"bytes": 746659
+			},
+			{
+				"mode": "custom",
+				"to": ".webp",
+				"bytes": 329380
+			},
+			{
+				"mode": "balanced",
+				"to": ".avif",
+				"bytes": 95238
+			}
+		],
+		"nonReadRequests": []
+	}
+}

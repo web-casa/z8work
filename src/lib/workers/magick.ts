@@ -2,14 +2,17 @@ import {
 	initializeImageMagick,
 	MagickFormat,
 	MagickImage,
-	MagickImageCollection,
 	MagickReadSettings,
-	type IMagickImage,
 } from "@imagemagick/magick-wasm";
 import { makeZip } from "client-zip";
 import { parseAni } from "$lib/util/parse/ani";
 import { parseIcns } from "vert-wasm";
 import type { WorkerMessage } from "$lib/types";
+import {
+	convertImage,
+	writeImage,
+	readImageCollection,
+} from "$lib/util/magick-image";
 
 let magickInitialized = false;
 
@@ -55,97 +58,49 @@ const handleMessage = async (
 			if (from === ".jfif") from = ".jpeg";
 			if (from === ".fit") from = ".fits";
 
+			self.postMessage({
+				type: "phase",
+				phase: "decoding",
+				id: message.id,
+			});
 			const buffer = await message.input.file.arrayBuffer();
 
 			// special ico handling to split them all into separate images
 			if (from === ".ico") {
-				const imgs = MagickImageCollection.create();
-
-				while (true) {
-					try {
-						const img = MagickImage.create(
-							new Uint8Array(buffer),
-							new MagickReadSettings({
-								format: MagickFormat.Ico,
-								frameIndex: imgs.length,
-							}),
-						);
-						imgs.push(img);
-						// eslint-disable-next-line @typescript-eslint/no-unused-vars
-					} catch (_) {
-						break;
-					}
-				}
-
-				if (imgs.length === 0) {
-					return {
-						type: "error",
-						error: `Failed to read ICO -- no images found inside?`,
-					};
-				}
-
-				const convertedImgs: Uint8Array[] = [];
-				await Promise.all(
-					imgs.map(async (img, i) => {
-						const output = await magickConvert(
-							img,
-							message.to,
-							keepMetadata,
-							compression,
-						);
-						convertedImgs[i] = output;
-					}),
-				);
-
-				const zip = makeZip(
-					convertedImgs.map(
-						(img, i) =>
-							new File(
-								[new Uint8Array(img)],
-								`image${i}.${message.to.slice(1)}`,
-							),
-					),
-					"images.zip",
-				);
-
-				// read the ReadableStream to the end
-				const zipBytes = await readToEnd(zip.getReader());
-
-				imgs.dispose();
-
-				return {
-					type: "finished",
-					output: zipBytes,
-					zip: true,
-				};
-			} else if (from === ".ani") {
-				console.log("Parsing ANI file");
+				const imgs = readImageCollection(new Uint8Array(buffer), from);
 				try {
-					const parsedAni = parseAni(new Uint8Array(buffer));
-					const files: File[] = [];
+					if (imgs.length === 0) {
+						return {
+							type: "error",
+							error: `Failed to read ICO -- no images found inside?`,
+						};
+					}
+
+					const convertedImgs: Uint8Array[] = [];
 					await Promise.all(
-						parsedAni.images.map(async (img, i) => {
-							const blob = await magickConvert(
-								MagickImage.create(
-									img,
-									new MagickReadSettings({
-										format: MagickFormat.Ico,
-									}),
-								),
+						imgs.map(async (img, i) => {
+							const output = await writeImage(
+								img,
 								message.to,
 								keepMetadata,
 								compression,
 							);
-							files.push(
-								new File(
-									[new Uint8Array(blob)],
-									`image${i}${message.to}`,
-								),
-							);
+							convertedImgs[i] = output;
 						}),
 					);
 
-					const zip = makeZip(files, "images.zip");
+					const zip = makeZip(
+						convertedImgs.map(
+							(img, i) =>
+								new File(
+									[new Uint8Array(img)],
+									`image${i}.${message.to.slice(1)}`,
+								),
+						),
+						"images.zip",
+					);
+
+					// read the ReadableStream to the end
 					const zipBytes = await readToEnd(zip.getReader());
 
 					return {
@@ -153,9 +108,46 @@ const handleMessage = async (
 						output: zipBytes,
 						zip: true,
 					};
-				} catch (e) {
-					console.error(e);
+				} finally {
+					imgs.dispose();
 				}
+			} else if (from === ".ani") {
+				console.log("Parsing ANI file");
+				const parsedAni = parseAni(new Uint8Array(buffer));
+				const files: File[] = [];
+				await Promise.all(
+					parsedAni.images.map(async (img, i) => {
+						const frame = MagickImage.create(
+							img,
+							new MagickReadSettings({
+								format: MagickFormat.Ico,
+							}),
+						);
+						try {
+							const blob = writeImage(
+								frame,
+								message.to,
+								keepMetadata,
+								compression,
+							);
+							files[i] = new File(
+								[new Uint8Array(blob)],
+								`image${i}${message.to}`,
+							);
+						} finally {
+							frame.dispose();
+						}
+					}),
+				);
+
+				const zip = makeZip(files, "images.zip");
+				const zipBytes = await readToEnd(zip.getReader());
+
+				return {
+					type: "finished",
+					output: zipBytes,
+					zip: true,
+				};
 			} else if (from === ".icns") {
 				const icns: Uint8Array[] = parseIcns(new Uint8Array(buffer));
 				if (typeof icns === "string") {
@@ -181,13 +173,19 @@ const handleMessage = async (
 									format: format,
 								}),
 							);
-							const converted = await magickConvert(
-								img,
-								message.to,
-								keepMetadata,
-								compression,
-							);
-							outputs.push(converted);
+							try {
+								outputs.push(
+									writeImage(
+										img,
+										message.to,
+										keepMetadata,
+										compression,
+									),
+								);
+							} finally {
+								img.dispose();
+							}
+
 							break;
 							// eslint-disable-next-line @typescript-eslint/no-unused-vars
 						} catch (_) {
@@ -195,6 +193,9 @@ const handleMessage = async (
 						}
 					}
 				}
+
+				if (!outputs.length)
+					throw new Error("No readable images in ICNS file");
 
 				const zip = makeZip(
 					outputs.map(
@@ -215,44 +216,18 @@ const handleMessage = async (
 				};
 			}
 
-			// build frames of animated formats (webp/gif)
-			// APNG does not work on magick-wasm since it needs ffmpeg built-in (not in magick-wasm) - handle in ffmpeg
-			if (
-				(from === ".webp" || from === ".gif") &&
-				(message.to === ".gif" || message.to === ".webp")
-			) {
-				const collection = MagickImageCollection.create(
-					new Uint8Array(buffer),
-				);
-				const format =
-					message.to === ".gif"
-						? MagickFormat.Gif
-						: MagickFormat.WebP;
-				const result = await new Promise<Uint8Array>((resolve) => {
-					collection.write(format, (output) => {
-						resolve(structuredClone(output));
-					});
-				});
-				collection.dispose();
-
-				return {
-					type: "finished",
-					output: result,
-				};
-			}
-
-			const img = MagickImage.create(
+			const converted = convertImage(
 				new Uint8Array(buffer),
-				new MagickReadSettings({
-					format: from.slice(1).toUpperCase() as MagickFormat,
-				}),
-			);
-
-			const converted = await magickConvert(
-				img,
+				from,
 				message.to,
 				keepMetadata,
 				compression,
+				() =>
+					self.postMessage({
+						type: "phase",
+						phase: "encoding",
+						id: message.id,
+					}),
 			);
 
 			return {
@@ -284,47 +259,6 @@ const readToEnd = async (reader: ReadableStreamDefaultReader<Uint8Array>) => {
 	return new Uint8Array(arrayBuffer);
 };
 
-const magickConvert = async (
-	img: IMagickImage,
-	to: string,
-	keepMetadata: boolean,
-	compression?: number,
-) => {
-	let fmt = to.slice(1).toUpperCase();
-	if (fmt === "JFIF") fmt = "JPEG";
-
-	// ICO size clamp to avoid WidthOrHeightExceedsLimit
-	if (fmt === "ICO") {
-		const max = 256;
-		const w = img.width;
-		const h = img.height;
-
-		if (w > max || h > max) {
-			const scale = max / Math.max(w, h);
-			const newW = Math.max(1, Math.round(w * scale));
-			const newH = Math.max(1, Math.round(h * scale));
-
-			img.resize(newW, newH);
-		}
-	}
-
-	const result = await new Promise<Uint8Array>((resolve, reject) => {
-		try {
-			// magick-wasm automatically clamps (https://github.com/dlemstra/magick-wasm/blob/76fc6f2b0c0497d2ddc251bbf6174b4dc92ac3ea/src/magick-image.ts#L2480)
-			if (compression) img.quality = compression;
-			if (!keepMetadata) img.strip();
-
-			img.write(fmt as unknown as MagickFormat, (o: Uint8Array) => {
-				resolve(structuredClone(o));
-			});
-		} catch (error) {
-			reject(error);
-		}
-	});
-
-	return result;
-};
-
 onmessage = async (e) => {
 	const message = e.data;
 	try {
@@ -337,7 +271,7 @@ onmessage = async (e) => {
 	} catch (e) {
 		postMessage({
 			type: "error",
-			error: e,
+			error: e instanceof Error ? e.message : String(e),
 			id: message.id,
 		});
 	}

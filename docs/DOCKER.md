@@ -1,30 +1,21 @@
 ## Using Docker
 
-This file covers how to run VERT under a Docker container.
+This file covers how to build and run Z8.Work in Docker.
 
 - [Manually building the image](#manually-building-the-image)
 - [Using an image from the GitHub Container Registry](#using-an-image-from-the-github-container-registry)
 
 ### Manually building the image
 
-First, clone the repository:
+Run the following command from this project checkout:
 
 ```shell
-git clone https://github.com/VERT-sh/VERT
-cd VERT/
-```
-
-Then build a Docker image with:
-
-```shell
-docker build -t vert-sh/vert \
+docker build -t z8-work:local \
     --build-arg PUB_ENV=production \
-    --build-arg PUB_HOSTNAME=vert.sh \
+    --build-arg PUB_HOSTNAME=z8.work \
     --build-arg PUB_PLAUSIBLE_URL=https://plausible.example.com \
     --build-arg PUB_VERTD_URL=https://vertd.vert.sh \
-    --build-arg PUB_DONATION_URL=https://donations.vert.sh \
-	--build-arg PUB_DISABLE_ALL_EXTERNAL_REQUESTS=false \
-    --build-arg PUB_STRIPE_KEY="" .
+    --build-arg PUB_DISABLE_ALL_EXTERNAL_REQUESTS=true .
 ```
 
 You can then run it by using:
@@ -34,7 +25,7 @@ docker run -d \
     --restart unless-stopped \
     -p 3000:80 \
     --name "vert" \
-    vert-sh/vert
+    z8-work:local
 ```
 
 This will do the following:
@@ -47,12 +38,6 @@ We also have a [`docker-compose.yml`](/docker-compose.yml) file available. Use `
 
 ### Using an image from the GitHub Container Registry
 
-While there's an image you can pull instead of cloning the repo and building the image yourself, you will not be able to update any of the environment variables (e.g. `PUB_PLAUSIBLE_URL`) as they're baked directly into the image and not obtained during runtime. If you're okay with this, you can simply run this command instead:
+The repository's Docker workflow publishes to `ghcr.io/<owner>/<repository>`. Use the image produced by your own repository once it has been published. The upstream `ghcr.io/vert-sh/vert` image contains upstream VERT, not the Z8.Work changes in this checkout.
 
-```shell
-docker run -d \
-    --restart unless-stopped \
-    -p 3000:80 \
-    --name "vert" \
-    ghcr.io/vert-sh/vert:latest
-```
+Public environment variables are compiled into the frontend at build time. Rebuild the image when changing them. The local Compose configuration uses `z8-work:local`; start it with `docker compose up --build -d`.

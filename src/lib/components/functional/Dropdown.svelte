@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { duration, fade, transition } from "$lib/util/animation";
-	import { ChevronDown } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { onMount } from "svelte";
 	import { quintOut } from "svelte/easing";
 
@@ -22,7 +22,6 @@
 
 	let open = $state(false);
 	let hover = $state(false);
-	let isUp = $state(false);
 	let dropdown = $state<HTMLDivElement>();
 
 	const toggle = () => {
@@ -30,9 +29,6 @@
 	};
 
 	const select = (option: string) => {
-		const oldIndex = options.indexOf(selected || "");
-		const newIndex = options.indexOf(option);
-		isUp = oldIndex > newIndex;
 		selected = option;
 		onselect?.(option);
 		toggle();
@@ -100,12 +96,13 @@
 				</p>
 			{/each}
 		</div>
-		<ChevronDown
-			class="w-4 h-4 ml-3 mt-0.5 flex-shrink-0"
+		<span
+			class="ml-3 mt-0.5 flex flex-shrink-0"
 			style="transform: rotate({open
 				? 180
 				: 0}deg); transition: transform {duration}ms {transition};"
-		/>
+			><PixelIcon name="chevron" size={16} /></span
+		>
 	</button>
 	{#if open}
 		<div

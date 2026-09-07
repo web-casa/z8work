@@ -9,7 +9,7 @@
 		"toggle_theme": "Alternar tema"
 	},
 	"footer": {
-		"copyright": "© {year} ii.Pe.",
+		"copyright": "© {year} Z8.Work.",
 		"source_code": "Código fonte",
 		"discord_server": "Servidor Discord",
 		"privacy_policy": "Política de privacidade"
@@ -22,7 +22,7 @@
 			"convert": "converter"
 		},
 		"cards": {
-			"title": "ii.Pe suporta...",
+			"title": "Z8.Work suporta...",
 			"images": "Imagens",
 			"audio": "Áudio",
 			"documents": "Documentos",
@@ -142,7 +142,7 @@
 			"advanced_settings": "Configurações avançadas",
 			"filename_format": "Formato do nome do arquivo",
 			"filename_description": "Isso determinará o nome do arquivo no download, <b>não incluindo a extensão do arquivo.</b> Você pode colocar os seguintes modelos no formato, que serão substituídos pelas informações relevantes: <b>%name%</b> para o nome original do arquivo, <b>%extension%</b> para a extensão original do arquivo e <b>%date%</b> para uma string de data de quando o arquivo foi convertido.",
-			"placeholder": "ii.Pe_%name%",
+			"placeholder": "Z8.Work_%name%",
 			"default_format": "Formato de conversão padrão",
 			"default_format_enable": "Habilitar",
 			"default_format_disable": "Desabilitar",
@@ -168,7 +168,7 @@
 			"loading": "carregando...",
 			"available": "disponível, id do commit {commitId}",
 			"unavailable": "indisponível (a url está correta?)",
-			"description": "O projeto <code>vertd</code> é um wrapper de servidor para FFmpeg. Isso permite que você converta vídeos através da conveniência da interface web do ii.Pe, enquanto ainda pode aproveitar o poder da sua GPU para fazer isso o mais rápido possível.",
+			"description": "O projeto <code>vertd</code> é um wrapper de servidor para FFmpeg. Isso permite que você converta vídeos através da conveniência da interface web do Z8.Work, enquanto ainda pode aproveitar o poder da sua GPU para fazer isso o mais rápido possível.",
 			"hosting_info": "Hospedamos uma instância pública para sua conveniência, mas é bastante fácil hospedar a sua própria em seu PC ou servidor se você souber o que está fazendo. Você pode baixar os binários do servidor [vertd_link]aqui[/vertd_link] - o processo de configuração disso ficará mais fácil no futuro, então fique atento!",
 			"instance": "Instância",
 			"url_placeholder": "Exemplo: http://localhost:24153",
@@ -204,7 +204,7 @@
 			"cache_cleared": "Cache limpo com sucesso!",
 			"cache_clear_error": "Falha ao limpar o cache.",
 			"site_data_title": "Gerenciamento de dados do site",
-			"site_data_description": "Limpe todos os dados do site, incluindo configurações e arquivos em cache, redefinindo o ii.Pe para seu estado padrão e recarregando a página.",
+			"site_data_description": "Limpe todos os dados do site, incluindo configurações e arquivos em cache, redefinindo o Z8.Work para seu estado padrão e recarregando a página.",
 			"clear_all_data": "Limpar todos os dados do site",
 			"clear_all_data_confirm_title": "Limpar todos os dados do site?",
 			"clear_all_data_confirm": "Isso irá redefinir todas as configurações e cache, e então recarregar a página. Esta ação não pode ser desfeita.",
@@ -214,7 +214,7 @@
 		},
 		"language": {
 			"title": "Idioma",
-			"description": "Selecione seu idioma preferido para a interface do ii.Pe."
+			"description": "Selecione seu idioma preferido para a interface do Z8.Work."
 		}
 	},
 	"about": {
@@ -258,7 +258,7 @@
 			}
 		},
 		"why": {
-			"title": "Por que usar o ii.Pe?",
+			"title": "Por que usar o Z8.Work?",
 			"description": "<b>Os conversores de arquivos sempre nos decepcionaram.</b> Eles são feios, cheios de anúncios e, o mais importante, lentos. Decidimos resolver esse problema de uma vez por todas, criando uma alternativa que resolve todos esses problemas e mais.<br/><br/>Todos os arquivos são convertidos completamente no dispositivo; isso significa que não há atraso entre o envio e o recebimento dos arquivos de um servidor, e nunca bisbilhotamos os arquivos que você converte."
 		},
 		"sponsors": {
@@ -272,31 +272,16 @@
 			"source": "Código fonte",
 			"email": "Email"
 		},
-		"donate": {
-			"title": "Doar para o ii.Pe",
-			"description": "Com seu apoio, podemos continuar mantendo e melhorando o ii.Pe.",
-			"one_time": "Única vez",
-			"monthly": "Mensal",
-			"custom": "Personalizado",
-			"pay_now": "Pagar agora",
-			"donate_amount": "Doar ${amount} USD",
-			"thank_you": "Obrigado pela sua doação!",
-			"payment_failed": "Falha no pagamento: {message}{period} Você não foi cobrado.",
-			"donation_error": "Ocorreu um erro ao processar sua doação. Por favor, tente novamente mais tarde.",
-			"payment_error": "Erro ao buscar detalhes do pagamento. Por favor, tente novamente mais tarde.",
-			"donation_notice_official": "Suas doações aqui vão para a instância oficial do ii.Pe (ii.pe) e ajudam a apoiar o desenvolvimento do projeto.",
-			"donation_notice_unofficial": "Suas doações aqui vão para o operador desta instância do ii.Pe. Se você deseja apoiar os desenvolvedores oficiais do ii.Pe, por favor visite [official_link]ii.pe[/official_link] em vez disso."
-		},
 		"credits": {
 			"title": "Créditos",
 			"contact_team": "Se você gostaria de contatar a equipe de desenvolvimento, por favor use o email encontrado no cartão \"Recursos\".",
 			"notable_contributors": "Contribuidores notáveis",
-			"notable_description": "Gostaríamos de agradecer a essas pessoas por suas grandes contribuições ao ii.Pe.",
+			"notable_description": "Gostaríamos de agradecer a essas pessoas por suas grandes contribuições ao Z8.Work.",
 			"github_contributors": "Contribuidores do GitHub",
 			"github_description": "Um grande obrigado a todas essas pessoas por ajudarem! [github_link]Quer ajudar também?[/github_link]",
 			"no_contributors": "Parece que ninguém contribuiu ainda... [contribute_link]seja o primeiro a contribuir![/contribute_link]",
 			"libraries": "Bibliotecas",
-			"libraries_description": "Um grande obrigado ao FFmpeg (áudio, vídeo), ImageMagick (imagens) e Pandoc (documentos) por manterem bibliotecas tão excelentes por tantos anos. O ii.Pe depende deles para fornecer suas conversões.",
+			"libraries_description": "Um grande obrigado ao FFmpeg (áudio, vídeo), ImageMagick (imagens) e Pandoc (documentos) por manterem bibliotecas tão excelentes por tantos anos. O Z8.Work depende deles para fornecer suas conversões.",
 			"roles": {
 				"lead_developer": "Desenvolvedor principal; backend de conversão, implementação da interface do usuário",
 				"developer": "Desenvolvedor; implementação da interface do usuário",
@@ -324,16 +309,11 @@
 	"privacy": {
 		"title": "Política de Privacidade",
 		"summary": {
-			"title": "Resumo",
-			"description": "A política de privacidade do ii.Pe é muito simples: não coletamos nem armazenamos nenhum dado sobre você. Não usamos cookies ou rastreadores, a análise é completamente privada e todas as conversões (exceto vídeos) acontecem localmente no seu navegador. Os vídeos são excluídos após serem baixados ou após uma hora, a menos que você dê permissão explícita para armazená-los; eles serão usados apenas para fins de solução de problemas. O ii.Pe hospeda uma instância Coolify para hospedar o site e o vertd (para conversão de vídeo), e uma instância Plausible para análises completamente anônimas e agregadas. Usamos Stripe para processar doações, que pode coletar alguns dados usados para prevenção de fraudes.<br/><br/>Observe que isso pode se aplicar apenas à instância oficial do ii.Pe em [vert_link]ii.pe[/vert_link]; instâncias de terceiros podem lidar com seus dados de maneira diferente."
+			"title": "Resumo"
 		},
 		"conversions": {
 			"title": "Conversões",
-			"description": "A maioria das conversões (imagens, documentos, áudio) acontece inteiramente localmente no seu dispositivo usando versões WebAssembly das ferramentas relevantes (por exemplo, ImageMagick, Pandoc, FFmpeg). Isso significa que seus arquivos nunca saem do seu dispositivo e nunca teremos acesso a eles.<br/><br/>As conversões de vídeo são realizadas em nossos servidores porque exigem mais poder de processamento e ainda não podem ser feitas muito rapidamente no navegador. Os vídeos que você converte com o ii.Pe são excluídos após serem baixados ou após uma hora, a menos que você dê permissão explícita para armazená-los por mais tempo, apenas para fins de solução de problemas."
-		},
-		"donations": {
-			"title": "Doações",
-			"description": "Usamos Stripe na página [about_link]sobre[/about_link] para coletar doações. O Stripe pode coletar certas informações sobre o pagamento e o dispositivo para prevenção de fraudes, conforme descrito na [stripe_link]documentação deles sobre detecção avançada de fraudes[/stripe_link]. As solicitações de rede externas para o Stripe são adiadas e só são feitas depois que você clica no botão para pagar."
+			"description": "A maioria das conversões (imagens, documentos, áudio) acontece inteiramente localmente no seu dispositivo usando versões WebAssembly das ferramentas relevantes (por exemplo, ImageMagick, Pandoc, FFmpeg). Isso significa que seus arquivos nunca saem do seu dispositivo e nunca teremos acesso a eles.<br/><br/>As conversões de vídeo são realizadas em nossos servidores porque exigem mais poder de processamento e ainda não podem ser feitas muito rapidamente no navegador. Os vídeos que você converte com o Z8.Work são excluídos após serem baixados ou após uma hora, a menos que você dê permissão explícita para armazená-los por mais tempo, apenas para fins de solução de problemas."
 		},
 		"conversion_errors": {
 			"title": "Erros de Conversão",
@@ -355,7 +335,7 @@
 		},
 		"contact": {
 			"title": "Contato",
-			"description": "Para perguntas, envie um e-mail para: [email_link]hello@ii.pe[/email_link]. Se você estiver usando uma instância de terceiros do ii.Pe, entre em contato com o host dessa instância."
+			"description": "Para perguntas, envie um e-mail para: [email_link]contact@web.casa[/email_link]. Se você estiver usando uma instância de terceiros do Z8.Work, entre em contato com o host dessa instância."
 		},
 		"last_updated": "Última atualização: 2025-11-27"
 	}

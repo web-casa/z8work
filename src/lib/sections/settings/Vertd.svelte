@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
 	import { GITHUB_URL_VERTD } from "$lib/util/consts";
-	import { ServerIcon } from "lucide-svelte";
+	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import type { ISettings } from "./index.svelte";
 	import clsx from "clsx";
 	import Dropdown from "$lib/components/functional/Dropdown.svelte";
@@ -49,11 +49,10 @@
 <Panel class="flex flex-col gap-8 p-6">
 	<div class="flex flex-col gap-3">
 		<h2 class="text-2xl font-bold">
-			<ServerIcon
-				size="40"
-				class="inline-block -mt-1 mr-2 bg-accent-red p-2 rounded-full overflow-visible"
-				color="black"
-			/>
+			<span
+				class="text-black inline-block -mt-1 mr-2 bg-accent-red pixel-icon-badge overflow-visible"
+				><PixelIcon name="server" size={24} /></span
+			>
 			{m["settings.vertd.title"]()}
 		</h2>
 		<p
@@ -73,14 +72,18 @@
 		<div class="flex flex-col gap-8">
 			<div class="flex flex-col gap-4">
 				<p class="text-sm text-muted font-normal">
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
 					{@html sanitize(m["settings.vertd.description"]())}
 				</p>
 				<p class="text-sm text-muted font-normal">
-					{@html sanitize(link(
-						"vertd_link",
-						m["settings.vertd.hosting_info"](),
-						GITHUB_URL_VERTD,
-					))}
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
+					{@html sanitize(
+						link(
+							"vertd_link",
+							m["settings.vertd.hosting_info"](),
+							GITHUB_URL_VERTD,
+						),
+					)}
 				</p>
 				<div class="flex flex-col gap-2">
 					<p class="text-base font-bold">
