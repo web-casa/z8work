@@ -45,11 +45,13 @@ Paraglide 的一般路由文档建议语言切换使用完整导航；本项目�
 
 Pages 使用独立 `404.html`，未知地址返回真实 HTTP 404 和 `noindex`；Nginx 同样改为 404，不再把不存在的地址映射成首页 200。正常多语言深层链接由预渲染文件直接提供。
 
-`z8work.pages.dev` 及其预览子域通过 `_headers` 返回 `X-Robots-Tag: noindex`，避免临时部署域参与收录。这个规则不作用于 `z8.work`。域名尚未切换时不强制把 Pages 访问者重定向到旧网站。
+`z8work.pages.dev` 及其预览子域通过 `_headers` 返回 `X-Robots-Tag: noindex`，避免临时部署域参与收录。这个规则不作用于 `z8.work`。Pages 地址目前保留为可直接访问的备用入口，不参与收录。
 
-截至 2026-09-08，Pages 已关联 `z8.work`，但域名状态仍为 pending / CNAME record not set，正式域名仍提供旧站。当前 Cloudflare OAuth 可以部署 Pages，DNS API 返回 403，因此未修改 DNS。需在 Cloudflare 的 z8.work 区域将根记录设为 CNAME：`@ → z8work.pages.dev`，处理同名旧记录，并等待 Pages 域名与证书状态 active。不要仅凭部署成功宣称正式域名已经上线。
+2026-09-08 用户完成域名绑定后复核：Cloudflare 的 `z8.work` 域名状态、验证状态均为 active，HTTPS 已提供 Z8.Work 正式站点。HTTP 根地址返回 301 到 HTTPS；四种完整语言的首页和代表性工具页返回 200，canonical 指向正式域名，且没有误加 `noindex`。队列、设置和未完整翻译页面仍按计划排除收录。`sitemap.xml` 返回 44 个规范网址，`robots.txt` 保留其声明。Cloudflare 托管的 robots 内容允许通用搜索抓取，并另设部分 AI 爬虫限制。
 
-Google Search Console 需要站点所有者的账号验证。当前没有 Google 账号连接或验证值，未代为验证或提交。域名切换后，建议建立域名属性、完成 DNS 验证，再提交 `https://z8.work/sitemap.xml`，检查首页及四种语言代表页面。之后以实际展示、点击和 Core Web Vitals 数据继续优化，不承诺排名。
+绑定后的首轮未知地址检查曾返回 200，随后多个未知地址复查均返回带 `noindex` 的真实 404；未据此修改应用路由。`www.z8.work` 也已能访问同一站点，其 canonical 指向不带 www 的正式网址，目前未设置 www 跳转。此前 DNS 权限不足的阻碍已由用户完成绑定解除。正式域名上的 Pages 运行时测试也已通过：两个大体积引擎解码后的哈希一致、HEAD / 304 正常、真实 Markdown → HTML 转换及 Service Worker 离线引擎缓存成功，未发现页面异常或文件上传请求。
+
+Google Search Console 需要站点所有者的账号验证。当前没有 Google 账号连接或验证值，未代为验证或提交。现在可建立域名属性、完成 DNS 验证，再提交 `https://z8.work/sitemap.xml`，检查首页及四种语言代表页面。之后以实际展示、点击和 Core Web Vitals 数据继续优化，不承诺排名。
 
 ## 验证与 review
 
@@ -78,7 +80,7 @@ CHROMIUM_PATH=/usr/bin/chromium npm run test:pages
 
 本地生产构建、Lighthouse 13.4.1、移动端默认模拟限速：SEO / Accessibility / Best Practices 均为 100，Performance 为 69，FCP 3.0 秒、LCP 10.9 秒、TBT 0 毫秒、CLS 0。没有把这个结果描述为性能优化已全部完成；当前共享业务与多语言 JavaScript 仍较大，后续需要继续拆分首屏依赖，并在正式域名获得真实访问数据后验证。此处是本地实验室测量，不是线上用户 Core Web Vitals，也没有可据此报告的真实 INP。
 
-同一构建另以 `--throttling-method=devtools` 实际施加限速复测：Performance 99，FCP / LCP 1.6 秒、TBT 0 毫秒、CLS 0。两种测量方式结果差异较大，因此同时保留，不以较高一次替代默认模拟结果。正式域名完成切换后仍需线上实测与真实用户数据。
+同一构建另以 `--throttling-method=devtools` 实际施加限速复测：Performance 99，FCP / LCP 1.6 秒、TBT 0 毫秒、CLS 0。两种测量方式结果差异较大，因此同时保留，不以较高一次替代默认模拟结果。仍需正式域名的性能实测与真实用户数据。
 
 复现性能审计（Lighthouse 13.4.1，兼容的本地 Chromium）：
 
