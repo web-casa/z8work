@@ -240,5 +240,10 @@
 			"no_audio": "Nije pronađen audio.",
 			"invalid_rate": "Upisan nevažeći sample rate: {rate}Hz!"
 		}
+	},
+	"acknowledgements": {
+		"title": "Hvala projektu VERT.SH",
+		"developers": "Hvala svim programerima projekta VERT.SH.",
+		"foundation": "Z8.Work je projekt koji stoji na ramenima divova."
 	}
 }

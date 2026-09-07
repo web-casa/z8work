@@ -267,5 +267,10 @@
 			"no_audio": "Nessuno *stream* audio trovato.",
 			"invalid_rate": "Frequenza di campionamento specificata non valida: {rate}Hz"
 		}
+	},
+	"acknowledgements": {
+		"title": "Grazie al progetto VERT.SH",
+		"developers": "Grazie a tutti gli sviluppatori di VERT.SH.",
+		"foundation": "Z8.Work è un progetto che poggia sulle spalle dei giganti."
 	}
 }

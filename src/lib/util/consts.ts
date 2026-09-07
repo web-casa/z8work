@@ -1,6 +1,7 @@
 import { siteUrl } from "$lib/seo/routes.mjs";
 import { PUB_DISABLE_ALL_EXTERNAL_REQUESTS, PUB_ENV } from "$env/static/public";
 
+export const GITHUB_URL_PROJECT = "https://github.com/web-casa/z8work";
 export const GITHUB_URL_VERT = "https://github.com/VERT-sh/VERT";
 export const GITHUB_URL_VERTD = "https://github.com/VERT-sh/vertd";
 export const GITHUB_API_URL = "https://api.github.com/repos/VERT-sh/VERT";

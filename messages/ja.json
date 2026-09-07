@@ -260,5 +260,10 @@
 			"no_audio": "音声ストリームが見つかりません。",
 			"invalid_rate": "無効なサンプリングレートが指定されました: {rate}Hz"
 		}
+	},
+	"acknowledgements": {
+		"title": "VERT.SH プロジェクトに感謝",
+		"developers": "VERT.SH のすべての開発者の皆さんに感謝します。",
+		"foundation": "Z8.Work は巨人の肩の上に立つプロジェクトです。"
 	}
 }

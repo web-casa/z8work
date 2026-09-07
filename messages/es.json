@@ -350,7 +350,9 @@
 		"insecure_context": "Estás visitando Z8.Work en un contexto inseguro (por ejemplo, accediendo a través de HTTP en lugar de HTTPS). Es posible que algunas funciones no funcionen como se espera."
 	},
 	"acknowledgements": {
-		"title": "Agradecimientos"
+		"title": "Gracias al proyecto VERT.SH",
+		"developers": "Gracias a todos los desarrolladores de VERT.SH.",
+		"foundation": "Z8.Work es un proyecto que se apoya en los hombros de gigantes."
 	},
 	"pixel": {
 		"waiting": "En cola…",
@@ -411,7 +413,7 @@
 		"filesTitle": "Qué ocurre con tus archivos",
 		"filesBody": "Todas las conversiones habilitadas se ejecutan en tu dispositivo. El contenido, los nombres y los resultados no se envían a un servidor de conversión. Los resultados permanecen en la memoria de la página para descargarlos; al cerrar o recargar, debes volver a seleccionar los archivos. Los originales no se modifican.",
 		"connectionsTitle": "El procesamiento local también usa la web",
-		"connectionsBody": "Abrir el sitio y cargar los motores genera solicitudes a este sitio. El alojamiento puede recibir datos de conexión, como tu dirección IP. Todos los motores, incluido FFmpeg, se sirven desde este sitio. Salvo que el despliegue desactive las solicitudes externas, las páginas de información y agradecimientos pueden obtener datos públicos de colaboradores desde GitHub. Estas solicitudes no incluyen los archivos seleccionados. Los enlaces externos llevan a sitios de otros operadores.",
+		"connectionsBody": "Abrir el sitio y cargar los motores genera solicitudes a este sitio. El alojamiento puede recibir datos de conexión, como tu dirección IP. Todos los motores, incluido FFmpeg, se sirven desde este sitio. Salvo que el despliegue desactive las solicitudes externas, la página de información puede obtener datos públicos de colaboradores desde GitHub. Estas solicitudes no incluyen los archivos seleccionados. Los enlaces externos llevan a sitios de otros operadores.",
 		"analyticsTitle": "Sin estadísticas de visitas ni conversiones",
 		"analyticsBody": "Esta versión no carga Google Analytics ni envía estadísticas de conversión. No envía automáticamente tus archivos ni informes de errores a los desarrolladores.",
 		"storageTitle": "Lo que guarda tu navegador",

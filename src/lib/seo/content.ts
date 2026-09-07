@@ -45,8 +45,8 @@ export const content: Record<string, SeoCopy> = {
 				"Understand image size savings and conditional storage carbon estimates, including the assumptions, sources and limits of the calculation.",
 			],
 			"/acknowledgements/": [
-				"Open-source acknowledgements",
-				"The open-source projects, libraries and contributors behind Z8.Work and its browser-based conversion engines.",
+				"Thank you, VERT.SH",
+				"Thank you to the VERT.SH project and all its developers. Z8.Work stands on the shoulders of giants. Find our source code and contact email.",
 			],
 			"/settings/": [
 				"Conversion settings",
@@ -124,8 +124,8 @@ export const content: Record<string, SeoCopy> = {
 				"了解图片体积节省和存储碳排放估算，以及计算使用的假设、数据来源和适用限制。",
 			],
 			"/acknowledgements/": [
-				"开源项目致谢",
-				"支撑 Z8.Work 浏览器本地转换功能的开源项目、依赖库和贡献者。",
+				"感谢 VERT.SH 项目",
+				"感谢 VERT.SH 项目及各位开发者。Z8.Work 是站在巨人的肩膀上的项目。查看源代码和联系邮箱。",
 			],
 			"/settings/": [
 				"转换设置",
@@ -203,8 +203,8 @@ export const content: Record<string, SeoCopy> = {
 				"了解圖片大小節省和儲存碳排放估算，以及計算使用的假設、資料來源和適用限制。",
 			],
 			"/acknowledgements/": [
-				"開源專案致謝",
-				"支撐 Z8.Work 瀏覽器本機轉換功能的開源專案、相依套件和貢獻者。",
+				"感謝 VERT.SH 專案",
+				"感謝 VERT.SH 專案及各位開發者。Z8.Work 是站在巨人的肩膀上的專案。查看原始碼和聯絡信箱。",
 			],
 			"/settings/": [
 				"轉換設定",
@@ -282,8 +282,8 @@ export const content: Record<string, SeoCopy> = {
 				"Comprende el ahorro de espacio y las estimaciones condicionales de carbono, sus supuestos, fuentes y limitaciones.",
 			],
 			"/acknowledgements/": [
-				"Agradecimientos al código abierto",
-				"Proyectos, bibliotecas y colaboradores que hacen posible la conversión local de archivos con Z8.Work.",
+				"Gracias al proyecto VERT.SH",
+				"Gracias al proyecto VERT.SH y a todos sus desarrolladores. Z8.Work se apoya en los hombros de gigantes. Consulta el código fuente y el correo de contacto.",
 			],
 			"/settings/": [
 				"Ajustes de conversión",

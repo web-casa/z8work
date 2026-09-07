@@ -212,7 +212,9 @@
 		}
 	},
 	"acknowledgements": {
-		"title": "Acknowledgements"
+		"title": "Thank you, VERT.SH",
+		"developers": "Thank you to all VERT.SH developers.",
+		"foundation": "Z8.Work is a project standing on the shoulders of giants."
 	},
 	"about": {
 		"title": "About",
@@ -399,7 +401,7 @@
 		"filesTitle": "What happens to your files",
 		"filesBody": "All currently enabled conversions run on your device. File contents, names and conversion results are not sent to a conversion server. Results stay in page memory until you download them or close or refresh the page. Your original files are not modified.",
 		"connectionsTitle": "Local processing still uses the web",
-		"connectionsBody": "Opening the site and loading conversion engines makes requests to this site. The site host can receive connection information such as your IP address. All conversion engines, including FFmpeg, are served by this site. Unless external requests are disabled by the deployment, the About and acknowledgements pages may fetch public contributor information from GitHub. These requests do not include the files you select. Following an external link opens a separately operated site.",
+		"connectionsBody": "Opening the site and loading conversion engines makes requests to this site. The site host can receive connection information such as your IP address. All conversion engines, including FFmpeg, are served by this site. Unless external requests are disabled by the deployment, the About page may fetch public contributor information from GitHub. These requests do not include the files you select. Following an external link opens a separately operated site.",
 		"analyticsTitle": "No visit or conversion analytics",
 		"analyticsBody": "This version does not load Google Analytics or send conversion analytics. We do not automatically send your files or conversion error reports to developers.",
 		"storageTitle": "What stays in your browser",

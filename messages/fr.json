@@ -243,5 +243,10 @@
 			"no_audio": "Aucun flux audio détécté.",
 			"invalid_rate": "Taux d'échantillonnage spécifié non valide: {rate}Hz"
 		}
+	},
+	"acknowledgements": {
+		"title": "Merci au projet VERT.SH",
+		"developers": "Merci à tous les développeurs de VERT.SH.",
+		"foundation": "Z8.Work est un projet qui se tient sur les épaules de géants."
 	}
 }

@@ -261,5 +261,10 @@
 			"no_audio": "Ses akışı bulunamadı.",
 			"invalid_rate": "Geçersiz örnekleme hızı: {rate}Hz"
 		}
+	},
+	"acknowledgements": {
+		"title": "VERT.SH projesine teşekkürler",
+		"developers": "VERT.SH projesinin tüm geliştiricilerine teşekkürler.",
+		"foundation": "Z8.Work, devlerin omuzlarında yükselen bir projedir."
 	}
 }

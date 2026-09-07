@@ -275,5 +275,10 @@
 		"button": "JPEGIFY {compression}%!!!",
 		"download": "Unduh",
 		"delete": "Hapus"
+	},
+	"acknowledgements": {
+		"title": "Terima kasih kepada proyek VERT.SH",
+		"developers": "Terima kasih kepada semua pengembang VERT.SH.",
+		"foundation": "Z8.Work adalah proyek yang berdiri di atas bahu para raksasa."
 	}
 }

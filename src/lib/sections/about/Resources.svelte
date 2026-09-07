@@ -1,11 +1,6 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
-	import {
-		CONTACT_EMAIL,
-		DISCORD_URL,
-		GITHUB_URL_VERT,
-	} from "$lib/util/consts";
-	import { effects } from "$lib/store/index.svelte";
+	import { CONTACT_EMAIL, GITHUB_URL_PROJECT } from "$lib/util/consts";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { m } from "$lib/paraglide/messages";
 </script>
@@ -19,39 +14,28 @@
 		</div>
 		{m["about.resources.title"]()}
 	</h2>
-	<div class="flex gap-3">
+	<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 		<a
-			href={DISCORD_URL}
+			href={GITHUB_URL_PROJECT}
 			target="_blank"
 			rel="noopener noreferrer"
-			class="btn {$effects
-				? ''
-				: '!scale-100'} flex-1 gap-2 p-4 rounded-full bg-button text-black dynadark:text-white flex items-center justify-center"
+			class="btn min-w-0 gap-3 p-4 bg-button flex items-center"
 		>
-			<PixelIcon name="message" size={24} class="inline-block mr-2" />
-			{m["about.resources.discord"]()}
-		</a>
-		<a
-			href={GITHUB_URL_VERT}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="btn {$effects
-				? ''
-				: '!scale-100'} flex-1 gap-2 p-4 rounded-full bg-button text-black dynadark:text-white flex items-center justify-center"
-		>
-			<PixelIcon name="github" size={24} class="inline-block mr-2" />
-			{m["about.resources.source"]()}
+			<PixelIcon name="github" size={24} />
+			<span class="min-w-0 flex flex-col gap-1">
+				<span>{m["about.resources.source"]()}</span>
+				<span class="text-sm break-all">web-casa/z8work</span>
+			</span>
 		</a>
 		<a
 			href="mailto:{CONTACT_EMAIL}"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="btn {$effects
-				? ''
-				: '!scale-100'} flex-1 gap-2 p-4 rounded-full bg-button text-black dynadark:text-white flex items-center justify-center"
+			class="btn min-w-0 gap-3 p-4 bg-button flex items-center"
 		>
-			<PixelIcon name="mail" size={24} class="inline-block mr-2" />
-			{m["about.resources.email"]()}
+			<PixelIcon name="mail" size={24} />
+			<span class="min-w-0 flex flex-col gap-1">
+				<span>{m["about.resources.email"]()}</span>
+				<span class="text-sm break-all">{CONTACT_EMAIL}</span>
+			</span>
 		</a>
 	</div>
 </Panel>

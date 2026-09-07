@@ -338,5 +338,10 @@
 			"description": "Für Fragen sende uns eine E-Mail an: [email_link]contact@web.casa[/email_link]. Wenn du eine Drittanbieter-Instanz von Z8.Work verwendest, kontaktiere bitte stattdessen den Hoster dieser Instanz."
 		},
 		"last_updated": "Zuletzt aktualisiert: 29.10.2025"
+	},
+	"acknowledgements": {
+		"title": "Danke an das Projekt VERT.SH",
+		"developers": "Vielen Dank an alle Entwickler von VERT.SH.",
+		"foundation": "Z8.Work ist ein Projekt, das auf den Schultern von Riesen steht."
 	}
 }

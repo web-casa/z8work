@@ -338,5 +338,10 @@
 			"description": "Za pitanja, pišite nam na: [email_link]contact@web.casa[/email_link]. Ako koristite treću stranu, kontaktirajte njihovog hostera."
 		},
 		"last_updated": "Posljednje ažuriranje: 2025-10-29"
+	},
+	"acknowledgements": {
+		"title": "Hvala projektu VERT.SH",
+		"developers": "Hvala svim programerima projekta VERT.SH.",
+		"foundation": "Z8.Work je projekat koji stoji na ramenima divova."
 	}
 }

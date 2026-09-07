@@ -387,7 +387,7 @@
 		"filesTitle": "你的檔案如何處理",
 		"filesBody": "目前啟用的所有轉換都在你的裝置上執行。檔案內容、檔名和轉換結果不會傳送到轉換伺服器。結果保存在頁面記憶體中，供你下載；關閉或重新整理頁面後需要重新選擇檔案。原始檔案不會被修改。",
 		"connectionsTitle": "本機處理仍然需要載入網頁",
-		"connectionsBody": "開啟網站、載入轉換引擎會向本站發起請求，網站主機可能收到 IP 位址等連線資訊。所有轉換引擎（包括 FFmpeg）均由本站提供。除非部署時停用了外部請求，關於和致謝頁面可能從 GitHub 取得公開的貢獻者資料。這些請求不包含你選擇的檔案。點擊外部連結後，將進入由其他營運者提供的網站。",
+		"connectionsBody": "開啟網站、載入轉換引擎會向本站發起請求，網站主機可能收到 IP 位址等連線資訊。所有轉換引擎（包括 FFmpeg）均由本站提供。除非部署時停用了外部請求，關於頁面可能從 GitHub 取得公開的貢獻者資料。這些請求不包含你選擇的檔案。點擊外部連結後，將進入由其他營運者提供的網站。",
 		"analyticsTitle": "不傳送造訪與轉換統計",
 		"analyticsBody": "此版本不載入 Google Analytics，也不傳送轉換統計。檔案或轉換錯誤報告不會自動傳送給開發者。",
 		"storageTitle": "保存在瀏覽器裡的內容",
@@ -538,5 +538,10 @@
 	"formats.purpose.odt": "在 LibreOffice 中編輯",
 	"formats.purpose.md": "Markdown 文字",
 	"formats.purpose.html": "在瀏覽器中閱讀",
-	"formats.purpose.epub": "電子書閱讀器"
+	"formats.purpose.epub": "電子書閱讀器",
+	"acknowledgements": {
+		"title": "感謝 VERT.SH 專案",
+		"developers": "感謝 VERT.SH 的各位開發者。",
+		"foundation": "Z8.Work 是站在巨人的肩膀上的專案。"
+	}
 }

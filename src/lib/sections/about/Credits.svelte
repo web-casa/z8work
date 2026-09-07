@@ -1,145 +1,27 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
-	import {
-		DISABLE_ALL_EXTERNAL_REQUESTS,
-		GITHUB_URL_VERT,
-	} from "$lib/util/consts";
 	import { m } from "$lib/paraglide/messages";
-	import { link, sanitize } from "$lib/store/index.svelte";
-
-	let { mainContribs, notableContribs, ghContribs } = $props();
 </script>
 
-{#snippet contributor(
-	name: string,
-	github: string,
-	avatar: string,
-	role?: string,
-	smaller?: boolean,
-)}
-	<div class="flex items-center gap-4" class:gap-1={smaller}>
-		<a
-			href={github}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="flex-shrink-0"
-		>
-			<img
-				src={avatar}
-				alt={name}
-				title={name}
-				class="{smaller
-					? 'w-12 h-12 hoverable'
-					: role
-						? 'w-14 h-14 hoverable-md'
-						: 'w-10 h-10 hoverable-lg'} rounded-full"
-			/>
-		</a>
-		{#if role}
-			<div class="flex flex-col gap-1">
-				<p
-					class="font-semibold"
-					class:text-xl={!smaller}
-					class:text-base={smaller}
-				>
-					{name}
-				</p>
-				<p class="text-sm font-normal text-muted">{role}</p>
-			</div>
-		{/if}
-	</div>
-{/snippet}
-
-<Panel class="flex flex-col gap-8 p-6">
-	<h2 class="text-2xl font-bold flex items-center">
-		<div class="pixel-icon-badge bg-blue-300 inline-block mr-3 w-10 h-10">
-			<PixelIcon class="text-black" name="heart" />
-		</div>
-		{m["about.credits.title"]()}
+<Panel class="flex flex-col gap-6 p-6">
+	<h2 class="text-xl md:text-2xl font-bold flex items-center gap-3">
+		<PixelIcon name="heart" size={28} />
+		{m["acknowledgements.developers"]()}
 	</h2>
-
-	<p class="-mt-4 -mb-3 font-black text-lg">
-		{m["about.credits.contact_team"]()}
-	</p>
-
-	<!-- Main contributors -->
-	<div class="flex flex-col gap-4">
-		<div class="flex flex-col flex-wrap gap-2">
-			{#each mainContribs as contrib}
-				{@const { name, github, avatar, role } = contrib}
-				{@render contributor(name, github, avatar, role)}
-			{/each}
-		</div>
-	</div>
-
-	<!-- Notable contributors -->
-	<div class="flex flex-col gap-4">
-		<div class="flex flex-col gap-1">
-			<h2 class="text-base font-bold">
-				{m["about.credits.notable_contributors"]()}
-			</h2>
-			<div class="flex flex-col gap-2">
-				<p class="text-base text-muted font-normal">
-					{m["about.credits.notable_description"]()}
-				</p>
-				<div class="flex flex-col gap-2">
-					{#each notableContribs as contrib}
-						{@const { name, github, avatar, role } = contrib}
-						{@render contributor(name, github, avatar, role, true)}
-					{/each}
-				</div>
-			</div>
-		</div>
-
-		<!-- GitHub contributors -->
-		{#if !DISABLE_ALL_EXTERNAL_REQUESTS}
-			<div class="flex flex-col gap-4">
-				<div class="flex flex-col gap-1">
-					<h2 class="text-base font-bold">
-						{m["about.credits.github_contributors"]()}
-					</h2>
-					{#if ghContribs && ghContribs.length > 0}
-						<p class="text-base text-muted font-normal">
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
-							{@html sanitize(
-								link(
-									"github_link",
-									m["about.credits.github_description"](),
-									GITHUB_URL_VERT,
-									true,
-								),
-							)}
-						</p>
-					{:else}
-						<p class="text-base text-muted font-normal italic">
-							<!-- eslint-disable-next-line svelte/no-at-html-tags -- Translated markup passes through the shared allowlist sanitizer. -->
-							{@html sanitize(
-								link(
-									"contribute_link",
-									m["about.credits.no_contributors"](),
-									GITHUB_URL_VERT,
-									true,
-								),
-							)}
-						</p>
-					{/if}
-				</div>
-
-				{#if ghContribs && ghContribs.length > 0}
-					<div class="flex flex-row flex-wrap gap-2">
-						{#each ghContribs as contrib}
-							{@const { name, github, avatar } = contrib}
-							{@render contributor(name, github, avatar)}
-						{/each}
-					</div>
-				{/if}
-			</div>
-
-			<h2 class="mt-2 -mb-2">{m["about.credits.libraries"]()}</h2>
-			<p class="font-normal">
-				{m["about.credits.libraries_description"]()}
-			</p>
-		{/if}
+	<p class="text-lg leading-relaxed">{m["acknowledgements.foundation"]()}</p>
+	<a
+		href="https://vert.sh/"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex items-center gap-2 underline underline-offset-4 self-start"
+	>
+		VERT.SH <PixelIcon name="arrow" size={20} />
+	</a>
+	<div class="flex flex-col gap-3">
+		<h3 class="text-lg font-bold">{m["about.credits.libraries"]()}</h3>
+		<p class="leading-relaxed">
+			{m["about.credits.libraries_description"]()}
+		</p>
 	</div>
 </Panel>
