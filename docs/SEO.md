@@ -78,6 +78,15 @@ CHROMIUM_PATH=/usr/bin/chromium npm run test:pages
 
 本地生产构建、Lighthouse 13.4.1、移动端默认模拟限速：SEO / Accessibility / Best Practices 均为 100，Performance 为 69，FCP 3.0 秒、LCP 10.9 秒、TBT 0 毫秒、CLS 0。没有把这个结果描述为性能优化已全部完成；当前共享业务与多语言 JavaScript 仍较大，后续需要继续拆分首屏依赖，并在正式域名获得真实访问数据后验证。此处是本地实验室测量，不是线上用户 Core Web Vitals，也没有可据此报告的真实 INP。
 
+同一构建另以 `--throttling-method=devtools` 实际施加限速复测：Performance 99，FCP / LCP 1.6 秒、TBT 0 毫秒、CLS 0。两种测量方式结果差异较大，因此同时保留，不以较高一次替代默认模拟结果。正式域名完成切换后仍需线上实测与真实用户数据。
+
+复现性能审计（Lighthouse 13.4.1，兼容的本地 Chromium）：
+
+```bash
+CHROME_PATH=/path/to/chrome npx lighthouse@13.4.1 http://127.0.0.1:5190/zh-Hans/ --chrome-flags="--headless --no-sandbox" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=/tmp/z8-lighthouse.json
+# 加 --throttling-method=devtools 复测实际限速；预览服务需先在 5190 启动。
+```
+
 系统 Chromium 149 与本次 Lighthouse 的协议连接两次失败；改用环境中已有的 Playwright Chromium 后完成审计。启动内存探测的移除有独立代码依据，不把协议错误归因于该探测。
 
 参考：[Google 多语言页面](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites)、[规范网址](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)、[Paraglide SvelteKit](https://paraglidejs.com/sveltekit)、[Pages 页面与 404](https://developers.cloudflare.com/pages/configuration/serving-pages/)、[Pages 响应头](https://developers.cloudflare.com/pages/configuration/headers/)。
