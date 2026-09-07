@@ -5,6 +5,8 @@ node_modules
 .vercel
 /.svelte-kit
 /build
+/build-pages
+/.wrangler
 
 # OS
 .DS_Store

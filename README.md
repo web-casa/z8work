@@ -39,6 +39,8 @@ All files are converted completely on-device; this means that there's no delay b
 - **Modern UI**: A stunning, **dark-mode optimized** interface designed for focus and **ease of use**.
 - **Storage Impact**: Completed images show their actual size change and a conditional one-year storage CO₂ estimate. The [environment page](src/routes/environment/+page.svelte) explains the model, sources and limits; this is not measured or verified net emissions avoided.
 
+Cloudflare Pages 的构建、引擎资源分发与验证方法，见[部署说明](docs/CLOUDFLARE_PAGES.md)。
+
 ## Acknowledgements
 
 This project is a secondary development based on [VERT](https://github.com/VERT-sh/VERT). We would like to express our sincere gratitude to the VERT team for their open-source contribution and excellent foundation.

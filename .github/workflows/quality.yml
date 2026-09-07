@@ -39,5 +39,6 @@ jobs:
             - run: bun run test
             - run: bun run lint:changed
             - run: bun run build
+            - run: node scripts/prepare-pages.mjs
             - run: bunx playwright install --with-deps chromium
             - run: bun run test:browser
