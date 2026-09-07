@@ -9,3 +9,9 @@
 
 /sw.js
   Cache-Control: no-cache
+
+https://z8work.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:branch.z8work.pages.dev/*
+  X-Robots-Tag: noindex

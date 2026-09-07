@@ -193,7 +193,9 @@ try {
 	const page = await context.newPage();
 	page.on("pageerror", (e) => report.pageErrors.push(e.message));
 	await page.addInitScript(() => localStorage.setItem("locale", "zh-Hans"));
-	await page.goto(base, { waitUntil: "load" });
+	await page.goto(base.replace(/\/$/, "") + "/zh-Hans/", {
+		waitUntil: "load",
+	});
 	for (const item of cases) {
 		console.log("Checking", item.name, item.to);
 		await page.evaluate(

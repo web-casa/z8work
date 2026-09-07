@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import Panel from "$lib/components/visual/Panel.svelte";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { m } from "$lib/paraglide/messages";
@@ -167,7 +168,7 @@
 		</h2>
 		<p class="text-base font-normal">
 			{m["eco.feature"]()}
-			<a class="underline" href="/environment/"
+			<a class="underline" href={localHref("/environment/")}
 				>{m["eco.methodLink"]()} →</a
 			>
 		</p>

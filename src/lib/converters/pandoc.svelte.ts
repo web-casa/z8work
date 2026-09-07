@@ -1,11 +1,10 @@
 import { VertFile, type WorkerMessage } from "$lib/types";
 import { Converter, FormatInfo } from "./converter.svelte";
-import { browser } from "$app/environment";
 import PandocWorker from "$lib/workers/pandoc?worker&url";
 import { error, log } from "$lib/util/logger";
-import { ToastManager } from "$lib/util/toast.svelte";
-import { m } from "$lib/paraglide/messages";
 import { waitForWorkerMessage } from "$lib/util/worker-message";
+
+import { createEngineResource, fetchEngine } from "$lib/util/engine-resource";
 
 type PandocResponse =
 	| { type: "finished"; output: Uint8Array<ArrayBuffer>; isZip?: boolean }
@@ -22,29 +21,14 @@ export class PandocConverter extends Converter {
 		{ worker: Worker; controller: AbortController }
 	>();
 
+	private engine = createEngineResource((signal) =>
+		fetchEngine("/pandoc.wasm", signal),
+	);
+
 	constructor() {
 		super();
-		if (!browser) return;
-		(async () => {
-			try {
-				this.status = "downloading";
-				this.wasm = await fetch("/pandoc.wasm").then((r) =>
-					r.arrayBuffer(),
-				);
-
-				this.status = "ready";
-			} catch (err) {
-				this.status = "error";
-				error(
-					["converters", this.name],
-					`Failed to load Pandoc worker: ${err}`,
-				);
-				ToastManager.add({
-					type: "error",
-					message: m["workers.errors.pandoc"](),
-				});
-			}
-		})();
+		this.status = "ready";
+		this.clearTimeout();
 	}
 
 	public async convert(file: VertFile, to: string): Promise<VertFile> {
@@ -55,6 +39,8 @@ export class PandocConverter extends Converter {
 		const controller = new AbortController();
 		this.activeConversions.set(file.id, { worker, controller });
 		try {
+			this.wasm = await this.engine.load(controller.signal);
+			controller.signal.throwIfAborted();
 			const loadMsg: WorkerMessage = {
 				type: "load",
 				wasm: this.wasm,

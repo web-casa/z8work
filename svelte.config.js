@@ -1,4 +1,6 @@
 import adapter from "@sveltejs/adapter-static";
+import { readFileSync } from "node:fs";
+import { localePath, pagePaths } from "./src/lib/seo/routes.mjs";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -12,6 +14,22 @@ const config = {
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
+		prerender: {
+			entries: [
+				"/sitemap.xml",
+				...JSON.parse(
+					readFileSync(
+						new URL(
+							"./project.inlang/settings.json",
+							import.meta.url,
+						),
+						"utf8",
+					),
+				).locales.flatMap((locale) =>
+					pagePaths.map((path) => localePath(path, locale)),
+				),
+			],
+		},
 		paths: {
 			relative: false,
 		},

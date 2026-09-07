@@ -1,4 +1,14 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
+	import { page } from "$app/state";
+	import {
+		indexedLocales,
+		localePath,
+		unlocalizedPath,
+		localeFromPath,
+	} from "$lib/seo/routes.mjs";
+	import { seoCopy } from "$lib/seo/content";
+	import { availableLocales, updateLocale } from "$lib/store/index.svelte";
 	import { converters } from "$lib/converters";
 	import { usesOnlyLocalConverters } from "$lib/util/conversion-privacy";
 	import {
@@ -32,12 +42,34 @@
 			target="_blank"
 			rel="noopener noreferrer">{m["navbar.screenhello"]()}</a
 		>
-		<a href="/privacy/">{m["footer.privacy_policy"]()}</a>
-		<a href="/environment/">{m["eco.nav"]()}</a>
+		<a href={localHref("/privacy/")}>{m["footer.privacy_policy"]()}</a>
+		<a href={localHref("/environment/")}>{m["eco.nav"]()}</a>
 	</div>
-	<a class="pixel-footer-server" href="/privacy/"
+	<a class="pixel-footer-server" href={localHref("/privacy/")}
 		><PixelIcon name="lock" size={24} />{usesOnlyLocalConverters(converters)
 			? m["trust.local"]()
 			: m["trust.unknown"]()}</a
 	>
 </footer>
+<nav
+	class="seo-languages"
+	aria-label={seoCopy(localeFromPath(page.url.pathname)).languages}
+>
+	{#each indexedLocales as code}<a
+			href={localePath(unlocalizedPath(page.url.pathname), code)}
+			lang={code}
+			hreflang={code}
+			onclick={(event) => {
+				if (
+					!event.ctrlKey &&
+					!event.metaKey &&
+					!event.shiftKey &&
+					!event.altKey &&
+					event.button === 0
+				) {
+					event.preventDefault();
+					void updateLocale(code);
+				}
+			}}>{availableLocales[code as keyof typeof availableLocales]}</a
+		>{/each}
+</nav>

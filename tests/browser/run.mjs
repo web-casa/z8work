@@ -42,6 +42,7 @@ try {
 		if (!ready) throw new Error("Preview server did not become ready");
 	}
 	for (const [script, extra = {}] of [
+		["seo"],
 		["resource-lifecycle"],
 		["local-audio"],
 		["workspace"],

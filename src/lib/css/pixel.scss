@@ -265,7 +265,7 @@ body {
 	flex-wrap: wrap;
 	margin-bottom: 32px;
 }
-.pixel-workspace-heading h1 {
+.pixel-workspace-heading :is(h1, h2) {
 	font-family: var(--font-body);
 	font-size: clamp(28px, 3.25vw, 48px);
 	line-height: 1.25;
@@ -1045,7 +1045,7 @@ body {
 	.pixel-format-groups {
 		grid-template-columns: 1fr;
 	}
-	.pixel-workspace-heading h1 {
+	.pixel-workspace-heading :is(h1, h2) {
 		font-size: 28px;
 	}
 	.pixel-empty-state h2 {

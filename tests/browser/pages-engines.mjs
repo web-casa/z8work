@@ -6,6 +6,13 @@ import { chromium } from "playwright";
 const base = process.env.IIPE_TEST_BASE || "http://localhost:5196";
 const routes = JSON.parse(await readFile("build-pages/_routes.json", "utf8"));
 const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
+for (const path of ["/missing-seo-check/", "/zh-Hans/tools/not-a-real-tool/"]) {
+	const response = await fetch(new URL(path, base));
+	assert.equal(response.status, 404, path);
+	assert.match(await response.text(), /noindex/);
+}
+console.log("Unknown routes return HTTP 404 and noindex");
+
 for (const path of routes.include) {
 	const response = await fetch(new URL(path, base));
 	assert.equal(response.status, 200);

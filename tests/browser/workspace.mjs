@@ -72,7 +72,9 @@ try {
 		if (!["GET", "HEAD"].includes(r.method()))
 			report.nonReadRequests.push(r.url());
 	});
-	await page.goto(base, { waitUntil: "load" });
+	await page.goto(base.replace(/\/$/, "") + "/zh-Hans/", {
+		waitUntil: "load",
+	});
 	await page.waitForFunction(
 		() => document.documentElement.lang === "zh-Hans",
 	);
@@ -372,14 +374,14 @@ try {
 		scrollTo(0, document.documentElement.scrollHeight),
 	);
 	const footerLink = await page
-		.locator('.pixel-footer a[href="/privacy/"]')
+		.locator('.pixel-footer a[href$="/privacy/"]')
 		.first()
 		.boundingBox();
 	assert.ok(
 		footerLink.y + footerLink.height <
 			(await page.locator(".workspace-actions").boundingBox()).y,
 	);
-	await page.locator('.pixel-footer a[href="/privacy/"]').first().click();
+	await page.locator('.pixel-footer a[href$="/privacy/"]').first().click();
 	await page.waitForURL("**/privacy/");
 	assert.equal(await page.locator(".workspace-actions").count(), 0);
 	assert.equal(
@@ -390,11 +392,11 @@ try {
 		),
 		"",
 	);
-	await page.locator('.pixel-menubar a[href="/convert/"]').click();
+	await page.locator('.pixel-menubar a[href$="/convert/"]').click();
 	await page.waitForURL("**/convert/");
 	assert.equal(await page.locator(".compact-file").count(), 4);
 	for (const route of ["settings", "about", "environment"]) {
-		await page.locator(`.pixel-menubar a[href="/${route}/"]`).click();
+		await page.locator(`.pixel-menubar a[href$="/${route}/"]`).click();
 		await page.waitForURL(`**/${route}/`);
 		assert.equal(await page.locator(".workspace-actions").count(), 0);
 		if (route === "settings") {
@@ -423,14 +425,14 @@ try {
 				.evaluateAll((els) => els.map((el) => el.id));
 			assert.equal(new Set(ids).size, ids.length);
 		}
-		await page.locator('.pixel-menubar a[href="/convert/"]').click();
+		await page.locator('.pixel-menubar a[href$="/convert/"]').click();
 		await page.waitForURL("**/convert/");
 		assert.equal(await page.locator(".compact-file").count(), 4);
 	}
 	report.checks.push(
 		"privacy/settings/about/environment navigation preserves the queue; settings selector opens with unique IDs",
 	);
-	await page.goto(base + "/convert/", { waitUntil: "load" });
+	await page.goto(base + "/zh-Hans/convert/", { waitUntil: "load" });
 	// A reload intentionally starts a new empty in-memory queue.
 	assert.equal(await page.locator(".workspace-actions").count(), 0);
 	report.checks.push(

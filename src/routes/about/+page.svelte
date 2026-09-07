@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { error } from "$lib/util/logger";
 	import * as About from "$lib/sections/about";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
@@ -152,7 +153,7 @@
 		<About.Features />
 		<div class="w-full flex justify-center py-4">
 			<a
-				href="/acknowledgements"
+				href={localHref("/acknowledgements")}
 				class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors duration-200 font-medium"
 			>
 				{m["about.acknowledgements_link"]()}

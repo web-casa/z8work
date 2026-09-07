@@ -40,7 +40,9 @@ try {
 		if (!["GET", "HEAD"].includes(r.method())) writes.push(r.url());
 	});
 	await page.addInitScript(() => localStorage.setItem("locale", "zh-Hans"));
-	await page.goto(base, { waitUntil: "load" });
+	await page.goto(base.replace(/\/$/, "") + "/zh-Hans/", {
+		waitUntil: "load",
+	});
 	const bytes = Buffer.from(
 		await page.evaluate(() => {
 			const canvas = document.createElement("canvas");

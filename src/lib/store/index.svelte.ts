@@ -1,12 +1,19 @@
+import { supportedBufferLimit } from "$lib/util/buffer-limit";
 import { browser } from "$app/environment";
+import { goto } from "$app/navigation";
+import { toolForPath } from "$lib/seo/routes.mjs";
 import { byNative, converters } from "$lib/converters";
 import { error, log } from "$lib/util/logger";
 import { VertFile } from "$lib/types";
-import { parseBlob, selectCover } from "music-metadata";
 import { writable } from "svelte/store";
 import { addDialog } from "./DialogProvider";
 import PQueue from "p-queue";
-import { baseLocale, getLocale, setLocale } from "$lib/paraglide/runtime";
+import {
+	baseLocale,
+	getLocale,
+	localizeUrl,
+	isLocale,
+} from "$lib/paraglide/runtime";
 import { m } from "$lib/paraglide/messages";
 import DOMPurify from "isomorphic-dompurify";
 import { ToastManager } from "$lib/util/toast.svelte";
@@ -101,6 +108,10 @@ class Files {
 					if (!current()) return;
 					let url: string | undefined;
 					if (isAudio) {
+						const { parseBlob, selectCover } = await import(
+							"music-metadata"
+						);
+						if (!current()) return;
 						const { common } = await parseBlob(file.file, {
 							skipPostHeaders: true,
 						});
@@ -235,6 +246,9 @@ class Files {
 
 	private _warningShown = false;
 	private async _add(file: VertFile | File) {
+		const preset = browser
+			? toolForPath(window.location.pathname)
+			: undefined;
 		if (file instanceof VertFile) {
 			this.files.push(file);
 			this._addThumbnail(file);
@@ -279,6 +293,7 @@ class Files {
 				return;
 			}
 			const vf = new VertFile(file, to);
+			if (preset?.inputs.includes(vf.from)) vf.setTarget(preset.target);
 			this.files.push(vf);
 			this._addThumbnail(vf);
 
@@ -442,7 +457,9 @@ export const effects = writable(true);
 export const theme = writable<"light" | "dark">("light");
 // Match the prerendered page until mounting, then remount translated HTML
 // when the browser's preferred or saved locale is applied.
-export const locale = writable<ReturnType<typeof getLocale>>(baseLocale);
+export const locale = writable<ReturnType<typeof getLocale>>(
+	browser ? getLocale() : baseLocale,
+);
 export const availableLocales = {
 	en: "English",
 	es: "Español",
@@ -461,16 +478,23 @@ export const availableLocales = {
 	"pt-BR": "Português (Brasil)",
 };
 
-export function updateLocale(newLocale: string = getLocale()) {
-	if (!Object.keys(availableLocales).includes(newLocale)) newLocale = "en";
+// URL is authoritative for prerendered pages. The complete translated shell is
+// remounted after SvelteKit navigation while module-owned files/workers survive.
+export function syncLocale() {
+	if (!browser) return;
+	const next = getLocale();
+	localStorage.setItem("locale", next);
+	document.documentElement.lang = next;
+	locale.set(next);
+}
 
-	log(["locale"], `set to ${newLocale}`);
-	localStorage.setItem("locale", newLocale);
-	document.documentElement.lang = newLocale;
-	// @ts-expect-error shush
-	setLocale(newLocale, { reload: false });
-	// @ts-expect-error shush
-	locale.set(newLocale);
+export async function updateLocale(newLocale: string = getLocale()) {
+	if (!browser) return;
+	const next = isLocale(newLocale) ? newLocale : baseLocale;
+	const target = localizeUrl(window.location.href, { locale: next });
+	if (target.href !== window.location.href)
+		await goto(target.href, { noScroll: true, keepFocus: true });
+	syncLocale();
 }
 
 export function link(
@@ -518,65 +542,16 @@ export function sanitize(
 	});
 }
 
-/**
- * Binary search for a max value without knowing the exact value, only that it
- * can be under or over It dose not test every number but instead looks for
- * 1,2,4,8,16,32,64,128,96,95 to figure out that you thought about #96 from
- * 0-infinity
- *
- * @example findFirstPositive(x => matchMedia(`(max-resolution: ${x}dpi)`).matches)
- * @author Jimmy Wärting
- * @see {@link https://stackoverflow.com/a/72124984/1008999}
- * @param {function} f The function to run the test on (should return truthy or falsy values)
- * @param {bigint} [b=1] Where to start looking from
- * @param {function} d privately used to calculate the next value to test
- * @returns {bigint} Integer
- */
-function findFirstPositive(
-	f: (x: bigint) => number,
-	b = 1n,
-	d = (e: bigint, g: bigint, c?: bigint): bigint =>
-		g < e
-			? -1n
-			: 0 < f((c = (e + g) >> 1n))
-				? c == e || 0 >= f(c - 1n)
-					? c
-					: d(e, c - 1n)
-				: d(c + 1n, g),
-): bigint {
-	for (; 0 >= f(b); b <<= 1n);
-	return d(b >> 1n, b) - 1n;
-}
-
+// A supported file ceiling, not a measurement of free device memory. Avoid
+// allocating gigabytes merely to render a page. Retain older, lower limits.
 export const getMaxArrayBufferSize = (): number => {
-	if (typeof window === "undefined") return 2 * GB; // default for SSR
-
-	// check cache first
-	const cached = localStorage.getItem("maxArrayBufferSize");
-	if (cached) {
-		const parsed = Number(cached);
-		log(
-			["converters"],
-			`using cached max ArrayBuffer size: ${parsed} bytes`,
+	try {
+		return supportedBufferLimit(
+			browser ? localStorage.getItem("maxArrayBufferSize") : null,
 		);
-		if (!isNaN(parsed) && parsed > 0) return parsed;
+	} catch {
+		return supportedBufferLimit(null);
 	}
-
-	// detect max size using binary search
-	const maxSize = findFirstPositive((x) => {
-		try {
-			new ArrayBuffer(Number(x));
-			return 0; // false = can allocate
-		} catch {
-			return 1; // true = cannot allocate
-		}
-	});
-
-	const result = Number(maxSize);
-	localStorage.setItem("maxArrayBufferSize", result.toString());
-	log(["converters"], `detected max ArrayBuffer size: ${result} bytes`);
-
-	return result;
 };
 
 export const MAX_ARRAY_BUFFER_SIZE = getMaxArrayBufferSize();

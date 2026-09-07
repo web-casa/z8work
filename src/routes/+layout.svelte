@@ -1,14 +1,9 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { onMount } from "svelte";
-	import { page } from "$app/state";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
 
-	import {
-		DISABLE_ALL_EXTERNAL_REQUESTS,
-		VERT_NAME,
-		SITE_NAME,
-		SITE_URL,
-	} from "$lib/util/consts.js";
+	import { DISABLE_ALL_EXTERNAL_REQUESTS } from "$lib/util/consts.js";
 	import * as Layout from "$lib/components/layout";
 	import PixelHeader from "$lib/components/pixel/PixelHeader.svelte";
 	import { Settings } from "$lib/sections/settings/index.svelte";
@@ -21,8 +16,10 @@
 		dropping,
 		vertdLoaded,
 		locale,
-		updateLocale,
+		syncLocale,
 	} from "$lib/store/index.svelte";
+	import SeoHead from "$lib/seo/SeoHead.svelte";
+	import "$lib/css/seo.scss";
 	import "$lib/css/app.scss";
 	import "$lib/css/pixel.scss";
 	import "$lib/css/impact.scss";
@@ -36,8 +33,6 @@
 
 	let { children } = $props();
 	let isAprilFools = $state(false);
-	const canonicalUrl = $derived(new URL(page.url.pathname, SITE_URL).href);
-	const featuredImage = new URL("brand/social-card.png", SITE_URL).href;
 
 	let scrollPositions = new Map<string, number>();
 
@@ -47,6 +42,7 @@
 	});
 
 	afterNavigate((nav) => {
+		syncLocale();
 		if (!$isMobile) return;
 		const scrollY = nav.to
 			? scrollPositions.get(nav.to.url.pathname) || 0
@@ -59,7 +55,7 @@
 		dropping.set(false);
 		const oldLength = files.files.length;
 		files.add(e.dataTransfer?.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(localHref("/convert/"));
 	};
 
 	const handleDrag = (e: DragEvent, drag: boolean) => {
@@ -73,7 +69,7 @@
 		e.preventDefault();
 		const oldLength = files.files.length;
 		files.add(clipboardData.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(localHref("/convert/"));
 	};
 
 	onMount(() => {
@@ -94,8 +90,7 @@
 		theme.set(
 			(localStorage.getItem("theme") as "light" | "dark") || "light",
 		);
-		const storedLocale = localStorage.getItem("locale");
-		updateLocale(storedLocale ?? undefined);
+		syncLocale();
 
 		Settings.instance.load();
 
@@ -136,39 +131,11 @@
 	});
 </script>
 
+<SeoHead />
+
 <svelte:head>
-	<title>{VERT_NAME}</title>
 	<meta name="theme-color" content="#086B68" />
-	<meta
-		name="title"
-		content="{VERT_NAME} — Free, fast, and awesome file converter"
-	/>
-	{#if !["/environment", "/privacy"].includes(page.url.pathname.replace(/\/$/, ""))}
-		<meta name="description" content={m["trust.body"]()} />
-	{/if}
-	<meta property="og:url" content={canonicalUrl} />
-	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={SITE_NAME} />
-	<meta
-		property="og:title"
-		content="{VERT_NAME} — Free, fast, and awesome file converter"
-	/>
-	<meta property="og:description" content={m["trust.body"]()} />
-	<meta property="og:image" content={featuredImage} />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content={SITE_NAME} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content={new URL(SITE_URL).hostname} />
-	<meta property="twitter:url" content={canonicalUrl} />
-	<meta
-		property="twitter:title"
-		content="{VERT_NAME} — Free, fast, and awesome file converter"
-	/>
-	<meta property="twitter:description" content={m["trust.body"]()} />
-	<meta property="twitter:image" content={featuredImage} />
 	<link rel="manifest" href="/manifest.json" />
-	<link rel="canonical" href={canonicalUrl} />
 	{#if isAprilFools}
 		<style>
 			* {

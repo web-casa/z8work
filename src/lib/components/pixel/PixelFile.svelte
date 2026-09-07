@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import type { VertFile } from "$lib/types";
 	import { files, vertdLoaded, locale } from "$lib/store/index.svelte";
 	import { categories } from "$lib/converters";
@@ -128,7 +129,10 @@
 						size: formatSize(saving.savedBytes),
 					})}</strong
 				>
-				<a href="/environment/#method" title={m["eco.condition"]()}>
+				<a
+					href={localHref("/environment/#method")}
+					title={m["eco.condition"]()}
+				>
 					<span>{m["eco.carbonYear"]()}</span>
 					{formatCarbon(
 						estimateStorage(saving.savedBytes).gramsCO2,

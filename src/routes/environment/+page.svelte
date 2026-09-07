@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { m } from "$lib/paraglide/messages";
-	import { SITE_NAME } from "$lib/util/consts";
 	import { locale, files } from "$lib/store/index.svelte";
 	import {
 		IMPACT_SOURCES,
@@ -32,11 +32,6 @@
 		return `${number(bytes / 1000 ** index)} ${units[index]}`;
 	}
 </script>
-
-<svelte:head>
-	<title>{m["eco.nav"]()} · {SITE_NAME}</title>
-	<meta name="description" content={m["eco.intro"]()} />
-</svelte:head>
 
 <article class="pixel-story eco-page">
 	<header class="eco-intro">
@@ -247,7 +242,7 @@
 			<a class="eco-cta" href={files.files.length ? "/convert/" : "/"}
 				>{m["eco.back"]()}<PixelIcon name="arrow" size={24} /></a
 			>
-			<a class="eco-privacy-link" href="/privacy/"
+			<a class="eco-privacy-link" href={localHref("/privacy/")}
 				>{m["eco.privacyLink"]()}</a
 			>
 		</div>

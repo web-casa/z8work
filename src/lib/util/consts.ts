@@ -1,3 +1,4 @@
+import { siteUrl } from "$lib/seo/routes.mjs";
 import { PUB_DISABLE_ALL_EXTERNAL_REQUESTS, PUB_ENV } from "$env/static/public";
 
 export const GITHUB_URL_VERT = "https://github.com/VERT-sh/VERT";
@@ -5,7 +6,7 @@ export const GITHUB_URL_VERTD = "https://github.com/VERT-sh/vertd";
 export const GITHUB_API_URL = "https://api.github.com/repos/VERT-sh/VERT";
 export const DISCORD_URL = "https://discord.gg/kqevGxYPak";
 export const SITE_NAME = "Z8.Work";
-export const SITE_URL = "https://z8.work/";
+export const SITE_URL = siteUrl + "/";
 export const DEFAULT_FILENAME_FORMAT = `${SITE_NAME}_%name%`;
 export const VERT_NAME =
 	PUB_ENV === "development"

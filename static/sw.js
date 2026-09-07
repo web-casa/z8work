@@ -1,7 +1,5 @@
 const CACHE_NAME = "vert-wasm-cache-v4"; // remove old CDN engine cache entries
 
-const WASM_FILES = ["/pandoc.wasm"];
-
 // Only this site's immutable engines are cached. Vite source modules stay fresh.
 function shouldCacheUrl(url) {
 	const target = new URL(url);
@@ -14,22 +12,8 @@ function shouldCacheUrl(url) {
 	);
 }
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", () => {
 	console.log("[SW] installing service worker");
-
-	event.waitUntil(
-		caches.open(CACHE_NAME).then((cache) => {
-			const staticFiles = WASM_FILES.filter((file) =>
-				file.startsWith("/"),
-			);
-			if (staticFiles.length > 0) {
-				console.log("[SW] pre-caching static files:", staticFiles);
-				return cache.addAll(staticFiles).catch((err) => {
-					console.warn("[SW] failed to pre-cache some files:", err);
-				});
-			}
-		}),
-	);
 
 	self.skipWaiting();
 });

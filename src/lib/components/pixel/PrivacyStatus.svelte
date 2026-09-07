@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { converters } from "$lib/converters";
 	import { m } from "$lib/paraglide/messages";
 	import { usesOnlyLocalConverters } from "$lib/util/conversion-privacy";
@@ -23,7 +24,9 @@
 			<p>
 				{m["trust.scope"]()}
 				{m["trust.network"]()}
-				<a href="/privacy/">{m["footer.privacy_policy"]()}</a>
+				<a href={localHref("/privacy/")}
+					>{m["footer.privacy_policy"]()}</a
+				>
 			</p>
 		</details>
 	{/if}

@@ -22,15 +22,15 @@ try {
 	);
 	const page = await context.newPage();
 	await page.addInitScript(() => localStorage.setItem("locale", "zh-Hans"));
-	const initialMagick = imageEncoder
-		? page.waitForResponse((response) =>
-				/magick.*\.wasm/.test(response.url()),
-			)
-		: undefined;
-	await page.goto(process.env.IIPE_TEST_BASE || "http://localhost:5174/", {
-		waitUntil: "load",
-	});
-	if (initialMagick) await (await initialMagick).finished();
+	await page.goto(
+		new URL(
+			"/zh-Hans/",
+			process.env.IIPE_TEST_BASE || "http://localhost:5174/",
+		).href,
+		{
+			waitUntil: "load",
+		},
+	);
 	blocked = true;
 	await page
 		.locator("input[type=file]:enabled")

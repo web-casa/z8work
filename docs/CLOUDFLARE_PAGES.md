@@ -52,3 +52,5 @@ bunx wrangler@4.129.0 pages deploy build-pages --project-name z8work --branch pa
 ## 自定义域名
 
 在 Pages 项目中添加 `z8.work`，并将该域名的 DNS 指向项目实际的 `pages.dev` 地址。Pages 域名关联、DNS 生效、证书签发都完成后，才能将自定义域名视为上线；仅创建 Pages 域名关联不代表 DNS 已完成。
+
+SEO 路由、独立 404、临时 Pages 域名的 `noindex` 响应头及正式域名切换检查，见 [SEO 实施与审查记录](SEO.md)。

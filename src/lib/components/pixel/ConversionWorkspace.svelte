@@ -5,6 +5,7 @@
 </script>
 
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { tick } from "svelte";
 	import { categories, converters } from "$lib/converters";
 	import {
@@ -36,6 +37,10 @@
 		outputFormats,
 	} from "$lib/util/output-formats";
 
+	let {
+		heading,
+		embedded = false,
+	}: { heading?: string; embedded?: boolean } = $props();
 	let downloading = $state(false);
 	let actionBar = $state<HTMLDivElement>();
 	const summary = $derived(summarizeQueue(files.files, $vertdLoaded));
@@ -162,7 +167,7 @@
 
 	$effect(() => {
 		for (const file of files.files) {
-			if (initialized.has(file)) continue;
+			if (initialized.has(file) || file.targetChosen) continue;
 			const converter =
 				file.converters.find((c) =>
 					c.supportedFormats.some(
@@ -256,7 +261,13 @@
 <div class="pixel-workspace workspace-compact" class:empty={length === 0}>
 	<section class="pixel-files-area" aria-label={m["pixel.queue"]()}>
 		<div class="pixel-workspace-heading" class:has-files={length > 0}>
-			<h1>{length ? m["pixel.queue"]() : m["pixel.workspace"]()}</h1>
+			{#if embedded}<h2>
+					{length ? m["pixel.queue"]() : m["pixel.workspace"]()}
+				</h2>{:else}<h1>
+					{length
+						? m["pixel.queue"]()
+						: heading || m["pixel.workspace"]()}
+				</h1>{/if}
 			<span
 				>{m["pixel.count"]({ count: length })}{#if length}
 					<span aria-hidden="true">·</span>
@@ -422,7 +433,7 @@
 						}}
 					/><span>{m["pixel.metadata"]()}</span></label
 				>
-				<a href="/settings/"
+				<a href={localHref("/settings/")}
 					>{m["pixel.details"]()}<PixelIcon
 						name="arrow"
 						size={18}

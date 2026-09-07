@@ -7,13 +7,13 @@ import { Converter, FormatInfo } from "./converter.svelte";
 import { imageFormats } from "./magick-automated";
 import { Settings } from "$lib/sections/settings/index.svelte";
 import magickWasm from "@imagemagick/magick-wasm/magick.wasm?url";
-import { ToastManager } from "$lib/util/toast.svelte";
 import {
 	waitForWorkerMessage,
 	WorkerTimeoutError,
 } from "$lib/util/worker-message";
 
 import PQueue from "p-queue";
+import { createEngineResource, fetchEngine } from "$lib/util/engine-resource";
 import {
 	imageConcurrency,
 	imageQuality,
@@ -104,43 +104,16 @@ export class MagickConverter extends Converter {
 
 	public readonly reportsProgress = false;
 
+	private engine = createEngineResource((signal) => {
+		const url = new URL(magickWasm, window.location.href);
+		if (dev) url.searchParams.set("t", String(Date.now()));
+		return fetchEngine(url, signal, dev ? "no-store" : "default");
+	});
+
 	constructor() {
 		super();
-		log(["converters", this.name], `created converter`);
-		if (!browser) return;
-		this.initializeWasm();
-	}
-
-	private async initializeWasm() {
-		try {
-			this.status = "downloading";
-			// Older service workers cached Vite's unversioned WASM URL. A fresh
-			// dev key also bypasses that old controller during its update.
-			const wasmUrl = new URL(magickWasm, window.location.href);
-			if (dev) wasmUrl.searchParams.set("t", String(Date.now()));
-			const response = await fetch(wasmUrl, {
-				cache: dev ? "no-store" : "default",
-			});
-			if (!response.ok) {
-				throw new Error(
-					`Failed to fetch WASM: ${response.status} ${response.statusText}`,
-				);
-			}
-
-			this.wasm = await response.arrayBuffer();
-			this.status = "ready";
-		} catch (err) {
-			this.status = "error";
-			error(
-				["converters", this.name],
-				`Failed to load ImageMagick WASM: ${err}`,
-			);
-
-			ToastManager.add({
-				type: "error",
-				message: m["workers.errors.magick"](),
-			});
-		}
+		this.status = "ready";
+		this.clearTimeout();
 	}
 
 	public async convert(
@@ -183,6 +156,9 @@ export class MagickConverter extends Converter {
 			["converters", this.name],
 			`converting ${input.name} to ${to}, quality ${compression}`,
 		);
+
+		this.wasm = await this.engine.load(controller.signal);
+		controller.signal.throwIfAborted();
 
 		// handle converting from SVG manually because magick-wasm doesn't support it
 		if (input.from === ".svg") {

@@ -1,14 +1,10 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { m } from "$lib/paraglide/messages";
-	import { CONTACT_EMAIL, SITE_NAME } from "$lib/util/consts";
+	import { CONTACT_EMAIL } from "$lib/util/consts";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import PrivacyStatus from "$lib/components/pixel/PrivacyStatus.svelte";
 </script>
-
-<svelte:head>
-	<title>{m["footer.privacy_policy"]()} · {SITE_NAME}</title>
-	<meta name="description" content={m["trust.intro"]()} />
-</svelte:head>
 
 <article class="pixel-story privacy-story">
 	<header>
@@ -35,7 +31,7 @@
 		<h2>{m["trust.storageTitle"]()}</h2>
 		<p>
 			{m["trust.storageBody"]()}
-			<a href="/settings/">{m["navbar.settings"]()} →</a>
+			<a href={localHref("/settings/")}>{m["navbar.settings"]()} →</a>
 		</p>
 	</section>
 	<section>
@@ -46,7 +42,7 @@
 		</p>
 	</section>
 	<p class="eco-small">{m["trust.updated"]()}</p>
-	<a class="eco-cta" href="/"
+	<a class="eco-cta" href={localHref("/")}
 		>{m["pixel.workspace"]()}<PixelIcon name="arrow" size={24} /></a
 	>
 </article>

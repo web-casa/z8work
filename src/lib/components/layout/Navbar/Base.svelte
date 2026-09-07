@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { browser } from "$app/environment";
 	import { page } from "$app/state";
 	import { duration, fade } from "$lib/util/animation";
@@ -188,7 +189,7 @@
 		{/if}
 		<a
 			class="w-28 h-full bg-accent rounded-xl items-center justify-center hidden md:flex"
-			href="/"
+			href={localHref("/")}
 		>
 			<div class="h-5 w-full">
 				<Logo />

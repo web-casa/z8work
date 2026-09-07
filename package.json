@@ -15,7 +15,8 @@
 		"i18n:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
 		"lint:changed": "node scripts/lint-changed.mjs",
 		"test:browser": "node tests/browser/run.mjs",
-		"test:pages": "node tests/browser/pages-engines.mjs"
+		"test:pages": "node tests/browser/pages-engines.mjs",
+		"test:seo": "node tests/seo-build.mjs"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "^2.5.0",

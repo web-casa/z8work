@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import Panel from "../visual/Panel.svelte";
 	import clsx from "clsx";
@@ -25,7 +26,7 @@
 		if (!fileInput) return;
 		const oldLength = files.files.length;
 		files.add(fileInput.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(localHref("/convert/"));
 	};
 
 	onMount(() => {

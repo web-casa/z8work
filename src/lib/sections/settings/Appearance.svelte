@@ -63,7 +63,7 @@
 		effectsUnsubscribe = effects.subscribe(updateEffectsClasses);
 		themeUnsubscribe = theme.subscribe(updateThemeClasses);
 
-		currentLocale = localStorage.getItem("locale") || getLocale();
+		currentLocale = getLocale();
 	});
 
 	onDestroy(() => {

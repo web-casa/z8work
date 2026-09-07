@@ -32,6 +32,7 @@ export class VertFile {
 	public result = $state<VertFile | null>(null);
 
 	public to = $state("");
+	public targetChosen = false;
 
 	public blobUrl = $state<string>();
 
@@ -336,6 +337,7 @@ export class VertFile {
 	}
 
 	public setTarget(to: string) {
+		this.targetChosen = true;
 		if (this.processing || this.queued || this.to === to) return;
 		this.to = to;
 		this.pageProgress = null;

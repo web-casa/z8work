@@ -50,7 +50,9 @@ try {
 	const page = await context.newPage();
 	page.on("pageerror", (e) => report.pageErrors.push(e.message));
 	await page.addInitScript(() => localStorage.setItem("locale", "zh-Hans"));
-	await page.goto(base, { waitUntil: "load" });
+	await page.goto(base.replace(/\/$/, "") + "/zh-Hans/", {
+		waitUntil: "load",
+	});
 	await page
 		.locator("input[type=file]:enabled")
 		.first()

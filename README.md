@@ -2,7 +2,7 @@
 
 > **A zero-upload, browser-based file conversion tool.**
 
-All image, audio, and document processing is done locally on your device, protecting your privacy. Files stay on your device; supported file sizes depend on browser memory and the conversion engine.
+All image, audio, and document processing is done locally on your device, protecting your privacy. Files stay on your device; supported file sizes depend on browser memory, the local file buffer ceiling (just under 2 GiB), and the conversion engine.
 
 The production domain is [z8.work](https://z8.work).
 
@@ -40,6 +40,8 @@ All files are converted completely on-device; this means that there's no delay b
 - **Storage Impact**: Completed images show their actual size change and a conditional one-year storage CO₂ estimate. The [environment page](src/routes/environment/+page.svelte) explains the model, sources and limits; this is not measured or verified net emissions avoided.
 
 Cloudflare Pages 的构建、引擎资源分发与验证方法，见[部署说明](docs/CLOUDFLARE_PAGES.md)。
+
+多语言网址、转换工具入口、搜索收录范围和验证结果，见 [SEO 实施与审查记录](docs/SEO.md)。
 
 ## Acknowledgements
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { onMount } from "svelte";
 	import { goto } from "$app/navigation";
 	import { files } from "$lib/store/index.svelte";
@@ -13,7 +14,7 @@
 	function add() {
 		files.add(input.files);
 		input.value = "";
-		goto("/convert/");
+		goto(localHref("/convert/"));
 	}
 </script>
 

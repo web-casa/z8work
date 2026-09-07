@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { localHref } from "$lib/seo/navigation";
 	import { files, locale } from "$lib/store/index.svelte";
 	import { m } from "$lib/paraglide/messages";
 	import {
@@ -37,7 +38,7 @@
 		{:else}
 			<p class="pixel-impact-note">{m["eco.noSaving"]()}</p>
 		{/if}
-		<a class="pixel-impact-link" href="/environment/#method"
+		<a class="pixel-impact-link" href={localHref("/environment/#method")}
 			>{m["eco.methodLink"]()}<PixelIcon name="arrow" size={18} /></a
 		>
 	</section>
