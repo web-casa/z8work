@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, writeFile, readFile, rm, symlink } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { execFileSync } from "node:child_process";
 import {
 	loadStore,
 	renderPage,
@@ -34,6 +35,13 @@ async function fixture(t, packageBytes) {
 		packageBytes ?? Buffer.from("hsqs-synthetic-test-fixture"),
 	);
 	const reports = {};
+	const sourceCommit = "a".repeat(40);
+	const raw = await save(
+		"raw.log",
+		Buffer.from(
+			"Synthetic unit fixture only; no native acceptance performed.",
+		),
+	);
 	for (const check of [
 		"integrity",
 		"conversion",
@@ -42,18 +50,29 @@ async function fixture(t, packageBytes) {
 		"upgrade",
 		"uninstall",
 		"licenses",
+		"faults",
+		"performance",
 		"strict-confinement",
 		"portal",
 	])
 		reports[check] = {
 			status: "passed",
 			report: await save(`${check}.json`, {
+				schema: 1,
+				check,
+				artifact: "linux-amd64-snap",
+				os: "linux",
+				arch: "x86_64",
+				sourceCommit,
+				execution: "native",
+				evidence: [raw],
 				status: "passed",
 				artifactSha256: pkg.sha256,
 			}),
 		};
 	const evidence = {
 		schema: 1,
+		sourceCommit,
 		artifact: "linux-amd64-snap",
 		redistributionApproved: true,
 		sha256: pkg.sha256,
@@ -252,4 +271,97 @@ test("package validation streams candidates larger than the JSON evidence limit"
 	bytes.write("hsqs");
 	const f = await fixture(t, bytes);
 	assert.equal((await assess(f)).status, "ready-for-human-review");
+});
+
+test("one acceptance report cannot stand in for a different check", async (t) => {
+	const f = await fixture(t);
+	f.evidence.checks.install.report = f.evidence.checks.conversion.report;
+	f.submission.channels.snap.candidate.evidence = await f.save(
+		"acceptance.json",
+		f.evidence,
+	);
+	const report = await assess(f);
+	assert.equal(report.status, "blocked");
+	assert.ok(report.blockers.some((b) => b.includes("check identity")));
+});
+
+test("foreign, emulated, stale-source and unsupported check reports remain blocked", async (t) => {
+	const f = await fixture(t);
+	const original = JSON.parse(
+		(
+			await readReference(f.root, f.evidence.checks.install.report)
+		).toString(),
+	);
+	for (const patch of [
+		{ arch: "aarch64" },
+		{ os: "windows" },
+		{ sourceCommit: "b".repeat(40) },
+		{ execution: "emulated" },
+		{ execution: "static" },
+		{ evidence: [] },
+		{ schema: 2 },
+	]) {
+		f.evidence.checks.install.report = await f.save("install.json", {
+			...original,
+			...patch,
+		});
+		f.submission.channels.snap.candidate.evidence = await f.save(
+			"acceptance.json",
+			f.evidence,
+		);
+		assert.equal(
+			(await assess(f)).status,
+			"blocked",
+			JSON.stringify(patch),
+		);
+	}
+});
+
+test("missing fault or performance acceptance blocks an otherwise complete dossier", async (t) => {
+	const f = await fixture(t);
+	for (const name of ["faults", "performance"]) {
+		const saved = f.evidence.checks[name];
+		delete f.evidence.checks[name];
+		f.submission.channels.snap.candidate.evidence = await f.save(
+			"acceptance.json",
+			f.evidence,
+		);
+		assert.ok((await assess(f)).blockers.some((b) => b.includes(name)));
+		f.evidence.checks[name] = saved;
+	}
+});
+
+test("raw evidence must exist and retain its reviewed bytes", async (t) => {
+	const f = await fixture(t);
+	await writeFile(join(f.root, "raw.log"), "tampered");
+	assert.ok(
+		(await assess(f)).blockers.some((b) => b.includes("hash mismatch")),
+	);
+	await rm(join(f.root, "raw.log"));
+	assert.equal((await assess(f)).status, "blocked");
+});
+
+test("standalone candidate gate also verifies concrete report references", async (t) => {
+	const f = await fixture(t);
+	const args = [
+		"scripts/desktop-candidate-check.mjs",
+		"--artifact",
+		"linux-amd64-snap",
+		"--evidence",
+		join(f.root, "acceptance.json"),
+		"--file",
+		join(f.root, "candidate.snap"),
+		"--root",
+		f.root,
+	];
+	assert.match(
+		execFileSync(process.execPath, args, { encoding: "utf8" }),
+		/references verified/,
+	);
+	f.evidence.checks.install.report = f.evidence.checks.conversion.report;
+	await f.save("acceptance.json", f.evidence);
+	assert.throws(
+		() => execFileSync(process.execPath, args, { stdio: "pipe" }),
+		/check identity/,
+	);
 });

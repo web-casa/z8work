@@ -2,25 +2,35 @@ import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { once } from "node:events";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join, dirname, resolve } from "node:path";
+import { parseArgs } from "node:util";
 import { chromium } from "playwright";
 import { loadStore, pagePath, renderPage } from "./lib/desktop-store.mjs";
 const { content, matrix } = await loadStore();
+const { values } = parseArgs({
+	options: {
+		"pages-root": { type: "string", default: "build-pages" },
+		output: { type: "string", default: ".desktop-local/phase4-browser" },
+	},
+});
+const output = resolve(values.output);
 const files = new Map();
 for (const locale of matrix.languages)
 	for (const kind of ["privacy", "support"]) {
 		const path = pagePath(locale, kind);
 		const html = await readFile(
-			join("build-pages", path, "index.html"),
+			join(values["pages-root"], path, "index.html"),
 			"utf8",
 		);
 		assert.equal(
 			html,
 			renderPage(content, locale, kind),
-			"Pages build must contain exact documentation",
+			"Documentation input must match current rendered content",
 		);
 		files.set(path, html);
 	}
+await mkdir(dirname(output), { recursive: true });
+await mkdir(output); // Refuse to replace historical screenshots/reports.
 const server = createServer((req, res) => {
 	const html = files.get(req.url);
 	res.writeHead(html ? 200 : 404, {
@@ -31,8 +41,6 @@ const server = createServer((req, res) => {
 server.listen(0, "127.0.0.1");
 await once(server, "listening");
 const base = `http://127.0.0.1:${server.address().port}`;
-const output = ".desktop-local/phase4-browser";
-await mkdir(output, { recursive: true });
 let browser;
 try {
 	browser = await chromium.launch({
@@ -113,7 +121,7 @@ try {
 				externalRequests: 0,
 				checks: checked,
 				languageNavigation: true,
-				scope: "Local built documentation, not public deployment or native store screenshots",
+				scope: "Local documentation, not public deployment or native store screenshots",
 			},
 			null,
 			2,

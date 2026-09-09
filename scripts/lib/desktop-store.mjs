@@ -8,6 +8,7 @@ import {
 	sha256,
 	validateBuild,
 	validateEvidence,
+	validateCheckReport,
 } from "./desktop-artifacts.mjs";
 
 export const storeRoot = new URL(
@@ -161,6 +162,16 @@ export async function readReference(
 		throw new Error(`Evidence hash mismatch: ${reference.file}`);
 	return bytes;
 }
+export async function verifyEvidenceReports(root, evidence, artifact) {
+	for (const [name, check] of Object.entries(evidence.checks))
+		if (check.status === "passed") {
+			const report = JSON.parse(
+				(await readReference(root, check.report)).toString(),
+			);
+			validateCheckReport(report, name, evidence, artifact);
+			for (const raw of report.evidence) await readReference(root, raw);
+		}
+}
 async function packageReference(root, reference) {
 	const path = await referencePath(root, reference, 2 * 1024 * 1024 * 1024);
 	const hash = createHash("sha256");
@@ -303,19 +314,7 @@ export async function assessChannel(
 			validateBuild(evidence.buildInfo, artifact, matrix.version);
 			validateEvidence(evidence, candidateDigest, artifact);
 			// M4 requires hashed, concrete per-check reports; an arbitrary 'passed' string is insufficient.
-			for (const check of Object.values(evidence.checks))
-				if (check.status === "passed") {
-					const report = JSON.parse(
-						(await readReference(root, check.report)).toString(),
-					);
-					if (
-						report.status !== "passed" ||
-						report.artifactSha256 !== candidateDigest
-					)
-						throw new Error(
-							"Check report is not bound to this package",
-						);
-				}
+			await verifyEvidenceReports(root, evidence, artifact);
 			if (
 				channel === "microsoft-store" &&
 				(evidence.packageIdentity?.name !== config.identity ||

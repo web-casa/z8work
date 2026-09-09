@@ -20,13 +20,7 @@ export function assertElf(bytes, arch) {
 	)
 		throw new Error("ELF architecture mismatch");
 }
-export function validateEvidence(evidence, digest, artifact) {
-	if (
-		evidence?.schema !== 1 ||
-		evidence.artifact !== artifact.id ||
-		evidence.sha256 !== digest
-	)
-		throw new Error("Evidence does not match the exact candidate bytes");
+export function requiredEvidenceChecks(artifact) {
 	const required = [
 		"integrity",
 		"conversion",
@@ -35,12 +29,30 @@ export function validateEvidence(evidence, digest, artifact) {
 		"upgrade",
 		"uninstall",
 		"licenses",
+		"faults",
+		"performance",
 	];
 	if (artifact.channel === "snap")
 		required.push("strict-confinement", "portal");
 	if (artifact.channel === "microsoft-store")
 		required.push("identity", "webview2", "wack");
 	if (artifact.os === "macos") required.push("signature");
+	return required;
+}
+export function validateEvidence(evidence, digest, artifact) {
+	if (
+		evidence?.schema !== 1 ||
+		evidence.artifact !== artifact.id ||
+		!/^[a-f0-9]{64}$/.test(digest) ||
+		evidence.sha256 !== digest
+	)
+		throw new Error("Evidence does not match the exact candidate bytes");
+	if (
+		typeof evidence.sourceCommit !== "string" ||
+		!/^[a-f0-9]{40}$/.test(evidence.sourceCommit)
+	)
+		throw new Error("Candidate source commit is missing or invalid");
+	const required = requiredEvidenceChecks(artifact);
 	const pending = required.filter(
 		(check) =>
 			evidence.checks?.[check]?.status !== "passed" ||
@@ -51,6 +63,43 @@ export function validateEvidence(evidence, digest, artifact) {
 			`Candidate acceptance incomplete: ${pending.join(", ")}`,
 		);
 	return true;
+}
+
+// This binds a review report to one check and target. Raw evidence must still
+// be read and hashed by the caller; metadata does not prove native execution.
+export function validateCheckReport(report, check, evidence, artifact) {
+	if (
+		report?.schema !== 1 ||
+		report.status !== "passed" ||
+		report.check !== check ||
+		report.artifact !== artifact.id ||
+		report.artifactSha256 !== evidence.sha256 ||
+		report.sourceCommit !== evidence.sourceCommit ||
+		report.os !== artifact.os ||
+		report.arch !== artifact.arch
+	)
+		throw new Error(
+			"Acceptance check identity, platform, source or package mismatch",
+		);
+	const native = !["integrity", "licenses", "identity", "signature"].includes(
+		check,
+	);
+	if (
+		native
+			? report.execution !== "native"
+			: !["native", "static", "manual"].includes(report.execution)
+	)
+		throw new Error(
+			"Required native acceptance cannot use emulated or static evidence",
+		);
+	if (
+		!Array.isArray(report.evidence) ||
+		!report.evidence.length ||
+		report.evidence.length > 64
+	)
+		throw new Error(
+			"Check report requires bounded raw evidence references",
+		);
 }
 
 export function validateBuild(info, artifact, version) {

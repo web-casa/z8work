@@ -44,12 +44,15 @@ test("acceptance cannot borrow an older candidate or count not-run checks as pas
 			"upgrade",
 			"uninstall",
 			"licenses",
+			"faults",
+			"performance",
 			"strict-confinement",
 			"portal",
 		].map((k) => [k, { status: "passed", report: "fixture evidence" }]),
 	);
 	const evidence = {
 		schema: 1,
+		sourceCommit: "a".repeat(40),
 		artifact: artifact.id,
 		sha256: "a".repeat(64),
 		checks,

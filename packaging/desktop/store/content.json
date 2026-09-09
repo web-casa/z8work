@@ -4,7 +4,7 @@
 	"contact": "contact@web.casa",
 	"website": "https://z8.work/",
 	"source": "https://github.com/web-casa/z8work",
-	"updated": "2026-09-08",
+	"updated": "2026-09-10",
 	"routes": [
 		{
 			"kind": "image",
@@ -32,13 +32,17 @@
 			],
 			"outputs": ["wav", "mp3", "flac", "opus", "m4a"]
 		},
-		{ "kind": "text", "inputs": ["md", "docx"], "outputs": ["txt"] }
+		{
+			"kind": "text",
+			"inputs": ["md", "docx"],
+			"outputs": ["txt"]
+		}
 	],
 	"locales": {
 		"en": {
 			"summary": "Convert images, PDF pages and audio locally",
 			"shortDescription": "A local file workspace with batch conversion, image quality controls and resumable PDF page export.",
-			"description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and file contents are not uploaded by the converter.\n\nConvert images to PNG, JPEG, WebP or AVIF. Export PDF pages as images. Convert audio or extract an audio track from supported video files. Extract plain text from Markdown and DOCX documents.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. JPEG uses a white background for transparency. PDF export is limited to 200 pages and 4000 by 4000 pixels per page. Documents export plain text, without layout preservation or OCR. Video output and spreadsheets are not supported in this desktop version. Output files may be larger than their sources.",
+			"description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and file contents are not uploaded by the converter.\n\nConvert images to PNG, JPEG, WebP or AVIF. Export PDF pages as images. Convert audio or extract an audio track from supported video files. Extract plain text from Markdown and DOCX documents.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. If encoding succeeds but saving fails, a retained single-file result can be saved to another folder during the same session without re-encoding. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. JPEG uses a white background for transparency. PDF export is limited to 200 pages and 4000 by 4000 pixels per page. Documents export plain text, without layout preservation or OCR. Video output and spreadsheets are not supported in this desktop version. Output files may be larger than their sources.",
 			"features": [
 				"Local native conversion without uploading file contents",
 				"Batch output formats and three image quality presets",
@@ -60,7 +64,7 @@
 				},
 				{
 					"title": "Local history and temporary files",
-					"body": "Task history stores file names, sizes, conversion settings, status, and output paths and hashes in the application's local data directory. File paths and names may contain personal information. Temporary working files are normally removed when a task ends; an abnormal process or system crash can leave temporary data in the selected output folder."
+					"body": "Task history stores file names, sizes, conversion settings, status, and output paths and hashes in the application's local data directory. Names and paths may contain personal information. Encoding and retained results use a private application cache; publication also creates a temporary file in the chosen output folder. A crash can leave temporary data. Cleanup is limited to recognized application workspaces and does not scan or delete files in your output folders."
 				},
 				{
 					"title": "Clearing data",
@@ -89,6 +93,14 @@
 					"body": "Image output: PNG, JPEG, WebP and AVIF. PDF exports pages to those image formats. Audio output: WAV, MP3, FLAC, Opus and M4A; supported videos can supply an audio track. Markdown and DOCX can export plain text. This desktop version does not support OCR, spreadsheet conversion, formatted document output or video output."
 				},
 				{
+					"title": "Retry saving an encoded result",
+					"body": "When a task offers Retry save, choose a writable folder with enough free space. This saves the retained result without reading the original or encoding again. Canceling the folder picker keeps the result available. Retention is limited to this session, 30 idle minutes, 256 MiB per file and 1 GiB total. Save results before quitting. Expired, damaged or unavailable results require conversion again; after restarting, reselect the original and output folder. PDF page recovery uses its own retry flow."
+				},
+				{
+					"title": "Privacy, size estimates and licenses",
+					"body": "File upload 0 B describes local conversion, not a live meter of all application or device traffic. Opening external links uses the system browser. Image savings compare saved results with originals that remain on disk; the environmental estimate is not measured carbon removal. Privacy explanations and open-source notices can be read offline in the app."
+				},
+				{
 					"title": "When conversion stops or output grows",
 					"body": "After restarting, reselect the input and save folder before retrying. For a partially completed PDF, retry unfinished pages with the same file, output folder and settings to preserve verified results. Image compression cannot guarantee a smaller file; compare output sizes and choose a lower quality preset where appropriate."
 				},
@@ -101,7 +113,7 @@
 		"zh-Hans": {
 			"summary": "在本机批量转换图片、PDF 页面和音频",
 			"shortDescription": "本地多文件转换处理工具，支持批量转换、图片质量设置和 PDF 未完成页面重试。",
-			"description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n图片可输出 PNG、JPEG、WebP 和 AVIF；PDF 可逐页导出图片；支持音频转换和从支持的视频文件中提取音轨；Markdown 与 DOCX 可提取纯文本。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧，JPEG 将透明区域填为白色。PDF 最多 200 页，每页最多 4000 × 4000 像素。文档仅输出纯文本，不保留排版，也不提供 OCR。本桌面版尚不支持视频输出和电子表格转换。输出文件可能比原文件更大。",
+			"description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n图片可输出 PNG、JPEG、WebP 和 AVIF；PDF 可逐页导出图片；支持音频转换和从支持的视频文件中提取音轨；Markdown 与 DOCX 可提取纯文本。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。编码成功但保存失败时，若单文件结果已暂存，可在本次会话中更换目录仅重试保存，无需重新编码。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧，JPEG 将透明区域填为白色。PDF 最多 200 页，每页最多 4000 × 4000 像素。文档仅输出纯文本，不保留排版，也不提供 OCR。本桌面版尚不支持视频输出和电子表格转换。输出文件可能比原文件更大。",
 			"features": [
 				"原生引擎本地转换，不上传文件内容",
 				"批量设置输出格式与三档图片质量",
@@ -123,7 +135,7 @@
 				},
 				{
 					"title": "本地历史与临时文件",
-					"body": "任务历史在应用本地数据目录中保存文件名、体积、转换参数、状态以及输出路径和哈希。文件名与路径可能包含个人信息。正常结束任务时会清理临时工作文件；程序或系统异常退出可能在所选输出目录中留下临时数据。"
+					"body": "任务历史在应用本地数据目录中保存文件名、体积、转换参数、状态以及输出路径和哈希。文件名与路径可能包含个人信息。编码工作文件和待保存结果使用应用私有缓存，保存过程中也会在所选输出目录创建临时文件。异常退出可能留下临时数据。自动清理仅处理可识别的应用工作区，不扫描或删除输出目录中的文件。"
 				},
 				{
 					"title": "清理数据",
@@ -150,6 +162,14 @@
 				{
 					"title": "支持的转换",
 					"body": "图片可输出 PNG、JPEG、WebP 和 AVIF，PDF 可将页面导出为这些格式。音频可输出 WAV、MP3、FLAC、Opus 和 M4A，也可从支持的视频中提取音轨。Markdown 与 DOCX 可输出纯文本。本桌面版不支持 OCR、电子表格转换、保留排版的文档输出或视频输出。"
+				},
+				{
+					"title": "仅重试保存已编码结果",
+					"body": "任务显示“重试保存”时，可选择有足够空间的可写目录，将暂存结果保存下来，无需重读原文件或重新编码。取消目录选择会继续保留结果。暂存只限本次会话，空闲有效期 30 分钟，单文件最多 256 MiB，总计最多 1 GiB。退出前请先保存结果。暂存过期、损坏或不可用时需重新转换；重启后需重新选择原文件和输出目录。PDF 页面恢复使用独立的重试流程。"
+				},
+				{
+					"title": "隐私、体积估算与许可",
+					"body": "“文件上传 0 B”说明转换在本机执行，不是应用或整台设备全部网络流量的实时计量。打开外链会使用系统浏览器。图片体积差额比较已保存结果与仍保留在磁盘上的原图，环保估算不代表实测碳减排。应用内可离线阅读隐私说明和开源许可。"
 				},
 				{
 					"title": "转换中断或输出变大",
