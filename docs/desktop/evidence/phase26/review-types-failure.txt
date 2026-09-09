@@ -1,0 +1,17 @@
+$ svelte-check --workspace desktop --tsconfig tsconfig.json
+Loading svelte-check in workspace: /home/ivmm/VERT/desktop
+Getting Svelte diagnostics...
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+/home/ivmm/VERT/desktop/src/platform/queue-contract.ts:261:14
+Error: 's.tasks' is of type 'unknown'. 
+			Object.keys(values).some(
+				(id) => !s.tasks.some((t: Task) => t.id === id),
+			) ||
+
+====================================
+svelte-check found 1 error and 0 warnings in 1 file
+error: script "desktop:check" exited with code 1

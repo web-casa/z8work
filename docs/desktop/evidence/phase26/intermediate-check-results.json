@@ -1,0 +1,169 @@
+{
+  "native-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "test",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "-p",
+      "z8-native",
+      "--no-default-features"
+    ]
+  },
+  "native-development-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "test",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "-p",
+      "z8-native",
+      "--features",
+      "development-engines"
+    ]
+  },
+  "app-tests-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "test",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "-p",
+      "z8-desktop",
+      "--features",
+      "development-engines,custom-protocol"
+    ]
+  },
+  "clippy-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "clippy",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "--workspace",
+      "--all-targets",
+      "--features",
+      "development-engines,custom-protocol",
+      "--",
+      "-D",
+      "warnings"
+    ]
+  },
+  "windows-cross-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "check",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "-p",
+      "z8-native",
+      "--all-targets",
+      "--target",
+      "x86_64-pc-windows-msvc"
+    ]
+  },
+  "macos-cross-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "check",
+      "--locked",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "-p",
+      "z8-native",
+      "--all-targets",
+      "--target",
+      "aarch64-apple-darwin"
+    ]
+  },
+  "node24-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.nvm/versions/node/v24.18.0/bin/node",
+      "--test",
+      "desktop/tests/queue-sync.test.mjs",
+      "desktop/tests/packaging.test.mjs",
+      "desktop/tests/store.test.mjs",
+      "desktop/tests/sources.test.mjs",
+      "desktop/tests/source-snapshot.test.mjs",
+      "desktop/tests/source-assemble.test.mjs",
+      "desktop/tests/snap.test.mjs",
+      "desktop/tests/snap-artifact.test.mjs",
+      "desktop/tests/snap-installed.test.mjs",
+      "desktop/tests/windows.test.mjs",
+      "desktop/tests/windows-bundle.test.mjs",
+      "desktop/tests/windows-acceptance.test.mjs",
+      "desktop/tests/msix.test.mjs",
+      "desktop/tests/msix-acceptance.test.mjs",
+      "desktop/tests/preferences.test.mjs",
+      "desktop/tests/preview.test.mjs",
+      "desktop/tests/storage-message.test.mjs",
+      "desktop/tests/diagnostics.test.mjs",
+      "desktop/tests/scope.test.mjs",
+      "desktop/tests/inputs.test.mjs",
+      "desktop/tests/save-retry.test.mjs",
+      "desktop/tests/runtime.test.mjs"
+    ]
+  },
+  "node22-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.nvm/versions/node/v22.22.2/bin/node",
+      "--test",
+      "desktop/tests/queue-sync.test.mjs",
+      "desktop/tests/packaging.test.mjs",
+      "desktop/tests/store.test.mjs",
+      "desktop/tests/sources.test.mjs",
+      "desktop/tests/source-snapshot.test.mjs",
+      "desktop/tests/source-assemble.test.mjs",
+      "desktop/tests/snap.test.mjs",
+      "desktop/tests/snap-artifact.test.mjs",
+      "desktop/tests/snap-installed.test.mjs",
+      "desktop/tests/windows.test.mjs",
+      "desktop/tests/windows-bundle.test.mjs",
+      "desktop/tests/windows-acceptance.test.mjs",
+      "desktop/tests/msix.test.mjs",
+      "desktop/tests/msix-acceptance.test.mjs",
+      "desktop/tests/preferences.test.mjs",
+      "desktop/tests/preview.test.mjs",
+      "desktop/tests/storage-message.test.mjs",
+      "desktop/tests/diagnostics.test.mjs",
+      "desktop/tests/scope.test.mjs",
+      "desktop/tests/inputs.test.mjs",
+      "desktop/tests/save-retry.test.mjs",
+      "desktop/tests/runtime.test.mjs"
+    ]
+  },
+  "svelte-final": {
+    "exitCode": 1,
+    "command": [
+      "/home/ivmm/.bun/bin/bun",
+      "run",
+      "desktop:check"
+    ]
+  },
+  "eslint-final": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.nvm/versions/node/v24.18.0/bin/node",
+      "node_modules/eslint/bin/eslint.js",
+      "desktop/src/App.svelte",
+      "desktop/src/platform/queue-contract.ts",
+      "desktop/src/platform/runtime.ts",
+      "desktop/tests/runtime.test.mjs",
+      "scripts/desktop-preview-gui.mjs",
+      "scripts/lib/desktop-startup-checks.mjs"
+    ]
+  }
+}

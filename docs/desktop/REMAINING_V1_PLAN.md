@@ -1,6 +1,6 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成，R3–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。用户后续所说的“下一阶段”从 Phase 26 开始。
+日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成，R4–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。用户后续所说的“下一阶段”从 Phase 27 开始。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
@@ -87,6 +87,8 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 5. R3 / Phase 26：启动、导入、进度与错误
 
+状态：已完成，见[实现、review 和本机验收](PHASE26_IMPLEMENTATION.md)。以下保留原定要求；共享包完整性失败仍整体拒绝，底层阻塞 IO 和目标系统故障仍需后续验收。
+
 工作：
 
 1. 窗口先显示，引擎在后台按项准备；缺失/失败只限制对应格式。禁止 UI 主线程承担引擎探测、队列大快照或文件系统长操作；探测有界限、取消和退出路径。
@@ -158,7 +160,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 10. 共用完成标准与进度规则
 
-- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1、R2 已完成，R3–R7 未开始；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
+- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R3 已完成，R4–R7 未开始；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
 - 每阶段记录范围、实际改动、review 问题与修正、执行命令、真实结果、剩余限制和下一阶段入口。保留失败证据，不用最终通过覆盖之前问题。
 - 前端/契约变动运行桌面类型检查、相关 Node 测试和构建；Rust 变动运行相关原生/app 测试、fmt 与 Clippy；影响跨端执行则加原生目标验证。共享网页代码变动补网页相应回归，纯文档仅做格式/链接/一致性检查。
 - 使用已有 `desktop:check`、`desktop:test:ui`、`desktop:build` 及平台脚本；新命令先实现并验证再写进执行说明。单元 mock、交叉编译、包 smoke、真实 GUI、安装验收分层报告。
