@@ -185,6 +185,7 @@ pub fn verify_engines(
     development_manifest: Option<&Path>,
 ) -> Result<Value, String> {
     let started = Instant::now();
+    let pdf_color = crate::pdf_color_checks::verify(&engines)?;
     let mut report = crate::phase2_smoke::verify_engines(engines.clone(), development_manifest)?;
     let root = tempfile::tempdir().map_err(|e| e.to_string())?;
     let output = root.path().join("results");
@@ -469,6 +470,7 @@ pub fn verify_engines(
     }
     report["phase"] = json!(27);
     report["qualityChecks"] = json!(checks);
+    report["pdfColor"] = pdf_color;
     report["imageCalibration"] = json!(samples);
     report["elapsedSeconds"] = json!(started.elapsed().as_secs_f64());
     report["installation"] = json!("not-run");

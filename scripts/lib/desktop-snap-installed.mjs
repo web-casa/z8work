@@ -404,6 +404,7 @@ export function validateConversions(report, expectedPlatform = "linux-x86_64") {
 
 export function validateQuality(report, expectedPlatform) {
 	validateConversions(report, expectedPlatform);
+	validatePdfColor(report.pdfColor);
 	if (
 		report.phase !== 27 ||
 		report.qualityChecks?.length !== 20 ||
@@ -456,6 +457,65 @@ export function validateQuality(report, expectedPlatform) {
 			row.bytes <= 0
 		)
 			throw new Error("Unchecked or duplicate calibration sample");
+	}
+}
+
+export function validatePdfColor(report) {
+	const expected = [
+		[255, 118, 0],
+		[0, 208, 88],
+		[92, 76, 225],
+		[149, 86, 58],
+		[128, 128, 128],
+		[5, 91, 158],
+	];
+	if (
+		!report ||
+		!/^[a-f0-9]{64}$/.test(report.fixtureSha256) ||
+		!Number.isFinite(report.negativeControlMaxChannelError) ||
+		report.negativeControlMaxChannelError < 30 ||
+		report.negativeControlMaxChannelError > 255 ||
+		!Array.isArray(report.checks) ||
+		report.checks.length !== 4
+	)
+		throw new Error("Missing PDF ICC pixel evidence or negative control");
+	const formats = new Set(["png", "jpeg", "webp", "avif"]);
+	for (const row of report.checks) {
+		const limit = 8;
+		if (
+			!row ||
+			!formats.delete(row.format) ||
+			row.check !== "pdf-icc" ||
+			row.passed !== true ||
+			row.limit !== limit ||
+			JSON.stringify(row.dimensions) !== "[288,48]" ||
+			JSON.stringify(row.expectedRgb) !== JSON.stringify(expected) ||
+			!Array.isArray(row.actualRgb) ||
+			row.actualRgb.length !== 6 ||
+			row.actualRgb.some(
+				(rgb) =>
+					!Array.isArray(rgb) ||
+					rgb.length !== 3 ||
+					rgb.some(
+						(value) =>
+							!Number.isFinite(value) || value < 0 || value > 255,
+					),
+			)
+		)
+			throw new Error("Unchecked, duplicate or malformed PDF ICC sample");
+		const error = Math.max(
+			...row.actualRgb.flatMap((rgb, i) =>
+				rgb.map((value, c) => Math.abs(value - expected[i][c])),
+			),
+		);
+		if (
+			!Number.isFinite(row.maxChannelError) ||
+			error > limit ||
+			Math.abs(row.maxChannelError - error) > 1e-6
+		)
+			throw new Error(
+				"PDF ICC pixel error exceeds its fixed limit or report",
+			);
 	}
 }
 

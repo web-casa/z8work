@@ -16,6 +16,8 @@ pub use options::{Options, Quality};
 pub use process::{watchdog_entry, Cancel};
 pub use retained::PendingOutput;
 #[cfg(any(feature = "development-engines", feature = "engine-validation"))]
+pub mod pdf_color_checks;
+#[cfg(any(feature = "development-engines", feature = "engine-validation"))]
 pub mod phase27_smoke;
 #[cfg(any(feature = "development-engines", feature = "engine-validation"))]
 pub mod phase2_smoke;
