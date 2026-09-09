@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { submissionItems } from "./platform/queue-contract";
 	import { onMount } from "svelte";
 	import { storageMessage } from "./platform/storage-message";
 	import { listen } from "@tauri-apps/api/event";
@@ -152,8 +153,8 @@
 	const eligible = $derived(
 		queueState?.tasks.filter(
 			(task) =>
-				task.authorized &&
-				!["queued", "running", "saved"].includes(task.phase),
+				(task.authorized || task.phase === "awaiting_save") &&
+				!["queued", "running", "saving", "saved"].includes(task.phase),
 		) ?? [],
 	);
 	function size(bytes: number) {
@@ -167,7 +168,12 @@
 		const labels: Record<Phase, [string, string]> = {
 			ready: ["待转换", "Ready"],
 			queued: ["排队中", "Queued"],
-			running: ["转换并验证中…", "Converting and validating…"],
+			running: [
+				"转换、验证并保存中…",
+				"Converting, validating and saving…",
+			],
+			saving: ["正在保存已有结果…", "Saving converted result…"],
+			awaiting_save: ["转换完成 · 等待保存", "Converted · awaiting save"],
 			saved: ["已保存", "Saved"],
 			failed: ["失败", "Failed"],
 			cancelled: ["已取消", "Cancelled"],
@@ -209,12 +215,7 @@
 	async function submit(tasks: Task[]) {
 		if (!queueState || !tasks.length) return;
 		// Keep an ambiguous request's ID for a transport retry. It cannot start a second run.
-		const items = tasks.map((task) => ({
-			id: task.id,
-			format: task.format,
-			expected_attempt: task.attempt,
-			options: task.options,
-		}));
+		const items = submissionItems(tasks);
 		if (
 			!pending ||
 			pending.epoch !== queueState.epoch ||
@@ -699,7 +700,10 @@
 								{label(task.phase)}{#if task.attempt > 0}
 									· {t("第", "Attempt ")}
 									{task.attempt}
-									{t("次", "")}{/if}{#if !task.authorized}
+									{t(
+										"次",
+										"",
+									)}{/if}{#if !task.authorized && task.phase !== "awaiting_save"}
 									· {t(
 										"需要重新选择文件授权",
 										"Choose file again to authorize",
@@ -772,8 +776,27 @@
 							{#if task.error}<p class="error" role="alert">
 									{storageMessage(task.error, english)}
 								</p>{/if}
+							{#if task.phase === "awaiting_save"}<p
+									class="saved-result-notice"
+								>
+									{t(
+										"已验证的结果暂存在本机，空闲 30 分钟内可直接重试保存。可先更换保存目录；退出、清空或修改设置后需重新转换。",
+										"The verified result is kept on this device for 30 idle minutes. Retry saving directly, or choose another output folder first. Quitting, clearing or changing settings requires conversion again.",
+									)}
+								</p>{/if}
 							<div class="task-actions">
-								{#if !task.authorized}<button
+								{#if task.phase === "awaiting_save"}<button
+										data-save-result
+										disabled={working ||
+											blocked ||
+											!queueState.output_authorized}
+										onclick={() => submit([task])}
+										>{t(
+											"仅重试保存",
+											"Retry saving only",
+										)}</button
+									>{/if}
+								{#if !task.authorized && task.phase !== "awaiting_save"}<button
 										disabled={working || blocked}
 										onclick={() => {
 											pending = undefined;
@@ -801,7 +824,7 @@
 													)
 												: t("重试", "Retry")}</button
 									>{/if}
-								{#if ["queued", "running"].includes(task.phase)}<button
+								{#if ["queued", "running", "saving"].includes(task.phase)}<button
 										disabled={busy || queueState.clearing}
 										onclick={() =>
 											action("cancel_tasks", {
@@ -826,8 +849,8 @@
 			<div class="workspace-footer">
 				<p>
 					{t(
-						"清空会先取消并清理任务，保留原文件和已保存结果。任务运行中关闭窗口会先询问，确认后取消并清理退出。",
-						"Clearing cancels tasks and preserves originals and saved results. Closing during active work asks for confirmation before cancellation and cleanup.",
+						"清空会取消任务并删除尚未保存的暂存结果，保留原文件和已保存结果。存在任务或待保存结果时，关闭窗口会先询问。",
+						"Clearing cancels tasks and discards unsaved cached results. Originals and saved files are kept. Closing with active tasks or unsaved results asks for confirmation.",
 					)}
 				</p>
 				{#if queueState?.processing}<button

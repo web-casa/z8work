@@ -24,6 +24,7 @@
 		"desktop:test:preview": "node scripts/desktop-preview-gui.mjs",
 		"desktop:test:pdf-preview": "node scripts/desktop-preview-gui.mjs --pdf",
 		"desktop:test:media-preview": "node scripts/desktop-preview-gui.mjs --media",
+		"desktop:test:save-retry": "node scripts/desktop-preview-gui.mjs --save-retry",
 		"desktop:test:diagnostics": "node scripts/desktop-preview-gui.mjs --diagnostics",
 		"desktop:test:storage": "node scripts/desktop-preview-gui.mjs --storage",
 		"desktop:test:workspaces": "node scripts/desktop-preview-gui.mjs --workspaces",

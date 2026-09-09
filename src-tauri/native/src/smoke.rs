@@ -186,6 +186,7 @@ pub fn verify(manifest: &Path) -> Result<Value, String> {
             .tasks
             .iter()
             .map(|t| crate::queue::SubmissionItem {
+                save_only: false,
                 id: t.id.clone(),
                 format: t.format,
                 expected_attempt: t.attempt,

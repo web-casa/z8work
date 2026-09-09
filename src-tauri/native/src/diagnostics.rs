@@ -87,6 +87,8 @@ pub fn build(
                     Phase::Ready => "ready",
                     Phase::Queued => "queued",
                     Phase::Running => "running",
+                    Phase::Saving => "saving",
+                    Phase::AwaitingSave => "awaiting_save",
                     Phase::Saved => "saved",
                     Phase::Failed => "failed",
                     Phase::Cancelled => "cancelled",

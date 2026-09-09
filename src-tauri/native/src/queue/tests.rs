@@ -6,6 +6,306 @@ use std::{
 fn root() -> tempfile::TempDir {
     tempfile::tempdir().unwrap()
 }
+
+fn retaining_queue(root: &Path, count: Arc<AtomicUsize>, gate: Option<Arc<AtomicBool>>) -> Queue {
+    let workspace = crate::workspaces::Store::open(root.join("retained-work")).unwrap();
+    Queue::open(
+        root.join("history.json"),
+        Arc::new(move |source, _, format, cancel| {
+            let call = count.fetch_add(1, Ordering::SeqCst);
+            if call > 0 {
+                if let Some(gate) = &gate {
+                    let deadline = Instant::now() + Duration::from_secs(5);
+                    while !gate.load(Ordering::SeqCst) {
+                        cancel.check(deadline)?;
+                        thread::sleep(Duration::from_millis(5));
+                    }
+                }
+            }
+            let work = workspace.create()?;
+            let output = work.path().join("output");
+            fs::write(&output, b"verified content").unwrap();
+            let retained = crate::PendingOutput::capture(
+                &work,
+                &output,
+                &source.name,
+                format,
+                "Text only".into(),
+            )?;
+            source.context.retain.as_ref().unwrap()(retained)?;
+            Err("Synthetic publication failure".into())
+        }),
+        Arc::new(|_| {}),
+    )
+    .unwrap()
+}
+fn save_request(snapshot: &Snapshot) -> Submission {
+    let mut request = request(snapshot);
+    request.items.retain(|i| {
+        snapshot
+            .tasks
+            .iter()
+            .any(|t| t.id == i.id && t.phase == Phase::AwaitingSave)
+    });
+    for item in &mut request.items {
+        item.save_only = true;
+    }
+    request
+}
+fn cached_path(q: &Queue, id: &str) -> PathBuf {
+    locked(&q.shared).unwrap().retained[id].output.test_path()
+}
+#[test]
+fn saving_cached_output_needs_no_input_or_encoder_and_is_idempotent() {
+    let root = root();
+    let count = Arc::new(AtomicUsize::new(0));
+    let q = retaining_queue(root.path(), count.clone(), None);
+    let initial = ready(&q, root.path(), 1);
+    q.submit(request(&initial)).unwrap();
+    let pending = wait(&q, |s| !s.processing);
+    assert_eq!(pending.tasks[0].phase, Phase::AwaitingSave);
+    assert!(!q.prepare_idle_exit().unwrap());
+    let cache = cached_path(&q, &pending.tasks[0].id);
+    fs::remove_file(root.path().join("0.md")).unwrap();
+    let output = root.path().join("other output");
+    fs::create_dir(&output).unwrap();
+    q.set_output(output.clone()).unwrap();
+    let req = save_request(&pending);
+    q.submit(req.clone()).unwrap();
+    q.submit(req.clone()).unwrap();
+    let saved = wait(&q, |s| !s.processing);
+    assert_eq!(saved.tasks[0].phase, Phase::Saved);
+    assert_eq!(count.load(Ordering::SeqCst), 1);
+    assert_eq!(
+        fs::read(&saved.tasks[0].result.as_ref().unwrap().path).unwrap(),
+        b"verified content"
+    );
+    assert!(!cache.exists());
+    q.submit(req).unwrap();
+    assert_eq!(fs::read_dir(output).unwrap().count(), 1);
+    assert_eq!(q.snapshot().unwrap().tasks[0].attempt, 2);
+}
+#[test]
+fn cache_expiry_tampering_and_parameter_changes_require_explicit_conversion() {
+    for mode in ["expired", "tampered", "options", "remove"] {
+        let root = root();
+        let count = Arc::new(AtomicUsize::new(0));
+        let q = retaining_queue(root.path(), count.clone(), None);
+        q.submit(request(&ready(&q, root.path(), 1))).unwrap();
+        let s = wait(&q, |s| !s.processing);
+        let id = &s.tasks[0].id;
+        let path = cached_path(&q, id);
+        match mode {
+            "expired" => {
+                locked(&q.shared)
+                    .unwrap()
+                    .retained
+                    .get_mut(id)
+                    .unwrap()
+                    .expires = Instant::now();
+                q.shared.changed.notify_all();
+                wait(&q, |s| s.tasks[0].phase == Phase::Failed);
+                assert!(q.submit(save_request(&s)).is_err());
+            }
+            "tampered" => {
+                fs::write(&path, b"tampered content").unwrap();
+                q.submit(save_request(&s)).unwrap();
+                let failed = wait(&q, |s| !s.processing);
+                assert_eq!(failed.tasks[0].phase, Phase::Failed);
+                assert_eq!(
+                    failed.tasks[0].error.as_deref(),
+                    Some(crate::retained::INVALID)
+                );
+            }
+            "options" => {
+                let mut options = s.tasks[0].options.clone();
+                options.keep_metadata = true;
+                q.configure(std::slice::from_ref(id), None, options)
+                    .unwrap();
+                assert!(q.submit(save_request(&s)).is_err());
+            }
+            _ => {
+                q.remove(std::slice::from_ref(id)).unwrap();
+            }
+        }
+        assert!(!path.exists());
+        assert_eq!(count.load(Ordering::SeqCst), 1);
+    }
+}
+#[test]
+fn cancel_of_queued_save_retains_result_and_shutdown_requires_reconversion() {
+    let root = root();
+    let count = Arc::new(AtomicUsize::new(0));
+    let gate = Arc::new(AtomicBool::new(false));
+    let q = retaining_queue(root.path(), count.clone(), Some(gate.clone()));
+    q.submit(request(&ready(&q, root.path(), 1))).unwrap();
+    let pending = wait(&q, |s| !s.processing);
+    let id = pending.tasks[0].id.clone();
+    let path = cached_path(&q, &id);
+    q.register(vec![input(root.path(), "other.md")], None)
+        .unwrap();
+    // The scheduler follows journal order, not the order of request.items.
+    locked(&q.shared).unwrap().journal.tasks.reverse();
+    let mut req = request(&q.snapshot().unwrap());
+    req.items
+        .iter_mut()
+        .find(|item| item.id == id)
+        .unwrap()
+        .save_only = true;
+    q.submit(req).unwrap();
+    wait(&q, |_| count.load(Ordering::SeqCst) == 2);
+    q.cancel(std::slice::from_ref(&id)).unwrap();
+    assert_eq!(
+        q.snapshot()
+            .unwrap()
+            .tasks
+            .iter()
+            .find(|t| t.id == id)
+            .unwrap()
+            .phase,
+        Phase::AwaitingSave
+    );
+    assert!(path.exists());
+    gate.store(true, Ordering::SeqCst);
+    wait(&q, |s| !s.processing);
+    q.shutdown();
+    assert!(!path.exists());
+    drop(q);
+    let reopened = retaining_queue(root.path(), count.clone(), None);
+    assert!(reopened
+        .snapshot()
+        .unwrap()
+        .tasks
+        .iter()
+        .all(|t| t.phase == Phase::Interrupted && !t.authorized));
+    assert!(locked(&reopened.shared).unwrap().retained.is_empty());
+    assert_eq!(count.load(Ordering::SeqCst), 2);
+}
+#[test]
+fn schema_two_history_has_an_exact_backup_before_upgrade() {
+    let root = root();
+    let count = Arc::new(AtomicUsize::new(0));
+    {
+        let q = queue(root.path(), count.clone(), None);
+        ready(&q, root.path(), 1);
+    }
+    let path = root.path().join("history.json");
+    let mut old: serde_json::Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+    old["schema"] = serde_json::json!(2);
+    let bytes = serde_json::to_vec(&old).unwrap();
+    fs::write(&path, &bytes).unwrap();
+    let q = queue(root.path(), count, None);
+    assert_eq!(q.snapshot().unwrap().schema, 3);
+    assert_eq!(
+        fs::read(path.with_extension("v2-backup.json")).unwrap(),
+        bytes
+    );
+}
+
+#[test]
+fn lost_output_grant_preserves_cache_but_rejects_stale_attempts_and_formats() {
+    let root = root();
+    let count = Arc::new(AtomicUsize::new(0));
+    let q = retaining_queue(root.path(), count.clone(), None);
+    q.submit(request(&ready(&q, root.path(), 1))).unwrap();
+    let pending = wait(&q, |s| !s.processing);
+    let mut stale = save_request(&pending);
+    stale.items[0].expected_attempt = 0;
+    assert!(q.submit(stale).is_err());
+    let mut wrong = save_request(&pending);
+    wrong.items[0].format = OutputFormat::Png;
+    assert!(q.submit(wrong).is_err());
+    let target = root.path().join("vanished");
+    fs::create_dir(&target).unwrap();
+    q.set_output(target.clone()).unwrap();
+    fs::remove_dir(target).unwrap();
+    q.submit(save_request(&pending)).unwrap();
+    let failed = wait(&q, |s| !s.processing);
+    assert_eq!(failed.tasks[0].phase, Phase::AwaitingSave);
+    assert!(!failed.output_authorized);
+    assert!(cached_path(&q, &failed.tasks[0].id).exists());
+    q.set_output(root.path().to_path_buf()).unwrap();
+    q.submit(save_request(&failed)).unwrap();
+    assert_eq!(wait(&q, |s| !s.processing).tasks[0].phase, Phase::Saved);
+    assert_eq!(count.load(Ordering::SeqCst), 1);
+}
+
+#[test]
+fn removal_waits_for_saving_owner_and_releases_its_budget() {
+    let root = root();
+    let hold = Arc::new(AtomicBool::new(false));
+    let entered = Arc::new(AtomicBool::new(false));
+    let hold_worker = hold.clone();
+    let entered_worker = entered.clone();
+    let workspace = crate::workspaces::Store::open(root.path().join("cache")).unwrap();
+    let q = Arc::new(
+        Queue::open(
+            root.path().join("history.json"),
+            Arc::new(move |source, _, format, _| {
+                let work = workspace.create()?;
+                let output = work.path().join("output");
+                fs::write(&output, b"verified content").unwrap();
+                source.context.retain.as_ref().unwrap()(crate::PendingOutput::capture(
+                    &work,
+                    &output,
+                    &source.name,
+                    format,
+                    String::new(),
+                )?)?;
+                Err("Synthetic publication failure".into())
+            }),
+            Arc::new(move |_| {
+                if thread::current().name() == Some("z8-conversion-queue")
+                    && hold_worker.load(Ordering::SeqCst)
+                {
+                    entered_worker.store(true, Ordering::SeqCst);
+                    let until = Instant::now() + Duration::from_secs(5);
+                    while hold_worker.load(Ordering::SeqCst) && Instant::now() < until {
+                        thread::sleep(Duration::from_millis(2));
+                    }
+                }
+            }),
+        )
+        .unwrap(),
+    );
+    q.submit(request(&ready(&q, root.path(), 1))).unwrap();
+    let pending = wait(&q, |s| !s.processing);
+    let id = pending.tasks[0].id.clone();
+    let path = cached_path(&q, &id);
+    hold.store(true, Ordering::SeqCst);
+    q.submit(save_request(&pending)).unwrap();
+    wait(&q, |s| {
+        s.tasks[0].phase == Phase::Saving && entered.load(Ordering::SeqCst)
+    });
+    let remover = q.clone();
+    let done = Arc::new(AtomicBool::new(false));
+    let removed = done.clone();
+    let thread = thread::spawn(move || {
+        remover.remove(&[id]).unwrap();
+        removed.store(true, Ordering::SeqCst);
+    });
+    wait(&q, |s| s.clearing);
+    assert!(!done.load(Ordering::SeqCst));
+    assert!(path.exists());
+    assert_eq!(
+        locked(&q.shared)
+            .unwrap()
+            .retained_bytes
+            .load(Ordering::SeqCst),
+        16
+    );
+    hold.store(false, Ordering::SeqCst);
+    thread.join().unwrap();
+    assert!(!path.exists());
+    assert!(q.snapshot().unwrap().tasks.is_empty());
+    assert_eq!(
+        locked(&q.shared)
+            .unwrap()
+            .retained_bytes
+            .load(Ordering::SeqCst),
+        0
+    );
+}
 fn input(root: &Path, name: &str) -> PathBuf {
     let path = root.join(name);
     fs::write(&path, b"synthetic input").unwrap();
@@ -46,6 +346,7 @@ fn request(snapshot: &Snapshot) -> Submission {
             .tasks
             .iter()
             .map(|t| SubmissionItem {
+                save_only: false,
                 id: t.id.clone(),
                 format: t.format,
                 expected_attempt: t.attempt,
@@ -655,7 +956,7 @@ fn legacy_history_is_backed_up_before_schema_migration() {
     let bytes = serde_json::to_vec(&old).unwrap();
     fs::write(&path, &bytes).unwrap();
     let q = queue(root.path(), Arc::new(AtomicUsize::new(0)), None);
-    assert_eq!(q.snapshot().unwrap().schema, 2);
+    assert_eq!(q.snapshot().unwrap().schema, 3);
     assert_eq!(
         fs::read(path.with_extension("v1-backup.json")).unwrap(),
         bytes

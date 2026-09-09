@@ -40,6 +40,16 @@ pub(crate) struct Workdir {
     _owner: Option<Arc<Store>>,
 }
 impl Workdir {
+    pub(crate) fn sibling(&self) -> Result<Self, String> {
+        match &self._owner {
+            Some(owner) => owner.create(),
+            None => Ok(Self::temporary(
+                private_builder("z8-saved-")
+                    .tempdir_in(self.path().parent().ok_or("Missing workspace parent")?)
+                    .map_err(|e| e.to_string())?,
+            )),
+        }
+    }
     pub fn path(&self) -> &Path {
         self.directory.path()
     }

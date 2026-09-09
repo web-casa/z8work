@@ -1,5 +1,19 @@
 // Translate only the native storage error grammar. Preserve unrelated diagnostics.
 export function storageMessage(message: string, english: boolean): string {
+	const saved: Record<string, string> = {
+		"Could not retain encoded result; convert again":
+			"无法保留转换结果，请重新转换",
+		"Saved result expired or unavailable; convert again":
+			"暂存结果已过期或不可用，请重新转换。",
+		"Saved result changed or is unreadable; convert again":
+			"暂存结果已改变或无法读取，请重新转换。",
+		"Saved-result cache is full; convert again after saving or removing other tasks":
+			"待保存结果已达到暂存上限，请先保存或移除其他任务，再重新转换。",
+	};
+	if (!english)
+		for (const [key, translation] of Object.entries(saved)) {
+			if (message.includes(key)) return message.replace(key, translation);
+		}
 	const match =
 		/^(Temporary workspace|Output folder) has insufficient free space\. Required: ([0-9]{1,20}) bytes; available: ([0-9]{1,20}) bytes\.$/.exec(
 			message,

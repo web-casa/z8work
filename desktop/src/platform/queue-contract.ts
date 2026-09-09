@@ -17,7 +17,9 @@ export type Phase =
 	| "failed"
 	| "cancelled"
 	| "interrupted"
-	| "partial";
+	| "partial"
+	| "saving"
+	| "awaiting_save";
 export type Options = {
 	quality: "small" | "balanced" | "high";
 	keep_metadata: boolean;
@@ -66,7 +68,7 @@ export type ImportReport = {
 };
 export type Snapshot = {
 	import_report?: ImportReport | null;
-	schema: 2;
+	schema: 2 | 3;
 	epoch: string;
 	revision: number;
 	tasks: Task[];
@@ -87,6 +89,7 @@ export type Submission = {
 		format: Format;
 		expected_attempt: number;
 		options: Options;
+		save_only?: boolean;
 	}[];
 };
 export const formats: Format[] = [
@@ -110,6 +113,8 @@ const phases: string[] = [
 	"cancelled",
 	"interrupted",
 	"partial",
+	"saving",
+	"awaiting_save",
 ];
 function object(value: unknown): Record<string, unknown> {
 	if (!value || typeof value !== "object" || Array.isArray(value))
@@ -163,7 +168,7 @@ function parseImportReport(value: unknown): ImportReport {
 export function parseSnapshot(value: unknown): Snapshot {
 	const s = object(value);
 	if (
-		s.schema !== 2 ||
+		(s.schema !== 2 && s.schema !== 3) ||
 		typeof s.epoch !== "string" ||
 		!integer(s.revision) ||
 		!Array.isArray(s.tasks) ||
@@ -194,6 +199,8 @@ export function parseSnapshot(value: unknown): Snapshot {
 			typeof task.authorized !== "boolean" ||
 			!nullableString(task.error) ||
 			!phases.includes(String(task.phase)) ||
+			(s.schema === 2 &&
+				["saving", "awaiting_save"].includes(String(task.phase))) ||
 			!Array.isArray(task.formats) ||
 			!task.formats.length ||
 			!task.formats.every((f) => formats.includes(f)) ||
@@ -236,4 +243,14 @@ export function parseSnapshot(value: unknown): Snapshot {
 		}
 	}
 	return s as unknown as Snapshot;
+}
+
+export function submissionItems(tasks: Task[]): Submission["items"] {
+	return tasks.map((task) => ({
+		id: task.id,
+		format: task.format,
+		expected_attempt: task.attempt,
+		options: task.options,
+		save_only: task.phase === "awaiting_save",
+	}));
 }

@@ -105,8 +105,11 @@ pub struct SavedFile {
     pub sha256: String,
 }
 pub type Reporter = std::sync::Arc<dyn Fn(ConversionResult) -> Result<(), String> + Send + Sync>;
+pub type Retainer =
+    std::sync::Arc<dyn Fn(crate::PendingOutput) -> Result<(), String> + Send + Sync>;
 #[derive(Default)]
 pub struct ConversionContext {
+    pub retain: Option<Retainer>,
     pub workspace: Option<std::sync::Arc<crate::workspaces::Store>>,
     pub options: crate::Options,
     pub resume: Option<ConversionResult>,
@@ -339,7 +342,21 @@ pub fn convert_source(
         format,
         None,
         256 * 1024 * 1024,
-    )?;
+    );
+    let saved = match saved {
+        Ok(saved) => saved,
+        Err(error) => {
+            if let Some(retain) = &context.retain {
+                let cached = crate::PendingOutput::capture(&work, &output, &input, format, note);
+                if let Err(cache_error) = cached.and_then(|cached| retain(cached)) {
+                    return Err(format!(
+                        "{error}; Could not retain encoded result; convert again: {cache_error}"
+                    ));
+                }
+            }
+            return Err(error);
+        }
+    };
     Ok(ConversionResult {
         path: saved.path.clone(),
         bytes: saved.bytes,
@@ -593,21 +610,67 @@ fn publish(
     page: Option<u32>,
     budget: u64,
 ) -> Result<SavedFile, String> {
-    job.cancel.check(job.deadline)?;
-    let size = fs::metadata(output).map_err(|e| e.to_string())?.len();
+    publish_verified(
+        job.cancel,
+        job.deadline,
+        output,
+        directory,
+        input,
+        format,
+        page,
+        budget,
+        None,
+    )
+}
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn publish_verified(
+    cancel: &Cancel,
+    deadline: Instant,
+    output: &Path,
+    directory: &Path,
+    input: &Path,
+    format: OutputFormat,
+    page: Option<u32>,
+    budget: u64,
+    expected: Option<(u64, &str)>,
+) -> Result<SavedFile, String> {
+    cancel.check(deadline)?;
+    let size = fs::metadata(output)
+        .map_err(|e| {
+            if expected.is_some() {
+                crate::retained::INVALID.into()
+            } else {
+                e.to_string()
+            }
+        })?
+        .len();
+    if expected.is_some_and(|(bytes, _)| bytes != size) {
+        return Err(crate::retained::INVALID.into());
+    }
     if size == 0 || size > budget {
         return Err("Output is empty or exceeds the 256 MiB output budget".into());
     }
     crate::storage::ensure(directory, size, crate::storage::Area::Output)?;
     let mut pending = tempfile::NamedTempFile::new_in(directory)
         .map_err(|e| format!("Cannot write to output folder: {e}"))?;
-    let mut encoded = fs::File::open(output).map_err(|e| e.to_string())?;
+    let mut encoded = crate::input::open_regular(output).map_err(|e| {
+        if expected.is_some() {
+            crate::retained::INVALID.into()
+        } else {
+            e.to_string()
+        }
+    })?;
     let mut buffer = [0; 65536];
+    let mut copied = 0u64;
     loop {
-        job.cancel.check(job.deadline)?;
+        cancel.check(deadline)?;
         let n = encoded.read(&mut buffer).map_err(|e| e.to_string())?;
         if n == 0 {
             break;
+        }
+        copied += n as u64;
+        if copied > budget || copied > size {
+            return Err(crate::retained::INVALID.into());
         }
         pending
             .write_all(&buffer[..n])
@@ -618,6 +681,9 @@ fn publish(
         .sync_all()
         .map_err(|e| format!("Cannot write to output folder: {e}"))?;
     let sha256 = crate::hash_file(pending.path())?;
+    if copied != size || expected.is_some_and(|(_, hash)| hash != sha256) {
+        return Err(crate::retained::INVALID.into());
+    }
     let mut stem = String::new();
     for character in input
         .file_stem()
@@ -633,7 +699,7 @@ fn publish(
     }
     let suffix = page.map(|p| format!("-page-{p:03}")).unwrap_or_default();
     for index in 1..=1000 {
-        job.cancel.check(job.deadline)?;
+        cancel.check(deadline)?;
         let target = directory.join(format!("{stem}{suffix}-z8-{index}.{}", format.extension()));
         match pending.persist_noclobber(&target) {
             Ok(_) => {

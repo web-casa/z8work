@@ -53,7 +53,7 @@ pub fn copy(language: &Language, unknown: bool) -> Copy {
             body: if unknown {
                 "无法确认队列状态。退出将尝试停止转换任务；已保存的文件会保留。确定退出吗？"
             } else {
-                "还有转换任务正在运行或排队。退出将停止这些任务；原文件和已保存的结果会保留。重新打开后需重新选择文件和输出目录，再手动重试。"
+                "还有任务或尚未保存的转换结果。退出会停止任务并丢弃暂存结果；原文件和已保存的结果会保留。重新打开后需重新选择文件和输出目录，再手动重试。"
             },
             stop: "停止并退出",
             keep: "留在应用",
@@ -63,7 +63,7 @@ pub fn copy(language: &Language, unknown: bool) -> Copy {
             body: if unknown {
                 "The queue status is unavailable. Quitting will attempt to stop conversion tasks. Saved files will be kept. Quit anyway?"
             } else {
-                "Conversions are running or queued. Quitting stops these tasks and keeps original files and saved results. After reopening, select the files and output folder again to retry manually."
+                "There are active tasks or unsaved converted results. Quitting stops tasks and discards cached results, keeping original files and saved results. After reopening, select the files and output folder again to retry manually."
             },
             stop: "Stop and quit",
             keep: "Stay in app",
@@ -75,7 +75,7 @@ pub fn copy(language: &Language, unknown: bool) -> Copy {
             body: if unknown {
                 "Queue status unavailable. Quit and attempt to stop tasks? Saved files are kept.\n无法确认队列状态。退出将尝试停止任务，已保存文件会保留。"
             } else {
-                "Quit and stop running/queued conversions? Original files and saved results are kept. Reopen and reselect files/folder to retry.\n退出将停止运行或排队的任务。原文件和已保存结果会保留；重新打开后需重新选择文件和目录，再手动重试。"
+                "Quit, stop tasks and discard unsaved cached results? Original files and saved results are kept. Reopen and reselect files/folder to retry.\n退出会停止任务并丢弃未保存的暂存结果。原文件和已保存结果会保留；重新打开后需重新选择文件和目录，再手动重试。"
             },
             stop: "Quit / 退出",
             keep: "Stay / 留在应用",

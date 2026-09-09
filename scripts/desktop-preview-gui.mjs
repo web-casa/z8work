@@ -1,3 +1,4 @@
+import { checkSaveRetry } from "./lib/desktop-save-retry-checks.mjs";
 import { checkDiagnostics } from "./lib/desktop-diagnostics-checks.mjs";
 import { checkStorage } from "./lib/desktop-storage-checks.mjs";
 import { workspaceFixtures } from "./lib/desktop-workspace-checks.mjs";
@@ -38,7 +39,8 @@ const xd = process.env.Z8_XDOTOOL;
 if (!xd) throw new Error("Set Z8_XDOTOOL");
 const checks = [];
 const routes = [];
-const diagnosticsMode = process.argv.includes("--diagnostics");
+const saveRetryMode = process.argv.includes("--save-retry");
+const diagnosticsMode = saveRetryMode || process.argv.includes("--diagnostics");
 const storageMode = diagnosticsMode || process.argv.includes("--storage");
 const workspaceMode = storageMode || process.argv.includes("--workspaces");
 const importMode = workspaceMode || process.argv.includes("--imports");
@@ -46,19 +48,21 @@ const mediaMode = importMode || process.argv.includes("--media");
 const pdfMode = mediaMode || process.argv.includes("--pdf");
 const root = await mkdtemp(
 	resolve(
-		diagnosticsMode
-			? ".desktop-local/phase23-gui-"
-			: storageMode
-				? ".desktop-local/phase22-gui-"
-				: workspaceMode
-					? ".desktop-local/phase21-gui-"
-					: importMode
-						? ".desktop-local/phase20-gui-"
-						: mediaMode
-							? ".desktop-local/phase19-gui-"
-							: pdfMode
-								? ".desktop-local/phase18-gui-"
-								: ".desktop-local/phase17-gui-",
+		saveRetryMode
+			? ".desktop-local/phase25-gui-"
+			: diagnosticsMode
+				? ".desktop-local/phase23-gui-"
+				: storageMode
+					? ".desktop-local/phase22-gui-"
+					: workspaceMode
+						? ".desktop-local/phase21-gui-"
+						: importMode
+							? ".desktop-local/phase20-gui-"
+							: mediaMode
+								? ".desktop-local/phase19-gui-"
+								: pdfMode
+									? ".desktop-local/phase18-gui-"
+									: ".desktop-local/phase17-gui-",
 	),
 );
 const workspaces = workspaceMode ? await workspaceFixtures(root) : undefined;
@@ -224,8 +228,7 @@ async function choose(command, path, title, selectAll = false) {
 	}
 	if (command === "pick_output") {
 		await new Promise((r) => setTimeout(r, 300));
-		if (!(await invoke("queue_snapshot")).output_authorized)
-			await xdotool("key", "alt+o");
+		if ((await windows(title)).includes(win)) await xdotool("key", "alt+o");
 	}
 	await until(
 		async () => (await windows(title)).length === 0,
@@ -428,6 +431,8 @@ try {
 	if (pdfId) await checkPdfExport(pdfHarness, pdfId);
 	if (mediaIds) await checkMediaExport(pdfHarness, mediaIds);
 	if (storageMode) await checkStorage({ ...pdfHarness, output });
+	if (saveRetryMode)
+		await checkSaveRetry({ ...pdfHarness, output, xdotool, windows });
 	if (diagnosticsMode)
 		await checkDiagnostics({ ...pdfHarness, xdotool, windows });
 	const bad = join(root, "broken.png");

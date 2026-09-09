@@ -20,7 +20,7 @@ pub(super) fn load(path: &Path) -> Result<Journal, String> {
     }
     let mut journal: Journal =
         serde_json::from_slice(&bytes).map_err(|e| format!("Cannot read queue history: {e}"))?;
-    if ![1, 2].contains(&journal.schema)
+    if ![1, 2, 3].contains(&journal.schema)
         || journal.revision >= 9_007_199_254_740_991
         || uuid::Uuid::parse_str(&journal.epoch).is_err()
     {
@@ -55,15 +55,19 @@ pub(super) fn load(path: &Path) -> Result<Journal, String> {
             }
         }
         task.authorized = false;
+        if task.phase == Phase::AwaitingSave {
+            task.phase = Phase::Interrupted;
+            task.error = Some("Saved result expired or unavailable; convert again".into());
+        }
         if task.phase.active() {
             task.phase = Phase::Interrupted;
             task.error = Some("Interrupted by application exit. Check the output folder before retrying; a file may have been saved before the history update.".into());
         }
     }
-    if journal.schema == 1 {
+    if journal.schema < 3 {
         // Preserve the exact Phase 1 record before upgrading in place. Never
         // silently overwrite a backup belonging to different history bytes.
-        let backup = path.with_extension("v1-backup.json");
+        let backup = path.with_extension(format!("v{}-backup.json", journal.schema));
         match fs::read(&backup) {
             Ok(old) if old == bytes => (),
             Ok(_) => return Err("Different Phase 1 history backup already exists; preserve both records before migration".into()),
@@ -75,7 +79,7 @@ pub(super) fn load(path: &Path) -> Result<Journal, String> {
             }
             Err(e) => return Err(e.to_string()),
         }
-        journal.schema = 2;
+        journal.schema = 3;
     }
     journal.revision = journal
         .revision

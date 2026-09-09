@@ -73,7 +73,7 @@ try {
 	const snapshot = await asyncExec(
 		'const done = arguments[arguments.length-1]; window.__TAURI_INTERNALS__.invoke("queue_snapshot").then(done,e=>done({error:String(e)}));',
 	);
-	assert.equal(snapshot.schema, 2);
+	assert.equal(snapshot.schema, 3);
 	await request(`${prefix}/refresh`, {});
 	const restored = await asyncExec(
 		'const done = arguments[arguments.length-1]; window.__TAURI_INTERNALS__.invoke("queue_snapshot").then(done,e=>done({error:String(e)}));',

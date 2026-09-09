@@ -8,6 +8,8 @@ pub enum Phase {
     Ready,
     Queued,
     Running,
+    Saving,
+    AwaitingSave,
     Saved,
     Failed,
     Cancelled,
@@ -16,7 +18,7 @@ pub enum Phase {
 }
 impl Phase {
     pub fn active(&self) -> bool {
-        matches!(self, Self::Queued | Self::Running)
+        matches!(self, Self::Queued | Self::Running | Self::Saving)
     }
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -38,6 +40,8 @@ pub struct Task {
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq, Eq)]
 #[serde(deny_unknown_fields)]
 pub struct SubmissionItem {
+    #[serde(default)]
+    pub save_only: bool,
     pub id: String,
     pub format: OutputFormat,
     pub expected_attempt: u32,
@@ -64,7 +68,7 @@ pub(super) struct Journal {
 impl Default for Journal {
     fn default() -> Self {
         Self {
-            schema: 2,
+            schema: 3,
             epoch: uuid::Uuid::new_v4().to_string(),
             revision: 0,
             tasks: vec![],

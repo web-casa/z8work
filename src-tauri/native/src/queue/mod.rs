@@ -10,6 +10,7 @@ use std::{
     path::{Path, PathBuf},
     sync::{Arc, Condvar, Mutex, MutexGuard},
     thread,
+    time::{Duration, Instant},
 };
 
 type Executor =
@@ -17,6 +18,9 @@ type Executor =
 type Notify = dyn Fn(Change) + Send + Sync;
 type Formats = dyn Fn(&str) -> Vec<OutputFormat> + Send + Sync;
 struct State {
+    retained_bytes: Arc<std::sync::atomic::AtomicU64>,
+    retained: BTreeMap<String, Retained>,
+    save_requests: BTreeSet<String>,
     journal: Journal,
     inputs: BTreeMap<String, Registered>,
     output: Option<Registered>,
@@ -27,6 +31,12 @@ struct State {
     persistence_error: Option<String>,
     recovery_notice: Option<String>,
     import_report: Option<ImportReport>,
+}
+struct Retained {
+    output: Arc<crate::PendingOutput>,
+    attempt: u32,
+    options: crate::Options,
+    expires: Instant,
 }
 struct Shared {
     state: Mutex<State>,
@@ -60,7 +70,7 @@ fn locked(shared: &Shared) -> Result<MutexGuard<'_, State>, String> {
 }
 fn snapshot(state: &State) -> Snapshot {
     Snapshot {
-        schema: 2,
+        schema: 3,
         epoch: state.journal.epoch.clone(),
         revision: state.journal.revision,
         tasks: state.journal.tasks.clone(),
@@ -156,6 +166,9 @@ impl Queue {
         store::save(&path, &journal)?;
         let shared = Arc::new(Shared {
             state: Mutex::new(State {
+                retained_bytes: Arc::new(std::sync::atomic::AtomicU64::new(0)),
+                retained: BTreeMap::new(),
+                save_requests: BTreeSet::new(),
                 journal,
                 inputs: BTreeMap::new(),
                 output: None,
@@ -392,6 +405,10 @@ impl Queue {
             registrations.push((id, Registered { path, stamp }));
         }
         commit(&self.shared, &mut state, next)?;
+        let discarded: Vec<_> = registrations
+            .iter()
+            .filter_map(|(id, _)| state.retained.remove(id))
+            .collect();
         state.inputs.extend(registrations);
         if partial {
             state.import_report = Some(ImportReport {
@@ -402,6 +419,7 @@ impl Queue {
         }
         let result = snapshot(&state);
         drop(state);
+        drop(discarded);
         notify(&self.shared);
         Ok(result)
     }
@@ -442,9 +460,23 @@ impl Queue {
             task.phase = Phase::Ready;
             task.error = None;
         }
+        let changed = next.tasks.iter().find(|t| t.id == id).unwrap().format
+            != state
+                .journal
+                .tasks
+                .iter()
+                .find(|t| t.id == id)
+                .unwrap()
+                .format;
         commit(&self.shared, &mut state, next)?;
+        let discarded = if changed {
+            state.retained.remove(id)
+        } else {
+            None
+        };
         let result = snapshot(&state);
         drop(state);
+        drop(discarded);
         notify(&self.shared);
         Ok(result)
     }
@@ -485,7 +517,19 @@ impl Queue {
                 .iter_mut()
                 .find(|t| t.id == item.id)
                 .ok_or("Unknown input; choose it in the native file picker")?;
-            if !state.inputs.contains_key(&item.id) {
+            if item.save_only {
+                let retained = state
+                    .retained
+                    .get(&item.id)
+                    .ok_or(crate::retained::EXPIRED)?;
+                if retained.expires <= Instant::now()
+                    || retained.attempt != task.attempt
+                    || retained.output.format != item.format
+                    || retained.options != item.options
+                {
+                    return Err(crate::retained::EXPIRED.into());
+                }
+            } else if !state.inputs.contains_key(&item.id) {
                 return Err("Choose this input again to restore permission".into());
             }
             if task.attempt != item.expected_attempt {
@@ -505,10 +549,26 @@ impl Queue {
             task.phase = Phase::Queued;
             task.error = None;
         }
-        next.receipts.insert(request.request_id.clone(), request);
+        next.receipts
+            .insert(request.request_id.clone(), request.clone());
         commit(&self.shared, &mut state, next)?;
+        let mut discarded = vec![];
+        for item in &request.items {
+            if item.save_only {
+                state.save_requests.insert(item.id.clone());
+                if let Some(retained) = state.retained.get_mut(&item.id) {
+                    retained.attempt = item.expected_attempt + 1;
+                }
+            } else {
+                state.save_requests.remove(&item.id);
+                if let Some(retained) = state.retained.remove(&item.id) {
+                    discarded.push(retained);
+                }
+            }
+        }
         let result = snapshot(&state);
         drop(state);
+        drop(discarded);
         notify(&self.shared);
         Ok(result)
     }
@@ -535,21 +595,37 @@ impl Queue {
                 .iter_mut()
                 .find(|t| &t.id == id)
                 .ok_or("Unknown task")?;
+            let old_format = task.format;
             if let Some(format) = format {
                 if !task.formats.contains(&format) {
                     return Err("Batch contains an incompatible output format".into());
                 }
                 task.format = format;
             }
-            if task.options != options || format.is_some() {
+            if task.options != options || task.format != old_format {
                 task.options = options.clone();
                 task.phase = Phase::Ready;
                 task.error = None;
             }
         }
+        let changed: Vec<String> = next
+            .tasks
+            .iter()
+            .filter(|task| {
+                state.journal.tasks.iter().any(|old| {
+                    old.id == task.id && (old.options != task.options || old.format != task.format)
+                })
+            })
+            .map(|task| task.id.clone())
+            .collect();
         commit(&self.shared, &mut state, next)?;
+        let discarded: Vec<_> = changed
+            .iter()
+            .filter_map(|id| state.retained.remove(id))
+            .collect();
         let result = snapshot(&state);
         drop(state);
+        drop(discarded);
         notify(&self.shared);
         Ok(result)
     }
@@ -561,7 +637,12 @@ impl Queue {
         let mut next = state.journal.clone();
         for task in &mut next.tasks {
             if (ids.is_empty() || ids.contains(&task.id)) && task.phase == Phase::Queued {
-                task.phase = Phase::Cancelled;
+                task.phase = if state.retained.contains_key(&task.id) {
+                    Phase::AwaitingSave
+                } else {
+                    Phase::Cancelled
+                };
+                state.save_requests.remove(&task.id);
             }
         }
         if let Some((id, token)) = &state.preview {
@@ -640,7 +721,14 @@ impl Queue {
         if saved.is_err() {
             state.journal.revision = state.journal.revision.saturating_add(1);
         }
+        let mut discarded = vec![];
         if saved.is_ok() {
+            for id in &targets {
+                state.save_requests.remove(id);
+                if let Some(retained) = state.retained.remove(id) {
+                    discarded.push(retained);
+                }
+            }
             state.inputs.retain(|id, _| !targets.contains(id));
             if state.journal.tasks.is_empty() {
                 state.recovery_notice = None;
@@ -649,6 +737,7 @@ impl Queue {
         }
         let result = snapshot(&state);
         drop(state);
+        drop(discarded);
         notify(&self.shared);
         saved?;
         Ok(result)
@@ -668,7 +757,8 @@ impl Queue {
     /// Active/clearing queues are unchanged until the user explicitly confirms.
     pub fn prepare_idle_exit(&self) -> Result<bool, String> {
         let mut state = locked(&self.shared)?;
-        if state.running.is_some()
+        if !state.retained.is_empty()
+            || state.running.is_some()
             || state.preview.is_some()
             || state.clearing
             || state.journal.tasks.iter().any(|t| t.phase == Phase::Queued)
@@ -711,6 +801,11 @@ impl Queue {
                 let _ = handle.join();
             }
         }
+        let discarded = locked(&self.shared).ok().map(|mut state| {
+            state.save_requests.clear();
+            std::mem::take(&mut state.retained)
+        });
+        drop(discarded);
     }
 }
 impl Drop for Queue {
@@ -754,17 +849,45 @@ fn prepare_source(
     output: Option<Registered>,
 ) -> Result<(Source, PathBuf), SourceError> {
     let source = prepare_input(input).map_err(SourceError::Input)?;
-    let dir = output.ok_or_else(|| SourceError::Output("Output permission expired".into()))?;
+    let directory = prepare_directory(output).map_err(SourceError::Output)?;
+    Ok((source, directory))
+}
+fn prepare_directory(output: Option<Registered>) -> Result<PathBuf, String> {
+    let dir = output.ok_or("Output permission expired")?;
     let meta = dir
         .path
         .metadata()
-        .map_err(|e| SourceError::Output(format!("Output unavailable; select it again: {e}")))?;
+        .map_err(|e| format!("Output unavailable; select it again: {e}"))?;
     if !meta.is_dir() || Stamp::directory(&meta) != dir.stamp {
-        return Err(SourceError::Output(
-            "Output directory changed; select it again".into(),
-        ));
+        return Err("Output directory changed; select it again".into());
     }
-    Ok((source, dir.path))
+    Ok(dir.path)
+}
+fn expire_retained(state: &mut State, now: Instant) -> Vec<(String, Retained)> {
+    if state.clearing || state.preview.is_some() {
+        return vec![];
+    }
+    let ids: Vec<_> = state
+        .retained
+        .iter()
+        .filter(|(id, r)| {
+            r.expires <= now
+                && !state
+                    .journal
+                    .tasks
+                    .iter()
+                    .any(|t| &t.id == *id && t.phase.active())
+        })
+        .map(|(id, _)| id.clone())
+        .collect();
+    let discarded: Vec<_> = ids
+        .into_iter()
+        .filter_map(|id| state.retained.remove(&id).map(|r| (id, r)))
+        .collect();
+    if !discarded.is_empty() {
+        state.clearing = true;
+    }
+    discarded
 }
 fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
     loop {
@@ -776,6 +899,32 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
             if state.closing {
                 return;
             }
+            let expired = expire_retained(&mut state, Instant::now());
+            if !expired.is_empty() {
+                let ids: BTreeSet<_> = expired.iter().map(|(id, _)| id.clone()).collect();
+                drop(state);
+                drop(expired);
+                state = match locked(&shared) {
+                    Ok(s) => s,
+                    Err(_) => return,
+                };
+                let mut next = state.journal.clone();
+                for task in &mut next.tasks {
+                    if ids.contains(&task.id) {
+                        task.phase = Phase::Failed;
+                        task.error = Some(crate::retained::EXPIRED.into());
+                    }
+                }
+                apply_worker_state(&shared, &mut state, next);
+                state.clearing = false;
+                drop(state);
+                notify(&shared);
+                state = match locked(&shared) {
+                    Ok(s) => s,
+                    Err(_) => return,
+                };
+                continue;
+            }
             if !state.clearing && state.persistence_error.is_none() {
                 if let Some(task) = state
                     .journal
@@ -786,8 +935,8 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
                     break task.id.clone();
                 }
             }
-            state = match shared.changed.wait(state) {
-                Ok(state) => state,
+            state = match shared.changed.wait_timeout(state, Duration::from_secs(1)) {
+                Ok((state, _)) => state,
                 Err(_) => return,
             };
         };
@@ -798,7 +947,13 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
             .iter_mut()
             .find(|t| t.id == id)
             .expect("queued task exists");
-        task.phase = Phase::Running;
+        let saving = state.save_requests.contains(&id);
+        let cached = state.retained.get(&id).map(|r| r.output.clone());
+        task.phase = if saving {
+            Phase::Saving
+        } else {
+            Phase::Running
+        };
         let format = task.format;
         let options = task.options.clone();
         let resume = task.result.clone();
@@ -817,56 +972,129 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
         notify(&shared);
         // File system access can be slow; snapshots and cancellation must not wait
         // for it while holding the state mutex. Running tasks retain their grants.
-        let source = prepare_source(registered, output);
-        let revoke_input = matches!(&source, Err(SourceError::Input(_)));
-        let revoke_output = matches!(&source, Err(SourceError::Output(_)));
-        let result = source
-            .map_err(|e| match e {
-                SourceError::Input(message) | SourceError::Output(message) => message,
+        let mut revoke_input = false;
+        let revoke_output;
+        let result = if saving {
+            let directory = prepare_directory(output);
+            revoke_output = directory.is_err();
+            directory.and_then(|directory| {
+                cached
+                    .as_ref()
+                    .ok_or_else(|| crate::retained::EXPIRED.to_string())?
+                    .save(&directory, &token)
             })
-            .and_then(|(mut source, output)| {
-                token.check_cancelled()?;
-                let reporter_shared = shared.clone();
-                let reporter_id = id.clone();
-                source.context = crate::ConversionContext {
-                    workspace: None,
-                    options,
-                    resume,
-                    report: Some(Arc::new(move |progress| {
-                        let mut state = locked(&reporter_shared)?;
-                        if state
-                            .running
-                            .as_ref()
-                            .is_none_or(|(id, _)| id != &reporter_id)
-                        {
-                            return Err("Task is no longer running".into());
-                        }
-                        let mut next = state.journal.clone();
-                        let task = next
-                            .tasks
-                            .iter_mut()
-                            .find(|t| t.id == reporter_id && t.attempt == attempt)
-                            .ok_or("Stale conversion progress")?;
-                        task.result = Some(progress);
-                        apply_worker_state(&reporter_shared, &mut state, next);
-                        let error = state.persistence_error.clone();
-                        drop(state);
-                        notify(&reporter_shared);
-                        match error {
-                            Some(error) => Err(format!("Cannot save page history: {error}")),
-                            None => Ok(()),
-                        }
-                    })),
-                };
-                std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    execute(source, &output, format, &token)
-                }))
-                .unwrap_or_else(|_| Err("Conversion worker panicked".into()))
-            });
+        } else {
+            let source = prepare_source(registered, output);
+            revoke_input = matches!(&source, Err(SourceError::Input(_)));
+            revoke_output = matches!(&source, Err(SourceError::Output(_)));
+            source
+                .map_err(|e| match e {
+                    SourceError::Input(message) | SourceError::Output(message) => message,
+                })
+                .and_then(|(mut source, output)| {
+                    token.check_cancelled()?;
+                    let reporter_shared = shared.clone();
+                    let reporter_id = id.clone();
+                    let retained_shared = shared.clone();
+                    let retained_id = id.clone();
+                    let retained_options = options.clone();
+                    source.context = crate::ConversionContext {
+                        retain: Some(Arc::new(move |mut output| {
+                            let mut state = locked(&retained_shared)?;
+                            let task = state
+                                .journal
+                                .tasks
+                                .iter()
+                                .find(|t| t.id == retained_id && t.attempt == attempt)
+                                .ok_or("Stale encoded result")?;
+                            if state.clearing
+                                || state.closing
+                                || state
+                                    .running
+                                    .as_ref()
+                                    .is_none_or(|(id, _)| id != &retained_id)
+                                || task.format != output.format
+                                || task.options != retained_options
+                            {
+                                return Err("Task no longer retains encoded results".into());
+                            }
+                            if state.retained.contains_key(&retained_id) {
+                                return Err("Encoded result already retained".into());
+                            }
+                            output.reserve(state.retained_bytes.clone())?;
+                            state.retained.insert(
+                                retained_id.clone(),
+                                Retained {
+                                    output: Arc::new(output),
+                                    attempt,
+                                    options: retained_options.clone(),
+                                    expires: Instant::now() + crate::retained::TTL,
+                                },
+                            );
+                            Ok(())
+                        })),
+                        workspace: None,
+                        options,
+                        resume,
+                        report: Some(Arc::new(move |progress| {
+                            let mut state = locked(&reporter_shared)?;
+                            if state
+                                .running
+                                .as_ref()
+                                .is_none_or(|(id, _)| id != &reporter_id)
+                            {
+                                return Err("Task is no longer running".into());
+                            }
+                            let mut next = state.journal.clone();
+                            let task = next
+                                .tasks
+                                .iter_mut()
+                                .find(|t| t.id == reporter_id && t.attempt == attempt)
+                                .ok_or("Stale conversion progress")?;
+                            task.result = Some(progress);
+                            apply_worker_state(&reporter_shared, &mut state, next);
+                            let error = state.persistence_error.clone();
+                            drop(state);
+                            notify(&reporter_shared);
+                            match error {
+                                Some(error) => Err(format!("Cannot save page history: {error}")),
+                                None => Ok(()),
+                            }
+                        })),
+                    };
+                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                        execute(source, &output, format, &token)
+                    }))
+                    .unwrap_or_else(|_| Err("Conversion worker panicked".into()))
+                })
+        };
+        // Any extra reference must be released before clearing the running fence.
+        drop(cached);
         let mut state = match locked(&shared) {
             Ok(state) => state,
             Err(_) => return,
         };
+        state.save_requests.remove(&id);
+        let invalid = result
+            .as_ref()
+            .err()
+            .is_some_and(|e| e == crate::retained::INVALID || e == crate::retained::EXPIRED);
+        let discarded = if result.is_ok() || invalid {
+            state.retained.remove(&id)
+        } else {
+            None
+        };
+        // Keep the running fence while deleting the cache, but never delete under the mutex.
+        drop(state);
+        drop(discarded);
+        let mut state = match locked(&shared) {
+            Ok(s) => s,
+            Err(_) => return,
+        };
+        if let Some(retained) = state.retained.get_mut(&id) {
+            retained.expires = Instant::now() + crate::retained::TTL;
+        }
+        let awaiting = state.retained.contains_key(&id);
         let mut next = state.journal.clone();
         let task = next
             .tasks
@@ -880,13 +1108,15 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
                 task.error = None;
             }
             Err(error) => {
-                task.phase = if task
+                task.phase = if awaiting {
+                    Phase::AwaitingSave
+                } else if task
                     .result
                     .as_ref()
                     .is_some_and(|r| !r.complete && !r.files.is_empty())
                 {
                     Phase::Partial
-                } else if error == "Cancelled" {
+                } else if error == "Cancelled" || token.check_cancelled().is_err() {
                     Phase::Cancelled
                 } else {
                     Phase::Failed
