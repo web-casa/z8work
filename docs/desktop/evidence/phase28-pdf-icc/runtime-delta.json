@@ -1,0 +1,54 @@
+{
+  "oldManifest": "9bc5bcf84e4316819ac14001324d387d6616d85012c0b96bcf87aebdd1a5b4ce",
+  "newManifest": "9f12291d03708117f8c44dc30138f17c9c0e161c303d21a62d410c2c164bc90c",
+  "added": {},
+  "removed": {
+    "lib/libmupdf.so.25.1": {
+      "sha256": "082065de3a8a59753ee4a8ad5dea49e67e0feb77d3b16ce050bbad5b0d9d764d",
+      "bytes": 71014688
+    }
+  },
+  "changed": {
+    "bin/mutool": {
+      "before": {
+        "sha256": "d10f870880737b514b6aad7e7139f9cb0832719301d5f900701bbc3acb19ad82",
+        "bytes": 527728
+      },
+      "after": {
+        "sha256": "ea34e716c886fb9de87b8182c7c81e80e2f60646439d3f6856f3b40aac05a2fd",
+        "bytes": 37641896
+      }
+    },
+    "lib/libgraphite2.so.3": {
+      "before": {
+        "sha256": "e429689818c47c7eb3033cf7410a1d8dfb49891dc6ffe9c8a54a28d5bf15b208",
+        "bytes": 198848
+      },
+      "after": {
+        "sha256": "42e818b1b54b1aab4093206e99bc03a5f1b7d9bf60b0303acc504013f4e16402",
+        "bytes": 198848
+      }
+    },
+    "lib/libjbig2dec.so.0": {
+      "before": {
+        "sha256": "628e939ceac0dc1c1957bc63c020b5d8feab3f85a5201eb5fdf223ce7eba7dd9",
+        "bytes": 133896
+      },
+      "after": {
+        "sha256": "0154315b9be33f5e45e656418942ea7ee9f512e9fb60b66c4e273b612eb21298",
+        "bytes": 133896
+      }
+    },
+    "validation/bundle-check": {
+      "before": {
+        "sha256": "7cc8e4f5d4be8118c63b57bd613c3631bb193e2e168ecef62c9a20d729a1f9e7",
+        "bytes": 1593920
+      },
+      "after": {
+        "sha256": "1d3a0de1ed2bc8dbde1ba3d3382d23b5f8f979da44bcd079187464a2e3a8d86e",
+        "bytes": 1600496
+      }
+    }
+  },
+  "unchanged": 434
+}

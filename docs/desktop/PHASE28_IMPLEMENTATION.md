@@ -47,8 +47,8 @@ macOS 拒绝 `@rpath` 是当前组装器的保守策略，不是 macOS 平台禁
 
 ## 未关闭的 R5 / R6 门槛
 
-1. **PDF ICC**：已定位到实际 Debian MuPDF `1.25.1+ds1-6+deb13u1` 的构建规则，明确 `-DFZ_ENABLE_ICC=0`，并有只警告一次的补丁。上游 Makethird 要求优先使用 patched lcms2。需重建合适的 MuPDF/LCMS 组合、核对源码和字体依赖，再补含 ICC 的 PDF 语义测试。图片 ICC 字节保留不证明 PDF 色彩管理通过。
-2. **许可与源码**：当前 Linux 引擎 438 个运行文件均映射到 170 组已保存源码，未匹配文件为 0；这仍不包括应用/前端/Rust 完整对应源码闭包、所有签名与分发兼容性判断。Linux GTK / Linux portal / Windows / macOS 材料分别覆盖 354 / 371 / 286 / 275 个组件，无“缺声明文件”项；部分 objc2 上游文件本身为链接说明，仍需逐 crate 核对许可文本和 Apple SDK 相关条款。所有 `redistributionApproved` 保持 false。
+1. **PDF ICC**：已定位到实际 Debian MuPDF `1.25.1+ds1-6+deb13u1` 的构建规则，明确 `-DFZ_ENABLE_ICC=0`，并有只警告一次的补丁。上游 Makethird 要求优先使用 patched lcms2。[R5 PDF ICC 补修](PHASE28_PDF_ICC.md)已为 Linux ARM64 重建启用 ICC 的 MuPDF/LCMS，并加入四种 PDF 输出的像素门禁；其他目标包仍须接入、重建和实测。图片 ICC 字节保留不证明 PDF 色彩管理通过。
+2. **许可与源码**：本历史 Phase 28 Linux 引擎的 438 个运行文件均映射到 170 组已保存源码（后续 ICC 重建增加了上游 LCMS/字体及新的构建依赖记录，不沿用这项闭包结论），未匹配文件为 0；这仍不包括应用/前端/Rust 完整对应源码闭包、所有签名与分发兼容性判断。Linux GTK / Linux portal / Windows / macOS 材料分别覆盖 354 / 371 / 286 / 275 个组件，无“缺声明文件”项；部分 objc2 上游文件本身为链接说明，仍需逐 crate 核对许可文本和 Apple SDK 相关条款。所有 `redistributionApproved` 保持 false。
 3. **平台候选**：macOS ARM64 缺实际原生引擎、重定位/签名后资源和 `.app`；现有工具及 CI 不能替代该产物。Windows MSIX 缺原生离线转换；Snap 的仿真隔离转换已通过，仍缺 strict 原生业务验证。合成旧 Snap/macOS 还未构建。
 4. **原生安装与发行**：Windows x64、Linux AMD64 strict 桌面和 macOS ARM64 原生测试入口尚未提供；Store 正式 Identity/Publisher 与 Snap 注册状态仍待核实。这些缺项不影响已有开发身份候选，但阻塞对应正式候选和 R6。目标设备性能与故障/升级/卸载验收也未关闭。
 

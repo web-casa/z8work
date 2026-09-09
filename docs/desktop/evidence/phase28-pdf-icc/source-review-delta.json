@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "implementationCommit": "1a53dd1",
+  "beforeCommitSourceFiles": 454,
+  "afterCommitSourceFiles": 454,
+  "sameSourceFileBytes": true,
+  "scope": "Receipts captured after compilation; equality confirms the reviewed implementation is committed, not a claim that the receipt preceded the build."
+}

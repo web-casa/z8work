@@ -1,0 +1,6 @@
+[validation] mutool ["draw", "-q", "-N", "-r", "72", "-c", "rgba", "-o", "/tmp/.tmpmPDr4S/unmanaged.png", "/tmp/.tmpmPDr4S/display-p3.pdf", "1"]
+[validation] magick ["/tmp/.tmpmPDr4S/unmanaged.png", "-depth", "8", "RGBA:/tmp/.tmpmPDr4S/pixels.rgba"]
+[validation] magick ["/tmp/.tmpmPDr4S/unmanaged.png", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpmPDr4S/results/display-p3-page-001-z8-1.png", "-depth", "8", "RGBA:/tmp/.tmpmPDr4S/pixels.rgba"]
+[validation] magick ["/tmp/.tmpmPDr4S/results/display-p3-page-001-z8-1.png", "-format", "%w %h", "info:"]
+Error: "PDF ICC Png: max RGB error 51 > 4; actual [[255.0, 127.0, 51.0], [51.0, 204.0, 102.0], [89.0, 76.0, 216.0], [140.0, 89.0, 63.0], [127.0, 127.0, 127.0], [38.0, 89.0, 153.0]]; expected [[255, 118, 0], [0, 208, 88], [92, 76, 225], [149, 86, 58], [128, 128, 128], [5, 91, 158]]"

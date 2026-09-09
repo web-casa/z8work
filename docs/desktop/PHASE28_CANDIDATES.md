@@ -18,6 +18,8 @@ Linux GUI 应用摘要 `e970986cac25daf947a66a5bac031441a5736fc3ae93eb8759aa1b73
 
 修复后的 Snap 引擎已在显式 AMD64 仿真 scratch 容器完成 84 条转换、20 项质量和 240 次预设校准，退出码为 0；引擎清单与最终 Snap 解包结果一致。原始结果和执行边界见 [AMD64 隔离证据](evidence/phase28/amd64-lcms-evidence.json)及[完整质量报告](evidence/phase28/amd64-lcms-quality.json)。这是仿真引擎验证，未执行 strict 安装、GUI 或 portal。
 
+后续 Linux ARM64 候选见 [R6 写入修复](PHASE29_WRITE_FAILURES.md)及 [R5 PDF ICC 补修](PHASE28_PDF_ICC.md)。以下是历史包的重跑入口；旧引擎未具备 PDF ICC 像素证据，不能通过新增质量门禁。
+
 ## 本机重跑入口
 
 以下从仓库根目录运行；输出必须是不存在的新目录。`review-2` 仅为示例新输出名，重复执行应换名称。Bun、Cargo、Node 应按仓库锁定版本配置，临时目录指向有足够容量的位置。

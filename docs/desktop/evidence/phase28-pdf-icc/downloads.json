@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "downloaded-awaiting-audit",
+  "engineManifestSha256": "9f12291d03708117f8c44dc30138f17c9c0e161c303d21a62d410c2c164bc90c",
+  "scope": "full-audited-plan",
+  "sources": [
+    {
+      "package": "graphite2",
+      "version": "1.3.14-2+deb13u1",
+      "selector": "graphite2=1.3.14-2+deb13u1",
+      "status": "downloaded",
+      "output": "Reading package lists...\nNOTICE: 'graphite2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/libreoffice-team/graphite2.git\nPlease use:\ngit clone https://salsa.debian.org/libreoffice-team/graphite2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 6647 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main graphite2 1.3.14-2+deb13u1 (dsc) [2600 B]\nGet:2 https://deb.debian.org/debian trixie/main graphite2 1.3.14-2+deb13u1 (tar) [6630 kB]\nGet:3 https://deb.debian.org/debian trixie/main graphite2 1.3.14-2+deb13u1 (diff) [14.8 kB]\nFetched 6647 kB in 5s (1281 kB/s)\nDownload complete and in download only mode\n"
+    },
+    {
+      "package": "jbig2dec",
+      "version": "0.20-1+deb13u1",
+      "selector": "jbig2dec=0.20-1+deb13u1",
+      "status": "downloaded",
+      "output": "Reading package lists...\nNOTICE: 'jbig2dec' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/printing-team/jbig2dec.git\nPlease use:\ngit clone https://salsa.debian.org/printing-team/jbig2dec.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 174 kB of source archives.\nGet:1 https://deb.debian.org/debian-security trixie-security/main jbig2dec 0.20-1+deb13u1 (dsc) [2107 B]\nGet:2 https://deb.debian.org/debian-security trixie-security/main jbig2dec 0.20-1+deb13u1 (tar) [150 kB]\nGet:3 https://deb.debian.org/debian-security trixie-security/main jbig2dec 0.20-1+deb13u1 (diff) [22.5 kB]\nFetched 174 kB in 2s (113 kB/s)\nDownload complete and in download only mode\n"
+    }
+  ]
+}

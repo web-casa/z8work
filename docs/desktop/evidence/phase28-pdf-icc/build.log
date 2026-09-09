@@ -1,0 +1,4 @@
+/work/.desktop-local/phase7-sources-final/mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1.orig.tar.xz: OK
+/work/.desktop-local/phase7-sources-final/mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1-6+deb13u1.debian.tar.xz: OK
+/output/mupdf-1.25.1-source.tar.gz: OK
+mkdir: cannot create directory '/output/build': Permission denied

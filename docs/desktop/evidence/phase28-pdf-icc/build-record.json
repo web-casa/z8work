@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "scope": "Linux ARM64 local PDF ICC repair; no installation or redistribution approval",
+  "baseApplicationCommit": "7c00068",
+  "repositoryHeadAtBuild": "ca215ca",
+  "applicationRebuilt": false,
+  "applicationSha256": "38771e1466c6a04834c4fcd81b908427f4ee006e97b6526eb461a96c64d42c08",
+  "engineManifestSha256": "9f12291d03708117f8c44dc30138f17c9c0e161c303d21a62d410c2c164bc90c",
+  "mutoolSha256": "ea34e716c886fb9de87b8182c7c81e80e2f60646439d3f6856f3b40aac05a2fd",
+  "verifierSha256": "1d3a0de1ed2bc8dbde1ba3d3382d23b5f8f979da44bcd079187464a2e3a8d86e",
+  "builder": "sha256:fdd70a0a99ed075cf0cb538bce6e2998b8e350891e41279363026fa4e250ca5e arm64",
+  "recipeSha256": "ba532395a7dec4583dc947dcffaf14a81f9aa9c3408d67dcde0584446608999e",
+  "dockerfileSha256": "2700b2690ee9132f4c5d2f432c78f32b0738fa2ab17ed0da79b51101ce433980",
+  "freshReviewedBuildMatchesCandidateMutool": true,
+  "gui": {
+    "reportSha256": "e81514911eb1fb3373023220c03b35900e6823e0709dffd083c9132ef2419372",
+    "binarySha256": "38771e1466c6a04834c4fcd81b908427f4ee006e97b6526eb461a96c64d42c08",
+    "checks": 67,
+    "invokedBinary": ".desktop-local/phase28-pdf-icc/linux-candidate/z8-work/usr/bin/z8-desktop",
+    "resourceManifestSha256AfterRun": "9f12291d03708117f8c44dc30138f17c9c0e161c303d21a62d410c2c164bc90c",
+    "developmentManifestUse": "fixture generation only; the production binary disables development overrides",
+    "installation": "not-run",
+    "identicalArchiveSha256": "6c7a5683fb097071bfcaed7e08aa9525f4b2919bc3b9056ff43ab3c96d56fb18",
+    "binding": "GUI invoked first staging path; first and reviewed archives have identical SHA-256, application and engine manifest hashes. The standalone GUI report itself only records application hash."
+  },
+  "redistributionApproved": false,
+  "implementationCommit": "1a53dd1",
+  "finalArchiveSha256": "6c7a5683fb097071bfcaed7e08aa9525f4b2919bc3b9056ff43ab3c96d56fb18",
+  "finalCandidate": "linux-reviewed/candidate.json",
+  "finalQuality": "linux-reviewed/quality.json"
+}

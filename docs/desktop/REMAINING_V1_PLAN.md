@@ -102,7 +102,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 6. R4 / Phase 27：产品体验、隐私及格式质量
 
-状态：产品体验与基础格式开发已完成，见[实现及 review](PHASE27_IMPLEMENTATION.md)、[84 条格式矩阵](PHASE27_FORMAT_MATRIX.md)及[性能预算与缺项](PHASE27_PERFORMANCE.md)。本机参考不能替代三端验收；首次配置、大型 PDF/音频、导入/取消延迟及目标候选资源测量仍未执行，必须补齐才能关闭对应性能验收。PDF ICC 构建能力也未关闭，R5 核对候选构建选项、R6 使用含 ICC 的 PDF 实测。以下保留原定要求。
+状态：产品体验与基础格式开发已完成，见[实现及 review](PHASE27_IMPLEMENTATION.md)、[84 条格式矩阵](PHASE27_FORMAT_MATRIX.md)及[性能预算与缺项](PHASE27_PERFORMANCE.md)。本机参考不能替代三端验收；首次配置、大型 PDF/音频、导入/取消延迟及目标候选资源测量仍未执行，必须补齐才能关闭对应性能验收。[R5 PDF ICC 补修](PHASE28_PDF_ICC.md)已完成 Linux ARM64 构建与真实色块验证；其他平台仍需 R5 接入构建及 R6 对最终包实测，不能据此关闭跨端色彩管理验收。以下保留原定要求。
 
 工作：
 

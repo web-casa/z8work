@@ -1,0 +1,10 @@
+
+In packaging/desktop/linux/build-mupdf-icc.sh line 55:
+! grep -q 'not found' "$output/ldd.txt"
+^-- SC2251 (info): This ! is not on a condition and skips errexit. Use `&& exit 1` instead, or make sure $? is checked.
+
+Did you mean: 
+ grep -q 'not found' "$output/ldd.txt" && exit 1
+
+For more information:
+  https://www.shellcheck.net/wiki/SC2251 -- This ! is not on a condition and ...
