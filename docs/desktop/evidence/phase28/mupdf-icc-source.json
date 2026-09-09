@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "scope": "Exact local Debian source archives; ICC disabled, not corrected",
+  "archives": [
+    {
+      "file": ".desktop-local/phase7-sources-final/mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1-6+deb13u1.debian.tar.xz",
+      "sha256": "9dcaeec03493204b647e3d030874cce55f0f69db95235de2cf1405e5d194eeef",
+      "bytes": 94772
+    },
+    {
+      "file": ".desktop-local/phase7-sources-final/mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1.orig.tar.xz",
+      "sha256": "0c2fb34812a8f470ba4f8581bf1c8fd6de0c31feb64020edd4e541400fce1dc9",
+      "bytes": 4112784
+    }
+  ]
+}

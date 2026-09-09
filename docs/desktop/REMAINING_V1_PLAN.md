@@ -1,6 +1,6 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；R5–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。用户后续所说的“下一阶段”从 Phase 28 开始。
+日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；R6–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。当前仍处于 Phase 28，先补齐 R5 门槛，再进入 Phase 29 的对应原生验收。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
@@ -119,6 +119,8 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 7. R5 / Phase 28：自包含构建、依赖与许可
 
+当前状态：开发与 review 进展见 [Phase 28 实施记录](PHASE28_IMPLEMENTATION.md)及[候选交接](PHASE28_CANDIDATES.md)。Linux ARM64 本地包、当前 Windows 开发 MSIX 和 AMD64 Snap 已重建；macOS 实际候选、完整许可/源码与部分升级输入仍未完成，不将 R5 标为通过。
+
 工作：
 
 1. 复用既有 Linux/Snap、Windows/MSIX 脚本，补 macOS ARM64 构建与引擎布局。锁定 app、原生引擎及 delegates、字体/数据资源和构建工具来源；隔离环境不依赖开发机 PATH 中的引擎。
@@ -162,7 +164,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 10. 共用完成标准与进度规则
 
-- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R4 开发已完成，R5–R7 未开始；R4 尚未执行的性能/目标包检查继续阻塞对应验收；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
+- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R4 开发已完成，[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；R6–R7 未开始；R4 尚未执行的性能/目标包检查继续阻塞对应验收；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
 - 每阶段记录范围、实际改动、review 问题与修正、执行命令、真实结果、剩余限制和下一阶段入口。保留失败证据，不用最终通过覆盖之前问题。
 - 前端/契约变动运行桌面类型检查、相关 Node 测试和构建；Rust 变动运行相关原生/app 测试、fmt 与 Clippy；影响跨端执行则加原生目标验证。共享网页代码变动补网页相应回归，纯文档仅做格式/链接/一致性检查。
 - 使用已有 `desktop:check`、`desktop:test:ui`、`desktop:build` 及平台脚本；新命令先实现并验证再写进执行说明。单元 mock、交叉编译、包 smoke、真实 GUI、安装验收分层报告。

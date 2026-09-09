@@ -1,0 +1,10 @@
+✔ frozen desktop scope matches UI formats, languages and artifact identities (5.496575ms)
+✔ desktop CI covers every receipt input and uses the pinned Rust toolchain (15.081265ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.663294

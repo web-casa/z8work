@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "earlierReceipt": "inputs.json",
+  "finalReceipt": "inputs-final.json",
+  "changedFiles": [
+    "desktop/tests/macos.test.mjs",
+    "desktop/tests/msix-archive.test.py",
+    "desktop/tests/snap-installed.test.mjs",
+    "packaging/desktop/linux/Dockerfile.core24",
+    "packaging/desktop/linux/build-core24.sh",
+    "scripts/desktop-bundle-linux.mjs",
+    "scripts/desktop-candidate-macos.mjs",
+    "scripts/desktop-msix-check.py",
+    "scripts/desktop-msix-prepare.mjs",
+    "scripts/desktop-notices.mjs",
+    "scripts/lib/desktop-macos.mjs",
+    "scripts/lib/desktop-product-checks.mjs",
+    "scripts/lib/desktop-versions.mjs"
+  ],
+  "applicationSourceChanged": false
+}

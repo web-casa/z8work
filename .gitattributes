@@ -2,6 +2,7 @@
 docs/desktop/evidence/** -text
 # Raw process output can contain trailing spaces and blank lines by design.
 docs/desktop/evidence/**/*.txt -whitespace
+docs/desktop/evidence/**/*.log -whitespace
 # Preserve the upstream license byte-for-byte, including its original whitespace.
 desktop/tests/fixtures/HostGrotesk-OFL.txt -text -whitespace
 # Preserve downloaded upstream notice bytes and their pinned digests.

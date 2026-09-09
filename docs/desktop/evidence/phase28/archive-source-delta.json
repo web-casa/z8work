@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "earlierReceipt": "inputs-handoff.json",
+  "finalReceipt": "inputs-archive.json",
+  "changedFiles": [
+    ".gitattributes"
+  ],
+  "reason": "Preserve raw process log whitespace in the evidence archive",
+  "applicationSourceChanged": false
+}

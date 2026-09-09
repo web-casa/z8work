@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "image": "sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e",
+  "os": "linux",
+  "architecture": "amd64",
+  "baseImage": "sha256:b024a987052967755ed076d49592b4b1a6aa8aefbdfe6251517f25a59c3910f6",
+  "addedPackage": "liblcms2-dev=2.14-2ubuntu0.1",
+  "execution": "AMD64 emulation on Linux ARM64; not native installer acceptance"
+}
