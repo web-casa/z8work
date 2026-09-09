@@ -22,6 +22,8 @@ Current production branding, domain, icons and filename migration are documented
 
 ## Native desktop prototype
 
+[Phase 24: V1 scope and reproducible source baseline](docs/desktop/PHASE24_IMPLEMENTATION.md) freezes the initial format/language matrix, improves CI and input receipts, and verifies an isolated checkout. [Platform prerequisites and remaining risks](docs/desktop/PHASE24_READINESS.md) remain separate from installed-package acceptance. Phase 25 will implement saving an already converted result without re-encoding.
+
 A separate Tauri/Rust desktop prototype runs native ImageMagick, FFmpeg, Pandoc and MuPDF, with a Rust-managed queue and local task-history recovery. It is not a publicly released desktop version or a complete desktop equivalent of the website. Start with the [desktop research overview](docs/desktop/README.md), then see the [latest implementation and tested scope](docs/desktop/PHASE23_IMPLEMENTATION.md), [remaining seven-phase development plan (Phases 24–30)](docs/desktop/REMAINING_V1_PLAN.md), and [plan review and corrections](docs/desktop/REMAINING_V1_REVIEW.md). The [original V1 plan](docs/desktop/V1_PLAN.md) retains the architecture and research background.
 
 [Phase 5: desktop process lifetime hardening and review](docs/desktop/PHASE5_IMPLEMENTATION.md).

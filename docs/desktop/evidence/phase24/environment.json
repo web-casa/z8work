@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "host": {
+    "os": "Linux",
+    "architecture": "aarch64",
+    "distribution": "Debian GNU/Linux 13 (trixie)"
+  },
+  "tools": {
+    "node22": {
+      "exitCode": 0,
+      "output": "v22.22.2"
+    },
+    "node24": {
+      "exitCode": 0,
+      "output": "v24.18.0"
+    },
+    "bun": {
+      "exitCode": 0,
+      "output": "1.4.0"
+    },
+    "rustc": {
+      "exitCode": 0,
+      "output": "rustc 1.96.0 (ac68faa20 2026-05-25)"
+    },
+    "cargo": {
+      "exitCode": 0,
+      "output": "cargo 1.96.0 (30a34c682 2026-05-25)"
+    },
+    "targets": {
+      "exitCode": 0,
+      "output": "aarch64-apple-darwin\naarch64-pc-windows-msvc\naarch64-unknown-linux-gnu\naarch64-unknown-linux-musl\nx86_64-apple-darwin\nx86_64-pc-windows-msvc\nx86_64-unknown-linux-musl"
+    },
+    "actionlint": {
+      "exitCode": 0,
+      "output": "v1.7.12\ninstalled by building from source\nbuilt with go1.25.11 compiler for linux/arm64"
+    }
+  },
+  "nativeWindows": {
+    "status": "not-run",
+    "reason": "Current session is Linux ARM64; no verified native Windows execution endpoint supplied."
+  },
+  "nativeMacOS": {
+    "status": "not-run",
+    "reason": "No verified macOS execution endpoint supplied in this session."
+  },
+  "snap": {
+    "schema": 1,
+    "artifact": "linux-amd64-snap",
+    "mode": "preflight",
+    "status": "blocked",
+    "checks": {
+      "preflight": {
+        "status": "failed",
+        "report": "host.json",
+        "blockers": [
+          "Requires matching Linux AMD64 process, kernel and snapd",
+          "This acceptance profile requires Ubuntu 24.04",
+          "Full strict AppArmor and seccomp support required"
+        ]
+      }
+    },
+    "redistributionApproved": false,
+    "acceptance": "incomplete",
+    "error": "Requires matching Linux AMD64 process, kernel and snapd; This acceptance profile requires Ubuntu 24.04; Full strict AppArmor and seccomp support required",
+    "references": {
+      "host.json": {
+        "sha256": "0277be0bcdd326ba4b3019320e420027a0be41b4511411787b6f5b51316157bf",
+        "bytes": 1331
+      }
+    }
+  },
+  "accounts": {
+    "source": "packaging/desktop/store/submission.json",
+    "microsoftStoreIdentity": "missing-in-project-config",
+    "microsoftStorePublisher": "missing-in-project-config",
+    "snapRegisteredName": "missing-in-project-config",
+    "certificateInventory": "not-run-on-target",
+    "remoteAccountLookup": "not-run"
+  },
+  "remoteCI": "not-run"
+}

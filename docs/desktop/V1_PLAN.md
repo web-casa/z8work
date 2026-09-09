@@ -2,6 +2,8 @@
 
 **2026-09-09 剩余工作重排：[七阶段执行方案 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**，附[自审与修正记录](REMAINING_V1_REVIEW.md)。后续开发顺序和明确的首版格式/语言范围以该方案为准；本文保留原始架构、安全约束与研究依据，早期验收状态不表示当前源码已通过对应平台验证。
 
+[Phase 24 / R1](PHASE24_IMPLEMENTATION.md)已完成首版能力与源码基线、CI/收据修正、隔离 checkout 验证及[平台条件清点](PHASE24_READINESS.md)。下一阶段为 Phase 25 保存恢复；原生安装与发行验收仍未完成。
+
 状态：V1 规划定稿；已完成 Linux ARM64 的平台适配、格式交互、包内引擎、本地候选和商店材料准备，运行时记录见 [Phase 5 进程生命周期加固](PHASE5_IMPLEMENTATION.md)，最新材料记录见 [Phase 7 历史源码收集](PHASE7_IMPLEMENTATION.md)。已列出的 170 组引擎源码完整性通过，签名、源码闭包与许可验收仍待完成。[Phase 8](PHASE8_IMPLEMENTATION.md) 形成 Ubuntu/core24 AMD64 Snap 本地候选，[Phase 9](PHASE9_IMPLEMENTATION.md) 补已安装验收工具与可复制的测试输入。M0 跨平台风险验证、M3 原生安装验收和 M4 可提交候选仍未完成。
 
 最新功能记录：[Phase 23：可预览与保存的脱敏诊断报告](PHASE23_IMPLEMENTATION.md)。报告只导出有限运行摘要，先预览再由用户保存，保留原生对话框与禁止覆盖保护；[Phase 22 存储预检](PHASE22_IMPLEMENTATION.md)及既有导入、预览和临时目录清理继续保留。旧安装候选需重建才能包含新功能。

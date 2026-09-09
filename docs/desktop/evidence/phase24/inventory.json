@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "files": {
+    "actionlint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "baseline-scan.json": {
+      "bytes": 264,
+      "sha256": "acc3b74ddf333cc0dcc60c6498006b9379df4eeff2f04e87acb90d4413892062"
+    },
+    "clippy.txt": {
+      "bytes": 137,
+      "sha256": "5584b0e02528acf6cfeeb1b7c1ddc916c38e2dd166371a8eeb6c18cbbad66b49"
+    },
+    "environment.json": {
+      "bytes": 2447,
+      "sha256": "aab2171274215ae2b2f2601f9178a09f9733548a33d63290e93c539ea5117dfa"
+    },
+    "eslint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "frontend-build.txt": {
+      "bytes": 1207,
+      "sha256": "38c38da28c6ff5d8ef0c5196319fe7f8a0aecba8ddc269fdbfe27835cbb04207"
+    },
+    "historical-evidence-hashes.json": {
+      "bytes": 79411,
+      "sha256": "b178b66717e0c4161c099923cb516c6a416557b75e9ad89256618595adb041f9"
+    },
+    "inputs-check.txt": {
+      "bytes": 34,
+      "sha256": "8b8c9fda0894a0c4dae4acb54dd6173689bd6f851b0132fa3faba980988a83ee"
+    },
+    "inputs.json": {
+      "bytes": 56951,
+      "sha256": "7504ee5b42b8936d63db6ac20a17ef3b16d795eee3a4b1e49db79fc4df5174a7"
+    },
+    "isolated-diff.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "isolated-install.txt": {
+      "bytes": 96,
+      "sha256": "383331bc31901bacc3b5b7b04112e55a86344610e545847bc19d414e19f6f70d"
+    },
+    "links.txt": {
+      "bytes": 123,
+      "sha256": "79f127d67fc95966e9b73630483971e6b60f8b99a602c7caea96ed1a869d1e47"
+    },
+    "macos-crosscheck.txt": {
+      "bytes": 137,
+      "sha256": "c0d4f6097da2c819360fc1e9035cf9ffa3f5bd29cfdb535d59f849a1a23c3e39"
+    },
+    "native-dev-tests.txt": {
+      "bytes": 8340,
+      "sha256": "3ad8ac756cd64d19c257ef6b7b0c2a29f708347b42dbc506041f0d6997bac98c"
+    },
+    "native-tests.txt": {
+      "bytes": 8153,
+      "sha256": "0fbddd1517b7798a01d2e8ad0c6692bf5d55d1aebe3b10ea608c8a83196f3308"
+    },
+    "node22-tests.txt": {
+      "bytes": 32451,
+      "sha256": "72a2480750552b293c3e960f02733367ee10f83a97392d9ec3af9531b6318324"
+    },
+    "node24-tests.txt": {
+      "bytes": 13562,
+      "sha256": "2a72560534467b3e88db78fe14946064c2bf92c3a4a8a0a672d6e30468aa1c1a"
+    },
+    "prettier.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "rustfmt.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "snap-host.json": {
+      "bytes": 1331,
+      "sha256": "0277be0bcdd326ba4b3019320e420027a0be41b4511411787b6f5b51316157bf"
+    },
+    "snap-preflight.json": {
+      "bytes": 794,
+      "sha256": "9a64ea78297f3b8dc0c7ce6af3564fdf7801da19ed19a2a3311c07ff6d0165ef"
+    },
+    "store-check.txt": {
+      "bytes": 3542,
+      "sha256": "d2a59efb6b9e249b74d857c549bad1b2a02ed9d522d9f00a617dcc3455e3d1af"
+    },
+    "svelte-check.txt": {
+      "bytes": 811,
+      "sha256": "7a15e11d7620ac2eff509067c38bbae1f562b6ed82f970e45fe2c76ccb03d8cb"
+    },
+    "verification.json": {
+      "bytes": 1883,
+      "sha256": "1d40223cbcd5c3698a00b190718f6c59f61b8ae3ca3ea65614ad0d38709ed28f"
+    },
+    "windows-crosscheck.txt": {
+      "bytes": 137,
+      "sha256": "b9ac4b7ffc05dab33d7774371314c5769167241229fabdb13824b274ec7bef22"
+    }
+  }
+}

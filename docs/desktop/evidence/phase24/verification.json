@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "phase": 24,
+  "stage": "R1",
+  "stageStatus": "complete",
+  "releaseReady": false,
+  "sourceCommit": "5be9a93bf4c2eebafbecc27e4b74345e27195871",
+  "isolatedCheckout": true,
+  "inputCount": 368,
+  "lockfilesUnchanged": true,
+  "checks": [
+    {
+      "id": "frozen-install",
+      "status": "passed",
+      "packages": 416
+    },
+    {
+      "id": "node22",
+      "status": "passed",
+      "tests": 154
+    },
+    {
+      "id": "node24",
+      "status": "passed",
+      "tests": 154
+    },
+    {
+      "id": "native-no-default",
+      "status": "passed",
+      "tests": 92,
+      "ignored": 2
+    },
+    {
+      "id": "native-development",
+      "status": "passed",
+      "tests": 91,
+      "ignored": 2
+    },
+    {
+      "id": "svelte",
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "id": "frontend-build",
+      "status": "passed"
+    },
+    {
+      "id": "static-store-pages",
+      "status": "passed",
+      "submissionStatus": "blocked"
+    },
+    {
+      "id": "windows-native-core-crosscheck",
+      "status": "passed",
+      "installedAcceptance": false
+    },
+    {
+      "id": "macos-native-core-crosscheck",
+      "status": "passed",
+      "installedAcceptance": false
+    },
+    {
+      "id": "snap-host-preflight",
+      "status": "failed",
+      "exitCode": 2,
+      "report": "snap-preflight.json"
+    },
+    {
+      "id": "windows-native-install",
+      "status": "not-run",
+      "reason": "No verified target execution endpoint"
+    },
+    {
+      "id": "macos-native-install",
+      "status": "not-run",
+      "reason": "No verified target execution endpoint"
+    },
+    {
+      "id": "remote-ci",
+      "status": "not-run",
+      "reason": "Local commits only"
+    },
+    {
+      "id": "new-gui-or-engine-conversion",
+      "status": "not-run",
+      "reason": "No runtime path changes in R1"
+    }
+  ]
+}

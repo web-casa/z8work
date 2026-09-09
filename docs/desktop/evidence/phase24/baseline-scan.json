@@ -1,0 +1,8 @@
+{
+  "files": 711,
+  "bytes": 8342716,
+  "credentialPatternMatches": [],
+  "largeFiles": [],
+  "unexpectedFiles": [],
+  "scope": "Committed baseline changes since c554d15; heuristic credential-pattern and file classification checks, not a complete secret audit."
+}
