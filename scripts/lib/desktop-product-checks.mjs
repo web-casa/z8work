@@ -195,4 +195,40 @@ export async function checkProduct({
 	checks.push(
 		"visible-language-switch-updates-document-language-and-offline-copy",
 	);
+	await js('document.querySelector("[data-licenses]").open=true');
+	await until(
+		() =>
+			js(
+				'return document.querySelector("[data-licenses] textarea")?.value.includes("GNU AFFERO GENERAL PUBLIC LICENSE")',
+			),
+		"Offline license did not load",
+	);
+	await assert.rejects(
+		invoke("read_license", { id: "licenses/../../secret" }),
+	);
+	const notices = await invoke("license_index");
+	const component = notices.find((entry) => entry.id !== "application");
+	if (component) {
+		const original = await invoke("read_license", { id: component.id });
+		assert.ok(original.length > 0);
+		await change("[data-licenses] select", component.id);
+		await until(
+			async () =>
+				(await js(
+					'return document.querySelector("[data-licenses] textarea")?.value',
+				)) === original,
+			"Bundled component notice did not load",
+		);
+		checks.push("bundled-component-notice-matches-backend-text");
+		await change("[data-licenses] select", "application");
+		await until(
+			() =>
+				js(
+					'return document.querySelector("[data-licenses] textarea")?.value.includes("GNU AFFERO GENERAL PUBLIC LICENSE")',
+				),
+			"Application license did not reload",
+		);
+	}
+	await screenshot("product-licenses-en.png", "[data-licenses]");
+	checks.push("offline-license-readable-and-arbitrary-path-rejected");
 }

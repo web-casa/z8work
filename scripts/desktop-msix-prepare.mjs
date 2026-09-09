@@ -1,5 +1,6 @@
 // Development MSIX layout only; no certificates, installation or store submission.
 import { parseArgs } from "node:util";
+import { checkVersions } from "./lib/desktop-versions.mjs";
 import { mkdir, copyFile, writeFile } from "node:fs/promises";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,15 +16,22 @@ import {
 	verifyMsixLayout,
 } from "./lib/desktop-msix.mjs";
 const { values } = parseArgs({
-	options: { handoff: { type: "string" }, output: { type: "string" } },
+	options: {
+		handoff: { type: "string" },
+		output: { type: "string" },
+		"synthetic-upgrade": { type: "boolean", default: false },
+	},
 });
 if (!values.handoff || !values.output)
 	throw new Error("Use --handoff WINDOWS_HANDOFF --output NEW_DIRECTORY");
+const versions = await checkVersions();
 const handoff = resolve(values.handoff),
 	output = resolve(values.output);
 await assertOutside(handoff, output);
 const source = await verifyHandoff(handoff),
 	config = await msixConfig();
+if (values["synthetic-upgrade"])
+	config.version = versions.syntheticUpgrade.developmentMsix;
 const sourceInfo = await fileInfo(handoff, "handoff.json");
 await mkdir(output);
 const layout = join(output, "layout");
@@ -62,6 +70,15 @@ const prepared = {
 	config,
 	redistributionApproved: false,
 	acceptance: "incomplete",
+	syntheticUpgrade: values["synthetic-upgrade"]
+		? {
+				published: false,
+				purpose:
+					"lower MSIX package version with current application code; not a historical release or old-schema migration proof",
+				applicationVersion: versions.application,
+				targetPackageVersion: versions.developmentMsix,
+			}
+		: null,
 	sourceHandoff: sourceInfo,
 	files,
 };

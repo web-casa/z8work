@@ -1,3 +1,4 @@
+import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 // Run the actual bundled verifier without a base image or host libraries.
 import { parseArgs } from "node:util";
 import { readFile, mkdir, writeFile, mkdtemp, rm } from "node:fs/promises";
@@ -76,7 +77,7 @@ try {
 		"/engines/lib",
 		"/engines/validation/bundle-check",
 		"/engines",
-		"--full",
+		"--quality",
 	];
 	const file = join(temp, "Dockerfile");
 	await writeFile(
@@ -114,8 +115,7 @@ try {
 		1200000,
 	);
 	const report = JSON.parse(result.stdout);
-	if (report.routes?.length !== 76)
-		throw new Error("Expected all 76 conversion routes");
+	validateQuality(report, `linux-${architecture}`);
 	await writeFile(
 		join(output, "conversion.json"),
 		JSON.stringify(report, null, 2) + "\n",
@@ -142,7 +142,7 @@ try {
 		) + "\n",
 	);
 	console.log(
-		`All 76 routes passed using only the bundled runtime: ${output}`,
+		`All 84 routes passed using only the bundled runtime: ${output}`,
 	);
 } finally {
 	// Remove only this invocation's uniquely named resources, including after timeout.

@@ -23,6 +23,7 @@ on:
                 ".gitattributes",
                 "package.json",
                 "bun.lock",
+                "LICENSE",
                 ".github/workflows/desktop.yml",
             ]
     push:
@@ -48,6 +49,7 @@ on:
                 ".gitattributes",
                 "package.json",
                 "bun.lock",
+                "LICENSE",
                 ".github/workflows/desktop.yml",
             ]
     workflow_dispatch:
@@ -87,6 +89,7 @@ jobs:
             - run: mkdir -p .desktop-local
             - run: node scripts/desktop-windows-inputs.mjs --output .desktop-local/frontend-inputs.json
             - run: bun install --frozen-lockfile
+            - run: bun run desktop:versions
             - run: bun run desktop:check
             - run: bun run desktop:build
             - run: sudo apt-get update && sudo apt-get install -y squashfs-tools desktop-file-utils
@@ -137,6 +140,35 @@ jobs:
             - run: bun run desktop:build
             - run: cargo check --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --features packaged-engines,custom-protocol
             - run: cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --features packaged-engines,custom-protocol
+    macos-application:
+        runs-on: macos-15
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+            - run: test "$(uname -m)" = arm64
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:versions
+            - run: bun run desktop:build
+            - run: node scripts/desktop-windows-inputs.mjs --output .desktop-local/macos-inputs.json
+            - run: cargo build --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --release --target aarch64-apple-darwin --no-default-features --features packaged-engines,custom-protocol
+            - run: src-tauri/target/aarch64-apple-darwin/release/z8-desktop --build-info-file "$PWD/.desktop-local/macos-build-info.json"
+            - run: node --input-type=module -e "import {readFileSync} from 'node:fs'; import {validateBuild,artifactMatrix} from './scripts/lib/desktop-artifacts.mjs'; import {inspectMachO} from './scripts/lib/desktop-macos.mjs'; const m=await artifactMatrix(); validateBuild(JSON.parse(readFileSync('.desktop-local/macos-build-info.json')),m.artifacts.find(a=>a.id==='macos-arm64-app'),m.version); inspectMachO(readFileSync('src-tauri/target/aarch64-apple-darwin/release/z8-desktop'));"
+            - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/macos-inputs.json
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: macos-arm64-application-report
+                  path: |
+                      .desktop-local/macos-build-info.json
+                      .desktop-local/macos-inputs.json
+                  if-no-files-found: error
     windows-application:
         runs-on: windows-latest
         timeout-minutes: 30

@@ -196,11 +196,13 @@ test("Windows matrix validation keeps Linux default and requires all decoded rou
 	const sample = JSON.parse(
 		await readFile(
 			new URL(
-				"../../docs/desktop/evidence/phase8/final-conversions.json",
+				"../../docs/desktop/evidence/phase27/formats.json",
 				import.meta.url,
 			),
 		),
 	);
+	// Synthetic platform label only; this is a parser test.
+	sample.platform = "linux-x86_64";
 	validateConversions(sample);
 	sample.platform = "windows-x86_64";
 	assert.throws(() => validateConversions(sample));

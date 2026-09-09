@@ -282,11 +282,10 @@ test("deadline kills detached command descendants, not just the parent", async (
 
 test("installed conversion validation rejects borrowed architecture, duplicate routes and unchecked results", async () => {
 	const real = JSON.parse(
-		await readFile(
-			"docs/desktop/evidence/phase8/final-conversions.json",
-			"utf8",
-		),
+		await readFile("docs/desktop/evidence/phase27/formats.json", "utf8"),
 	);
+	// Synthetic platform label for validator unit testing, not native evidence.
+	real.platform = "linux-x86_64";
 	assert.doesNotThrow(() => validateConversions(real));
 	for (const change of [
 		(r) => (r.platform = "linux-aarch64"),

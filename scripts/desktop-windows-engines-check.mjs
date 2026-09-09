@@ -6,7 +6,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { inspectBundle } from "./lib/desktop-sources.mjs";
 import { inspectWindowsTree } from "./lib/desktop-windows.mjs";
-import { validateConversions } from "./lib/desktop-snap-installed.mjs";
+import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 import { sha256 } from "./lib/desktop-artifacts.mjs";
 
 const { values } = parseArgs({
@@ -167,10 +167,10 @@ try {
 		await save("integrity.json", integrity.stdout);
 		report.checks.integrity = "passed";
 		if (values.full) {
-			const result = await run(binary, [argument, "--full"], 1200000);
+			const result = await run(binary, [argument, "--quality"], 1200000);
 			await save("conversion-stderr.txt", result.stderr);
 			await save("conversions.json", result.stdout);
-			validateConversions(JSON.parse(result.stdout), "windows-x86_64");
+			validateQuality(JSON.parse(result.stdout), "windows-x86_64");
 			report.checks.conversions = "passed";
 		}
 		const after = await inspectBundle(root, "windows");

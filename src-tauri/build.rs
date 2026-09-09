@@ -3,6 +3,8 @@ fn main() {
         tauri_build::AppManifest::new().commands(&[
             "desktop_info",
             "open_impact_source",
+            "license_index",
+            "read_license",
             "preview_diagnostics",
             "save_diagnostics",
             "read_preferences",

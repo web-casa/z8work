@@ -10,6 +10,7 @@ pub use convert::{
     convert, convert_source, output_formats, ConversionContext, ConversionResult, OutputFormat,
     SavedFile,
 };
+pub use engine_bundle::{license_index, read_license, LicenseEntry};
 pub use engines::{hash_file, EngineInfo, Engines};
 pub use options::{Options, Quality};
 pub use process::{watchdog_entry, Cancel};

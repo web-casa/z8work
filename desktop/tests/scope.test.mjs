@@ -87,5 +87,12 @@ test("desktop CI covers every receipt input and uses the pinned Rust toolchain",
 				),
 			);
 	}
-	assert.equal(jobs, 4);
+	assert.equal(
+		jobs,
+		Object.values(workflow.jobs).filter((job) =>
+			job.steps.some((s) =>
+				/\bcargo (?:build|check|test|clippy|fmt)\b/.test(s.run ?? ""),
+			),
+		).length,
+	);
 });

@@ -4,3 +4,5 @@ docs/desktop/evidence/** -text
 docs/desktop/evidence/**/*.txt -whitespace
 # Preserve the upstream license byte-for-byte, including its original whitespace.
 desktop/tests/fixtures/HostGrotesk-OFL.txt -text -whitespace
+# Preserve downloaded upstream notice bytes and their pinned digests.
+packaging/desktop/notices/* -text -whitespace

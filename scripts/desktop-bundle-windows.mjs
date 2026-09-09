@@ -6,10 +6,9 @@ import {
 } from "./lib/desktop-windows-bundle.mjs";
 const { values } = parseArgs({
 	options: Object.fromEntries(
-		["archives", "output", "verifier", "extracted"].map((name) => [
-			name,
-			{ type: "string" },
-		]),
+		["archives", "output", "verifier", "extracted", "notices"].map(
+			(name) => [name, { type: "string" }],
+		),
 	),
 });
 for (const key of ["archives", "output", "verifier"])

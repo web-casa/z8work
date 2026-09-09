@@ -7,6 +7,7 @@ import re
 import stat
 import zipfile
 from pathlib import Path
+from urllib.parse import unquote_to_bytes
 from xml.etree import ElementTree as ET
 
 
@@ -27,6 +28,14 @@ def xml_document(data):
     return ET.fromstring(data)
 
 
+def zip_part_name(name):
+    # ZIP members use OPC URI escaping; BlockMap and preparation use file names.
+    # Decode once, preserving literal '+' and rejecting encoded separators.
+    if re.search(r'%(?![0-9a-fA-F]{2})|%(?:2f|5c)', name, re.I):
+        raise ValueError('Invalid MSIX part URI')
+    return safe_name(unquote_to_bytes(name).decode('utf-8', errors='strict'))
+
+
 def check(package, prepared, signed=False):
     if prepared.get('schema') != 1 or prepared.get('scope') != 'development-msix-layout' or prepared.get('redistributionApproved') is not False:
         raise ValueError('Expected development preparation receipt')
@@ -44,7 +53,7 @@ def check(package, prepared, signed=False):
         folded = set()
         total = 0
         for entry in members:
-            name = safe_name(entry.filename)
+            name = zip_part_name(entry.filename)
             if name.casefold() in folded or entry.is_dir() or stat.S_IFMT(entry.external_attr >> 16) not in (0, stat.S_IFREG) or entry.flag_bits & 1:
                 raise ValueError('Duplicate, encrypted or non-regular ZIP member')
             folded.add(name.casefold())

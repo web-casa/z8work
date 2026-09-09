@@ -320,7 +320,14 @@ export function runFinite(
 }
 
 export function validateConversions(report, expectedPlatform = "linux-x86_64") {
-	if (!["linux-x86_64", "windows-x86_64"].includes(expectedPlatform))
+	if (
+		![
+			"linux-x86_64",
+			"linux-aarch64",
+			"windows-x86_64",
+			"macos-aarch64",
+		].includes(expectedPlatform)
+	)
 		throw new Error("Unsupported conversion platform");
 	const checks = [
 		"audio_duration_channels",
@@ -339,13 +346,22 @@ export function validateConversions(report, expectedPlatform = "linux-x86_64") {
 	];
 	if (
 		report?.platform !== expectedPlatform ||
-		report.routes?.length !== 76 ||
+		report.routes?.length !== 84 ||
 		checks.some((key) => report.checks?.[key] !== true)
 	)
 		throw new Error("Incomplete installed conversion matrix");
 	// The fixed 0.1.0 acceptance suite; extending the suite requires review here.
 	const pairs = new Set();
-	for (const input of ["png", "jpg", "webp", "avif", "heic", "pdf"])
+	for (const input of [
+		"png",
+		"jpg",
+		"jpeg",
+		"webp",
+		"avif",
+		"heic",
+		"heif",
+		"pdf",
+	])
 		for (const output of ["png", "jpeg", "webp", "avif"])
 			pairs.add(`${input}:${output}`);
 	for (const input of [
@@ -383,6 +399,63 @@ export function validateConversions(report, expectedPlatform = "linux-x86_64") {
 			throw new Error("Output was not decoded");
 		if (route.input === "pdf" && route.pages !== 3)
 			throw new Error("PDF page check incomplete");
+	}
+}
+
+export function validateQuality(report, expectedPlatform) {
+	validateConversions(report, expectedPlatform);
+	if (
+		report.phase !== 27 ||
+		report.qualityChecks?.length !== 20 ||
+		report.imageCalibration?.length !== 240
+	)
+		throw new Error("Missing frozen Phase 27 quality evidence");
+	const finite = (value, max) =>
+		Number.isFinite(value) && value >= 0 && value <= max;
+	const pixels = (s) =>
+		s &&
+		finite(s.premultipliedRgbRmse, 0.15) &&
+		finite(s.maxAlphaError, 0.02) &&
+		/^\d+ \d+$/.test(s.dimensions);
+	const required = new Set();
+	for (const format of ["png", "jpeg", "webp", "avif"]) {
+		for (const keep of [false, true])
+			for (const check of ["ICC byte preservation", "EXIF orientation 6"])
+				required.add(`${check}:${format}:${keep}`);
+		required.add(`embedded Host Grotesk font:${format}:undefined`);
+	}
+	for (const row of report.qualityChecks) {
+		if (
+			!required.delete(
+				`${row.check}:${row.format}:${row.keep_metadata}`,
+			) ||
+			(row.check === "ICC byte preservation"
+				? row.passed !== true
+				: !pixels(row.semantic))
+		)
+			throw new Error("Unchecked or duplicate quality sample");
+	}
+	const samples = new Set();
+	for (const fixture of [
+		"ImageMagick rose:",
+		"alpha 128x96",
+		"16-bit gradient 256x64",
+		"10-bit HEIC seed",
+	])
+		for (const format of ["png", "jpeg", "webp", "avif"])
+			for (const preset of ["small", "balanced", "high"])
+				for (let repeat = 1; repeat <= 5; repeat++)
+					samples.add(`${fixture}:${format}:${preset}:${repeat}`);
+	for (const row of report.imageCalibration) {
+		if (
+			!samples.delete(
+				`${row.fixture}:${row.format}:${row.preset}:${row.repeat}`,
+			) ||
+			!pixels(row.semantic) ||
+			!Number.isSafeInteger(row.bytes) ||
+			row.bytes <= 0
+		)
+			throw new Error("Unchecked or duplicate calibration sample");
 	}
 }
 

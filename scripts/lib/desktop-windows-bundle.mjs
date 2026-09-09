@@ -100,6 +100,7 @@ export async function assembleWindowsBundle({
 	output,
 	verifier,
 	extracted,
+	notices,
 }) {
 	validateWindowsLock(lock);
 	await mkdir(output); // Never overwrite previous bundles.
@@ -190,6 +191,49 @@ export async function assembleWindowsBundle({
 			output,
 			"validation/bundle-check.exe",
 		);
+		if (notices) {
+			await fileInfo(notices, "dossier.json", 8 * 1024 ** 2);
+			const dossier = JSON.parse(
+				await readFile(join(notices, "dossier.json"), "utf8"),
+			);
+			if (
+				dossier.schema !== 1 ||
+				dossier.target !== "x86_64-pc-windows-msvc" ||
+				dossier.redistributionApproved !== false ||
+				!Array.isArray(dossier.components)
+			)
+				throw new Error("Wrong application notice dossier");
+			for (const component of dossier.components)
+				for (const notice of component.notices) {
+					const source = await fileInfo(
+						notices,
+						notice.file,
+						2 * 1024 ** 2,
+					);
+					if (
+						source.sha256 !== notice.sha256 ||
+						source.bytes !== notice.bytes ||
+						!notice.file.startsWith("licenses/")
+					)
+						throw new Error("Notice dossier fingerprint mismatch");
+					const name =
+						"licenses/application/" +
+						notice.file.slice("licenses/".length);
+					windowsResource(name);
+					if (manifest.files[name])
+						throw new Error("Duplicate application notice");
+					await mkdir(dirname(join(output, name)), {
+						recursive: true,
+					});
+					await copyFile(
+						join(notices, notice.file),
+						join(output, name),
+					);
+					manifest.files[name] = await fileInfo(output, name);
+					if (manifest.files[name].sha256 !== source.sha256)
+						throw new Error("Copied notice changed");
+				}
+		}
 		for (const id of ["magick", "ffmpeg", "ffprobe", "pandoc", "mutool"]) {
 			const source = lock.sources.find(
 				(s) => s.id === (id === "ffprobe" ? "ffmpeg" : id),

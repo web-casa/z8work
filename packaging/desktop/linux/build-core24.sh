@@ -56,4 +56,4 @@ node scripts/desktop-bundle-linux.mjs --manifest "$PWD/.desktop-local/engines.js
 cp src-tauri/target/release/z8-desktop "$Z8_BUILD_OUTPUT/z8-desktop"
 "$Z8_BUILD_OUTPUT/z8-desktop" --build-info > "$Z8_BUILD_OUTPUT/build-info.json"
 "$Z8_BUILD_OUTPUT/engines/lib/ld-linux-x86-64.so.2" --library-path "$Z8_BUILD_OUTPUT/engines/lib" \
-    "$Z8_BUILD_OUTPUT/engines/validation/bundle-check" "$Z8_BUILD_OUTPUT/engines" --full > "$Z8_BUILD_OUTPUT/conversions.json"
+    "$Z8_BUILD_OUTPUT/engines/validation/bundle-check" "$Z8_BUILD_OUTPUT/engines" --quality > "$Z8_BUILD_OUTPUT/conversions.json"

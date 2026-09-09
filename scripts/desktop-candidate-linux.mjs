@@ -1,3 +1,4 @@
+import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 // Local candidate only. Resources are copied to Tauri's actual ../lib/<package> layout.
 import { parseArgs } from "node:util";
 import {
@@ -12,6 +13,7 @@ import {
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { execFileSync } from "node:child_process";
+import { checkVersions } from "./lib/desktop-versions.mjs";
 import {
 	artifactMatrix,
 	assertElf,
@@ -27,6 +29,7 @@ for (const key of ["binary", "engines", "output"])
 	if (!values[key]) throw new Error(`--${key} is required`);
 if (process.platform !== "linux") throw new Error("Linux host required");
 const matrix = await artifactMatrix();
+await checkVersions();
 const artifact = matrix.artifacts.find(
 	(a) => a.id === "linux-arm64-validation",
 );
@@ -46,11 +49,11 @@ if (
 	manifest.kind !== "bundled"
 )
 	throw new Error("Engine bundle target mismatch");
-const run = (bin, args) =>
+const run = (bin, args, timeout = 60000) =>
 	execFileSync(bin, args, {
 		encoding: "utf8",
-		timeout: 60000,
-		maxBuffer: 1024 * 1024,
+		timeout,
+		maxBuffer: 16 * 1024 * 1024,
 		stdio: ["ignore", "pipe", "pipe"],
 		env: { PATH: process.env.PATH, LANG: "C.UTF-8" },
 	});
@@ -104,15 +107,23 @@ run("tar", [
 const digest = sha256(await readFile(archive));
 // Verify the extracted final archive, not only the pre-archive staging directory.
 const check = await mkdtemp(join(output, "unpack-check-"));
+let quality;
 try {
 	run("tar", ["-xzf", archive, "-C", check]);
 	const root = join(check, "z8-work/usr/lib", resourceName, "engines");
-	run(join(root, manifest.loader), [
-		"--library-path",
-		join(root, "lib"),
-		join(root, "validation/bundle-check"),
-		root,
-	]);
+	quality = JSON.parse(
+		run(
+			join(root, manifest.loader),
+			[
+				"--library-path",
+				join(root, "lib"),
+				join(root, "validation/bundle-check"),
+				root,
+				"--quality",
+			],
+			1800000,
+		),
+	);
 	if (
 		sha256(await readFile(join(check, "z8-work/usr/bin/z8-desktop"))) !==
 		sha256(binary)
@@ -121,6 +132,12 @@ try {
 } finally {
 	await rm(check, { recursive: true, force: true });
 }
+validateQuality(quality, "linux-aarch64");
+await writeFile(
+	join(output, "quality.json"),
+	JSON.stringify(quality, null, 2) + "\n",
+	{ flag: "wx" },
+);
 const report = {
 	schema: 1,
 	artifact: artifact.id,
@@ -135,7 +152,10 @@ const report = {
 			status: "passed",
 			report: "Final archive extracted; application hash and complete engine inventory checked",
 		},
-		conversion: { status: "not-run" },
+		conversion: {
+			status: "passed",
+			report: "quality.json; executed against final extracted archive",
+		},
 		gui: { status: "not-run" },
 		install: { status: "not-run" },
 		upgrade: { status: "not-run" },

@@ -10,6 +10,7 @@ export const inputPaths = [
 	"static/desktop-info",
 	"package.json",
 	"bun.lock",
+	"LICENSE",
 	"postcss.config.js",
 	"tailwind.config.ts",
 	"tsconfig.json",

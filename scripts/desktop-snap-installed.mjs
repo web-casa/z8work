@@ -23,7 +23,7 @@ import {
 	validateMount,
 	probeScript,
 	validateProbe,
-	validateConversions,
+	validateQuality,
 	installedFingerprint,
 	runFinite,
 	shellQuote,
@@ -301,12 +301,12 @@ try {
 			"/usr/bin/snap",
 			["run", "--shell", "z8-work"],
 			{
-				input: `set -eu\n[ "$SNAP" = ${shellQuote(root)} ]\nexec ${shellQuote(engines + "/lib/ld-linux-x86-64.so.2")} --library-path ${shellQuote(engines + "/lib")} ${shellQuote(engines + "/validation/bundle-check")} ${shellQuote(engines)} --full\n`,
+				input: `set -eu\n[ "$SNAP" = ${shellQuote(root)} ]\nexec ${shellQuote(engines + "/lib/ld-linux-x86-64.so.2")} --library-path ${shellQuote(engines + "/lib")} ${shellQuote(engines + "/validation/bundle-check")} ${shellQuote(engines)} --quality\n`,
 				timeout: 1200000,
 			},
 		);
 		const conversions = JSON.parse(result.stdout);
-		validateConversions(conversions);
+		validateQuality(conversions);
 		await save("conversions.json", conversions);
 		await writeFile(join(output, "conversions.stderr.txt"), result.stderr, {
 			flag: "wx",

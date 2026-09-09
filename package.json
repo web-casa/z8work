@@ -73,7 +73,11 @@
 		"desktop:msix:assets": "node scripts/desktop-msix-assets.mjs",
 		"desktop:msix:prepare": "node scripts/desktop-msix-prepare.mjs",
 		"desktop:msix:pack": "node scripts/desktop-msix-pack.mjs",
-		"desktop:msix:acceptance": "node scripts/desktop-msix-acceptance.mjs"
+		"desktop:msix:acceptance": "node scripts/desktop-msix-acceptance.mjs",
+		"desktop:versions": "node scripts/desktop-versions.mjs",
+		"desktop:candidate:macos": "node scripts/desktop-candidate-macos.mjs",
+		"desktop:notices": "node scripts/desktop-notices.mjs",
+		"desktop:bundle:macos": "node scripts/desktop-bundle-macos.mjs"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "^2.5.0",

@@ -3,6 +3,7 @@ mod boot;
 mod build_report;
 mod dialogs;
 mod impact;
+mod licenses;
 mod quit;
 #[cfg(all(feature = "development-engines", feature = "packaged-engines"))]
 compile_error!("packaged-engines and development-engines are mutually exclusive");
@@ -563,6 +564,8 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             desktop_info,
             open_impact_source,
+            licenses::license_index,
+            licenses::read_license,
             preview_diagnostics,
             save_diagnostics,
             read_preferences,

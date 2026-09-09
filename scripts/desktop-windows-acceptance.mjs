@@ -1,4 +1,4 @@
-import { validateConversions } from "./lib/desktop-snap-installed.mjs";
+import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 import { parseArgs, promisify } from "node:util";
 import { execFile } from "node:child_process";
 import { machine } from "node:os";
@@ -188,13 +188,13 @@ try {
 		report.checks.lifecycle = "passed";
 		const engines = await run(
 			join(root, "candidate/engines/validation/bundle-check.exe"),
-			[windowsPath(join(root, "candidate/engines")), "--full"],
+			[windowsPath(join(root, "candidate/engines")), "--quality"],
 			1200000,
 		);
 		await save("conversions.json", engines.stdout);
 		await save("conversion-stderr.txt", engines.stderr);
 		const conversions = JSON.parse(engines.stdout);
-		validateConversions(conversions, "windows-x86_64");
+		validateQuality(conversions, "windows-x86_64");
 		for (const [id, engine] of Object.entries(bundle.manifest.engines)) {
 			const actual = conversions.engines?.find((item) => item.id === id);
 			if (

@@ -181,7 +181,7 @@ export async function listFiles(root, prefix = "") {
 	return result.sort();
 }
 export async function inspectBundle(root, expectedOs = "linux") {
-	if (!["linux", "windows"].includes(expectedOs))
+	if (!["linux", "windows", "macos"].includes(expectedOs))
 		throw new Error("Unsupported bundle platform");
 	if ((await lstat(root)).isSymbolicLink())
 		throw new Error("Bundle root cannot be a symlink");

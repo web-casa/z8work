@@ -55,6 +55,28 @@ class ArchiveTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'BlockMap hash'):
             checker.check(self.package, self.prepared)
 
+    def test_opc_escaped_plus_matches_literal_blockmap_name(self):
+        data = self.payload.pop('bin/data')
+        self.payload['bin/license%2Bspec'] = data
+        self.prepared['files']['bin/license+spec'] = self.prepared['files'].pop('bin/data')
+        self.map = self.map.replace('bin/data', 'bin/license+spec')
+        self.write()
+        self.assertEqual(checker.check(self.package, self.prepared)['status'], 'passed')
+        self.assertEqual(checker.zip_part_name('bin/a+b'), 'bin/a+b')
+        self.assertEqual(checker.zip_part_name('bin/a%252Bb'), 'bin/a%2Bb')
+
+    def test_encoded_traversal_and_malformed_uri_are_rejected(self):
+        for name in ['%2E%2E/escape', 'bin%2Fdata', 'bin%5cdata', 'bin/%00', 'bin/%ff', 'bin/%', 'bin/%GG']:
+            with self.subTest(name=name):
+                with self.assertRaises(ValueError):
+                    checker.zip_part_name(name)
+
+    def test_decoded_duplicate_is_rejected(self):
+        self.payload['bin/%64ata'] = self.payload.pop('empty')
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'Duplicate'):
+            checker.check(self.package, self.prepared)
+
     def test_blockmap_hash_tampering(self):
         self.map = self.map.replace('Hash="', 'Hash="A', 1)
         self.write()

@@ -10,6 +10,7 @@ import {
 	readdir,
 	stat,
 	copyFile,
+	chmod,
 } from "node:fs/promises";
 import { basename, dirname, join, resolve, isAbsolute } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -83,6 +84,9 @@ async function copy(sourcePath, destination, elf = false) {
 	const target = join(output, destination);
 	await mkdir(dirname(target), { recursive: true });
 	await copyFile(original, target);
+	// Registry archives may contain group-only notices (e.g. mode 0640).
+	// A package must be readable by the installing account, not just its builder.
+	await chmod(target, elf ? 0o755 : 0o644);
 	copied.set(destination, sha256);
 	origins.set(destination, { source: original, sha256, bytes: bytes.length });
 	if (elf) elfSources.set(original, destination);
@@ -139,6 +143,8 @@ for (const name of [
 	"null",
 	"info",
 	"meta",
+	"magick",
+	"pnm",
 ]) {
 	await copy(
 		join(values["magick-modules"], `${name}.so`),
@@ -302,7 +308,12 @@ const provenance = {
 	]),
 	toolchain: {
 		node: process.version,
-		rust: run("rustc", ["--version"], { PATH: process.env.PATH }),
+		rust: run("rustc", ["--version"], {
+			PATH: process.env.PATH,
+			...(process.env.RUSTUP_TOOLCHAIN
+				? { RUSTUP_TOOLCHAIN: process.env.RUSTUP_TOOLCHAIN }
+				: {}),
+		}),
 	},
 	sourceManifestSha256: hash(await readFile(values.manifest)),
 	packages: Object.fromEntries(packages),

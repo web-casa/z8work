@@ -1,4 +1,5 @@
 import { parseArgs } from "node:util";
+import { checkVersions } from "./lib/desktop-versions.mjs";
 import { execFileSync } from "node:child_process";
 import {
 	readFile,
@@ -24,6 +25,7 @@ const { values } = parseArgs({
 });
 for (const key of ["binary", "engines", "output"])
 	if (!values[key]) throw new Error(`--${key} required`);
+await checkVersions();
 const root = resolve(values.output),
 	engines = await realpath(values.engines);
 const canonicalOutput = join(await realpath(dirname(root)), basename(root));

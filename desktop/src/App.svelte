@@ -13,6 +13,7 @@
 	import ImportNotice from "./ImportNotice.svelte";
 	import Diagnostics from "./Diagnostics.svelte";
 	import Impact from "./Impact.svelte";
+	import Licenses from "./Licenses.svelte";
 	import { localProcessing, resultNote } from "./platform/impact";
 	import {
 		createPreview,
@@ -1065,6 +1066,7 @@
 			location={info?.processing_location}
 		/>
 		<Diagnostics {english} />
+		<Licenses {english} />
 		<footer>
 			<PixelIcon name="lock" size={18} /><span
 				>{t(

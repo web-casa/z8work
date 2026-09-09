@@ -71,6 +71,87 @@ fn inside(root: &Path, value: &str, directory: bool) -> Result<PathBuf, String> 
     }
     Ok(current)
 }
+
+#[derive(serde::Serialize)]
+pub struct LicenseEntry {
+    pub id: String,
+    pub bytes: u64,
+}
+fn license_manifest(root: &Path) -> Result<Bundle, String> {
+    if fs::symlink_metadata(root)
+        .map_err(|e| e.to_string())?
+        .file_type()
+        .is_symlink()
+    {
+        return Err("License bundle root must not be a symlink".into());
+    }
+    let path = inside(root, "engines.json", false)?;
+    let mut data = Vec::new();
+    crate::input::open_regular(&path)
+        .map_err(|e| e.to_string())?
+        .take(2 * 1024 * 1024 + 1)
+        .read_to_end(&mut data)
+        .map_err(|e| e.to_string())?;
+    if data.len() > 2 * 1024 * 1024 {
+        return Err("License manifest too large".into());
+    }
+    let bundle: Bundle = serde_json::from_slice(&data).map_err(|e| e.to_string())?;
+    if bundle.schema != 2
+        || bundle.kind != "bundled"
+        || bundle.os != std::env::consts::OS
+        || bundle.arch != std::env::consts::ARCH
+        || bundle.files.len() > 10000
+    {
+        return Err("Invalid license bundle".into());
+    }
+    Ok(bundle)
+}
+/// Package notices only; root comes from the application's resource resolver.
+/// Listing does not certify the bundle's redistribution or source completeness.
+pub fn license_index(root: &Path) -> Result<Vec<LicenseEntry>, String> {
+    let bundle = license_manifest(root)?;
+    let mut entries = Vec::new();
+    for (id, entry) in &bundle.files {
+        if !id.starts_with("licenses/") {
+            continue;
+        }
+        relative(id)?;
+        if entry.bytes > 2 * 1024 * 1024 {
+            return Err("License notice too large".into());
+        }
+        entries.push(LicenseEntry {
+            id: id.clone(),
+            bytes: entry.bytes,
+        });
+    }
+    if entries.len() > 1024 {
+        return Err("Too many license notices".into());
+    }
+    Ok(entries)
+}
+pub fn read_license(root: &Path, id: &str) -> Result<String, String> {
+    if !id.starts_with("licenses/") {
+        return Err("Not a license notice".into());
+    }
+    relative(id)?;
+    let bundle = license_manifest(root)?;
+    let entry = bundle.files.get(id).ok_or("Unlisted license notice")?;
+    if entry.bytes > 2 * 1024 * 1024 {
+        return Err("License notice too large".into());
+    }
+    let path = inside(root, id, false)?;
+    let mut data = Vec::new();
+    crate::input::open_regular(&path)
+        .map_err(|e| e.to_string())?
+        .take(entry.bytes + 1)
+        .read_to_end(&mut data)
+        .map_err(|e| e.to_string())?;
+    use sha2::{Digest, Sha256};
+    if data.len() as u64 != entry.bytes || format!("{:x}", Sha256::digest(&data)) != entry.sha256 {
+        return Err("License integrity mismatch".into());
+    }
+    String::from_utf8(data).map_err(|_| "License notice is not UTF-8".into())
+}
 impl VerifiedBundle {
     pub fn verify(&self) -> Result<(), String> {
         self.verify_checked(
@@ -278,6 +359,58 @@ mod tests {
         )
         .unwrap();
         Engines::load_bundle(root)
+    }
+    #[test]
+    fn license_reader_is_bounded_allowlisted_and_hash_checked() {
+        let (root, mut value) = fixture();
+        fs::create_dir(root.path().join("licenses")).unwrap();
+        let path = root.path().join("licenses/NOTICE");
+        fs::write(&path, "Original notice\n").unwrap();
+        value["files"]["licenses/NOTICE"] =
+            serde_json::json!({"sha256": crate::hash_file(&path).unwrap(), "bytes": 16});
+        load(root.path(), &value).unwrap();
+        assert_eq!(license_index(root.path()).unwrap().len(), 1);
+        assert_eq!(
+            read_license(root.path(), "licenses/NOTICE").unwrap(),
+            "Original notice\n"
+        );
+        for id in [
+            "tool",
+            "licenses/../tool",
+            "/licenses/NOTICE",
+            "licenses/absent",
+            "licenses\\NOTICE",
+        ] {
+            assert!(read_license(root.path(), id).is_err());
+        }
+        fs::write(&path, "Changed notice!\n").unwrap();
+        assert!(read_license(root.path(), "licenses/NOTICE").is_err());
+        value["files"]["licenses/NOTICE"]["bytes"] = (2 * 1024 * 1024 + 1).into();
+        fs::write(
+            root.path().join("engines.json"),
+            serde_json::to_vec(&value).unwrap(),
+        )
+        .unwrap();
+        assert!(license_index(root.path()).is_err());
+        assert!(read_license(root.path(), "licenses/NOTICE").is_err());
+    }
+    #[cfg(unix)]
+    #[test]
+    fn license_reader_rejects_symlink_even_with_matching_bytes() {
+        let (root, mut value) = fixture();
+        fs::create_dir(root.path().join("licenses")).unwrap();
+        value["files"]["licenses/NOTICE"] = value["files"]["tool"].clone();
+        fs::write(
+            root.path().join("engines.json"),
+            serde_json::to_vec(&value).unwrap(),
+        )
+        .unwrap();
+        std::os::unix::fs::symlink(
+            root.path().join("tool"),
+            root.path().join("licenses/NOTICE"),
+        )
+        .unwrap();
+        assert!(read_license(root.path(), "licenses/NOTICE").is_err());
     }
     #[test]
     fn bundle_is_relocatable_and_detects_changed_or_extra_files() {
