@@ -4,6 +4,9 @@ set -eu
 . /etc/os-release
 [ "$ID" = ubuntu ] && [ "$VERSION_ID" = 24.04 ]
 [ "$(uname -m)" = x86_64 ]
+# The caller builds the frontend before copying sources into this native builder.
+# Keep its module receipt and package notices; host Rollup binaries cannot run here.
+[ -f desktop/dist/index.html ] && [ -f .desktop-local/frontend-modules.json ]
 [ -n "${Z8_MAGICK_SOURCE:-}" ] && [ -n "${Z8_MAGICK_PATCHES:-}" ] && [ -n "${Z8_BUILD_OUTPUT:-}" ]
 [ ! -e "$Z8_BUILD_OUTPUT" ]
 mkdir -p "$Z8_BUILD_OUTPUT"
@@ -42,7 +45,6 @@ cp "$Z8_BUILD_OUTPUT/imagemagick-build/NOTICE" "$Z8_BUILD_OUTPUT/source-licenses
 cp "$Z8_BUILD_OUTPUT/imagemagick-build/debian/copyright" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-Debian-copyright"
 cp "$Z8_BUILD_OUTPUT/imagemagick-source.sha256" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-sources.sha256"
 cp packaging/desktop/linux/build-core24.sh "$Z8_BUILD_OUTPUT/source-licenses/build-core24.sh"
-node node_modules/vite/bin/vite.js build --config desktop/vite.config.ts
 node scripts/desktop-prepare.mjs --magick /opt/z8-im/bin/magick \
     --ffmpeg /usr/bin/ffmpeg --ffprobe /usr/bin/ffprobe \
     --pandoc /usr/bin/pandoc --pandoc-data-dir /usr/share/pandoc/data --mutool /usr/bin/mutool
