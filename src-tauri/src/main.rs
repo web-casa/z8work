@@ -1,6 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod boot;
 mod build_report;
+mod dialogs;
+mod impact;
 mod quit;
 #[cfg(all(feature = "development-engines", feature = "packaged-engines"))]
 compile_error!("packaged-engines and development-engines are mutually exclusive");
@@ -110,6 +112,14 @@ impl Drop for DialogGuard {
     }
 }
 impl Backend {
+    fn language(&self) -> z8_native::preferences::Language {
+        self.preferences
+            .as_ref()
+            .ok()
+            .and_then(|p| p.read().ok())
+            .map(|r| r.preferences.language)
+            .unwrap_or_default()
+    }
     fn queue(&self) -> Result<Arc<Queue>, String> {
         self.boot.queue()
     }
@@ -128,6 +138,7 @@ impl Backend {
 }
 #[derive(Serialize)]
 struct DesktopInfo {
+    processing_location: &'static str,
     preparing: bool,
     startup: Vec<z8_native::startup::Status>,
     pending_imports: usize,
@@ -143,6 +154,7 @@ struct DesktopInfo {
 fn desktop_info(state: State<Backend>) -> DesktopInfo {
     let services = state.boot.services.get();
     DesktopInfo {
+        processing_location: "device-v1",
         preparing: services.is_none()
             && state.boot.failure() != Some(z8_native::failure::Failure::History),
         startup: state.engines.status(),
@@ -157,6 +169,14 @@ fn desktop_info(state: State<Backend>) -> DesktopInfo {
         queue_error: state.queue().err().filter(|e| e != "Z8:preparing"),
         architecture: format!("{} / {}", std::env::consts::OS, std::env::consts::ARCH),
     }
+}
+#[tauri::command]
+async fn open_impact_source(id: String) -> Result<(), String> {
+    let url = impact::source(&id)?.to_owned();
+    tauri::async_runtime::spawn_blocking(move || tauri_plugin_opener::open_url(url, None::<&str>))
+        .await
+        .map_err(|_| "Could not open source")?
+        .map_err(|_| "Could not open source".into())
 }
 #[tauri::command]
 async fn preview_diagnostics(
@@ -196,12 +216,13 @@ async fn save_diagnostics(
     if !state.closing.accepts_dialog() {
         return Err("Application is closing".into());
     }
+    let title = dialogs::title(&state.language(), dialogs::Kind::Diagnostic);
     tauri::async_runtime::spawn_blocking(move || {
         let _guard = guard;
         let mut picker = app
             .dialog()
             .file()
-            .set_title("Z8.Work — Save diagnostic report")
+            .set_title(title)
             .set_file_name("z8-work-diagnostics.json")
             .add_filter("JSON", &["json"]);
         if let Some(window) = app.get_webview_window("main") {
@@ -281,11 +302,9 @@ async fn pick_inputs(
     state: State<'_, Backend>,
 ) -> Result<Snapshot, String> {
     let _guard = state.begin_dialog()?;
+    let title = dialogs::title(&state.language(), dialogs::Kind::Input);
     let paths = tauri::async_runtime::spawn_blocking(move || {
-        let mut picker = app
-            .dialog()
-            .file()
-            .set_title("Z8.Work — Select input files");
+        let mut picker = app.dialog().file().set_title(title);
         if let Some(window) = app.get_webview_window("main") {
             picker = picker.set_parent(&window);
         }
@@ -321,11 +340,9 @@ async fn pick_output(app: tauri::AppHandle, state: State<'_, Backend>) -> Result
         .await
         .map_err(|e| e.to_string())?
         .or_else(|| app.path().home_dir().ok());
+    let title = dialogs::title(&state.language(), dialogs::Kind::Output);
     let path = tauri::async_runtime::spawn_blocking(move || {
-        let mut picker = app
-            .dialog()
-            .file()
-            .set_title("Z8.Work — Select output folder");
+        let mut picker = app.dialog().file().set_title(title);
         if let Some(window) = app.get_webview_window("main") {
             picker = picker.set_parent(&window);
         }
@@ -545,6 +562,7 @@ fn main() {
         })
         .invoke_handler(tauri::generate_handler![
             desktop_info,
+            open_impact_source,
             preview_diagnostics,
             save_diagnostics,
             read_preferences,

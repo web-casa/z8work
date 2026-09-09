@@ -13,7 +13,8 @@ export async function checkDiagnostics({
 	change,
 	checks,
 }) {
-	const title = "^Z8.Work — Save diagnostic report$";
+	const title =
+		"^Z8.Work — (Save diagnostic report|保存诊断报告|Save diagnostic report / 保存诊断报告)$";
 	await assert.rejects(
 		invoke("save_diagnostics", { id: "invalid" }),
 		/Preview.*again/,

@@ -1,3 +1,5 @@
+import { benchmarkStartup } from "./lib/desktop-startup-benchmark.mjs";
+import { checkProduct } from "./lib/desktop-product-checks.mjs";
 import { startupFixture } from "./lib/desktop-startup-checks.mjs";
 import { checkSaveRetry } from "./lib/desktop-save-retry-checks.mjs";
 import { checkDiagnostics } from "./lib/desktop-diagnostics-checks.mjs";
@@ -14,6 +16,7 @@ import {
 	checkPdfExport,
 } from "./lib/desktop-pdf-preview-checks.mjs";
 import { promisify } from "node:util";
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { spawn, execFile } from "node:child_process";
 import { createServer } from "node:net";
@@ -24,6 +27,7 @@ import {
 	readFile,
 	writeFile,
 	copyFile,
+	chmod,
 	truncate,
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
@@ -40,7 +44,12 @@ const xd = process.env.Z8_XDOTOOL;
 if (!xd) throw new Error("Set Z8_XDOTOOL");
 const checks = [];
 const routes = [];
-const startupMode = process.argv.includes("--startup");
+const benchmarkOnly = process.argv.includes("--startup-benchmark-only");
+const productOnly = process.argv.includes("--product-only");
+const productMode =
+	benchmarkOnly || productOnly || process.argv.includes("--product");
+const startupMode =
+	!productOnly && (productMode || process.argv.includes("--startup"));
 const saveRetryMode = startupMode || process.argv.includes("--save-retry");
 const diagnosticsMode = saveRetryMode || process.argv.includes("--diagnostics");
 const storageMode = diagnosticsMode || process.argv.includes("--storage");
@@ -50,25 +59,40 @@ const mediaMode = importMode || process.argv.includes("--media");
 const pdfMode = mediaMode || process.argv.includes("--pdf");
 const root = await mkdtemp(
 	resolve(
-		startupMode
-			? ".desktop-local/phase26-gui-"
-			: saveRetryMode
-				? ".desktop-local/phase25-gui-"
-				: diagnosticsMode
-					? ".desktop-local/phase23-gui-"
-					: storageMode
-						? ".desktop-local/phase22-gui-"
-						: workspaceMode
-							? ".desktop-local/phase21-gui-"
-							: importMode
-								? ".desktop-local/phase20-gui-"
-								: mediaMode
-									? ".desktop-local/phase19-gui-"
-									: pdfMode
-										? ".desktop-local/phase18-gui-"
-										: ".desktop-local/phase17-gui-",
+		productMode
+			? ".desktop-local/phase27-gui-"
+			: startupMode
+				? ".desktop-local/phase26-gui-"
+				: saveRetryMode
+					? ".desktop-local/phase25-gui-"
+					: diagnosticsMode
+						? ".desktop-local/phase23-gui-"
+						: storageMode
+							? ".desktop-local/phase22-gui-"
+							: workspaceMode
+								? ".desktop-local/phase21-gui-"
+								: importMode
+									? ".desktop-local/phase20-gui-"
+									: mediaMode
+										? ".desktop-local/phase19-gui-"
+										: pdfMode
+											? ".desktop-local/phase18-gui-"
+											: ".desktop-local/phase17-gui-",
 	),
 );
+// Snapshot the development executable so rebuilds cannot invalidate current_exe
+// while its process supervisors are launching watchdogs. Explicit binary paths
+// retain their layout (for callers testing a self-contained resource directory).
+const binary = process.env.Z8_GUI_BINARY
+	? resolve(process.env.Z8_GUI_BINARY)
+	: join(root, "z8-desktop");
+if (!process.env.Z8_GUI_BINARY) {
+	await copyFile(resolve("src-tauri/target/debug/z8-desktop"), binary);
+	await chmod(binary, 0o700);
+}
+const binarySha256 = createHash("sha256")
+	.update(await readFile(binary))
+	.digest("hex");
 const startup = startupMode
 	? await startupFixture(root, process.env.Z8_DEV_ENGINE_MANIFEST)
 	: undefined;
@@ -149,10 +173,7 @@ async function open() {
 		capabilities: {
 			alwaysMatch: {
 				"tauri:options": {
-					application: resolve(
-						process.env.Z8_GUI_BINARY ||
-							"src-tauri/target/debug/z8-desktop",
-					),
+					application: binary,
 				},
 			},
 		},
@@ -331,317 +352,392 @@ try {
 		}
 	}, "Driver unavailable");
 	await open();
-	await change(".language select", "en");
-	await workspaces?.startup({ invoke, js, checks, screenshot });
-	await startup?.check({
-		output,
-		submit,
-		invoke,
-		js,
-		change,
-		choose,
-		until,
-		screenshot,
-		checks,
-	});
-	await change(".language select", "en");
-	if (importMode)
-		await checkImports({
+	if (benchmarkOnly) {
+		await benchmarkStartup({
 			root,
-			choose,
-			invoke,
-			js,
-			until,
-			change,
-			screenshot,
-			preview,
-			checks,
-			reload: async () => {
-				await request(`${prefix}/refresh`, {});
-				await ready();
-			},
-		});
-	await assert.rejects(
-		invoke("preview_input", { id: "/etc/passwd" }),
-		/Choose|input/i,
-	);
-	// Track actual WebView Blob URL ownership, without changing production IPC.
-	await js(
-		"window.previewUrls={created:[],revoked:[]};const c=URL.createObjectURL.bind(URL),r=URL.revokeObjectURL.bind(URL);URL.createObjectURL=b=>{const u=c(b);window.previewUrls.created.push(u);return u};URL.revokeObjectURL=u=>{window.previewUrls.revoked.push(u);r(u)};",
-	);
-	for (const ext of ["png", "jpg", "webp", "avif", "heic"]) {
-		const file = join(root, `input.${ext}`);
-		if (ext === "png") await copyFile(big, file);
-		else
-			await execute(
-				manifest.engines.magick.path,
-				[big, "-quality", "70", file],
-				{ timeout: 30000 },
-			);
-		await choose("pick_inputs", file, "^Z8.Work — Select input files$");
-		const s = await invoke("queue_snapshot");
-		const t = s.tasks.find((t) => t.name === `input.${ext}`);
-		const img = await preview(t.id);
-		assert.ok(img.width <= 256 && img.height <= 256);
-		assert.equal(img.width, 256);
-		assert.equal((await invoke("queue_snapshot")).output_authorized, false);
-		routes.push({ input: ext, width: img.width, height: img.height });
-	}
-	checks.push(
-		"five-native-image-routes",
-		"preview-without-output-authorization",
-	);
-	let urls = await js("return window.previewUrls");
-	assert.equal(urls.created.length, 5);
-	assert.equal(urls.revoked.length, 4);
-	await screenshot("preview.png");
-	const pdfHarness = {
-		root,
-		choose,
-		change,
-		invoke,
-		preview,
-		js,
-		checks,
-		routes,
-		execute,
-		manifest,
-		screenshot,
-		submit,
-		until,
-	};
-	const pdfId = pdfMode ? await checkPdfPreviews(pdfHarness) : undefined;
-	const mediaIds = mediaMode
-		? await checkMediaPreviews(pdfHarness)
-		: undefined;
-
-	const state = await invoke("queue_snapshot"),
-		png = state.tasks.find((t) => t.name === "input.png");
-	await preview(png.id);
-	await choose(
-		"pick_output",
-		output + "/",
-		"^Z8.Work — Select output folder$",
-	);
-	await invoke("set_task_format", { id: png.id, format: "avif" });
-	await submit(png.id);
-	await workspaces?.duringJob({ checks, until });
-	await js('document.querySelector("[data-preview-close]").click()');
-	const done = await until(
-		async () => {
-			const s = await invoke("queue_snapshot");
-			return !s.processing && s;
-		},
-		"Conversion stalled",
-		60000,
-	);
-	assert.equal(done.tasks.find((t) => t.id === png.id).phase, "saved");
-	const result = done.tasks.find((t) => t.id === png.id).result.files[0].path;
-	const dimensions = (
-		await execute(
-			manifest.engines.magick.path,
-			["identify", "-format", "%w %h", result],
-			{ timeout: 10000 },
-		)
-	).stdout;
-	assert.equal(dimensions, "1024 768");
-	checks.push(
-		"closing-preview-does-not-cancel-conversion",
-		"conversion-retains-original-dimensions",
-	);
-	await preview(png.id);
-	await invoke("remove_tasks", { ids: [png.id] });
-	await until(
-		() =>
-			js(
-				'return document.querySelectorAll(".input-preview img").length===0',
-			),
-		"Removed preview survived",
-	);
-	urls = await js("return window.previewUrls");
-	assert.deepEqual([...urls.created].sort(), [...urls.revoked].sort());
-	checks.push("blob-urls-released-on-replace-close-remove");
-	if (pdfId) await checkPdfExport(pdfHarness, pdfId);
-	if (mediaIds) await checkMediaExport(pdfHarness, mediaIds);
-	if (storageMode) await checkStorage({ ...pdfHarness, output });
-	if (saveRetryMode)
-		await checkSaveRetry({ ...pdfHarness, output, xdotool, windows });
-	if (diagnosticsMode)
-		await checkDiagnostics({ ...pdfHarness, xdotool, windows });
-	const bad = join(root, "broken.png");
-	await writeFile(bad, "not an image");
-	await choose("pick_inputs", bad, "^Z8.Work — Select input files$");
-	const broken = (await invoke("queue_snapshot")).tasks.find(
-		(t) => t.name === "broken.png",
-	);
-	await js(
-		'document.querySelector(`[data-task-id="${arguments[0]}"] [data-preview-open]`).click()',
-		[broken.id],
-	);
-	await until(
-		() => js('return !!document.querySelector(".input-preview .error")'),
-		"Preview error missing",
-	);
-	assert.equal((await invoke("queue_snapshot")).processing, false);
-	assert.equal(
-		(await invoke("queue_snapshot")).tasks.find((t) => t.id === broken.id)
-			.phase,
-		"ready",
-	);
-	checks.push("bad-preview-does-not-change-task-state");
-	const huge = join(root, "over-budget.png");
-	await copyFile(big, huge);
-	await truncate(huge, 33554433);
-	await choose("pick_inputs", huge, "^Z8.Work — Select input files$");
-	const oversized = (await invoke("queue_snapshot")).tasks.find(
-		(t) => t.name === "over-budget.png",
-	);
-	await assert.rejects(
-		invoke("preview_input", { id: oversized.id }),
-		/32 MiB/,
-	);
-	assert.equal(
-		await js(
-			'return !!document.querySelector(`[data-task-id="${arguments[0]}"] [data-preview-open]`)',
-			[oversized.id],
-		),
-		false,
-	);
-	// Valid PNG plus trailing bytes: preview limit is narrower than conversion.
-	await invoke("set_task_format", { id: oversized.id, format: "webp" });
-	await submit(oversized.id);
-	const afterLimit = await until(
-		async () => {
-			const s = await invoke("queue_snapshot");
-			return !s.processing && s;
-		},
-		"Over-budget original did not convert",
-		60000,
-	);
-	assert.equal(
-		afterLimit.tasks.find((t) => t.id === oversized.id).phase,
-		"saved",
-	);
-	checks.push("preview-budget-does-not-block-conversion");
-	const target = state.tasks.find((t) => t.name === "input.jpg");
-	await writeFile(join(root, "input.jpg"), "changed bytes");
-	await assert.rejects(
-		invoke("preview_input", { id: target.id }),
-		/changed/i,
-	);
-	assert.equal(
-		(await invoke("queue_snapshot")).tasks.find((t) => t.id === target.id)
-			.authorized,
-		false,
-	);
-	checks.push("changed-file-refused");
-	const good = (await invoke("queue_snapshot")).tasks.find(
-		(t) => t.name === "input.webp",
-	);
-	await preview(good.id);
-	await request(`${prefix}/refresh`, {});
-	await ready();
-	assert.equal(
-		await js(
-			'return document.querySelectorAll(".input-preview img").length',
-		),
-		0,
-	);
-	checks.push("reload-does-not-reuse-preview");
-	await workspaces?.afterJobs({ checks, output });
-	await startup?.checkProgress({
-		invoke,
-		js,
-		change,
-		choose,
-		until,
-		screenshot,
-		checks,
-		output,
-		submit,
-	});
-	await change(".language select", "en");
-	await request(prefix, null, "DELETE");
-	prefix = undefined;
-	await open();
-	await assert.rejects(invoke("preview_input", { id: good.id }), /again/);
-	checks.push("restart-requires-input-authorization");
-	if (workspaces) {
-		await request(prefix, null, "DELETE");
-		prefix = undefined;
-		await workspaces.makeUnavailable();
-		await open();
-		await workspaces.checkUnavailable({ invoke, js, checks, until });
-		if (diagnosticsMode) {
-			await request(prefix, null, "DELETE");
-			prefix = undefined;
-			const history = join(
-				root,
-				"data",
-				"work.z8.desktop.m0",
-				"queue-v1.json",
-			);
-			const savedHistory = await readFile(history);
-			try {
-				await writeFile(history, "PRIVATE_BROKEN_HISTORY");
-				await open();
-				const preview = await invoke("preview_diagnostics");
-				const report = JSON.parse(preview.text);
-				assert.equal(report.queue, null);
-				assert.equal(report.workspace_initialized, false);
-				assert.equal(
-					preview.text.includes("PRIVATE_BROKEN_HISTORY"),
-					false,
-				);
-				await js(
-					'document.querySelector("[data-diagnostics]").open=true;document.querySelector("[data-diagnostics-preview]").click()',
-				);
-				await until(
-					() =>
-						js(
-							'return !!document.querySelector("#diagnostic-report")',
-						),
-					"Diagnostic UI unavailable with broken history",
-				);
-				await js(
-					'document.querySelector("[data-diagnostics-save]").click()',
-				);
-				const win = await until(
-					async () =>
-						(
-							await windows("^Z8.Work — Save diagnostic report$")
-						)[0],
-					"Broken queue blocked diagnostic save",
-				);
-				await xdotool("windowfocus", win);
-				await xdotool("key", "Escape");
-				await until(
-					() =>
-						js(
-							'return document.querySelector("[data-diagnostics-outcome]")?.textContent.includes("cancelled")',
-						),
-					"Diagnostic cancellation did not settle",
-				);
-				checks.push(
-					"diagnostics-remain-available-with-broken-queue-and-cache",
-				);
-			} finally {
+			manifestPath: startup.path,
+			open,
+			close: async () => {
 				if (prefix) {
 					await request(prefix, null, "DELETE");
 					prefix = undefined;
 				}
-				await writeFile(history, savedHistory);
-			}
+			},
+			invoke,
+			js,
+			until,
+			checks,
+		});
+	} else if (productOnly) {
+		await checkProduct({
+			invoke,
+			js,
+			change,
+			choose,
+			submit,
+			until,
+			screenshot,
+			checks,
+			xdotool,
+			windows,
+			root,
+			output,
+		});
+	} else {
+		await change(".language select", "en");
+		await workspaces?.startup({ invoke, js, checks, screenshot });
+		await startup?.check({
+			output,
+			submit,
+			invoke,
+			js,
+			change,
+			choose,
+			until,
+			screenshot,
+			checks,
+		});
+		await change(".language select", "en");
+		if (importMode)
+			await checkImports({
+				root,
+				choose,
+				invoke,
+				js,
+				until,
+				change,
+				screenshot,
+				preview,
+				checks,
+				reload: async () => {
+					await request(`${prefix}/refresh`, {});
+					await ready();
+				},
+			});
+		await assert.rejects(
+			invoke("preview_input", { id: "/etc/passwd" }),
+			/Choose|input/i,
+		);
+		// Track actual WebView Blob URL ownership, without changing production IPC.
+		await js(
+			"window.previewUrls={created:[],revoked:[]};const c=URL.createObjectURL.bind(URL),r=URL.revokeObjectURL.bind(URL);URL.createObjectURL=b=>{const u=c(b);window.previewUrls.created.push(u);return u};URL.revokeObjectURL=u=>{window.previewUrls.revoked.push(u);r(u)};",
+		);
+		for (const ext of ["png", "jpg", "webp", "avif", "heic"]) {
+			const file = join(root, `input.${ext}`);
+			if (ext === "png") await copyFile(big, file);
+			else
+				await execute(
+					manifest.engines.magick.path,
+					[big, "-quality", "70", file],
+					{ timeout: 30000 },
+				);
+			await choose(
+				"pick_inputs",
+				file,
+				"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+			);
+			const s = await invoke("queue_snapshot");
+			const t = s.tasks.find((t) => t.name === `input.${ext}`);
+			const img = await preview(t.id);
+			assert.ok(img.width <= 256 && img.height <= 256);
+			assert.equal(img.width, 256);
+			assert.equal(
+				(await invoke("queue_snapshot")).output_authorized,
+				false,
+			);
+			routes.push({ input: ext, width: img.width, height: img.height });
 		}
-	}
-	if (startup) {
-		if (prefix) {
+		checks.push(
+			"five-native-image-routes",
+			"preview-without-output-authorization",
+		);
+		let urls = await js("return window.previewUrls");
+		assert.equal(urls.created.length, 5);
+		assert.equal(urls.revoked.length, 4);
+		await screenshot("preview.png");
+		const pdfHarness = {
+			root,
+			choose,
+			change,
+			invoke,
+			preview,
+			js,
+			checks,
+			routes,
+			execute,
+			manifest,
+			screenshot,
+			submit,
+			until,
+		};
+		const pdfId = pdfMode ? await checkPdfPreviews(pdfHarness) : undefined;
+		const mediaIds = mediaMode
+			? await checkMediaPreviews(pdfHarness)
+			: undefined;
+
+		const state = await invoke("queue_snapshot"),
+			png = state.tasks.find((t) => t.name === "input.png");
+		await preview(png.id);
+		await choose(
+			"pick_output",
+			output + "/",
+			"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
+		);
+		await invoke("set_task_format", { id: png.id, format: "avif" });
+		await submit(png.id);
+		await workspaces?.duringJob({ checks, until });
+		await js('document.querySelector("[data-preview-close]").click()');
+		const done = await until(
+			async () => {
+				const s = await invoke("queue_snapshot");
+				return !s.processing && s;
+			},
+			"Conversion stalled",
+			60000,
+		);
+		assert.equal(done.tasks.find((t) => t.id === png.id).phase, "saved");
+		const result = done.tasks.find((t) => t.id === png.id).result.files[0]
+			.path;
+		const dimensions = (
+			await execute(
+				manifest.engines.magick.path,
+				["identify", "-format", "%w %h", result],
+				{ timeout: 10000 },
+			)
+		).stdout;
+		assert.equal(dimensions, "1024 768");
+		checks.push(
+			"closing-preview-does-not-cancel-conversion",
+			"conversion-retains-original-dimensions",
+		);
+		await preview(png.id);
+		await invoke("remove_tasks", { ids: [png.id] });
+		await until(
+			() =>
+				js(
+					'return document.querySelectorAll(".input-preview img").length===0',
+				),
+			"Removed preview survived",
+		);
+		urls = await js("return window.previewUrls");
+		assert.deepEqual([...urls.created].sort(), [...urls.revoked].sort());
+		checks.push("blob-urls-released-on-replace-close-remove");
+		if (pdfId) await checkPdfExport(pdfHarness, pdfId);
+		if (mediaIds) await checkMediaExport(pdfHarness, mediaIds);
+		if (storageMode) await checkStorage({ ...pdfHarness, output });
+		if (saveRetryMode)
+			await checkSaveRetry({ ...pdfHarness, output, xdotool, windows });
+		if (diagnosticsMode)
+			await checkDiagnostics({ ...pdfHarness, xdotool, windows });
+		const bad = join(root, "broken.png");
+		await writeFile(bad, "not an image");
+		await choose(
+			"pick_inputs",
+			bad,
+			"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+		);
+		const broken = (await invoke("queue_snapshot")).tasks.find(
+			(t) => t.name === "broken.png",
+		);
+		await js(
+			'document.querySelector(`[data-task-id="${arguments[0]}"] [data-preview-open]`).click()',
+			[broken.id],
+		);
+		await until(
+			() =>
+				js('return !!document.querySelector(".input-preview .error")'),
+			"Preview error missing",
+		);
+		assert.equal((await invoke("queue_snapshot")).processing, false);
+		assert.equal(
+			(await invoke("queue_snapshot")).tasks.find(
+				(t) => t.id === broken.id,
+			).phase,
+			"ready",
+		);
+		checks.push("bad-preview-does-not-change-task-state");
+		const huge = join(root, "over-budget.png");
+		await copyFile(big, huge);
+		await truncate(huge, 33554433);
+		await choose(
+			"pick_inputs",
+			huge,
+			"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+		);
+		const oversized = (await invoke("queue_snapshot")).tasks.find(
+			(t) => t.name === "over-budget.png",
+		);
+		await assert.rejects(
+			invoke("preview_input", { id: oversized.id }),
+			/32 MiB/,
+		);
+		assert.equal(
+			await js(
+				'return !!document.querySelector(`[data-task-id="${arguments[0]}"] [data-preview-open]`)',
+				[oversized.id],
+			),
+			false,
+		);
+		// Valid PNG plus trailing bytes: preview limit is narrower than conversion.
+		await invoke("set_task_format", { id: oversized.id, format: "webp" });
+		await submit(oversized.id);
+		const afterLimit = await until(
+			async () => {
+				const s = await invoke("queue_snapshot");
+				return !s.processing && s;
+			},
+			"Over-budget original did not convert",
+			60000,
+		);
+		assert.equal(
+			afterLimit.tasks.find((t) => t.id === oversized.id).phase,
+			"saved",
+		);
+		checks.push("preview-budget-does-not-block-conversion");
+		const target = state.tasks.find((t) => t.name === "input.jpg");
+		await writeFile(join(root, "input.jpg"), "changed bytes");
+		await assert.rejects(
+			invoke("preview_input", { id: target.id }),
+			/changed/i,
+		);
+		assert.equal(
+			(await invoke("queue_snapshot")).tasks.find(
+				(t) => t.id === target.id,
+			).authorized,
+			false,
+		);
+		checks.push("changed-file-refused");
+		const good = (await invoke("queue_snapshot")).tasks.find(
+			(t) => t.name === "input.webp",
+		);
+		await preview(good.id);
+		await request(`${prefix}/refresh`, {});
+		await ready();
+		assert.equal(
+			await js(
+				'return document.querySelectorAll(".input-preview img").length',
+			),
+			0,
+		);
+		checks.push("reload-does-not-reuse-preview");
+		await workspaces?.afterJobs({ checks, output });
+		await startup?.checkProgress({
+			invoke,
+			js,
+			change,
+			choose,
+			until,
+			screenshot,
+			checks,
+			output,
+			submit,
+		});
+		await change(".language select", "en");
+		await request(prefix, null, "DELETE");
+		prefix = undefined;
+		await open();
+		await assert.rejects(invoke("preview_input", { id: good.id }), /again/);
+		checks.push("restart-requires-input-authorization");
+		if (productMode)
+			await checkProduct({
+				invoke,
+				js,
+				change,
+				choose,
+				submit,
+				until,
+				screenshot,
+				checks,
+				xdotool,
+				windows,
+				root,
+				output,
+			});
+		if (workspaces) {
 			await request(prefix, null, "DELETE");
 			prefix = undefined;
+			await workspaces.makeUnavailable();
+			await open();
+			await workspaces.checkUnavailable({ invoke, js, checks, until });
+			if (diagnosticsMode) {
+				await request(prefix, null, "DELETE");
+				prefix = undefined;
+				const history = join(
+					root,
+					"data",
+					"work.z8.desktop.m0",
+					"queue-v1.json",
+				);
+				const savedHistory = await readFile(history);
+				try {
+					await writeFile(history, "PRIVATE_BROKEN_HISTORY");
+					await open();
+					const preview = await invoke("preview_diagnostics");
+					const report = JSON.parse(preview.text);
+					assert.equal(report.queue, null);
+					assert.equal(report.workspace_initialized, false);
+					assert.equal(
+						preview.text.includes("PRIVATE_BROKEN_HISTORY"),
+						false,
+					);
+					await js(
+						'document.querySelector("[data-diagnostics]").open=true;document.querySelector("[data-diagnostics-preview]").click()',
+					);
+					await until(
+						() =>
+							js(
+								'return !!document.querySelector("#diagnostic-report")',
+							),
+						"Diagnostic UI unavailable with broken history",
+					);
+					await js(
+						'document.querySelector("[data-diagnostics-save]").click()',
+					);
+					const win = await until(
+						async () =>
+							(
+								await windows(
+									"^Z8.Work — (Save diagnostic report|保存诊断报告|Save diagnostic report / 保存诊断报告)$",
+								)
+							)[0],
+						"Broken queue blocked diagnostic save",
+					);
+					await xdotool("windowfocus", win);
+					await xdotool("key", "Escape");
+					await until(
+						() =>
+							js(
+								'return document.querySelector("[data-diagnostics-outcome]")?.textContent.includes("cancelled")',
+							),
+						"Diagnostic cancellation did not settle",
+					);
+					checks.push(
+						"diagnostics-remain-available-with-broken-queue-and-cache",
+					);
+				} finally {
+					if (prefix) {
+						await request(prefix, null, "DELETE");
+						prefix = undefined;
+					}
+					await writeFile(history, savedHistory);
+				}
+			}
 		}
-		await startup.blockAgain();
-		await open();
-		await startup.checkExit({ invoke, windows, execute, until, checks });
+		if (startup) {
+			if (prefix) {
+				await request(prefix, null, "DELETE");
+				prefix = undefined;
+			}
+			await startup.blockAgain();
+			await open();
+			await startup.checkExit({
+				invoke,
+				windows,
+				execute,
+				until,
+				checks,
+			});
+		}
 	}
 	passed = true;
 } finally {
@@ -673,6 +769,7 @@ try {
 				schema: 1,
 				status: passed ? "passed" : "failed",
 				platform: `${process.platform}/${process.arch}`,
+				binarySha256,
 				routes,
 				checks,
 				installation: "not-run",

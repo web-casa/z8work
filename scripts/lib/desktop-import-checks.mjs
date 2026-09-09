@@ -27,7 +27,7 @@ export async function checkImports(h) {
 	await choose(
 		"pick_inputs",
 		folder + "/",
-		"^Z8.Work — Select input files$",
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
 		true,
 	);
 	const s = await invoke("queue_snapshot"),
@@ -76,7 +76,11 @@ export async function checkImports(h) {
 	);
 	assert.equal((await invoke("queue_snapshot")).import_report.id, report.id);
 	// A later unsuccessful import replaces the report but preserves good tasks.
-	await choose("pick_inputs", bad, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_inputs",
+		bad,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	const next = await invoke("queue_snapshot");
 	assert.equal(next.tasks.length, 2);
 	assert.equal(next.import_report.accepted, 0);

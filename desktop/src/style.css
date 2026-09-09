@@ -52,6 +52,7 @@ select {
 }
 .desktop-header {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 3px solid var(--pixel-line);
@@ -181,6 +182,7 @@ p {
 }
 .workspace-footer {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	gap: 24px;
@@ -222,7 +224,7 @@ footer span:last-child {
 	.desktop-header {
 		padding: 12px 16px;
 	}
-	.brand span {
+	.brand > span:not(.pixel-icon) {
 		display: none;
 	}
 	.toolbar .danger {
@@ -258,6 +260,7 @@ footer span:last-child {
 .options-editor label,
 .batch-settings label {
 	display: inline-flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 8px;
 }
@@ -344,4 +347,93 @@ footer span:last-child {
 }
 .import-notice button {
 	margin-top: 8px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+	outline: 3px solid var(--pixel-teal);
+	outline-offset: 4px;
+}
+.privacy,
+.impact {
+	border: 2px solid var(--pixel-line);
+	padding: 16px;
+	margin-block: 20px;
+	background: var(--bg-panel);
+	font-size: 14px;
+	overflow-wrap: anywhere;
+}
+.privacy summary,
+.impact h2 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 16px;
+}
+.privacy summary,
+.impact summary {
+	cursor: pointer;
+}
+.source-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.source-actions button {
+	text-align: left;
+	font-size: 13px;
+	max-width: 100%;
+}
+@media (max-width: 500px) {
+	.desktop-header {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.language {
+		margin-left: auto;
+	}
+	.workspace-footer {
+		flex-wrap: wrap;
+	}
+	.options-editor label,
+	.batch-settings label {
+		flex-wrap: wrap;
+	}
+	select {
+		max-width: 100%;
+	}
+	.outputs li {
+		align-items: flex-start;
+	}
+}
+.skip-link {
+	position: absolute;
+	left: 16px;
+	top: -100px;
+	z-index: 2;
+	padding: 12px;
+	background: var(--bg-panel);
+	color: var(--pixel-ink);
+	border: 2px solid var(--pixel-line);
+}
+.skip-link:focus {
+	top: 12px;
+}
+
+.language {
+	min-width: 0;
+	max-width: 100%;
+	margin-left: auto;
+}
+.language select {
+	min-width: 0;
+	max-width: 100%;
+}
+
+.privacy summary > .privacy-chevron {
+	margin-left: auto;
+	flex-shrink: 0;
+}
+.privacy[open] .privacy-chevron {
+	transform: rotate(180deg);
 }

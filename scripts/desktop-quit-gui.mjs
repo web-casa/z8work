@@ -289,7 +289,12 @@ try {
 	// Closing while a file picker is open must leave that modal and its queue intact.
 	await js('window.__TAURI_INTERNALS__.invoke("pick_inputs").catch(()=>{});');
 	const picker = await until(
-		async () => (await windows("^Z8.Work — Select input files$"))[0],
+		async () =>
+			(
+				await windows(
+					"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+				)
+			)[0],
 		"Picker missing",
 	);
 	await close();
@@ -298,16 +303,24 @@ try {
 	await xdotool("key", "Escape");
 	await until(
 		async () =>
-			(await windows("^Z8.Work — Select input files$")).length === 0,
+			(
+				await windows(
+					"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+				)
+			).length === 0,
 		"Picker stuck",
 	);
 	assert.equal((await invoke("queue_snapshot")).closing, false);
 	checks.push("close-with-picker-preserves-app");
-	await choose("pick_inputs", fixture, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_inputs",
+		fixture,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	await choose(
 		"pick_output",
 		output + "/",
-		"^Z8.Work — Select output folder$",
+		"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
 	);
 	const smallId = (await invoke("queue_snapshot")).tasks[0].id;
 	await submit([smallId]);
@@ -319,7 +332,11 @@ try {
 	const originals = await Promise.all([readFile(fixture), readFile(big)]);
 	const savedPath = saved.tasks[0].result.files[0].path;
 	const savedBytes = await readFile(savedPath);
-	await choose("pick_inputs", big, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_inputs",
+		big,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	const bigId = (await invoke("queue_snapshot")).tasks.find(
 		(t) => t.name === "large.png",
 	).id;
@@ -387,7 +404,11 @@ try {
 	await change(".language select", "zh_hans");
 	const pending = join(root, "queued.png");
 	await copyFile(fixture, pending);
-	await choose("pick_inputs", pending, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_inputs",
+		pending,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	const queuedId = (await invoke("queue_snapshot")).tasks.find(
 		(t) => t.name === "queued.png",
 	).id;

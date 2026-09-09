@@ -5,6 +5,7 @@
 	"windows": ["main"],
 	"permissions": [
 		"allow-desktop-info",
+		"allow-open-impact-source",
 		"allow-preview-diagnostics",
 		"allow-save-diagnostics",
 		"allow-read-preferences",

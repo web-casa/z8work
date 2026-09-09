@@ -7,11 +7,13 @@
 		type Failure,
 	} from "./platform/runtime";
 	import { submissionItems } from "./platform/queue-contract";
-	import { onMount } from "svelte";
+	import { onMount, tick } from "svelte";
 	import { listen } from "@tauri-apps/api/event";
 	import OptionsEditor from "./OptionsEditor.svelte";
 	import ImportNotice from "./ImportNotice.svelte";
 	import Diagnostics from "./Diagnostics.svelte";
+	import Impact from "./Impact.svelte";
+	import { localProcessing, resultNote } from "./platform/impact";
 	import {
 		createPreview,
 		emptyPreview,
@@ -42,6 +44,7 @@
 		type Language,
 	} from "./platform/preferences";
 	type Info = {
+		processing_location?: string;
 		preparing: boolean;
 		startup: EngineStatus[];
 		pending_imports: number;
@@ -213,6 +216,7 @@
 		if (pending && pending.epoch !== next.epoch) pending = undefined;
 	}
 	async function action(command: string, args?: Record<string, unknown>) {
+		const focused = document.activeElement;
 		if (command === "pick_inputs" || command === "remove_tasks")
 			previews.clear();
 		busy = true;
@@ -223,6 +227,16 @@
 			error = String(e);
 		} finally {
 			busy = false;
+			await tick();
+			if (
+				command === "remove_tasks" &&
+				focused instanceof HTMLButtonElement &&
+				(!focused.isConnected || focused.disabled)
+			) {
+				document
+					.querySelector<HTMLButtonElement>("[data-choose-files]")
+					?.focus();
+			}
 		}
 	}
 	async function submit(tasks: Task[]) {
@@ -347,10 +361,13 @@
 </script>
 
 <div class="pixel-app desktop-shell">
+	<a class="skip-link" href="#conversion-workspace"
+		>{t("跳到转换工作区", "Skip to conversion workspace")}</a
+	>
 	<header class="desktop-header">
 		<div class="brand">
 			<PixelIcon name="box" size={30} /><strong>Z8.Work</strong><span
-				>DESKTOP</span
+				>{t("桌面版", "DESKTOP")}</span
 			>
 		</div>
 		<label class="language"
@@ -373,7 +390,9 @@
 	</header>
 	<main>
 		<div class="intro">
-			<p class="eyebrow">LOCAL FILE WORKSPACE</p>
+			<p class="eyebrow">
+				{t("在此设备处理", "PROCESSED ON THIS DEVICE")}
+			</p>
 			<h1>{t("本地多文件转换处理工具", "Your local file workspace")}</h1>
 			<p>
 				{t(
@@ -382,6 +401,38 @@
 				)}
 			</p>
 		</div>
+		<details class="privacy" data-privacy>
+			<summary
+				><PixelIcon name="shield" size={18} />{localProcessing(
+					info?.processing_location,
+					queueState?.tasks ?? [],
+				)
+					? t(
+							"在此设备处理 · 文件上传 0 B",
+							"Processed on this device · File uploads 0 B",
+						)
+					: t(
+							"正在确认本地处理能力",
+							"Confirming local processing capability",
+						)}<PixelIcon
+					name="chevron"
+					size={18}
+					class="privacy-chevron"
+				/></summary
+			>
+			<p>
+				{t(
+					"文件由本机原生引擎读取和转换，不上传进行处理。0 B 是已确认本地转换路线的能力声明，不是实时网络流量表，也不包含操作系统、云同步文件夹或其他应用的网络活动。",
+					"Native engines read and convert files on this device without uploading them for processing. 0 B describes confirmed local conversion routes; it is not a live network meter and excludes the operating system, cloud-synced folders and other applications.",
+				)}
+			</p>
+			<p>
+				{t(
+					"转换和此处说明可离线使用。仅在你打开来源链接时，系统浏览器会访问外部网站；网站可获知 IP 地址。此开发版没有应用内自动更新；商店或系统的更新流量单独发生，不属于文件转换上传。",
+					"Conversion and these explanations work offline. Opening a source link sends your system browser to an external website, which can see your IP address. This development build has no in-app automatic updater; store or system update traffic is separate from file conversion uploads.",
+				)}
+			</p>
+		</details>
 		<aside class="prototype">
 			<PixelIcon name="info" size={22} />
 			<div>
@@ -436,7 +487,7 @@
 								"Desktop preferences could not be read. The original record is preserved; conversion can continue.",
 							)}
 				</p>
-				<p>{preferences.error}</p>
+
 				{#if preferences.pending}<button
 						disabled={preferences.busy}
 						onclick={() =>
@@ -466,7 +517,6 @@
 						"The temporary workspace is unavailable. Check cache permissions and free disk space, then restart to preview or convert.",
 					)}
 				</p>
-				<p>{info.workspace_error}</p>
 			</div>
 		{/if}
 		{#if info?.temporary_cleanup && (info.temporary_cleanup.removed || info.temporary_cleanup.deferred || info.temporary_cleanup.failed || info.temporary_cleanup.limited)}
@@ -512,7 +562,6 @@
 					"任务记录保存失败，后续转换已暂停。已生成的文件会保留。",
 					"History could not be saved. Further conversions are paused; generated files are preserved.",
 				)}
-				{queueState.persistence_error}
 			</p>
 			<button
 				disabled={busy}
@@ -520,11 +569,14 @@
 				>{t("重试保存记录", "Retry saving history")}</button
 			>{/if}
 		<section
+			id="conversion-workspace"
+			tabindex="-1"
 			class="workspace"
 			aria-label={t("转换工作区", "Conversion workspace")}
 		>
 			<div class="toolbar">
 				<button
+					data-choose-files
 					class="primary"
 					onclick={() => {
 						pending = undefined;
@@ -835,7 +887,7 @@
 										</ul>
 									</details>{/if}
 								{#if task.result.note}<p class="result-note">
-										{task.result.note}
+										{resultNote(task.result.note, english)}
 									</p>{/if}
 							{/if}
 							{#if !["saved", "running", "saving", "queued"].includes(task.phase) && taskReadiness(task, info?.startup ?? []) !== "ready"}
@@ -1007,12 +1059,17 @@
 					</li>{/each}
 			</ul>
 		</details>
+		<Impact
+			{english}
+			tasks={queueState?.tasks ?? []}
+			location={info?.processing_location}
+		/>
 		<Diagnostics {english} />
 		<footer>
 			<PixelIcon name="lock" size={18} /><span
 				>{t(
 					"文件在本机处理。清空会删除当前队列记录；升级时保留的旧版本历史备份需自行清理。",
-					"Files stay local. Clearing removes current queue records; history backups retained during upgrades require separate cleanup.",
+					"Conversion runs on this device. Clearing removes current queue records; history backups retained during upgrades require separate cleanup.",
 				)}</span
 			><span>contact@web.casa</span>
 		</footer>

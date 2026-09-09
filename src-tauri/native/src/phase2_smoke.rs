@@ -10,7 +10,7 @@ use std::{
     sync::{Arc, Mutex},
     time::{Duration, Instant},
 };
-fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<String, String> {
+pub(crate) fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<String, String> {
     eprintln!("[validation] {id} {args:?}");
     let mut cmd = engines.command(id)?;
     // Explicit raster coders avoid treating a Windows drive letter (e.g. C:)
@@ -24,7 +24,7 @@ fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<String, String>
                     Some("jpg" | "jpeg") => Some("JPEG"),
                     Some("webp") => Some("WEBP"),
                     Some("avif") => Some("AVIF"),
-                    Some("heic") => Some("HEIC"),
+                    Some("heic" | "heif") => Some("HEIC"),
                     _ => None,
                 };
                 if let Some(coder) = coder {
@@ -46,7 +46,7 @@ fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<String, String>
         Instant::now() + Duration::from_secs(30),
     )
 }
-fn name(p: &Path) -> &str {
+pub(crate) fn name(p: &Path) -> &str {
     p.to_str().unwrap()
 }
 fn decode(engines: &Engines, path: &Path) -> Result<(), String> {
@@ -84,8 +84,11 @@ pub fn pdf_fixture(pages: u32) -> Vec<u8> {
         } else {
             (48, 72, "0 1 0")
         };
-        let stream = format!("{color} rg 0 0 {w} {h} re f\n");
-        objects.push(format!("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {w} {h}] /Resources << >> /Contents {} 0 R >>",4+page*2));
+        let stream = format!(
+            "{color} rg 0 0 {w} {h} re f\n1 1 1 rg BT /F1 10 Tf 6 12 Td (Z8 Page {}) Tj ET\n",
+            page + 1
+        );
+        objects.push(format!("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {w} {h}] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents {} 0 R >>",4+page*2));
         objects.push(format!(
             "<< /Length {} >>\nstream\n{stream}endstream",
             stream.len()
@@ -111,7 +114,10 @@ pub fn pdf_fixture(pages: u32) -> Vec<u8> {
     ));
     pdf.into_bytes()
 }
-fn source(path: &Path, context: ConversionContext) -> Result<crate::queue::Source, String> {
+pub(crate) fn source(
+    path: &Path,
+    context: ConversionContext,
+) -> Result<crate::queue::Source, String> {
     Ok(crate::queue::Source {
         file: crate::input::open_regular(path).map_err(|e| e.to_string())?,
         name: path.to_path_buf(),
@@ -201,7 +207,15 @@ pub fn verify_engines(
         include_bytes!("../../../tests/fixtures/gradient-10bit.heic"),
     )
     .map_err(|e| e.to_string())?;
-    images.push(heic);
+    let heif = root.path().join("alias.heif");
+    fs::copy(&heic, &heif).map_err(|e| e.to_string())?;
+    let jpeg = root.path().join("alias.jpeg");
+    fs::copy(&images[1], &jpeg).map_err(|e| e.to_string())?;
+    // Ensure both JPEG extensions are real decoder inputs.
+    let jpg = root.path().join("alias.jpg");
+    fs::copy(&images[1], &jpg).map_err(|e| e.to_string())?;
+    images[1] = jpg;
+    images.extend([heic, heif, jpeg]);
     for input in &images {
         for format in [
             OutputFormat::Png,
@@ -212,7 +226,14 @@ pub fn verify_engines(
             eprintln!("[validation] convert {} -> {format:?}", input.display());
             let result = convert(&engines, input, &output, format, &Cancel::default())?;
             decode(&engines, Path::new(&result.path))?;
-            cases.push(json!({"input":input.extension().unwrap().to_string_lossy(),"output":format,"bytes":result.bytes,"decoded":true}));
+            let semantic = crate::phase27_smoke::image_semantics(
+                &engines,
+                input,
+                Path::new(&result.path),
+                format,
+                root.path(),
+            )?;
+            cases.push(json!({"input":input.extension().unwrap().to_string_lossy(),"inputSha256":hash_file(input)?,"output":format,"bytes":result.bytes,"decoded":true,"semantic":semantic}));
         }
     }
     let png_result = convert(
@@ -375,8 +396,22 @@ pub fn verify_engines(
         }
     }
     let audio = root.path().join("source.mp3");
-    fs::write(&audio, include_bytes!("../../../tests/fixtures/cover.mp3"))
-        .map_err(|e| e.to_string())?;
+    command(
+        &engines,
+        "ffmpeg",
+        &[
+            "-nostdin",
+            "-v",
+            "error",
+            "-f",
+            "lavfi",
+            "-i",
+            "aevalsrc=0.2*sin(2*PI*440*t)|0.2*sin(2*PI*880*t):s=48000:d=1",
+            "-c:a",
+            "libmp3lame",
+            name(&audio),
+        ],
+    )?;
     let formats = [
         OutputFormat::Wav,
         OutputFormat::Mp3,
@@ -443,7 +478,9 @@ pub fn verify_engines(
         for format in formats {
             let result = convert(&engines, &input, &output, format, &Cancel::default())?;
             decode(&engines, Path::new(&result.path))?;
-            cases.push(json!({"input":input.extension().unwrap().to_string_lossy(),"output":format,"bytes":result.bytes,"decoded":true}));
+            let semantic =
+                crate::phase27_smoke::audio_semantics(&engines, &input, Path::new(&result.path))?;
+            cases.push(json!({"input":input.extension().unwrap().to_string_lossy(),"inputSha256":hash_file(&input)?,"output":format,"bytes":result.bytes,"decoded":true,"semantic":semantic}));
         }
     }
     let pdf = root.path().join("三页 [0].pdf");
@@ -468,12 +505,13 @@ pub fn verify_engines(
             if size != if i % 2 == 0 { "144 96" } else { "96 144" } {
                 return Err("PDF dimensions/order mismatch".into());
             }
+            crate::phase27_smoke::pdf_font_semantics(&engines, Path::new(&file.path), root.path())?;
             if file.page != i as u32 + 1 || !file.path.contains(&format!("page-{:03}", i + 1)) {
                 return Err("PDF page filename mismatch".into());
             }
         }
         cases.push(
-            json!({"input":"pdf","output":format,"pages":3,"decoded":true,"bytes":result.bytes}),
+            json!({"input":"pdf","output":format,"pages":3,"decoded":true,"bytes":result.bytes,"inputSha256":hash_file(&pdf)?,"semantic":{"dimensions_order_names":true,"base14_font_visible":true}}),
         );
     }
     let partial_dir = root.path().join("partial");
@@ -637,7 +675,7 @@ pub fn verify_engines(
         if !text.contains("中文") || !text.contains("body") {
             return Err("Document text lost".into());
         }
-        cases.push(json!({"input":doc.extension().unwrap().to_string_lossy(),"output":"txt","text_checked":true}));
+        cases.push(json!({"input":doc.extension().unwrap().to_string_lossy(),"output":"txt","inputSha256":hash_file(doc)?,"text_checked":true}));
     }
     if let Some(manifest) = development_manifest {
         let mut missing: Value = serde_json::from_slice(&fs::read(manifest).unwrap()).unwrap();

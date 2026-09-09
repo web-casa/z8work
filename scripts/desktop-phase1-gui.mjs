@@ -214,19 +214,27 @@ try {
 			),
 		"Chinese preference was not saved",
 	);
-	await choose("选择文件", "^Z8.Work — Select input files$", big);
+	await choose(
+		"选择文件",
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+		big,
+	);
 	await until(
 		async () => (await invoke("queue_snapshot")).tasks.length === 1,
 		"Input selection failed",
 	);
-	await choose("选择文件", "^Z8.Work — Select input files$", fixture);
+	await choose(
+		"选择文件",
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+		fixture,
+	);
 	await until(
 		async () => (await invoke("queue_snapshot")).tasks.length === 2,
 		"Second input selection failed",
 	);
 	await choose(
 		"选择保存目录",
-		"^Z8.Work — Select output folder$",
+		"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
 		output + "/",
 	);
 	// GTK folder selection may navigate first, then require explicit confirmation.
@@ -370,7 +378,11 @@ try {
 		});
 		pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF\n`;
 		await writeFile(pdfPath, pdf);
-		await choose("选择文件", "^Z8.Work — Select input files$", pdfPath);
+		await choose(
+			"选择文件",
+			"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+			pdfPath,
+		);
 		const imported = await until(async () => {
 			const s = await invoke("queue_snapshot");
 			return s.tasks.length === 1 ? s : false;

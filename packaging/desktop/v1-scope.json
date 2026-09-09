@@ -19,9 +19,10 @@
 			"samples": [
 				"tests/fixtures/gradient-10bit.heic",
 				"tests/fixtures/cover.png",
-				"src-tauri/native/src/phase2_smoke.rs"
+				"src-tauri/native/src/phase2_smoke.rs",
+				"src-tauri/native/src/phase27_smoke.rs"
 			],
-			"sampleNotes": "Generated alpha/gradient/quality fixtures and HEIC seed. JPEG/HEIF aliases require additional real sample coverage in R4; declared routes are not installed-package evidence."
+			"sampleNotes": "R4: 28 real decoded routes including jpeg/heif aliases; alpha, EXIF orientation 6, ICC byte preservation, 16-bit PNG and four calibration fixtures. See Phase 27 matrix; installed-package coverage remains R6."
 		},
 		{
 			"id": "pdf",
@@ -29,8 +30,12 @@
 			"outputs": ["png", "jpeg", "webp", "avif"],
 			"engines": ["mutool", "magick"],
 			"implementation": "src-tauri/native/src/convert.rs",
-			"samples": ["src-tauri/native/src/phase2_smoke.rs"],
-			"sampleNotes": "Generated three-page and over-limit PDFs, partial publication and retry; fonts and target-package matrix close in R4/R6."
+			"samples": [
+				"src-tauri/native/src/phase2_smoke.rs",
+				"src-tauri/native/src/phase27_smoke.rs",
+				"desktop/tests/fixtures/embedded-font.pdf"
+			],
+			"sampleNotes": "R4: four outputs, three-page base-14 font fixture plus embedded Host Grotesk font, page dimensions/order/names, partial retry and over-limit refusal. Installed-package/font fallback coverage remains R6."
 		},
 		{
 			"id": "media",
@@ -51,9 +56,10 @@
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
 				"tests/fixtures/cover.mp3",
-				"src-tauri/native/src/phase2_smoke.rs"
+				"src-tauri/native/src/phase2_smoke.rs",
+				"src-tauri/native/src/phase27_smoke.rs"
 			],
-			"sampleNotes": "Seed audio and generated container/codec combinations. Container extensions do not promise every codec; target-package coverage closes in R6."
+			"sampleNotes": "R4: 50 real decoded routes; two-channel 440/880 Hz signal survives each route, with duration/channel checks. These samples do not cover every container codec; installed packages remain R6."
 		},
 		{
 			"id": "documents",
@@ -65,7 +71,7 @@
 				"desktop/tests/fixtures/text.docx",
 				"src-tauri/native/src/phase2_smoke.rs"
 			],
-			"sampleNotes": "Generated Markdown and DOCX seed: Chinese and body text assertions; rich formatting is intentionally lost."
+			"sampleNotes": "R4: Markdown and DOCX Chinese/body text assertions. Rich formatting is intentionally omitted; installed packages remain R6."
 		}
 	],
 	"limits": [

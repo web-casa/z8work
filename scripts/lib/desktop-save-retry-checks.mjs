@@ -36,8 +36,16 @@ export async function checkSaveRetry({
 			join(collisions, `save-probe-z8-${i}.webp`),
 			"existing",
 		);
-	await choose("pick_output", collisions, "^Z8.Work — Select output folder$");
-	await choose("pick_inputs", input, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_output",
+		collisions,
+		"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
+	);
+	await choose(
+		"pick_inputs",
+		input,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	const task = (await invoke("queue_snapshot")).tasks.find(
 		(t) => t.name === "save-probe.png",
 	);
@@ -93,7 +101,12 @@ export async function checkSaveRetry({
 		'window.savePickDone=false;window.__TAURI_INTERNALS__.invoke("pick_output").then(()=>window.savePickDone=true,e=>window.savePickError=String(e))',
 	);
 	const win = await until(
-		async () => (await windows("^Z8.Work — Select output folder$"))[0],
+		async () =>
+			(
+				await windows(
+					"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
+				)
+			)[0],
 		"Output picker missing",
 	);
 	await xdotool("windowfocus", win);
@@ -111,7 +124,7 @@ export async function checkSaveRetry({
 	await choose(
 		"pick_output",
 		destination,
-		"^Z8.Work — Select output folder$",
+		"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
 	);
 	await until(
 		() =>
@@ -155,5 +168,9 @@ export async function checkSaveRetry({
 	);
 	await invoke("remove_tasks", { ids: [task.id] });
 	assert.deepEqual(await readFile(saved.result.path), bytes);
-	await choose("pick_output", output, "^Z8.Work — Select output folder$");
+	await choose(
+		"pick_output",
+		output,
+		"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
+	);
 }

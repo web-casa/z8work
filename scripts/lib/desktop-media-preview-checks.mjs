@@ -222,7 +222,7 @@ export async function checkMediaPreviews(h) {
 		await choose(
 			"pick_inputs",
 			file(name),
-			"^Z8.Work — Select input files$",
+			"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
 		);
 		const task = (await invoke("queue_snapshot")).tasks.find(
 			(t) => t.name === name,

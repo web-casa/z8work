@@ -26,7 +26,11 @@ export async function checkStorage({
 	const input = join(root, "storage-probe.png");
 	await copyFile("tests/fixtures/cover.png", input);
 	const original = await readFile(input);
-	await choose("pick_inputs", input, "^Z8.Work — Select input files$");
+	await choose(
+		"pick_inputs",
+		input,
+		"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
+	);
 	const task = (await invoke("queue_snapshot")).tasks.find(
 		(t) => t.name === "storage-probe.png",
 	);

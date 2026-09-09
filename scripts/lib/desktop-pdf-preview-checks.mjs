@@ -88,7 +88,7 @@ export async function checkPdfPreviews(h) {
 		await choose(
 			"pick_inputs",
 			join(root, name),
-			"^Z8.Work — Select input files$",
+			"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
 		);
 		return (await invoke("queue_snapshot")).tasks.find(
 			(t) => t.name === name,

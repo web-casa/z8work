@@ -91,7 +91,7 @@ export async function startupFixture(root, manifestPath) {
 				await choose(
 					"pick_inputs",
 					input,
-					"^Z8.Work — Select input files$",
+					"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
 				);
 				const s = await until(async () => {
 					const s = await invoke("queue_snapshot");
@@ -157,12 +157,12 @@ export async function startupFixture(root, manifestPath) {
 			await choose(
 				"pick_output",
 				output,
-				"^Z8.Work — Select output folder$",
+				"^Z8.Work — (Select output folder|选择保存目录|Select output folder / 选择保存目录)$",
 			);
 			await choose(
 				"pick_inputs",
 				audio,
-				"^Z8.Work — Select input files$",
+				"^Z8.Work — (Select input files|选择输入文件|Select input files / 选择输入文件)$",
 			);
 			const task = (await invoke("queue_snapshot")).tasks.find(
 				(t) => t.name === "progress.wav",

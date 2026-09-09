@@ -5,6 +5,7 @@
 	import {
 		parseDiagnosticPreview,
 		type DiagnosticPreview,
+		diagnosticError,
 	} from "./platform/diagnostics";
 	let { english }: { english: boolean } = $props();
 	let report = $state<DiagnosticPreview | null>(null);
@@ -112,11 +113,7 @@
 				: t("已取消保存。", "Save cancelled.")}
 		</p>{/if}
 	{#if error}<p class="error" role="alert">
-			{t(
-				"诊断报告操作失败，可以重试。",
-				"The diagnostic report action failed. You can retry.",
-			)}
-			{error}
+			{diagnosticError(error, english)}
 		</p>{/if}
 </details>
 
