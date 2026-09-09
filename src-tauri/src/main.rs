@@ -1,4 +1,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+mod boot;
 mod build_report;
 mod quit;
 #[cfg(all(feature = "development-engines", feature = "packaged-engines"))]
@@ -17,14 +18,13 @@ use tauri::{Emitter, Manager, State};
 use tauri_plugin_dialog::DialogExt;
 use z8_native::{
     queue::{Queue, Snapshot, Submission},
-    EngineInfo, Engines, OutputFormat,
+    EngineInfo, OutputFormat,
 };
 struct Backend {
     diagnostics: z8_native::diagnostics::Store,
-    workspace: Result<Arc<z8_native::workspaces::Store>, String>,
+    boot: Arc<boot::Boot>,
     preferences: Result<Arc<z8_native::preferences::Store>, String>,
-    engines: Result<Engines, String>,
-    queue: Result<Arc<Queue>, String>,
+    engines: Arc<z8_native::startup::Runtime>,
     dialog: Arc<AtomicBool>,
     closing: quit::Gate,
 }
@@ -56,8 +56,14 @@ fn allow_exit(app: &tauri::AppHandle, code: i32) -> bool {
         .spawn(move || {
             let _guard = guard;
             let state = handle.state::<Backend>();
-            if let Ok(queue) = state.queue() {
-                let idle = queue.prepare_idle_exit();
+            {
+                let idle = if state.boot.pending() > 0 {
+                    Ok(false)
+                } else {
+                    state
+                        .queue()
+                        .map_or(Ok(true), |queue| queue.prepare_idle_exit())
+                };
                 if !matches!(idle, Ok(true)) {
                     let language = state
                         .preferences
@@ -77,8 +83,13 @@ fn allow_exit(app: &tauri::AppHandle, code: i32) -> bool {
                         return;
                     }
                 }
+            }
+            state.boot.close();
+            if let Ok(queue) = state.queue() {
                 queue.shutdown();
             }
+            state.engines.shutdown();
+            state.boot.shutdown();
             state.closing.finish();
             handle.exit(code);
         });
@@ -99,11 +110,16 @@ impl Drop for DialogGuard {
     }
 }
 impl Backend {
-    fn queue(&self) -> Result<&Arc<Queue>, String> {
-        self.queue.as_ref().map_err(Clone::clone)
+    fn queue(&self) -> Result<Arc<Queue>, String> {
+        self.boot.queue()
     }
     fn begin_dialog(&self) -> Result<DialogGuard, String> {
-        self.queue()?.can_pick()?;
+        if !self.closing.accepts_dialog() {
+            return Err("Z8:closing".into());
+        }
+        if let Ok(queue) = self.queue() {
+            queue.can_pick()?;
+        }
         self.dialog
             .compare_exchange(false, true, Ordering::SeqCst, Ordering::SeqCst)
             .map_err(|_| "A file picker is already open")?;
@@ -112,6 +128,10 @@ impl Backend {
 }
 #[derive(Serialize)]
 struct DesktopInfo {
+    preparing: bool,
+    startup: Vec<z8_native::startup::Status>,
+    pending_imports: usize,
+    import_failure: Option<z8_native::failure::Failure>,
     workspace_error: Option<String>,
     temporary_cleanup: Option<z8_native::workspaces::CleanupReport>,
     engines: Vec<EngineInfo>,
@@ -121,16 +141,20 @@ struct DesktopInfo {
 }
 #[tauri::command]
 fn desktop_info(state: State<Backend>) -> DesktopInfo {
+    let services = state.boot.services.get();
     DesktopInfo {
-        workspace_error: state.workspace.as_ref().err().cloned(),
-        temporary_cleanup: state.workspace.as_ref().ok().and_then(|s| s.report().ok()),
-        engines: state
-            .engines
-            .as_ref()
-            .map(Engines::info)
-            .unwrap_or_default(),
-        error: state.engines.as_ref().err().cloned(),
-        queue_error: state.queue.as_ref().err().cloned(),
+        preparing: services.is_none()
+            && state.boot.failure() != Some(z8_native::failure::Failure::History),
+        startup: state.engines.status(),
+        pending_imports: state.boot.pending(),
+        import_failure: state.boot.failure(),
+        workspace_error: services.and_then(|s| s.workspace.as_ref().err().cloned()),
+        temporary_cleanup: services
+            .and_then(|s| s.workspace.as_ref().ok())
+            .and_then(|s| s.report().ok()),
+        engines: state.engines.info(),
+        error: None,
+        queue_error: state.queue().err().filter(|e| e != "Z8:preparing"),
         architecture: format!("{} / {}", std::env::consts::OS, std::env::consts::ARCH),
     }
 }
@@ -138,13 +162,13 @@ fn desktop_info(state: State<Backend>) -> DesktopInfo {
 async fn preview_diagnostics(
     state: State<'_, Backend>,
 ) -> Result<z8_native::diagnostics::Preview, String> {
-    let queue = state.queue().ok().cloned();
-    let engines = state
-        .engines
-        .as_ref()
-        .map(Engines::info)
-        .unwrap_or_default();
-    let workspace_initialized = state.workspace.is_ok();
+    let queue = state.queue().ok();
+    let engines = state.engines.info();
+    let workspace_initialized = state
+        .boot
+        .services
+        .get()
+        .is_some_and(|s| s.workspace.is_ok());
     // Reuse snapshot authority, but keep cloning potentially large history off
     // the event loop. Only the small allowlisted report crosses this boundary.
     let report = tauri::async_runtime::spawn_blocking(move || {
@@ -218,8 +242,16 @@ async fn preview_input(
     state: State<'_, Backend>,
 ) -> Result<tauri::ipc::Response, String> {
     let queue = state.queue()?.clone();
-    let engines = state.engines.as_ref().map_err(Clone::clone)?.clone();
-    let workspace = state.workspace.as_ref().map_err(Clone::clone)?.clone();
+    let engines = state.engines.engines();
+    let workspace = state
+        .boot
+        .services
+        .get()
+        .ok_or("Z8:preparing")?
+        .workspace
+        .as_ref()
+        .map_err(Clone::clone)?
+        .clone();
     tauri::async_runtime::spawn_blocking(move || {
         queue
             .preview_with_workspace(&id, &engines, workspace)
@@ -268,25 +300,27 @@ async fn pick_inputs(
     let (restore_id, paths) = paths;
     if let Some(paths) = paths {
         let paths: Result<Vec<PathBuf>, _> = paths.into_iter().map(|p| p.into_path()).collect();
-        let queue = state.queue()?.clone();
+        let boot = state.boot.clone();
         let paths = paths.map_err(|e| e.to_string())?;
-        tauri::async_runtime::spawn_blocking(move || {
-            if let Some(id) = restore_id {
-                queue.register(paths, Some(&id))
-            } else {
-                queue.import_files(paths)
-            }
-        })
-        .await
-        .map_err(|e| e.to_string())?
+        boot.enqueue(paths, restore_id)?;
+        tauri::async_runtime::spawn_blocking(move || boot.wait_snapshot())
+            .await
+            .map_err(|e| e.to_string())?
     } else {
-        state.queue()?.snapshot()
+        let boot = state.boot.clone();
+        tauri::async_runtime::spawn_blocking(move || boot.wait_snapshot())
+            .await
+            .map_err(|e| e.to_string())?
     }
 }
 #[tauri::command]
 async fn pick_output(app: tauri::AppHandle, state: State<'_, Backend>) -> Result<Snapshot, String> {
     let _guard = state.begin_dialog()?;
-    let suggested = state.queue()?.suggested_output();
+    let queue = state.queue()?;
+    let suggested = tauri::async_runtime::spawn_blocking(move || queue.suggested_output())
+        .await
+        .map_err(|e| e.to_string())?
+        .or_else(|| app.path().home_dir().ok());
     let path = tauri::async_runtime::spawn_blocking(move || {
         let mut picker = app
             .dialog()
@@ -302,13 +336,16 @@ async fn pick_output(app: tauri::AppHandle, state: State<'_, Backend>) -> Result
     })
     .await
     .map_err(|e| e.to_string())?;
-    if let Some(path) = path {
-        state
-            .queue()?
-            .set_output(path.into_path().map_err(|e| e.to_string())?)
-    } else {
-        state.queue()?.snapshot()
-    }
+    let queue = state.queue()?;
+    tauri::async_runtime::spawn_blocking(move || {
+        if let Some(path) = path {
+            queue.set_output(path.into_path().map_err(|e| e.to_string())?)
+        } else {
+            queue.snapshot()
+        }
+    })
+    .await
+    .map_err(|e| e.to_string())?
 }
 #[tauri::command]
 async fn set_task_format(
@@ -345,14 +382,32 @@ async fn reveal_result(id: String, page: u32, state: State<'_, Backend>) -> Resu
 }
 #[tauri::command]
 async fn submit_batch(request: Submission, state: State<'_, Backend>) -> Result<Snapshot, String> {
-    state.engines.as_ref().map_err(Clone::clone)?;
     if state.dialog.load(Ordering::SeqCst) {
         return Err("Close the file picker before starting a batch".into());
     }
     let queue = state.queue()?.clone();
-    tauri::async_runtime::spawn_blocking(move || queue.submit(request))
-        .await
-        .map_err(|e| e.to_string())?
+    let engines = state.engines.clone();
+    tauri::async_runtime::spawn_blocking(move || {
+        let snapshot = queue.snapshot()?;
+        for item in &request.items {
+            if !item.save_only {
+                let task = snapshot
+                    .tasks
+                    .iter()
+                    .find(|t| t.id == item.id)
+                    .ok_or("Unknown task")?;
+                engines.require(
+                    std::path::Path::new(&task.name)
+                        .extension()
+                        .and_then(|e| e.to_str())
+                        .unwrap_or(""),
+                )?;
+            }
+        }
+        queue.submit(request)
+    })
+    .await
+    .map_err(|e| e.to_string())?
 }
 #[tauri::command]
 async fn cancel_tasks(ids: Vec<String>, state: State<'_, Backend>) -> Result<Snapshot, String> {
@@ -375,26 +430,26 @@ async fn retry_queue_history(state: State<'_, Backend>) -> Result<Snapshot, Stri
         .await
         .map_err(|e| e.to_string())?
 }
-fn load_engines(_app: &tauri::App) -> Result<Engines, String> {
+fn engine_source(app: &tauri::App) -> z8_native::startup::Source {
+    use z8_native::startup::Source;
     #[cfg(feature = "packaged-engines")]
     {
-        Engines::load_bundle(
-            &_app
-                .path()
-                .resource_dir()
-                .map_err(|e| e.to_string())?
-                .join("engines"),
-        )
+        app.path()
+            .resource_dir()
+            .map(|p| Source::Bundle(p.join("engines")))
+            .unwrap_or(Source::Disabled)
     }
     #[cfg(feature = "development-engines")]
     {
+        let _ = app;
         std::env::var_os("Z8_DEV_ENGINE_MANIFEST")
-            .ok_or_else(|| "Run desktop:prepare and set Z8_DEV_ENGINE_MANIFEST".to_string())
-            .and_then(|p| Engines::load_available(&PathBuf::from(p)))
+            .map(|p| Source::Development(p.into()))
+            .unwrap_or(Source::Disabled)
     }
     #[cfg(not(any(feature = "development-engines", feature = "packaged-engines")))]
     {
-        Err("Development prototype: production engine distributions are not ready".into())
+        let _ = app;
+        Source::Disabled
     }
 }
 fn main() {
@@ -451,46 +506,22 @@ fn main() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
-            let workspace = app
-                .path()
-                .app_cache_dir()
-                .map_err(|e| e.to_string())
-                .and_then(|path| z8_native::workspaces::Store::open(path.join("native-work-v1")));
-            let executor_workspace = workspace.clone();
-            let engines = load_engines(app);
-            let executor_engines = engines.clone();
-            let format_engines = engines.clone();
+            let source = engine_source(app);
+            let handle = app.handle().clone();
+            let notify: Arc<dyn Fn() + Send + Sync> = Arc::new(move || {
+                let _ = handle.emit_to("main", "desktop-startup-changed", ());
+            });
+            let engines = z8_native::startup::Runtime::new(
+                cfg!(feature = "development-engines"),
+                notify.clone(),
+            );
+            let boot = boot::Boot::new();
+            let data = app.path().app_data_dir().map_err(|e| e.to_string());
+            let cache = app.path().app_cache_dir().map_err(|e| e.to_string());
             let emitter = app.handle().clone();
-            let queue = app
-                .path()
-                .app_data_dir()
-                .map_err(|e| e.to_string())
-                .and_then(|dir| {
-                    Queue::open_with_formats(
-                        dir.join("queue-v1.json"),
-                        Arc::new(move |mut source, output, format, cancel| {
-                            source.context.workspace =
-                                Some(executor_workspace.as_ref().map_err(Clone::clone)?.clone());
-                            z8_native::convert_source(
-                                executor_engines.as_ref().map_err(Clone::clone)?,
-                                source,
-                                output,
-                                format,
-                                cancel,
-                            )
-                        }),
-                        Arc::new(move |change| {
-                            let _ = emitter.emit_to("main", "queue-changed", change);
-                        }),
-                        Arc::new(move |ext| {
-                            format_engines
-                                .as_ref()
-                                .map(|e| e.formats_for(ext))
-                                .unwrap_or_default()
-                        }),
-                    )
-                    .map(Arc::new)
-                });
+            let queue_notify = Arc::new(move |change| {
+                let _ = emitter.emit_to("main", "queue-changed", change);
+            });
             let preferences = app
                 .path()
                 .app_data_dir()
@@ -502,13 +533,14 @@ fn main() {
                 });
             app.manage(Backend {
                 diagnostics: Default::default(),
-                workspace,
+                boot: boot.clone(),
                 preferences,
-                engines,
-                queue,
+                engines: engines.clone(),
                 dialog: Arc::new(AtomicBool::new(false)),
                 closing: quit::Gate::default(),
             });
+            boot.start(data, cache, engines.clone(), notify, queue_notify);
+            engines.start(source);
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -534,16 +566,19 @@ fn main() {
             if let tauri::WindowEvent::DragDrop(tauri::DragDropEvent::Drop { paths, .. }) = event {
                 let state = window.state::<Backend>();
                 let handle = window.app_handle().clone();
-                let queue = state.queue().cloned();
+                let boot = state.boot.clone();
+                let closing = !state.closing.accepts_dialog();
                 let paths = paths.clone();
                 // OS-provided paths only. There is no frontend command accepting
                 // arbitrary paths, and drops share the native authorization path.
                 let dialog_open = state.dialog.load(Ordering::SeqCst);
                 tauri::async_runtime::spawn_blocking(move || {
-                    let result = if dialog_open {
+                    let result = if closing {
+                        Err("Z8:closing".into())
+                    } else if dialog_open {
                         Err("Close the file picker before dropping files".into())
                     } else {
-                        queue.and_then(|q| q.import_files(paths))
+                        boot.enqueue(paths, None)
                     };
                     if let Err(error) = result {
                         let _ = handle.emit_to("main", "desktop-import-error", error);

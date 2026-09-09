@@ -62,7 +62,10 @@ impl Drop for Guard {
         let _ = self.child.wait();
     }
 }
-fn drain(mut pipe: impl Read + Send + 'static) -> mpsc::Receiver<Result<String, String>> {
+fn drain(
+    mut pipe: impl Read + Send + 'static,
+    mut progress: Option<crate::progress::Parser>,
+) -> mpsc::Receiver<Result<String, String>> {
     let (sender, receiver) = mpsc::channel();
     thread::spawn(move || {
         let mut tail = Vec::new();
@@ -71,6 +74,9 @@ fn drain(mut pipe: impl Read + Send + 'static) -> mpsc::Receiver<Result<String, 
             match pipe.read(&mut buffer) {
                 Ok(0) => break Ok(String::from_utf8_lossy(&tail).into_owned()),
                 Ok(n) => {
+                    if let Some(parser) = &mut progress {
+                        parser.feed(&buffer[..n], Instant::now());
+                    }
                     tail.extend_from_slice(&buffer[..n]);
                     if tail.len() > 8192 {
                         tail.drain(..tail.len() - 8192);
@@ -104,6 +110,14 @@ fn receive_output(
     }
 }
 pub(crate) fn run(command: Command, cancel: &Cancel, deadline: Instant) -> Result<String, String> {
+    run_progress(command, cancel, deadline, None)
+}
+pub(crate) fn run_progress(
+    command: Command,
+    cancel: &Cancel,
+    deadline: Instant,
+    progress: Option<crate::progress::Parser>,
+) -> Result<String, String> {
     cancel.check(deadline)?;
     let mut command = command;
     command
@@ -136,8 +150,14 @@ pub(crate) fn run(command: Command, cancel: &Cancel, deadline: Instant) -> Resul
         #[cfg(unix)]
         watchdog,
     };
-    let out = drain(child.child.stdout().take().ok_or("Missing stdout pipe")?);
-    let err = drain(child.child.stderr().take().ok_or("Missing stderr pipe")?);
+    let out = drain(
+        child.child.stdout().take().ok_or("Missing stdout pipe")?,
+        progress,
+    );
+    let err = drain(
+        child.child.stderr().take().ok_or("Missing stderr pipe")?,
+        None,
+    );
     let status = loop {
         cancel.check(deadline)?;
         if let Some(status) = child.child.try_wait().map_err(|e| e.to_string())? {

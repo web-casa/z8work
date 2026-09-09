@@ -73,9 +73,20 @@ fn inside(root: &Path, value: &str, directory: bool) -> Result<PathBuf, String> 
 }
 impl VerifiedBundle {
     pub fn verify(&self) -> Result<(), String> {
+        self.verify_checked(
+            &crate::Cancel::default(),
+            std::time::Instant::now() + std::time::Duration::from_secs(120),
+        )
+    }
+    fn verify_checked(
+        &self,
+        cancel: &crate::Cancel,
+        deadline: std::time::Instant,
+    ) -> Result<(), String> {
         let mut found = 0;
         let mut pending = vec![self.root.clone()];
         while let Some(dir) = pending.pop() {
+            cancel.check(deadline)?;
             for item in fs::read_dir(dir).map_err(|e| e.to_string())? {
                 let item = item.map_err(|e| e.to_string())?;
                 let kind = item.file_type().map_err(|e| e.to_string())?;
@@ -101,7 +112,8 @@ impl VerifiedBundle {
                     .get(&name)
                     .ok_or_else(|| format!("Unlisted bundle resource: {name}"))?;
                 if fs::metadata(&path).map_err(|e| e.to_string())?.len() != resource.bytes
-                    || crate::hash_file(&path)? != resource.sha256
+                    || crate::engines::hash_file_checked(&path, cancel, deadline)?
+                        != resource.sha256
                 {
                     return Err(format!("Bundle integrity mismatch: {name}"));
                 }
@@ -117,6 +129,18 @@ impl VerifiedBundle {
 impl Engines {
     /// Only the Rust package resolver may choose this root; it is never an IPC argument.
     pub fn load_bundle(root: &Path) -> Result<Self, String> {
+        Self::load_bundle_checked(
+            root,
+            &crate::Cancel::default(),
+            std::time::Instant::now() + std::time::Duration::from_secs(120),
+        )
+    }
+    pub(crate) fn load_bundle_checked(
+        root: &Path,
+        cancel: &crate::Cancel,
+        deadline: std::time::Instant,
+    ) -> Result<Self, String> {
+        cancel.check(deadline)?;
         if fs::symlink_metadata(root)
             .map_err(|e| e.to_string())?
             .file_type()
@@ -193,7 +217,7 @@ impl Engines {
             heif_plugins,
             identity: crate::hash_file(&manifest_path)?,
         };
-        verified.verify()?;
+        verified.verify_checked(cancel, deadline)?;
         if bundle.engines.len() != 5 {
             return Err("Bundle must contain exactly five engine entries".into());
         }

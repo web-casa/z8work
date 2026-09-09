@@ -1,3 +1,4 @@
+import { startupFixture } from "./lib/desktop-startup-checks.mjs";
 import { checkSaveRetry } from "./lib/desktop-save-retry-checks.mjs";
 import { checkDiagnostics } from "./lib/desktop-diagnostics-checks.mjs";
 import { checkStorage } from "./lib/desktop-storage-checks.mjs";
@@ -39,7 +40,8 @@ const xd = process.env.Z8_XDOTOOL;
 if (!xd) throw new Error("Set Z8_XDOTOOL");
 const checks = [];
 const routes = [];
-const saveRetryMode = process.argv.includes("--save-retry");
+const startupMode = process.argv.includes("--startup");
+const saveRetryMode = startupMode || process.argv.includes("--save-retry");
 const diagnosticsMode = saveRetryMode || process.argv.includes("--diagnostics");
 const storageMode = diagnosticsMode || process.argv.includes("--storage");
 const workspaceMode = storageMode || process.argv.includes("--workspaces");
@@ -48,23 +50,28 @@ const mediaMode = importMode || process.argv.includes("--media");
 const pdfMode = mediaMode || process.argv.includes("--pdf");
 const root = await mkdtemp(
 	resolve(
-		saveRetryMode
-			? ".desktop-local/phase25-gui-"
-			: diagnosticsMode
-				? ".desktop-local/phase23-gui-"
-				: storageMode
-					? ".desktop-local/phase22-gui-"
-					: workspaceMode
-						? ".desktop-local/phase21-gui-"
-						: importMode
-							? ".desktop-local/phase20-gui-"
-							: mediaMode
-								? ".desktop-local/phase19-gui-"
-								: pdfMode
-									? ".desktop-local/phase18-gui-"
-									: ".desktop-local/phase17-gui-",
+		startupMode
+			? ".desktop-local/phase26-gui-"
+			: saveRetryMode
+				? ".desktop-local/phase25-gui-"
+				: diagnosticsMode
+					? ".desktop-local/phase23-gui-"
+					: storageMode
+						? ".desktop-local/phase22-gui-"
+						: workspaceMode
+							? ".desktop-local/phase21-gui-"
+							: importMode
+								? ".desktop-local/phase20-gui-"
+								: mediaMode
+									? ".desktop-local/phase19-gui-"
+									: pdfMode
+										? ".desktop-local/phase18-gui-"
+										: ".desktop-local/phase17-gui-",
 	),
 );
+const startup = startupMode
+	? await startupFixture(root, process.env.Z8_DEV_ENGINE_MANIFEST)
+	: undefined;
 const workspaces = workspaceMode ? await workspaceFixtures(root) : undefined;
 async function port() {
 	const server = createServer();
@@ -82,6 +89,7 @@ const driver = spawn(
 	{
 		env: {
 			...process.env,
+			...(startup ? { Z8_DEV_ENGINE_MANIFEST: startup.path } : {}),
 			XDG_DATA_HOME: join(root, "data"),
 			XDG_CACHE_HOME: join(root, "cache"),
 			XDG_CONFIG_HOME: join(root, "config"),
@@ -202,7 +210,7 @@ async function windows(title) {
 async function choose(command, path, title, selectAll = false) {
 	// Start the picker without waiting for the promise; drive the native UI.
 	await js(
-		"window.__TAURI_INTERNALS__.invoke(arguments[0]).catch(e=>{window.pickerError=String(e)});",
+		"window.pickerDone=false;window.pickerError=null;window.__TAURI_INTERNALS__.invoke(arguments[0]).then(()=>{window.pickerDone=true},e=>{window.pickerError=String(e);window.pickerDone=true});",
 		[command],
 	);
 	const win = await until(
@@ -228,11 +236,24 @@ async function choose(command, path, title, selectAll = false) {
 	}
 	if (command === "pick_output") {
 		await new Promise((r) => setTimeout(r, 300));
-		if ((await windows(title)).includes(win)) await xdotool("key", "alt+o");
+		if ((await windows(title)).includes(win)) {
+			// GTK Recent view may complete the typed folder on the first Enter.
+			await xdotool("key", "Return");
+			await new Promise((r) => setTimeout(r, 400));
+			if ((await windows(title)).includes(win))
+				await xdotool("key", "alt+o");
+		}
 	}
 	await until(
 		async () => (await windows(title)).length === 0,
 		"Picker did not close",
+	);
+	await until(
+		() =>
+			js(
+				"if(window.pickerError)throw new Error(window.pickerError);return window.pickerDone",
+			),
+		"Picker registration did not finish",
 	);
 }
 async function preview(id) {
@@ -312,6 +333,18 @@ try {
 	await open();
 	await change(".language select", "en");
 	await workspaces?.startup({ invoke, js, checks, screenshot });
+	await startup?.check({
+		output,
+		submit,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+	});
+	await change(".language select", "en");
 	if (importMode)
 		await checkImports({
 			root,
@@ -516,6 +549,18 @@ try {
 	);
 	checks.push("reload-does-not-reuse-preview");
 	await workspaces?.afterJobs({ checks, output });
+	await startup?.checkProgress({
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		output,
+		submit,
+	});
+	await change(".language select", "en");
 	await request(prefix, null, "DELETE");
 	prefix = undefined;
 	await open();
@@ -588,6 +633,15 @@ try {
 				await writeFile(history, savedHistory);
 			}
 		}
+	}
+	if (startup) {
+		if (prefix) {
+			await request(prefix, null, "DELETE");
+			prefix = undefined;
+		}
+		await startup.blockAgain();
+		await open();
+		await startup.checkExit({ invoke, windows, execute, until, checks });
 	}
 	passed = true;
 } finally {

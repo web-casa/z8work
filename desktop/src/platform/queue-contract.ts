@@ -1,3 +1,4 @@
+import { failureCodes, type Failure } from "./runtime.ts";
 export type Format =
 	| "png"
 	| "jpeg"
@@ -66,7 +67,17 @@ export type ImportReport = {
 	accepted: number;
 	issues: { name: string; reason: ImportReason }[];
 };
+export type TaskProgress = {
+	id: string;
+	attempt: number;
+	value: {
+		stage: "encoding" | "validating" | "publishing";
+		percent: number | null;
+	};
+};
 export type Snapshot = {
+	progress?: TaskProgress | null;
+	failures?: Record<string, Failure>;
 	import_report?: ImportReport | null;
 	schema: 2 | 3;
 	epoch: string;
@@ -241,6 +252,46 @@ export function parseSnapshot(value: unknown): Snapshot {
 				pages.add(Number(f.page));
 			}
 		}
+	}
+	const tasks = s.tasks;
+	if (s.failures !== undefined) {
+		const values = object(s.failures);
+		if (
+			Object.keys(values).length > 100 ||
+			Object.keys(values).some(
+				(id) => !tasks.some((t: Task) => t.id === id),
+			) ||
+			Object.values(values).some(
+				(v) => !failureCodes.includes(v as Failure),
+			)
+		)
+			throw new Error("Invalid failure categories");
+	}
+	if (s.progress != null) {
+		const p = object(s.progress),
+			v = object(p.value);
+		if (
+			s.schema !== 3 ||
+			Object.keys(p).some(
+				(k) => !["id", "attempt", "value"].includes(k),
+			) ||
+			Object.keys(v).some((k) => !["stage", "percent"].includes(k)) ||
+			typeof p.id !== "string" ||
+			!integer(p.attempt) ||
+			!["encoding", "validating", "publishing"].includes(
+				String(v.stage),
+			) ||
+			(v.percent !== null && v.stage !== "encoding") ||
+			(v.percent !== null &&
+				(!integer(v.percent) || Number(v.percent) > 99)) ||
+			!tasks.some(
+				(t: Task) =>
+					t.id === p.id &&
+					t.attempt === p.attempt &&
+					t.phase === "running",
+			)
+		)
+			throw new Error("Invalid task progress");
 	}
 	return s as unknown as Snapshot;
 }

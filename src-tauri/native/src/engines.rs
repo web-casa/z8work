@@ -2,7 +2,6 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::{
     collections::BTreeMap,
-    fs,
     io::Read,
     path::{Path, PathBuf},
 };
@@ -41,13 +40,34 @@ pub struct EngineInfo {
     pub error: Option<String>,
 }
 pub fn hash_file(path: &Path) -> Result<String, String> {
+    hash_file_checked(
+        path,
+        &crate::Cancel::default(),
+        std::time::Instant::now() + std::time::Duration::from_secs(120),
+    )
+}
+pub(crate) fn hash_file_checked(
+    path: &Path,
+    cancel: &crate::Cancel,
+    deadline: std::time::Instant,
+) -> Result<String, String> {
     let mut file = crate::input::open_regular(path).map_err(|e| e.to_string())?;
+    let size = file.metadata().map_err(|e| e.to_string())?.len();
+    if size > 8 * 1024 * 1024 * 1024 {
+        return Err("Hash input exceeds 8 GiB".into());
+    }
+    let mut read = 0u64;
     let mut hash = Sha256::new();
     let mut buffer = [0; 65536];
     loop {
+        cancel.check(deadline)?;
         let n = file.read(&mut buffer).map_err(|e| e.to_string())?;
         if n == 0 {
             break;
+        }
+        read += n as u64;
+        if read > size {
+            return Err("Hash input changed".into());
         }
         hash.update(&buffer[..n]);
     }
@@ -61,7 +81,28 @@ impl Engines {
         Self::load_mode(path, false)
     }
     fn load_mode(path: &Path, strict: bool) -> Result<Self, String> {
-        let content = fs::read(path).map_err(|e| format!("Engine manifest unavailable: {e}"))?;
+        Self::load_selected(
+            path,
+            strict,
+            None,
+            &crate::Cancel::default(),
+            std::time::Instant::now() + std::time::Duration::from_secs(120),
+        )
+    }
+    pub(crate) fn load_selected(
+        path: &Path,
+        strict: bool,
+        selected: Option<&str>,
+        cancel: &crate::Cancel,
+        deadline: std::time::Instant,
+    ) -> Result<Self, String> {
+        cancel.check(deadline)?;
+        let mut content = vec![];
+        crate::input::open_regular(path)
+            .map_err(|e| format!("Engine manifest unavailable: {e}"))?
+            .take(64 * 1024 + 1)
+            .read_to_end(&mut content)
+            .map_err(|e| e.to_string())?;
         if content.len() > 64 * 1024 {
             return Err("Engine manifest too large".into());
         }
@@ -77,6 +118,10 @@ impl Engines {
         }
         let mut unavailable = BTreeMap::new();
         for id in ["magick", "ffmpeg", "ffprobe", "pandoc", "mutool"] {
+            if selected.is_some_and(|wanted| wanted != id) {
+                unavailable.insert(id.into(), "Z8:preparing".into());
+                continue;
+            }
             let validation = (|| {
                 let entry = manifest
                     .engines
@@ -98,7 +143,7 @@ impl Engines {
                         return Err(format!("Invalid data directory: {id}"));
                     }
                 }
-                if hash_file(&entry.path)? != entry.sha256 {
+                if hash_file_checked(&entry.path, cancel, deadline)? != entry.sha256 {
                     return Err(format!("Engine hash mismatch: {id}"));
                 }
                 Ok::<_, String>(())
@@ -142,12 +187,7 @@ impl Engines {
     }
     pub fn formats_for(&self, extension: &str) -> Vec<crate::OutputFormat> {
         let formats = crate::output_formats(extension);
-        let required: &[&str] = match extension.to_ascii_lowercase().as_str() {
-            "pdf" => &["mutool", "magick"],
-            "md" | "docx" => &["pandoc"],
-            "png" | "jpg" | "jpeg" | "webp" | "avif" | "heic" | "heif" => &["magick"],
-            _ => &["ffmpeg", "ffprobe"],
-        };
+        let required = crate::startup::required(extension);
         if required.iter().all(|id| self.entries.contains_key(*id)) {
             formats
         } else {
@@ -160,6 +200,7 @@ impl Engines {
         }
         self.entries
             .iter()
+            .filter(|(id, _)| crate::startup::required("pdf").contains(&id.as_str()))
             .map(|(id, e)| format!("{id}:{}:{}", e.sha256, e.version))
             .collect::<Vec<_>>()
             .join(";")
@@ -171,7 +212,23 @@ impl Engines {
         Ok(())
     }
     pub(crate) fn command(&self, id: &str) -> Result<std::process::Command, String> {
-        let (path, library) = self.executable(id)?;
+        self.command_checked(
+            id,
+            &crate::Cancel::default(),
+            std::time::Instant::now() + std::time::Duration::from_secs(120),
+        )
+    }
+    pub(crate) fn command_checked(
+        &self,
+        id: &str,
+        cancel: &crate::Cancel,
+        deadline: std::time::Instant,
+    ) -> Result<std::process::Command, String> {
+        let entry = self.entries.get(id).ok_or("Z8:engine_unavailable")?;
+        if hash_file_checked(&entry.path, cancel, deadline)? != entry.sha256 {
+            return Err("Engine hash mismatch".into());
+        }
+        let (path, library) = (entry.path.clone(), entry.library_dir.clone());
         let mut cmd = if let Some(loader) = self.bundle.as_ref().and_then(|b| b.loader.as_ref()) {
             let mut cmd = std::process::Command::new(loader);
             cmd.arg("--inhibit-cache");
@@ -224,6 +281,7 @@ impl Engines {
     pub(crate) fn data_dir(&self, id: &str) -> Option<&Path> {
         self.entries.get(id)?.data_dir.as_deref()
     }
+    #[cfg(feature = "development-engines")]
     pub(crate) fn executable(&self, id: &str) -> Result<(PathBuf, Option<PathBuf>), String> {
         let entry = self
             .entries
@@ -240,6 +298,32 @@ impl Engines {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::fs;
+    #[test]
+    fn pdf_identity_does_not_change_when_unrelated_engine_becomes_ready() {
+        let entry = Entry {
+            path: "/fixture".into(),
+            sha256: "abc".into(),
+            version: "1".into(),
+            library_dir: None,
+            data_dir: None,
+        };
+        let mut engines = Engines {
+            entries: [
+                ("magick".into(), entry.clone()),
+                ("mutool".into(), entry.clone()),
+            ]
+            .into(),
+            development: true,
+            unavailable: BTreeMap::new(),
+            bundle: None,
+        };
+        let before = engines.identity();
+        engines.entries.insert("ffmpeg".into(), entry);
+        assert_eq!(before, engines.identity());
+        engines.entries.get_mut("magick").unwrap().sha256 = "changed".into();
+        assert_ne!(before, engines.identity());
+    }
     #[test]
     fn v1_scope_matches_routes_and_each_required_engine() {
         let scope: serde_json::Value =

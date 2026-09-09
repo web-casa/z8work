@@ -1289,3 +1289,37 @@ fn partial_import_does_not_relax_restore_validation_and_report_expires_on_restar
     assert!(s.import_report.is_none());
     assert!(!s.tasks[0].authorized);
 }
+
+#[test]
+fn progress_is_transient_bound_to_attempt_and_rejects_stale_callbacks() {
+    let root = root();
+    let callbacks = Arc::new(Mutex::new(vec![]));
+    let sink = callbacks.clone();
+    let q = Queue::open(
+        root.path().join("progress.json"),
+        Arc::new(move |source, _, _, _| {
+            let report = source.context.progress.unwrap();
+            report(crate::progress::Progress {
+                stage: crate::progress::Stage::Encoding,
+                percent: Some(40),
+            });
+            sink.lock().unwrap().push(report);
+            Err("fixture failure".into())
+        }),
+        Arc::new(|_| {}),
+    )
+    .unwrap();
+    let state = ready(&q, root.path(), 1);
+    q.submit(request(&state)).unwrap();
+    let stopped = wait(&q, |s| !s.processing);
+    assert!(stopped.progress.is_none());
+    callbacks.lock().unwrap()[0](crate::progress::Progress {
+        stage: crate::progress::Stage::Encoding,
+        percent: Some(99),
+    });
+    assert_eq!(q.snapshot().unwrap().revision, stopped.revision);
+    assert!(q.snapshot().unwrap().progress.is_none());
+    assert!(!fs::read_to_string(root.path().join("progress.json"))
+        .unwrap()
+        .contains("percent"));
+}

@@ -1,7 +1,13 @@
 <script lang="ts">
+	import {
+		failureMessage,
+		commandError,
+		taskReadiness,
+		type EngineStatus,
+		type Failure,
+	} from "./platform/runtime";
 	import { submissionItems } from "./platform/queue-contract";
 	import { onMount } from "svelte";
-	import { storageMessage } from "./platform/storage-message";
 	import { listen } from "@tauri-apps/api/event";
 	import OptionsEditor from "./OptionsEditor.svelte";
 	import ImportNotice from "./ImportNotice.svelte";
@@ -36,6 +42,10 @@
 		type Language,
 	} from "./platform/preferences";
 	type Info = {
+		preparing: boolean;
+		startup: EngineStatus[];
+		pending_imports: number;
+		import_failure: Failure | null;
 		workspace_error: string | null;
 		temporary_cleanup: {
 			removed: number;
@@ -154,7 +164,10 @@
 		queueState?.tasks.filter(
 			(task) =>
 				(task.authorized || task.phase === "awaiting_save") &&
-				!["queued", "running", "saving", "saved"].includes(task.phase),
+				!["queued", "running", "saving", "saved"].includes(
+					task.phase,
+				) &&
+				taskReadiness(task, info?.startup ?? []) === "ready",
 		) ?? [],
 	);
 	function size(bytes: number) {
@@ -249,6 +262,23 @@
 		pending = undefined;
 		void action("set_task_format", { id, format: format as Format });
 	}
+	let refreshingInfo: Promise<void> | undefined;
+	let refreshAgain = false;
+	let mounted = true;
+	function refreshInfo(): Promise<void> {
+		refreshAgain = true;
+		if (refreshingInfo) return refreshingInfo;
+		refreshingInfo = (async () => {
+			while (mounted && refreshAgain) {
+				refreshAgain = false;
+				const value = await invoke<Info>("desktop_info");
+				if (mounted) info = value;
+			}
+		})().finally(() => {
+			refreshingInfo = undefined;
+		});
+		return refreshingInfo;
+	}
 	onMount(() => {
 		systemLanguages = [...navigator.languages];
 		if (!isTauri()) {
@@ -265,6 +295,15 @@
 		void preferenceConnection.load();
 		let disposed = false;
 		let unlistenImport: (() => void) | undefined;
+		let unlistenStartup: (() => void) | undefined;
+		void listen("desktop-startup-changed", () => {
+			void refreshInfo()
+				.then(() => reconnect())
+				.catch(() => {});
+		}).then((f) => {
+			if (disposed) f();
+			else unlistenStartup = f;
+		});
 		void listen<string>("desktop-import-error", (event) => {
 			if (!disposed) error = event.payload;
 		})
@@ -281,19 +320,19 @@
 		void connection.ready.catch((e) => {
 			if (!disposed) connectionError = String(e);
 		});
-		void invoke<Info>("desktop_info")
-			.then((value) => {
-				if (!disposed) info = value;
-			})
-			.catch((e) => {
-				if (!disposed) error = String(e);
-			});
+		void refreshInfo().catch((e) => {
+			if (!disposed) error = String(e);
+		});
 		const timer = setInterval(() => {
-			void reconnect();
-		}, 5000);
+			void refreshInfo()
+				.then(() => reconnect())
+				.catch(() => {});
+		}, 1000);
 		window.addEventListener("focus", reconnect);
 		return () => {
 			disposed = true;
+			mounted = false;
+			unlistenStartup?.();
 			preferenceConnection?.dispose();
 			previews.dispose();
 			connection?.dispose();
@@ -360,6 +399,20 @@
 				</p>
 			</div>
 		</aside>
+		{#if !info || info.preparing || info.startup.some((s) => s.phase === "preparing")}
+			<p role="status" data-startup>
+				{t(
+					"正在准备本机引擎，已就绪格式可先使用。可以选择文件或拖放到窗口。",
+					"Preparing native engines. Ready formats can be used now; choose files or drop them into the window.",
+				)}
+			</p>
+		{/if}
+		{#if info?.pending_imports}<p role="status" data-pending-imports>
+				{t("等待导入：", "Waiting to import: ")}{info.pending_imports}
+			</p>{/if}
+		{#if info?.import_failure}<p role="alert">
+				{failureMessage(info.import_failure, english)}
+			</p>{/if}
 		{#if queueState?.import_report}
 			<ImportNotice
 				report={queueState.import_report}
@@ -440,9 +493,17 @@
 				class="error"
 				role="alert"
 			>
-				{error || info?.error || info?.queue_error}
+				{commandError(
+					error || info?.error || info?.queue_error,
+					english,
+				)}
 			</p>{/if}
-		{#if connectionError}<p class="error" role="alert">{connectionError}</p>
+		{#if connectionError && connectionError !== "Z8:preparing"}<p
+				class="error"
+				role="alert"
+			>
+				{commandError(connectionError, english)}
+			</p>
 			<button onclick={reconnect}
 				>{t("重新同步队列", "Reconnect queue")}</button
 			>{/if}
@@ -469,7 +530,7 @@
 						pending = undefined;
 						void action("pick_inputs", { restoreId: null });
 					}}
-					disabled={working || blocked}
+					disabled={working || !!info?.queue_error}
 					><PixelIcon name="plus" />{t(
 						"选择文件",
 						"Choose files",
@@ -605,7 +666,11 @@
 									<button
 										disabled={working ||
 											blocked ||
-											!task.authorized}
+											!task.authorized ||
+											taskReadiness(
+												task,
+												info?.startup ?? [],
+											) !== "ready"}
 										onclick={() => previews.open(task.id)}
 										data-preview-open
 										>{previewDetails.button}</button
@@ -668,7 +733,7 @@
 																"此文件没有可读取的视频画面。",
 																"No readable video frame stream found.",
 															)
-														: storageMessage(
+														: commandError(
 																preview.error,
 																english,
 															)}
@@ -773,8 +838,45 @@
 										{task.result.note}
 									</p>{/if}
 							{/if}
+							{#if !["saved", "running", "saving", "queued"].includes(task.phase) && taskReadiness(task, info?.startup ?? []) !== "ready"}
+								<p role="status">
+									{failureMessage(
+										taskReadiness(
+											task,
+											info?.startup ?? [],
+										) === "failed"
+											? "engine_unavailable"
+											: "preparing",
+										english,
+									)}
+								</p>
+							{/if}
+							{#if queueState.progress?.id === task.id && queueState.progress.attempt === task.attempt}
+								<p role="status" data-task-progress>
+									{queueState.progress.value.stage ===
+									"encoding"
+										? t("音频编码中", "Encoding audio")
+										: queueState.progress.value.stage ===
+											  "validating"
+											? t(
+													"验证输出中",
+													"Validating output",
+												)
+											: t(
+													"正在保存",
+													"Saving output",
+												)}{#if queueState.progress.value.percent !== null}
+										· {queueState.progress.value
+											.percent}%{/if}
+								</p>
+							{/if}
 							{#if task.error}<p class="error" role="alert">
-									{storageMessage(task.error, english)}
+									{queueState.failures?.[task.id]
+										? failureMessage(
+												queueState.failures[task.id],
+												english,
+											)
+										: commandError(task.error, english)}
 								</p>{/if}
 							{#if task.phase === "awaiting_save"}<p
 									class="saved-result-notice"
@@ -789,7 +891,11 @@
 										data-save-result
 										disabled={working ||
 											blocked ||
-											!queueState.output_authorized}
+											!queueState.output_authorized ||
+											taskReadiness(
+												task,
+												info?.startup ?? [],
+											) !== "ready"}
 										onclick={() => submit([task])}
 										>{t(
 											"仅重试保存",
@@ -813,7 +919,11 @@
 										disabled={working ||
 											blocked ||
 											!task.authorized ||
-											!queueState.output_authorized}
+											!queueState.output_authorized ||
+											taskReadiness(
+												task,
+												info?.startup ?? [],
+											) !== "ready"}
 										onclick={() => submit([task])}
 										>{task.phase === "saved"
 											? t("重新转换", "Convert again")
@@ -884,9 +994,15 @@
 				{#each info?.engines ?? [] as engine}<li>
 						<strong>{engine.id}</strong> — {engine.available
 							? engine.version
-							: t("不可用", "Unavailable")}
+							: info?.startup.find((s) => s.id === engine.id)
+										?.phase === "preparing"
+								? t("准备中…", "Preparing…")
+								: t("不可用", "Unavailable")}
 						{#if engine.error}<span class="error"
-								>{engine.error}</span
+								>{failureMessage(
+									"engine_unavailable",
+									english,
+								)}</span
 							>{/if}
 					</li>{/each}
 			</ul>

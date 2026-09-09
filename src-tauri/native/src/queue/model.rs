@@ -100,6 +100,10 @@ pub struct ImportReport {
 #[derive(Clone, Deserialize, Serialize, Debug)]
 #[serde(deny_unknown_fields)]
 pub struct Snapshot {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub progress: Option<TaskProgress>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub failures: BTreeMap<String, crate::failure::Failure>,
     pub schema: u8,
     pub epoch: String,
     pub revision: u64,
@@ -160,4 +164,11 @@ impl Stamp {
 pub(super) struct Registered {
     pub path: PathBuf,
     pub stamp: Stamp,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct TaskProgress {
+    pub id: String,
+    pub attempt: u32,
+    pub value: crate::progress::Progress,
 }

@@ -1,0 +1,21 @@
+{
+	"failures": [
+		"preparing",
+		"engine_unavailable",
+		"cancelled",
+		"timed_out",
+		"input_unavailable",
+		"import_limit",
+		"cache_expired",
+		"cache_invalid",
+		"cache_full",
+		"storage",
+		"publish",
+		"output_permission",
+		"conversion",
+		"history",
+		"closing"
+	],
+	"engineStates": ["preparing", "ready", "failed"],
+	"progressStages": ["encoding", "validating", "publishing"]
+}

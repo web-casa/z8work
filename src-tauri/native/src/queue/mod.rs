@@ -18,6 +18,7 @@ type Executor =
 type Notify = dyn Fn(Change) + Send + Sync;
 type Formats = dyn Fn(&str) -> Vec<OutputFormat> + Send + Sync;
 struct State {
+    progress: Option<model::TaskProgress>,
     retained_bytes: Arc<std::sync::atomic::AtomicU64>,
     retained: BTreeMap<String, Retained>,
     save_requests: BTreeSet<String>,
@@ -70,6 +71,17 @@ fn locked(shared: &Shared) -> Result<MutexGuard<'_, State>, String> {
 }
 fn snapshot(state: &State) -> Snapshot {
     Snapshot {
+        progress: state.progress.clone(),
+        failures: state
+            .journal
+            .tasks
+            .iter()
+            .filter_map(|t| {
+                t.error
+                    .as_ref()
+                    .map(|e| (t.id.clone(), crate::failure::Failure::classify(e)))
+            })
+            .collect(),
         schema: 3,
         epoch: state.journal.epoch.clone(),
         revision: state.journal.revision,
@@ -166,6 +178,7 @@ impl Queue {
         store::save(&path, &journal)?;
         let shared = Arc::new(Shared {
             state: Mutex::new(State {
+                progress: None,
                 retained_bytes: Arc::new(std::sync::atomic::AtomicU64::new(0)),
                 retained: BTreeMap::new(),
                 save_requests: BTreeSet::new(),
@@ -947,6 +960,7 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
             .iter_mut()
             .find(|t| t.id == id)
             .expect("queued task exists");
+        state.progress = None;
         let saving = state.save_requests.contains(&id);
         let cached = state.retained.get(&id).map(|r| r.output.clone());
         task.phase = if saving {
@@ -998,7 +1012,12 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
                     let retained_shared = shared.clone();
                     let retained_id = id.clone();
                     let retained_options = options.clone();
+                    let progress_shared = shared.clone();
+                    let progress_id = id.clone();
                     source.context = crate::ConversionContext {
+                        progress: Some(Arc::new(move |value| {
+                            report_progress(&progress_shared, &progress_id, attempt, value);
+                        })),
                         retain: Some(Arc::new(move |mut output| {
                             let mut state = locked(&retained_shared)?;
                             let task = state
@@ -1131,11 +1150,52 @@ fn work(shared: Arc<Shared>, execute: Arc<Executor>) {
         if revoke_output {
             state.output = None;
         }
+        state.progress = None;
         state.running = None;
         apply_worker_state(&shared, &mut state, next);
         drop(state);
         notify(&shared);
     }
+}
+
+fn report_progress(shared: &Shared, id: &str, attempt: u32, value: crate::progress::Progress) {
+    let Ok(mut state) = locked(shared) else {
+        return;
+    };
+    if state.closing
+        || state.clearing
+        || state
+            .running
+            .as_ref()
+            .is_none_or(|(running, cancel)| running != id || cancel.check_cancelled().is_err())
+        || !state
+            .journal
+            .tasks
+            .iter()
+            .any(|t| t.id == id && t.attempt == attempt && t.phase == Phase::Running)
+    {
+        return;
+    }
+    if value.percent.is_some_and(|p| p > 99) {
+        return;
+    }
+    let Some(revision) = state
+        .journal
+        .revision
+        .checked_add(1)
+        .filter(|v| *v < 9_007_199_254_740_991)
+    else {
+        return;
+    };
+    state.progress = Some(model::TaskProgress {
+        id: id.into(),
+        attempt,
+        value,
+    });
+    // Transient progress never writes history; terminal state still persists normally.
+    state.journal.revision = revision;
+    drop(state);
+    notify(shared);
 }
 
 #[cfg(test)]

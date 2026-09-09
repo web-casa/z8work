@@ -1,4 +1,4 @@
-use crate::{process::run, Cancel, Engines};
+use crate::{Cancel, Engines};
 mod preview;
 #[cfg(all(test, unix))]
 mod storage_tests;
@@ -109,6 +109,7 @@ pub type Retainer =
     std::sync::Arc<dyn Fn(crate::PendingOutput) -> Result<(), String> + Send + Sync>;
 #[derive(Default)]
 pub struct ConversionContext {
+    pub progress: Option<crate::progress::Reporter>,
     pub retain: Option<Retainer>,
     pub workspace: Option<std::sync::Arc<crate::workspaces::Store>>,
     pub options: crate::Options,
@@ -134,6 +135,14 @@ struct Job<'a> {
 }
 impl Job<'_> {
     fn run(&self, engine: &str, args: &[OsString]) -> Result<String, String> {
+        self.run_progress(engine, args, None)
+    }
+    fn run_progress(
+        &self,
+        engine: &str,
+        args: &[OsString],
+        progress: Option<crate::progress::Parser>,
+    ) -> Result<String, String> {
         self.cancel.check(self.deadline)?;
         let mut cmd = self.engines.command(engine)?;
         if engine == "pandoc" {
@@ -158,10 +167,11 @@ impl Job<'_> {
             .env("MAGICK_CONFIGURE_PATH", self.cwd)
             .env("MAGICK_TEMPORARY_PATH", self.cwd);
         self.engines.configure_command(&mut cmd, engine)?;
-        run(
+        crate::process::run_progress(
             cmd,
             self.cancel,
             self.deadline.min(Instant::now() + Duration::from_secs(120)),
+            progress,
         )
     }
 }
@@ -302,7 +312,7 @@ pub fn convert_source(
         | OutputFormat::Flac
         | OutputFormat::Opus
         | OutputFormat::M4a => {
-            encode_audio(&job, &staged, &output, format)?;
+            encode_audio(&job, &staged, &output, format, context.progress.clone())?;
             "First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.".to_string()
         }
         OutputFormat::Txt => {
@@ -334,6 +344,12 @@ pub fn convert_source(
             "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.".to_string()
         }
     };
+    if let Some(report) = &context.progress {
+        report(crate::progress::Progress {
+            stage: crate::progress::Stage::Publishing,
+            percent: None,
+        });
+    }
     let saved = publish(
         &job,
         &output,
@@ -462,6 +478,7 @@ fn encode_audio(
     input: &Path,
     output: &Path,
     format: OutputFormat,
+    progress: Option<crate::progress::Reporter>,
 ) -> Result<(), String> {
     let demuxer = media_demuxer(input.extension().and_then(|e| e.to_str()).unwrap_or(""))
         .ok_or("Unsupported media container")?;
@@ -557,7 +574,29 @@ fn encode_audio(
         args.extend([text("-b:a"), text(bitrate)]);
     }
     args.extend([text("-f"), text(muxer), output.as_os_str().into()]);
-    job.run("ffmpeg", &args)?;
+    args.splice(
+        0..0,
+        [
+            text("-progress"),
+            text("pipe:1"),
+            text("-nostats"),
+            text("-stats_period"),
+            text("0.25"),
+        ],
+    );
+    job.run_progress(
+        "ffmpeg",
+        &args,
+        progress
+            .clone()
+            .map(|p| crate::progress::Parser::new(Some(original_duration), p)),
+    )?;
+    if let Some(report) = &progress {
+        report(crate::progress::Progress {
+            stage: crate::progress::Stage::Validating,
+            percent: None,
+        });
+    }
     if fs::metadata(output).map_err(|e| e.to_string())?.len() > 256 * 1024 * 1024 {
         return Err("Audio output exceeds the 256 MiB budget".into());
     }

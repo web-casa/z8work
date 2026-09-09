@@ -28,3 +28,8 @@ pub mod validation;
 pub mod workspaces;
 
 pub mod diagnostics;
+
+pub mod failure;
+pub mod progress;
+
+pub mod startup;
