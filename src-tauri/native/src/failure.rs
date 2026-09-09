@@ -38,6 +38,7 @@ impl Failure {
                 || message.starts_with("Storage ")
                 || message.contains("free space")
                 || message.contains("free file slots")
+                || message.contains("insufficient free file entries")
                 || message.starts_with("Cannot check ") =>
             {
                 Self::Storage
@@ -113,5 +114,14 @@ mod tests {
             Failure::CacheInvalid
         );
         assert_eq!(Failure::classify("Z8:preparing"), Failure::Preparing);
+    }
+    #[test]
+    fn filesystem_inode_exhaustion_is_a_storage_failure() {
+        for area in ["Output folder", "Temporary workspace"] {
+            assert_eq!(
+                Failure::classify(&format!("{area} has insufficient free file entries.")),
+                Failure::Storage
+            );
+        }
     }
 }

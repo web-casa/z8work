@@ -9,6 +9,7 @@ import {
 	inspectMacBundle,
 	inspectMachO,
 	resolveDependency,
+	assertMacDeployment,
 } from "./lib/desktop-macos.mjs";
 import { artifactMatrix, validateBuild } from "./lib/desktop-artifacts.mjs";
 import { fileInfo, listFiles } from "./lib/desktop-sources.mjs";
@@ -49,6 +50,7 @@ const run = (bin, args, timeout = 60000) =>
 		},
 	});
 const application = inspectMachO(await readFile(binary));
+assertMacDeployment(application, config.minimumSystemVersion);
 if (application.fileType !== 2 || application.rpaths.length)
 	throw new Error("Application must be a relocated executable");
 for (const dependency of application.dependencies)
@@ -64,7 +66,7 @@ if (
 	config.name !== build.resourceDirectoryName
 )
 	throw new Error("macOS development identity mismatch");
-const bundle = await inspectMacBundle(engines);
+const bundle = await inspectMacBundle(engines, config.minimumSystemVersion);
 // Do not invalidate engine hashes by signing after inventory. All Mach-O code
 // must already have valid signatures from the native engine build/relocation step.
 for (const name of await listFiles(engines)) {
@@ -124,7 +126,10 @@ run("/usr/bin/plutil", ["-lint", join(contents, "Info.plist")]);
 run("/usr/bin/codesign", ["--force", "--sign", "-", app]);
 run("/usr/bin/codesign", ["--verify", "--deep", "--strict", app]);
 const packaged = join(contents, "Resources/engines");
-const finalBundle = await inspectMacBundle(packaged);
+const finalBundle = await inspectMacBundle(
+	packaged,
+	config.minimumSystemVersion,
+);
 if (bundle.manifestInfo.sha256 !== finalBundle.manifestInfo.sha256)
 	throw new Error("Signing changed engine inventory");
 const quality = JSON.parse(
@@ -153,6 +158,8 @@ const report = {
 	files,
 	engineManifestSha256: bundle.manifestInfo.sha256,
 	dependencies: bundle.dependencies,
+	deployments: bundle.deployments,
+	applicationDeployment: application.deployment,
 	signature: "ad-hoc-local-only",
 	redistributionApproved: false,
 	checks: {

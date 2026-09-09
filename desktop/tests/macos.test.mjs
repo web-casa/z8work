@@ -7,6 +7,7 @@ import {
 	inspectMachO,
 	resolveDependency,
 	inspectMacBundle,
+	assertMacDeployment,
 } from "../../scripts/lib/desktop-macos.mjs";
 import { sha256 } from "../../scripts/lib/desktop-artifacts.mjs";
 import { execFileSync } from "node:child_process";
@@ -21,6 +22,13 @@ function macho(type = 2, deps = []) {
 		return cmd;
 	});
 	const header = Buffer.alloc(32);
+	const build = Buffer.alloc(24);
+	build.writeUInt32LE(0x32);
+	build.writeUInt32LE(24, 4);
+	build.writeUInt32LE(1, 8);
+	build.writeUInt32LE(11 * 65536, 12);
+	build.writeUInt32LE(15 * 65536, 16);
+	commands.push(build);
 	header.writeUInt32LE(0xfeedfacf);
 	header.writeUInt32LE(0x0100000c, 4);
 	header.writeUInt32LE(type, 12);
@@ -31,6 +39,42 @@ function macho(type = 2, deps = []) {
 	);
 	return Buffer.concat([header, ...commands]);
 }
+test("macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands", () => {
+	const valid = macho();
+	assertMacDeployment(inspectMachO(valid), "11.0");
+	for (const [offset, value] of [
+		[40, 2],
+		[44, 12 * 65536],
+		[44, 0],
+		[52, 1],
+	]) {
+		const bad = Buffer.from(valid);
+		bad.writeUInt32LE(value, offset);
+		assert.throws(() => assertMacDeployment(inspectMachO(bad), "11.0"));
+	}
+	assert.throws(() => assertMacDeployment({ deployment: null }, "11.0"));
+	for (const version of ["10.15", "11.256", "11.0.256", "11.00", "garbage"])
+		assert.throws(() => assertMacDeployment(inspectMachO(valid), version));
+	const newer = Buffer.from(valid);
+	newer.writeUInt32LE(12 * 65536, 44);
+	assertMacDeployment(inspectMachO(newer), "12.0");
+	const duplicate = Buffer.concat([valid, valid.subarray(32)]);
+	duplicate.writeUInt32LE(2, 16);
+	duplicate.writeUInt32LE(48, 20);
+	assert.throws(() => inspectMachO(duplicate), /Duplicate/);
+	// Older toolchains may encode the same minimum with LC_VERSION_MIN_MACOSX.
+	const legacy = Buffer.from(valid.subarray(0, 48));
+	legacy.writeUInt32LE(16, 20);
+	legacy.writeUInt32LE(0x24, 32);
+	legacy.writeUInt32LE(16, 36);
+	legacy.writeUInt32LE(11 * 65536, 40);
+	legacy.writeUInt32LE(15 * 65536, 44);
+	assertMacDeployment(inspectMachO(legacy), "11.0");
+	for (const command of [0x25, 0x2f, 0x30]) {
+		legacy.writeUInt32LE(command, 32);
+		assert.throws(() => assertMacDeployment(inspectMachO(legacy), "11.0"));
+	}
+});
 test("Mach-O embedded loader environment is rejected", () => {
 	const bytes = macho(2, ["DYLD_LIBRARY_PATH=/opt/homebrew/lib"]);
 	bytes.writeUInt32LE(0x27, 32);

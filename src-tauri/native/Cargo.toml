@@ -33,6 +33,11 @@ path = "src/bin/bundle-check.rs"
 required-features = ["engine-validation"]
 
 [[bin]]
+name = "fault-check"
+path = "src/bin/fault-check.rs"
+required-features = ["engine-validation"]
+
+[[bin]]
 name = "validation-run"
 path = "src/bin/validation-run.rs"
 required-features = ["engine-validation"]

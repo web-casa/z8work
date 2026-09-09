@@ -28,6 +28,9 @@ pub mod queue;
 #[cfg(feature = "engine-validation")]
 pub mod validation;
 
+#[cfg(all(feature = "engine-validation", target_os = "linux"))]
+pub mod fault_checks;
+
 pub mod workspaces;
 
 pub mod diagnostics;

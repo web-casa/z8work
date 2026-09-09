@@ -18,6 +18,7 @@ export function inspectMachO(bytes) {
 	let offset = 32;
 	const dependencies = [],
 		rpaths = [];
+	let deployment = null;
 	for (let i = 0; i < count; i++) {
 		if (offset + 8 > 32 + size) throw new Error("Truncated Mach-O command");
 		const command = bytes.readUInt32LE(offset),
@@ -26,6 +27,30 @@ export function inspectMachO(bytes) {
 			throw new Error("Invalid Mach-O command size");
 		if (command === 0x27)
 			throw new Error("Embedded DYLD environment is not allowed");
+		if ([0x32, 0x24, 0x25, 0x2f, 0x30].includes(command)) {
+			if (deployment)
+				throw new Error("Duplicate Mach-O deployment commands");
+			if (command === 0x32) {
+				if (
+					length < 24 ||
+					length !== 24 + bytes.readUInt32LE(offset + 20) * 8
+				)
+					throw new Error("Invalid Mach-O build version command");
+				deployment = {
+					platform: bytes.readUInt32LE(offset + 8),
+					minimum: bytes.readUInt32LE(offset + 12),
+					sdk: bytes.readUInt32LE(offset + 16),
+				};
+			} else {
+				if (length !== 16)
+					throw new Error("Invalid Mach-O minimum version command");
+				deployment = {
+					platform: command === 0x24 ? 1 : -1,
+					minimum: bytes.readUInt32LE(offset + 8),
+					sdk: bytes.readUInt32LE(offset + 12),
+				};
+			}
+		}
 		const dylib = [0xc, 0x80000018, 0x8000001f, 0x80000023, 0x20].includes(
 			command,
 		);
@@ -57,7 +82,38 @@ export function inspectMachO(bytes) {
 		offset += length;
 	}
 	if (offset !== 32 + size) throw new Error("Mach-O command count mismatch");
-	return { fileType: bytes.readUInt32LE(12), dependencies, rpaths };
+	return {
+		fileType: bytes.readUInt32LE(12),
+		dependencies,
+		rpaths,
+		deployment,
+	};
+}
+
+export function assertMacDeployment(object, minimumSystemVersion) {
+	if (
+		typeof minimumSystemVersion !== "string" ||
+		!/^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*))?$/.test(
+			minimumSystemVersion,
+		)
+	)
+		throw new Error("Invalid declared macOS minimum version");
+	const [major, minor, patch = 0] = minimumSystemVersion
+		.split(".")
+		.map(Number);
+	if (major < 11 || major > 65535 || minor > 255 || patch > 255)
+		throw new Error("Invalid ARM64 macOS minimum version");
+	const declared = major * 65536 + minor * 256 + patch;
+	if (
+		object.deployment?.platform !== 1 ||
+		object.deployment.minimum < 11 * 65536
+	)
+		throw new Error("Expected an explicit macOS ARM64 deployment target");
+	if (object.deployment.minimum > declared)
+		throw new Error(
+			"Mach-O requires a newer macOS than the declared minimum",
+		);
+	return object.deployment;
 }
 
 export function resolveDependency(name, owner, executable) {
@@ -78,7 +134,16 @@ export function resolveDependency(name, owner, executable) {
 	return { local };
 }
 
-export async function inspectMacBundle(root) {
+export async function inspectMacBundle(root, minimumSystemVersion) {
+	minimumSystemVersion ??= JSON.parse(
+		await readFile(
+			new URL(
+				"../../packaging/desktop/macos/development.json",
+				import.meta.url,
+			),
+			"utf8",
+		),
+	).minimumSystemVersion;
 	const bundle = await inspectBundle(root, "macos");
 	if (bundle.manifest.arch !== "aarch64" || bundle.manifest.loader != null)
 		throw new Error("Expected macOS ARM64 bundle without ELF loader");
@@ -113,6 +178,7 @@ export async function inspectMacBundle(root) {
 		throw new Error("Missing ARM64 verifier");
 	const dependencies = [];
 	for (const [name, object] of objects) {
+		assertMacDeployment(object, minimumSystemVersion);
 		// @rpath needs a caller-dependent search stack. Require explicit relocation
 		// before assembly instead of accepting a path that only works on the builder.
 		if (object.rpaths.length)
@@ -133,5 +199,13 @@ export async function inspectMacBundle(root) {
 			dependencies.push({ owner: name, dependency: dep, ...resolved });
 		}
 	}
-	return { ...bundle, dependencies, machObjects: objects.size };
+	return {
+		...bundle,
+		dependencies,
+		machObjects: objects.size,
+		deployments: [...objects].map(([file, object]) => ({
+			file,
+			...object.deployment,
+		})),
+	};
 }

@@ -159,7 +159,7 @@ jobs:
             - run: node scripts/desktop-windows-inputs.mjs --output .desktop-local/macos-inputs.json
             - run: cargo build --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --release --target aarch64-apple-darwin --no-default-features --features packaged-engines,custom-protocol
             - run: src-tauri/target/aarch64-apple-darwin/release/z8-desktop --build-info-file "$PWD/.desktop-local/macos-build-info.json"
-            - run: node --input-type=module -e "import {readFileSync} from 'node:fs'; import {validateBuild,artifactMatrix} from './scripts/lib/desktop-artifacts.mjs'; import {inspectMachO} from './scripts/lib/desktop-macos.mjs'; const m=await artifactMatrix(); validateBuild(JSON.parse(readFileSync('.desktop-local/macos-build-info.json')),m.artifacts.find(a=>a.id==='macos-arm64-app'),m.version); inspectMachO(readFileSync('src-tauri/target/aarch64-apple-darwin/release/z8-desktop'));"
+            - run: node --input-type=module -e "import {readFileSync} from 'node:fs'; import {validateBuild,artifactMatrix} from './scripts/lib/desktop-artifacts.mjs'; import {inspectMachO,assertMacDeployment} from './scripts/lib/desktop-macos.mjs'; const m=await artifactMatrix(); validateBuild(JSON.parse(readFileSync('.desktop-local/macos-build-info.json')),m.artifacts.find(a=>a.id==='macos-arm64-app'),m.version); assertMacDeployment(inspectMachO(readFileSync('src-tauri/target/aarch64-apple-darwin/release/z8-desktop')),JSON.parse(readFileSync('packaging/desktop/macos/development.json')).minimumSystemVersion);"
             - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/macos-inputs.json
             - uses: actions/upload-artifact@v4
               if: always()

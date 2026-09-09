@@ -77,7 +77,8 @@
 		"desktop:versions": "node scripts/desktop-versions.mjs",
 		"desktop:candidate:macos": "node scripts/desktop-candidate-macos.mjs",
 		"desktop:notices": "node scripts/desktop-notices.mjs",
-		"desktop:bundle:macos": "node scripts/desktop-bundle-macos.mjs"
+		"desktop:bundle:macos": "node scripts/desktop-bundle-macos.mjs",
+		"desktop:test:faults": "node scripts/desktop-faults.mjs"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "^2.5.0",
