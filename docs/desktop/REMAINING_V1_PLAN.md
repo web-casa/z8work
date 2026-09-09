@@ -1,6 +1,6 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-更新：2026-09-10。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已开始独立的 Linux 故障验证与 macOS 兼容性门禁，三端原生安装/升级整体验收未完成；R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。R5 缺项继续保留；已有 Linux 候选允许先做 R6 的独立故障开发与回归，其他平台必须补齐对应 R5 候选和原生环境后验收，不据此提前关闭 R5 或 R6。
+更新：2026-09-10。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已开始独立的 Linux 故障验证与 macOS 兼容性门禁，三端原生安装/升级整体验收未完成；[R7 / Phase 30](PHASE30_IMPLEMENTATION.md)已开展独立门禁 review 与交接准备，整体验收及候选冻结仍等待 R5/R6。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。R5 缺项继续保留；已有 Linux 候选允许先做 R6 的独立故障开发与回归，其他平台必须补齐对应 R5 候选和原生环境后验收，不据此提前关闭 R5 或 R6。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
@@ -152,6 +152,8 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 9. R7 / Phase 30：最终 review、候选冻结与交接
 
+状态：[本轮预备开发与 review](PHASE30_IMPLEMENTATION.md)已修复报告误用及原始证据门禁、更新双语材料，并提供[发行/恢复手册](PHASE30_HANDOFF.md)。这是不依赖实机的准备工作；R5/R6 未关闭时不得冻结候选或将 R7 标为完成。
+
 工作：
 
 1. 按安全、正确性、性能、可维护性逆向 review：从用户动作和最终包证据追溯实现；重点检查暂存权限、取消/退出竞态、包依赖来源和文案真实性。阻塞缺陷修复后返回对应测试，不用“已知问题”规避首版要求。
@@ -166,7 +168,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 10. 共用完成标准与进度规则
 
-- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R4 开发已完成，[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；R6–R7 未开始；R4 尚未执行的性能/目标包检查继续阻塞对应验收；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
+- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R4 开发已完成，[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；R6 已完成本机故障验证、仍待三端安装及剩余验收；R7 已开展独立门禁 review 与交接准备、仍未完成；R4 尚未执行的性能/目标包检查继续阻塞对应验收；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
 - 每阶段记录范围、实际改动、review 问题与修正、执行命令、真实结果、剩余限制和下一阶段入口。保留失败证据，不用最终通过覆盖之前问题。
 - 前端/契约变动运行桌面类型检查、相关 Node 测试和构建；Rust 变动运行相关原生/app 测试、fmt 与 Clippy；影响跨端执行则加原生目标验证。共享网页代码变动补网页相应回归，纯文档仅做格式/链接/一致性检查。
 - 使用已有 `desktop:check`、`desktop:test:ui`、`desktop:build` 及平台脚本；新命令先实现并验证再写进执行说明。单元 mock、交叉编译、包 smoke、真实 GUI、安装验收分层报告。

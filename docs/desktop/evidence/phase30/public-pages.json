@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "checkedAt": "2026-09-09T16:55:49.107Z",
+  "pages": [
+    {
+      "url": "https://z8.work/desktop-info/zh-Hans/privacy/",
+      "status": 404,
+      "sha256": "5c55f7be539122845d053789c65346d521a71f858c40573489c74f94c605d637",
+      "expectedSha256": "cb867f750900e729d51fc2ed480b7ce85f024c223e417525831d335c5127c712",
+      "match": false
+    },
+    {
+      "url": "https://z8.work/desktop-info/zh-Hans/support/",
+      "status": 404,
+      "sha256": "5c55f7be539122845d053789c65346d521a71f858c40573489c74f94c605d637",
+      "expectedSha256": "7266fda756559357d18967d9b3580df91f950561d7e2dec3cd3559696ca296c1",
+      "match": false
+    },
+    {
+      "url": "https://z8.work/desktop-info/en/privacy/",
+      "status": 404,
+      "sha256": "5c55f7be539122845d053789c65346d521a71f858c40573489c74f94c605d637",
+      "expectedSha256": "bc3b01aef90bfbc63298f9224be8dbd8ca5f0807daf533345a8a793a88d43529",
+      "match": false
+    },
+    {
+      "url": "https://z8.work/desktop-info/en/support/",
+      "status": 404,
+      "sha256": "5c55f7be539122845d053789c65346d521a71f858c40573489c74f94c605d637",
+      "expectedSha256": "91f204c53015b00e952fd22e8cbb771eb42445a56bbf3d200a12239b21adcd65",
+      "match": false
+    }
+  ]
+}

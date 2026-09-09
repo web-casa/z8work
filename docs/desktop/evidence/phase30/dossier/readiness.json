@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "version": "0.1.0",
+  "status": "blocked",
+  "pages": [
+    {
+      "locale": "zh-Hans",
+      "kind": "privacy",
+      "file": "static/desktop-info/zh-Hans/privacy/index.html",
+      "url": "https://z8.work/desktop-info/zh-Hans/privacy/",
+      "sha256": "cb867f750900e729d51fc2ed480b7ce85f024c223e417525831d335c5127c712",
+      "deployment": "not-deployed"
+    },
+    {
+      "locale": "zh-Hans",
+      "kind": "support",
+      "file": "static/desktop-info/zh-Hans/support/index.html",
+      "url": "https://z8.work/desktop-info/zh-Hans/support/",
+      "sha256": "7266fda756559357d18967d9b3580df91f950561d7e2dec3cd3559696ca296c1",
+      "deployment": "not-deployed"
+    },
+    {
+      "locale": "en",
+      "kind": "privacy",
+      "file": "static/desktop-info/en/privacy/index.html",
+      "url": "https://z8.work/desktop-info/en/privacy/",
+      "sha256": "bc3b01aef90bfbc63298f9224be8dbd8ca5f0807daf533345a8a793a88d43529",
+      "deployment": "not-deployed"
+    },
+    {
+      "locale": "en",
+      "kind": "support",
+      "file": "static/desktop-info/en/support/index.html",
+      "url": "https://z8.work/desktop-info/en/support/",
+      "sha256": "91f204c53015b00e952fd22e8cbb771eb42445a56bbf3d200a12239b21adcd65",
+      "deployment": "not-deployed"
+    }
+  ],
+  "channels": [
+    {
+      "artifact": "windows-x64-msix",
+      "channel": "microsoft-store",
+      "status": "blocked",
+      "blockers": [
+        "Pricing has not been confirmed",
+        "Partner Center identity and publisher are missing",
+        "Confirmed four-part Store package version is missing/invalid",
+        "Age rating questionnaire has not been completed",
+        "No native store candidate and acceptance evidence are attached",
+        "Missing zh-Hans screenshot from the native windows/x86_64 candidate",
+        "Missing en screenshot from the native windows/x86_64 candidate",
+        "Desktop privacy/support pages have not been deployed and verified"
+      ],
+      "publication": "not-requested"
+    },
+    {
+      "artifact": "linux-amd64-snap",
+      "channel": "snap",
+      "status": "blocked",
+      "blockers": [
+        "Pricing has not been confirmed",
+        "Confirmed Snap registered name is missing/invalid",
+        "No native store candidate and acceptance evidence are attached",
+        "Missing zh-Hans screenshot from the native linux/x86_64 candidate",
+        "Missing en screenshot from the native linux/x86_64 candidate",
+        "Desktop privacy/support pages have not been deployed and verified"
+      ],
+      "publication": "not-requested"
+    }
+  ],
+  "sourceSha256": {
+    "packaging/desktop/store/content.json": "ba31815006093c292ac743ae9b4d405f23438a24a5eb499c214b519933c7d76f",
+    "packaging/desktop/store/submission.json": "ecfadd3dbd5559084a4ada5e7629a5fde9d37298c88103307736d967db1c2987",
+    "packaging/desktop/artifacts.json": "1f5cde5e6e4555148a9d12df0ec9b7fd237ea4f024caa85c619e3c77b2f44774",
+    "scripts/lib/desktop-store.mjs": "5bc1c58936f13a028d9fba4de25716bca4e9e39ecfe61a06855ede989a32643a",
+    "scripts/lib/desktop-artifacts.mjs": "59d178e59fc8801e7be5b43443413800419e8c46d43ae0bb81b1fb441bc9228e",
+    "scripts/desktop-store-browser.mjs": "07ab489691cbc726ae0a18e3368fc0841a9795382a93560759dd7d7dd2fdcac5",
+    "scripts/desktop-store-verify-pages.mjs": "ce3b92aa0656fb9ad04c35a0c9ea083f3a49ced95883587fb5f06990be1d314e",
+    "scripts/desktop-store.mjs": "e78549cb9fe848056178ba6e2dd9bc3a44fff4ce1d69218b6b997b712cb4ec06"
+  }
+}

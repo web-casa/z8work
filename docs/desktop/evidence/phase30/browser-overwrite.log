@@ -1,0 +1,14 @@
+node:internal/fs/promises:859
+  return await PromisePrototypeThen(
+         ^
+
+Error: EEXIST: file already exists, mkdir '/home/ivmm/VERT/.desktop-local/phase30/browser'
+    at async mkdir (node:internal/fs/promises:859:10)
+    at async file:///home/ivmm/VERT/scripts/desktop-store-browser.mjs:33:1 {
+  errno: -17,
+  code: 'EEXIST',
+  syscall: 'mkdir',
+  path: '/home/ivmm/VERT/.desktop-local/phase30/browser'
+}
+
+Node.js v24.18.0

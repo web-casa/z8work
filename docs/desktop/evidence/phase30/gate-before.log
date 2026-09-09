@@ -1,0 +1,30 @@
+✖ one acceptance report cannot stand in for a different check (26.770127ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60.771319
+
+✖ failing tests:
+
+test at desktop/tests/store.test.mjs:257:1
+✖ one acceptance report cannot stand in for a different check (26.770127ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'ready-for-human-review'
+  - 'blocked'
+  
+      at TestContext.<anonymous> (file:///home/ivmm/VERT/desktop/tests/store.test.mjs:262:9)
+      at async Test.run (node:internal/test_runner/test:1332:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'ready-for-human-review',
+    expected: 'blocked',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

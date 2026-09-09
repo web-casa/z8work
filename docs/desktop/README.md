@@ -4,7 +4,7 @@
 
 **结论：继续采用独立桌面入口 + Tauri 2 + Rust 管理原生转换程序的路线。** Linux ARM64 原型已验证四类转换可以运行；跨平台自包含引擎包、安装权限及商店验收仍需逐项完成。
 
-**当前执行方案（2026-09-10）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验与基础格式质量验证，并记录本机性能参考及未执行门槛；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已重建本机及 Windows/Snap 开发候选并加入离线许可，macOS 实际候选与完整许可/源码闭合仍未完成。[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已完成本机真实文件系统故障验证、inode 错误分类修复与 macOS 部署兼容性门禁；三端原生安装/升级仍待验收，R7 未开始。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
+**当前执行方案（2026-09-10）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验与基础格式质量验证，并记录本机性能参考及未执行门槛；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已重建本机及 Windows/Snap 开发候选并加入离线许可，macOS 实际候选与完整许可/源码闭合仍未完成。[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已完成本机真实文件系统故障验证、inode 错误分类修复与 macOS 部署兼容性门禁；三端原生安装/升级仍待验收。[R7 / Phase 30](PHASE30_IMPLEMENTATION.md)已开展门禁修复与双语发行材料准备，附[发行/恢复手册](PHASE30_HANDOFF.md)，候选尚未冻结。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
 
 ## 文档导航
 

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "phase": 30,
+  "sourceCommit": "2f6190dfaeb1a9a25ee55d30ba566a068c8c3e4d",
+  "reviewReceiptHead": "30c3fe043fd0745e45e227b3bbec02eaf0fa2100",
+  "sourceFilesUnchangedAfterCommit": true,
+  "inputFileCount": 451,
+  "tests": {
+    "node22": 182,
+    "node24": 182,
+    "localDocumentationBrowser": 8
+  },
+  "nativeInstallationThisPhase": "not-run",
+  "readiness": "blocked",
+  "publicPages": "failed-http404",
+  "r5": "incomplete",
+  "r6": "incomplete",
+  "r7": "preparation-only",
+  "redistributionApproved": false,
+  "publication": "not-requested"
+}

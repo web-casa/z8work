@@ -1,0 +1,31 @@
+{
+  "status": "draft",
+  "version": "0.1.0",
+  "language": "en",
+  "productName": "Z8.Work",
+  "summary": "Convert images, PDF pages and audio locally",
+  "shortDescription": "A local file workspace with batch conversion, image quality controls and resumable PDF page export.",
+  "description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and file contents are not uploaded by the converter.\n\nConvert images to PNG, JPEG, WebP or AVIF. Export PDF pages as images. Convert audio or extract an audio track from supported video files. Extract plain text from Markdown and DOCX documents.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. If encoding succeeds but saving fails, a retained single-file result can be saved to another folder during the same session without re-encoding. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. JPEG uses a white background for transparency. PDF export is limited to 200 pages and 4000 by 4000 pixels per page. Documents export plain text, without layout preservation or OCR. Video output and spreadsheets are not supported in this desktop version. Output files may be larger than their sources.",
+  "features": [
+    "Local native conversion without uploading file contents",
+    "Batch output formats and three image quality presets",
+    "PNG, JPEG, WebP and AVIF image output",
+    "Multi-page PDF export with partial-result recovery",
+    "Audio conversion and audio extraction from supported videos",
+    "Plain-text extraction from Markdown and DOCX"
+  ],
+  "whatsNew": "",
+  "website": "https://z8.work/",
+  "supportUrl": "https://z8.work/desktop-info/en/support/",
+  "privacyUrl": "https://z8.work/desktop-info/en/privacy/",
+  "contact": "contact@web.casa",
+  "source": "https://github.com/web-casa/z8work",
+  "identity": {
+    "artifact": "linux-amd64-snap",
+    "displayName": "Z8.Work",
+    "registeredName": null,
+    "pricing": null,
+    "candidate": null,
+    "screenshots": []
+  }
+}
