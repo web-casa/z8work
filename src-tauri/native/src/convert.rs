@@ -257,8 +257,7 @@ pub fn convert_source(
     let work = match &context.workspace {
         Some(store) => store.create()?,
         None => crate::workspaces::Workdir::temporary(
-            tempfile::tempdir_in(&directory)
-                .map_err(|e| format!("Cannot write to output folder: {e}"))?,
+            tempfile::tempdir_in(&directory).map_err(crate::failure::output_io)?,
         ),
     };
     // Reclaim eligible managed scratch before checking either volume.
@@ -690,8 +689,8 @@ pub(crate) fn publish_verified(
         return Err("Output is empty or exceeds the 256 MiB output budget".into());
     }
     crate::storage::ensure(directory, size, crate::storage::Area::Output)?;
-    let mut pending = tempfile::NamedTempFile::new_in(directory)
-        .map_err(|e| format!("Cannot write to output folder: {e}"))?;
+    let mut pending =
+        tempfile::NamedTempFile::new_in(directory).map_err(crate::failure::output_io)?;
     let mut encoded = crate::input::open_regular(output).map_err(|e| {
         if expected.is_some() {
             crate::retained::INVALID.into()
@@ -713,12 +712,12 @@ pub(crate) fn publish_verified(
         }
         pending
             .write_all(&buffer[..n])
-            .map_err(|e| format!("Cannot write to output folder: {e}"))?;
+            .map_err(crate::failure::output_io)?;
     }
     pending
         .as_file()
         .sync_all()
-        .map_err(|e| format!("Cannot write to output folder: {e}"))?;
+        .map_err(crate::failure::output_io)?;
     let sha256 = crate::hash_file(pending.path())?;
     if copied != size || expected.is_some_and(|(_, hash)| hash != sha256) {
         return Err(crate::retained::INVALID.into());
@@ -750,7 +749,7 @@ pub(crate) fn publish_verified(
                 })
             }
             Err(e) if e.error.kind() == std::io::ErrorKind::AlreadyExists => pending = e.file,
-            Err(e) => return Err(format!("Cannot save output: {}", e.error)),
+            Err(e) => return Err(crate::failure::output_io(e.error)),
         }
     }
     Err("Too many output filename collisions".into())

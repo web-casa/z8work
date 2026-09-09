@@ -20,6 +20,20 @@ pub enum Failure {
     History,
     Closing,
 }
+// Classify OS errors before formatting: localized messages and numeric errno
+// values are not portable. Keep the existing String boundary for callers.
+pub(crate) fn output_io(error: std::io::Error) -> String {
+    use std::io::ErrorKind;
+    match error.kind() {
+        ErrorKind::StorageFull | ErrorKind::QuotaExceeded | ErrorKind::FileTooLarge => {
+            format!("Storage: Cannot write output: {error}")
+        }
+        ErrorKind::PermissionDenied | ErrorKind::ReadOnlyFilesystem => {
+            format!("Cannot write to output folder: {error}")
+        }
+        _ => format!("Output write failed: {error}"),
+    }
+}
 impl Failure {
     pub fn classify(message: &str) -> Self {
         match message {
@@ -60,6 +74,38 @@ impl Failure {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn output_io_categories_follow_error_kinds_not_message_text() {
+        use std::io::{Error, ErrorKind};
+        for (kind, expected) in [
+            (ErrorKind::StorageFull, Failure::Storage),
+            (ErrorKind::QuotaExceeded, Failure::Storage),
+            (ErrorKind::FileTooLarge, Failure::Storage),
+            (ErrorKind::PermissionDenied, Failure::OutputPermission),
+            (ErrorKind::ReadOnlyFilesystem, Failure::OutputPermission),
+            (ErrorKind::NotFound, Failure::Publish),
+            (ErrorKind::Other, Failure::Publish),
+        ] {
+            assert_eq!(
+                Failure::classify(&output_io(Error::new(kind, "opaque OS detail"))),
+                expected
+            );
+        }
+    }
+    #[cfg(unix)]
+    #[test]
+    fn actual_unix_storage_errno_is_not_an_output_permission_error() {
+        for code in [libc::ENOSPC, libc::EDQUOT, libc::EFBIG] {
+            assert_eq!(
+                Failure::classify(&output_io(std::io::Error::from_raw_os_error(code))),
+                Failure::Storage
+            );
+        }
+        assert_eq!(
+            Failure::classify(&output_io(std::io::Error::from_raw_os_error(libc::EIO))),
+            Failure::Publish
+        );
+    }
     #[test]
     fn public_categories_match_shared_frontend_fixture() {
         use Failure::*;

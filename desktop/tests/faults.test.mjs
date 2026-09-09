@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { validateFaultReport } from "../../scripts/lib/desktop-faults.mjs";
 function fixture() {
 	return {
-		schema: 1,
+		schema: 2,
 		phase: 29,
 		status: "passed",
 		platform: "linux-aarch64",
@@ -20,16 +20,23 @@ function fixture() {
 				failure: "storage",
 				createdFiles: 63,
 			},
-			...["disk-full", "permission-revoked"].map((id) => ({
-				id,
-				status: "passed",
-				failure: id === "disk-full" ? "storage" : "output_permission",
-				injectedBytes: id === "disk-full" ? 32 * 1024 ** 2 : 0,
-				saveRetryWithoutSource: true,
-				existingFilesPreserved: true,
-				partialFiles: 0,
-				savedSha256: "a".repeat(64),
-			})),
+			...["disk-full", "permission-revoked", "file-size-limit"].map(
+				(id) => ({
+					id,
+					status: "passed",
+					failure:
+						id === "permission-revoked"
+							? "output_permission"
+							: "storage",
+					fileSizeLimit: id === "file-size-limit" ? 256 : 0,
+					injectedBytes: id === "disk-full" ? 32 * 1024 ** 2 : 0,
+					saveRetryWithoutSource: true,
+					existingFilesPreserved: true,
+					partialFiles: 0,
+					savedBytes: 512,
+					savedSha256: "a".repeat(64),
+				}),
+			),
 			{ id: "workspace-cleanup", status: "passed" },
 		],
 	};
@@ -37,6 +44,15 @@ function fixture() {
 test("native fault evidence requires actual bounded injection, recovery, cleanup and platform", () => {
 	validateFaultReport(fixture(), "linux-aarch64");
 	for (const mutate of [
+		(r) => {
+			r.checks[4].savedBytes = 256;
+		},
+		(r) => {
+			r.schema = 1;
+		},
+		(r) => {
+			r.checks[4].fileSizeLimit = 0;
+		},
 		(r) => {
 			r.platform = "linux-x86_64";
 		},

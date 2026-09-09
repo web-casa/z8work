@@ -57,8 +57,8 @@ const copy: Record<Failure, [string, string]> = {
 		"Cache is full. Save or remove other tasks, then convert again.",
 	],
 	storage: [
-		"磁盘空间或写入权限不足，请检查后重试。",
-		"Check free space and write permissions, then retry.",
+		"存储检查或写入受限。请检查空间、配额和文件大小限制，必要时更换保存目录。",
+		"Storage check or write failed. Check free space, quotas and file-size limits, or choose another output folder.",
 	],
 	output_permission: [
 		"保存目录无法写入。请检查权限或选择其他目录后重试。",

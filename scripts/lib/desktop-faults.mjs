@@ -5,11 +5,12 @@ export function validateFaultReport(report, platform) {
 		"inode-exhaustion",
 		"disk-full",
 		"permission-revoked",
+		"file-size-limit",
 		"workspace-cleanup",
 	]);
 	if (
 		!["linux-aarch64", "linux-x86_64"].includes(platform) ||
-		report?.schema !== 1 ||
+		report?.schema !== 2 ||
 		report.phase !== 29 ||
 		report.status !== "passed" ||
 		report.platform !== platform ||
@@ -36,18 +37,30 @@ export function validateFaultReport(report, platform) {
 				check.createdFiles > 256)
 		)
 			throw new Error("Missing real inode exhaustion");
-		if (["disk-full", "permission-revoked"].includes(check.id)) {
+		if (
+			["disk-full", "permission-revoked", "file-size-limit"].includes(
+				check.id,
+			)
+		) {
 			if (
 				check.failure !==
-					(check.id === "disk-full"
-						? "storage"
-						: "output_permission") ||
+					(check.id === "permission-revoked"
+						? "output_permission"
+						: "storage") ||
 				check.saveRetryWithoutSource !== true ||
 				check.existingFilesPreserved !== true ||
 				check.partialFiles !== 0 ||
+				!Number.isSafeInteger(check.savedBytes) ||
+				check.savedBytes <=
+					(check.id === "file-size-limit" ? 256 : 0) ||
 				!/^[a-f0-9]{64}$/.test(check.savedSha256)
 			)
 				throw new Error("Unverified recovery or file preservation");
+			if (
+				check.fileSizeLimit !==
+				(check.id === "file-size-limit" ? 256 : 0)
+			)
+				throw new Error("Unverified file-size limit");
 			if (
 				check.id === "disk-full"
 					? !Number.isSafeInteger(check.injectedBytes) ||

@@ -116,7 +116,7 @@ pub(crate) fn prepare_output(path: &Path) -> Result<(), String> {
         file.as_file().sync_all()?;
         file.close()
     })();
-    probe.map_err(|e: std::io::Error| format!("Cannot write to output folder: {e}"))
+    probe.map_err(crate::failure::output_io)
 }
 
 #[cfg(test)]
