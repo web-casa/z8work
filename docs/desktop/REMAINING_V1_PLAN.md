@@ -135,7 +135,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 8. R6 / Phase 29：原生安装、故障与升级验收
 
-本轮进展见 [Phase 29 实施与 review](PHASE29_IMPLEMENTATION.md)：真实只读挂载、inode/磁盘耗尽及权限撤销恢复已在 Linux ARM64 隔离环境验证，并修复 inode 耗尽的错误分类。macOS 平台/最低系统版本门禁已补齐。以下三端安装、升级和剩余故障项目仍按原验收要求执行。
+本轮进展见 [Phase 29 实施与 review](PHASE29_IMPLEMENTATION.md)：真实只读挂载、inode/磁盘耗尽及权限撤销恢复已在 Linux ARM64 隔离环境验证，并修复 inode 耗尽的错误分类。macOS 平台/最低系统版本门禁已补齐。[R6 写入失败补测](PHASE29_WRITE_FAILURES.md)进一步复现并修复文件大小限制被误判权限问题，当前六项隔离故障通过；配额/断盘等剩余故障仍待验收。以下三端安装、升级和剩余故障项目仍按原验收要求执行。
 
 工作：
 

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "phase": 29,
+  "status": "failed",
+  "scope": "native Linux core fault checks; not installed application acceptance",
+  "platform": "linux-aarch64",
+  "engineManifestSha256": "9bc5bcf84e4316819ac14001324d387d6616d85012c0b96bcf87aebdd1a5b4ce",
+  "verifier": {
+    "sha256": "c85a85c159b612363decb7facef168a6574d61df9816dbeaa5e7b5cbd2999fc5",
+    "bytes": 1362680
+  },
+  "installerAcceptance": false,
+  "redistributionApproved": false,
+  "isolation": {
+    "baseImage": "scratch",
+    "network": "none",
+    "rootFilesystem": "read-only",
+    "uid": 1000,
+    "memoryMiB": 1024,
+    "cpus": 2,
+    "faultVolumeMiB": 32,
+    "inodeLimit": 64
+  },
+  "image": "sha256:e39e07429fb8f68969f6344bccecdaaa4f3362ec2deb8f70142927cb386f46c1",
+  "error": "Command exited 1",
+  "cleanup": {
+    "container": "removed",
+    "image": "removed"
+  }
+}

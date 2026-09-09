@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "phase": 29,
+  "scope": "R6 supplemental write failure and Linux regression; not complete native installation acceptance",
+  "sourceCommit": "7c00068209c88beaba004220731d581534b58fad",
+  "applicationSha256": "38771e1466c6a04834c4fcd81b908427f4ee006e97b6526eb461a96c64d42c08",
+  "archiveSha256": "0c9a3093c5017d4ced42f9b0aea374b5537139f2e4e6ca04b4fc1b6084b5a3ea",
+  "faults": 6,
+  "nativeTestsPassed": 115,
+  "nativeTestsIgnored": 3,
+  "desktopRustTests": 10,
+  "node22Tests": 182,
+  "node24Tests": 182,
+  "productGuiChecks": 8,
+  "saveGuiChecks": 67,
+  "routes": 84,
+  "qualityChecks": 20,
+  "imageCalibration": 240,
+  "svelte": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "candidateAndGuiHashesMatch": true,
+  "candidateAndFaultEngineHashesMatch": true,
+  "installerAcceptance": false,
+  "redistributionApproved": false
+}

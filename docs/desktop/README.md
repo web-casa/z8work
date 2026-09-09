@@ -32,7 +32,7 @@ Debian ARM64 材料记录：[Phase 7 历史源码补齐与恢复下载](PHASE7_I
 
 最新验收工具：[Phase 9：已安装 Snap 运行验收](PHASE9_IMPLEMENTATION.md)。新增真实环境预检、安装字节与沙箱运行核对、可复制的验收目录；本机预检受 ARM64/partial confinement 阻塞，未声称原生安装通过。
 
-最新本机候选与故障证据见 [Phase 29](PHASE29_IMPLEMENTATION.md)。[Phase 28 候选交接](PHASE28_CANDIDATES.md)保留 Windows/Snap 历史产物；这两端应用尚未包含 Phase 29 的共享错误分类修复，需重建后进行原生安装验收。
+最新本机候选与故障证据见 [R6 写入失败补测](PHASE29_WRITE_FAILURES.md)，基础记录见 [Phase 29](PHASE29_IMPLEMENTATION.md)。[Phase 28 候选交接](PHASE28_CANDIDATES.md)保留 Windows/Snap 历史产物；这两端应用尚未包含 Phase 29 的共享错误分类修复，需重建后进行原生安装验收。
 
 此前功能记录：[Phase 27：产品体验、隐私与格式质量](PHASE27_IMPLEMENTATION.md)。双语离线说明、键盘/缩放修复和 84 条真实格式路线已验证；见[格式矩阵](PHASE27_FORMAT_MATRIX.md)与[性能记录及剩余门槛](PHASE27_PERFORMANCE.md)。目标包原生验收及 PDF ICC 色彩管理仍未关闭。
 

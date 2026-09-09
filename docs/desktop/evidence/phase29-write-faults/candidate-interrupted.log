@@ -1,0 +1,632 @@
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /home/ivmm/VERT/.desktop-local/phase29-write-faults/linux-candidate/unpack-check-xogS8h/z8-work/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/VERT/.desktop-local/phase29-write-faults/linux-candidate/unpack-check-xogS8h/z8-work/usr/lib/Z8.Work Desktop Dev/engines/lib /home/ivmm/VERT/.desktop-local/phase29-write-faults/linux-candidate/unpack-check-xogS8h/z8-work/usr/lib/Z8.Work Desktop Dev/engines/validation/bundle-check /home/ivmm/VERT/.desktop-local/phase29-write-faults/linux-candidate/unpack-check-xogS8h/z8-work/usr/lib/Z8.Work Desktop Dev/engines --quality
+[validation] magick ["-size", "64x48", "xc:none", "-fill", "red", "-draw", "rectangle 0,0 31,47", "/tmp/.tmpiaHJBk/alpha.png"]
+[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/gradient.heic -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/gradient.heic -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/gradient.heic -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/gradient.heic -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient.heic", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.heif -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-2.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.heif -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-2.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.heif -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-2.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.heif -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-2.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.heif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpeg -> Png
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-3.png", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.png", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpeg -> Jpeg
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-3.jpg", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.jpg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpeg -> Webp
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-3.webp", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.webp", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] convert /tmp/.tmpiaHJBk/alias.jpeg -> Avif
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-3.avif", "-f", "null", "-"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alias.jpeg", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-3.avif", "-auto-orient", "-format", "%w %h", "info:"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-depth", "16", "RGBA:/tmp/.tmpiaHJBk/before.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.png", "-depth", "16", "RGBA:/tmp/.tmpiaHJBk/after.rgba"]
+[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-profile", "/tmp/.tmpiaHJBk/metadata.xmp", "/tmp/.tmpiaHJBk/metadata.png"]
+[validation] magick ["identify", "-format", "%[profiles]", "/tmp/.tmpiaHJBk/metadata.png"]
+[validation] magick ["identify", "-format", "%[profiles]", "/tmp/.tmpiaHJBk/保存 results/metadata-z8-1.png"]
+[validation] magick ["identify", "-format", "%[profiles]", "/tmp/.tmpiaHJBk/保存 results/metadata-z8-2.png"]
+[validation] magick ["-size", "256x64", "gradient:black-white", "-depth", "16", "/tmp/.tmpiaHJBk/gradient16.png"]
+[validation] magick ["/tmp/.tmpiaHJBk/gradient16.png", "-depth", "16", "RGBA:/tmp/.tmpiaHJBk/depth-before"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/gradient16-z8-1.png", "-depth", "16", "RGBA:/tmp/.tmpiaHJBk/depth-after"]
+[validation] magick ["-seed", "42", "-size", "256x256", "plasma:fractal", "-depth", "8", "/tmp/.tmpiaHJBk/calibration.png"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-1.avif", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-2.avif", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-3.avif", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-1.webp", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-2.webp", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-3.webp", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-1.jpg", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-2.jpg", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/calibration-z8-3.jpg", "-f", "null", "-"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "aevalsrc=0.2*sin(2*PI*440*t)|0.2*sin(2*PI*880*t):s=48000:d=1", "-c:a", "libmp3lame", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/source.mp3", "-c:a", "libvorbis", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "color=c=red:s=16x16:r=10", "-i", "/tmp/.tmpiaHJBk/source.mp3", "-t", "0.3", "-c:v", "mpeg4", "-c:a", "aac", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "color=c=red:s=16x16:r=10", "-i", "/tmp/.tmpiaHJBk/source.mp3", "-t", "0.3", "-c:v", "mpeg4", "-c:a", "aac", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "color=c=red:s=16x16:r=10", "-i", "/tmp/.tmpiaHJBk/source.mp3", "-t", "0.3", "-c:v", "ffv1", "-c:a", "flac", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-f", "lavfi", "-i", "color=c=red:s=16x16:r=10", "-i", "/tmp/.tmpiaHJBk/source.mp3", "-t", "0.3", "-c:v", "libvpx-vp9", "-c:a", "libopus", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpdeABdx/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpI7UX0t/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpbrKShG/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmp5Th6Nr/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.mp3"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpx9eZzq/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.wav"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpUSl821/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.wav"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpdWDDeX/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.wav"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpFRrOEz/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.wav"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpbxu2ad/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.wav"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-1.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpiEADvI/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.flac"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmp36ekhX/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.flac"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpIOk01Q/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.flac"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpkZWWMS/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.flac"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpsrlftl/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.flac"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-2.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpgFToxv/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.opus"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpFvW64i/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.opus"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpo0Abit/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.opus"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpHJ53zc/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.opus"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpEp07a7/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.opus"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-3.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpsXv9NN/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.m4a"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpZpYFvu/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.m4a"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmp86anza/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.m4a"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmp5eDYH5/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.m4a"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpm0QxNC/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1.m4a"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-1-z8-4.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpJCJ79s/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpvkMT2V/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-2.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmprimpPt/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpv9tm8A/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpHZDLis/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/source.ogg"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/source-z8-3.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpnjjv7X/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmp4XJPKE/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpuofRKr/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpvx4ApG/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpcGtO3A/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mp4"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-1.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpXIB4x0/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpKRj9NB/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpkvoOQl/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpwEuQ2h/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpK2HvIw/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mov"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-2.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpsSCzts/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpXRE4aE/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpV0wx7H/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpKq3HXC/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpPKZIuR/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.mkv"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-3.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpqv434C/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.wav", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.wav"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.wav", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpsk48XX/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.mp3", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.mp3"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.mp3", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpyclOAt/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.flac", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.flac"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.flac", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpFFawiR/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.opus", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.opus"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.opus", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpP8Ka81/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.m4a", "-f", "null", "-"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/video.webm"]
+[validation] ffprobe ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=channels,codec_name:format=duration", "-of", "json", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.m4a"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-i", "/tmp/.tmpiaHJBk/保存 results/video-z8-4.m4a", "-map", "0:a:0", "-t", "2", "-ar", "48000", "-ac", "2", "-f", "f32le", "/tmp/.tmpo36UmN/signal.f32"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-001-z8-1.png", "-f", "null", "-"]
+[validation] magick ["identify", "-format", "%w %h", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-001-z8-1.png"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-001-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/pdf-font.rgba"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-002-z8-1.png", "-f", "null", "-"]
+[validation] magick ["identify", "-format", "%w %h", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-002-z8-1.png"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-002-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/pdf-font.rgba"]
+[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-003-z8-1.png", "-f", "null", "-"]
+[validation] magick ["identify", "-format", "%w %h", "/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-003-z8-1.png"]
+[validation] magick ["/tmp/.tmpiaHJBk/保存 results/三页 [0]-page-003-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/pdf-font.rgba"]
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at run (file:///home/ivmm/VERT/scripts/desktop-candidate-linux.mjs:53:2)
+    at file:///home/ivmm/VERT/scripts/desktop-candidate-linux.mjs:115:3 {
+  status: null,
+  signal: 'SIGTERM',
+  output: [
+    null,
+    '',
+    '[validation] magick ["-size", "64x48", "xc:none", "-fill", "red", "-draw", "rectangle 0,0 31,47", "/tmp/.tmpiaHJBk/alpha.png"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Png\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Jpeg\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Webp\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Avif\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Png\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Jpeg\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Webp\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Avif\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Png\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Jpeg\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Webp\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Avif\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+      '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Png\n' +
+      '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-f", "null", "-"]\n' +
+      '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+      '[validat'... 52114 more characters
+  ],
+  pid: 1977251,
+  stdout: '',
+  stderr: '[validation] magick ["-size", "64x48", "xc:none", "-fill", "red", "-draw", "rectangle 0,0 31,47", "/tmp/.tmpiaHJBk/alpha.png"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Png\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Jpeg\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Webp\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alpha.png -> Avif\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alpha.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-2.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Png\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Jpeg\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Webp\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/alias.jpg -> Avif\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/alias.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alias-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Png\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.png", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Jpeg\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-background", "white", "-alpha", "remove", "-alpha", "off", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.jpg", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Webp\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp -> Avif\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/actual.rgba"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.webp", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-1.avif", "-auto-orient", "-format", "%w %h", "info:"]\n' +
+    '[validation] convert /tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif -> Png\n' +
+    '[validation] ffmpeg ["-nostdin", "-v", "error", "-xerror", "-i", "/tmp/.tmpiaHJBk/保存 results/alpha-z8-1-z8-2.png", "-f", "null", "-"]\n' +
+    '[validation] magick ["/tmp/.tmpiaHJBk/保存 results/alpha-z8-1.avif", "-auto-orient", "-depth", "8", "RGBA:/tmp/.tmpiaHJBk/expected.rgba"]\n' +
+    '[validat'... 52114 more characters
+}
+
+Node.js v24.18.0
