@@ -1,0 +1,18 @@
+   Compiling z8-desktop v0.1.0 (/home/ivmm/VERT/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.52s
+     Running unittests src/main.rs (src-tauri/target/debug/deps/z8_desktop-8f316a489e8d7592)
+
+running 10 tests
+test build_report::tests::rejects_relative_paths_without_writing ... ok
+test impact::tests::only_fixed_source_ids_can_open ... ok
+test build_report::tests::runtime_detection_preserves_missing_and_prerelease_results ... ok
+test quit::tests::dismissal_can_be_followed_by_a_new_exit_request ... ok
+test quit::tests::escape_dismissal_and_unrecognized_responses_keep_the_app_open ... ok
+test boot::tests::early_inbox_is_bounded_and_closed_inbox_rejects_imports ... ok
+test build_report::tests::report_roundtrips_and_never_overwrites ... ok
+test quit::tests::repeated_close_and_menu_requests_wait_until_cleanup_finishes ... ok
+test quit::tests::only_one_concurrent_request_owns_confirmation ... ok
+test boot::tests::startup_imports_are_processed_once_and_never_autoconvert ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

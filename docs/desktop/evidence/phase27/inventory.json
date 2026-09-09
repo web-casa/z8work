@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "scope": "Phase 27 Linux ARM64 development evidence; no installed-package acceptance",
+  "files": {
+    "app-build.txt": {
+      "bytes": 196,
+      "sha256": "9a2c39f932b9bcac2ba85aa309795291987597f06c6d3a2ff1bba94b033df490"
+    },
+    "app-tests.txt": {
+      "bytes": 1114,
+      "sha256": "323a376d41a5eb235d60c005a4eaf2e11a1ea65fb0f666633b6470635afabde1"
+    },
+    "audio-progress-zh.png": {
+      "bytes": 99305,
+      "sha256": "a5f7990f817e682c551ad194b07528f5ecd1505aceca7eda55bdc2b7bb5854b4"
+    },
+    "awaiting-save-zh.png": {
+      "bytes": 104941,
+      "sha256": "a4a06ac37a17d630d90e1cb39fe2d715aa117950d9661937f8cf67e9bbc91227"
+    },
+    "clippy.txt": {
+      "bytes": 196,
+      "sha256": "a2df255228cdd798182841bd6061837a3ddf47074df53e890f30687677d53dd7"
+    },
+    "development-engines.json": {
+      "bytes": 1327,
+      "sha256": "233a26522f1a7eaeee0ead58310bc956bbeefa200103b26572e4e9cbb4abd756"
+    },
+    "embedded-font.png": {
+      "bytes": 7389,
+      "sha256": "a27c371968bf6fe93db7bf28039b43824d7cac9b0e755105d4eb354279e41816"
+    },
+    "format-resources.json": {
+      "bytes": 161447,
+      "sha256": "f3637e877feda7aa360e830218614fc60cbcef249fc6db90c404a4f337cdf987"
+    },
+    "formats.json": {
+      "bytes": 216292,
+      "sha256": "170911d000c0e821c75a01a0e6ab5eabf3ab77749bb78dedc0ea7aba29613315"
+    },
+    "formats.txt": {
+      "bytes": 308136,
+      "sha256": "c913727c3e49ddee20556ca6c7a870583c16fe27a29f3be6b84e4290d617ba57"
+    },
+    "frontend-build.txt": {
+      "bytes": 1213,
+      "sha256": "e94ebbe86ca0eb1d4ef75535ea537974eeca866ba08fad2fbfcdff5400ab5eae"
+    },
+    "gui-driver.txt": {
+      "bytes": 3990,
+      "sha256": "5752c3127dcd8ee2d7ccf6191da190f472ec5b0294cc173c6a2f2aaf657e74f5"
+    },
+    "gui-report.json": {
+      "bytes": 7277,
+      "sha256": "8fc4c97cbf665ad464480eed1e4ca4b1a9bff8fa1d84f070ee7c4ac32733ea30"
+    },
+    "gui-resources.json": {
+      "bytes": 187038,
+      "sha256": "3ced33f36c1489ce65e4d4767f03aec02ce2473c4d212ff0a1d71c5a82f31dad"
+    },
+    "gui.txt": {
+      "bytes": 5859,
+      "sha256": "324ebb259e62cb1b40fbfe1124757591f316382d733974effdf2a4706501ffc7"
+    },
+    "inputs-committed.json": {
+      "bytes": 60992,
+      "sha256": "0751b3a27b160589ca46e22adc0a74c33e0c9943b3aa06872df75a9747c42e92"
+    },
+    "inputs-final.json": {
+      "bytes": 60992,
+      "sha256": "4aac8f2a8e6712d6b1e45a54eb9b5f9fee41ebc6a14490caa7ff8029e3cc996e"
+    },
+    "inputs.json": {
+      "bytes": 60992,
+      "sha256": "3ddb1e62a5747b51564d0ca02b2b738ae14f1ff8def48c6f967216d7e7b8df5e"
+    },
+    "macos-cross.txt": {
+      "bytes": 137,
+      "sha256": "0e2cb6b7a92d98b9c62b0136df78388fec50812a2ffce7ec13ac9472771ecf55"
+    },
+    "native-development.txt": {
+      "bytes": 10023,
+      "sha256": "ca1832390cfaa5886c90cd54f74942fe202368ab965784387daa19407c42f28e"
+    },
+    "native.txt": {
+      "bytes": 10059,
+      "sha256": "7b722c54e92432af35c84ecfebdef91f686cffeac89fd777d4744f76171f30ad"
+    },
+    "node22.txt": {
+      "bytes": 35002,
+      "sha256": "1d33c175cdf1ef9307a0463eb2490cbc8f7702fa16f685e734cbb733c7917dee"
+    },
+    "node24.txt": {
+      "bytes": 14607,
+      "sha256": "7adeacccf55e5fadcbe9024f6a1f8e38235309e836aaf7a347d1efc63275df08"
+    },
+    "pdf-render-note.txt": {
+      "bytes": 205,
+      "sha256": "a1d6a95b7ffcf85f92cc9e9ca08239dfac05415376917d2d57e431dde808ce7f"
+    },
+    "performance-summary.json": {
+      "bytes": 2038,
+      "sha256": "3e6458caeffddef1c0b251c41b28e3254e30705a8072f1f71b1691ef075ff306"
+    },
+    "product-impact-en.png": {
+      "bytes": 124257,
+      "sha256": "0eae442995c31be6f074279ed54aa16fc9061184247f0bd93b62d3b0652fb3ad"
+    },
+    "product-minimum-1x.png": {
+      "bytes": 52258,
+      "sha256": "1ebf30f0ca629de1b8de5954d3ce853089ba9816835fb41d489a04adf338842e"
+    },
+    "product-minimum-2x.png": {
+      "bytes": 27797,
+      "sha256": "5cf9690cfe46f9438d214fa7a1971fbd8b1e3e6fde75b1d287365c7efde871c7"
+    },
+    "product-privacy-zh.png": {
+      "bytes": 152300,
+      "sha256": "a75100c09730c836ec1b72d4822b3b0ab760cf28f0297d33ddf19f08ae1e48fc"
+    },
+    "product-saved-zh.png": {
+      "bytes": 112883,
+      "sha256": "88085b03789d44205f83dd127e5f49ec760e4332d34e16d222d31ef224dea1c6"
+    },
+    "progress-samples.json": {
+      "bytes": 5089,
+      "sha256": "4ab124d1b9fb8e53b902b054bf1f6337db2872837f2a59bb15be6df696439196"
+    },
+    "quality-cli-check.txt": {
+      "bytes": 137,
+      "sha256": "2356ea89389aa124cac99ced6ae2f627f367baae27cc77734434f1d5267e8a2b"
+    },
+    "rustfmt.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source-style.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "startup-benchmark.json": {
+      "bytes": 81272,
+      "sha256": "0034a5143e42c1534c2b2770dd37cf9cef0c264b03bb22e0ab87a476959cfdbf"
+    },
+    "startup-exit.json": {
+      "bytes": 56,
+      "sha256": "83155f98efe58660ce84e69f86dc1c55c79fe0a683bf588d584b322b54981ba3"
+    },
+    "startup-report.json": {
+      "bytes": 281,
+      "sha256": "4c55fe119f2f15524d6d00c33617f596295aa8ac51757185b3648c5967d0d4be"
+    },
+    "startup-resources.json": {
+      "bytes": 1462001,
+      "sha256": "f553a4de1bc770c94ccb619d8558297b8361da78025f9dc68ec8209608329c05"
+    },
+    "startup.txt": {
+      "bytes": 7579,
+      "sha256": "9d66d327bc54be1df5267b5d9ce2073213d049fd968e2480670190683ace2b9a"
+    },
+    "svelte-check.txt": {
+      "bytes": 553,
+      "sha256": "149f38e34af118162cb8084b7fe7bef06bb7fb38fb4eedc593f38548a6359ecd"
+    },
+    "web-impact.txt": {
+      "bytes": 982,
+      "sha256": "3c4e005e2ce7be6fa1b90e87c4d5792f5836f1eb5a8bc286c4471fdd53267f21"
+    },
+    "windows-cross.txt": {
+      "bytes": 137,
+      "sha256": "6a54498113b8666078176df5339065d5aceaa34dd704414b314a8949cba0318a"
+    }
+  }
+}

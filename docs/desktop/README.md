@@ -4,7 +4,7 @@
 
 **结论：继续采用独立桌面入口 + Tauri 2 + Rust 管理原生转换程序的路线。** Linux ARM64 原型已验证四类转换可以运行；跨平台自包含引擎包、安装权限及商店验收仍需逐项完成。
 
-**当前执行方案（2026-09-09）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，下一阶段为 R4 / Phase 27 产品体验与格式质量冻结。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
+**当前执行方案（2026-09-09）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验与基础格式质量验证，并记录本机性能参考及未执行门槛；下一阶段为 R5 / Phase 28 自包含候选与依赖许可。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
 
 ## 文档导航
 
@@ -32,7 +32,9 @@ Debian ARM64 材料记录：[Phase 7 历史源码补齐与恢复下载](PHASE7_I
 
 最新验收工具：[Phase 9：已安装 Snap 运行验收](PHASE9_IMPLEMENTATION.md)。新增真实环境预检、安装字节与沙箱运行核对、可复制的验收目录；本机预检受 ARM64/partial confinement 阻塞，未声称原生安装通过。
 
-最新功能记录：[Phase 26：后台启动、导入、进度与错误](PHASE26_IMPLEMENTATION.md)。Linux ARM64 已验证阻塞引擎期间首屏/语言/文件选择可用、真实音频进度及取消退出；旧保存恢复和诊断路径继续回归。
+最新功能记录：[Phase 27：产品体验、隐私与格式质量](PHASE27_IMPLEMENTATION.md)。双语离线说明、键盘/缩放修复和 84 条真实格式路线已验证；见[格式矩阵](PHASE27_FORMAT_MATRIX.md)与[性能记录及剩余门槛](PHASE27_PERFORMANCE.md)。目标包原生验收及 PDF ICC 色彩管理仍未关闭。
+
+此前功能记录：[Phase 26：后台启动、导入、进度与错误](PHASE26_IMPLEMENTATION.md)。Linux ARM64 已验证阻塞引擎期间首屏/语言/文件选择可用、真实音频进度及取消退出；旧保存恢复和诊断路径继续回归。
 
 此前功能记录：[Phase 25：保存恢复与会话暂存](PHASE25_IMPLEMENTATION.md)。已验证结果保存失败后可更换目录直接重试，不再读取源文件或调用引擎；暂存仅在本次会话保留，受空闲有效期与容量预算限制。Linux ARM64 真实 GUI 已验证；其他平台原生验收仍待执行。
 

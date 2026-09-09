@@ -1,6 +1,6 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成，R4–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。用户后续所说的“下一阶段”从 Phase 27 开始。
+日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；R5–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。用户后续所说的“下一阶段”从 Phase 28 开始。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
@@ -102,6 +102,8 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 6. R4 / Phase 27：产品体验、隐私及格式质量
 
+状态：产品体验与基础格式开发已完成，见[实现及 review](PHASE27_IMPLEMENTATION.md)、[84 条格式矩阵](PHASE27_FORMAT_MATRIX.md)及[性能预算与缺项](PHASE27_PERFORMANCE.md)。本机参考不能替代三端验收；首次配置、大型 PDF/音频、导入/取消延迟及目标候选资源测量仍未执行，必须补齐才能关闭对应性能验收。PDF ICC 构建能力也未关闭，R5 核对候选构建选项、R6 使用含 ICC 的 PDF 实测。以下保留原定要求。
+
 工作：
 
 1. 中英文覆盖全部首版界面与新增错误；右上角语言切换可见，沿用像素图标。走查键盘导航、焦点、禁用/加载状态、屏幕阅读标签、最小窗口和高缩放；清空任务明确说明不会删除原文件或磁盘结果。
@@ -160,7 +162,7 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 
 ## 10. 共用完成标准与进度规则
 
-- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R3 已完成，R4–R7 未开始；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
+- 阶段状态使用未开始、进行中、待外部条件、完成；验收结果只用通过、失败、未执行、不适用，并写原因。当前 R1–R4 开发已完成，R5–R7 未开始；R4 尚未执行的性能/目标包检查继续阻塞对应验收；R1 完成条件清点不关闭 R5/R6 的外部条件缺项。
 - 每阶段记录范围、实际改动、review 问题与修正、执行命令、真实结果、剩余限制和下一阶段入口。保留失败证据，不用最终通过覆盖之前问题。
 - 前端/契约变动运行桌面类型检查、相关 Node 测试和构建；Rust 变动运行相关原生/app 测试、fmt 与 Clippy；影响跨端执行则加原生目标验证。共享网页代码变动补网页相应回归，纯文档仅做格式/链接/一致性检查。
 - 使用已有 `desktop:check`、`desktop:test:ui`、`desktop:build` 及平台脚本；新命令先实现并验证再写进执行说明。单元 mock、交叉编译、包 smoke、真实 GUI、安装验收分层报告。

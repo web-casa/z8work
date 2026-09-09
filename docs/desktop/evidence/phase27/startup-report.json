@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "binarySha256": "28fd576a444573cb4cb3abe804fc04003b3e5174ee52e9914c4bad67d2327417",
+  "routes": [],
+  "checks": [
+    "startup-normal-blocked-missing-20-process-restarts-each"
+  ],
+  "installation": "not-run"
+}

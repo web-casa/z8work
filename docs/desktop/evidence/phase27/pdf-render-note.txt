@@ -1,0 +1,4 @@
+Independent CLI visual reference, not a second converter implementation.
+Command: mutool draw -q -r 144 -o OUTPUT.png desktop/tests/fixtures/embedded-font.pdf
+Exit: 0
+warning: ICC support is not available

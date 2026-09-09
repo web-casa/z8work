@@ -1,0 +1,282 @@
+[
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 16
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 23
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 23
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 23
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 30
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 30
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 37
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 37
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 37
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 43
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 43
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 49
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 49
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 49
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 55
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 55
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 62
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 62
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 62
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 67
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 67
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 74
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 74
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 74
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 81
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 81
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 81
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 88
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 88
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 88
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 92
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "encoding",
+      "percent": 92
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "validating",
+      "percent": null
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "validating",
+      "percent": null
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  },
+  {
+    "attempt": 1,
+    "value": {
+      "stage": "validating",
+      "percent": null
+    },
+    "id": "86438f24-294f-49b7-b4a0-062fd263efd1"
+  }
+]

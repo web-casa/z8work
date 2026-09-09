@@ -1,0 +1,3696 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "failure": null,
+  "lastStates": [
+    {
+      "phase": "ready",
+      "failure": null,
+      "id": "ffmpeg"
+    },
+    {
+      "phase": "ready",
+      "failure": null,
+      "id": "ffprobe"
+    },
+    {
+      "phase": "failed",
+      "failure": "engine_unavailable",
+      "id": "magick"
+    },
+    {
+      "phase": "ready",
+      "failure": null,
+      "id": "mutool"
+    },
+    {
+      "phase": "ready",
+      "failure": null,
+      "id": "pandoc"
+    }
+  ],
+  "platform": "linux-arm64",
+  "method": "WebDriver session request to interactive language/choose-file controls; independent engines exclude deliberately blocked magick",
+  "measurements": [
+    {
+      "mode": "ready",
+      "repeat": 1,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 816.5695450000001,
+      "independentEnginesMs": 16582.816429,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 2,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 885.7597360000036,
+      "independentEnginesMs": 16700.366129,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 3,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 888.643916999994,
+      "independentEnginesMs": 16679.816225999995,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 4,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 937.8140219999987,
+      "independentEnginesMs": 16987.663550999998,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 5,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 867.9566679999989,
+      "independentEnginesMs": 16544.588078,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 6,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 857.8855170000024,
+      "independentEnginesMs": 16840.239667999995,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 7,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 866.238851999995,
+      "independentEnginesMs": 17040.56165599999,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 8,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 854.6904229999927,
+      "independentEnginesMs": 16608.466073999996,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 9,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 886.3166950000159,
+      "independentEnginesMs": 16714.080367999995,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 10,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 854.6883399999933,
+      "independentEnginesMs": 16686.196517000004,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 11,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 832.4496419999923,
+      "independentEnginesMs": 16780.273348999996,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 12,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 871.5743490000023,
+      "independentEnginesMs": 16748.62851499999,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 13,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 886.7984860000142,
+      "independentEnginesMs": 16713.745398,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 14,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 803.0886049999972,
+      "independentEnginesMs": 16700.122747999994,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 15,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 886.9646929999872,
+      "independentEnginesMs": 16580.933795999998,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 16,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 843.3861820000166,
+      "independentEnginesMs": 16840.295962000004,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 17,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 892.6681919999537,
+      "independentEnginesMs": 16847.496866,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 18,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 860.8483030000352,
+      "independentEnginesMs": 16941.052759000042,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 19,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 882.7486410000129,
+      "independentEnginesMs": 17148.035337000038,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "ready",
+      "repeat": 20,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 928.4087669999572,
+      "independentEnginesMs": 17093.929240999976,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 1,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 940.5406859999639,
+      "independentEnginesMs": 17049.402165999985,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 2,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 804.1879760000156,
+      "independentEnginesMs": 16706.54330099997,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 3,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 936.5459209999535,
+      "independentEnginesMs": 17421.556041999953,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 4,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 852.7726920000277,
+      "independentEnginesMs": 17030.88587300002,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 5,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 918.7170830000541,
+      "independentEnginesMs": 16811.27684800001,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 6,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 873.4171369999531,
+      "independentEnginesMs": 16997.46971799998,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 7,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 909.8335339999758,
+      "independentEnginesMs": 16669.56116099999,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 8,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 804.6172730000108,
+      "independentEnginesMs": 16808.23998199997,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 9,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 922.0119970000233,
+      "independentEnginesMs": 16907.279876000015,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 10,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 840.6327719999827,
+      "independentEnginesMs": 16588.53622000001,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 11,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 888.0160679999972,
+      "independentEnginesMs": 16784.948686999967,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 12,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 849.040755999973,
+      "independentEnginesMs": 16778.00431800005,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 13,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 915.8573319999268,
+      "independentEnginesMs": 16850.141065999982,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 14,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 877.6746819999535,
+      "independentEnginesMs": 16545.300990000018,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 15,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 878.6362499999814,
+      "independentEnginesMs": 16679.709718000027,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 16,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 881.7839359999634,
+      "independentEnginesMs": 16699.242374000023,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 17,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 917.9878500000341,
+      "independentEnginesMs": 16706.330823999946,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 18,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 873.9353239999618,
+      "independentEnginesMs": 16680.789168999996,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 19,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 872.0698370001046,
+      "independentEnginesMs": 16724.02582500002,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "blocked-magick",
+      "repeat": 20,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 881.338604999939,
+      "independentEnginesMs": 16740.690667000017,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 1,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 871.7197140000062,
+      "independentEnginesMs": 16744.55754499999,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 2,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 828.9924239999382,
+      "independentEnginesMs": 16818.247143000015,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 3,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 857.4323490000097,
+      "independentEnginesMs": 16692.677443000022,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 4,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 880.5128949999344,
+      "independentEnginesMs": 16607.539831999922,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 5,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 831.057368000038,
+      "independentEnginesMs": 16841.908143999986,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 6,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 826.9622300000628,
+      "independentEnginesMs": 16716.71935700008,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 7,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 798.5578049999895,
+      "independentEnginesMs": 16886.094625000027,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 8,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 820.3474850000348,
+      "independentEnginesMs": 16723.084626000025,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 9,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 907.4460080000572,
+      "independentEnginesMs": 16718.54276900005,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 10,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 882.9097270000493,
+      "independentEnginesMs": 16682.212832999998,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 11,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 810.0664040000411,
+      "independentEnginesMs": 16711.183296000003,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 12,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 800.9615930001019,
+      "independentEnginesMs": 16687.225089000072,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 13,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 921.202500000014,
+      "independentEnginesMs": 16563.720788000035,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 14,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 867.5390009999974,
+      "independentEnginesMs": 16597.372343999916,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 15,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 863.7407770000864,
+      "independentEnginesMs": 16640.33408400009,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 16,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 826.0010420000181,
+      "independentEnginesMs": 16723.242670000065,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 17,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 888.978475999902,
+      "independentEnginesMs": 17019.85707499995,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 18,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 865.0061649999116,
+      "independentEnginesMs": 16776.49884399993,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 19,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 843.4813159999903,
+      "independentEnginesMs": 16757.788558,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    },
+    {
+      "mode": "missing-magick",
+      "repeat": 20,
+      "profile": "existing configuration; process restart; OS cache not flushed",
+      "interactiveMs": 873.4303990000626,
+      "independentEnginesMs": 16727.72810200008,
+      "engineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ],
+      "interactiveEngineStates": [
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffmpeg"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "ffprobe"
+        },
+        {
+          "phase": "failed",
+          "failure": "engine_unavailable",
+          "id": "magick"
+        },
+        {
+          "phase": "ready",
+          "failure": null,
+          "id": "mutool"
+        },
+        {
+          "phase": "preparing",
+          "failure": null,
+          "id": "pandoc"
+        }
+      ]
+    }
+  ]
+}

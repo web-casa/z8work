@@ -1,0 +1,110 @@
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=501 pid=982812 comm="/home/ivmm/VERT/.desktop-local/phase27-gui-G7haqF/")
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.2' (uid=501 pid=982812 comm="/home/ivmm/VERT/.desktop-local/phase27-gui-G7haqF/")
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.3' (uid=501 pid=982829 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.3' (uid=501 pid=982829 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: failed to access mountpoint /run/user/501/doc: Permission denied
+error: fuse init failed: Can't mount path /run/user/501/doc
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.271: Document portal fuse mount point unknown: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.5 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.271: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.3' (uid=501 pid=982829 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[982824]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=501 pid=982850 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[982824]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.292: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.292: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.292: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.292: Choosing gtk.portal for org.freedesktop.impl.portal.Settings as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.292: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.293: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.293: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.293: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.294: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.294: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+[W][20:18:55.295208] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][20:18:55.295235] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.295: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.295: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.295: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:982829): xdg-desktop-portal-WARNING **: 20:18:55.296: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[982786]: [session uid=501 pid=982786 pidfd=5] Successfully activated service 'org.freedesktop.portal.Desktop'
+[startup benchmark] ready 1
+[startup benchmark] ready 2
+[startup benchmark] ready 3
+[startup benchmark] ready 4
+[startup benchmark] ready 5
+[startup benchmark] ready 6
+[startup benchmark] ready 7
+[startup benchmark] ready 8
+[startup benchmark] ready 9
+[startup benchmark] ready 10
+[startup benchmark] ready 11
+[startup benchmark] ready 12
+[startup benchmark] ready 13
+[startup benchmark] ready 14
+[startup benchmark] ready 15
+[startup benchmark] ready 16
+[startup benchmark] ready 17
+[startup benchmark] ready 18
+[startup benchmark] ready 19
+[startup benchmark] ready 20
+[startup benchmark] blocked-magick 1
+[startup benchmark] blocked-magick 2
+[startup benchmark] blocked-magick 3
+[startup benchmark] blocked-magick 4
+[startup benchmark] blocked-magick 5
+[startup benchmark] blocked-magick 6
+[startup benchmark] blocked-magick 7
+[startup benchmark] blocked-magick 8
+[startup benchmark] blocked-magick 9
+[startup benchmark] blocked-magick 10
+[startup benchmark] blocked-magick 11
+[startup benchmark] blocked-magick 12
+[startup benchmark] blocked-magick 13
+[startup benchmark] blocked-magick 14
+[startup benchmark] blocked-magick 15
+[startup benchmark] blocked-magick 16
+[startup benchmark] blocked-magick 17
+[startup benchmark] blocked-magick 18
+[startup benchmark] blocked-magick 19
+[startup benchmark] blocked-magick 20
+[startup benchmark] missing-magick 1
+[startup benchmark] missing-magick 2
+[startup benchmark] missing-magick 3
+[startup benchmark] missing-magick 4
+[startup benchmark] missing-magick 5
+[startup benchmark] missing-magick 6
+[startup benchmark] missing-magick 7
+[startup benchmark] missing-magick 8
+[startup benchmark] missing-magick 9
+[startup benchmark] missing-magick 10
+[startup benchmark] missing-magick 11
+[startup benchmark] missing-magick 12
+[startup benchmark] missing-magick 13
+[startup benchmark] missing-magick 14
+[startup benchmark] missing-magick 15
+[startup benchmark] missing-magick 16
+[startup benchmark] missing-magick 17
+[startup benchmark] missing-magick 18
+[startup benchmark] missing-magick 19
+[startup benchmark] missing-magick 20
+/home/ivmm/VERT/.desktop-local/phase27-gui-G7haqF
