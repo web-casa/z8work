@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "failure": "output_permission",
+      "id": "readonly-mount",
+      "status": "passed"
+    },
+    {
+      "createdFiles": 63,
+      "failure": "storage",
+      "id": "inode-exhaustion",
+      "status": "passed"
+    },
+    {
+      "existingFilesPreserved": true,
+      "failure": "storage",
+      "id": "disk-full",
+      "injectedBytes": 33488896,
+      "partialFiles": 0,
+      "saveRetryWithoutSource": true,
+      "savedSha256": "89723a4e8e9e06e7cf923d1ffab4e92d93554b5de67412e05027d02d417c5cd5",
+      "status": "passed"
+    },
+    {
+      "existingFilesPreserved": true,
+      "failure": "output_permission",
+      "id": "permission-revoked",
+      "injectedBytes": 0,
+      "partialFiles": 0,
+      "saveRetryWithoutSource": true,
+      "savedSha256": "ed741cb03032d9dfed0fb850255fd5c090c1d26fa85b84943dc9deca1309d7d1",
+      "status": "passed"
+    },
+    {
+      "id": "workspace-cleanup",
+      "status": "passed"
+    }
+  ],
+  "elapsedMs": 2723,
+  "phase": 29,
+  "platform": "linux-aarch64",
+  "schema": 1,
+  "scope": "native conversion/publisher fault checks; not installed GUI acceptance",
+  "status": "passed"
+}

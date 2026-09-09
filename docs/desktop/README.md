@@ -4,7 +4,7 @@
 
 **结论：继续采用独立桌面入口 + Tauri 2 + Rust 管理原生转换程序的路线。** Linux ARM64 原型已验证四类转换可以运行；跨平台自包含引擎包、安装权限及商店验收仍需逐项完成。
 
-**当前执行方案（2026-09-09）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验与基础格式质量验证，并记录本机性能参考及未执行门槛；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已重建本机及 Windows/Snap 开发候选并加入离线许可，macOS 实际候选与完整许可/源码闭合仍未完成。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
+**当前执行方案（2026-09-10）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成后台启动、早期导入、音频进度与错误分类，[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验与基础格式质量验证，并记录本机性能参考及未执行门槛；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已重建本机及 Windows/Snap 开发候选并加入离线许可，macOS 实际候选与完整许可/源码闭合仍未完成。[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已完成本机真实文件系统故障验证、inode 错误分类修复与 macOS 部署兼容性门禁；三端原生安装/升级仍待验收，R7 未开始。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
 
 ## 文档导航
 
@@ -32,7 +32,7 @@ Debian ARM64 材料记录：[Phase 7 历史源码补齐与恢复下载](PHASE7_I
 
 最新验收工具：[Phase 9：已安装 Snap 运行验收](PHASE9_IMPLEMENTATION.md)。新增真实环境预检、安装字节与沙箱运行核对、可复制的验收目录；本机预检受 ARM64/partial confinement 阻塞，未声称原生安装通过。
 
-最新候选记录：[Phase 28：自包含候选与离线许可](PHASE28_IMPLEMENTATION.md)，附[最终包与重跑交接](PHASE28_CANDIDATES.md)。当前开发 MSIX/Snap 已重建，原生安装未执行。
+最新本机候选与故障证据见 [Phase 29](PHASE29_IMPLEMENTATION.md)。[Phase 28 候选交接](PHASE28_CANDIDATES.md)保留 Windows/Snap 历史产物；这两端应用尚未包含 Phase 29 的共享错误分类修复，需重建后进行原生安装验收。
 
 此前功能记录：[Phase 27：产品体验、隐私与格式质量](PHASE27_IMPLEMENTATION.md)。双语离线说明、键盘/缩放修复和 84 条真实格式路线已验证；见[格式矩阵](PHASE27_FORMAT_MATRIX.md)与[性能记录及剩余门槛](PHASE27_PERFORMANCE.md)。目标包原生验收及 PDF ICC 色彩管理仍未关闭。
 

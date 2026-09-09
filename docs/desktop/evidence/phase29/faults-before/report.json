@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "phase": 29,
+  "status": "failed",
+  "scope": "native Linux core fault checks; not installed application acceptance",
+  "platform": "linux-aarch64",
+  "engineManifestSha256": "9bc5bcf84e4316819ac14001324d387d6616d85012c0b96bcf87aebdd1a5b4ce",
+  "verifier": {
+    "sha256": "3be3c87bbdccf31ad272b26952da6dd4163cde371245c6352de057749f161710",
+    "bytes": 1361232
+  },
+  "installerAcceptance": false,
+  "redistributionApproved": false,
+  "image": "sha256:a66c49030ecd7fe27f5daf401fceedb10c5cff81f535885aab11d6ced741d564",
+  "error": "Command exited 1"
+}

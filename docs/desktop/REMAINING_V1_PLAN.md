@@ -1,6 +1,6 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-日期：2026-09-09。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；R6–R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。当前仍处于 Phase 28，先补齐 R5 门槛，再进入 Phase 29 的对应原生验收。
+更新：2026-09-10。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已开始独立的 Linux 故障验证与 macOS 兼容性门禁，三端原生安装/升级整体验收未完成；R7 未开始。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。R5 缺项继续保留；已有 Linux 候选允许先做 R6 的独立故障开发与回归，其他平台必须补齐对应 R5 候选和原生环境后验收，不据此提前关闭 R5 或 R6。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
@@ -134,6 +134,8 @@ macOS 公证与公开直发、Mac App Store、Windows ARM64、macOS Intel/univer
 交付：更新后的三端候选与构建脚本、依赖/许可清单、升级输入、Phase 28 记录。所有候选包含 R2–R4 最终功能，旧 MSIX/Snap 仅保留历史用途。
 
 ## 8. R6 / Phase 29：原生安装、故障与升级验收
+
+本轮进展见 [Phase 29 实施与 review](PHASE29_IMPLEMENTATION.md)：真实只读挂载、inode/磁盘耗尽及权限撤销恢复已在 Linux ARM64 隔离环境验证，并修复 inode 耗尽的错误分类。macOS 平台/最低系统版本门禁已补齐。以下三端安装、升级和剩余故障项目仍按原验收要求执行。
 
 工作：
 

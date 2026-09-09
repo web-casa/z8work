@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "phase": 29,
+  "sourceCommit": "0b22fb5d6e462275c6c5b629184655acb46ef00d",
+  "reviewReceiptHead": "7a2ba949cbbfd994690459ba1c9b14fb64d34b7a",
+  "sourceFilesUnchangedAfterCommit": true,
+  "sourceFileCount": 451,
+  "applicationSha256": "ff4e58f3c2b7d9b7347cb4a5a73a3e46711bcb421042d6e44e9337de59560561",
+  "guiApplicationMatchesCandidate": true,
+  "faultEnginesMatchCandidate": true,
+  "scope": "Linux core fault checks plus release product GUI regression; three-platform installed acceptance incomplete",
+  "installerAcceptance": false,
+  "redistributionApproved": false
+}

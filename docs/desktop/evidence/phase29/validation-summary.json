@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "phase": 29,
+  "reviewStatus": "completed-for-local-scope",
+  "r5Acceptance": "incomplete",
+  "r6Acceptance": "incomplete",
+  "r7": "not-started",
+  "tests": {
+    "nativeCore": {
+      "passed": 113,
+      "ignored": 3
+    },
+    "desktopRust": {
+      "passed": 10
+    },
+    "node22": {
+      "passed": 177
+    },
+    "node24Final": {
+      "passed": 177
+    },
+    "node22FinalFocused": {
+      "passed": 7
+    },
+    "filesystemFaults": {
+      "passed": 5,
+      "platform": "linux-aarch64",
+      "installedGui": false
+    },
+    "productGui": {
+      "passed": 8,
+      "installation": "not-run"
+    },
+    "candidateQuality": {
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240
+    }
+  },
+  "checks": {
+    "svelte": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "clippy": "passed",
+    "rustfmt": "passed",
+    "actionlint": "passed",
+    "changedLint": "passed",
+    "macosNativeCoreCrossCheck": "passed",
+    "windowsNativeCoreCrossCheck": "passed",
+    "snapNativePreflight": "blocked"
+  }
+}

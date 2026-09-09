@@ -1,0 +1,14 @@
+✔ macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands (0.896709ms)
+✔ Mach-O embedded loader environment is rejected (0.111833ms)
+✔ macOS assembler creates a checked inventory without executing foreign code and refuses overwrite (62.548974ms)
+✔ Mach-O parser rejects x64, fat, truncated and malformed load commands (0.672625ms)
+✔ dyld closure rejects builder paths, rpath ambiguity and escaping loader paths (0.190792ms)
+✔ macOS bundle checks every code resource and refuses missing, changed and linked dependencies (6.974335ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.682025

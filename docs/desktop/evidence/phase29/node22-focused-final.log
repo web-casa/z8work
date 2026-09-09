@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: native fault evidence requires actual bounded injection, recovery, cleanup and platform
+ok 1 - native fault evidence requires actual bounded injection, recovery, cleanup and platform
+  ---
+  duration_ms: 0.668208
+  type: 'test'
+  ...
+# Subtest: macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands
+ok 2 - macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands
+  ---
+  duration_ms: 1.064916
+  type: 'test'
+  ...
+# Subtest: Mach-O embedded loader environment is rejected
+ok 3 - Mach-O embedded loader environment is rejected
+  ---
+  duration_ms: 0.118
+  type: 'test'
+  ...
+# Subtest: macOS assembler creates a checked inventory without executing foreign code and refuses overwrite
+ok 4 - macOS assembler creates a checked inventory without executing foreign code and refuses overwrite
+  ---
+  duration_ms: 73.473724
+  type: 'test'
+  ...
+# Subtest: Mach-O parser rejects x64, fat, truncated and malformed load commands
+ok 5 - Mach-O parser rejects x64, fat, truncated and malformed load commands
+  ---
+  duration_ms: 0.575875
+  type: 'test'
+  ...
+# Subtest: dyld closure rejects builder paths, rpath ambiguity and escaping loader paths
+ok 6 - dyld closure rejects builder paths, rpath ambiguity and escaping loader paths
+  ---
+  duration_ms: 0.171917
+  type: 'test'
+  ...
+# Subtest: macOS bundle checks every code resource and refuses missing, changed and linked dependencies
+ok 7 - macOS bundle checks every code resource and refuses missing, changed and linked dependencies
+  ---
+  duration_ms: 13.257461
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 119.946192
