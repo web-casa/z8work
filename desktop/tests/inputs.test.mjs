@@ -36,6 +36,7 @@ test("source receipt detects fixture/config/addition/deletion drift and excludes
 	await put(".gitignore", ".env\n.desktop-local/\n");
 	await put("tests/fixtures/input.png", "fixture");
 	await put("rust-toolchain.toml", "toolchain");
+	await put("static/desktop-info/en/privacy/index.html", "privacy");
 	await put(".env", "FAKE_TEST_ONLY=do-not-archive");
 	await mkdir(join(root, ".desktop-local"));
 	git("init", "--quiet");
@@ -65,6 +66,7 @@ test("source receipt detects fixture/config/addition/deletion drift and excludes
 	const record = JSON.parse(bytes);
 	assert.ok(record.files["tests/fixtures/input.png"]);
 	assert.ok(record.files["rust-toolchain.toml"]);
+	assert.ok(record.files["static/desktop-info/en/privacy/index.html"]);
 	assert.ok(!record.files[".env"]);
 	assert.throws(() => run("--output"));
 	assert.equal(await readFile(receipt, "utf8"), bytes);
@@ -73,6 +75,7 @@ test("source receipt detects fixture/config/addition/deletion drift and excludes
 	for (const [name, original] of [
 		["tests/fixtures/input.png", "fixture"],
 		["rust-toolchain.toml", "toolchain"],
+		["static/desktop-info/en/privacy/index.html", "privacy"],
 	]) {
 		await put(name, "changed");
 		assert.throws(() => run("--verify"));
