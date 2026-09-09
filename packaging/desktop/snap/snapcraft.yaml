@@ -1,0 +1,29 @@
+name: z8-work
+title: Z8.Work
+version: "0.1.0"
+summary: Local file conversion for images, PDFs, audio and documents
+description: |
+    Z8.Work converts files on your device using bundled native engines.
+    Convert images and PDF pages to PNG, JPEG, WebP or AVIF, convert audio
+    and extract audio from videos, and export supported documents as text.
+    No account or file upload is required. This is a development candidate.
+license: AGPL-3.0
+website: https://z8.work/
+source-code: https://github.com/web-casa/z8work
+contact: contact@web.casa
+base: core24
+grade: devel
+confinement: strict
+compression: lzo
+platforms:
+    amd64:
+apps:
+    z8-work:
+        command: usr/bin/z8-desktop
+        desktop: usr/share/applications/z8-work.desktop
+        extensions: [gnome]
+        plugs: [home, removable-media]
+parts:
+    z8-work:
+        plugin: dump
+        source: payload

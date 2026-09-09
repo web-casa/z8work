@@ -1,0 +1,13 @@
+x86_64
+Microsoft.VC.14.44.17.14.CRT.x64.Desktop.base.vsix
+Win11SDK_10.0.26100_uap_headers.msi
+Win11SDK_10.0.26100_store_headers.msi
+Win11SDK_10.0.26100_libs_x86_64.msi
+Win11SDK_10.0.26100_store_libs.msi
+Microsoft.VC.14.44.17.14.CRT.x64.Store.base.vsix
+Win11SDK_10.0.26100_x64_uap_headers.msi
+Win11SDK_10.0.26100_headers.msi
+Win11SDK_10.0.26100_store_headers_onecoreuap.msi
+ucrt.msi
+Win11SDK_10.0.26100_x64_headers.msi
+Microsoft.VC.14.44.17.14.CRT.Headers.base.vsix

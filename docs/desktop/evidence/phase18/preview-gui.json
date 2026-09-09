@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "routes": [
+    {
+      "input": "png",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "jpg",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "webp",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "avif",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "heic",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "three-pages.PDF",
+      "width": 256,
+      "height": 171,
+      "firstPagePixel": [
+        255,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "input": "rotated.pdf",
+      "width": 171,
+      "height": 256,
+      "firstPagePixel": [
+        255,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "input": "many-pages.pdf",
+      "width": 256,
+      "height": 171,
+      "firstPagePixel": [
+        255,
+        0,
+        0,
+        255
+      ]
+    }
+  ],
+  "checks": [
+    "five-native-image-routes",
+    "preview-without-output-authorization",
+    "pdf-preview-bilingual-labels",
+    "pdf-first-page-pixels-and-label-without-output-grant",
+    "pdf-rotation-preserved",
+    "pdf-201-pages-preview-independent-of-export-limit",
+    "pdf-preview-rejects-empty.pdf-without-changing-conversion-state",
+    "pdf-preview-error-shown-without-promising-conversion",
+    "pdf-preview-rejects-broken.pdf-without-changing-conversion-state",
+    "pdf-preview-rejects-disguised.pdf-without-changing-conversion-state",
+    "pdf-preview-rejects-encrypted.pdf-without-changing-conversion-state",
+    "pdf-preview-rejects-large.pdf-without-changing-conversion-state",
+    "pdf-preview-recovers-after-errors",
+    "closing-preview-does-not-cancel-conversion",
+    "conversion-retains-original-dimensions",
+    "blob-urls-released-on-replace-close-remove",
+    "pdf-export-still-has-three-original-resolution-colored-pages",
+    "bad-preview-does-not-change-task-state",
+    "preview-budget-does-not-block-conversion",
+    "changed-file-refused",
+    "reload-does-not-reuse-preview",
+    "restart-requires-input-authorization"
+  ],
+  "installation": "not-run"
+}

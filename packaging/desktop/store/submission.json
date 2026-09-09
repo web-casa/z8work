@@ -1,0 +1,33 @@
+{
+	"schema": 1,
+	"status": "draft",
+	"sourcesChecked": "2026-09-08",
+	"sources": {
+		"msixListing": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/add-and-edit-store-listing-info",
+		"msixScreenshots": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/screenshots-and-images",
+		"msixSupport": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/support-info",
+		"snapListing": "https://snapcraft.io/blog/make-your-snap-store-page-pop"
+	},
+	"channels": {
+		"microsoft-store": {
+			"artifact": "windows-x64-msix",
+			"displayName": "Z8.Work",
+			"identity": null,
+			"publisher": null,
+			"packageVersion": null,
+			"pricing": null,
+			"ageRating": null,
+			"candidate": null,
+			"screenshots": []
+		},
+		"snap": {
+			"artifact": "linux-amd64-snap",
+			"displayName": "Z8.Work",
+			"registeredName": null,
+			"pricing": null,
+			"candidate": null,
+			"screenshots": []
+		}
+	},
+	"publicPages": { "status": "not-deployed", "evidence": null }
+}

@@ -1,0 +1,3 @@
+   Compiling z8-desktop v0.1.0 (/home/ivmm/VERT/src-tauri)
+    Checking z8-native v0.1.0 (/home/ivmm/VERT/src-tauri/native)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.93s

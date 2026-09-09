@@ -1,0 +1,103 @@
+{
+	"cases": [
+		{
+			"bytes": 80,
+			"decoded": true,
+			"input": "中文 [0] ; $ image.png",
+			"output": "webp",
+			"sha256": "a76befd2d4f2bdc3840d3fe415ef4a0bf1f4ae23f7be8c3179c7d3ec574e5576"
+		},
+		{
+			"bytes": 283,
+			"decoded": true,
+			"input": "中文 [0] ; $ image.png",
+			"output": "avif",
+			"sha256": "c27385dfe763d5ed73a385f8d30f79a2c5395196ac08f2484b86c6a45857f5ec"
+		},
+		{
+			"bytes": 293,
+			"decoded": true,
+			"input": "中文 [0] ; $ image.png",
+			"output": "jpeg",
+			"sha256": "12e1f5d80ca54c48a6c0a5a43478d73e769b7a7ec711714ef2a9d0de1167484f"
+		},
+		{
+			"bytes": 347,
+			"decoded": true,
+			"input": "中文 [0] ; $ image.png",
+			"output": "png",
+			"sha256": "780e2e26ce0ee593a17992fb335cc3ba421d7da92cdd5893dfbb4e25bb4a0cf1"
+		},
+		{
+			"bytes": 600,
+			"decoded": true,
+			"input": "10bit.heic",
+			"output": "png",
+			"sha256": "df6cdce554eb8dcb293e343d89c6df0e113789a57d3446379be009f89f4f0c67"
+		},
+		{
+			"bytes": 88278,
+			"decoded": true,
+			"input": "audio.mp3",
+			"output": "wav",
+			"sha256": "b611aedc2084cf36c2c662d968fb34adaf3dcf29455398d54f9dc189d90ef1da"
+		},
+		{
+			"bytes": 40,
+			"decoded": true,
+			"input": "document.md",
+			"output": "txt",
+			"sha256": "cf8fb35a6d2044b26b67fa0b915133c7cbae46fb5bf78efab799f58456b16f4c"
+		},
+		{
+			"bytes": 392,
+			"decoded": true,
+			"input": "page.pdf",
+			"output": "png",
+			"sha256": "37a80f8d221b419226deccd89dbb8c3ebd19e106610f73131a6a13c2b7ce44cd"
+		},
+		{
+			"bytes": 370,
+			"decoded": true,
+			"input": "page.pdf",
+			"output": "avif",
+			"sha256": "74dc2995654f727204da43d196f0c761d7fc649b60854ce2f60df0b5602f3c56"
+		}
+	],
+	"checks": {
+		"binary_hash_mismatch_rejected": true,
+		"cancelled_before_start": true,
+		"collision_no_overwrite": true,
+		"corrupt_input_cleanup": true,
+		"unsupported_route_rejected": true
+	},
+	"engines": [
+		{
+			"development": true,
+			"id": "ffmpeg",
+			"version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers"
+		},
+		{
+			"development": true,
+			"id": "ffprobe",
+			"version": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers"
+		},
+		{
+			"development": true,
+			"id": "magick",
+			"version": "Version: ImageMagick 7.1.1-43 Q16 aarch64 22550 https://imagemagick.org"
+		},
+		{
+			"development": true,
+			"id": "mutool",
+			"version": "mutool version 1.25.1"
+		},
+		{
+			"development": true,
+			"id": "pandoc",
+			"version": "pandoc 3.1.11.1"
+		}
+	],
+	"platform": "linux-aarch64",
+	"scope": "development engines, not a bundled installer"
+}

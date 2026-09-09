@@ -1,0 +1,17 @@
+{
+	"schema": 1,
+	"status": "passed",
+	"os": "linux",
+	"arch": "aarch64",
+	"scope": "Real subprocess tests of native supervisor; not a GUI crash test or target-store installer",
+	"baseline": {
+		"status": "failed",
+		"observed": "conversion descendant survived abrupt application exit",
+		"test": "process::tests::abrupt_parent_exit_stops_descendants",
+		"note": "New regression executed against pre-fix process supervision in this turn"
+	},
+	"passed": 12,
+	"ignored": 1,
+	"ignoredReason": "fixture_child is invoked by supervisor tests",
+	"output": "$ cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-native --no-default-features process::\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s\n     Running unittests src/lib.rs (src-tauri/target/debug/deps/z8_native-ee7d48fed65d6cf7)\n\nrunning 13 tests\ntest process::tests::fixture_child ... ignored, subprocess fixture, invoked by the supervisor tests\ntest process::tests::cancelled_or_expired_work_never_starts ... ok\ntest process::watchdog::tests::private_mode_refuses_the_callers_process_group ... ok\ntest process::watchdog::tests::failed_watchdog_never_allows_engine_spawn ... ok\ntest process::watchdog::tests::private_mode_refuses_nonpipe_input_even_in_its_own_group ... ok\ntest process::tests::failure_is_observable ... ok\ntest process::tests::drains_both_pipes_with_bounded_memory ... ok\ntest process::tests::output_wait_observes_cancellation_and_one_deadline ... ok\ntest process::watchdog::tests::readiness_timeout_is_bounded ... ok\ntest process::tests::cancellation_stops_a_running_process ... ok\ntest process::tests::abrupt_parent_exit_stops_descendants ... ok\ntest process::tests::successful_parent_cannot_leave_pipe_holding_descendants ... ok\ntest process::tests::deadline_is_total_and_kills_descendants ... ok\n\ntest result: ok. 12 passed; 0 failed; 1 ignored; 0 measured; 35 filtered out; finished in 2.51s\n\n"
+}

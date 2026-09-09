@@ -1,0 +1,110 @@
+{
+  "output_authorized": false,
+  "clearing": false,
+  "revision": 16,
+  "epoch": "1a9413e6-0e11-4508-8b58-a35a899e318e",
+  "closing": false,
+  "schema": 2,
+  "output": "/home/ivmm/VERT/.desktop-local/phase16-gui-tcNRNA/results",
+  "processing": false,
+  "persistence_error": null,
+  "tasks": [
+    {
+      "bytes": 119,
+      "attempt": 1,
+      "authorized": false,
+      "result": {
+        "files": [
+          {
+            "page": 1,
+            "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+            "path": "/home/ivmm/VERT/.desktop-local/phase16-gui-tcNRNA/results/sample-z8-1.webp",
+            "bytes": 82
+          }
+        ],
+        "total": 1,
+        "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+        "fingerprint": "",
+        "complete": true,
+        "path": "/home/ivmm/VERT/.desktop-local/phase16-gui-tcNRNA/results/sample-z8-1.webp",
+        "bytes": 82
+      },
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif"
+      ],
+      "phase": "saved",
+      "name": "sample.png",
+      "error": null,
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "webp",
+      "id": "767f48cd-8f13-409c-9966-faffe2f7f95d"
+    },
+    {
+      "bytes": 21829286,
+      "attempt": 2,
+      "authorized": false,
+      "result": {
+        "files": [
+          {
+            "page": 1,
+            "sha256": "ed4c03a16482e85a9c4f1a2ed4156dc3d75f6fc97fcb45c3759c20596c8a3dea",
+            "path": "/home/ivmm/VERT/.desktop-local/phase16-gui-tcNRNA/results/large-z8-1.avif",
+            "bytes": 102462
+          }
+        ],
+        "total": 1,
+        "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+        "fingerprint": "",
+        "complete": true,
+        "path": "/home/ivmm/VERT/.desktop-local/phase16-gui-tcNRNA/results/large-z8-1.avif",
+        "bytes": 102462
+      },
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif"
+      ],
+      "phase": "cancelled",
+      "name": "large.png",
+      "error": "Cancelled",
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "avif",
+      "id": "65433d82-8df1-4aaa-8f7f-99127dc17237"
+    },
+    {
+      "bytes": 119,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif"
+      ],
+      "phase": "cancelled",
+      "name": "queued.png",
+      "error": null,
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "webp",
+      "id": "332e2049-359a-4fd2-86f1-8f4b9f68a2bf"
+    }
+  ],
+  "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically."
+}

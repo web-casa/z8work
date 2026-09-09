@@ -1,0 +1,61 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+     Running unittests src/lib.rs (src-tauri/target/debug/deps/z8_native-ee7d48fed65d6cf7)
+
+running 48 tests
+test convert::tests::routes_are_explicit ... ok
+test convert::tests::store_materials_describe_only_native_conversion_routes ... ok
+test engine_bundle::tests::bundle_is_relocatable_and_detects_changed_or_extra_files ... ok
+test engines::tests::development_manifest_cannot_enable_compiled_out_support ... ok
+test engine_bundle::tests::rejects_symlink_even_when_bytes_match ... ok
+test engines::tests::incompatible_schema_is_rejected ... ok
+test engines::tests::unverified_production_bundle_is_rejected ... ok
+test process::tests::cancelled_or_expired_work_never_starts ... ok
+test process::tests::fixture_child ... ignored, subprocess fixture, invoked by the supervisor tests
+test engine_bundle::tests::rejects_wrong_platform_traversal_missing_engine_and_missing_resource ... ok
+test process::watchdog::tests::failed_watchdog_never_allows_engine_spawn ... ok
+test process::watchdog::tests::private_mode_refuses_nonpipe_input_even_in_its_own_group ... ok
+test process::watchdog::tests::private_mode_refuses_the_callers_process_group ... ok
+test queue::tests::corrupt_history_is_preserved_and_not_silently_reset ... ok
+test queue::tests::cancellation_before_source_check_prevents_executor_start ... ok
+test queue::tests::fifo_input_is_rejected_at_registration_and_after_replacement ... ok
+test queue::tests::interrupted_history_does_not_autorun ... ok
+test queue::tests::batch_configuration_is_atomic_and_stale_settings_are_rejected ... ok
+test queue::tests::invalid_batch_is_atomic ... ok
+test queue::tests::legacy_history_is_backed_up_before_schema_migration ... ok
+test queue::tests::duplicate_request_and_stale_retry_never_run_twice ... ok
+test queue::tests::clear_waits_for_cancellation_and_never_deletes_saved_files ... ok
+test queue::tests::deleted_input_requires_reselection_even_after_it_is_recreated ... ok
+test queue::tests::panic_in_one_executor_does_not_abandon_the_batch ... ok
+test queue::tests::cancellation_prevents_queued_work_and_allows_explicit_retry ... ok
+test queue::tests::persistence_failure_prevents_submission_and_can_be_retried ... ok
+test queue::tests::removing_a_queued_task_does_not_wait_for_an_unrelated_running_task ... ok
+test process::tests::drains_both_pipes_with_bounded_memory ... ok
+test queue::tests::replaced_input_is_rejected_before_executor_runs ... ok
+test queue::tests::missing_output_revokes_permission_and_requires_a_new_selection ... ok
+test queue::tests::revealing_results_requires_current_directory_authority_and_unchanged_bytes ... ok
+test queue::tests::serialized_snapshot_matches_the_frontend_contract_fixture ... ok
+test queue::tests::separate_instances_cannot_write_the_same_history ... ok
+test queue::tests::shutdown_drop_releases_lock_even_if_a_duplicate_handle_exists ... ok
+test process::tests::failure_is_observable ... ok
+test queue::tests::unsupported_engine_routes_are_not_advertised_at_registration ... ok
+test queue::tests::scheduler_runs_a_whole_batch_without_frontend_calls ... ok
+test queue::tests::restart_restores_history_but_never_restores_file_authority ... ok
+test queue::tests::saved_pages_survive_cancellation_and_are_passed_to_an_explicit_retry ... ok
+test queue::tests::saved_output_survives_history_failure_and_following_jobs_pause ... ok
+test queue::tests::shutdown_cancels_running_and_queued_work ... ok
+test queue::tests::clear_is_available_when_history_is_too_large_or_unsaved ... ok
+test process::tests::output_wait_observes_cancellation_and_one_deadline ... ok
+test process::tests::cancellation_stops_a_running_process ... ok
+test process::watchdog::tests::readiness_timeout_is_bounded ... ok
+test process::tests::abrupt_parent_exit_stops_descendants ... ok
+test process::tests::successful_parent_cannot_leave_pipe_holding_descendants ... ok
+test process::tests::deadline_is_total_and_kills_descendants ... ok
+
+test result: ok. 47 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.51s
+
+   Doc-tests z8_native
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

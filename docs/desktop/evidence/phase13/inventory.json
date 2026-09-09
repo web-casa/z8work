@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "scope": "phase13-local-evidence",
+  "files": {
+    "AppxManifest.xml": {
+      "sha256": "a66cdcef34fbfc369f119949dc6df82c668cb5147eb961307d9fc30366f463b7",
+      "bytes": 1390
+    },
+    "actionlint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "archive-check.json": {
+      "sha256": "17b115daa2f0327abd649e180edc70b6fef4a7c75880f2b42acd3157d390b085",
+      "bytes": 324
+    },
+    "environment.json": {
+      "sha256": "1e1cac298190328fb786a15fbbeac4342f9c97ae930e4fd869842eaeccb670bf",
+      "bytes": 1579
+    },
+    "eslint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "inputs-verified.txt": {
+      "sha256": "98c1db52be617bd759f55b0e409ee3a0bae8908114d5c4c1f78f02d99a9233d1",
+      "bytes": 34
+    },
+    "inputs.json": {
+      "sha256": "63b159b7f6b43ea408abbf99f76461515756669f08a29af0f7714dcd4347607e",
+      "bytes": 42363
+    },
+    "makemsix-pack-help.txt": {
+      "sha256": "d6130d6c6e296094d2d325bec7cc74335064e27d604ba1ab62619546eb0cdca4",
+      "bytes": 640
+    },
+    "makemsix-unpack-help.txt": {
+      "sha256": "b72de7d2a62dd1df52fd03d231f8cf422d773213cb1f8e7fa79daca2d55a2560",
+      "bytes": 1164
+    },
+    "node22-tests.txt": {
+      "sha256": "9eff975944fc54941fe2c04df47b42addbc1fa7f4aadc82f8a22865ff6467bd9",
+      "bytes": 23432
+    },
+    "node24-tests.txt": {
+      "sha256": "540311a5101d298f2d55cf4b6f27499c2b72a664259cf29f53451c97eaf6f825",
+      "bytes": 9821
+    },
+    "pack.txt": {
+      "sha256": "32e51b7d7b2c0df7e8463c9791348c4103562da79cc046b462b435fdadf8e7b3",
+      "bytes": 91
+    },
+    "prepare.txt": {
+      "sha256": "a6472c7bf8dd5fd5eeac3141303445bcc703653d68e8bc1a6e79256ed0d282e6",
+      "bytes": 155
+    },
+    "prepared.json": {
+      "sha256": "03dce88d7306f040fca8e76caab4687745881ff4bad8771ea7a58311bc1a5b88",
+      "bytes": 5237
+    },
+    "prettier.txt": {
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "bytes": 66
+    },
+    "python-tests.txt": {
+      "sha256": "e586fc0f3bb2a05f4c80f07d1b4c6171e830592f6c7aaf70d4af3b0aa3ebd072",
+      "bytes": 105
+    },
+    "report.json": {
+      "sha256": "26d92d9deb3e096c5ef9a15ba0ad01ce6d151dca5a2856d99f5665d74f52fa74",
+      "bytes": 676
+    },
+    "sdk-build-changes.patch": {
+      "sha256": "d1df544b3bbcca9a6e023bb33f0bc6d54aef6c7e7f7572a4fa7f829a84d94c64",
+      "bytes": 17197
+    },
+    "sdk-build.txt": {
+      "sha256": "f4700647e1ad14782582f4d76b86e9cb829b78725cb1e93dfd04cf78651619ff",
+      "bytes": 38691
+    },
+    "sdk-configure.txt": {
+      "sha256": "f8aa42ff609730e218254bb16ee4b3a85cfa9a14c68165bb2d80a66261622ff1",
+      "bytes": 8058
+    },
+    "unpack.txt": {
+      "sha256": "32e51b7d7b2c0df7e8463c9791348c4103562da79cc046b462b435fdadf8e7b3",
+      "bytes": 91
+    }
+  }
+}

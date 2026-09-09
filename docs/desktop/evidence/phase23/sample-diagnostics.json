@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "product": "Z8.Work",
+  "native_version": "0.1.0",
+  "os": "linux",
+  "arch": "aarch64",
+  "debug": true,
+  "workspace_initialized": true,
+  "engines": [
+    {
+      "id": "magick",
+      "available": true,
+      "development": true,
+      "numeric_version": "7.1.1-43"
+    },
+    {
+      "id": "ffmpeg",
+      "available": true,
+      "development": true,
+      "numeric_version": "7.1.5-0"
+    },
+    {
+      "id": "ffprobe",
+      "available": true,
+      "development": true,
+      "numeric_version": "7.1.5-0"
+    },
+    {
+      "id": "pandoc",
+      "available": true,
+      "development": true,
+      "numeric_version": "3.1.11.1"
+    },
+    {
+      "id": "mutool",
+      "available": true,
+      "development": true,
+      "numeric_version": "1.25.1"
+    }
+  ],
+  "queue": {
+    "tasks": 31,
+    "phases": {
+      "ready": 27,
+      "saved": 4
+    },
+    "processing": false,
+    "persistence_failed": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+	"schema": 1,
+	"artifact": "linux-arm64-validation",
+	"filename": "z8-work-0.1.0-linux-arm64-validation.tar.gz",
+	"sha256": "499a4140afa89af4a4f98d1140d6ef30a5c6430305458aa2d51579e5330454c2",
+	"applicationSha256": "4ff43de930631c8c19c3ee867121094254d53099173aafb45aa8ed16ae788bbf",
+	"engineManifestSha256": "c623ecc36ccd0a3f0f4a7971f3293958ce3bf30c5327d63095654b0c3e2ac881",
+	"redistributionApproved": false,
+	"buildInfo": {
+		"applicationId": "work.z8.desktop.m0",
+		"arch": "aarch64",
+		"customProtocol": true,
+		"debug": false,
+		"engines": "bundled",
+		"os": "linux",
+		"resourceDirectoryName": "Z8.Work Desktop Dev",
+		"schema": 1,
+		"updater": false,
+		"version": "0.1.0"
+	},
+	"checks": {
+		"integrity": {
+			"status": "passed",
+			"report": "Final archive extracted; application hash and complete engine inventory checked"
+		},
+		"conversion": {
+			"status": "passed",
+			"report": "linux-arm64-conversion.json"
+		},
+		"gui": {
+			"status": "passed",
+			"report": "linux-arm64-gui.json"
+		},
+		"install": {
+			"status": "passed",
+			"report": "linux-arm64-gui.json",
+			"scope": "Extract final tar.gz and run the installed copy on Debian 13 ARM64 with existing GTK/WebKit"
+		},
+		"upgrade": {
+			"status": "not-run",
+			"reason": "No previous packaged desktop version has completed native installer acceptance"
+		},
+		"uninstall": {
+			"status": "passed",
+			"report": "linux-arm64-uninstall.json"
+		},
+		"licenses": {
+			"status": "not-run",
+			"reason": "Source delivery and dependency review pending"
+		}
+	}
+}

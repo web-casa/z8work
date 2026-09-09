@@ -1,0 +1,113 @@
+{
+	"schema": 1,
+	"date": "2026-09-08T14:01:17.849Z",
+	"scope": "Phase7 historical source acquisition, resumable download and verified material assembly; native application unchanged",
+	"baseCommit": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+	"uncommitted": true,
+	"toolchain": {
+		"node": "v24.18.0",
+		"nodeCiValidation": "v22.22.2",
+		"host": "Debian 13 Linux aarch64"
+	},
+	"sourceSha256": {
+		"scripts/desktop-source-snapshot.mjs": "254797b7c9ec0bbe99aeb2150befa9f3ed9f092381f3e44e7f7120f30141f953",
+		"scripts/lib/desktop-source-snapshot.mjs": "8ee90a3f299ce2f04ec8b5b690abe5c34ab9abe13966ccd6bcbc10a689e128ab",
+		"scripts/desktop-source-assemble.mjs": "fd2411a338b16e45a7501ac2b664aac1746d31818a343078e4aed67574d3fc2d",
+		"desktop/tests/source-snapshot.test.mjs": "2747e6b6715e29243e30aaed6caae13d5d9c4fb472c63aaea4288cb045e174a1",
+		"desktop/tests/source-assemble.test.mjs": "d8458c6e2cb80a418e785f1acc8f1d2bf3dd3b0156a4681ddbfa0b47a34467ff",
+		"scripts/desktop-sources.mjs": "6eac12c4d112fd570d3b0dad1796a303ad80aa0b2a4eeda517142b4450be86be",
+		"scripts/lib/desktop-sources.mjs": "b9e81bad50aad14081c6727a2bf28b2a7b0acc67165543f71b59d42bca8c564f",
+		"scripts/desktop-deb-catalog.py": "f49e41eb11e415310dce732c4932db4f30cb24b4b76a86af35188ed5d1709931",
+		"package.json": "b1efc5cd450fa4c7f651c4d0b56520aebb0797c5a8bd8b005de7326ce65968a8",
+		".github/workflows/desktop.yml": "95db819fe3e802614c5b500a4c883148e100e3804f3823a7a3819ce4d6afb764",
+		"README.md": "86efc086bb8aee079d011a7480bbae9f98938dde5e36ac9d7df8d2305a2417dc",
+		"docs/desktop/README.md": "8e455b153baa7a272bc8832b56de0c24ee2b8e086682917dfab4e8adc78719c5",
+		"docs/desktop/V1_PLAN.md": "7a5d98727508dcb1003fc71a1f5cdee365de04a1f7402160ed80087732fe7494",
+		"docs/desktop/PHASE7_IMPLEMENTATION.md": "6e6cbb4ae30c744f33fc86f327098c42ffcf9d6511c214686be124727be8eb0b"
+	},
+	"evidence": {
+		"assembly.json": {
+			"file": "docs/desktop/evidence/phase7/assembly.json",
+			"sha256": "a37cb99e1d684bd865693205f8bbc9be2839b4ba834ccb140787f23b31db48b4"
+		},
+		"audit.json": {
+			"file": "docs/desktop/evidence/phase7/audit.json",
+			"sha256": "28c60bcc66e9b89a3ff653f82ba2bd44f797646e7df6eeda9389eb68ceb386a8"
+		},
+		"desktop-tests-node22.txt": {
+			"file": "docs/desktop/evidence/phase7/desktop-tests-node22.txt",
+			"sha256": "af82b63d8f2df095bd03b71c897a30ff2c7cf0c7f15e399f1d953b8646e6d8ab"
+		},
+		"desktop-tests-node24.txt": {
+			"file": "docs/desktop/evidence/phase7/desktop-tests-node24.txt",
+			"sha256": "abe8b73de03c2428c02bf461745f1495740528383724aa5b0058a3b74c1261a7"
+		},
+		"downloads.json": {
+			"file": "docs/desktop/evidence/phase7/downloads.json",
+			"sha256": "97c1de49e9bf1df5c98df7a4a84c844ff28331f162b9bc4d7843ae4d7817cf0c"
+		},
+		"source-requests.json": {
+			"file": "docs/desktop/evidence/phase7/source-requests.json",
+			"sha256": "99410c716fafb5dde185c8ba1f6d5f4b914321f2516717ba89d3cfff872c1972"
+		},
+		"strict-audit.txt": {
+			"file": "docs/desktop/evidence/phase7/strict-audit.txt",
+			"sha256": "66deff491fba6895cbb1550d624344fe62da9dbd12e8521dd4bfdc69ba6a4d5d"
+		},
+		"tests.json": {
+			"file": "docs/desktop/evidence/phase7/tests.json",
+			"sha256": "ba22482766c084f7b4fa71634a320800e419f500b34eea391ab6fd46808a2806"
+		},
+		"typecheck.txt": {
+			"file": "docs/desktop/evidence/phase7/typecheck.txt",
+			"sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+		},
+		"web-tests.txt": {
+			"file": "docs/desktop/evidence/phase7/web-tests.txt",
+			"sha256": "2a6412873e76701b1a48ef20e3092b7727c6876a772f122250177b70f686ef44"
+		}
+	},
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"previousCandidate": {
+		"file": ".desktop-local/phase5-candidate/z8-work-0.1.0-linux-arm64-validation.tar.gz",
+		"sha256": "3a6fb4001b306a810a769fc0880a6d6912c836130f0c3f3dd584a912b3a18798",
+		"bytes": 189868302,
+		"changed": false
+	},
+	"result": {
+		"sourceVersions": 170,
+		"verifiedSourceVersions": 170,
+		"missingSourceVersions": 0,
+		"invalidSources": 0,
+		"sourceFiles": 559,
+		"sourceBytes": 4804627271,
+		"strictAudit": "passed",
+		"strictAuditExitCode": 0,
+		"signatureVerification": "not-performed",
+		"buildReproduction": "not-performed",
+		"redistributionApproved": false
+	},
+	"checks": {
+		"desktopTests": 61,
+		"newTests": 21,
+		"node22DesktopTests": 61,
+		"webTests": 180,
+		"typecheckErrors": 0,
+		"typecheckWarnings": 0,
+		"eslint": "passed",
+		"prettier": "passed"
+	},
+	"external": {
+		"pushed": false,
+		"deployed": false,
+		"storeSubmitted": false
+	},
+	"materials": ".desktop-local/phase7-final",
+	"sourceArchives": ".desktop-local/phase7-sources-final",
+	"remaining": [
+		"Source authentication/signatures and reproducible build review",
+		"Application/Rust/frontend/Pandoc static dependency and build tool source closure",
+		"License review of final platform-specific builds",
+		"P0 native installers, permissions, upgrade/uninstall and store acceptance"
+	]
+}

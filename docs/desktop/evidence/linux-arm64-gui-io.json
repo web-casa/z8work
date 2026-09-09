@@ -1,0 +1,11 @@
+{
+	"platform": "linux-aarch64",
+	"nativeInputPicker": true,
+	"nativeOutputPicker": true,
+	"converted": "PNG → WebP",
+	"decoded": true,
+	"bytes": 80,
+	"sha256": "a76befd2d4f2bdc3840d3fe415ef4a0bf1f4ae23f7be8c3179c7d3ec574e5576",
+	"clearPreservedOutput": true,
+	"method": "native GTK dialogs driven with xdotool; result and ACL via WebKit WebDriver"
+}

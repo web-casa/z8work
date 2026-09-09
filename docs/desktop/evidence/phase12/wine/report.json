@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "scope": "windows-native-validation",
+  "execution": "wine",
+  "host": {
+    "os": "linux",
+    "arch": "x64",
+    "machine": "x86_64"
+  },
+  "status": "failed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "checks": {
+    "integrity": "passed",
+    "buildInfo": "passed",
+    "webview2": "blocked",
+    "lifecycle": "not-run",
+    "conversions": "not-run",
+    "nativeExecution": "not-run",
+    "gui": "not-run",
+    "permissions": "not-run",
+    "installer": "not-run",
+    "licenses": "not-run"
+  },
+  "references": {
+    "pe.json": {
+      "sha256": "c01470a06fad0bcfc4e56a52d2642a5931fb463a0fb1a677a55b794d43fb683f",
+      "bytes": 39986
+    },
+    "build-info.json": {
+      "sha256": "5002c18f6a358dc3cf3ef62fd88adcd6bd2b98a6809bf887c13142561905dbab",
+      "bytes": 320
+    },
+    "runtime-info.json": {
+      "sha256": "bcb2cb24aa79813d20ab18e34cb46ab966cbafebd6b706ea93536be2920ce7bb",
+      "bytes": 262
+    },
+    "lifecycle-list.txt": {
+      "sha256": "1a36a52129927c20af2523aaf9d90eb46c2f1fe8538137da2dece2b62aa68d7b",
+      "bytes": 3109
+    },
+    "abrupt_parent_exit_stops_descendants.txt": {
+      "sha256": "59ea43ac37b2e6491100fa40b5506f820922f5e4ba9168471e0388f527d4ddc7",
+      "bytes": 178
+    },
+    "successful_parent_cannot_leave_pipe_holding_descendants.txt": {
+      "sha256": "411c0f6a6836b0633ab7bdb62545c33737e1421ae46717c99b0dae82b0a18b60",
+      "bytes": 197
+    },
+    "cancelled_or_expired_work_never_starts.txt": {
+      "sha256": "ec6c72d3d07f88e61226f64092131380ffbb665fc18530e42d72470b4f603a49",
+      "bytes": 180
+    },
+    "output_wait_observes_cancellation_and_one_deadline.txt": {
+      "sha256": "2812512bb7effaae7afd6d072b54c1327684867206869e8d39ef39039955be72",
+      "bytes": 192
+    },
+    "drains_both_pipes_with_bounded_memory.txt": {
+      "sha256": "c130aae34430e1f6b1e3f131c4bd66419d7d386836489a50299cfe3d669a0416",
+      "bytes": 124
+    }
+  },
+  "handoff": {
+    "sha256": "9955d2e7f33e79c4adb2e9fd019a332158783c94b6d16676e3a821e78ce0397a",
+    "bytes": 6669
+  },
+  "error": "Required lifecycle test did not run successfully: process::tests::drains_both_pipes_with_bounded_memory"
+}

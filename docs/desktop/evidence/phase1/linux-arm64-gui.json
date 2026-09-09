@@ -1,0 +1,12 @@
+{
+	"platform": "linux / aarch64",
+	"nativeInputPicker": true,
+	"nativeOutputPicker": true,
+	"queueContinuedAcrossReload": true,
+	"savedTasks": 2,
+	"duplicateRequestNoExtraOutput": true,
+	"singleInstanceSecondProcessExited": true,
+	"unauthorizedCommandsRejected": true,
+	"clearWaitedForCancellation": true,
+	"clearPreservedSavedOutputs": true
+}

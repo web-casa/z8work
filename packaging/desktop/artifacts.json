@@ -1,0 +1,47 @@
+{
+	"schema": 1,
+	"version": "0.1.0",
+	"languages": ["zh-Hans", "en"],
+	"artifacts": [
+		{
+			"id": "linux-arm64-validation",
+			"os": "linux",
+			"arch": "aarch64",
+			"channel": "local-validation",
+			"format": "tar.gz",
+			"priority": "local-evidence",
+			"updater": false
+		},
+		{
+			"id": "linux-amd64-snap",
+			"os": "linux",
+			"arch": "x86_64",
+			"channel": "snap",
+			"format": "snap",
+			"priority": "P0",
+			"updater": false,
+			"base": "core24",
+			"confinement": "strict"
+		},
+		{
+			"id": "windows-x64-msix",
+			"os": "windows",
+			"arch": "x86_64",
+			"channel": "microsoft-store",
+			"format": "msix",
+			"priority": "P0",
+			"updater": false,
+			"identity": null,
+			"publisher": null
+		},
+		{
+			"id": "macos-arm64-app",
+			"os": "macos",
+			"arch": "aarch64",
+			"channel": "local-validation",
+			"format": "app",
+			"priority": "P0",
+			"updater": false
+		}
+	]
+}

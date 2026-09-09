@@ -1,0 +1,31 @@
+Microsoft (R) makemsix version 1.7.243
+Copyright (C) 2017 Microsoft.  All rights reserved.
+
+Usage:
+---------------
+    .desktop-local/phase13/sdk-build/bin/makemsix unpack -p <package> -d <directory> [options]
+
+Description:
+---------------
+    Extracts all files within an app package at the input <package> name to the
+    specified output <directory>. The output has the same directory structure 
+    as the package. If <package> is a bundle, it extract its contests with full
+    applicability validations and its packages will be unpacked in a directory 
+    named as the package full name.
+
+Options:
+---------------
+    -p <package> {Required}
+        Input package file path.
+    -d <directory> {Required}
+        Output directory path.
+    -pfn [Flag]
+        Unpacks all files to a subdirectory under the output path, named after the package full name.
+    -ac [Flag]
+        Allows any certificate. By default the signature origin must be known.
+    -ss [Flag]
+        Skips enforcement of signed packages. By default packages must be signed.
+    -pfn-flat [Flag]
+        Same behavior as -pfn for packages.
+    -? [Flag]
+        Displays this help text.

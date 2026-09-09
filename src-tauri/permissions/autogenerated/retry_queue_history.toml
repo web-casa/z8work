@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-retry-queue-history"
+description = "Enables the retry_queue_history command without any pre-configured scope."
+commands.allow = ["retry_queue_history"]
+
+[[permission]]
+identifier = "deny-retry-queue-history"
+description = "Denies the retry_queue_history command without any pre-configured scope."
+commands.deny = ["retry_queue_history"]

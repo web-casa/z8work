@@ -20,6 +20,25 @@ See the [frontend redesign notes](docs/FRONTEND_REDESIGN.md) for the imported de
 
 Current production branding, domain, icons and filename migration are documented in [Branding](docs/BRANDING.md).
 
+## Native desktop prototype
+
+A separate Tauri/Rust desktop prototype runs native ImageMagick, FFmpeg, Pandoc and MuPDF, with a Rust-managed queue and local task-history recovery. It is not a publicly released desktop version or a complete desktop equivalent of the website. Start with the [desktop research overview](docs/desktop/README.md), then see the [latest implementation and tested scope](docs/desktop/PHASE23_IMPLEMENTATION.md), [remaining seven-phase development plan (Phases 24–30)](docs/desktop/REMAINING_V1_PLAN.md), and [plan review and corrections](docs/desktop/REMAINING_V1_REVIEW.md). The [original V1 plan](docs/desktop/V1_PLAN.md) retains the architecture and research background.
+
+[Phase 5: desktop process lifetime hardening and review](docs/desktop/PHASE5_IMPLEMENTATION.md).
+
+[Phase 6: native engine provenance and source material review](docs/desktop/PHASE6_IMPLEMENTATION.md).
+
+[Phase 7: complete historical source collection and resumable downloads](docs/desktop/PHASE7_IMPLEMENTATION.md).
+[Phase 8: core24 AMD64 Snap packaging and portal dialogs](docs/desktop/PHASE8_IMPLEMENTATION.md) now has a local candidate. [Phase 9: installed Snap validation tooling](docs/desktop/PHASE9_IMPLEMENTATION.md) adds host checks and transferable test inputs; native strict installation acceptance remains pending.
+
+[Phase 23: private diagnostic reports](docs/desktop/PHASE23_IMPLEMENTATION.md) adds a reviewable runtime summary that excludes file contents, names, paths and raw logs. Reports are saved locally only when requested. Storage preflight, managed workspaces, native previews and batch imports remain available; Windows/macOS GUI and rebuilt installer acceptance are pending.
+
+[Phase 16: confirmation before quitting active conversions](docs/desktop/PHASE16_IMPLEMENTATION.md) adds a shared close/quit guard, verified in the Linux GUI with cancellation, encoder cleanup and restart recovery. Native Windows/macOS menu behavior and installation acceptance remain pending.
+
+[Phase 15: persistent desktop preferences](docs/desktop/PHASE15_IMPLEMENTATION.md) adds native storage for language and batch settings, verified through Linux application restart and conversion GUI regression.
+
+[Phase 14: MSIX installation acceptance tools](docs/desktop/PHASE14_IMPLEMENTATION.md) adds signed-copy and installed-payload validation, with local preflight against the unsigned Phase 13 MSIX. Native Windows signing, installation, WebView2/GUI, licensing and Store acceptance remain pending.
+
 ## Why Z8.Work?
 
 **File converters have always disappointed us.** They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.

@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "files": {
+    "actionlint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app-build.txt": {
+      "bytes": 131,
+      "sha256": "07811282d7527a630fce61d4f78ec92347c7859ca3f6ffcefe943d21d71eb7c5"
+    },
+    "app-tests.txt": {
+      "bytes": 891,
+      "sha256": "8ef53f82596b8801b620a32090929f10944575933a02db0e48ccdd6775858644"
+    },
+    "clippy.txt": {
+      "bytes": 196,
+      "sha256": "a58f45ff02193297e9ff4f6212b415de7c27632919fc9441f07667d1e264de47"
+    },
+    "confirmation-en.png": {
+      "bytes": 78935,
+      "sha256": "683eb1afdcd47897533fc165e206793ab3c8864c4960578197b7eb4d68d62d7d"
+    },
+    "confirmation-zh.png": {
+      "bytes": 115644,
+      "sha256": "66c5c7f5b62496172c1df2130fc908d387f6ee57c4db0c75d1dd171507d5f563"
+    },
+    "conversion-gui-run.txt": {
+      "bytes": 6369,
+      "sha256": "283fdfd88367b8944907b806b383c0b0464993bbb0da3eeb5f50675523315e7f"
+    },
+    "conversion-gui.json": {
+      "bytes": 679,
+      "sha256": "e3e80c5ab3adea531cbbd5d4c4132f6b03f305b0f88afeb67b69a0bcd5cc0e26"
+    },
+    "docs-format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "environment.json": {
+      "bytes": 929,
+      "sha256": "6147148d96576ff0c66acefb72aeb8d32fbaba4485d7ff85bfcdf5903c1f3809"
+    },
+    "eslint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "inputs-verified.txt": {
+      "bytes": 34,
+      "sha256": "52841f6dbb927f9068a10e1aa4c383a911f5fded02aa6fa831645e587b1a761d"
+    },
+    "inputs.json": {
+      "bytes": 44416,
+      "sha256": "c10636160056c8283bcc0b145394a8bf57104dc11079589b2cefa45efef4cf18"
+    },
+    "native-dev-tests.txt": {
+      "bytes": 5238,
+      "sha256": "092e1ee7960fee3796537e7e30345a867a4e91f8c2e1996d205fe3c222a840d2"
+    },
+    "native-tests.txt": {
+      "bytes": 5116,
+      "sha256": "b4b2e59e5ea7f473d9fd87097b180737d71347d7fda325b824389cebc3b09b81"
+    },
+    "node22-tests.txt": {
+      "bytes": 29032,
+      "sha256": "07ae19e25d28e4286a3a8fe614885ef010147b5174ffe552d8c4c0010aa6d5b0"
+    },
+    "node24-tests.txt": {
+      "bytes": 12129,
+      "sha256": "b627e55ede9967723b14f4ea560b72c3482382216f8213da06e098d4dd30c085"
+    },
+    "packaged-app-tests.txt": {
+      "bytes": 956,
+      "sha256": "8ee5b6d58c57c135a76155c45d5140ba2ffd4625589c48d8ef234c854ec7628d"
+    },
+    "portal-check.txt": {
+      "bytes": 196,
+      "sha256": "f66b86b6474006d749c8a343b7c0f6e729f350d39d6f987c13ae2d5d7f36fd15"
+    },
+    "preferences-gui-run.txt": {
+      "bytes": 5460,
+      "sha256": "75b1cece9178b1134eadf5be093b86956912ac6c1e78614a200725086a9c2a91"
+    },
+    "preferences-gui.json": {
+      "bytes": 343,
+      "sha256": "62afc64fd8a6363f4cac7e882fef1ac656f772d5adf056e0adf7770a2c7b3f8e"
+    },
+    "prettier.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "python-syntax.txt": {
+      "bytes": 99,
+      "sha256": "122316668b8f624c0e831a30e1b7a78c49d2058cd397480df36caa537b4ace12"
+    },
+    "quit-gui-run.txt": {
+      "bytes": 5758,
+      "sha256": "f04bd5d77b853f6b658ef42946b530d7d15ea9a9274b25891dea6e6ba16d1b9b"
+    },
+    "quit-gui.json": {
+      "bytes": 649,
+      "sha256": "2ccdcc2f3a8d236733da5655bb3f688b425a4d64648d8cff63479e36ba5226e3"
+    },
+    "restored-queue.json": {
+      "bytes": 3117,
+      "sha256": "ff3d6c48c4daf0b9328c5deaf941a87358938c7cdeda8c87e4fe3799b9b7858a"
+    },
+    "rustfmt.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "svelte-check.txt": {
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=501 pid=109245 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.2' (uid=501 pid=109245 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.3' (uid=501 pid=109317 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.3' (uid=501 pid=109317 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: failed to access mountpoint /run/user/501/doc: Permission denied
+error: fuse init failed: Can't mount path /run/user/501/doc
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.799: Document portal fuse mount point unknown: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.5 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.799: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.3' (uid=501 pid=109317 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[109311]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=501 pid=109340 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[109311]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.822: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.822: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.822: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.822: Choosing gtk.portal for org.freedesktop.impl.portal.Settings as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.823: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.823: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.823: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.824: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.824: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.824: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+[W][13:19:07.825322] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][13:19:07.825356] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.825: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.825: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.825: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:109317): xdg-desktop-portal-WARNING **: 13:19:07.826: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.2' (uid=501 pid=109245 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[109112]: [session uid=501 pid=109112 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+{"platform":"linux / aarch64","batchSettingsPersisted":true,"pdfSavedPages":5,"pdfPartialCancellation":true,"pdfRetryAfterReload":true,"pdfResumePreservedOutputs":true,"arbitraryRevealRejected":true,"sizeComparisonRendered":true,"nativeInputPicker":true,"nativeOutputPicker":true,"queueContinuedAcrossReload":true,"savedTasks":2,"duplicateRequestNoExtraOutput":true,"singleInstanceSecondProcessExited":true,"packagedEngines":false,"application":"/home/ivmm/VERT/src-tauri/target/debug/z8-desktop","unauthorizedCommandsRejected":true,"clearWaitedForCancellation":true,"clearPreservedSavedOutputs":true}
+Evidence: /home/ivmm/VERT/.desktop-local/phase1-gui-hTH8iO

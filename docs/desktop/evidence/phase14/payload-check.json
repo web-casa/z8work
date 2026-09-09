@@ -1,0 +1,8 @@
+{
+  "scope": "sdk-extracted-payload-not-installed",
+  "status": "passed",
+  "files": 29,
+  "peImages": 11,
+  "missingDependencies": [],
+  "installation": "not-run"
+}

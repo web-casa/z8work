@@ -1,0 +1,30 @@
+{
+	"date": "2026-09-08",
+	"platform": "linux-aarch64",
+	"scope": "local development binary; not an installer or store candidate",
+	"features": ["development-engines", "custom-protocol"],
+	"sha256": {
+		"src-tauri/target/debug/z8-desktop": "dfe7778ebea89dc3550b69d10129a8fe7bbb5ea63e1ad34756ae05f8be8d9fa7",
+		"src-tauri/Cargo.lock": "69f22cd4bbecc30d5105c8cd1d835e4ef3816d5dd35e731dcb1493def7c996bb",
+		"bun.lock": "b623318e8236d53061491e2a3301156bdef6857f021fa513497a5f672cf6cd21"
+	},
+	"source_sha256": {
+		"desktop/src/App.svelte": "fba0b451b59784b6cc1e6161f5f849f6a56e191403458a96f9f95601974d7954",
+		"desktop/src/main.ts": "4d7db7460142c0e2f21b7b51acc40b5a33d6a2178781bbbc453a7874916ca03d",
+		"desktop/src/platform/queue-contract.ts": "5bf442bf7a586b1ef7404ed0c15dd8fb2916c7a3860cd65d21db8759536e64ac",
+		"desktop/src/platform/queue-sync.ts": "228e552f7a909c189c25733ce18378f07762578ead0ec88969b4d322f1b23385",
+		"desktop/src/platform/tauri.ts": "02910bec4dad9ca2089b2880d2616a38352c692618a7591c8675f7a726a9a1e5",
+		"desktop/src/style.css": "4743cd706b06912f027ecc72ef7cdb33ebd37891af6be7bc2e3ffd28d0b28779",
+		"src-tauri/native/src/bin/smoke.rs": "94f7842d14e9e6b9cfec0216c8883983e33b0be67d476ff541b25d274db11c18",
+		"src-tauri/native/src/convert.rs": "3f8b415ad739480362352a8181231d24e29888040b2e744096302e51737bf275",
+		"src-tauri/native/src/engines.rs": "2b17891f30fca3263d9066844155f11f6a92f279a4a49ef208053f3e283079aa",
+		"src-tauri/native/src/lib.rs": "81e66650a32188fee4da45002dbb9aa73e8bf3d6a9205cb12639b5f27ba16f39",
+		"src-tauri/native/src/process.rs": "045331553f426ad6981898f18c42cbb2c61bc9e174dff5c1e4369f4e269c86f7",
+		"src-tauri/native/src/queue/mod.rs": "96c8b91daf2a97953e69309b59aebc705579767d6ae883c4db0f7a8ac269db2e",
+		"src-tauri/native/src/queue/model.rs": "2d7e4cd4acb19dddede12a87fe31101d4a35c90a9483e0740a4113f6792f39e9",
+		"src-tauri/native/src/queue/store.rs": "71e9459a21a100496af19d3e891a870992f256334d97845bc4752f82b14230c2",
+		"src-tauri/native/src/queue/tests.rs": "7153eebe557518f0a11d27e81e8df064a81ce8ab326aeaa688f704177a41728a",
+		"src-tauri/native/src/smoke.rs": "ee58da356b39a5990fb3c5121a41de45aaded3750e15443afbeb3b28699aa977",
+		"src-tauri/src/main.rs": "c9db9e4f83b169d64d9295bbb5ab591726656151753859228611313df43fc5e2"
+	}
+}

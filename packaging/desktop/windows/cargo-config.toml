@@ -1,0 +1,4 @@
+# Avoid an undeclared VC++ redistributable prerequisite for the application.
+# Native converter executables need their own dependency and license checks.
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]

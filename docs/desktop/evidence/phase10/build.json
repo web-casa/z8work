@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "phase": 10,
+  "sourceHead": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+  "workingTreeInputs": "inputs.json",
+  "builtOn": "linux-aarch64",
+  "target": "x86_64-pc-windows-msvc",
+  "features": [
+    "packaged-engines",
+    "custom-protocol"
+  ],
+  "defaultFeatures": false,
+  "profile": "release",
+  "crtStatic": true,
+  "application": {
+    "path": "z8-desktop.exe",
+    "bytes": 11610624,
+    "sha256": "a527f26ecfa649dcf0809c2910479003b4434d6f29d725377ba9daa17f69f9ae",
+    "arch": "x86_64",
+    "kind": "exe",
+    "subsystem": 2,
+    "imports": [
+      "advapi32.dll",
+      "api-ms-win-core-synch-l1-2-0.dll",
+      "bcryptprimitives.dll",
+      "combase.dll",
+      "comctl32.dll",
+      "dwmapi.dll",
+      "gdi32.dll",
+      "kernel32.dll",
+      "ntdll.dll",
+      "ole32.dll",
+      "oleaut32.dll",
+      "shell32.dll",
+      "shlwapi.dll",
+      "user32.dll"
+    ],
+    "delayImports": [],
+    "resourcesPresent": true,
+    "certificateTablePresent": false
+  },
+  "llvmAgreement": true,
+  "tests": {
+    "node22": 96,
+    "node24": 96,
+    "newWindowsToolTests": 11,
+    "linuxApp": 2,
+    "linuxCorePassed": 46,
+    "linuxCoreIgnoredFixture": 1,
+    "linuxHeadlessCliCases": 6,
+    "windowsExecution": "not-run"
+  },
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "references": {
+    "actionlint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "before-static-crt-llvm.txt": {
+      "bytes": 15633,
+      "sha256": "5a096385714ffe7d99d7e8e9dab52418509dd3c43d880fbd95bd5a33b31924a4"
+    },
+    "clippy.txt": {
+      "bytes": 171,
+      "sha256": "a003604e8b99a64cbac006fa4b81ad2347f20c019c2464ad74f00dd03e85006b"
+    },
+    "eslint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "frontend-build.txt": {
+      "bytes": 1207,
+      "sha256": "637e4997009333ad16be3414e4572b46c9459fad385af590565e473d221a44e7"
+    },
+    "inputs.json": {
+      "bytes": 38692,
+      "sha256": "fcfc642b66f14ec20a339de1c0c103c67be5c6d767f98a8783966ef9316feff2"
+    },
+    "inspection.json": {
+      "bytes": 3699,
+      "sha256": "963874fbd4b1c83f04b04aa8c3b7413904b3474bdf8ce3e4d69d949da4d9808a"
+    },
+    "linux-app-tests.txt": {
+      "bytes": 522,
+      "sha256": "99433877388078c0f079dbb188f0bf8579bab28acae8de4f2963fbbd6d42f3f1"
+    },
+    "linux-cli.json": {
+      "bytes": 1138,
+      "sha256": "657647a29e1c956b231dabef2159514b124279e9228fb2a543f0e1229096a0eb"
+    },
+    "linux-native-tests.txt": {
+      "bytes": 4327,
+      "sha256": "a01eeb8f8ff5e35646b12a9ec87176787b6ec730bc1c81bc6174b72c40050886"
+    },
+    "llvm-pe.txt": {
+      "bytes": 14059,
+      "sha256": "5ff45db5f045c0a128e87d51f692b12096402076fe64800496c11b6b2ed8e058"
+    },
+    "node22-tests.txt": {
+      "bytes": 19959,
+      "sha256": "7e212ebae5639719ca05ac89f000152264c9680d5ba7e5db69ce62aa25e23757"
+    },
+    "node24-tests.txt": {
+      "bytes": 8370,
+      "sha256": "493c07350186aa9bcd6e7d72d8f286dbbaa757e4b82bb3df12d9e135075a3cef"
+    },
+    "runtime-attempt.json": {
+      "bytes": 3833,
+      "sha256": "9782851a92fde900cc6936307a23f8ee37cd5fc025f7b5d0440147e5441e1ccc"
+    },
+    "sdk-cache.txt": {
+      "bytes": 464,
+      "sha256": "3ad4039489623345bd14fcf189d874ccc36f0c71ec7d3c7014a617b7b4f98e60"
+    },
+    "shellcheck.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "toolchain.txt": {
+      "bytes": 239,
+      "sha256": "a2de4fbea361b374e3784a704d84a6176ee9cc0ef5ff45b380a6d04d2964a28f"
+    },
+    "typecheck.txt": {
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    },
+    "windows-app-tests-compile.txt": {
+      "bytes": 243,
+      "sha256": "2e909cb75021f9fd60532444cd62abf74bf424f0bc6056088a5ffded12e22367"
+    },
+    "windows-build.txt": {
+      "bytes": 122,
+      "sha256": "429aa2df625edc4ca9162f2bc6bad832d99a79d8ca35f3de64de4467ab7b20d2"
+    },
+    "windows-core-tests-compile.txt": {
+      "bytes": 62,
+      "sha256": "765f1396d07f30f3a451cd3f9d9cad4e83c92c8e0aecf955ffc09061a6cf1e02"
+    }
+  }
+}

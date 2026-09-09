@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scope": "windows-native-validation",
+  "execution": "native",
+  "host": {
+    "os": "linux",
+    "arch": "arm64",
+    "machine": "aarch64"
+  },
+  "status": "blocked",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "checks": {
+    "integrity": "passed",
+    "buildInfo": "not-run",
+    "webview2": "not-run",
+    "lifecycle": "not-run",
+    "conversions": "not-run",
+    "nativeExecution": "not-run",
+    "gui": "not-run",
+    "permissions": "not-run",
+    "installer": "not-run",
+    "licenses": "not-run"
+  },
+  "references": {
+    "pe.json": {
+      "sha256": "c01470a06fad0bcfc4e56a52d2642a5931fb463a0fb1a677a55b794d43fb683f",
+      "bytes": 39986
+    }
+  },
+  "handoff": {
+    "sha256": "9955d2e7f33e79c4adb2e9fd019a332158783c94b6d16676e3a821e78ce0397a",
+    "bytes": 6669
+  },
+  "blocker": "This host does not match the requested Windows x64 or Linux x64 Wine execution mode."
+}

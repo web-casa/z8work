@@ -1,0 +1,3 @@
+FROM scratch
+COPY . /engines/
+ENTRYPOINT ["/engines/lib/ld-linux-x86-64.so.2", "--library-path", "/engines/lib", "/engines/validation/bundle-check", "/engines", "--full"]

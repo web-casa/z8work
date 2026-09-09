@@ -1,0 +1,10 @@
+[
+	"process::tests::abrupt_parent_exit_stops_descendants",
+	"process::tests::successful_parent_cannot_leave_pipe_holding_descendants",
+	"process::tests::cancelled_or_expired_work_never_starts",
+	"process::tests::output_wait_observes_cancellation_and_one_deadline",
+	"process::tests::drains_both_pipes_with_bounded_memory",
+	"process::tests::failure_is_observable",
+	"process::tests::deadline_is_total_and_kills_descendants",
+	"process::tests::cancellation_stops_a_running_process"
+]

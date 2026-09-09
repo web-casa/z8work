@@ -1,0 +1,2 @@
+rosetta error: invalid gdt selector index 5
+ timeout: the monitored command dumped core

@@ -1,0 +1,165 @@
+{
+	"schema": 1,
+	"product": "Z8.Work",
+	"contact": "contact@web.casa",
+	"website": "https://z8.work/",
+	"source": "https://github.com/web-casa/z8work",
+	"updated": "2026-09-08",
+	"routes": [
+		{
+			"kind": "image",
+			"inputs": ["png", "jpg", "jpeg", "webp", "avif", "heic", "heif"],
+			"outputs": ["png", "jpeg", "webp", "avif"]
+		},
+		{
+			"kind": "pdf",
+			"inputs": ["pdf"],
+			"outputs": ["png", "jpeg", "webp", "avif"]
+		},
+		{
+			"kind": "audio",
+			"inputs": [
+				"mp3",
+				"wav",
+				"flac",
+				"ogg",
+				"m4a",
+				"opus",
+				"mp4",
+				"mov",
+				"mkv",
+				"webm"
+			],
+			"outputs": ["wav", "mp3", "flac", "opus", "m4a"]
+		},
+		{ "kind": "text", "inputs": ["md", "docx"], "outputs": ["txt"] }
+	],
+	"locales": {
+		"en": {
+			"summary": "Convert images, PDF pages and audio locally",
+			"shortDescription": "A local file workspace with batch conversion, image quality controls and resumable PDF page export.",
+			"description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and file contents are not uploaded by the converter.\n\nConvert images to PNG, JPEG, WebP or AVIF. Export PDF pages as images. Convert audio or extract an audio track from supported video files. Extract plain text from Markdown and DOCX documents.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. JPEG uses a white background for transparency. PDF export is limited to 200 pages and 4000 by 4000 pixels per page. Documents export plain text, without layout preservation or OCR. Video output and spreadsheets are not supported in this desktop version. Output files may be larger than their sources.",
+			"features": [
+				"Local native conversion without uploading file contents",
+				"Batch output formats and three image quality presets",
+				"PNG, JPEG, WebP and AVIF image output",
+				"Multi-page PDF export with partial-result recovery",
+				"Audio conversion and audio extraction from supported videos",
+				"Plain-text extraction from Markdown and DOCX"
+			],
+			"draftNotice": "Desktop preview documentation. Store releases and cross-platform installation acceptance are still pending.",
+			"privacyTitle": "Desktop privacy",
+			"supportTitle": "Desktop support",
+			"homeLabel": "Website",
+			"sourceLabel": "Source code",
+			"updatedLabel": "Updated",
+			"privacy": [
+				{
+					"title": "Files stay on your device",
+					"body": "The desktop converter reads the files you select, runs native conversion engines locally, and writes results to your chosen folder. It does not upload file contents. The desktop application has no account, advertising or analytics service."
+				},
+				{
+					"title": "Local history and temporary files",
+					"body": "Task history stores file names, sizes, conversion settings, status, and output paths and hashes in the application's local data directory. File paths and names may contain personal information. Temporary working files are normally removed when a task ends; an abnormal process or system crash can leave temporary data in the selected output folder."
+				},
+				{
+					"title": "Clearing data",
+					"body": "Clear file list removes current task history after active work stops. It does not delete your source files, saved outputs, or history backups retained during a schema upgrade. Remove those files yourself if you no longer need them. Removing an application copy may leave its local data; package managers can also retain backups or snapshots."
+				},
+				{
+					"title": "File access",
+					"body": "You select source files and a destination through system dialogs. Restored history does not restore file access: reselect files and the output folder before retrying. Operating-system sandbox and portal access depend on the actual installed package and must be tested per platform."
+				},
+				{
+					"title": "Connections outside conversion",
+					"body": "Bundled-engine conversion does not require a conversion server. Installing or updating the app, operating-system components or a store client may use the network. Opening this website, source code or support email uses your browser or mail provider under their own policies. This documentation is distinct from the web converter's privacy policy."
+				},
+				{
+					"title": "Contact and voluntary reports",
+					"body": "If you email support or open a public issue, the information you choose to send is received by the mail or issue-hosting service and the project maintainers. Remove private paths, personal metadata and sensitive file contents. A minimal synthetic sample is usually sufficient; there is no automatic diagnostic upload."
+				}
+			],
+			"support": [
+				{
+					"title": "Current availability",
+					"body": "This is an early desktop version. Linux ARM64 local validation exists. Windows x64 MSIX, Linux amd64 strict Snap and macOS ARM64 native installation acceptance remain pending. There are no Store download links in this documentation."
+				},
+				{
+					"title": "Supported conversions",
+					"body": "Image output: PNG, JPEG, WebP and AVIF. PDF exports pages to those image formats. Audio output: WAV, MP3, FLAC, Opus and M4A; supported videos can supply an audio track. Markdown and DOCX can export plain text. This desktop version does not support OCR, spreadsheet conversion, formatted document output or video output."
+				},
+				{
+					"title": "When conversion stops or output grows",
+					"body": "After restarting, reselect the input and save folder before retrying. For a partially completed PDF, retry unfinished pages with the same file, output folder and settings to preserve verified results. Image compression cannot guarantee a smaller file; compare output sizes and choose a lower quality preset where appropriate."
+				},
+				{
+					"title": "Reporting a problem",
+					"body": "Include your operating system and architecture, app version and package source, input/output formats, selected quality and PDF resolution, and the exact error text. Native engine versions are shown in the app. Redact personal paths and use a generated sample where possible. Public issues are visible to others; email is available for private correspondence."
+				}
+			]
+		},
+		"zh-Hans": {
+			"summary": "在本机批量转换图片、PDF 页面和音频",
+			"shortDescription": "本地多文件转换处理工具，支持批量转换、图片质量设置和 PDF 未完成页面重试。",
+			"description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n图片可输出 PNG、JPEG、WebP 和 AVIF；PDF 可逐页导出图片；支持音频转换和从支持的视频文件中提取音轨；Markdown 与 DOCX 可提取纯文本。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧，JPEG 将透明区域填为白色。PDF 最多 200 页，每页最多 4000 × 4000 像素。文档仅输出纯文本，不保留排版，也不提供 OCR。本桌面版尚不支持视频输出和电子表格转换。输出文件可能比原文件更大。",
+			"features": [
+				"原生引擎本地转换，不上传文件内容",
+				"批量设置输出格式与三档图片质量",
+				"支持 PNG、JPEG、WebP、AVIF 图片输出",
+				"PDF 多页导出与部分结果恢复",
+				"音频转换和从支持的视频中提取音轨",
+				"从 Markdown 和 DOCX 提取纯文本"
+			],
+			"draftNotice": "桌面预览版说明。商店发行与跨平台安装验收仍未完成。",
+			"privacyTitle": "桌面版隐私说明",
+			"supportTitle": "桌面版使用与支持",
+			"homeLabel": "网站",
+			"sourceLabel": "源代码",
+			"updatedLabel": "更新日期",
+			"privacy": [
+				{
+					"title": "文件在本机处理",
+					"body": "桌面转换器读取您选择的文件，在本机运行原生转换引擎，将结果写入您指定的目录，不上传文件内容。桌面程序没有账号、广告或分析统计服务。"
+				},
+				{
+					"title": "本地历史与临时文件",
+					"body": "任务历史在应用本地数据目录中保存文件名、体积、转换参数、状态以及输出路径和哈希。文件名与路径可能包含个人信息。正常结束任务时会清理临时工作文件；程序或系统异常退出可能在所选输出目录中留下临时数据。"
+				},
+				{
+					"title": "清理数据",
+					"body": "清空文件列表会先停止相关工作，再删除当前任务记录。它不会删除原文件、已保存的结果或历史格式升级时保留的备份；不再需要时请自行删除这些文件。移除应用副本可能保留应用数据，包管理器也可能保留备份或快照。"
+				},
+				{
+					"title": "文件访问授权",
+					"body": "通过系统对话框选择输入文件和保存目录。恢复历史记录不会恢复文件访问授权，重试前需要重新选择文件和输出目录。系统沙箱与 portal 权限取决于实际安装包，需要按平台验收。"
+				},
+				{
+					"title": "转换之外的网络连接",
+					"body": "使用随包引擎转换不需要转换服务器。应用、系统组件或商店客户端的安装与更新可能使用网络。访问本网站、源代码或发送支持邮件会使用浏览器或邮件服务，并受相应服务的政策约束。本说明与网页版转换器的隐私政策分别适用。"
+				},
+				{
+					"title": "联系与主动提交的信息",
+					"body": "如果您发送支持邮件或提交公开 issue，您主动提供的信息会交给邮件或 issue 托管服务及项目维护者。请移除私人路径、个人元数据和敏感文件内容，通常只需提供最小的人工生成样本。程序不会自动上传诊断资料。"
+				}
+			],
+			"support": [
+				{
+					"title": "当前可用状态",
+					"body": "桌面版处于早期阶段，已有 Linux ARM64 本地验证。Windows x64 MSIX、Linux amd64 strict Snap、macOS ARM64 的原生安装验收仍待完成。本说明尚不提供商店下载链接。"
+				},
+				{
+					"title": "支持的转换",
+					"body": "图片可输出 PNG、JPEG、WebP 和 AVIF，PDF 可将页面导出为这些格式。音频可输出 WAV、MP3、FLAC、Opus 和 M4A，也可从支持的视频中提取音轨。Markdown 与 DOCX 可输出纯文本。本桌面版不支持 OCR、电子表格转换、保留排版的文档输出或视频输出。"
+				},
+				{
+					"title": "转换中断或输出变大",
+					"body": "重启后请先重新选择输入文件与保存目录，再重试。PDF 部分完成时，使用相同文件、保存目录和参数重试未完成页，可保留已校验的结果。图片压缩无法保证一定变小，请比较结果体积，并按需要降低质量档位。"
+				},
+				{
+					"title": "反馈问题",
+					"body": "请说明操作系统与架构、应用版本及安装包来源、输入和输出格式、质量与 PDF 分辨率设置，以及完整错误文本。应用中可查看原生引擎版本。请隐去个人路径，优先使用人工生成的样本。公开 issue 对他人可见；需要私下沟通时可使用邮箱。"
+				}
+			]
+		}
+	}
+}

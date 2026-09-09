@@ -1,0 +1,4 @@
+# Historical evidence has recorded byte hashes. Preserve original line endings.
+docs/desktop/evidence/** -text
+# Raw process output can contain trailing spaces and blank lines by design.
+docs/desktop/evidence/**/*.txt -whitespace

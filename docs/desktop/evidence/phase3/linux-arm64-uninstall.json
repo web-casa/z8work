@@ -1,0 +1,18 @@
+{
+	"schema": 1,
+	"status": "passed",
+	"scope": "Remove only the extracted local validation copy; not package-manager or store uninstall",
+	"archiveSha256": "499a4140afa89af4a4f98d1140d6ef30a5c6430305458aa2d51579e5330454c2",
+	"removed": "/home/ivmm/VERT/.desktop-local/phase3-installed-final",
+	"preservedOutputAndHistoryFiles": 8,
+	"preservedSha256": {
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/large-z8-1.avif": "d12ef11396870d0d4ad27884aef857c10bc07350b143629fe38cc5e4345b4b8f",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/sample-z8-1.avif": "25f349a662a3046ab65a5875dfbcd8a9dd17ac4df06891e265f36a2a2f753d96",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/multipage-page-001-z8-1.avif": "323bffbdf6a9ed14da39c7b782c1a49b867294cd743c6701f379e28a08134124",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/multipage-page-002-z8-1.avif": "a6405d5a6eb8c7c3951eac2a2306699cb3663d70cca7d33ffcbfd06a219e94fe",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/multipage-page-003-z8-1.avif": "323bffbdf6a9ed14da39c7b782c1a49b867294cd743c6701f379e28a08134124",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/multipage-page-004-z8-1.avif": "a6405d5a6eb8c7c3951eac2a2306699cb3663d70cca7d33ffcbfd06a219e94fe",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/results/multipage-page-005-z8-1.avif": "323bffbdf6a9ed14da39c7b782c1a49b867294cd743c6701f379e28a08134124",
+		"/home/ivmm/VERT/.desktop-local/phase1-gui-BPIYQH/data/work.z8.desktop.m0/queue-v1.json": "8fda8143108b681d3b1ffbcd98a845c4d41a0d8ab8ac1a075a8c7e4263752c68"
+	}
+}

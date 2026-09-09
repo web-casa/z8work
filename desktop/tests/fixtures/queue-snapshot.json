@@ -1,0 +1,49 @@
+{
+	"schema": 2,
+	"epoch": "contract-fixture",
+	"revision": 8,
+	"tasks": [
+		{
+			"id": "task-one",
+			"name": "example.png",
+			"bytes": 119,
+			"formats": ["png", "webp", "avif"],
+			"format": "webp",
+			"phase": "saved",
+			"attempt": 1,
+			"authorized": true,
+			"result": {
+				"path": "/example/example-z8-1.webp",
+				"bytes": 80,
+				"note": "First frame only",
+				"files": [],
+				"fingerprint": "",
+				"total": 1,
+				"complete": true
+			},
+			"error": null,
+			"options": {
+				"quality": "balanced",
+				"keep_metadata": false,
+				"pdf_dpi": 144
+			}
+		}
+	],
+	"output": "/example",
+	"output_authorized": true,
+	"processing": false,
+	"clearing": false,
+	"closing": false,
+	"persistence_error": null,
+	"recovery_notice": null,
+	"import_report": {
+		"id": "import-fixture",
+		"accepted": 1,
+		"issues": [
+			{
+				"name": "unsupported.xyz",
+				"reason": "unsupported"
+			}
+		]
+	}
+}

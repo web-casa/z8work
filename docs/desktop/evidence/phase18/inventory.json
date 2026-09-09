@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "scope": "phase18-local-evidence",
+  "files": {
+    "app-tests.txt": {
+      "bytes": 891,
+      "sha256": "0dcbdbfcb8f65daf6fff728189da3127e8cdfbfa3cdcd09d0c4bbd7a2a582ce7"
+    },
+    "build.txt": {
+      "bytes": 131,
+      "sha256": "dc609f6390985d3d14ff067180a326360d3194b9a1b919c286d1cf7e21c2aa62"
+    },
+    "clippy.txt": {
+      "bytes": 196,
+      "sha256": "22113ecdafe308780add69e7b5f714664c3fd81e728733c4bf2974745a15811f"
+    },
+    "docs-format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "environment.json": {
+      "bytes": 854,
+      "sha256": "cc9ff0b8782c00773b49329adf650688bf86369b3403220ba68a2e25d108b644"
+    },
+    "eslint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "frontend-build.txt": {
+      "bytes": 1207,
+      "sha256": "9d7781332a8ca2e6986c8831cccd5aa902d3b7793260240ca330b03184290a84"
+    },
+    "image-preview.png": {
+      "bytes": 124737,
+      "sha256": "9852131614c32f2a52c359520efc8fde033112661a5dc029adbdf78e88a5b676"
+    },
+    "initial-inode-build-failure.txt": {
+      "bytes": 9183,
+      "sha256": "5f561a0997eed30accff802217ca67743e0bd54510a5f619a405ba9df8af608a"
+    },
+    "initial-inode-gui-failure.txt": {
+      "bytes": 100,
+      "sha256": "c99c4bc58dc5f938fdd3f8a4e903c4f8defa5021e0c1d6a64cd352fe049f47ee"
+    },
+    "inputs-verified.txt": {
+      "bytes": 34,
+      "sha256": "679e6033b200ae9a52e05f9a71733127d9167f87ba23e6043ac6c2f0d3733cab"
+    },
+    "inputs.json": {
+      "bytes": 45369,
+      "sha256": "348d742294a72f7c7efe555cf4a2686d637a8513d91fb08de916e35170196818"
+    },
+    "native-dev-tests.txt": {
+      "bytes": 5637,
+      "sha256": "8e24822354ed7e7127d91c2669553bc6c2b836884583070741cceb58158d2a57"
+    },
+    "native-tests.txt": {
+      "bytes": 5515,
+      "sha256": "17dc8fcba7ac6b2e5343e3f50e2d5de441acfc9e4147988b2d92495b716c1887"
+    },
+    "node22-tests.txt": {
+      "bytes": 30088,
+      "sha256": "7d6803fb2c45f478c6e7e3bb3a7e75b4df5acfa776d2ac6d0a83bd416cdbc5ef"
+    },
+    "node24-tests.txt": {
+      "bytes": 12621,
+      "sha256": "c54184d6fbd277c02db01d311da6cc5e633dd53ff975c19557cb1a3bb84dc9b9"
+    },
+    "pdf-preview-zh.png": {
+      "bytes": 56186,
+      "sha256": "952c9de1463f402ec5ddd2b3cec38978bb1d044c12cca49de1a56ef627c22569"
+    },
+    "pdf-preview.png": {
+      "bytes": 43162,
+      "sha256": "bc51ead7e89c0c9c57141568ed23040e490b80d964e712b80e371d323d337744"
+    },
+    "portal-compile.txt": {
+      "bytes": 196,
+      "sha256": "457181a232b7298c109afad9800a7f3aadbe27bd1629c720c70b99248f5462aa"
+    },
+    "preview-driver.txt": {
+      "bytes": 1980,
+      "sha256": "8be98de864cfa7883edc927102ae359adac2ec4d5ec575b45b4fb411e1c1f028"
+    },
+    "preview-gui-run.txt": {
+      "bytes": 5807,
+      "sha256": "b3d7d40d1bb43bff326345fc031876a52293a7a658bb86aa65ef6a9676cc0a2d"
+    },
+    "preview-gui.json": {
+      "bytes": 2155,
+      "sha256": "37304cc2d76a0868506cb0edfa1299c0df5c5ebb699b2bc76805113354771b43"
+    },
+    "rustfmt.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "svelte-check.txt": {
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    },
+    "xvfb.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

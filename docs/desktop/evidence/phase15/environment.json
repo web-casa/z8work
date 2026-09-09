@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "scope": "phase15-linux-development-validation",
+  "host": "Linux-7.0.14-orbstack-00380-ga7e0a2dc9535-aarch64-with-glibc2.41",
+  "head": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+  "rust": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+  "application": {
+    "sha256": "426cb4e2f044164bcfe535b84a70baad278caa8982cfcf9ea8befe92df381a25",
+    "bytes": 248916968
+  },
+  "applicationFeatures": [
+    "development-engines",
+    "custom-protocol",
+    "gtk-dialog"
+  ],
+  "applicationBuild": "debug",
+  "engineManifest": {
+    "sha256": "233a26522f1a7eaeee0ead58310bc956bbeefa200103b26572e4e9cbb4abd756",
+    "bytes": 1327
+  },
+  "windowsInstallation": "not-run",
+  "snapStrictInstallation": "not-run",
+  "macos": "not-run"
+}

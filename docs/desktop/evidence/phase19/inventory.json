@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "scope": "phase19-local-evidence",
+  "files": {
+    "app-tests.txt": {
+      "bytes": 891,
+      "sha256": "f3c7d6e36e06e4ee3fffdec51d92fbb31410b5dadc6d799420052c3fe614aed6"
+    },
+    "audio-cover-zh.png": {
+      "bytes": 44937,
+      "sha256": "736cd8688ad699a9e772a8ad6d80960fd77c758d1df6a3f08c919d34edb844f2"
+    },
+    "build.txt": {
+      "bytes": 196,
+      "sha256": "eefa6f8ba97c5d99e6db7bb611d0bca9f971b69a180fb50397f11f0620ac22b4"
+    },
+    "clippy.txt": {
+      "bytes": 196,
+      "sha256": "2b5a66d63d919aee4e26af5c721d993a6576180f341cbe5791ab9d83a9b0d8b6"
+    },
+    "docs-format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "environment.json": {
+      "bytes": 632,
+      "sha256": "c2a6289965f48f1536535a3246d72bba730a3b86e02fa83f13f045be41a0a52d"
+    },
+    "eslint.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "format.txt": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "frontend-build.txt": {
+      "bytes": 1207,
+      "sha256": "c62c15c69198d7ba8ca2bc8f7523f899bdc7cd0d478e787e7a8d1e6a35fddabd"
+    },
+    "initial-rotation-fixture-failure.txt": {
+      "bytes": 6417,
+      "sha256": "8b5558a72cc3463681e807a135ecf4aef2fc3bc8b95cf9c18ba5cac3ebf1d76e"
+    },
+    "inputs-verified.txt": {
+      "bytes": 34,
+      "sha256": "a50b0bd01f135cd53bf7e2fbb6b633f9e1105ff5d03406703f44819390ad99a9"
+    },
+    "inputs.json": {
+      "bytes": 45700,
+      "sha256": "e76d52f7d85b74432ac855373eb9be857e5711cec61d224950d8a26c612f5a0c"
+    },
+    "native-dev-tests.txt": {
+      "bytes": 5935,
+      "sha256": "e7154741cd737d854807811e1dc53b9e19f86e696225bde4e3eaa15382a527ee"
+    },
+    "native-tests.txt": {
+      "bytes": 5813,
+      "sha256": "d8174b6bf84d5a3377926b652acd4e59df05317c1af3da14a199557acd5544eb"
+    },
+    "node22-tests.txt": {
+      "bytes": 30338,
+      "sha256": "c6fece26d91119575dd01119402a23a44539a085ae50b09dafb91f03d0cc642b"
+    },
+    "node24-tests.txt": {
+      "bytes": 12729,
+      "sha256": "ec2793f6480a7569bb5fbf374d1ac608ae7787461418990a60a4119494a70e73"
+    },
+    "portal-compile.txt": {
+      "bytes": 196,
+      "sha256": "ae1ef9df78fb3aa0fa5cd5fefc9138d41533043d68ad4fca470492af431a1051"
+    },
+    "preview-driver.txt": {
+      "bytes": 3696,
+      "sha256": "5189a5f26b77ac5cdaa4c27f0e14bb2dd0f63b984120ecd3792dc036342d1b9f"
+    },
+    "preview-gui-run.txt": {
+      "bytes": 5807,
+      "sha256": "5e548b2a3a835ea8371436a38e67b8b5d238cd7b4a9fef9fca0e7a7537a31b28"
+    },
+    "preview-gui.json": {
+      "bytes": 4742,
+      "sha256": "425bc49cc8330374dcdba6711090ea45943d7cdc9d96eb2b11c149e3d9faa435"
+    },
+    "rustfmt.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "svelte-check.txt": {
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    },
+    "video-preview-zh.png": {
+      "bytes": 70676,
+      "sha256": "b3bac43b4a5d7c342ac345c12e3aae540df75424a00f60dbf6fd331ba5e63e7e"
+    },
+    "xvfb.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

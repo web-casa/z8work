@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "artifacts": [
+    {
+      "path": "app-tests.txt",
+      "bytes": 891,
+      "sha256": "2ef63dc463982365d8a405d3f65b7813173dec4af758aec6cfdc05d7e3a4a159"
+    },
+    {
+      "path": "build.txt",
+      "bytes": 196,
+      "sha256": "a51e9801db439bb58d95db4b7fefa477cbdda36a194a6481e667b57cf5296adc"
+    },
+    {
+      "path": "clippy.txt",
+      "bytes": 196,
+      "sha256": "133fa29636d48e9af59bdc04370800d7ef74a638ed3161afb3cda8229794c579"
+    },
+    {
+      "path": "docs-format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "environment.json",
+      "bytes": 749,
+      "sha256": "1a5e3b6ba3503386279c1e1a8cdedd9a228d02391458369a4693e5352f820875"
+    },
+    {
+      "path": "eslint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "frontend-build.txt",
+      "bytes": 1207,
+      "sha256": "b5d3dde6c3c3c86afcc581fafb091f457f5ee727de66b7d217d7a8a5ca8fab6c"
+    },
+    {
+      "path": "gui-driver.txt",
+      "bytes": 3168,
+      "sha256": "716406b5c5f324e5507065d37b35c1fa49af38ce169c43d7ff03534645ded2de"
+    },
+    {
+      "path": "initial-language-test-failure.txt",
+      "bytes": 6205,
+      "sha256": "fa6063ea5917dd2bd2ccc22c24a79927ab0ca05d3bf23ebe6042a85fbde94047"
+    },
+    {
+      "path": "inputs-verified.txt",
+      "bytes": 34,
+      "sha256": "04370916d6fa3fe916444a95f581431a009b9397a7e6431c96dde587c45ae8f0"
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 47624,
+      "sha256": "34ce29c159757cd53263e47e507f4d9349dae8b5a1adcdff901a71e641654a23"
+    },
+    {
+      "path": "links.txt",
+      "bytes": 72,
+      "sha256": "5b5d815de0fd9de9870965da799d46d50c0e67be0a6931b280b0571809442ffc"
+    },
+    {
+      "path": "macos-core-check.txt",
+      "bytes": 137,
+      "sha256": "3093513c8caa849d89e81b3ab775bf81067f74a5b193c63620ecc90a02ed4297"
+    },
+    {
+      "path": "native-dev-tests.txt",
+      "bytes": 7892,
+      "sha256": "bbfb9b391be9a02d7ca514fe449b6834ddbfd93c6a7f29e2a879447918143655"
+    },
+    {
+      "path": "native-tests.txt",
+      "bytes": 7770,
+      "sha256": "64b76a41ed015b82ce6958b8541743136142d12ee9823fd4c0e99030c9d178af"
+    },
+    {
+      "path": "node22-tests.txt",
+      "bytes": 31372,
+      "sha256": "f6ee370b3d684251cc2e98f7373cafc8b67be5d97a47a01377b3741ff6992ceb"
+    },
+    {
+      "path": "node24-tests.txt",
+      "bytes": 13156,
+      "sha256": "1b8b409959951cd262fa6fb84d39fad148cce88905a71e1ab6b5ef378ccc96db"
+    },
+    {
+      "path": "phase-changes.json",
+      "bytes": 3486,
+      "sha256": "a4c19572d183f7efb05c2984e65f0e60336f6f4007d4a3837060cc6249fa9cf1"
+    },
+    {
+      "path": "portal-compile.txt",
+      "bytes": 196,
+      "sha256": "cb6baddd830e6551cd4bc4ed413d107ba6ae2abdffbb597009cd2ed4ea670032"
+    },
+    {
+      "path": "rustfmt.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "storage-error-zh.png",
+      "bytes": 76561,
+      "sha256": "a7d5a1f8adcdd2ef7e6de547b40e87ee49fc8c4476371b885d5f8a3bcdde85fc"
+    },
+    {
+      "path": "storage-gui-run.txt",
+      "bytes": 5807,
+      "sha256": "e3521a76246a6373a16b77ee0c07e74788d41970285e34e1a9790b10ed89601e"
+    },
+    {
+      "path": "storage-gui.json",
+      "bytes": 5737,
+      "sha256": "17730ee0834d9e68b43d8d82788c50ae21c409aeb28589e6fad9476921c6afd0"
+    },
+    {
+      "path": "svelte-check.txt",
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    },
+    {
+      "path": "windows-core-check.txt",
+      "bytes": 137,
+      "sha256": "de2c7047f517445ba0d5324cfec5bfaf9b841693e09f61d53655442a8b1b8d00"
+    },
+    {
+      "path": "xvfb.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

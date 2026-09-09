@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "linux-arm64-development-preferences-gui",
+  "checks": [
+    "language",
+    "batch-options",
+    "reload",
+    "application-restart",
+    "write-failure-retry",
+    "corrupt-record-preserved",
+    "queue-not-blocked",
+    "stale-and-unknown-field-rejected"
+  ],
+  "installation": "not-run"
+}

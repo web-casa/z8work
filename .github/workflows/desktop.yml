@@ -1,0 +1,187 @@
+name: Desktop checks and package boundaries
+
+on:
+    pull_request:
+        paths:
+            [
+                "desktop/**",
+                "packaging/desktop/**",
+                "static/desktop-info/**",
+                "src/**",
+                "src-tauri/**",
+                "scripts/**",
+                "tests/**",
+                "postcss.config.js",
+                "tailwind.config.ts",
+                "tsconfig.json",
+                "rust-toolchain.toml",
+                "eslint.config.js",
+                ".prettierrc",
+                ".prettierignore",
+                ".gitignore",
+                ".gitattributes",
+                "package.json",
+                "bun.lock",
+                ".github/workflows/desktop.yml",
+            ]
+    push:
+        branches: [main]
+        paths:
+            [
+                "desktop/**",
+                "packaging/desktop/**",
+                "static/desktop-info/**",
+                "src/**",
+                "src-tauri/**",
+                "scripts/**",
+                "tests/**",
+                "postcss.config.js",
+                "tailwind.config.ts",
+                "tsconfig.json",
+                "rust-toolchain.toml",
+                "eslint.config.js",
+                ".prettierrc",
+                ".prettierignore",
+                ".gitignore",
+                ".gitattributes",
+                "package.json",
+                "bun.lock",
+                ".github/workflows/desktop.yml",
+            ]
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    native-core:
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        timeout-minutes: 15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: dtolnay/rust-toolchain@1.96.0
+              with:
+                  components: rustfmt, clippy
+            - run: cargo fmt --manifest-path src-tauri/Cargo.toml --all --check
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-native --no-default-features
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-native --features engine-validation
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-native --features development-engines
+            - run: cargo clippy --locked --manifest-path src-tauri/Cargo.toml -p z8-native --all-targets --features development-engines -- -D warnings
+    frontend:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: mkdir -p .desktop-local
+            - run: node scripts/desktop-windows-inputs.mjs --output .desktop-local/frontend-inputs.json
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:check
+            - run: bun run desktop:build
+            - run: sudo apt-get update && sudo apt-get install -y squashfs-tools desktop-file-utils
+            - run: bun run desktop:test:ui
+            - run: bun run desktop:store:check
+            - run: bunx eslint desktop scripts/desktop-*.mjs scripts/lib/desktop-*.mjs
+            - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/frontend-inputs.json
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: desktop-frontend-inputs
+                  path: .desktop-local/frontend-inputs.json
+                  if-no-files-found: error
+    portal-app:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: dtolnay/rust-toolchain@1.96.0
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev
+            - run: bun install --frozen-lockfile && bun run desktop:build
+            - run: cargo check --locked --manifest-path src-tauri/Cargo.toml --no-default-features --features packaged-engines,custom-protocol,linux-portal
+    packaged-app:
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+            - if: runner.os == 'Linux'
+              run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:build
+            - run: cargo check --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --features packaged-engines,custom-protocol
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-desktop --features packaged-engines,custom-protocol
+    windows-application:
+        runs-on: windows-latest
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+            - run: bun install --frozen-lockfile
+            - shell: pwsh
+              run: New-Item -ItemType Directory -Path .desktop-local | Out-Null
+            - run: node scripts/desktop-windows-inputs.mjs --output .desktop-local/windows-inputs.json
+            - run: bun run desktop:build
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - name: Parse Windows PowerShell adapter
+              shell: powershell
+              run: |
+                  $tokens = $null
+                  $parseErrors = $null
+                  [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path scripts/desktop-msix-windows.ps1), [ref]$tokens, [ref]$parseErrors) | Out-Null
+                  if ($parseErrors.Count) { $parseErrors | Format-List; exit 1 }
+            - run: node --test desktop/tests/windows.test.mjs desktop/tests/windows-bundle.test.mjs desktop/tests/windows-acceptance.test.mjs desktop/tests/msix.test.mjs desktop/tests/msix-acceptance.test.mjs desktop/tests/preferences.test.mjs desktop/tests/preview.test.mjs
+            - run: cargo build --locked --manifest-path src-tauri/Cargo.toml --config packaging/desktop/windows/cargo-config.toml -p z8-desktop --release --target x86_64-pc-windows-msvc --no-default-features --features packaged-engines,custom-protocol
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --config packaging/desktop/windows/cargo-config.toml -p z8-desktop --release --target x86_64-pc-windows-msvc --no-default-features --features packaged-engines,custom-protocol
+            - run: cargo test --locked --manifest-path src-tauri/Cargo.toml --config packaging/desktop/windows/cargo-config.toml -p z8-native --release --target x86_64-pc-windows-msvc --no-default-features
+            - shell: pwsh
+              run: |
+                  New-Item -ItemType Directory -Path .desktop-local/windows-application | Out-Null
+                  Copy-Item src-tauri/target/x86_64-pc-windows-msvc/release/z8-desktop.exe .desktop-local/windows-application/
+            - run: node scripts/desktop-windows-check.mjs --root .desktop-local/windows-application --output .desktop-local/windows-runtime --runtime
+            - name: Record WebView2 detection without creating a window
+              run: >-
+                  node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {resolve} from 'node:path'; import {readFileSync} from 'node:fs'; import {webviewReadiness} from './scripts/lib/desktop-windows-acceptance.mjs'; const path=resolve('.desktop-local/windows-runtime/webview2.json'); execFileSync(resolve('.desktop-local/windows-application/z8-desktop.exe'),['--runtime-info-file',path],{timeout:30000}); console.log('WebView2 prerequisite:',webviewReadiness(JSON.parse(readFileSync(path,'utf8'))));"
+            - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/windows-inputs.json
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: windows-x64-application-report
+                  path: |
+                      .desktop-local/windows-runtime/*.json
+                      .desktop-local/windows-inputs.json
+                  if-no-files-found: warn
+# Real engine conversion and installer/permission tests require separate native candidates.
+# These checks do not certify an MSIX, Snap, or macOS package and never publish artifacts.

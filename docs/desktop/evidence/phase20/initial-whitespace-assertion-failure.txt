@@ -1,0 +1,78 @@
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=501 pid=321313 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.2' (uid=501 pid=321313 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.3' (uid=501 pid=321331 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.3' (uid=501 pid=321331 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: failed to access mountpoint /run/user/501/doc: Permission denied
+error: fuse init failed: Can't mount path /run/user/501/doc
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.779: Document portal fuse mount point unknown: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.6 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.780: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.3' (uid=501 pid=321331 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[321326]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=501 pid=321355 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[321326]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.804: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.804: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.804: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.804: Choosing gtk.portal for org.freedesktop.impl.portal.Settings as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.805: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.805: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.806: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.806: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.806: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.807: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+[W][15:22:13.808618] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][15:22:13.808671] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.808: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.809: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.809: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:321331): xdg-desktop-portal-WARNING **: 15:22:13.809: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.2' (uid=501 pid=321313 comm="/home/ivmm/VERT/src-tauri/target/debug/z8-desktop")
+dbus-daemon[321288]: [session uid=501 pid=321288 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+/home/ivmm/VERT/.desktop-local/phase20-gui-WbnD1H
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Added 2/. Input:
+
+'Last import · Added\n' +
+  '\t\t2\n' +
+  '\t\t· Skipped\n' +
+  '\t\t1 Skipped files and reasons ignored <b>.xyz — This format is unsupported or its native engine is unavailable. Dismiss import notice'
+
+    at checkImports (file:///home/ivmm/VERT/scripts/lib/desktop-import-checks.mjs:51:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///home/ivmm/VERT/scripts/desktop-preview-gui.mjs:288:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Last import · Added\n' +
+    '\t\t2\n' +
+    '\t\t· Skipped\n' +
+    '\t\t1 Skipped files and reasons ignored <b>.xyz — This format is unsupported or its native engine is unavailable. Dismiss import notice',
+  expected: /Added 2/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v22.22.2

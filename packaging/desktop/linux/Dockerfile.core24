@@ -1,0 +1,24 @@
+# Ubuntu 24.04 toolchain for the core24 candidate. No host binaries are staged.
+FROM ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517
+ARG TARGETARCH
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates curl xz-utils git build-essential pkg-config patchelf \
+    libgtk-3-dev libwebkit2gtk-4.1-dev librsvg2-dev \
+    libpng-dev libjpeg-dev libwebp-dev libheif-dev libheif-plugin-aomenc \
+    libheif-plugin-aomdec libheif-plugin-libde265 libheif-plugin-x265 \
+    ffmpeg pandoc pandoc-data mupdf-tools \
+    squashfs-tools desktop-file-utils xvfb xauth dbus-x11 xdg-desktop-portal-gtk
+RUN set -eu; case "$TARGETARCH" in amd64) node_arch=x64;; arm64) node_arch=arm64;; *) exit 1;; esac; \
+    archive="node-v22.22.2-linux-${node_arch}.tar.xz"; \
+    curl -fsSLO "https://nodejs.org/dist/v22.22.2/${archive}"; \
+    curl -fsSLO "https://nodejs.org/dist/v22.22.2/SHASUMS256.txt"; \
+    awk -v f="$archive" '$2 == f' SHASUMS256.txt | sha256sum --check --strict; \
+    mkdir -p /opt/node; tar -xJf "$archive" -C /opt/node --strip-components=1; \
+    rm "$archive" SHASUMS256.txt
+ENV PATH=/opt/node/bin:/root/.cargo/bin:$PATH
+RUN curl -fsSL https://sh.rustup.rs -o /tmp/rustup-init.sh && \
+    sh /tmp/rustup-init.sh -y --profile minimal --default-toolchain 1.96.0 && \
+    rm /tmp/rustup-init.sh
+RUN apt-get install -y --no-install-recommends autoconf automake libtool libltdl-dev libxml2-dev patch
+WORKDIR /work

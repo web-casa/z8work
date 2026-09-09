@@ -1,0 +1,175 @@
+-- --------------------------------
+-- MSIX Packaging SDK
+-- --------------------------------
+-- CMake version: 3.31.6
+-- GIT refspec refs/heads/master
+-- GIT revision 25a65f5c1690930813bcc10cdf1d59fa865f2bb1
+-- GIT Description 'v1.7-243-g25a65f5c'
+-- GIT branch name 'master'
+-- MSIX Packaging SDK version 1.7.243
+-- MSIX Packaging SDK branch name master
+-- MSIX SDK options validation
+-- Configuration:
+-- 	Platform            = Linux
+-- 	Packaging support   = ON
+-- 	Bundle support      = off
+-- 	Compression library = zlib
+-- 	XML Parser          = xerces with validation parser ON
+-- 	Crypto library      = openssl
+-- Package.Nuspec created
+-- --------------------------------
+-- LICENSE created
+-- --------------------------------
+-- Certificates published
+-- --------------------------------
+-- Build type: Release
+-- NDEBUG defined, assert should be turned-off
+-- Configuring XERCES-C parser for inclusion as static library.
+-- Configuring Apache Xerces-C++ version 3.2.1
+-- 
+-- Xerces-C++ configuration summary
+-- --------------------------------
+-- 
+--   Version:                   3.2.1
+--   Library interface version: 3.2
+-- 
+--   Installation directory:    /usr/local
+--   C compiler:                /usr/lib/llvm-19/bin/clang
+--   C++ compiler:              /usr/lib/llvm-19/bin/clang++
+-- 
+--   Build shared libraries:    OFF
+--   Path delimiters:           "/"
+--   File Manager:              POSIX
+--   Mutex Manager:             POSIX
+--   Transcoder:                iconv
+--   NetAccessor:               OFF
+--   Message Loader:            inmemory
+--   XMLCh type:                char16_t
+-- -----------------------------
+-- OpenSLL configuration summary
+-- -----------------------------
+CMake Deprecation Warning at cmake/crypto.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  lib/CMakeLists.txt:56 (include)
+
+
+-- MSIX takes a static dependency on openssl
+-- OpenSLL_VERSION      '1.1.1'
+-- OpenSSL_SOURCE_PATH  '/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/openssl'
+-- OpenSLL_BINARY_PATH  '/home/ivmm/VERT/.desktop-local/phase13/sdk-build/lib'
+-- OpenSLL_INCLUDE_PATH '/home/ivmm/VERT/.desktop-local/phase13/sdk-build/lib'
+-- libs processed
+-- Using export flag: -Wl,--version-script=/home/ivmm/VERT/.desktop-local/phase13/sdk-build/src/msix/symbol.map
+-- Resource files:
+-- 	AppxPackaging/BlockMap/schema/BlockMapSchema.xsd
+-- 	AppxPackaging/BlockMap/schema/BlockMapSchema2015.xsd
+-- 	AppxPackaging/BlockMap/schema/BlockMapSchema2017.xsd
+-- 	AppxPackaging/[Content_Types]/opc-contentTypes.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/AppxManifestTypes.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/FoundationManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/UapManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/AppxPhoneManifestSchema2014.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/FoundationManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/UapManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/UapManifestSchema_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2016/UapManifestSchema_v4.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/WindowsCapabilitiesManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/WindowsCapabilitiesManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2016/WindowsCapabilitiesManifestSchema_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/RestrictedCapabilitiesManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/RestrictedCapabilitiesManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2016/RestrictedCapabilitiesManifestSchema_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/RestrictedCapabilitiesManifestSchema_v4.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/RestrictedCapabilitiesManifestSchema_v5.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/RestrictedCapabilitiesManifestSchema_v6.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/MobileManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/IotManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/IotManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/HolographicManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/ServerManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/DesktopManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2016/DesktopManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/DesktopManifestSchema_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/DesktopManifestSchema_v4.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/DesktopManifestSchema_v5.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/DesktopManifestSchema_v6.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/DesktopManifestSchema_v7.xsd
+-- 	AppxPackaging/Manifest/Schema/2021/DesktopManifestSchema_v8.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/ComManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/ComManifestSchema_v2.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/ComManifestSchema_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/ComManifestSchema_v4.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/UapManifestSchema_v5.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/UapManifestSchema_v6.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/UapManifestSchema_v7.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/UapManifestSchema_v8.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/UapManifestSchema_v10.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/UapManifestSchema_v11.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/UapManifestSchema_v12.xsd
+-- 	AppxPackaging/Manifest/Schema/2021/UapManifestSchema_v13.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/CloudFilesManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/PreviewManifestSchema_MsixAppCompatSupport.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/PreviewManifestSchema_MsixAppCompatSupport_v3.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/DeploymentManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2020/VirtualizationManifestSchema.xsd
+-- 	AppxPackaging/Manifest/Schema/2015/BundleManifestSchema2014.xsd
+-- 	AppxPackaging/Manifest/Schema/2016/BundleManifestSchema2016.xsd
+-- 	AppxPackaging/Manifest/Schema/2017/BundleManifestSchema2017.xsd
+-- 	AppxPackaging/Manifest/Schema/2018/BundleManifestSchema2018.xsd
+-- 	AppxPackaging/Manifest/Schema/2019/BundleManifestSchema2019.xsd
+-- 	certs/base64_MSFT_RCA_2010.cer
+-- 	certs/base64_MSFT_RCA_2011.cer
+-- 	certs/base64_STORE_PCA_2011.cer
+-- 	certs/base64_Windows_Production.cer
+-- 	certs/base64_Windows_Production_PCA_2011.cer
+-- 	certs/Microsoft_MarketPlace_PCA_2011.cer
+-- Source files:
+-- 	msix.cpp
+-- 	common/AppxFactory.cpp
+-- 	common/MSIXResource.cpp
+-- 	common/Log.cpp
+-- 	common/UnicodeConversion.cpp
+-- 	common/Encoding.cpp
+-- 	common/Exceptions.cpp
+-- 	common/AppxPackageInfo.cpp
+-- 	common/AppxManifestObject.cpp
+-- 	common/ZipObject.cpp
+-- 	common/FileNameValidation.cpp
+-- 	common/AppxManifestValidation.cpp
+-- 	common/IXml.cpp
+-- 	common/TimeHelpers.cpp
+-- 	unpack/AppxBlockMapObject.cpp
+-- 	unpack/AppxPackageObject.cpp
+-- 	unpack/AppxSignature.cpp
+-- 	unpack/InflateStream.cpp
+-- 	unpack/ZipObjectReader.cpp
+-- 	pack/AppxPackageWriter.cpp
+-- 	pack/XmlWriter.cpp
+-- 	pack/AppxBlockMapWriter.cpp
+-- 	pack/ContentTypeWriter.cpp
+-- 	pack/ContentType.cpp
+-- 	pack/DeflateStream.cpp
+-- 	pack/ZipObjectWriter.cpp
+-- 	pack/BundleManifestWriter.cpp
+-- 	pack/BundleWriterHelper.cpp
+-- 	pack/AppxBundleWriter.cpp
+-- 	pack/VersionHelpers.cpp
+-- 	pack/MappingFileParser.cpp
+-- 	pack/BundleValidationHelper.cpp
+-- 	PAL/DataCompression/Zlib/CompressionObject.cpp
+-- 	PAL/FileSystem/POSIX/DirectoryObject.cpp
+-- 	PAL/XML/xerces-c/XmlObject.cpp
+-- 	PAL/Crypto/OpenSSL/Crypto.cpp
+-- 	PAL/Signature/OpenSSL/SignatureValidator.cpp
+-- MSIX takes a static dependency on zlib
+-- src processed
+-- DONE!
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/ivmm/VERT/.desktop-local/phase13/sdk-build

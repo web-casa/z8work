@@ -1,0 +1,146 @@
+{
+	"schema": 1,
+	"scope": "Phase5 process lifecycle hardening; M3/M4 acceptance incomplete",
+	"baseCommit": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+	"uncommitted": true,
+	"toolchain": {
+		"node": "v24.18.0",
+		"bun": "1.4.0",
+		"rust": "rustc 1.96.0 (ac68faa20 2026-05-25)"
+	},
+	"sourceSha256": {
+		".github/workflows/desktop.yml": "e9b13eb34259a83b6fe9494cd0ab49f6a22a6ba5ec324fb5eed0abb9a9fdd10a",
+		"README.md": "9c66221bc9ba3358ee45d4664bb8a86d671e424fb698fed572e687c1bc3e9e52",
+		"bun.lock": "b623318e8236d53061491e2a3301156bdef6857f021fa513497a5f672cf6cd21",
+		"desktop/index.html": "ac855827ce6c28eee565623a08cdfcfee3a1bdd751139ab66b994082887bf973",
+		"desktop/src/App.svelte": "4eef7224ee5dba3332b149bb261e968eec34a9ee3e76f5135d863e3061374d8a",
+		"desktop/src/OptionsEditor.svelte": "1d8c8e67b13237a0c6de255ea3bbf06c15770dadd65bcdaae2973e9f8a68887e",
+		"desktop/src/main.ts": "4d7db7460142c0e2f21b7b51acc40b5a33d6a2178781bbbc453a7874916ca03d",
+		"desktop/src/platform/queue-contract.ts": "6f4518070fd03e7bbd69c9988ea1a5c0c015b03f65da4890038e1747a25f4ab0",
+		"desktop/src/platform/queue-sync.ts": "228e552f7a909c189c25733ce18378f07762578ead0ec88969b4d322f1b23385",
+		"desktop/src/platform/tauri.ts": "02910bec4dad9ca2089b2880d2616a38352c692618a7591c8675f7a726a9a1e5",
+		"desktop/src/style.css": "068a3bb5c9adf4c5eca7dd0b224a9c935d57ffbe45833729e05b2667934f8a86",
+		"desktop/tests/packaging.test.mjs": "d092a7d90d7128217d9fc3eee89bfac770f6c39ef5ec3eef97cf5831089b9ab1",
+		"desktop/tests/store.test.mjs": "ab11ffd0e9af99e13e32507e87424eebd7700ae4c082f0e28533fa30bf55f7fa",
+		"desktop/vite.config.ts": "adbe58d58ac98d1780400b33a0949cd79e8f70ca28aae9a3df666d7ba23e5971",
+		"docs/desktop/PHASE5_IMPLEMENTATION.md": "b52abd7b79409cfc97faaabd3a2b03131a9880ebd170a6a3a3e114fefaf237c8",
+		"docs/desktop/README.md": "202592009a9d9882fe5e2515cfd57492458ed6643ad7d4e82940e87e3052ce04",
+		"docs/desktop/V1_PLAN.md": "f1b93b2889f14d6b830380103790d595fbd46e5c729cf6f0f695f1772c2909c5",
+		"package.json": "95a5bbf9aa1ab4b0b836dd1f1bc711b7d3877bc267813f45dea09bc56441396f",
+		"scripts/desktop-bundle-isolated.mjs": "c388c765fa90a82e8535632562de65048d90cf4c474955ce90c31772ad7b6d44",
+		"scripts/desktop-bundle-linux.mjs": "8a20d9b7bba9218e36ec7f323900591181d1b8814994f54f735b7524e8a257c4",
+		"scripts/desktop-candidate-linux.mjs": "28471bc4deec0229675dfc6628e299598fa4272d176d7e5cb4808242680cb99f",
+		"scripts/desktop-phase1-gui.mjs": "8c05fa3ec65ddbc810b08704e1bdf6e84a477b41c442040fe9e0dcfa581b5507",
+		"scripts/lib/desktop-artifacts.mjs": "3afae6c7f8ed94571858f0537c8f5b8d7d40372049eca6140c80b42189f054e0",
+		"src-tauri/Cargo.lock": "e934a060015597c7d7dfb516655c7e6c156da3fafdab6adfc47e9386c36a45d1",
+		"src-tauri/Cargo.toml": "074f1bfd513fbacda78a89a2d0b6b1011182c11a892b6ff64dfda299f116d870",
+		"src-tauri/build.rs": "10175892df254b1204ade74ad17be05f92d7b6f2f2146d1ea1c74dc4b1126e01",
+		"src-tauri/capabilities/main.json": "50ca0bffba956f74e2f993f12ddedc32eb5ac8908be7c61c0bb204ce12d05385",
+		"src-tauri/native/Cargo.toml": "d01d2cab0c73132e311fba53a3e1b980f79b03eabf7d9aa94c174674f935e39c",
+		"src-tauri/native/src/bin/bundle-check.rs": "0155f28879a00525c3491838f1a9750a5cd72fedd911c97a9399c2654dcee025",
+		"src-tauri/native/src/bin/smoke.rs": "04f043fb407ad94a759b2cc845e00e0e98df26f8c1975530e60fc04535123407",
+		"src-tauri/native/src/convert.rs": "9fef932ea0ee8fabe2e2af3da52658c463c696e4709b2dab67c11acba7df5725",
+		"src-tauri/native/src/engine_bundle.rs": "67335123c4ad8b09c46a6b8fe6e4f734992ed7ee3116ed083e2472646f7c3d79",
+		"src-tauri/native/src/engines.rs": "caa0558441905acd4c9206d2c6ca8b3f0b30f3491e08138fc6ae00c77b41dd0e",
+		"src-tauri/native/src/input.rs": "f6c2f1c16a801f30ecef3d759a4ec04564245df5932bf4d78021b6d0974d9ca2",
+		"src-tauri/native/src/lib.rs": "d5a6f093c1b9f58d4631512a6cc7cbc3dd7b54ac94145d871b5c8991da6258a8",
+		"src-tauri/native/src/options.rs": "7280625ff28c2a133b82ed2adefe03c9084e7109493f8282c8b2a108538d72f6",
+		"src-tauri/native/src/phase2_smoke.rs": "091add72e81672ec3a4712dec1b47ec2e082b25a8d6d560ec68a2cb2e992c866",
+		"src-tauri/native/src/process.rs": "31f0f03795fc4486a2f5d1cb66ae4b10d64214af7f33ac1b9bf22baee8ed8756",
+		"src-tauri/native/src/process/watchdog.rs": "e3e48736c2cccb00a8f42e56d8de245522841caa03da06a2ecf08ff4d14b130d",
+		"src-tauri/native/src/process/windows_job.rs": "ceedc4303cf9748311d095104fca815fd3849f24dd7f9a8d15afe94fc8a8a45b",
+		"src-tauri/native/src/queue/mod.rs": "03aa4add379d6d09e1d12d2ac660321725ad2d47473c1a72c185c017480c69d4",
+		"src-tauri/native/src/queue/model.rs": "64e2dd4f5c8f463c89b2d7d852142b6dc22107c0acdb62df8badd2aed34dfd3c",
+		"src-tauri/native/src/queue/store.rs": "2f540504ea68ddf6c16e6d7ff17d467a4e9fba5414caaac5db7fa86d6f7e49e8",
+		"src-tauri/native/src/queue/tests.rs": "b5e0e7f14472c5d89d84a1ab3212ec0f4b2da68f1c0f64a3cb6096a4d4d1a49a",
+		"src-tauri/native/src/smoke.rs": "3fe7003e3e394fa16e4ed3bcb5ecb0469bfeea8b37e89d9b4f60bd03aa092cc1",
+		"src-tauri/permissions/autogenerated/cancel_tasks.toml": "58edea20cfee0eef81dd1c8623256f9b47566d6331757f2dc32ef050765d89e6",
+		"src-tauri/permissions/autogenerated/configure_tasks.toml": "770aa7df53cee4323034eaf40f4f64d96efd4894ecb018cfac2a0496cc0b3f1e",
+		"src-tauri/permissions/autogenerated/desktop_info.toml": "b81c5027f532df4a3444b032ff6f0bf57e1143075170e7d77947910d82975887",
+		"src-tauri/permissions/autogenerated/pick_inputs.toml": "83670beb6cb89029b6a974bc01c6bb09a932ffc09c9dd35249a9dfaf7849886b",
+		"src-tauri/permissions/autogenerated/pick_output.toml": "7f739ffd4c78bf0a79840be9d4c78b4875c4b9211e11de98aa8496b57d99fce8",
+		"src-tauri/permissions/autogenerated/queue_snapshot.toml": "3cbb3262d8dc33bf456e8352c462e34c59486422a7be6bf2e233879b7f0db0f7",
+		"src-tauri/permissions/autogenerated/remove_tasks.toml": "52212e0726223b4a3c5e49fb1844d3dd5c6d815f146b093943f28ecb8383cd18",
+		"src-tauri/permissions/autogenerated/retry_queue_history.toml": "055dec1f09df86b01d5e6ac0821b5ade8f541d01f7492489fc4d198118347172",
+		"src-tauri/permissions/autogenerated/reveal_result.toml": "b522762db0c593b4d9b2237f8e12fe35f105d2cb1da9b8784edb1aeb08da9343",
+		"src-tauri/permissions/autogenerated/set_task_format.toml": "d98903ceef1499ea068975074cfcc002188a8bd922819ccb8aa76a5959415fcb",
+		"src-tauri/permissions/autogenerated/submit_batch.toml": "041bc0d795c238e0151eb00700d54a44f8a3db3076c7bed4b1eaa4ec22f1eaa1",
+		"src-tauri/src/main.rs": "966a1033e46db808fda4a973b4e3a2ad0a274fb50a7a5bf9b2dda84aa4fcd929",
+		"src-tauri/tauri.conf.json": "79c857a7ae8d7b6f355f79a3447fdd4182879b22470af16f3dc8f462a7ecd405"
+	},
+	"candidate": {
+		"file": ".desktop-local/phase5-candidate/z8-work-0.1.0-linux-arm64-validation.tar.gz",
+		"sha256": "3a6fb4001b306a810a769fc0880a6d6912c836130f0c3f3dd584a912b3a18798",
+		"bytes": 189868302,
+		"applicationSha256": "b1ca228334bb42363b3da987dfe012a4e5c56dc83a5ed15f71f429d681dbe193",
+		"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+		"verifierSha256": "f214ae3ed524259f1cb4a8ee1eeba3f41e890db3c70eeb7d33c8c60f222cdd18",
+		"buildInfo": {
+			"applicationId": "work.z8.desktop.m0",
+			"arch": "aarch64",
+			"customProtocol": true,
+			"debug": false,
+			"engines": "bundled",
+			"os": "linux",
+			"processLifetime": "watchdog-pipe-v1",
+			"resourceDirectoryName": "Z8.Work Desktop Dev",
+			"schema": 1,
+			"updater": false,
+			"version": "0.1.0"
+		}
+	},
+	"evidence": {
+		"candidate": {
+			"file": "docs/desktop/evidence/phase5/candidate.json",
+			"sha256": "812e8adc8ce3937fba3c5000a5ad5d7f833dd0b79212c8f380fe4cec22804910"
+		},
+		"lifecycle": {
+			"file": "docs/desktop/evidence/phase5/lifecycle.json",
+			"sha256": "10a2fdf8632a8701ec42a1644a8cf7db807b913b996834a4493778d36e713abd"
+		},
+		"gui": {
+			"file": "docs/desktop/evidence/phase5/gui.json",
+			"sha256": "4a9218133eb994b1d394a25d97b55f789be2de7d82c156482661f67e428dd17c"
+		},
+		"conversion": {
+			"file": "docs/desktop/evidence/phase5/conversion.json",
+			"sha256": "ee7f961a53507592b86e24444f169c8bfa0623e3a89a45a60e80c45c077886c3"
+		},
+		"readiness": {
+			"file": "docs/desktop/evidence/phase5/readiness.json",
+			"sha256": "c91ece8a21199c563bc0c363bb06653c8c3b972d58346e0c987f3964d2385367"
+		}
+	},
+	"checks": {
+		"nativeDefault": 47,
+		"nativeEngineValidation": 47,
+		"nativeDevelopment": 46,
+		"subprocessFixtureIgnored": 1,
+		"lifecycleSubset": 12,
+		"desktop": 25,
+		"web": 180,
+		"desktopTypecheck": { "errors": 0, "warnings": 0 },
+		"isolationRoutes": 76,
+		"gui": "passed",
+		"clippy": [
+			"linux-aarch64",
+			"windows-x86_64-cross-check",
+			"macos-aarch64-cross-check"
+		],
+		"targetNativeExecution": "Windows and macOS not run",
+		"candidateGate": "blocked",
+		"storeGate": "blocked"
+	},
+	"external": {
+		"pushed": false,
+		"deployed": false,
+		"uploaded": false,
+		"published": false
+	},
+	"remaining": [
+		"P0 native installer, permission, upgrade and uninstall acceptance",
+		"Licenses and corresponding sources for redistribution",
+		"Store identities and distribution settings",
+		"Native target screenshots and public page deployment"
+	]
+}

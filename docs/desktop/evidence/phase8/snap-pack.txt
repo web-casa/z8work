@@ -1,0 +1,2 @@
+$ node scripts/desktop-snap-pack.mjs --prepared ".desktop-local/phase8-input/snap-prepared" --output ".desktop-local/phase8-snap" --snapcraft-root /snap/snapcraft/current
+/home/ivmm/VERT/.desktop-local/phase8-snap/z8-work_0.1.0_amd64.snap

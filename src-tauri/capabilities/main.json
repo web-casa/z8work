@@ -1,0 +1,27 @@
+{
+	"$schema": "../gen/schemas/desktop-schema.json",
+	"identifier": "main",
+	"description": "Local main window: typed queue commands and read-only event subscription.",
+	"windows": ["main"],
+	"permissions": [
+		"allow-desktop-info",
+		"allow-preview-diagnostics",
+		"allow-save-diagnostics",
+		"allow-read-preferences",
+		"allow-save-preferences",
+		"allow-queue-snapshot",
+		"allow-dismiss-import-report",
+		"allow-preview-input",
+		"allow-pick-inputs",
+		"allow-pick-output",
+		"allow-set-task-format",
+		"allow-configure-tasks",
+		"allow-reveal-result",
+		"allow-submit-batch",
+		"allow-cancel-tasks",
+		"allow-remove-tasks",
+		"allow-retry-queue-history",
+		"core:event:allow-listen",
+		"core:event:allow-unlisten"
+	]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "date": "2026-09-09",
+  "host": {
+    "os": "Debian 13 Linux",
+    "arch": "aarch64"
+  },
+  "execution": {
+    "kind": "wine",
+    "wineVersion": "wine-9.0 (Ubuntu 9.0~repack-4build3)",
+    "containerOs": "Ubuntu 24.04",
+    "containerArch": "amd64",
+    "cpuExecution": "OrbStack/Rosetta x86_64 translation on ARM64",
+    "image": "z8-phase11-wine:local",
+    "imageId": "sha256:261b4b425a1f94e72cfc69f465fe7942b96e8727dbbddf0f1b944ab9013abeb8",
+    "uid": 501,
+    "gid": 501,
+    "network": "none",
+    "capabilities": "all dropped",
+    "memory": "4g",
+    "cpus": 4,
+    "locale": "C.UTF-8"
+  },
+  "acceptance": "incomplete",
+  "nativeWindows": "not-run",
+  "redistributionApproved": false,
+  "licensePage": {
+    "url": "https://visualstudio.microsoft.com/license-terms/vs2026-ga-visualcpp-v14-redist-runtime/",
+    "localSnapshot": ".desktop-local/phase11/vcredist-current-license.html",
+    "review": "pending",
+    "sha256": "a5efdd5c2627b2cf612de0d8519c38dbe82328e617b91be13dcb022daebd2b80",
+    "bytes": 242332
+  }
+}

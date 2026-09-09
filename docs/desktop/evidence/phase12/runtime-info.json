@@ -1,0 +1,11 @@
+{
+  "arch": "x86_64",
+  "gui": "not-run",
+  "os": "windows",
+  "schema": 1,
+  "webview": {
+    "engine": "webview2",
+    "error": "WebView2 error: WindowsError(Error { code: HRESULT(0x80070002), message: \"File not found.\" })",
+    "status": "unavailable"
+  }
+}

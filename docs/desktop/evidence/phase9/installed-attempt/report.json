@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "artifact": "linux-amd64-snap",
+  "mode": "installed",
+  "status": "blocked",
+  "checks": {
+    "preflight": {
+      "status": "failed",
+      "report": "host.json",
+      "blockers": [
+        "Requires matching Linux AMD64 process, kernel and snapd",
+        "This acceptance profile requires Ubuntu 24.04",
+        "Full strict AppArmor and seccomp support required"
+      ]
+    }
+  },
+  "redistributionApproved": false,
+  "acceptance": "incomplete",
+  "error": "Requires matching Linux AMD64 process, kernel and snapd; This acceptance profile requires Ubuntu 24.04; Full strict AppArmor and seccomp support required",
+  "references": {
+    "host.json": {
+      "sha256": "0277be0bcdd326ba4b3019320e420027a0be41b4511411787b6f5b51316157bf",
+      "bytes": 1331
+    }
+  }
+}

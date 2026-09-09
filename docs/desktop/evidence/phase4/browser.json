@@ -1,0 +1,58 @@
+{
+	"schema": 1,
+	"status": "passed",
+	"javascript": false,
+	"externalRequests": 0,
+	"checks": [
+		{
+			"locale": "zh-Hans",
+			"kind": "privacy",
+			"width": 1366,
+			"status": "passed"
+		},
+		{
+			"locale": "zh-Hans",
+			"kind": "support",
+			"width": 1366,
+			"status": "passed"
+		},
+		{
+			"locale": "en",
+			"kind": "privacy",
+			"width": 1366,
+			"status": "passed"
+		},
+		{
+			"locale": "en",
+			"kind": "support",
+			"width": 1366,
+			"status": "passed"
+		},
+		{
+			"locale": "zh-Hans",
+			"kind": "privacy",
+			"width": 390,
+			"status": "passed"
+		},
+		{
+			"locale": "zh-Hans",
+			"kind": "support",
+			"width": 390,
+			"status": "passed"
+		},
+		{
+			"locale": "en",
+			"kind": "privacy",
+			"width": 390,
+			"status": "passed"
+		},
+		{
+			"locale": "en",
+			"kind": "support",
+			"width": 390,
+			"status": "passed"
+		}
+	],
+	"languageNavigation": true,
+	"scope": "Local built documentation, not public deployment or native store screenshots"
+}

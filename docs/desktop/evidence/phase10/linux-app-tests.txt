@@ -1,0 +1,11 @@
+   Compiling tauri-plugin-dialog v2.7.3
+   Compiling z8-desktop v0.1.0 (/home/ivmm/VERT/src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.14s
+     Running unittests src/main.rs (src-tauri/target/debug/deps/z8_desktop-3c98a27f843b5eba)
+
+running 2 tests
+test build_report::tests::rejects_relative_paths_without_writing ... ok
+test build_report::tests::report_roundtrips_and_never_overwrites ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scope": "windows-engine-bundle",
+  "host": {
+    "os": "linux",
+    "arch": "arm64",
+    "machine": "aarch64"
+  },
+  "execution": "native",
+  "status": "blocked",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "checks": {
+    "static": "passed",
+    "versions": "not-run",
+    "integrity": "not-run",
+    "conversions": "not-run",
+    "nativeWindows": "not-run",
+    "gui": "not-run",
+    "installer": "not-run",
+    "licenses": "not-run"
+  },
+  "references": {
+    "pe.json": {
+      "sha256": "f66b9694073034f51c8befe80b8ec83e1d1f35bf890367a124559c702bd7aa80",
+      "bytes": 31416
+    }
+  },
+  "bundle": {
+    "sha256": "f13779a3a74bd365b5571a06d3b233f310e20d69d07a4f04c4e2b0917ba125f4",
+    "bytes": 4408
+  },
+  "blocker": "Selected execution mode does not match this host; use Windows x64 for native acceptance or a separate Linux x64 Wine diagnostic environment."
+}

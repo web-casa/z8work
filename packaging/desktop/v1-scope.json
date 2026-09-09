@@ -1,0 +1,118 @@
+{
+	"schema": 1,
+	"id": "v1-r1",
+	"languages": ["zh-Hans", "en"],
+	"languagePreferences": ["system", "zh_hans", "en"],
+	"artifacts": [
+		"linux-arm64-validation",
+		"linux-amd64-snap",
+		"windows-x64-msix",
+		"macos-arm64-app"
+	],
+	"groups": [
+		{
+			"id": "images",
+			"inputs": ["png", "jpg", "jpeg", "webp", "avif", "heic", "heif"],
+			"outputs": ["png", "jpeg", "webp", "avif"],
+			"engines": ["magick"],
+			"implementation": "src-tauri/native/src/convert.rs",
+			"samples": [
+				"tests/fixtures/gradient-10bit.heic",
+				"tests/fixtures/cover.png",
+				"src-tauri/native/src/phase2_smoke.rs"
+			],
+			"sampleNotes": "Generated alpha/gradient/quality fixtures and HEIC seed. JPEG/HEIF aliases require additional real sample coverage in R4; declared routes are not installed-package evidence."
+		},
+		{
+			"id": "pdf",
+			"inputs": ["pdf"],
+			"outputs": ["png", "jpeg", "webp", "avif"],
+			"engines": ["mutool", "magick"],
+			"implementation": "src-tauri/native/src/convert.rs",
+			"samples": ["src-tauri/native/src/phase2_smoke.rs"],
+			"sampleNotes": "Generated three-page and over-limit PDFs, partial publication and retry; fonts and target-package matrix close in R4/R6."
+		},
+		{
+			"id": "media",
+			"inputs": [
+				"mp3",
+				"wav",
+				"flac",
+				"ogg",
+				"m4a",
+				"opus",
+				"mp4",
+				"mov",
+				"mkv",
+				"webm"
+			],
+			"outputs": ["wav", "mp3", "flac", "opus", "m4a"],
+			"engines": ["ffmpeg", "ffprobe"],
+			"implementation": "src-tauri/native/src/convert.rs",
+			"samples": [
+				"tests/fixtures/cover.mp3",
+				"src-tauri/native/src/phase2_smoke.rs"
+			],
+			"sampleNotes": "Seed audio and generated container/codec combinations. Container extensions do not promise every codec; target-package coverage closes in R6."
+		},
+		{
+			"id": "documents",
+			"inputs": ["md", "docx"],
+			"outputs": ["txt"],
+			"engines": ["pandoc"],
+			"implementation": "src-tauri/native/src/convert.rs",
+			"samples": [
+				"desktop/tests/fixtures/text.docx",
+				"src-tauri/native/src/phase2_smoke.rs"
+			],
+			"sampleNotes": "Generated Markdown and DOCX seed: Chinese and body text assertions; rich formatting is intentionally lost."
+		}
+	],
+	"limits": [
+		{
+			"id": "input-bytes",
+			"value": 536870912,
+			"source": "src-tauri/native/src/queue/imports.rs"
+		},
+		{
+			"id": "queue-tasks",
+			"value": 100,
+			"source": "src-tauri/native/src/queue/mod.rs"
+		},
+		{
+			"id": "pdf-input-bytes",
+			"value": 104857600,
+			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "pdf-pages",
+			"value": 200,
+			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "pdf-side-pixels",
+			"value": 4000,
+			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "preview-input-bytes",
+			"value": 33554432,
+			"source": "src-tauri/native/src/convert/preview.rs"
+		},
+		{
+			"id": "preview-output-bytes",
+			"value": 524288,
+			"source": "src-tauri/native/src/convert/preview.rs"
+		},
+		{
+			"id": "preview-side-pixels",
+			"value": 256,
+			"source": "src-tauri/native/src/convert/preview.rs"
+		}
+	],
+	"acceptance": {
+		"routeContract": "R1",
+		"sampleQuality": "R4",
+		"installedPackages": "R6"
+	}
+}

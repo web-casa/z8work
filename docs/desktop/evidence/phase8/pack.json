@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "artifact": "linux-amd64-snap",
+  "filename": "z8-work_0.1.0_amd64.snap",
+  "sha256": "ecca28eb011ab6121ec24281416ae195165f0bd70c2da3e757020f05f58484fa",
+  "bytes": 204865536,
+  "snapcraft": "snapcraft 9.0.1",
+  "runtimeSources": [
+    {
+      "source": "share/snapcraft/extensions/desktop/command-chain/desktop-launch",
+      "original": {
+        "sha256": "bdf7e2223ca5b994d6c099382e76c64e3fd1d0eabb5d2e42fe2b6e771d550f9f",
+        "bytes": 149
+      },
+      "file": "snap/command-chain/desktop-launch",
+      "sha256": "bdf7e2223ca5b994d6c099382e76c64e3fd1d0eabb5d2e42fe2b6e771d550f9f",
+      "bytes": 149
+    },
+    {
+      "source": "share/snapcraft/extensions/desktop/command-chain/run",
+      "original": {
+        "sha256": "825d010dda56a302b730f5a6a999d87cf277d019c58a32640dc0d3500acbb2d6",
+        "bytes": 541
+      },
+      "file": "snap/command-chain/run",
+      "sha256": "825d010dda56a302b730f5a6a999d87cf277d019c58a32640dc0d3500acbb2d6",
+      "bytes": 541
+    },
+    {
+      "source": "share/snapcraft/extensions/desktop/command-chain/hooks-configure-fonts",
+      "original": {
+        "sha256": "6007f208fbce6b551cce19bde67fe2d35a460a4c6bbdddaa6f7ca2154eb7eb07",
+        "bytes": 156
+      },
+      "file": "snap/command-chain/hooks-configure-fonts",
+      "sha256": "6007f208fbce6b551cce19bde67fe2d35a460a4c6bbdddaa6f7ca2154eb7eb07",
+      "bytes": 156
+    },
+    {
+      "source": "share/snapcraft/extensions/gpu/command-chain/gpu-wrapper",
+      "original": {
+        "sha256": "19bbdc4955d8a2ba8b1f52fa10783bc330cb3fcf46dbcc83f4c1400ae9d7bd20",
+        "bytes": 687
+      },
+      "file": "snap/command-chain/gpu-2404-wrapper",
+      "sha256": "678e76eb1229462e28310b97817784d9ac24120b37eaf1eb2e19fa8d2aebc6d4",
+      "bytes": 666
+    }
+  ],
+  "redistributionApproved": false,
+  "status": "packed-awaiting-final-check"
+}

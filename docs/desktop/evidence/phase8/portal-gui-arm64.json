@@ -1,0 +1,21 @@
+{
+  "platform": "linux / aarch64",
+  "batchSettingsPersisted": true,
+  "pdfSavedPages": 5,
+  "pdfPartialCancellation": true,
+  "pdfRetryAfterReload": true,
+  "pdfResumePreservedOutputs": true,
+  "arbitraryRevealRejected": true,
+  "sizeComparisonRendered": true,
+  "nativeInputPicker": true,
+  "nativeOutputPicker": true,
+  "queueContinuedAcrossReload": true,
+  "savedTasks": 2,
+  "duplicateRequestNoExtraOutput": true,
+  "singleInstanceSecondProcessExited": true,
+  "packagedEngines": true,
+  "application": "/home/ivmm/VERT/.desktop-local/phase8-portal-local/usr/bin/z8-desktop",
+  "unauthorizedCommandsRejected": true,
+  "clearWaitedForCancellation": true,
+  "clearPreservedSavedOutputs": true
+}

@@ -1,0 +1,15 @@
+{
+	"schema": 1,
+	"channel": "local-development",
+	"storeSubmissionAllowed": false,
+	"identity": "Z8Work.Desktop.Dev",
+	"publisher": "CN=Z8.Work Development",
+	"version": "1.0.0.0",
+	"displayName": "Z8.Work Desktop Dev",
+	"publisherDisplayName": "Z8.Work Development",
+	"description": "Local multi-file conversion tools - development package",
+	"minimumWindowsVersion": "10.0.19041.0",
+	"maxVersionTested": "10.0.19041.0",
+	"languages": ["en-US", "zh-CN"],
+	"webview2": "external-evergreen-required"
+}

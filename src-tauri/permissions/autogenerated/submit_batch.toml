@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-submit-batch"
+description = "Enables the submit_batch command without any pre-configured scope."
+commands.allow = ["submit_batch"]
+
+[[permission]]
+identifier = "deny-submit-batch"
+description = "Denies the submit_batch command without any pre-configured scope."
+commands.deny = ["submit_batch"]

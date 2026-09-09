@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schema.tauri.app/config/2",
+	"productName": "Z8.Work Desktop Dev",
+	"version": "0.1.0",
+	"identifier": "work.z8.desktop.m0",
+	"build": {
+		"beforeDevCommand": "bun run desktop:frontend",
+		"devUrl": "http://localhost:1420",
+		"beforeBuildCommand": "bun run desktop:build",
+		"frontendDist": "../desktop/dist"
+	},
+	"app": {
+		"windows": [
+			{
+				"label": "main",
+				"title": "Z8.Work \u2014 Desktop",
+				"width": 1100,
+				"height": 800,
+				"minWidth": 620,
+				"minHeight": 560
+			}
+		],
+		"security": {
+			"capabilities": ["main"],
+			"csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; img-src 'self' blob: asset: http://asset.localhost data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-src 'none'",
+			"devCsp": "default-src 'self'; connect-src ipc: http://ipc.localhost http://localhost:1420 ws://localhost:1420; img-src 'self' blob: asset: http://asset.localhost data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-src 'none'"
+		}
+	},
+	"bundle": {
+		"active": false
+	}
+}

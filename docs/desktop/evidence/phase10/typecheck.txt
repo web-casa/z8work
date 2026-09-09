@@ -1,0 +1,5 @@
+$ svelte-check --workspace desktop --tsconfig tsconfig.json
+Loading svelte-check in workspace: /home/ivmm/VERT/desktop
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings

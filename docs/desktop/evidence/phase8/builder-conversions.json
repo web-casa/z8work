@@ -1,0 +1,564 @@
+{
+  "calibration": [
+    {
+      "bytes": 1962,
+      "format": "avif",
+      "preset": "small"
+    },
+    {
+      "bytes": 4618,
+      "format": "avif",
+      "preset": "balanced"
+    },
+    {
+      "bytes": 15319,
+      "format": "avif",
+      "preset": "high"
+    },
+    {
+      "bytes": 4778,
+      "format": "webp",
+      "preset": "small"
+    },
+    {
+      "bytes": 8100,
+      "format": "webp",
+      "preset": "balanced"
+    },
+    {
+      "bytes": 21066,
+      "format": "webp",
+      "preset": "high"
+    },
+    {
+      "bytes": 7128,
+      "format": "jpeg",
+      "preset": "small"
+    },
+    {
+      "bytes": 10637,
+      "format": "jpeg",
+      "preset": "balanced"
+    },
+    {
+      "bytes": 32048,
+      "format": "jpeg",
+      "preset": "high"
+    }
+  ],
+  "checks": {
+    "audio_duration_channels": true,
+    "disguised_playlist_rejected": true,
+    "missing_pandoc_keeps_images": false,
+    "pdf_200_page_limit": true,
+    "pdf_changed_input_no_reuse": true,
+    "pdf_changed_settings_no_reuse": true,
+    "pdf_missing_page_regenerated": true,
+    "pdf_page_order_dimensions": true,
+    "pdf_partial_cancel": true,
+    "pdf_resume_no_duplicate": true,
+    "png_16bit_pixels": true,
+    "png_alpha_pixels": true,
+    "unicode_filename_budget": true,
+    "xmp_metadata_toggle": true
+  },
+  "engines": [
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "magick",
+      "version": "Version: ImageMagick 7.1.1-43 Q16-HDRI x86_64 22550 https://imagemagick.org"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffmpeg",
+      "version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffprobe",
+      "version": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "pandoc",
+      "version": "pandoc 3.1.3"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "mutool",
+      "version": "mutool version 1.23.10"
+    }
+  ],
+  "platform": "linux-x86_64",
+  "routes": [
+    {
+      "bytes": 352,
+      "decoded": true,
+      "input": "png",
+      "output": "png"
+    },
+    {
+      "bytes": 323,
+      "decoded": true,
+      "input": "png",
+      "output": "jpeg"
+    },
+    {
+      "bytes": 146,
+      "decoded": true,
+      "input": "png",
+      "output": "webp"
+    },
+    {
+      "bytes": 522,
+      "decoded": true,
+      "input": "png",
+      "output": "avif"
+    },
+    {
+      "bytes": 345,
+      "decoded": true,
+      "input": "jpg",
+      "output": "png"
+    },
+    {
+      "bytes": 374,
+      "decoded": true,
+      "input": "jpg",
+      "output": "jpeg"
+    },
+    {
+      "bytes": 120,
+      "decoded": true,
+      "input": "jpg",
+      "output": "webp"
+    },
+    {
+      "bytes": 328,
+      "decoded": true,
+      "input": "jpg",
+      "output": "avif"
+    },
+    {
+      "bytes": 482,
+      "decoded": true,
+      "input": "webp",
+      "output": "png"
+    },
+    {
+      "bytes": 345,
+      "decoded": true,
+      "input": "webp",
+      "output": "jpeg"
+    },
+    {
+      "bytes": 158,
+      "decoded": true,
+      "input": "webp",
+      "output": "webp"
+    },
+    {
+      "bytes": 532,
+      "decoded": true,
+      "input": "webp",
+      "output": "avif"
+    },
+    {
+      "bytes": 352,
+      "decoded": true,
+      "input": "avif",
+      "output": "png"
+    },
+    {
+      "bytes": 323,
+      "decoded": true,
+      "input": "avif",
+      "output": "jpeg"
+    },
+    {
+      "bytes": 146,
+      "decoded": true,
+      "input": "avif",
+      "output": "webp"
+    },
+    {
+      "bytes": 522,
+      "decoded": true,
+      "input": "avif",
+      "output": "avif"
+    },
+    {
+      "bytes": 566,
+      "decoded": true,
+      "input": "heic",
+      "output": "png"
+    },
+    {
+      "bytes": 359,
+      "decoded": true,
+      "input": "heic",
+      "output": "jpeg"
+    },
+    {
+      "bytes": 118,
+      "decoded": true,
+      "input": "heic",
+      "output": "webp"
+    },
+    {
+      "bytes": 310,
+      "decoded": true,
+      "input": "heic",
+      "output": "avif"
+    },
+    {
+      "bytes": 88278,
+      "decoded": true,
+      "input": "mp3",
+      "output": "wav"
+    },
+    {
+      "bytes": 25748,
+      "decoded": true,
+      "input": "mp3",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8410,
+      "decoded": true,
+      "input": "mp3",
+      "output": "flac"
+    },
+    {
+      "bytes": 395,
+      "decoded": true,
+      "input": "mp3",
+      "output": "opus"
+    },
+    {
+      "bytes": 1184,
+      "decoded": true,
+      "input": "mp3",
+      "output": "m4a"
+    },
+    {
+      "bytes": 88278,
+      "decoded": true,
+      "input": "wav",
+      "output": "wav"
+    },
+    {
+      "bytes": 25748,
+      "decoded": true,
+      "input": "wav",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8400,
+      "decoded": true,
+      "input": "wav",
+      "output": "flac"
+    },
+    {
+      "bytes": 395,
+      "decoded": true,
+      "input": "wav",
+      "output": "opus"
+    },
+    {
+      "bytes": 1184,
+      "decoded": true,
+      "input": "wav",
+      "output": "m4a"
+    },
+    {
+      "bytes": 88278,
+      "decoded": true,
+      "input": "flac",
+      "output": "wav"
+    },
+    {
+      "bytes": 25748,
+      "decoded": true,
+      "input": "flac",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8410,
+      "decoded": true,
+      "input": "flac",
+      "output": "flac"
+    },
+    {
+      "bytes": 395,
+      "decoded": true,
+      "input": "flac",
+      "output": "opus"
+    },
+    {
+      "bytes": 1184,
+      "decoded": true,
+      "input": "flac",
+      "output": "m4a"
+    },
+    {
+      "bytes": 96078,
+      "decoded": true,
+      "input": "opus",
+      "output": "wav"
+    },
+    {
+      "bytes": 25389,
+      "decoded": true,
+      "input": "opus",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8422,
+      "decoded": true,
+      "input": "opus",
+      "output": "flac"
+    },
+    {
+      "bytes": 395,
+      "decoded": true,
+      "input": "opus",
+      "output": "opus"
+    },
+    {
+      "bytes": 1208,
+      "decoded": true,
+      "input": "opus",
+      "output": "m4a"
+    },
+    {
+      "bytes": 90190,
+      "decoded": true,
+      "input": "m4a",
+      "output": "wav"
+    },
+    {
+      "bytes": 26375,
+      "decoded": true,
+      "input": "m4a",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8410,
+      "decoded": true,
+      "input": "m4a",
+      "output": "flac"
+    },
+    {
+      "bytes": 399,
+      "decoded": true,
+      "input": "m4a",
+      "output": "opus"
+    },
+    {
+      "bytes": 1176,
+      "decoded": true,
+      "input": "m4a",
+      "output": "m4a"
+    },
+    {
+      "bytes": 88022,
+      "decoded": true,
+      "input": "ogg",
+      "output": "wav"
+    },
+    {
+      "bytes": 25748,
+      "decoded": true,
+      "input": "ogg",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8410,
+      "decoded": true,
+      "input": "ogg",
+      "output": "flac"
+    },
+    {
+      "bytes": 395,
+      "decoded": true,
+      "input": "ogg",
+      "output": "opus"
+    },
+    {
+      "bytes": 1176,
+      "decoded": true,
+      "input": "ogg",
+      "output": "m4a"
+    },
+    {
+      "bytes": 26702,
+      "decoded": true,
+      "input": "mp4",
+      "output": "wav"
+    },
+    {
+      "bytes": 8821,
+      "decoded": true,
+      "input": "mp4",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8324,
+      "decoded": true,
+      "input": "mp4",
+      "output": "flac"
+    },
+    {
+      "bytes": 228,
+      "decoded": true,
+      "input": "mp4",
+      "output": "opus"
+    },
+    {
+      "bytes": 928,
+      "decoded": true,
+      "input": "mp4",
+      "output": "m4a"
+    },
+    {
+      "bytes": 26702,
+      "decoded": true,
+      "input": "mov",
+      "output": "wav"
+    },
+    {
+      "bytes": 8821,
+      "decoded": true,
+      "input": "mov",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8324,
+      "decoded": true,
+      "input": "mov",
+      "output": "flac"
+    },
+    {
+      "bytes": 228,
+      "decoded": true,
+      "input": "mov",
+      "output": "opus"
+    },
+    {
+      "bytes": 928,
+      "decoded": true,
+      "input": "mov",
+      "output": "m4a"
+    },
+    {
+      "bytes": 26538,
+      "decoded": true,
+      "input": "mkv",
+      "output": "wav"
+    },
+    {
+      "bytes": 8821,
+      "decoded": true,
+      "input": "mkv",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8326,
+      "decoded": true,
+      "input": "mkv",
+      "output": "flac"
+    },
+    {
+      "bytes": 228,
+      "decoded": true,
+      "input": "mkv",
+      "output": "opus"
+    },
+    {
+      "bytes": 936,
+      "decoded": true,
+      "input": "mkv",
+      "output": "m4a"
+    },
+    {
+      "bytes": 28878,
+      "decoded": true,
+      "input": "webm",
+      "output": "wav"
+    },
+    {
+      "bytes": 8685,
+      "decoded": true,
+      "input": "webm",
+      "output": "mp3"
+    },
+    {
+      "bytes": 8336,
+      "decoded": true,
+      "input": "webm",
+      "output": "flac"
+    },
+    {
+      "bytes": 228,
+      "decoded": true,
+      "input": "webm",
+      "output": "opus"
+    },
+    {
+      "bytes": 952,
+      "decoded": true,
+      "input": "webm",
+      "output": "m4a"
+    },
+    {
+      "bytes": 1074,
+      "decoded": true,
+      "input": "pdf",
+      "output": "png",
+      "pages": 3
+    },
+    {
+      "bytes": 1105,
+      "decoded": true,
+      "input": "pdf",
+      "output": "jpeg",
+      "pages": 3
+    },
+    {
+      "bytes": 338,
+      "decoded": true,
+      "input": "pdf",
+      "output": "webp",
+      "pages": 3
+    },
+    {
+      "bytes": 1570,
+      "decoded": true,
+      "input": "pdf",
+      "output": "avif",
+      "pages": 3
+    },
+    {
+      "input": "md",
+      "output": "txt",
+      "text_checked": true
+    },
+    {
+      "input": "docx",
+      "output": "txt",
+      "text_checked": true
+    }
+  ],
+  "scope": "M3 bundled engine verification; not installer certification"
+}

@@ -1,0 +1,79 @@
+name: z8-work
+title: Z8.Work
+version: 0.1.0
+summary: Local file conversion for images, PDFs, audio and documents
+description: |
+  Z8.Work converts files on your device using bundled native engines.
+  Convert images and PDF pages to PNG, JPEG, WebP or AVIF, convert audio
+  and extract audio from videos, and export supported documents as text.
+  No account or file upload is required. This is a development candidate.
+base: core24
+license: AGPL-3.0
+confinement: strict
+grade: devel
+apps:
+  z8-work:
+    command: usr/bin/z8-desktop
+    plugs:
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - opengl
+      - wayland
+      - x11
+      - home
+      - removable-media
+    command-chain:
+      - snap/command-chain/gpu-2404-wrapper
+      - snap/command-chain/desktop-launch
+hooks:
+  configure:
+    command-chain:
+      - snap/command-chain/hooks-configure-fonts
+    plugs:
+      - desktop
+plugs:
+  gpu-2404:
+    interface: content
+    target: $SNAP/gpu-2404
+    default-provider: mesa-2404
+  desktop:
+    mount-host-font-cache: false
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/data-dir/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
+  gnome-46-2404:
+    interface: content
+    target: $SNAP/gnome-platform
+    default-provider: gnome-46-2404
+environment:
+  SNAP_DESKTOP_RUNTIME: $SNAP/gnome-platform
+  GTK_USE_PORTAL: "1"
+layout:
+  /usr/share/libdrm:
+    bind: $SNAP/gpu-2404/libdrm
+  /usr/share/drirc.d:
+    symlink: $SNAP/gpu-2404/drirc.d
+  /usr/share/X11/XErrorDB:
+    symlink: $SNAP/gpu-2404/X11/XErrorDB
+  /usr/lib/x86_64-linux-gnu/webkit2gtk-4.0:
+    bind: $SNAP/gnome-platform/usr/lib/x86_64-linux-gnu/webkit2gtk-4.0
+  /usr/lib/x86_64-linux-gnu/webkit2gtk-4.1:
+    bind: $SNAP/gnome-platform/usr/lib/x86_64-linux-gnu/webkit2gtk-4.1
+  /usr/lib/x86_64-linux-gnu/libproxy:
+    bind: $SNAP/gnome-platform/usr/lib/x86_64-linux-gnu/libproxy
+  /usr/share/xml/iso-codes:
+    bind: $SNAP/gnome-platform/usr/share/xml/iso-codes
+assumes:
+  - snapd2.43
+architectures:
+  - amd64

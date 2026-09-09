@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "scope": "windows-x64-development-candidate",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "files": {
+    "engines/bin/ffmpeg.exe": {
+      "sha256": "72a489eccd008c2ec2c0a5856c5c75bc3d8bbfa90166c4566865c246445e6aa3",
+      "bytes": 102856192
+    },
+    "engines/bin/ffprobe.exe": {
+      "sha256": "19202b23c0043f15ad1b7bce2344f406fd52bd6efd8f995ce02e7392a1cec52f",
+      "bytes": 102652416
+    },
+    "engines/bin/magick.exe": {
+      "sha256": "6b6bd55206f23ed02738deda301c3c758738bb4d328c1c03c9a7ae778c3f960d",
+      "bytes": 31478960
+    },
+    "engines/bin/msvcp140.dll": {
+      "sha256": "7c26614e1d733892c2deac7e245ce115504b1d80592dd0a01b08e3e5a55f89ca",
+      "bytes": 643512
+    },
+    "engines/bin/mutool.exe": {
+      "sha256": "5212a418819fbaa1843ce38cd7566227a19d30c2afec34d3c0b888c44ac81ba4",
+      "bytes": 46447104
+    },
+    "engines/bin/pandoc.exe": {
+      "sha256": "e0057eaf640d08ba028b70721d4f7b63a685c30430de9db89aea84de2d4a1912",
+      "bytes": 233626888
+    },
+    "engines/bin/vcomp140.dll": {
+      "sha256": "95d4ce4a6802d1e18b5e0e1722cc30ea72ca7e033f83828f05c0b7b993fe7cbf",
+      "bytes": 212920
+    },
+    "engines/bin/vcruntime140.dll": {
+      "sha256": "d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7",
+      "bytes": 178616
+    },
+    "engines/bin/vcruntime140_1.dll": {
+      "sha256": "a7146c08f89fe5b04541ab507cdb59ff7b44534d4ba3c668a426c6450a03434e",
+      "bytes": 50112
+    },
+    "engines/engines.json": {
+      "sha256": "f13779a3a74bd365b5571a06d3b233f310e20d69d07a4f04c4e2b0917ba125f4",
+      "bytes": 4408
+    },
+    "engines/licenses/ffmpeg/LICENSE": {
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147
+    },
+    "engines/licenses/ffmpeg/README.txt": {
+      "sha256": "1c8c50e4df1623673ec236bafe774f3c4ee41a1e6b0cde05e31b7d89b31efa06",
+      "bytes": 41650
+    },
+    "engines/licenses/imagemagick/LICENSE.txt": {
+      "sha256": "5ffcbc771d4cc2827ca8c4505f6b5b61e0bc1d933e0f41a47eea16ed06db4f90",
+      "bytes": 12663
+    },
+    "engines/licenses/imagemagick/NOTICE.txt": {
+      "sha256": "e0716b82a4aea7c6b3978398eadea7f35a19115d3d93c0b8e0b00d5c591ef1fc",
+      "bytes": 426299
+    },
+    "engines/licenses/mupdf/CHANGES.txt": {
+      "sha256": "61efec9d2f634c7670d6e2cce5da497ea930e5ac8dbe1e357c93f2a0f5f88679",
+      "bytes": 43408
+    },
+    "engines/licenses/mupdf/COPYING.txt": {
+      "sha256": "282751b8c98ee9e445346eb57a992c9ecbe25ed8dd554df046777313e19b10f9",
+      "bytes": 35181
+    },
+    "engines/licenses/mupdf/README.txt": {
+      "sha256": "917f427ed4e857f868ec8213d7c2715a86ce2faf77e859226932730450040825",
+      "bytes": 1449
+    },
+    "engines/licenses/pandoc/COPYING.rtf": {
+      "sha256": "b2e44b72220d84e7ec7d5c7ed2b76e42b2c239ae1f179a2a2a9a34d1e40f315e",
+      "bytes": 20757
+    },
+    "engines/licenses/pandoc/COPYRIGHT.txt": {
+      "sha256": "43575d901fd50cc06f49042b82f114667a82c17d63b429e99635ae9430c977c4",
+      "bytes": 9823
+    },
+    "engines/licenses/vcredist/license-reference-en.wxl": {
+      "sha256": "21a76eb702fe727ca06de6632be2294ed1caa9e1d3798d01ed1428e0f40e19ea",
+      "bytes": 3088
+    },
+    "engines/licenses/vcredist/license-reference-zh.wxl": {
+      "sha256": "62bdb8fa52dcf8b5298da5fc7a745aa9481eadb3f32862f2996d070c29f21d2c",
+      "bytes": 3102
+    },
+    "engines/magick-config/colors.xml": {
+      "sha256": "37b986dc355641021434859f77b5e1f30b21670c847706ee9b77418e0874dfa6",
+      "bytes": 1411
+    },
+    "engines/provenance.json": {
+      "sha256": "306f9bdf3dce6b9af3ebca3e14cb46b860038a86874391fed8873527517c770b",
+      "bytes": 41344
+    },
+    "engines/validation/bundle-check.exe": {
+      "sha256": "16e1595afcff567df6fa378421ca61547d76fb68268c37abf46e24d16b7a6182",
+      "bytes": 1068032
+    },
+    "z8-desktop.exe": {
+      "sha256": "0e6b5c9fd9d95e14033633ac77ee5ad5a1ee0d5c319782cad935bb9182dd44ba",
+      "bytes": 11610624
+    }
+  },
+  "totalBytes": 531505106
+}

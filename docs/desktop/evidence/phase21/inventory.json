@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "artifacts": [
+    {
+      "path": "app-tests.txt",
+      "bytes": 891,
+      "sha256": "5006476716c56d3f81202d65a674cbd294b346f9ed549694d8f1e2c623eef388"
+    },
+    {
+      "path": "build.txt",
+      "bytes": 196,
+      "sha256": "e639226e73961696d024b53a1da18c953c115268a3021ad2591b0b191f572f06"
+    },
+    {
+      "path": "clippy.txt",
+      "bytes": 196,
+      "sha256": "25a449357945dc9e555b9aa3ec6c14cc4827d9eeed718a8227b284f1c96eeafa"
+    },
+    {
+      "path": "docs-format-check.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "docs-format.txt",
+      "bytes": 152,
+      "sha256": "12d83b3da1c90be1955a99232c6cb42b65257a16fde249e8d78d18048e8483b4"
+    },
+    {
+      "path": "environment.json",
+      "bytes": 704,
+      "sha256": "ce4efe68423b30272d509eca78f8d7678ef27ab24eaba5e54c376bd930a7c355"
+    },
+    {
+      "path": "eslint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "frontend-build.txt",
+      "bytes": 1207,
+      "sha256": "e1b2bae1f261380b97f82e90eb8fab405a35447a27e71085bf9593556f7ace47"
+    },
+    {
+      "path": "gui-driver.txt",
+      "bytes": 3564,
+      "sha256": "2884b9e32cd270d73a37f78d3bb0b3b8c80e3a1b4baeba5b22b408f6ac38bc61"
+    },
+    {
+      "path": "initial-context-initializer-failure.txt",
+      "bytes": 420,
+      "sha256": "cc46f655df3f4ba0c586d023c9326fb1a717839c4da432bb0f4a964acc9b66db"
+    },
+    {
+      "path": "initial-directory-permissions-failure.txt",
+      "bytes": 9619,
+      "sha256": "e11c0fef96d72ca6830979ddbd1d1399bbf18b516ec5d3429e54182ce22ecf85"
+    },
+    {
+      "path": "inputs-verified.txt",
+      "bytes": 34,
+      "sha256": "6510d78fdcddcdfbfac5daa30371fe296a9fe881f24060d5d2bd83a07f5ca0a4"
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 46828,
+      "sha256": "d0e89bc45ed2e661eaed265cf282d8b53f24098f234d2cbc4f4e08e5f081ca4d"
+    },
+    {
+      "path": "links.txt",
+      "bytes": 72,
+      "sha256": "5b5d815de0fd9de9870965da799d46d50c0e67be0a6931b280b0571809442ffc"
+    },
+    {
+      "path": "native-dev-tests.txt",
+      "bytes": 7315,
+      "sha256": "885edd08632981d85c71b34abf4d3bf3e6389422d00b8bba2d086eae8da1b4ac"
+    },
+    {
+      "path": "native-tests.txt",
+      "bytes": 7193,
+      "sha256": "a2906f68eb533ddcf4eb953aefca5ece7f38e747283e815969bd4e4a105612d3"
+    },
+    {
+      "path": "node22-tests.txt",
+      "bytes": 30546,
+      "sha256": "c153bf5d765ef5d042de205578ba4f8903cbf1cc8fbce41b81c1aaa7560ed373"
+    },
+    {
+      "path": "node24-tests.txt",
+      "bytes": 12801,
+      "sha256": "84b4607bc49bda264c3cd4bfcd302597fd1d8f4a357961af42cc0a2f47dc95c6"
+    },
+    {
+      "path": "portal-compile.txt",
+      "bytes": 196,
+      "sha256": "9e35e9e659b6b8f418143622dd9c48b0b742a7b020b58cdfd54e0e759f6728f4"
+    },
+    {
+      "path": "rustfmt.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "svelte-check.txt",
+      "bytes": 193,
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1"
+    },
+    {
+      "path": "temporary-cleanup.png",
+      "bytes": 66565,
+      "sha256": "e372200fcba61a70264558482665faf41ad903922a7615e282ed36ad0bc41841"
+    },
+    {
+      "path": "workspace-gui-run.txt",
+      "bytes": 5807,
+      "sha256": "c4193fd8a786bf31f923bacb2eb18d5f7397ddad1e179df9bf4a4ed1218b07f9"
+    },
+    {
+      "path": "workspace-gui.json",
+      "bytes": 5491,
+      "sha256": "f75e0d2435d937dcc91b741a579aba7ab218d79f304e9aed749441bfde48efa5"
+    },
+    {
+      "path": "xvfb.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

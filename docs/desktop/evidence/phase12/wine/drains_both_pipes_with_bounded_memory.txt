@@ -1,0 +1,4 @@
+
+running 1 test
+test process::tests::drains_both_pipes_with_bounded_memory ... rosetta error: invalid gdt selector index 5
+ 
