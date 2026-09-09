@@ -1,0 +1,49 @@
+{
+  "eslint-reviewed": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.nvm/versions/node/v24.18.0/bin/node",
+      "node_modules/eslint/bin/eslint.js",
+      "desktop/src/App.svelte",
+      "desktop/src/platform/queue-contract.ts",
+      "desktop/src/platform/storage-message.ts",
+      "desktop/tests/save-retry.test.mjs",
+      "scripts/desktop-gui-smoke.mjs",
+      "scripts/desktop-preview-gui.mjs",
+      "scripts/lib/desktop-save-retry-checks.mjs"
+    ]
+  },
+  "prettier-reviewed": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.nvm/versions/node/v24.18.0/bin/node",
+      "node_modules/prettier/bin/prettier.cjs",
+      "--check",
+      "desktop/src/App.svelte",
+      "desktop/src/platform/queue-contract.ts",
+      "desktop/src/platform/storage-message.ts",
+      "desktop/tests/save-retry.test.mjs",
+      "scripts/desktop-gui-smoke.mjs",
+      "scripts/desktop-preview-gui.mjs",
+      "scripts/lib/desktop-save-retry-checks.mjs",
+      "package.json",
+      "README.md",
+      "docs/desktop/README.md",
+      "docs/desktop/REMAINING_V1_PLAN.md",
+      "docs/desktop/V1_PLAN.md",
+      "docs/desktop/PHASE25_IMPLEMENTATION.md"
+    ]
+  },
+  "rustfmt-reviewed": {
+    "exitCode": 0,
+    "command": [
+      "/home/ivmm/.cargo/bin/cargo",
+      "fmt",
+      "--manifest-path",
+      "src-tauri/Cargo.toml",
+      "--all",
+      "--",
+      "--check"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
 
 **结论：继续采用独立桌面入口 + Tauri 2 + Rust 管理原生转换程序的路线。** Linux ARM64 原型已验证四类转换可以运行；跨平台自包含引擎包、安装权限及商店验收仍需逐项完成。
 
-**当前执行方案（2026-09-09）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，下一阶段为保存恢复。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
+**当前执行方案（2026-09-09）：[剩余七阶段 R1–R7 / Phase 24–30](REMAINING_V1_PLAN.md)**。[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)已完成首版矩阵、源码提交基线、CI/收据修正与隔离验证，[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)已完成保存失败后的仅保存重试；下一阶段为 R3 / Phase 26 启动、导入、进度和错误状态。[平台条件及风险清单](PHASE24_READINESS.md)继续追踪外部缺项。旧研究中的待办与当前状态不一致时，以该方案和最新实施证据为准。
 
 ## 文档导航
 
@@ -32,7 +32,9 @@ Debian ARM64 材料记录：[Phase 7 历史源码补齐与恢复下载](PHASE7_I
 
 最新验收工具：[Phase 9：已安装 Snap 运行验收](PHASE9_IMPLEMENTATION.md)。新增真实环境预检、安装字节与沙箱运行核对、可复制的验收目录；本机预检受 ARM64/partial confinement 阻塞，未声称原生安装通过。
 
-最新功能记录：[Phase 23：可预览与保存的脱敏诊断报告](PHASE23_IMPLEMENTATION.md)。报告只导出有限运行摘要，先预览再由用户保存，保留原生对话框与禁止覆盖保护；[Phase 22 存储预检](PHASE22_IMPLEMENTATION.md)及既有导入、预览和临时目录清理继续保留。旧安装候选需重建才能包含新功能。
+最新功能记录：[Phase 25：保存恢复与会话暂存](PHASE25_IMPLEMENTATION.md)。已验证结果保存失败后可更换目录直接重试，不再读取源文件或调用引擎；暂存仅在本次会话保留，受空闲有效期与容量预算限制。Linux ARM64 真实 GUI 已验证；其他平台原生验收仍待执行。
+
+此前功能记录：[Phase 23：可预览与保存的脱敏诊断报告](PHASE23_IMPLEMENTATION.md)。报告只导出有限运行摘要，先预览再由用户保存，保留原生对话框与禁止覆盖保护；[Phase 22 存储预检](PHASE22_IMPLEMENTATION.md)及既有导入、预览和临时目录清理继续保留。旧安装候选需重建才能包含新功能。
 
 最新 Windows 进展：[Phase 14：MSIX 安装后验收工具](PHASE14_IMPLEMENTATION.md)已补签名副本、安装载荷核对、原生转换与卸载流程，并对 Phase 13 原包完成本机预检；Windows 原生签名/安装/运行尚未执行，需要原生 x64 测试桌面。WebView2/GUI、许可与商店验收仍待完成，[Phase 12](PHASE12_IMPLEMENTATION.md) 的 Rosetta 未通过项继续保留。
 

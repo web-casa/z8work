@@ -1,0 +1,6 @@
+{
+  "exitCode": 0,
+  "elapsedSeconds": 41.261,
+  "maxChildRssKiB": 77964,
+  "measurement": "Cargo/test child maximum RSS; sparse 1 GiB logical outputs, not a full-disk or application-memory measurement"
+}
