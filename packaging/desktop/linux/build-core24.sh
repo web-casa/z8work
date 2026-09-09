@@ -28,10 +28,13 @@ tar -xJf "$Z8_MAGICK_PATCHES" -C "$Z8_BUILD_OUTPUT/imagemagick-build"
         --without-perl --without-x --without-gslib --without-djvu \
         --without-openexr --without-lqr --without-raw --without-rsvg \
         --without-jxl --without-tiff --without-fontconfig --without-freetype \
-        --with-heic=yes --with-webp=yes --with-jpeg=yes --with-png=yes --with-xml=yes \
+        --with-heic=yes --with-webp=yes --with-jpeg=yes --with-png=yes --with-xml=yes --with-lcms=yes \
         LDFLAGS=-Wl,-rpath,/opt/z8-im/lib > "$Z8_BUILD_OUTPUT/imagemagick-configure.log"
     make -j4 > "$Z8_BUILD_OUTPUT/imagemagick-make.log" 2>&1
     make install > "$Z8_BUILD_OUTPUT/imagemagick-install.log" 2>&1
+    /opt/z8-im/bin/magick -version > "$Z8_BUILD_OUTPUT/imagemagick-version.txt"
+    # configure may silently disable an unavailable delegate even when requested.
+    grep -Eq '^Delegates .*\blcms\b' "$Z8_BUILD_OUTPUT/imagemagick-version.txt"
 )
 mkdir "$Z8_BUILD_OUTPUT/source-licenses"
 cp "$Z8_BUILD_OUTPUT/imagemagick-build/LICENSE" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-LICENSE"
@@ -39,6 +42,7 @@ cp "$Z8_BUILD_OUTPUT/imagemagick-build/NOTICE" "$Z8_BUILD_OUTPUT/source-licenses
 cp "$Z8_BUILD_OUTPUT/imagemagick-build/debian/copyright" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-Debian-copyright"
 cp "$Z8_BUILD_OUTPUT/imagemagick-source.sha256" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-sources.sha256"
 cp packaging/desktop/linux/build-core24.sh "$Z8_BUILD_OUTPUT/source-licenses/build-core24.sh"
+node node_modules/vite/bin/vite.js build --config desktop/vite.config.ts
 node scripts/desktop-prepare.mjs --magick /opt/z8-im/bin/magick \
     --ffmpeg /usr/bin/ffmpeg --ffprobe /usr/bin/ffprobe \
     --pandoc /usr/bin/pandoc --pandoc-data-dir /usr/share/pandoc/data --mutool /usr/bin/mutool
@@ -46,12 +50,15 @@ cargo build --locked --release --no-default-features \
     --features packaged-engines,custom-protocol,linux-portal --manifest-path src-tauri/Cargo.toml
 cargo build --locked --release --manifest-path src-tauri/Cargo.toml \
     -p z8-native --features engine-validation --bin bundle-check
+node scripts/desktop-notices.mjs --target x86_64-unknown-linux-gnu --portal \
+    --output "$Z8_BUILD_OUTPUT/application-notices"
+cp "$Z8_BUILD_OUTPUT/source-licenses/"* "$Z8_BUILD_OUTPUT/application-notices/licenses/"
 node scripts/desktop-bundle-linux.mjs --manifest "$PWD/.desktop-local/engines.json" \
     --output "$Z8_BUILD_OUTPUT/engines" \
     --magick-modules /opt/z8-im/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders \
     --magick-config /opt/z8-im/etc/ImageMagick-7 \
     --heif-plugins /usr/lib/x86_64-linux-gnu/libheif/plugins \
-    --extra-license-dir "$Z8_BUILD_OUTPUT/source-licenses" \
+    --extra-license-dir "$Z8_BUILD_OUTPUT/application-notices/licenses" \
     --verifier "$PWD/src-tauri/target/release/bundle-check"
 cp src-tauri/target/release/z8-desktop "$Z8_BUILD_OUTPUT/z8-desktop"
 "$Z8_BUILD_OUTPUT/z8-desktop" --build-info > "$Z8_BUILD_OUTPUT/build-info.json"
