@@ -1,0 +1,22 @@
+{
+  "applicationCommit": "a0e7b44",
+  "packagingCommit": "ae300bd",
+  "nativeRun": 34706876972,
+  "packagingRun": 34708127226,
+  "artifacts": [
+    {
+      "name": "z8-work-development.msix",
+      "sha256": "12ab8e4f7a7d1580ad144d91b71bdbba3d28083415116fb203130a882ec7c5f0",
+      "bytes": 173638001
+    },
+    {
+      "name": "Z8.Work-windows-x64-preview.zip",
+      "sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd",
+      "bytes": 171584989
+    }
+  ],
+  "nativeWindows": "passed",
+  "gui": "not-run",
+  "installation": "not-run",
+  "storeSubmissionAllowed": false
+}

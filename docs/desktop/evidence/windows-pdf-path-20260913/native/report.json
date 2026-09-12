@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "scope": "windows-native-validation",
+  "execution": "native",
+  "host": {
+    "os": "win32",
+    "arch": "x64",
+    "machine": "x86_64"
+  },
+  "status": "passed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "checks": {
+    "integrity": "passed",
+    "buildInfo": "passed",
+    "webview2": "passed",
+    "lifecycle": "passed",
+    "conversions": "passed",
+    "nativeExecution": "passed",
+    "gui": "not-run",
+    "permissions": "not-run",
+    "installer": "not-run",
+    "licenses": "not-run"
+  },
+  "references": {
+    "pe.json": {
+      "sha256": "f7e5cd1b4d8f2c4c954c80f0a059e35d0e72d99173b31c62a4103e9572664511",
+      "bytes": 39807
+    },
+    "build-info.json": {
+      "sha256": "5002c18f6a358dc3cf3ef62fd88adcd6bd2b98a6809bf887c13142561905dbab",
+      "bytes": 320
+    },
+    "runtime-info.json": {
+      "sha256": "7f0c5536b76423694412b1d3834140b1e5edcdae37831e98f5314bb8531b90df",
+      "bytes": 180
+    },
+    "lifecycle-list.txt": {
+      "sha256": "c279ddc55bd91551c003cb1361780651cbe8cff19d3cbc25a0fa4a0f0a20bfdc",
+      "bytes": 7721
+    },
+    "abrupt_parent_exit_stops_descendants.txt": {
+      "sha256": "c8cbc7b0ff098b34c66769154fe6d32a14d21f27acaaae43eb908c9519634049",
+      "bytes": 179
+    },
+    "successful_parent_cannot_leave_pipe_holding_descendants.txt": {
+      "sha256": "910132d23e72c070661671d2251c02a17ca652c738a34d1241e8638f9bfd01a5",
+      "bytes": 198
+    },
+    "cancelled_or_expired_work_never_starts.txt": {
+      "sha256": "8e859c5e14c0d0f3252b44befa23fb7723a4f0eaece9ee9b8f0db313ec854994",
+      "bytes": 181
+    },
+    "output_wait_observes_cancellation_and_one_deadline.txt": {
+      "sha256": "a87c11fcce5a1d506ebf4a32217812cd511850439b69bb7669382423046efc39",
+      "bytes": 193
+    },
+    "drains_both_pipes_with_bounded_memory.txt": {
+      "sha256": "e57fc399ae0bb1d187dee3219c45b09fe3ef2cf466be1541828db28252b2e28a",
+      "bytes": 180
+    },
+    "failure_is_observable.txt": {
+      "sha256": "e942e02a13d69b289200b9834af33981f01354250a8add270d7b363050e099c1",
+      "bytes": 164
+    },
+    "deadline_is_total_and_kills_descendants.txt": {
+      "sha256": "ccfc267ee0bfe88b04b401e4335ead773a843664e2159f81414f2431083162ca",
+      "bytes": 182
+    },
+    "cancellation_stops_a_running_process.txt": {
+      "sha256": "8f23dd3932e0693c0a7e9c63253dfe2bd433af4d99c465260beb7aa155510001",
+      "bytes": 179
+    },
+    "conversions.json": {
+      "sha256": "89d1ebd1e04308dfa7d563084907b615fbc14a81958e612019435eef05b4749a",
+      "bytes": 219772
+    },
+    "conversion-stderr.txt": {
+      "sha256": "a390f7a69dd4d1a3a5f33618c6bda3132e17073f3cdf1458086cbde2512c78ba",
+      "bytes": 324748
+    }
+  },
+  "handoff": {
+    "sha256": "98fa7638882235e647f18fd771e754ff7a929516b3a74250ae50eb397be1b299",
+    "bytes": 107020
+  }
+}
