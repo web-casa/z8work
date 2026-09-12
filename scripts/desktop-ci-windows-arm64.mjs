@@ -1,7 +1,7 @@
 // Native ARM64 application/ImageMagick, explicitly documented x64 subprocesses.
 // Never load an x64 DLL into the ARM64 application process.
 import { execFileSync } from "node:child_process";
-import { mkdir, readFile, writeFile, copyFile, cp } from "node:fs/promises";
+import { mkdir, readFile, writeFile, copyFile, cp, rm } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { verifyHandoff } from "./lib/desktop-windows-acceptance.mjs";
 import { fileInfo, listFiles } from "./lib/desktop-sources.mjs";
@@ -70,10 +70,24 @@ for (const [from, to] of [
 	["NOTICE.txt", "licenses/imagemagick/NOTICE.txt"],
 ])
 	await copyFile(join(root, "magick", from), join(engines, to));
-// Current target notices replace the old x64 app's notices, not its engine licenses.
+// This private copy no longer contains the old x64 application or verifier.
+// Replace only their application notices; all original engine notices remain.
+await rm(join(engines, "licenses/application"), { recursive: true });
+const noticesRoot = resolve(".desktop-local/ci/application/notices");
+const dossier = JSON.parse(
+	await readFile(join(noticesRoot, "dossier.json"), "utf8"),
+);
+if (dossier.target !== "aarch64-pc-windows-msvc")
+	throw new Error("Wrong ARM64 notice dossier");
+for (const component of dossier.components)
+	for (const notice of component.notices) {
+		const actual = await fileInfo(noticesRoot, notice.file, notice.bytes);
+		if (actual.sha256 !== notice.sha256 || actual.bytes !== notice.bytes)
+			throw new Error("Application notice changed");
+	}
 await cp(
 	".desktop-local/ci/application/notices/licenses",
-	join(engines, "licenses/arm64-application"),
+	join(engines, "licenses/application"),
 	{ recursive: true },
 );
 const manifest = JSON.parse(
@@ -104,6 +118,7 @@ provenance.arm64Preview = {
 	sourceRun: 34706876972,
 	sourceHandoff: await fileInfo(source, "handoff.json"),
 	magickSource,
+	applicationNotices: await fileInfo(noticesRoot, "dossier.json"),
 	compatibility,
 	redistributionApproved: false,
 };
@@ -119,6 +134,14 @@ await writeFile(
 	join(engines, "engines.json"),
 	JSON.stringify(manifest, null, 2) + "\n",
 );
+const notices = Object.entries(manifest.files).filter(([name]) =>
+	name.startsWith("licenses/"),
+);
+if (
+	notices.length > 1024 ||
+	notices.some(([, info]) => info.bytes > 2 * 1024 ** 2)
+)
+	throw new Error("Notice inventory exceeds application limits");
 const pe = await inspectWindowsTree(candidate, windowsPreviewArchitecture);
 if (pe.missing.length) throw new Error("Unresolved native/compatibility DLL");
 const infoPath = join(root, "build-info.json");
