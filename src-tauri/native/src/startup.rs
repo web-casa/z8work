@@ -237,10 +237,17 @@ mod tests {
     use super::*;
     #[test]
     fn blocked_probe_does_not_block_status_other_formats_or_cancellation() {
+        use std::os::unix::fs::PermissionsExt;
+        // /bin/true is not present on every Unix host (notably macOS).
+        // Use an owned executable fixture instead of a host utility path.
+        let fixtures = tempfile::tempdir().unwrap();
+        let probe = fixtures.path().join("probe");
+        std::fs::write(&probe, "#!/bin/sh\nexit 0\n").unwrap();
+        std::fs::set_permissions(&probe, std::fs::Permissions::from_mode(0o700)).unwrap();
         let runtime = Runtime::new(true, Arc::new(|| {}));
         let worker = runtime.clone();
         let thread = std::thread::spawn(move || {
-            worker.workers(Arc::new(|id, cancel, deadline| {
+            worker.workers(Arc::new(move |id, cancel, deadline| {
                 if id == "magick" {
                     loop {
                         cancel.check(deadline)?;
@@ -250,7 +257,7 @@ mod tests {
                 if id == "pandoc" {
                     return Err("broken".into());
                 }
-                let path = PathBuf::from("/bin/true");
+                let path = probe.clone();
                 let entry = crate::engines::Entry {
                     sha256: crate::hash_file(&path)?,
                     path,
@@ -267,7 +274,10 @@ mod tests {
             }))
         });
         let deadline = Instant::now() + Duration::from_secs(5);
-        while runtime.require("mp3").is_err() && Instant::now() < deadline {
+        while (runtime.require("mp3").is_err()
+            || runtime.require("md").err().as_deref() != Some("Z8:engine_unavailable"))
+            && Instant::now() < deadline
+        {
             std::thread::sleep(Duration::from_millis(10));
         }
         assert!(runtime.require("mp3").is_ok());
