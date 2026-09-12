@@ -44,10 +44,18 @@ for (const path of paths) {
 const record = { schema: 1, head: git(["rev-parse", "HEAD"]).trim(), files };
 if (values.verify) {
 	const previous = JSON.parse(await readFile(values.verify, "utf8"));
-	if (JSON.stringify(record) !== JSON.stringify(previous))
-		throw new Error(
-			"Desktop build/validation inputs changed; rebuild in a new output directory",
+	if (JSON.stringify(record) !== JSON.stringify(previous)) {
+		const changed = [
+			...new Set([...Object.keys(previous.files ?? {}), ...paths]),
+		].filter(
+			(path) =>
+				JSON.stringify(previous.files?.[path]) !==
+				JSON.stringify(files[path]),
 		);
+		throw new Error(
+			`Desktop build/validation inputs changed; rebuild in a new output directory. Changed paths: ${changed.join(", ") || "HEAD/receipt metadata"}`,
+		);
+	}
 	console.log(`Unchanged build inputs: ${paths.length} files`);
 } else
 	await writeFile(values.output, `${JSON.stringify(record, null, 2)}\n`, {
