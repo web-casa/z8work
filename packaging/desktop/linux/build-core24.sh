@@ -8,6 +8,7 @@ set -eu
 # Keep its module receipt and package notices; host Rollup binaries cannot run here.
 [ -f desktop/dist/index.html ] && [ -f .desktop-local/frontend-modules.json ]
 [ -n "${Z8_MAGICK_SOURCE:-}" ] && [ -n "${Z8_MAGICK_PATCHES:-}" ] && [ -n "${Z8_BUILD_OUTPUT:-}" ]
+[ -n "${Z8_MUPDF_SOURCE:-}" ] && [ -n "${Z8_MUPDF_PATCHES:-}" ] && [ -n "${Z8_MUPDF_UPSTREAM:-}" ]
 [ ! -e "$Z8_BUILD_OUTPUT" ]
 mkdir -p "$Z8_BUILD_OUTPUT"
 # Fail before extracting or executing source that differs from the reviewed inputs.
@@ -45,16 +46,27 @@ cp "$Z8_BUILD_OUTPUT/imagemagick-build/NOTICE" "$Z8_BUILD_OUTPUT/source-licenses
 cp "$Z8_BUILD_OUTPUT/imagemagick-build/debian/copyright" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-Debian-copyright"
 cp "$Z8_BUILD_OUTPUT/imagemagick-source.sha256" "$Z8_BUILD_OUTPUT/source-licenses/ImageMagick-sources.sha256"
 cp packaging/desktop/linux/build-core24.sh "$Z8_BUILD_OUTPUT/source-licenses/build-core24.sh"
+sh packaging/desktop/linux/build-mupdf-icc.sh "$Z8_MUPDF_SOURCE" \
+    "$Z8_MUPDF_PATCHES" "$Z8_MUPDF_UPSTREAM" "$Z8_BUILD_OUTPUT/mupdf-icc" \
+    > "$Z8_BUILD_OUTPUT/mupdf-build.log" 2>&1
+# Distribution runtime notices are collected by the bundle assembler's dpkg
+# lookup. Do not ship every build-only package notice again (UI limit: 1024).
+cp -a "$Z8_BUILD_OUTPUT/mupdf-icc/runtime/usr/share/doc/mupdf-icc" \
+    "$Z8_BUILD_OUTPUT/source-licenses/mupdf-icc"
+cp packaging/desktop/linux/build-mupdf-icc.sh "$Z8_BUILD_OUTPUT/source-licenses/mupdf-icc/"
+cp "$Z8_BUILD_OUTPUT/mupdf-icc/sources.sha256" "$Z8_BUILD_OUTPUT/source-licenses/mupdf-icc/"
+cp "$Z8_BUILD_OUTPUT/mupdf-icc/packages.tsv" "$Z8_BUILD_OUTPUT/source-licenses/mupdf-icc/"
 node scripts/desktop-prepare.mjs --magick /opt/z8-im/bin/magick \
     --ffmpeg /usr/bin/ffmpeg --ffprobe /usr/bin/ffprobe \
-    --pandoc /usr/bin/pandoc --pandoc-data-dir /usr/share/pandoc/data --mutool /usr/bin/mutool
+    --pandoc /usr/bin/pandoc --pandoc-data-dir /usr/share/pandoc/data \
+    --mutool "$Z8_BUILD_OUTPUT/mupdf-icc/runtime/bin/mutool"
 cargo build --locked --release --no-default-features \
     --features packaged-engines,custom-protocol,linux-portal --manifest-path src-tauri/Cargo.toml
 cargo build --locked --release --manifest-path src-tauri/Cargo.toml \
     -p z8-native --features engine-validation --bin bundle-check
 node scripts/desktop-notices.mjs --target x86_64-unknown-linux-gnu --portal \
     --output "$Z8_BUILD_OUTPUT/application-notices"
-cp "$Z8_BUILD_OUTPUT/source-licenses/"* "$Z8_BUILD_OUTPUT/application-notices/licenses/"
+cp -a "$Z8_BUILD_OUTPUT/source-licenses/." "$Z8_BUILD_OUTPUT/application-notices/licenses/"
 node scripts/desktop-bundle-linux.mjs --manifest "$PWD/.desktop-local/engines.json" \
     --output "$Z8_BUILD_OUTPUT/engines" \
     --magick-modules /opt/z8-im/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders \

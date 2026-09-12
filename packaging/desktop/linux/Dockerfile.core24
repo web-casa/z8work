@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates curl xz-utils git build-essential pkg-config patchelf \
     libgtk-3-dev libwebkit2gtk-4.1-dev librsvg2-dev \
+    python3 libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev libmujs-dev libopenjp2-7-dev zlib1g-dev \
     libpng-dev libjpeg-dev libwebp-dev liblcms2-dev libheif-dev libheif-plugin-aomenc \
     libheif-plugin-aomdec libheif-plugin-libde265 libheif-plugin-x265 \
     ffmpeg pandoc pandoc-data mupdf-tools \

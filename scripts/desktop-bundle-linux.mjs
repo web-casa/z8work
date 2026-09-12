@@ -337,6 +337,17 @@ async function inventory(dir, prefix = "") {
 	}
 }
 await inventory(output);
+// Keep generated bundles usable by the existing offline license viewer.
+const notices = Object.entries(manifest.files).filter(([name]) =>
+	name.startsWith("licenses/"),
+);
+if (
+	notices.length > 1024 ||
+	notices.some(([, file]) => file.bytes > 2 * 1024 * 1024)
+)
+	throw new Error(
+		"License inventory exceeds the desktop viewer limits; consolidate source notices before bundling",
+	);
 await writeFile(
 	join(output, "engines.json"),
 	`${JSON.stringify(manifest, null, 2)}\n`,
