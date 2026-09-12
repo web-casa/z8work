@@ -1,5 +1,10 @@
 name: Complete desktop preview packages
 on:
+    workflow_call:
+        inputs:
+            target:
+                type: string
+                default: macos
     workflow_dispatch:
         inputs:
             target:
