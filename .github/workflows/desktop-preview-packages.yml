@@ -50,6 +50,7 @@ jobs:
               with:
                   targets: ${{ matrix.target }}
             - run: bun install --frozen-lockfile
+            - run: bun run desktop:check
             - run: bun run desktop:build
             - run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
             - name: Prepare native engine toolchain
