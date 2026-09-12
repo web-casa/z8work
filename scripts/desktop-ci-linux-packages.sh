@@ -29,6 +29,9 @@ cp "$root/deb/"*.deb "$root/downloads/"
 if [ "$(uname -m)" = x86_64 ]; then
     node scripts/desktop-snap-prepare.mjs --binary "$root/build/z8-desktop" --engines "$root/build/engines" --output "$root/snap-prepared" > "$root/snap-prepare.log" 2>&1
     node scripts/desktop-snap-pack.mjs --prepared "$root/snap-prepared" --output "$root/snap" --snapcraft-root /snap/snapcraft/current > "$root/snap.log" 2>&1
+    snap_packages=("$root/snap/"*.snap)
+    [ "${#snap_packages[@]}" -eq 1 ]
+    node scripts/desktop-snap-check.mjs --artifact "${snap_packages[0]}" --prepared "$root/snap-prepared/prepared.json" --output "$root/snap-final-check.json" > "$root/snap-check.log" 2>&1
     cp "$root/snap/"*.snap "$root/downloads/"
 fi
 (cd "$root/downloads" && sha256sum ./* > SHA256SUMS)

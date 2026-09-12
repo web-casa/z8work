@@ -251,3 +251,23 @@ test("engine CLI records static checks and blocks execution on the wrong host", 
 		);
 	}
 });
+
+test("resources-only assembly is explicit and preserves pinned engine validation", async (t) => {
+	const setup = await fixture(t);
+	const source = { ...setup, verifier: undefined };
+	await assert.rejects(assembleWindowsBundle(source), /verifier is required/);
+	const built = await assembleWindowsBundle({
+		...source,
+		resourcesOnly: true,
+	});
+	assert.equal(
+		built.manifest.files["validation/bundle-check.exe"],
+		undefined,
+	);
+	assert.equal(Object.keys(built.manifest.engines).length, 5);
+	const provenance = JSON.parse(
+		await readFile(join(setup.output, "provenance.json"), "utf8"),
+	);
+	assert.equal(provenance.scope, "engine-resources-only");
+	assert.equal(provenance.execution, "not-run");
+});

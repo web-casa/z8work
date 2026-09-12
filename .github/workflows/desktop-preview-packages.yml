@@ -48,14 +48,15 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                   node-version: "22.22.2"
-            - run: sudo apt-get update && sudo apt-get install -y cabextract
+            - run: sudo apt-get update && sudo apt-get install -y cabextract p7zip-full
             - run: node scripts/desktop-ci-arm-runtime.mjs
             - uses: actions/upload-artifact@v4
               with:
-                  name: windows-arm64-openmp-runtime
+                  name: windows-arm64-engine-resources
                   path: |
                       .desktop-local/arm-runtime/vcomp140.dll
                       .desktop-local/arm-runtime/runtime.json
+                      .desktop-local/arm-runtime/engines/
                   include-hidden-files: true
                   if-no-files-found: error
                   retention-days: 7
@@ -141,6 +142,7 @@ jobs:
                       .desktop-local/linux-preview/candidate/*.json
                       .desktop-local/linux-preview/deb/*.json
                       .desktop-local/linux-preview/snap/*.json
+                      .desktop-local/linux-preview/snap-prepared/prepared.json
                   include-hidden-files: true
                   retention-days: 14
 
@@ -151,15 +153,8 @@ jobs:
             - if: runner.os == 'Windows'
               uses: actions/download-artifact@v4
               with:
-                  name: windows-x64-assembled-inputs
-                  run-id: 34706876972
-                  github-token: ${{ github.token }}
+                  name: windows-arm64-engine-resources
                   path: .desktop-local/arm-source
-            - if: runner.os == 'Windows'
-              uses: actions/download-artifact@v4
-              with:
-                  name: windows-arm64-openmp-runtime
-                  path: .desktop-local/arm-runtime
             - if: runner.os == 'Windows'
               name: Build ARM64 preview and verify native-host conversions
               run: node scripts/desktop-ci-windows-arm64.mjs

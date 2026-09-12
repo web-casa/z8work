@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile, copyFile } from "node:fs/promises";
 import { resolve, join, dirname } from "node:path";
 import { fileInfo } from "./lib/desktop-sources.mjs";
+import { assembleWindowsBundle } from "./lib/desktop-windows-bundle.mjs";
 const root = resolve(".desktop-local/arm-runtime");
 await mkdir(dirname(root), { recursive: true });
 await mkdir(root);
@@ -44,3 +45,24 @@ await writeFile(
 	join(root, "runtime.json"),
 	JSON.stringify({ source: source.archive, runtime }, null, 2) + "\n",
 );
+
+const archives = join(root, "archives");
+await mkdir(archives);
+for (const entry of lock.sources) {
+	const target = join(archives, entry.archive.file);
+	if (entry.id === "vcredist") await copyFile(join(root, "vc.exe"), target);
+	else {
+		const fetched = await fetch(entry.archive.url, {
+			signal: AbortSignal.timeout(300000),
+		});
+		if (!fetched.ok)
+			throw new Error(`Engine download ${entry.id}: ${fetched.status}`);
+		await writeFile(target, Buffer.from(await fetched.arrayBuffer()));
+	}
+}
+await assembleWindowsBundle({
+	lock,
+	archives,
+	output: join(root, "engines"),
+	resourcesOnly: true,
+});

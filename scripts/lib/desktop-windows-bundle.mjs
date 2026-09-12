@@ -101,8 +101,16 @@ export async function assembleWindowsBundle({
 	verifier,
 	extracted,
 	notices,
+	resourcesOnly = false,
 }) {
 	validateWindowsLock(lock);
+	if (
+		typeof resourcesOnly !== "boolean" ||
+		(resourcesOnly ? verifier || notices : !verifier)
+	)
+		throw new Error(
+			"Explicit resources-only mode or a verifier is required",
+		);
 	await mkdir(output); // Never overwrite previous bundles.
 	const temporary = await mkdtemp(join(tmpdir(), "z8-windows-extract-"));
 	const manifest = {
@@ -185,12 +193,18 @@ export async function assembleWindowsBundle({
 				manifest.files[file.to] = copied;
 			}
 		}
-		await mkdir(join(output, "validation"));
-		await copyFile(verifier, join(output, "validation/bundle-check.exe"));
-		manifest.files["validation/bundle-check.exe"] = await fileInfo(
-			output,
-			"validation/bundle-check.exe",
-		);
+		if (!resourcesOnly) {
+			await mkdir(join(output, "validation"));
+			await copyFile(
+				verifier,
+				join(output, "validation/bundle-check.exe"),
+			);
+			manifest.files["validation/bundle-check.exe"] = await fileInfo(
+				output,
+				"validation/bundle-check.exe",
+			);
+		}
+
 		if (notices) {
 			await fileInfo(notices, "dossier.json", 8 * 1024 ** 2);
 			const dossier = JSON.parse(
@@ -253,6 +267,9 @@ export async function assembleWindowsBundle({
 		const provenance = {
 			schema: 1,
 			kind: "windows-pinned-archives",
+			scope: resourcesOnly
+				? "engine-resources-only"
+				: "engines-and-verifier",
 			sourceLockSha256: sha256(Buffer.from(JSON.stringify(lock))),
 			sources: lock.sources,
 			redistributionApproved: false,

@@ -3,8 +3,8 @@
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile, copyFile, cp, rm } from "node:fs/promises";
 import { resolve, join } from "node:path";
-import { verifyHandoff } from "./lib/desktop-windows-acceptance.mjs";
-import { fileInfo, listFiles } from "./lib/desktop-sources.mjs";
+import { sha256 } from "./lib/desktop-artifacts.mjs";
+import { fileInfo, listFiles, inspectBundle } from "./lib/desktop-sources.mjs";
 import { inspectWindowsTree } from "./lib/desktop-windows.mjs";
 import {
 	msixConfig,
@@ -18,17 +18,25 @@ if (process.platform !== "win32" || process.arch !== "arm64")
 	throw new Error("Native Windows ARM64 runner required");
 const root = resolve(".desktop-local/windows-arm-preview");
 await mkdir(root);
-const source = resolve(".desktop-local/arm-source/handoff");
-await verifyHandoff(source);
+const source = resolve(".desktop-local/arm-source/engines");
+await inspectBundle(source, "windows");
+const sourceRecord = JSON.parse(
+	await readFile(join(source, "provenance.json"), "utf8"),
+);
+const sourceLock = JSON.parse(
+	await readFile("packaging/desktop/windows/engines.lock.json", "utf8"),
+);
 if (
-	(await fileInfo(source, "handoff.json")).sha256 !==
-	"98fa7638882235e647f18fd771e754ff7a929516b3a74250ae50eb397be1b299"
+	sourceRecord.sourceLockSha256 !==
+		sha256(Buffer.from(JSON.stringify(sourceLock))) ||
+	sourceRecord.scope !== "engine-resources-only"
 )
-	throw new Error("Unexpected source handoff");
+	throw new Error("Unexpected engine source lock");
 const candidate = join(root, "candidate");
 await mkdir(candidate);
 const engines = join(candidate, "engines");
-await cp(join(source, "candidate/engines"), engines, { recursive: true });
+await cp(source, engines, { recursive: true });
+await mkdir(join(engines, "validation"));
 await copyFile(
 	".desktop-local/ci/application/z8-desktop.exe",
 	join(candidate, "z8-desktop.exe"),
@@ -72,7 +80,10 @@ for (const [from, to] of [
 	await copyFile(join(root, "magick", from), join(engines, to));
 // This private copy no longer contains the old x64 application or verifier.
 // Replace only their application notices; all original engine notices remain.
-await rm(join(engines, "licenses/application"), { recursive: true });
+await rm(join(engines, "licenses/application"), {
+	recursive: true,
+	force: true,
+});
 const noticesRoot = resolve(".desktop-local/ci/application/notices");
 const dossier = JSON.parse(
 	await readFile(join(noticesRoot, "dossier.json"), "utf8"),
@@ -93,17 +104,14 @@ await cp(
 const runtime = JSON.parse(
 	await readFile("packaging/desktop/windows/arm-runtime.json", "utf8"),
 );
-const runtimeInfo = await fileInfo(
-	".desktop-local/arm-runtime",
-	"vcomp140.dll",
-);
+const runtimeInfo = await fileInfo(".desktop-local/arm-source", "vcomp140.dll");
 if (
 	runtimeInfo.sha256 !== runtime.sha256 ||
 	runtimeInfo.bytes !== runtime.bytes
 )
 	throw new Error("ARM64 runtime changed");
 await copyFile(
-	".desktop-local/arm-runtime/vcomp140.dll",
+	".desktop-local/arm-source/vcomp140.dll",
 	join(engines, "bin/vcomp140.dll"),
 );
 const manifest = JSON.parse(
@@ -131,8 +139,8 @@ const provenance = JSON.parse(
 	await readFile(join(engines, "provenance.json"), "utf8"),
 );
 provenance.arm64Preview = {
-	sourceRun: 34706876972,
-	sourceHandoff: await fileInfo(source, "handoff.json"),
+	sourceManifest: await fileInfo(source, "engines.json"),
+	sourceLockSha256: sourceRecord.sourceLockSha256,
 	magickSource,
 	runtime,
 	applicationNotices: await fileInfo(noticesRoot, "dossier.json"),
