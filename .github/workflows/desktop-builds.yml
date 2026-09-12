@@ -2,6 +2,12 @@ name: Desktop binaries and Windows development MSIX
 
 on:
     workflow_dispatch:
+        inputs:
+            target:
+                description: Native build scope
+                type: choice
+                default: all
+                options: [all, windows-amd64]
     push:
         branches: ["desktop-ci/**"]
 
@@ -20,7 +26,17 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - id: matrix
-              run: echo "entries=$(jq -c . packaging/desktop/ci-matrix.json)" >> "$GITHUB_OUTPUT"
+              env:
+                  BUILD_TARGET: ${{ inputs.target || 'all' }}
+              run: |
+                  if [ "$BUILD_TARGET" = all ]; then
+                      entries=$(jq -c . packaging/desktop/ci-matrix.json)
+                  elif [ "$BUILD_TARGET" = windows-amd64 ]; then
+                      entries=$(jq -c '[.[] | select(.id == "windows-amd64")]' packaging/desktop/ci-matrix.json)
+                  else
+                      exit 1
+                  fi
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
     application:
         needs: matrix
         strategy:
@@ -122,6 +138,8 @@ jobs:
               with:
                   name: windows-x64-assembled-inputs
                   path: .desktop-local/ci
+            - name: Diagnose native MuPDF path handling
+              run: node scripts/desktop-windows-pdf-paths.mjs --root .desktop-local/ci/handoff/candidate --output .desktop-local/ci/pdf-paths
             - name: Validate native Windows lifecycle and conversion matrix
               run: node scripts/desktop-windows-acceptance.mjs --root .desktop-local/ci/handoff --output .desktop-local/ci/native-check --runtime native
             - name: Package and unpack with Windows SDK
@@ -164,6 +182,7 @@ jobs:
                   name: windows-x64-package-reports
                   path: |
                       .desktop-local/ci/native-check/
+                      .desktop-local/ci/pdf-paths/report.json
                       .desktop-local/ci/msix/*.json
                       .desktop-local/ci/msix/*.log
                   if-no-files-found: warn

@@ -134,6 +134,17 @@ struct Job<'a> {
     deadline: Instant,
 }
 impl Job<'_> {
+    fn work_file(&self, path: &Path) -> Result<OsString, String> {
+        // MuPDF does not reliably accept Windows verbatim (\\?\) paths.
+        // Commands already run inside this private directory. Pass only the
+        // filename of our own staged input/output; keep filesystem paths intact.
+        if path.parent() != Some(self.cwd) {
+            return Err("Engine file is outside the job directory".into());
+        }
+        path.file_name()
+            .map(|name| name.to_owned())
+            .ok_or_else(|| "Missing engine work filename".into())
+    }
     fn run(&self, engine: &str, args: &[OsString]) -> Result<String, String> {
         self.run_progress(engine, args, None)
     }
@@ -767,7 +778,7 @@ fn convert_pdf(
         "mutool",
         &[
             text("show"),
-            staged.as_os_str().into(),
+            job.work_file(staged)?,
             text("trailer/Root/Pages/Count"),
         ],
     )?;
@@ -847,8 +858,8 @@ fn convert_pdf(
                 text("-h"),
                 text("4000"),
                 text("-o"),
-                rendered.clone().into_os_string(),
-                staged.as_os_str().into(),
+                job.work_file(&rendered)?,
+                job.work_file(staged)?,
                 text(&page.to_string()),
             ],
         )?;
@@ -884,6 +895,30 @@ fn convert_pdf(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn engine_work_files_are_relative_and_confined_to_the_private_job() {
+        let root = tempfile::tempdir().unwrap();
+        let cwd = root.path().canonicalize().unwrap();
+        let cancel = Cancel::default();
+        let engines = Engines {
+            entries: Default::default(),
+            development: true,
+            unavailable: Default::default(),
+            bundle: None,
+        };
+        let job = Job {
+            engines: &engines,
+            cwd: &cwd,
+            cancel: &cancel,
+            deadline: Instant::now() + Duration::from_secs(5),
+        };
+        for name in ["input.pdf", "page.png", "preview.png"] {
+            assert_eq!(job.work_file(&cwd.join(name)).unwrap(), text(name));
+        }
+        assert!(job.work_file(&cwd.join("../input.pdf")).is_err());
+        assert!(job.work_file(&cwd.join("nested/input.pdf")).is_err());
+        assert!(job.work_file(&cwd).is_err());
+    }
     #[test]
     fn store_materials_describe_only_native_conversion_routes() {
         let content: serde_json::Value = serde_json::from_str(include_str!(

@@ -104,8 +104,8 @@ pub(crate) fn preview(
                 text("-h"),
                 text("256"),
                 text("-o"),
-                output.as_os_str().to_owned(),
-                staged.as_os_str().to_owned(),
+                job.work_file(&output)?,
+                job.work_file(&staged)?,
                 text("1"),
             ],
         )?;
