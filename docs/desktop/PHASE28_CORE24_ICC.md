@@ -61,4 +61,4 @@ node scripts/desktop-snap-check.mjs \
 
 大体积包、引擎和源码保存在 `.desktop-local/core24-icc`；小型报告、完整转换日志、归档校验与命令记录位于 [evidence/core24-icc-20260912](evidence/core24-icc-20260912/)，以 `SHA256SUMS` 校验。`run.sh`/`resume.sh` 是隔离容器内的实际脚本，依赖对应 `/work`、`/inputs` 挂载；`run-isolated.sh` 记录已执行的容器命令，不是全新环境自动重建入口。
 
-下一步继续 R5/R6：核对 Windows 引擎 PDF 色彩并纳入共享修复重建，取得 macOS ARM64 原生候选，以及在真实 AMD64 Ubuntu 桌面执行 strict Snap 安装、portal 授权、升级和卸载。旧候选保留用于历史追踪；本轮不关闭三端原生验收、完整许可/源码审查或 R7 冻结门禁。
+Windows 后续同步见 [Windows 候选与 ICC 诊断](PHASE28_WINDOWS_ICC.md)。下一步继续 R5/R6：取得 macOS ARM64 原生候选，补齐 Windows 原生验证，以及在真实 AMD64 Ubuntu 桌面执行 strict Snap 安装、portal 授权、升级和卸载。旧候选保留用于历史追踪；本轮不关闭三端原生验收、完整许可/源码审查或 R7 冻结门禁。

@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "results": [
+    {
+      "name": "process::tests::abrupt_parent_exit_stops_descendants",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::successful_parent_cannot_leave_pipe_holding_descendants",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::cancelled_or_expired_work_never_starts",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::output_wait_observes_cancellation_and_one_deadline",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::drains_both_pipes_with_bounded_memory",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::failure_is_observable",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::deadline_is_total_and_kills_descendants",
+      "status": "passed"
+    },
+    {
+      "name": "process::tests::cancellation_stops_a_running_process",
+      "status": "passed"
+    },
+    {
+      "name": "failure::tests::output_io_categories_follow_error_kinds_not_message_text",
+      "status": "passed"
+    },
+    {
+      "name": "failure::tests::public_categories_match_shared_frontend_fixture",
+      "status": "passed"
+    }
+  ],
+  "execution": "Wine AMD64 emulation on ARM64 Linux",
+  "nativeWindows": false,
+  "gui": "not-run",
+  "installation": "not-run",
+  "buildInfo": {
+    "applicationId": "work.z8.desktop.m0",
+    "arch": "x86_64",
+    "customProtocol": true,
+    "debug": false,
+    "engines": "bundled",
+    "fileDialog": "native",
+    "os": "windows",
+    "processLifetime": "job-close-v1",
+    "resourceDirectoryName": "Z8.Work Desktop Dev",
+    "schema": 1,
+    "updater": false,
+    "version": "0.1.0"
+  },
+  "lifecycleTests": [
+    "process::tests::abrupt_parent_exit_stops_descendants",
+    "process::tests::successful_parent_cannot_leave_pipe_holding_descendants",
+    "process::tests::cancelled_or_expired_work_never_starts",
+    "process::tests::output_wait_observes_cancellation_and_one_deadline",
+    "process::tests::drains_both_pipes_with_bounded_memory",
+    "process::tests::failure_is_observable",
+    "process::tests::deadline_is_total_and_kills_descendants",
+    "process::tests::cancellation_stops_a_running_process"
+  ],
+  "failureClassificationTests": [
+    "failure::tests::output_io_categories_follow_error_kinds_not_message_text",
+    "failure::tests::public_categories_match_shared_frontend_fixture"
+  ]
+}

@@ -1,0 +1,9 @@
+rustc 1.96.0 (ac68faa20 2026-05-25)
+cargo-xwin-xwin 0.23.1
+Debian clang version 19.1.7 (3+b1)
+Target: aarch64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/lib/llvm-19/bin
+v24.18.0
+1.4.0
+71beee765fb770321ec48e089e614f803ea6aeb8

@@ -1,5 +1,7 @@
 # Phase 28：本地候选与重跑交接
 
+2026-09-12 Windows 补充：[当前候选同步、ICC 验证修复及 Wine 诊断](PHASE28_WINDOWS_ICC.md)。Windows 原生安装与商店验收仍未完成；下文保留历史阶段记录。
+
 2026-09-12 补充：已完成 [core24 AMD64 的 ICC 修复、当前应用重建及新 Snap 验证](PHASE28_CORE24_ICC.md)。下文保留本阶段当时的历史候选与结果；新 Snap 的原生 strict 安装仍未验收。
 
 日期：2026-09-09。以下均为开发验证产物，源码提交 `f4cfc0f`，core24 构建配方补充修复 `d1a9c54`、`b62fa70`，正式发行未批准。大体积程序、引擎、源码归档和安装包保留在 `.desktop-local/phase28`，只提交小型证据文件。报告里的旧 HEAD 表示收据捕获时的基线；`inputs-handoff.json` 记录最终代码提交的实际源文件摘要，不能仅凭 HEAD 将其视为 Phase 27 旧二进制。

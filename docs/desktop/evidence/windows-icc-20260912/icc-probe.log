@@ -1,0 +1,2 @@
+magick.exe: UnableToOpenConfigureFile `colors.xml' @ warning/configure.c/GetConfigureOptions/722.
+[{"name":"plain","passed":true,"bytes":480},{"name":"explicit","passed":true,"bytes":480},{"name":"relative","passed":true,"bytes":480}]

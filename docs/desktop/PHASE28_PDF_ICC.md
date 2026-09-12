@@ -79,7 +79,7 @@ src-tauri/target/release/bundle-check \
 
 首次候选归档验证进程收到 SIGTERM（退出 143），未生成成功报告，原因未确认；该中断不记为通过，原始记录保存为 `candidate-interrupted-exit.txt` / `candidate-interrupted.log`。独立重跑已对最终解包字节执行完整矩阵，退出码为 0，中断未复现。两份归档摘要完全一致，先前 GUI 证据通过应用、引擎清单及归档摘要关联；不改写 GUI 报告原有字段。错误的 GNU Windows 目标探测因本机未安装该 target 失败，随后按已有 MSVC 工具链完成交叉检查；没有为此新增系统工具链。
 
-core24 接入已于 2026-09-12 完成，见[新 Snap 候选](PHASE28_CORE24_ICC.md)。下一步继续 R5：核对 Windows 现有引擎的实际 PDF 色彩输出，取得 macOS ARM64 的原生候选；随后完成 R6 目标系统安装与 R7 交接。新质量门禁已阻止以没有 PDF 色彩证据的历史报告关闭这些项目。
+core24 接入已于 2026-09-12 完成，见[新 Snap 候选](PHASE28_CORE24_ICC.md)。Windows 锁定引擎已完成 [Wine PDF 色彩诊断与候选同步](PHASE28_WINDOWS_ICC.md)。下一步继续 R5：取得 macOS ARM64 的原生候选，并补齐 Windows 原生验证；随后完成 R6 目标系统安装与 R7 交接。新质量门禁已阻止以没有 PDF 色彩证据的历史报告关闭这些项目。
 
 ## 最终本地候选
 

@@ -1,0 +1,10 @@
+rosetta error: invalid gdt selector index 5
+ file:///repo/scripts/lib/desktop-windows-acceptance.mjs:47
+		throw new Error(
+		      ^
+
+Error: Required lifecycle test did not run successfully: process::tests::drains_both_pipes_with_bounded_memory
+    at validateTestResult (file:///repo/scripts/lib/desktop-windows-acceptance.mjs:47:9)
+    at file:///work/runtime-smoke.mjs:21:2
+
+Node.js v22.22.2

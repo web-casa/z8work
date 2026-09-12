@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "scope": "development-msix-package",
+  "status": "passed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "storeSubmissionAllowed": false,
+  "checks": {
+    "layout": "passed",
+    "package": "passed",
+    "blockmap": "passed",
+    "unpack": "passed",
+    "installation": "not-run",
+    "webview2": "not-run",
+    "licenses": "not-run"
+  },
+  "tool": {
+    "kind": "makemsix",
+    "binary": {
+      "sha256": "4890d7d3e5257362f831695124665ff796eef83e1ea655390c910f1f2dae8710",
+      "bytes": 195376
+    }
+  },
+  "artifact": {
+    "sha256": "654639ab58d6e64387d8b63b6282eed903627b7729097e8ebbc6ff083dd8260b",
+    "bytes": 172865022
+  }
+}

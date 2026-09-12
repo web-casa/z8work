@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "head": "71beee765fb770321ec48e089e614f803ea6aeb8",
+  "initialFiles": 455,
+  "reviewedFiles": 455,
+  "changedFiles": [
+    "src-tauri/native/src/phase27_smoke.rs"
+  ],
+  "reason": "Validation-only ICC output coder; final app/verifier rebuilt and packaged after correction."
+}

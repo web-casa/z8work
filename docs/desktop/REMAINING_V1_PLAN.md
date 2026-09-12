@@ -4,6 +4,8 @@
 
 2026-09-12：R5 新增 [core24 ICC 修复与 AMD64 Snap 候选](PHASE28_CORE24_ICC.md)，完整引擎转换在 AMD64 仿真环境通过；R6 strict 原生安装与三端剩余验收继续保留。用户额外要求的 [ARM64 Debian 预览包](LINUX_DEB_PREVIEW.md)已单独交付，不改变下述必验收平台矩阵。
 
+同日继续补齐 [Windows 当前候选、PDF 色彩诊断与验证器修复](PHASE28_WINDOWS_ICC.md)。Wine 诊断不计为 Windows 原生安装或目标设备性能验收，R5/R6/R7 整体状态不提前关闭。
+
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 
 ## 1. 起点与最终交付

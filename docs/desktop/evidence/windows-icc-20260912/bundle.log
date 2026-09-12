@@ -1,0 +1,16 @@
+node:internal/fs/promises:1184
+  return await PromisePrototypeThen(
+         ^
+
+Error: ENOENT: no such file or directory, realpath '/home/ivmm/VERT/.desktop-local/phase11/extracted/magick'
+    at async realpath (node:internal/fs/promises:1184:10)
+    at async fileInfo (file:///home/ivmm/VERT/scripts/lib/desktop-sources.mjs:20:13)
+    at async assembleWindowsBundle (file:///home/ivmm/VERT/scripts/lib/desktop-windows-bundle.mjs:172:19)
+    at async file:///home/ivmm/VERT/scripts/desktop-bundle-windows.mjs:16:16 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'realpath',
+  path: '/home/ivmm/VERT/.desktop-local/phase11/extracted/magick'
+}
+
+Node.js v24.18.0

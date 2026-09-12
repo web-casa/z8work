@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "initialArchiveAssembly": {
+    "status": "failed",
+    "reason": "Historical extracted directory names differ; re-extracted hash-pinned archives successfully."
+  },
+  "matrixBeforeIccFix": {
+    "status": "failed",
+    "reason": "ICC output path C: coder ambiguity",
+    "report": "wine-quality/report.json"
+  },
+  "matrixWith20MinuteController": {
+    "status": "failed",
+    "observedSeconds": 1200.039782524109,
+    "configuredLimitMs": 1200000,
+    "report": "wine-final/report.json"
+  },
+  "runtimeBeforeReview": {
+    "status": "failed",
+    "reason": "Rosetta gdt selector error; incomplete test summary rejected"
+  },
+  "runtimeIntermediateIndependent": {
+    "status": "passed",
+    "tests": 10
+  },
+  "runtimeFinalInitial": {
+    "status": "failed",
+    "passed": 9,
+    "failed": 1
+  },
+  "runtimeFinalIndependentRetry": {
+    "status": "passed",
+    "tests": 10,
+    "nativeWindows": false
+  },
+  "matrixWithWineBudget": {
+    "status": "passed",
+    "configuredLimitMs": 3600000,
+    "elapsedSeconds": 1525.6143399,
+    "routes": 84,
+    "qualityChecks": 20,
+    "calibration": 240,
+    "report": "wine-extended/report.json",
+    "nativeWindows": false
+  }
+}
