@@ -1,0 +1,3 @@
+dpkg-shlibdeps: warning: binaries to analyze should already be installed in their package's directory
+dpkg-shlibdeps: warning: package could avoid a useless dependency if /home/ivmm/VERT/.desktop-local/deb-arm64/reviewed/root/usr/bin/z8-desktop was not linked against libpango-1.0.so.0 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if /home/ivmm/VERT/.desktop-local/deb-arm64/reviewed/root/usr/bin/z8-desktop was not linked against libcairo-gobject.so.2 (it uses none of the library's symbols)

@@ -1,0 +1,10 @@
+{
+  "packageSha256": "f4b77f6e9673db2726340cb00e118453b31309dbe563e671d3fd2bd12ccce568",
+  "bytes": 124091940,
+  "rootOwnedEntries": 1572,
+  "noSetuidOrSetgid": true,
+  "installConvertRemove": "passed",
+  "guiChecks": 8,
+  "guiExecution": "extracted final deb on Debian ARM64 host",
+  "installationExecution": "clean Debian 13 ARM64 container; no host installation"
+}
