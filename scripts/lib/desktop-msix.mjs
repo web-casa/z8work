@@ -30,6 +30,7 @@ export function windowsPreviewArchitecture(name) {
 	return [
 		"z8-desktop.exe",
 		"engines/bin/magick.exe",
+		"engines/bin/vcomp140.dll",
 		"engines/validation/bundle-check.exe",
 	].includes(name)
 		? "aarch64"

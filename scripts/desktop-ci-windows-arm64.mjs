@@ -90,6 +90,22 @@ await cp(
 	join(engines, "licenses/application"),
 	{ recursive: true },
 );
+const runtime = JSON.parse(
+	await readFile("packaging/desktop/windows/arm-runtime.json", "utf8"),
+);
+const runtimeInfo = await fileInfo(
+	".desktop-local/arm-runtime",
+	"vcomp140.dll",
+);
+if (
+	runtimeInfo.sha256 !== runtime.sha256 ||
+	runtimeInfo.bytes !== runtime.bytes
+)
+	throw new Error("ARM64 runtime changed");
+await copyFile(
+	".desktop-local/arm-runtime/vcomp140.dll",
+	join(engines, "bin/vcomp140.dll"),
+);
 const manifest = JSON.parse(
 	await readFile(join(engines, "engines.json"), "utf8"),
 );
@@ -118,6 +134,7 @@ provenance.arm64Preview = {
 	sourceRun: 34706876972,
 	sourceHandoff: await fileInfo(source, "handoff.json"),
 	magickSource,
+	runtime,
 	applicationNotices: await fileInfo(noticesRoot, "dossier.json"),
 	compatibility,
 	redistributionApproved: false,

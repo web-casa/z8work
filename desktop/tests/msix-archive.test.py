@@ -49,6 +49,20 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual(result['status'], 'passed')
         self.assertEqual(result['signature'], 'not-present')
 
+    def test_arm64_manifest_is_bound_to_the_prepared_architecture(self):
+        original = self.payload['AppxManifest.xml']
+        data = original.replace(b'ProcessorArchitecture="x64"', b'ProcessorArchitecture="arm64"')
+        self.payload['AppxManifest.xml'] = data
+        self.prepared['files']['AppxManifest.xml'] = {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+        self.map = self.map.replace(f'Name="AppxManifest.xml" Size="{len(original)}"', f'Name="AppxManifest.xml" Size="{len(data)}"')
+        self.map = self.map.replace(base64.b64encode(hashlib.sha256(original).digest()).decode(), base64.b64encode(hashlib.sha256(data).digest()).decode())
+        self.prepared['config']['architecture'] = 'arm64'
+        self.write()
+        self.assertEqual(checker.check(self.package, self.prepared)['status'], 'passed')
+        self.prepared['config']['architecture'] = 'x64'
+        with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+            checker.check(self.package, self.prepared)
+
     def add_file_hash(self, value=None, namespace='http://schemas.microsoft.com/appx/2021/blockmap'):
         value = value if value is not None else hashlib.sha256(self.payload['bin/data']).digest()
         tag = f'<b4:FileHash xmlns:b4="{namespace}" Hash="{base64.b64encode(value).decode()}"/>'
