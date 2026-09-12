@@ -80,15 +80,29 @@ def check(package, prepared, signed=False):
         if blockmap.tag != ns + 'BlockMap' or blockmap.get('HashMethod') != 'http://www.w3.org/2001/04/xmlenc#sha256':
             raise ValueError('Unsupported BlockMap hash algorithm')
         blocks = {}
+        file_hashes = {}
         for node in blockmap:
             name = safe_name(node.attrib['Name'])
             if node.tag != ns+'File' or name in blocks or name not in expected:
                 raise ValueError('Unexpected BlockMap file')
             if int(node.attrib['Size']) != expected[name]['bytes']:
                 raise ValueError('BlockMap size mismatch')
-            if any(child.tag != ns+'Block' for child in node):
-                raise ValueError(f'Unexpected BlockMap element: {[child.tag for child in node if child.tag != ns + "Block"]}')
-            blocks[name] = list(node)
+            blocks[name] = []
+            for child in node:
+                if child.tag == ns + 'Block':
+                    blocks[name].append(child)
+                elif child.tag == '{http://schemas.microsoft.com/appx/2021/blockmap}FileHash':
+                    # Windows SDK adds a whole-file SHA-256 alongside 64 KiB hashes.
+                    # Verify it as well; do not ignore arbitrary namespace extensions.
+                    if name in file_hashes or set(child.attrib) != {'Hash'} or len(child):
+                        raise ValueError('Invalid or duplicate BlockMap FileHash')
+                    value = base64.b64decode(child.attrib['Hash'], validate=True)
+                    if len(value) != 32:
+                        raise ValueError('Invalid BlockMap FileHash length')
+                    file_hashes[name] = value
+                else:
+                    raise ValueError(f'Unexpected BlockMap element: {child.tag}')
+
         if set(blocks) != expected_names:
             raise ValueError('Incomplete BlockMap coverage')
         count = 0
@@ -105,6 +119,8 @@ def check(package, prepared, signed=False):
                     count += 1
                 if stream.read(1):
                     raise ValueError('Missing block hash')
+            if name in file_hashes and digest.digest() != file_hashes[name]:
+                raise ValueError('BlockMap FileHash mismatch')
             if digest.hexdigest() != fingerprint['sha256']:
                 raise ValueError('Payload SHA-256 mismatch')
         manifest = xml_document(archive.read(indexed['AppxManifest.xml']))
@@ -117,7 +133,7 @@ def check(package, prepared, signed=False):
             raise ValueError('Not a development package')
     with Path(package).open('rb') as stream:
         digest = hashlib.file_digest(stream, 'sha256').hexdigest()
-    return {'schema': 1, 'status': 'passed', 'scope': 'signed-development-msix-content' if signed else 'unsigned-development-msix', 'sha256': digest, 'bytes': Path(package).stat().st_size, 'payloadFiles': len(expected), 'verifiedBlocks': count, 'signature': 'present-not-verified' if signed else 'not-present', 'codeIntegrity': catalog, 'installation': 'not-run', 'redistributionApproved': False}
+    return {'schema': 1, 'status': 'passed', 'scope': 'signed-development-msix-content' if signed else 'unsigned-development-msix', 'sha256': digest, 'bytes': Path(package).stat().st_size, 'payloadFiles': len(expected), 'verifiedBlocks': count, 'verifiedFileHashes': len(file_hashes), 'signature': 'present-not-verified' if signed else 'not-present', 'codeIntegrity': catalog, 'installation': 'not-run', 'redistributionApproved': False}
 
 
 def main():

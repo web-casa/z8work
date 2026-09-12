@@ -2,6 +2,7 @@
 import { readFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { fileInfo } from "./lib/desktop-sources.mjs";
+import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 import { verifyHandoff } from "./lib/desktop-windows-acceptance.mjs";
 const [handoffArg, reportArg] = process.argv.slice(2);
 if (!handoffArg || !reportArg)
@@ -31,9 +32,22 @@ for (const key of [
 const equal = (a, b) => a?.sha256 === b?.sha256 && a?.bytes === b?.bytes;
 if (!equal(await fileInfo(handoff, "handoff.json"), report.handoff))
 	throw new Error("Native report belongs to a different candidate");
+for (const name of [
+	"conversions.json",
+	"pe.json",
+	"build-info.json",
+	"runtime-info.json",
+	"lifecycle-list.txt",
+])
+	if (!report.references?.[name])
+		throw new Error(`Missing native evidence: ${name}`);
 for (const [name, expected] of Object.entries(report.references))
 	if (!equal(await fileInfo(root, name), expected))
 		throw new Error(`Changed native evidence: ${name}`);
+validateQuality(
+	JSON.parse(await readFile(join(root, "conversions.json"), "utf8")),
+	"windows-x86_64",
+);
 console.log(
 	"Exact handoff and all referenced native validation evidence verified",
 );

@@ -49,6 +49,52 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual(result['status'], 'passed')
         self.assertEqual(result['signature'], 'not-present')
 
+    def add_file_hash(self, value=None, namespace='http://schemas.microsoft.com/appx/2021/blockmap'):
+        value = value if value is not None else hashlib.sha256(self.payload['bin/data']).digest()
+        tag = f'<b4:FileHash xmlns:b4="{namespace}" Hash="{base64.b64encode(value).decode()}"/>'
+        start = self.map.index('<File Name="bin/data"')
+        end = self.map.index('</File>', start)
+        self.map = self.map[:end] + tag + self.map[end:]
+
+    def test_windows_sdk_whole_file_hash_is_verified_with_blocks(self):
+        self.add_file_hash()
+        self.write()
+        result = checker.check(self.package, self.prepared)
+        self.assertEqual(result['verifiedFileHashes'], 1)
+        self.assertEqual(result['verifiedBlocks'], 3)
+
+    def test_whole_file_hash_tampering_is_rejected(self):
+        self.add_file_hash(b'x' * 32)
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'FileHash mismatch'):
+            checker.check(self.package, self.prepared)
+
+    def test_file_hash_does_not_replace_block_checks(self):
+        self.add_file_hash()
+        self.map = self.map.replace('Hash="', 'Hash="A', 1)
+        self.write()
+        with self.assertRaises(ValueError):
+            checker.check(self.package, self.prepared)
+
+    def test_unknown_extension_namespace_is_rejected(self):
+        self.add_file_hash(namespace='https://example.invalid/blockmap')
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'Unexpected BlockMap element'):
+            checker.check(self.package, self.prepared)
+
+    def test_duplicate_and_short_file_hashes_are_rejected(self):
+        original = self.map
+        self.add_file_hash()
+        self.add_file_hash()
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'duplicate'):
+            checker.check(self.package, self.prepared)
+        self.map = original
+        self.add_file_hash(b'x')
+        self.write()
+        with self.assertRaisesRegex(ValueError, 'FileHash length'):
+            checker.check(self.package, self.prepared)
+
     def test_payload_tampering_even_with_updated_zip_crc(self):
         self.payload['bin/data'] = b'x' * 90000
         self.write()
