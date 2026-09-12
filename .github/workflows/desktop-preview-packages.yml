@@ -38,6 +38,7 @@ jobs:
                   TARGET: ${{ inputs.target }}
               run: |
                   entries=$(jq -c --arg target "$TARGET" '[.[] | select(.os == $target or .id == $target)]' packaging/desktop/ci-matrix.json)
+                  test "$(printf '%s' "$entries" | jq length)" -gt 0
                   echo "entries=$entries" >> "$GITHUB_OUTPUT"
     package:
         needs: matrix

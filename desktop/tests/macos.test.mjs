@@ -228,6 +228,14 @@ test("macOS bundle checks every code resource and refuses missing, changed and l
 	};
 	await writeFile(join(root, "engines.json"), JSON.stringify(manifest));
 	assert.equal((await inspectMacBundle(root)).machObjects, 3);
+	const intelLibrary = Buffer.from(files["lib/a.dylib"]);
+	intelLibrary.writeUInt32LE(0x01000007, 4);
+	await writeFile(join(root, "lib/a.dylib"), intelLibrary);
+	manifest.files["lib/a.dylib"].sha256 = sha256(intelLibrary);
+	await writeFile(join(root, "engines.json"), JSON.stringify(manifest));
+	await assert.rejects(inspectMacBundle(root), /architecture mismatch/);
+	manifest.files["lib/a.dylib"].sha256 = sha256(files["lib/a.dylib"]);
+	await writeFile(join(root, "engines.json"), JSON.stringify(manifest));
 	await writeFile(join(root, "lib/a.dylib"), macho(2));
 	await assert.rejects(inspectMacBundle(root), /integrity/);
 	await rm(join(root, "lib/a.dylib"));
