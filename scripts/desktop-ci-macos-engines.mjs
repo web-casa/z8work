@@ -156,8 +156,7 @@ async function optionalTree(source, destination) {
 		const info = await stat(input);
 		if (info.isDirectory()) await optionalTree(input, output);
 		else if (info.isFile()) {
-			if (entry.name.endsWith(".la") || entry.name.endsWith(".a"))
-				continue;
+			if (entry.name.endsWith(".a")) continue;
 			const b = await readFile(input);
 			if (b.subarray(0, 4).toString("hex") === "cffaedfe")
 				await stage(input, output);
@@ -165,7 +164,15 @@ async function optionalTree(source, destination) {
 				await mkdir(dirname(join(resources, output)), {
 					recursive: true,
 				});
-				await copyFile(input, join(resources, output));
+				if (entry.name.endsWith(".la"))
+					await writeFile(
+						join(resources, output),
+						(await readFile(input, "utf8")).replace(
+							/^libdir=.*$/m,
+							"libdir=''",
+						),
+					);
+				else await copyFile(input, join(resources, output));
 			}
 		}
 	}

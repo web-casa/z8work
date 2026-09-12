@@ -126,7 +126,9 @@ def check(package, prepared, signed=False):
         manifest = xml_document(archive.read(indexed['AppxManifest.xml']))
         identity = manifest.find('{http://schemas.microsoft.com/appx/manifest/foundation/windows10}Identity')
         c = prepared['config']
-        if identity is None or identity.attrib != {'Name': c['identity'], 'Publisher': c['publisher'], 'Version': c['version'], 'ProcessorArchitecture': 'x64'}:
+        if c.get('architecture', 'x64') not in ('x64', 'arm64'):
+            raise ValueError('Unsupported package architecture')
+        if identity is None or identity.attrib != {'Name': c['identity'], 'Publisher': c['publisher'], 'Version': c['version'], 'ProcessorArchitecture': c.get('architecture', 'x64')}:
             raise ValueError('Package identity mismatch')
         if (c.get('storeSubmissionAllowed') is not False or c.get('channel') != 'local-development'
             or c.get('identity') != 'Z8Work.Desktop.Dev' or c.get('publisher') != 'CN=Z8.Work Development'):

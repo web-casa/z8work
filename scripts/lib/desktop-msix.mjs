@@ -26,7 +26,18 @@ export async function msixConfig() {
 		),
 	);
 }
+export function windowsPreviewArchitecture(name) {
+	return [
+		"z8-desktop.exe",
+		"engines/bin/magick.exe",
+		"engines/validation/bundle-check.exe",
+	].includes(name)
+		? "aarch64"
+		: "x86_64";
+}
 export function validateMsixConfig(config) {
+	if (![undefined, "x64", "arm64"].includes(config?.architecture))
+		throw new Error("Unsupported MSIX architecture");
 	if (
 		config?.schema !== 1 ||
 		config.channel !== "local-development" ||
@@ -51,8 +62,12 @@ export function validateMsixConfig(config) {
 	)
 		throw new Error("Expected bounded four-part Windows versions");
 	if (
-		config.minimumWindowsVersion !== "10.0.19041.0" ||
-		config.maxVersionTested !== "10.0.19041.0"
+		config.minimumWindowsVersion !==
+			(config.architecture === "arm64"
+				? "10.0.22000.0"
+				: "10.0.19041.0") ||
+		config.maxVersionTested !==
+			(config.architecture === "arm64" ? "10.0.22000.0" : "10.0.19041.0")
 	)
 		throw new Error("Unreviewed Windows compatibility declaration");
 	if (JSON.stringify(config.languages) !== JSON.stringify(["en-US", "zh-CN"]))
@@ -70,7 +85,7 @@ export function msixManifest(c) {
 	validateMsixConfig(c);
 	return `<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap rescap">
-  <Identity Name="${xml(c.identity)}" Publisher="${xml(c.publisher)}" Version="${xml(c.version)}" ProcessorArchitecture="x64" />
+  <Identity Name="${xml(c.identity)}" Publisher="${xml(c.publisher)}" Version="${xml(c.version)}" ProcessorArchitecture="${c.architecture ?? "x64"}" />
   <Properties><DisplayName>${xml(c.displayName)}</DisplayName><PublisherDisplayName>${xml(c.publisherDisplayName)}</PublisherDisplayName><Description>${xml(c.description)}</Description><Logo>Assets\\StoreLogo.png</Logo></Properties>
   <Resources>${c.languages.map((language) => `<Resource Language="${xml(language)}" />`).join("")}</Resources>
   <Dependencies><TargetDeviceFamily Name="Windows.Desktop" MinVersion="${c.minimumWindowsVersion}" MaxVersionTested="${c.maxVersionTested}" /></Dependencies>
@@ -164,7 +179,12 @@ async function verifyPayload(root, prepared, footprints) {
 	for (const [name, size] of Object.entries(msixAssets))
 		validatePng(await readFile(join(root, "Assets", name)), size);
 	await inspectBundle(join(root, "engines"), "windows");
-	const pe = await inspectWindowsTree(root);
+	const pe = await inspectWindowsTree(
+		root,
+		prepared.config.architecture === "arm64"
+			? windowsPreviewArchitecture
+			: undefined,
+	);
 	if (
 		pe.missing.length ||
 		!pe.images.some(

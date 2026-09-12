@@ -4,7 +4,7 @@ import { lstat, readdir, readFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { sha256 } from "./desktop-artifacts.mjs";
 
-export function inspectPe(bytes) {
+export function inspectPe(bytes, expectedArch = "x86_64") {
 	const requireRange = (offset, size) => {
 		if (
 			!Number.isSafeInteger(offset) ||
@@ -25,8 +25,11 @@ export function inspectPe(bytes) {
 	if (u16(0) !== 0x5a4d) throw new Error("Missing DOS signature");
 	const pe = u32(0x3c);
 	if (pe < 64 || u32(pe) !== 0x4550) throw new Error("Missing PE signature");
-	if (u16(pe + 4) !== 0x8664)
-		throw new Error("Expected Windows x64 PE machine");
+	if (
+		!["x86_64", "aarch64"].includes(expectedArch) ||
+		u16(pe + 4) !== { x86_64: 0x8664, aarch64: 0xaa64 }[expectedArch]
+	)
+		throw new Error("Expected matching Windows PE machine");
 	const count = u16(pe + 6),
 		optionalSize = u16(pe + 20),
 		flags = u16(pe + 22);
@@ -114,7 +117,7 @@ export function inspectPe(bytes) {
 	const resources = directory(2);
 	if (resources.size) fileOffset(resources.rva, resources.size);
 	return {
-		arch: "x86_64",
+		arch: expectedArch,
 		kind: flags & 0x2000 ? "dll" : "exe",
 		subsystem: u16(optional + 68),
 		imports: imports(1, 20),
@@ -193,7 +196,10 @@ export function dependencyKind(name) {
 	return "private";
 }
 
-export async function inspectWindowsTree(root) {
+export async function inspectWindowsTree(
+	root,
+	architectureFor = () => "x86_64",
+) {
 	const images = new Map(),
 		names = new Set();
 	let totalFiles = 0;
@@ -219,7 +225,7 @@ export async function inspectWindowsTree(root) {
 				if ((await lstat(path)).size > 512 * 1024 * 1024)
 					throw new Error(`PE exceeds 512 MiB: ${name}`);
 				const bytes = await readFile(path);
-				const pe = inspectPe(bytes);
+				const pe = inspectPe(bytes, architectureFor(name));
 				if (
 					pe.kind !==
 					(name.toLowerCase().endsWith(".dll") ? "dll" : "exe")
@@ -245,6 +251,10 @@ export async function inspectWindowsTree(root) {
 			const sibling = parent === "." ? name : `${parent}/${name}`;
 			const kind = dependencyKind(name);
 			const bundled = images.has(sibling);
+			if (bundled && images.get(sibling).arch !== image.arch)
+				throw new Error(
+					`Private DLL architecture mismatch: ${sibling}`,
+				);
 			if (kind === "windows-contract" && bundled)
 				throw new Error(
 					`Bundled DLL shadows Windows contract: ${sibling}`,

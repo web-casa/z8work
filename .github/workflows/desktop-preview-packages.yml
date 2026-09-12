@@ -22,6 +22,7 @@ on:
                     ]
 permissions:
     contents: read
+    actions: read
 concurrency:
     group: complete-previews-${{ github.ref }}-${{ inputs.target }}
     cancel-in-progress: false
@@ -60,7 +61,7 @@ jobs:
             - run: bun install --frozen-lockfile
             - run: bun run desktop:check
             - run: bun run desktop:build
-            - if: runner.os == 'macOS'
+            - if: runner.os != 'Linux'
               run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
             - name: Prepare native engine toolchain
               if: runner.os == 'macOS'
@@ -119,5 +120,57 @@ jobs:
                       .desktop-local/linux-preview/candidate/*.json
                       .desktop-local/linux-preview/deb/*.json
                       .desktop-local/linux-preview/snap/*.json
+                  include-hidden-files: true
+                  retention-days: 14
+
+            - if: runner.os == 'Windows'
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - if: runner.os == 'Windows'
+              uses: actions/download-artifact@v4
+              with:
+                  name: windows-x64-assembled-inputs
+                  run-id: 34706876972
+                  github-token: ${{ github.token }}
+                  path: .desktop-local/arm-source
+            - if: runner.os == 'Windows'
+              name: Build ARM64 preview and verify native-host conversions
+              run: node scripts/desktop-ci-windows-arm64.mjs
+            - if: runner.os == 'Windows'
+              name: Package ARM64 ZIP and development MSIX
+              shell: pwsh
+              run: |
+                  $sdk = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Directory | Where-Object { $_.Name -match '^10\.0\.\d+\.0$' } | Sort-Object { [version]$_.Name } -Descending
+                  $makeappx = $sdk | ForEach-Object { Join-Path $_.FullName 'x64\makeappx.exe' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+                  if (!$makeappx) { throw 'Windows SDK MakeAppx not found' }
+                  $root = '.desktop-local/windows-arm-preview'
+                  node scripts/desktop-msix-pack.mjs --prepared "$root/msix-prepared" --tool "$makeappx" --kind makeappx --python python --output "$root/msix"
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  New-Item -ItemType Directory "$root/downloads" | Out-Null
+                  Copy-Item "$root/msix/z8-work-development.msix" "$root/downloads/Z8.Work-windows-arm64-development.msix"
+                  Compress-Archive -Path "$root/candidate/*" -DestinationPath "$root/downloads/Z8.Work-windows-arm64-preview.zip"
+                  python scripts/desktop-ci-zip-check.py --root "$root/candidate" --zip "$root/downloads/Z8.Work-windows-arm64-preview.zip"
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  Get-ChildItem "$root/downloads" -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content "$root/downloads/SHA256SUMS" -Encoding ascii
+            - if: runner.os == 'Windows'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: windows-arm64-complete-preview
+                  path: .desktop-local/windows-arm-preview/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always() && runner.os == 'Windows'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: windows-arm64-complete-preview-reports
+                  path: |
+                      .desktop-local/ci/build-info.json
+                      .desktop-local/ci/build-inputs.json
+                      .desktop-local/windows-arm-preview/*.json
+                      .desktop-local/windows-arm-preview/msix/*.json
+                      .desktop-local/windows-arm-preview/msix/*.log
+                      .desktop-local/windows-arm-preview/msix/*.xml
                   include-hidden-files: true
                   retention-days: 14

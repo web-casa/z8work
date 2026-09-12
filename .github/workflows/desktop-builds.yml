@@ -21,6 +21,7 @@ on:
                         linux,
                         linux-arm64,
                         linux-amd64,
+                        windows-arm64,
                     ]
     push:
         branches: ["desktop-ci/**"]
@@ -30,12 +31,12 @@ permissions:
     actions: read
 
 concurrency:
-    group: desktop-builds-${{ github.ref }}
+    group: desktop-builds-${{ github.ref }}-${{ inputs.target || 'all' }}
     cancel-in-progress: false
 
 jobs:
     matrix:
-        if: ${{ !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') }}
+        if: ${{ !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') && inputs.target != 'windows-arm64' }}
         runs-on: ubuntu-24.04
         outputs:
             entries: ${{ steps.matrix.outputs.entries }}
@@ -110,7 +111,7 @@ jobs:
     windows-bundle:
         needs: application
         # Other platforms failing must not suppress a successful Windows build.
-        if: ${{ !cancelled() && !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') }}
+        if: ${{ !cancelled() && !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') && inputs.target != 'windows-arm64' }}
         runs-on: ubuntu-24.04
         timeout-minutes: 20
         steps:
@@ -211,7 +212,7 @@ jobs:
             source_run: ${{ inputs.source_run }}
 
     complete-previews:
-        if: ${{ startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') }}
+        if: ${{ startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') || inputs.target == 'windows-arm64' }}
         uses: ./.github/workflows/desktop-preview-packages.yml
         with:
             target: ${{ inputs.target }}

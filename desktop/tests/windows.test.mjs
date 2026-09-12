@@ -288,3 +288,11 @@ test("source receipts cover working-tree files and reject changed or overwritten
 		(e) => /inputs changed/.test(e.stderr),
 	);
 });
+
+test("ARM64 PE inspection is explicit and does not relax the default x64 gate", () => {
+	const bytes = fixture();
+	bytes.writeUInt16LE(0xaa64, 132);
+	assert.throws(() => inspectPe(bytes));
+	assert.equal(inspectPe(bytes, "aarch64").arch, "aarch64");
+	assert.throws(() => inspectPe(fixture(), "aarch64"));
+});
