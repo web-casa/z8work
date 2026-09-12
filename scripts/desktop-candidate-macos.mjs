@@ -17,14 +17,17 @@ import { assertOutside } from "./lib/desktop-windows-acceptance.mjs";
 import { checkVersions } from "./lib/desktop-versions.mjs";
 const { values } = parseArgs({
 	options: Object.fromEntries(
-		["binary", "engines", "output"].map((k) => [k, { type: "string" }]),
+		["binary", "engines", "output", "config"].map((k) => [
+			k,
+			{ type: "string" },
+		]),
 	),
 });
 for (const key of ["binary", "engines", "output"])
 	if (!values[key]) throw new Error(`--${key} required`);
-if (process.platform !== "darwin" || process.arch !== "arm64")
+if (process.platform !== "darwin" || !["arm64", "x64"].includes(process.arch))
 	throw new Error(
-		"Native macOS ARM64 required; cross-inspection is not candidate acceptance",
+		"Native macOS required; cross-inspection is not candidate acceptance",
 	);
 const binary = resolve(values.binary),
 	engines = resolve(values.engines),
@@ -32,10 +35,17 @@ const binary = resolve(values.binary),
 await assertOutside(engines, output);
 await assertOutside(dirname(binary), output);
 const matrix = await artifactMatrix(),
-	artifact = matrix.artifacts.find((a) => a.id === "macos-arm64-app");
+	artifact = matrix.artifacts.find(
+		(a) =>
+			a.id ===
+			`macos-${process.arch === "arm64" ? "arm64" : "amd64"}-app`,
+	);
 const versions = await checkVersions();
 const config = JSON.parse(
-	await readFile("packaging/desktop/macos/development.json", "utf8"),
+	await readFile(
+		values.config ?? "packaging/desktop/macos/development.json",
+		"utf8",
+	),
 );
 const run = (bin, args, timeout = 60000) =>
 	execFileSync(bin, args, {
@@ -50,6 +60,8 @@ const run = (bin, args, timeout = 60000) =>
 		},
 	});
 const application = inspectMachO(await readFile(binary));
+if (application.arch !== artifact.arch || config.architecture !== artifact.arch)
+	throw new Error("Application architecture mismatch");
 assertMacDeployment(application, config.minimumSystemVersion);
 if (application.fileType !== 2 || application.rpaths.length)
 	throw new Error("Application must be a relocated executable");
@@ -67,6 +79,8 @@ if (
 )
 	throw new Error("macOS development identity mismatch");
 const bundle = await inspectMacBundle(engines, config.minimumSystemVersion);
+if (bundle.manifest.arch !== artifact.arch)
+	throw new Error("Engine architecture mismatch");
 // Do not invalidate engine hashes by signing after inventory. All Mach-O code
 // must already have valid signatures from the native engine build/relocation step.
 for (const name of await listFiles(engines)) {
@@ -139,7 +153,7 @@ const quality = JSON.parse(
 		1800000,
 	),
 );
-validateQuality(quality, "macos-aarch64");
+validateQuality(quality, `macos-${artifact.arch}`);
 await writeFile(
 	join(output, "quality.json"),
 	JSON.stringify(quality, null, 2) + "\n",
@@ -148,7 +162,7 @@ await writeFile(
 const files = {};
 for (const name of await listFiles(app))
 	files[name] = await fileInfo(app, name);
-await inspectMacBundle(engines);
+await inspectMacBundle(engines, config.minimumSystemVersion);
 const report = {
 	schema: 1,
 	artifact: artifact.id,

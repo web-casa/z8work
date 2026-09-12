@@ -150,13 +150,13 @@ test("macOS assembler creates a checked inventory without executing foreign code
 	);
 	assert.equal((await inspectMacBundle(output)).manifest.arch, "aarch64");
 });
-test("Mach-O parser rejects x64, fat, truncated and malformed load commands", () => {
+test("Mach-O parser rejects unsupported CPU, fat, truncated and malformed load commands", () => {
 	const bytes = macho(2, ["@loader_path/../lib/a.dylib"]);
 	assert.deepEqual(inspectMachO(bytes).dependencies, [
 		"@loader_path/../lib/a.dylib",
 	]);
 	for (const edit of [
-		(b) => b.writeUInt32LE(0x01000007, 4),
+		(b) => b.writeUInt32LE(0x01000008, 4),
 		(b) => b.writeUInt32LE(0xcafebabe),
 		(b) => b.writeUInt32LE(0xffffffff, 20),
 		(b) => b.writeUInt32LE(4, 36),
@@ -236,4 +236,11 @@ test("macOS bundle checks every code resource and refuses missing, changed and l
 		await symlink(join(root, "bin/tool"), join(root, "lib/a.dylib"));
 		await assert.rejects(inspectMacBundle(root), /Non-regular/);
 	}
+});
+
+test("Mach-O recognizes Intel without treating it as ARM64", () => {
+	const bytes = macho();
+	bytes.writeUInt32LE(0x01000007, 4);
+	assert.equal(inspectMachO(bytes).arch, "x86_64");
+	assert.equal(inspectMachO(macho()).arch, "aarch64");
 });

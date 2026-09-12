@@ -1,4 +1,4 @@
-// Assemble explicitly prepared ARM64 resources. Relocation/signing must happen
+// Assemble explicitly prepared native resources. Relocation/signing must happen
 // before this step; no search through PATH/Homebrew and no implicit downloads.
 import { parseArgs } from "node:util";
 import { readFile, mkdir, writeFile, copyFile, lstat } from "node:fs/promises";
@@ -37,7 +37,7 @@ if (
 if (
 	record.schema !== 1 ||
 	record.os !== "macos" ||
-	record.arch !== "aarch64" ||
+	!["aarch64", "x86_64"].includes(record.arch) ||
 	!Array.isArray(record.sources) ||
 	!record.sources.length ||
 	record.redistributionApproved !== false
@@ -59,7 +59,7 @@ const manifest = {
 	schema: 2,
 	kind: "bundled",
 	os: "macos",
-	arch: "aarch64",
+	arch: record.arch,
 	loader: null,
 	engines: {},
 	files: {},
@@ -124,7 +124,7 @@ await writeFile(
 	JSON.stringify(manifest, null, 2) + "\n",
 	{ flag: "wx" },
 );
-const checked = await inspectMacBundle(output);
+const checked = await inspectMacBundle(output, record.minimumSystemVersion);
 console.log(
 	JSON.stringify(
 		{

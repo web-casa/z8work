@@ -1,4 +1,4 @@
-// Deliberately accepts thin ARM64 only. No host Homebrew or DYLD fallback.
+// Accept thin ARM64 and x86_64; enforce one architecture across each bundle.
 import { readFile } from "node:fs/promises";
 import { posix, join } from "node:path";
 import { inspectBundle, listFiles, relativeName } from "./desktop-sources.mjs";
@@ -7,10 +7,12 @@ export function inspectMachO(bytes) {
 	if (
 		bytes.length < 32 ||
 		bytes.readUInt32LE(0) !== 0xfeedfacf ||
-		bytes.readUInt32LE(4) !== 0x0100000c ||
+		![0x0100000c, 0x01000007].includes(bytes.readUInt32LE(4)) ||
 		![2, 6, 8].includes(bytes.readUInt32LE(12))
 	)
-		throw new Error("Expected thin ARM64 Mach-O executable/library");
+		throw new Error(
+			"Expected thin ARM64 or x86_64 Mach-O executable/library",
+		);
 	const count = bytes.readUInt32LE(16),
 		size = bytes.readUInt32LE(20);
 	if (count > 4096 || size > bytes.length - 32)
@@ -83,6 +85,7 @@ export function inspectMachO(bytes) {
 	}
 	if (offset !== 32 + size) throw new Error("Mach-O command count mismatch");
 	return {
+		arch: bytes.readUInt32LE(4) === 0x0100000c ? "aarch64" : "x86_64",
 		fileType: bytes.readUInt32LE(12),
 		dependencies,
 		rpaths,
@@ -106,7 +109,8 @@ export function assertMacDeployment(object, minimumSystemVersion) {
 	const declared = major * 65536 + minor * 256 + patch;
 	if (
 		object.deployment?.platform !== 1 ||
-		object.deployment.minimum < 11 * 65536
+		object.deployment.minimum <
+			(object.arch === "x86_64" ? 10 * 65536 : 11 * 65536)
 	)
 		throw new Error("Expected an explicit macOS ARM64 deployment target");
 	if (object.deployment.minimum > declared)
@@ -145,8 +149,11 @@ export async function inspectMacBundle(root, minimumSystemVersion) {
 		),
 	).minimumSystemVersion;
 	const bundle = await inspectBundle(root, "macos");
-	if (bundle.manifest.arch !== "aarch64" || bundle.manifest.loader != null)
-		throw new Error("Expected macOS ARM64 bundle without ELF loader");
+	if (
+		!["aarch64", "x86_64"].includes(bundle.manifest.arch) ||
+		bundle.manifest.loader != null
+	)
+		throw new Error("Expected macOS bundle without ELF loader");
 	const objects = new Map();
 	for (const name of await listFiles(root)) {
 		const bytes = await readFile(join(root, name));
@@ -178,6 +185,8 @@ export async function inspectMacBundle(root, minimumSystemVersion) {
 		throw new Error("Missing ARM64 verifier");
 	const dependencies = [];
 	for (const [name, object] of objects) {
+		if (object.arch !== bundle.manifest.arch)
+			throw new Error(`Mach-O architecture mismatch: ${name}`);
 		assertMacDeployment(object, minimumSystemVersion);
 		// @rpath needs a caller-dependent search stack. Require explicit relocation
 		// before assembly instead of accepting a path that only works on the builder.

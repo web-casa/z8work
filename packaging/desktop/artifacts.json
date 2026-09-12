@@ -42,6 +42,15 @@
 			"format": "app",
 			"priority": "P0",
 			"updater": false
+		},
+		{
+			"id": "macos-amd64-app",
+			"os": "macos",
+			"arch": "x86_64",
+			"channel": "local-validation",
+			"format": "app",
+			"priority": "P0",
+			"updater": false
 		}
 	]
 }

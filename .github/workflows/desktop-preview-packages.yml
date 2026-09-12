@@ -1,0 +1,71 @@
+name: Complete desktop preview packages
+on:
+    workflow_dispatch:
+        inputs:
+            target:
+                type: choice
+                description: Complete package target
+                default: macos
+                options: [macos, macos-arm64, macos-amd64]
+permissions:
+    contents: read
+concurrency:
+    group: complete-previews-${{ github.ref }}-${{ inputs.target }}
+    cancel-in-progress: false
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              env:
+                  TARGET: ${{ inputs.target }}
+              run: |
+                  entries=$(jq -c --arg target "$TARGET" '[.[] | select((.os == "macos") and ($target == "macos" or .id == $target))]' packaging/desktop/ci-matrix.json)
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
+    package:
+        needs: matrix
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 120
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+              with:
+                  targets: ${{ matrix.target }}
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:build
+            - run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
+            - name: Prepare native engine toolchain
+              run: brew install imagemagick ffmpeg mupdf-tools
+            - name: Relocate engines, validate conversions and package DMG
+              run: node scripts/desktop-ci-macos-engines.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview
+                  path: .desktop-local/mac-preview/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview-reports
+                  path: |
+                      .desktop-local/ci/build-info.json
+                      .desktop-local/ci/build-inputs.json
+                      .desktop-local/mac-preview/*.json
+                      .desktop-local/mac-preview/candidate/*.json
+                  include-hidden-files: true
+                  retention-days: 14

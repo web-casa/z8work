@@ -91,7 +91,7 @@ await writeFile(
 	join(payload, "application.json"),
 	JSON.stringify(receipt, null, 2) + "\n",
 );
-if (entry.id === "windows-amd64") {
+if (entry.os === "windows" || entry.os === "macos") {
 	const tools = join(root, "validation");
 	await mkdir(tools);
 	run("cargo", [
@@ -106,7 +106,9 @@ if (entry.id === "windows-amd64") {
 		"--bin",
 		"validation-run",
 	]);
-	for (const name of ["bundle-check.exe", "validation-run.exe"])
+	for (const name of ["bundle-check", "validation-run"].map(
+		(n) => n + (entry.os === "windows" ? ".exe" : ""),
+	))
 		await copyFile(
 			`src-tauri/target/${entry.target}/release/${name}`,
 			join(tools, name),
@@ -136,7 +138,10 @@ if (entry.id === "windows-amd64") {
 		);
 	if (tests.length !== 1)
 		throw new Error("Expected exactly one native test executable");
-	await copyFile(tests[0].executable, join(tools, "native-tests.exe"));
+	await copyFile(
+		tests[0].executable,
+		join(tools, "native-tests" + (entry.os === "windows" ? ".exe" : "")),
+	);
 }
 run(process.execPath, [
 	"scripts/desktop-windows-inputs.mjs",

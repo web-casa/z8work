@@ -24,4 +24,5 @@ export const inputPaths = [
 	".github/workflows/desktop.yml",
 	".github/workflows/desktop-builds.yml",
 	".github/workflows/desktop-repack.yml",
+	".github/workflows/desktop-preview-packages.yml",
 ];
