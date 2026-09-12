@@ -26,6 +26,7 @@ on:
                 "LICENSE",
                 ".github/workflows/desktop.yml",
                 ".github/workflows/desktop-builds.yml",
+                ".github/workflows/desktop-repack.yml",
             ]
     push:
         branches: [main]
@@ -53,6 +54,7 @@ on:
                 "LICENSE",
                 ".github/workflows/desktop.yml",
                 ".github/workflows/desktop-builds.yml",
+                ".github/workflows/desktop-repack.yml",
             ]
     workflow_dispatch:
 

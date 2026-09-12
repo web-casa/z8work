@@ -3,6 +3,10 @@ name: Desktop binaries and Windows development MSIX
 on:
     workflow_dispatch:
         inputs:
+            source_run:
+                description: Optional run ID to repackage an already validated Windows candidate
+                type: string
+                default: ""
             target:
                 description: Native build scope
                 type: choice
@@ -13,6 +17,7 @@ on:
 
 permissions:
     contents: read
+    actions: read
 
 concurrency:
     group: desktop-builds-${{ github.ref }}
@@ -20,6 +25,7 @@ concurrency:
 
 jobs:
     matrix:
+        if: ${{ !inputs.source_run }}
         runs-on: ubuntu-24.04
         outputs:
             entries: ${{ steps.matrix.outputs.entries }}
@@ -94,7 +100,7 @@ jobs:
     windows-bundle:
         needs: application
         # Other platforms failing must not suppress a successful Windows build.
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && !inputs.source_run }}
         runs-on: ubuntu-24.04
         timeout-minutes: 20
         steps:
@@ -185,5 +191,11 @@ jobs:
                       .desktop-local/ci/pdf-paths/report.json
                       .desktop-local/ci/msix/*.json
                       .desktop-local/ci/msix/*.log
+                      .desktop-local/ci/msix/*.xml
                   if-no-files-found: warn
                   retention-days: 14
+    windows-repack:
+        if: ${{ inputs.source_run != '' }}
+        uses: ./.github/workflows/desktop-repack.yml
+        with:
+            source_run: ${{ inputs.source_run }}

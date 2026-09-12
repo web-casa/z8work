@@ -87,7 +87,7 @@ def check(package, prepared, signed=False):
             if int(node.attrib['Size']) != expected[name]['bytes']:
                 raise ValueError('BlockMap size mismatch')
             if any(child.tag != ns+'Block' for child in node):
-                raise ValueError('Unexpected BlockMap element')
+                raise ValueError(f'Unexpected BlockMap element: {[child.tag for child in node if child.tag != ns + "Block"]}')
             blocks[name] = list(node)
         if set(blocks) != expected_names:
             raise ValueError('Incomplete BlockMap coverage')
@@ -132,6 +132,13 @@ def main():
     prepared_path = Path(args.prepared)
     if prepared_path.stat().st_size > 2 * 1024**2:
         raise ValueError('Preparation receipt too large')
+    with zipfile.ZipFile(args.package) as archive:
+        info = archive.getinfo('AppxBlockMap.xml')
+        if info.file_size > 4 * 1024**2:
+            raise ValueError('Oversized BlockMap')
+        metadata_path = Path(args.output).with_suffix('.blockmap.xml')
+        with metadata_path.open('xb') as stream:
+            stream.write(archive.read(info))
     result = check(args.package, json.loads(prepared_path.read_text()), signed=args.signed)
     with Path(args.output).open('x') as stream:
         json.dump(result, stream, indent=2)
