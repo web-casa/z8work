@@ -1,0 +1,339 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux-x86_64",
+  "execution": "emulated AMD64 on Linux ARM64",
+  "nativeExecution": false,
+  "installerAcceptance": false,
+  "redistributionApproved": false,
+  "image": "sha256:de918abb7dcd56f3ce960b159b2be9614eee642cb9e48a3870857791180bb5d1",
+  "baseImage": "scratch",
+  "network": "none",
+  "rootFilesystem": "read-only",
+  "uid": 1000,
+  "cpus": 4,
+  "memory": "2g",
+  "exitCode": 0,
+  "engineManifestSha256": "72748bc89e56903fe8ab229381dfca0b9657d6e9bb3ef2b2e865a93c12185bd8",
+  "applicationSha256": "887fc8d4a2a2544aed6212eb4f59cd46f96426057db9987d5cb5bbd23a8221cd",
+  "snapSha256": "a8222124521b64f2ab982c06ecd8e7e51d0a3c2f64fee421b8d249a5af8b14ac",
+  "snapBytes": 203513856,
+  "routes": 84,
+  "qualityChecks": 20,
+  "imageCalibration": 240,
+  "pdfColor": {
+    "checks": [
+      {
+        "actualRgb": [
+          [
+            255,
+            117,
+            7
+          ],
+          [
+            0,
+            207,
+            87
+          ],
+          [
+            91,
+            75,
+            224
+          ],
+          [
+            148,
+            86,
+            58
+          ],
+          [
+            127,
+            127,
+            127
+          ],
+          [
+            10,
+            90,
+            157
+          ]
+        ],
+        "check": "pdf-icc",
+        "dimensions": [
+          288,
+          48
+        ],
+        "expectedRgb": [
+          [
+            255,
+            118,
+            0
+          ],
+          [
+            0,
+            208,
+            88
+          ],
+          [
+            92,
+            76,
+            225
+          ],
+          [
+            149,
+            86,
+            58
+          ],
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            5,
+            91,
+            158
+          ]
+        ],
+        "format": "png",
+        "limit": 8,
+        "maxChannelError": 7,
+        "passed": true
+      },
+      {
+        "actualRgb": [
+          [
+            255,
+            117,
+            8
+          ],
+          [
+            0,
+            207,
+            87
+          ],
+          [
+            91,
+            75,
+            225
+          ],
+          [
+            147,
+            86,
+            58
+          ],
+          [
+            127,
+            127,
+            127
+          ],
+          [
+            11,
+            90,
+            157
+          ]
+        ],
+        "check": "pdf-icc",
+        "dimensions": [
+          288,
+          48
+        ],
+        "expectedRgb": [
+          [
+            255,
+            118,
+            0
+          ],
+          [
+            0,
+            208,
+            88
+          ],
+          [
+            92,
+            76,
+            225
+          ],
+          [
+            149,
+            86,
+            58
+          ],
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            5,
+            91,
+            158
+          ]
+        ],
+        "format": "jpeg",
+        "limit": 8,
+        "maxChannelError": 8,
+        "passed": true
+      },
+      {
+        "actualRgb": [
+          [
+            254,
+            117,
+            6
+          ],
+          [
+            1,
+            207,
+            86.8125
+          ],
+          [
+            90,
+            75,
+            224.125
+          ],
+          [
+            148,
+            86,
+            58.8125
+          ],
+          [
+            127.1875,
+            126.90625,
+            127.1875
+          ],
+          [
+            10,
+            89.9375,
+            156.125
+          ]
+        ],
+        "check": "pdf-icc",
+        "dimensions": [
+          288,
+          48
+        ],
+        "expectedRgb": [
+          [
+            255,
+            118,
+            0
+          ],
+          [
+            0,
+            208,
+            88
+          ],
+          [
+            92,
+            76,
+            225
+          ],
+          [
+            149,
+            86,
+            58
+          ],
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            5,
+            91,
+            158
+          ]
+        ],
+        "format": "webp",
+        "limit": 8,
+        "maxChannelError": 6,
+        "passed": true
+      },
+      {
+        "actualRgb": [
+          [
+            255,
+            117,
+            8
+          ],
+          [
+            0,
+            207,
+            87
+          ],
+          [
+            91,
+            75,
+            225
+          ],
+          [
+            147,
+            86,
+            58
+          ],
+          [
+            127,
+            127,
+            127
+          ],
+          [
+            11,
+            90,
+            157
+          ]
+        ],
+        "check": "pdf-icc",
+        "dimensions": [
+          288,
+          48
+        ],
+        "expectedRgb": [
+          [
+            255,
+            118,
+            0
+          ],
+          [
+            0,
+            208,
+            88
+          ],
+          [
+            92,
+            76,
+            225
+          ],
+          [
+            149,
+            86,
+            58
+          ],
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            5,
+            91,
+            158
+          ]
+        ],
+        "format": "avif",
+        "limit": 8,
+        "maxChannelError": 8,
+        "passed": true
+      }
+    ],
+    "fixtureSha256": "3ffc692189838e4092e8bf388c1018d9dbc70ba4e538512274fe7a62fd729a6a",
+    "negativeControlMaxChannelError": 51
+  },
+  "licenseInventory": {
+    "count": 885,
+    "maxBytes": 69004,
+    "uiLimitsPassed": true,
+    "guiExecuted": false
+  },
+  "reportSha256": "8e775aeebeff8589eddec5ead2a3f7cfbad3db3ffdb3b2ecf37c8c8b99dd96cf",
+  "stderrSha256": "4988b3928dfa6e01e122956988a10abb816af19b9981e0fa23bde8c77109bfbb",
+  "builderReportSha256": "3681bdb59b04bbec5883c2578b81af050bd93318ad8763c86440a5b4e67ffdf8"
+}

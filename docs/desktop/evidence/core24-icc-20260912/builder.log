@@ -1,0 +1,18 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 291B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e
+#2 ERROR: unexpected status from HEAD request to https://docker.m.daocloud.io/v2/library/sha256/manifests/6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e?ns=docker.io: 403 Forbidden
+------
+ > [internal] load metadata for docker.io/library/sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e:
+------
+Dockerfile:1
+--------------------
+   1 | >>> FROM sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e
+   2 |     RUN apt-get update && apt-get install -y --no-install-recommends python3 libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev libmujs-dev libopenjp2-7-dev zlib1g-dev
+   3 |     
+--------------------
+ERROR: failed to build: failed to solve: sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e: failed to resolve source metadata for docker.io/library/sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e: unexpected status from HEAD request to https://docker.m.daocloud.io/v2/library/sha256/manifests/6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e?ns=docker.io: 403 Forbidden

@@ -1,6 +1,8 @@
 # Z8.Work 桌面 V1：剩余 7 个阶段开发方案
 
-更新：2026-09-10。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已开始独立的 Linux 故障验证与 macOS 兼容性门禁，三端原生安装/升级整体验收未完成；[R7 / Phase 30](PHASE30_IMPLEMENTATION.md)已开展独立门禁 review 与交接准备，整体验收及候选冻结仍等待 R5/R6。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。R5 缺项继续保留；已有 Linux 候选允许先做 R6 的独立故障开发与回归，其他平台必须补齐对应 R5 候选和原生环境后验收，不据此提前关闭 R5 或 R6。
+更新：2026-09-12。状态：[R1 / Phase 24](PHASE24_IMPLEMENTATION.md)、[R2 / Phase 25](PHASE25_IMPLEMENTATION.md)、[R3 / Phase 26](PHASE26_IMPLEMENTATION.md)已完成；[R4 / Phase 27](PHASE27_IMPLEMENTATION.md)已完成产品体验及基础格式验证，本机性能参考已记录，目标验收缺项继续保留；[R5 / Phase 28](PHASE28_IMPLEMENTATION.md)已完成本机候选重建与工具开发，macOS 实际候选、许可/源码闭合及部分升级输入仍待完成；[R6 / Phase 29](PHASE29_IMPLEMENTATION.md)已开始独立的 Linux 故障验证与 macOS 兼容性门禁，三端原生安装/升级整体验收未完成；[R7 / Phase 30](PHASE30_IMPLEMENTATION.md)已开展独立门禁 review 与交接准备，整体验收及候选冻结仍等待 R5/R6。本方案接续已有 Phase 1–23，使用 **R1–R7 / Phase 24–30**，不重编号历史记录。R5 缺项继续保留；已有 Linux 候选允许先做 R6 的独立故障开发与回归，其他平台必须补齐对应 R5 候选和原生环境后验收，不据此提前关闭 R5 或 R6。
+
+2026-09-12：R5 新增 [core24 ICC 修复与 AMD64 Snap 候选](PHASE28_CORE24_ICC.md)，完整引擎转换在 AMD64 仿真环境通过；R6 strict 原生安装与三端剩余验收继续保留。用户额外要求的 [ARM64 Debian 预览包](LINUX_DEB_PREVIEW.md)已单独交付，不改变下述必验收平台矩阵。
 
 本文作为剩余工作的执行顺序与首版范围依据；[V1 原方案](V1_PLAN.md)继续提供架构、安全和历史调研约束。[本轮 review](REMAINING_V1_REVIEW.md)记录范围澄清、依赖修正和验收边界。本文不是已实现功能清单，也不是发布通知。
 

@@ -21,7 +21,7 @@
 3. **阈值不是“像素完全一致”**：首次试验给 PNG 设 4/255 阈值，新引擎仍出现 7/255 最大差异。源码 `source/fitz/color-lcms.c` 使用 `cmsFLAGS_LOWRESPRECALC`，渲染包含近似变换。本轮新样本的最终阈值明确为所有格式 8/255，保留第一次失败和原始色块；未修改样本或既有 R4 图片 RMSE/透明度阈值。关闭 ICC 的负对照仍须至少 30/255，实测 51/255。这是检测 ICC 被禁用的质量门禁，不是印刷级色彩认证。
 4. **动态依赖失败必须退出**：ShellCheck 发现独立的 `! grep` 不受 `set -e` 保证，修正为明确条件分支和 `exit 1`，重新构建验证。
 5. **字体和依赖也属于产物**：原始字体已编入新 CLI，字体许可独立保留；随包 loader / 动态库必须在 scratch、断网、只读根目录中完成转换，不能只凭开发机 `ldd` 成功。
-6. **安装证据不能跨平台借用**：Linux ARM64 候选与 GUI 是本机开发回归；Windows/macOS 的 Rust 交叉检查只证明编译兼容。Windows 原生、AMD64 strict Snap、macOS 原生 ICC/安装仍待补齐；现有 core24 脚本仍使用发行版 MuPDF，必须在下一轮接入合适的 ICC 构建并实测，旧包不能通过新增质量门禁。
+6. **安装证据不能跨平台借用**：Linux ARM64 候选与 GUI 是本机开发回归；Windows/macOS 的 Rust 交叉检查只证明编译兼容。Windows 原生、AMD64 strict Snap、macOS 原生 ICC/安装仍待补齐；当时 core24 仍使用发行版 MuPDF，旧包不能通过新增质量门禁。2026-09-12 已完成 [core24 ICC 候选重建及仿真检查](PHASE28_CORE24_ICC.md)，strict 原生安装仍未验收。
 
 本轮运行文件差异见 [runtime-delta.json](evidence/phase28-pdf-icc/runtime-delta.json)：434 项不变，更换 MuPDF 和独立验证器，移除旧共享 libmupdf；`libgraphite2` 更新至 `1.3.14-2+deb13u1`、`libjbig2dec` 更新至 `0.20-1+deb13u1`。两组新增版本的对应源码已通过既有下载/DSC 校验工具补齐，见 [changed-sources.json](evidence/phase28-pdf-icc/changed-sources.json)。构建器动态库字节和 dpkg 来源另外逐项核对，不借用旧 170 组来源的结论。
 
@@ -79,7 +79,7 @@ src-tauri/target/release/bundle-check \
 
 首次候选归档验证进程收到 SIGTERM（退出 143），未生成成功报告，原因未确认；该中断不记为通过，原始记录保存为 `candidate-interrupted-exit.txt` / `candidate-interrupted.log`。独立重跑已对最终解包字节执行完整矩阵，退出码为 0，中断未复现。两份归档摘要完全一致，先前 GUI 证据通过应用、引擎清单及归档摘要关联；不改写 GUI 报告原有字段。错误的 GNU Windows 目标探测因本机未安装该 target 失败，随后按已有 MSVC 工具链完成交叉检查；没有为此新增系统工具链。
 
-下一步继续 R5：将 ICC 构建接入 core24 候选，核对 Windows 现有引擎的实际 PDF 色彩输出，取得 macOS ARM64 的原生候选；随后完成 R6 目标系统安装与 R7 交接。新质量门禁已阻止以没有 PDF 色彩证据的历史报告关闭这些项目。
+core24 接入已于 2026-09-12 完成，见[新 Snap 候选](PHASE28_CORE24_ICC.md)。下一步继续 R5：核对 Windows 现有引擎的实际 PDF 色彩输出，取得 macOS ARM64 的原生候选；随后完成 R6 目标系统安装与 R7 交接。新质量门禁已阻止以没有 PDF 色彩证据的历史报告关闭这些项目。
 
 ## 最终本地候选
 

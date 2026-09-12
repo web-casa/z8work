@@ -1,0 +1,12 @@
+applied: 0010_add_missing_hardening_flags.diff
+applied: 0001-mupdf_manpage.patch
+applied: 0002-Only-warn-once-about-the-missing-ICC-support.patch
+applied: 0003-Sort-files-in-static-library-to-make-the-build-repro.patch
+applied: 0004-use-debian-flavor-build-options.patch
+applied: 0005-MuPDF-crossbuild-use-target-arch-pkg-config.patch
+applied: 0006-MuPDF-crossbuild-use-host-cc-for-utils.patch
+applied: 0007-mupdf-x11-does-not-need-to-link-to-libcrypto.patch
+applied: 0008-define-SONAME-header.patch
+applied: 0008-Add-fallback-for-missing-SA_NOCLDWAIT.patch
+omitted (upstream fonts): 0009-Use-Charis-SIL-ttf-font-directly.patch
+applied: 0010-Bug-708990-Avoid-overflow-src_stride-calculation-in-.patch

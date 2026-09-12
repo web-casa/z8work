@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "initialBuildExitCode": 101,
+  "initialFailure": "Offline builder lacked process-wrap crate; ImageMagick and MuPDF compilation had succeeded.",
+  "recovery": "Copy existing host Cargo registry into a task-local writable cache, restore ImageMagick installation from this run compiled tree, resume remaining build script commands with network disabled.",
+  "initialBuilderFailure": "Docker FROM sha256:<image-id> was interpreted as a registry repository; corrected to the existing local image tag, whose exact image ID is recorded.",
+  "mupdfWarnings": "Compiler emitted ignored ftruncate result and maybe-uninitialized PDF appearance coordinates in existing upstream source. No upstream source warning fixes claimed.",
+  "resumeExitCode": 1,
+  "resumeFailure": "Application build, engine assembly, complete quality tests and input verification passed; Snap preparation then failed because task-local node_modules lacked yaml.",
+  "packagingRecovery": "Copy existing host yaml package into isolated node_modules and rerun Snap preparation only."
+}
