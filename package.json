@@ -41,6 +41,7 @@
 		"desktop:gui:smoke": "node scripts/desktop-gui-smoke.mjs",
 		"desktop:test:lifecycle": "cargo test --locked --manifest-path src-tauri/Cargo.toml -p z8-native --no-default-features process::",
 		"desktop:test:ui": "node --test desktop/tests/*.test.mjs",
+		"desktop:test:conversion-start": "node scripts/desktop-conversion-start-browser.mjs",
 		"desktop:test:gui": "node scripts/desktop-phase1-gui.mjs",
 		"desktop:smoke:phase2": "cargo run --locked --manifest-path src-tauri/Cargo.toml -p z8-native --features development-engines --bin smoke -- --phase2",
 		"desktop:test:gui:phase2": "node scripts/desktop-phase1-gui.mjs --phase2",

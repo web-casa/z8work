@@ -9,7 +9,7 @@ import {
 	copyFile,
 	writeFile,
 } from "node:fs/promises";
-import { join, resolve, dirname, basename, sep } from "node:path";
+import { join, resolve, dirname, basename, sep, posix } from "node:path";
 import { sha256 } from "./lib/desktop-artifacts.mjs";
 import { fileInfo } from "./lib/desktop-sources.mjs";
 const { values } = parseArgs({
@@ -25,7 +25,9 @@ if (
 		"aarch64-unknown-linux-gnu",
 		"x86_64-unknown-linux-gnu",
 		"x86_64-pc-windows-msvc",
+		"aarch64-pc-windows-msvc",
 		"aarch64-apple-darwin",
+		"x86_64-apple-darwin",
 	].includes(values.target)
 )
 	throw new Error(
@@ -102,7 +104,7 @@ async function collect(
 	const notices = [];
 	for (const path of paths) {
 		const info = await fileInfo(packageRoot, path, 2 * 1024 ** 2),
-			to = join("licenses", key + "-" + basename(path));
+			to = posix.join("licenses", key + "-" + basename(path));
 		await copyFile(join(packageRoot, path), join(output, to));
 		if ((await fileInfo(output, to)).sha256 !== info.sha256)
 			throw new Error("Notice changed while copying");
@@ -137,7 +139,10 @@ async function collect(
 					info.bytes !== notice.bytes
 				)
 					throw new Error("Supplement notice changed");
-				const to = join("licenses", key + "-" + basename(notice.file));
+				const to = posix.join(
+					"licenses",
+					key + "-" + basename(notice.file),
+				);
 				await copyFile(
 					join(supplementRoot, notice.file),
 					join(output, to),
@@ -165,8 +170,10 @@ async function collect(
 	});
 }
 const seen = new Set();
-for (const id of graph.modules) {
-	if (typeof id !== "string" || !id.startsWith("node_modules/")) continue;
+for (const moduleId of graph.modules) {
+	if (typeof moduleId !== "string") continue;
+	const id = moduleId.replaceAll("\\", "/");
+	if (!id.startsWith("node_modules/")) continue;
 	let dir = dirname(resolve(root, id));
 	while (dir.startsWith(root + sep)) {
 		let p;
@@ -193,6 +200,8 @@ for (const id of graph.modules) {
 		dir = dirname(dir);
 	}
 }
+if (!seen.size)
+	throw new Error("No frontend dependencies found in module receipt");
 const nodes = new Map(metadata.resolve.nodes.map((n) => [n.id, n])),
 	included = new Set(),
 	pending = [metadata.resolve.root];

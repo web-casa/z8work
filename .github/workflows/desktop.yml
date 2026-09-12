@@ -25,6 +25,7 @@ on:
                 "bun.lock",
                 "LICENSE",
                 ".github/workflows/desktop.yml",
+                ".github/workflows/desktop-builds.yml",
             ]
     push:
         branches: [main]
@@ -51,6 +52,7 @@ on:
                 "bun.lock",
                 "LICENSE",
                 ".github/workflows/desktop.yml",
+                ".github/workflows/desktop-builds.yml",
             ]
     workflow_dispatch:
 

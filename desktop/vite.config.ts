@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { fileURLToPath } from "node:url";
 import { mkdirSync, writeFileSync } from "node:fs";
-import { relative } from "node:path";
+import { relative, sep } from "node:path";
 
 export default defineConfig({
 	root: fileURLToPath(new URL(".", import.meta.url)),
@@ -24,7 +24,11 @@ export default defineConfig({
 							schema: 1,
 							modules: [...this.getModuleIds()]
 								.filter((id) => !id.startsWith("\0"))
-								.map((id) => relative(root, id.split("?")[0]))
+								.map((id) =>
+									relative(root, id.split("?")[0])
+										.split(sep)
+										.join("/"),
+								)
 								.sort(),
 						},
 						null,

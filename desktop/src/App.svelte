@@ -240,6 +240,26 @@
 			}
 		}
 	}
+	async function startConversion() {
+		if (working || blocked || !eligible.length) return;
+		if (!queueState?.output_authorized) {
+			pending = undefined;
+			busy = true;
+			error = "";
+			try {
+				apply(await queueCommand("pick_output"));
+			} catch (e) {
+				error = String(e);
+				return;
+			} finally {
+				busy = false;
+			}
+		}
+		// Cancellation grants no permission. Recheck live state after the dialog:
+		// imports, shutdown or queue events may have changed the available tasks.
+		if (working || blocked || !queueState?.output_authorized) return;
+		await submit(eligible);
+	}
 	async function submit(tasks: Task[]) {
 		if (!queueState || !tasks.length) return;
 		// Keep an ambiguous request's ID for a transport retry. It cannot start a second run.
@@ -1011,6 +1031,14 @@
 				</ul>{/if}
 			<div class="workspace-footer">
 				<p>
+					{#if eligible.length && !queueState?.output_authorized}
+						<strong id="conversion-folder-hint" role="status">
+							{t(
+								"转换前需要选择保存目录。点击转换按钮选择目录，确认后自动开始；取消选择不会转换。",
+								"Choose a save folder before converting. Use the conversion button to select a folder and start; cancelling will not start conversion.",
+							)}
+						</strong><br />
+					{/if}
 					{t(
 						"清空会取消任务并删除尚未保存的暂存结果，保留原文件和已保存结果。存在任务或待保存结果时，关闭窗口会先询问。",
 						"Clearing cancels tasks and discards unsaved cached results. Originals and saved files are kept. Closing with active tasks or unsaved results asks for confirmation.",
@@ -1025,16 +1053,22 @@
 							"Cancel all",
 						)}</button
 					>{:else}<button
+						data-start-conversion
 						class="primary"
-						onclick={() => submit(eligible)}
-						disabled={working ||
-							blocked ||
-							!queueState?.output_authorized ||
-							!eligible.length}
-						><PixelIcon name="arrow" />{t(
-							"转换未完成文件",
-							"Convert unfinished files",
-						)}</button
+						onclick={startConversion}
+						aria-describedby={eligible.length &&
+						!queueState?.output_authorized
+							? "conversion-folder-hint"
+							: undefined}
+						disabled={working || blocked || !eligible.length}
+						><PixelIcon
+							name="arrow"
+						/>{queueState?.output_authorized
+							? t("转换未完成文件", "Convert unfinished files")
+							: t(
+									"选择保存目录并转换",
+									"Choose save folder and convert",
+								)}</button
 					>{/if}
 			</div>
 		</section>

@@ -1,0 +1,166 @@
+name: Desktop binaries and Windows development MSIX
+
+on:
+    workflow_dispatch:
+    push:
+        branches: ["desktop-ci/**"]
+
+permissions:
+    contents: read
+
+concurrency:
+    group: desktop-builds-${{ github.ref }}
+    cancel-in-progress: false
+
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              run: echo "entries=$(jq -c . packaging/desktop/ci-matrix.json)" >> "$GITHUB_OUTPUT"
+    application:
+        needs: matrix
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 60
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+              with:
+                  targets: ${{ matrix.target }}
+            - if: runner.os == 'Linux'
+              run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:versions
+            - run: bun run desktop:check
+            - run: bun run desktop:build
+            - run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
+            - uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: ${{ matrix.id }}-application-only
+                  path: .desktop-local/ci/downloads/*
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: matrix.id == 'windows-amd64'
+              uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-packaging-inputs
+                  path: |
+                      .desktop-local/ci/application/
+                      .desktop-local/ci/validation/
+                      .desktop-local/ci/build-inputs.json
+                  if-no-files-found: error
+                  retention-days: 7
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: ${{ matrix.id }}-build-reports
+                  path: |
+                      .desktop-local/ci/build-info.json
+                      .desktop-local/ci/build-inputs.json
+                  if-no-files-found: warn
+                  retention-days: 14
+    windows-bundle:
+        needs: application
+        # Other platforms failing must not suppress a successful Windows build.
+        if: ${{ !cancelled() }}
+        runs-on: ubuntu-24.04
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/download-artifact@v4
+              with:
+                  name: windows-x64-packaging-inputs
+                  path: .desktop-local/ci
+            - run: sudo apt-get update && sudo apt-get install -y p7zip-full cabextract
+            - run: node scripts/desktop-ci-windows-bundle.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-assembled-inputs
+                  path: |
+                      .desktop-local/ci/handoff/
+                      .desktop-local/ci/msix-prepared/
+                      .desktop-local/ci/bundle-summary.json
+                  if-no-files-found: error
+                  retention-days: 7
+    windows-packages:
+        needs: windows-bundle
+        runs-on: windows-2025
+        timeout-minutes: 50
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - uses: actions/download-artifact@v4
+              with:
+                  name: windows-x64-assembled-inputs
+                  path: .desktop-local/ci
+            - name: Validate native Windows lifecycle and conversion matrix
+              run: node scripts/desktop-windows-acceptance.mjs --root .desktop-local/ci/handoff --output .desktop-local/ci/native-check --runtime native
+            - name: Package and unpack with Windows SDK
+              shell: pwsh
+              run: |
+                  $sdk = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Directory | Where-Object { $_.Name -match '^10\.0\.\d+\.0$' } | Sort-Object { [version]$_.Name } -Descending
+                  $makeappx = $sdk | ForEach-Object { Join-Path $_.FullName 'x64\makeappx.exe' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+                  if (!$makeappx) { throw 'Windows SDK MakeAppx not found' }
+                  node scripts/desktop-msix-pack.mjs --prepared .desktop-local/ci/msix-prepared --tool "$makeappx" --kind makeappx --python python --output .desktop-local/ci/msix
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+            - name: Create complete Windows preview ZIP and hashes
+              shell: pwsh
+              run: |
+                  New-Item -ItemType Directory .desktop-local/ci/downloads | Out-Null
+                  Copy-Item .desktop-local/ci/msix/z8-work-development.msix .desktop-local/ci/downloads/
+                  $candidate = '.desktop-local/ci/portable'
+                  Copy-Item .desktop-local/ci/handoff/candidate $candidate -Recurse
+                  @'
+                  Z8.Work Windows x64 development preview
+                  Extract the entire ZIP and run z8-desktop.exe. Keep engines beside the EXE.
+                  Requires Microsoft Edge WebView2 Runtime, not included in this archive.
+                  Unsigned development build; native GUI/install/upgrade acceptance is pending.
+                  The development MSIX identity cannot be submitted to Microsoft Store.
+                  '@ | Set-Content "$candidate/README.txt" -Encoding utf8
+                  Compress-Archive -Path "$candidate/*" -DestinationPath .desktop-local/ci/downloads/Z8.Work-windows-x64-preview.zip
+                  python scripts/desktop-ci-zip-check.py --root "$candidate" --zip .desktop-local/ci/downloads/Z8.Work-windows-x64-preview.zip
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  Get-ChildItem .desktop-local/ci/downloads -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content .desktop-local/ci/downloads/SHA256SUMS -Encoding ascii
+            - uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-preview-and-development-msix
+                  path: .desktop-local/ci/downloads/*
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-package-reports
+                  path: |
+                      .desktop-local/ci/native-check/
+                      .desktop-local/ci/msix/*.json
+                      .desktop-local/ci/msix/*.log
+                  if-no-files-found: warn
+                  retention-days: 14

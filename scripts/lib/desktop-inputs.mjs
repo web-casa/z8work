@@ -22,4 +22,5 @@ export const inputPaths = [
 	".gitignore",
 	".gitattributes",
 	".github/workflows/desktop.yml",
+	".github/workflows/desktop-builds.yml",
 ];
