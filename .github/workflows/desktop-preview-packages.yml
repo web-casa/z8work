@@ -19,6 +19,7 @@ on:
                         linux,
                         linux-arm64,
                         linux-amd64,
+                        windows-arm64,
                     ]
 permissions:
     contents: read

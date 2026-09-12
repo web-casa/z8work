@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "channel": "local-validation",
+  "identifier": "work.z8.desktop.m0",
+  "name": "Z8.Work Desktop Dev",
+  "minimumSystemVersion": "15.0.0",
+  "architecture": "x86_64",
+  "publicDistribution": false,
+  "signature": "ad-hoc-local-only"
+}

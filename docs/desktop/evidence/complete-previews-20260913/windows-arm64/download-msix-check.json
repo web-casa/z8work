@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "unsigned-development-msix",
+  "sha256": "3c8f60e8617364481477937d932bc7c1b987e760eb6ec8bf21008299d18d1aab",
+  "bytes": 171948420,
+  "payloadFiles": 539,
+  "verifiedBlocks": 8599,
+  "verifiedFileHashes": 12,
+  "signature": "not-present",
+  "codeIntegrity": null,
+  "installation": "not-run",
+  "redistributionApproved": false
+}

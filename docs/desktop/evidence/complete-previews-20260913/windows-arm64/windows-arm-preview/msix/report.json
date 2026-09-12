@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "scope": "development-msix-package",
+  "status": "passed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "storeSubmissionAllowed": false,
+  "checks": {
+    "layout": "passed",
+    "package": "passed",
+    "blockmap": "passed",
+    "unpack": "passed",
+    "installation": "not-run",
+    "webview2": "not-run",
+    "licenses": "not-run"
+  },
+  "tool": {
+    "kind": "makeappx",
+    "binary": {
+      "sha256": "00fff202b71c1266b8c3899701e42b5468ea153b2b33a0a47215fe27695f16d0",
+      "bytes": 584024
+    }
+  },
+  "artifact": {
+    "sha256": "3c8f60e8617364481477937d932bc7c1b987e760eb6ec8bf21008299d18d1aab",
+    "bytes": 171948420
+  }
+}

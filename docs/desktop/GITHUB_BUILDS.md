@@ -2,18 +2,22 @@
 
 新增工作流 `.github/workflows/desktop-builds.yml`。推送 `desktop-ci/**` 分支触发；工作流进入默认分支后，也可在 Actions 手动 Run workflow。产物在运行页面的 Artifacts 下载，不创建 GitHub Release，不提交商店。
 
-## 当前产物边界
+## 默认 application-only 构建与完整包入口
+
+2026-09-13 已新增完整包工作流，最终文件、下载链接和验证范围见 [完整桌面测试包交付](COMPLETE_PREVIEW_PACKAGES.md)。选择 `macos`、`macos-arm64`、`macos-amd64`、`linux`、`linux-amd64`、`linux-arm64` 或 `windows-arm64` 会构建对应完整预览包。`all` 仍运行下面的六架构主程序矩阵及 Windows x64 完整包流程。
+
+以下表格描述主程序归档，不代表完整包开发状态。
 
 | 产物          | 执行主机         | 内容                                      |
 | ------------- | ---------------- | ----------------------------------------- |
 | Linux amd64   | ubuntu-24.04     | 原生主程序、许可证材料、构建信息、SHA-256 |
 | Linux arm64   | ubuntu-24.04-arm | 同上                                      |
 | Windows amd64 | windows-2025     | 同上；继续组装完整 x64 引擎与开发包       |
-| Windows arm64 | windows-11-arm   | 原生主程序；原生引擎包尚未接入            |
-| macOS amd64   | macos-15-intel   | 原生主程序；Intel 引擎打包尚未接入        |
-| macOS arm64   | macos-15         | 原生主程序；现有本地引擎流程尚未接入此 CI |
+| Windows arm64 | windows-11-arm   | 原生主程序；完整兼容包使用独立入口        |
+| macOS amd64   | macos-15-intel   | 原生主程序；完整 DMG 使用独立入口         |
+| macOS arm64   | macos-15         | 原生主程序；完整 DMG 使用独立入口         |
 
-六个 `*-application-only` 归档均明确注明**不含转换引擎，不能独立完成转换**。不是六个平台的完整发行版；Linux 的既有 deb/Snap 流程也尚未接入本工作流。归档为 tar.gz，保留 Unix 可执行权限。
+六个 `*-application-only` 归档均明确注明**不含转换引擎，不能独立完成转换**。不是六个平台的完整发行版；Linux 完整 deb/Snap 使用上述独立入口。归档为 tar.gz，保留 Unix 可执行权限。
 
 `windows-x64-preview-and-development-msix` 才包含完整 Windows x64 体验 ZIP 和开发 MSIX：
 
@@ -26,7 +30,7 @@
 
 ## Microsoft Store
 
-当前 MSIX 使用 `Z8Work.Desktop.Dev` / `CN=Z8.Work Development` 隔离身份，是未签名开发包，**不能提交 Store**。正式候选需要用户提供 Partner Center 的 Package Identity Name、Publisher、Publisher Display Name，以及确认已有包版本；还需独立接入正式身份与版本校验、WACK、WebView2 缺失路径和安装升级验收。ARM64 MSIX 还缺原生引擎包。
+当前 MSIX 使用 `Z8Work.Desktop.Dev` / `CN=Z8.Work Development` 隔离身份，是未签名开发包，**不能提交 Store**。正式候选需要用户提供 Partner Center 的 Package Identity Name、Publisher、Publisher Display Name，以及确认已有包版本；还需独立接入正式身份与版本校验、WACK、WebView2 缺失路径和安装升级验收。ARM64 开发 MSIX 已产出；其中部分引擎使用 Windows 11 的 x64 模拟执行，正式 Store 验收尚未完成。
 
 Microsoft Store 会在认证通过后为 MSIX 重新签名；这不代表开发 MSIX 可以用虚构身份提交，也不等于可直接侧载安装。macOS 公开下载另需 Developer ID 签名、公证及实际系统验收。许可来源审查仍沿用现有未完成状态，不因为 Actions 构建成功自动变为允许公开发行。
 
