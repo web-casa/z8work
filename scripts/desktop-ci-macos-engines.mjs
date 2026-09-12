@@ -179,7 +179,7 @@ async function optionalTree(source, destination) {
 	}
 }
 for (const entry of await readdir(join(prefixes.imagemagick, "lib")))
-	if (entry.startsWith("ImageMagick-")) {
+	if (entry === "ImageMagick" || entry.startsWith("ImageMagick-")) {
 		for (const mod of await readdir(
 			join(prefixes.imagemagick, "lib", entry),
 		))
@@ -189,10 +189,18 @@ for (const entry of await readdir(join(prefixes.imagemagick, "lib")))
 					"modules",
 				);
 	}
-await optionalTree(
-	join(prefixes.imagemagick, "etc/ImageMagick-7"),
-	"magick-config",
-);
+for (const entry of await readdir(join(prefixes.imagemagick, "etc")))
+	if (entry === "ImageMagick" || entry.startsWith("ImageMagick-"))
+		await optionalTree(
+			join(prefixes.imagemagick, "etc", entry),
+			"magick-config",
+		);
+for (const name of [
+	"modules/png.la",
+	"modules/png.so",
+	"magick-config/colors.xml",
+])
+	await fileInfo(resources, name);
 const heif = run("brew", ["--prefix", "libheif"]).trim();
 await optionalTree(join(heif, "lib/libheif"), "heif-plugins");
 let minimum = 11 * 65536;
