@@ -11,7 +11,17 @@ on:
                 description: Native build scope
                 type: choice
                 default: all
-                options: [all, windows-amd64, macos, macos-arm64, macos-amd64]
+                options:
+                    [
+                        all,
+                        windows-amd64,
+                        macos,
+                        macos-arm64,
+                        macos-amd64,
+                        linux,
+                        linux-arm64,
+                        linux-amd64,
+                    ]
     push:
         branches: ["desktop-ci/**"]
 
@@ -25,7 +35,7 @@ concurrency:
 
 jobs:
     matrix:
-        if: ${{ !inputs.source_run && !startsWith(inputs.target, 'macos') }}
+        if: ${{ !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') }}
         runs-on: ubuntu-24.04
         outputs:
             entries: ${{ steps.matrix.outputs.entries }}
@@ -100,7 +110,7 @@ jobs:
     windows-bundle:
         needs: application
         # Other platforms failing must not suppress a successful Windows build.
-        if: ${{ !cancelled() && !inputs.source_run && !startsWith(inputs.target, 'macos') }}
+        if: ${{ !cancelled() && !inputs.source_run && !startsWith(inputs.target, 'macos') && !startsWith(inputs.target, 'linux') }}
         runs-on: ubuntu-24.04
         timeout-minutes: 20
         steps:
@@ -201,7 +211,7 @@ jobs:
             source_run: ${{ inputs.source_run }}
 
     complete-previews:
-        if: ${{ startsWith(inputs.target, 'macos') }}
+        if: ${{ startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') }}
         uses: ./.github/workflows/desktop-preview-packages.yml
         with:
             target: ${{ inputs.target }}

@@ -31,11 +31,13 @@ if (process.platform !== "linux") throw new Error("Linux host required");
 const matrix = await artifactMatrix();
 await checkVersions();
 const artifact = matrix.artifacts.find(
-	(a) => a.id === "linux-arm64-validation",
+	(a) =>
+		a.id ===
+		`linux-${process.arch === "arm64" ? "arm64" : "amd64"}-validation`,
 );
-if (process.arch !== "arm64")
+if (!["arm64", "x64"].includes(process.arch))
 	throw new Error(
-		"This local validation target requires ARM64; use a target-specific build for other artifacts",
+		"This validation target requires native ARM64 or AMD64 Linux",
 	);
 const binary = await readFile(values.binary);
 assertElf(binary, artifact.arch);
@@ -88,7 +90,7 @@ await cp(engines, join(stage, "usr/lib", resourceName, "engines"), {
 await copyFile("LICENSE", join(stage, "LICENSE"));
 await writeFile(
 	join(stage, "README.txt"),
-	"Z8.Work 0.1.0 — Linux ARM64 local validation candidate\nRun usr/bin/z8-desktop on Debian 13 with GTK 3 and WebKitGTK 4.1.\nEngines and their loader/libraries are bundled; the GUI still requires system GTK/WebKit.\nThis is not a Snap/MSIX or a publicly redistributable release. See provenance.json in the engine directory.\nNo auto-updater. Removing this extracted directory removes this copy; user-selected output files and application history remain.\n",
+	`Z8.Work 0.1.0 — Linux ${artifact.arch} local validation candidate\nRun usr/bin/z8-desktop with GTK 3 and WebKitGTK 4.1.\nEngines and their loader/libraries are bundled; the GUI still requires system GTK/WebKit.\nThis is not a Snap/MSIX or a publicly redistributable release. See provenance.json in the engine directory.\nNo auto-updater. Removing this extracted directory removes this copy; user-selected output files and application history remain.\n`,
 );
 const filename = `z8-work-${matrix.version}-${artifact.id}.tar.gz`;
 const archive = join(output, filename);
@@ -132,7 +134,7 @@ try {
 } finally {
 	await rm(check, { recursive: true, force: true });
 }
-validateQuality(quality, "linux-aarch64");
+validateQuality(quality, `linux-${artifact.arch}`);
 await writeFile(
 	join(output, "quality.json"),
 	JSON.stringify(quality, null, 2) + "\n",

@@ -3,7 +3,8 @@
 set -eu
 . /etc/os-release
 [ "$ID" = ubuntu ] && [ "$VERSION_ID" = 24.04 ]
-[ "$(uname -m)" = x86_64 ]
+case "$(uname -m)" in x86_64) z8_arch=x86_64;; aarch64) z8_arch=aarch64;; *) exit 1;; esac
+z8_multiarch=$(gcc -print-multiarch)
 # The caller builds the frontend before copying sources into this native builder.
 # Keep its module receipt and package notices; host Rollup binaries cannot run here.
 [ -f desktop/dist/index.html ] && [ -f .desktop-local/frontend-modules.json ]
@@ -64,17 +65,17 @@ cargo build --locked --release --no-default-features \
     --features packaged-engines,custom-protocol,linux-portal --manifest-path src-tauri/Cargo.toml
 cargo build --locked --release --manifest-path src-tauri/Cargo.toml \
     -p z8-native --features engine-validation --bin bundle-check
-node scripts/desktop-notices.mjs --target x86_64-unknown-linux-gnu --portal \
+node scripts/desktop-notices.mjs --target "$z8_arch-unknown-linux-gnu" --portal \
     --output "$Z8_BUILD_OUTPUT/application-notices"
 cp -a "$Z8_BUILD_OUTPUT/source-licenses/." "$Z8_BUILD_OUTPUT/application-notices/licenses/"
 node scripts/desktop-bundle-linux.mjs --manifest "$PWD/.desktop-local/engines.json" \
     --output "$Z8_BUILD_OUTPUT/engines" \
     --magick-modules /opt/z8-im/lib/ImageMagick-7.1.1/modules-Q16HDRI/coders \
     --magick-config /opt/z8-im/etc/ImageMagick-7 \
-    --heif-plugins /usr/lib/x86_64-linux-gnu/libheif/plugins \
+    --heif-plugins "/usr/lib/$z8_multiarch/libheif/plugins" \
     --extra-license-dir "$Z8_BUILD_OUTPUT/application-notices/licenses" \
     --verifier "$PWD/src-tauri/target/release/bundle-check"
 cp src-tauri/target/release/z8-desktop "$Z8_BUILD_OUTPUT/z8-desktop"
 "$Z8_BUILD_OUTPUT/z8-desktop" --build-info > "$Z8_BUILD_OUTPUT/build-info.json"
-"$Z8_BUILD_OUTPUT/engines/lib/ld-linux-x86-64.so.2" --library-path "$Z8_BUILD_OUTPUT/engines/lib" \
+"$Z8_BUILD_OUTPUT/engines/$(node -p "JSON.parse(require('fs').readFileSync(process.argv[1])).loader" "$Z8_BUILD_OUTPUT/engines/engines.json")" --library-path "$Z8_BUILD_OUTPUT/engines/lib" \
     "$Z8_BUILD_OUTPUT/engines/validation/bundle-check" "$Z8_BUILD_OUTPUT/engines" --quality > "$Z8_BUILD_OUTPUT/conversions.json"

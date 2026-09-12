@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package a verified local ARM64 candidate; never install on the build host."""
+"""Package a verified local Linux candidate; never install on the build host."""
 import argparse
 import hashlib
 import json
@@ -26,12 +26,13 @@ repo = Path(__file__).resolve().parent.parent
 candidate = args.candidate.resolve()
 output = args.output.resolve()
 report = json.loads((candidate / "candidate.json").read_text())
-if report["artifact"] != "linux-arm64-validation":
-    raise ValueError("An ARM64 Linux validation candidate is required")
+arch = {"aarch64": "arm64", "x86_64": "amd64"}.get(report["buildInfo"]["arch"])
+if not arch or report["artifact"] != f"linux-{arch}-validation":
+    raise ValueError("A matching Linux validation candidate is required")
 if any(report["checks"][key]["status"] != "passed" for key in ("integrity", "conversion")):
     raise ValueError("Candidate integrity and conversion checks must have passed")
-if run(["dpkg", "--print-architecture"]) != "arm64":
-    raise ValueError("Dependency scanning requires the native ARM64 Debian builder")
+if run(["dpkg", "--print-architecture"]) != arch:
+    raise ValueError("Dependency scanning requires the matching native Debian/Ubuntu builder")
 if digest(candidate / report["filename"]) != report["sha256"]:
     raise ValueError("Candidate archive checksum mismatch")
 output.mkdir()  # Refuse overwriting an earlier package or its evidence.
@@ -106,7 +107,7 @@ doc = stage / "usr/share/doc/z8-work"
 doc.mkdir(parents=True)
 shutil.copyfile(repo / "LICENSE", doc / "copyright")
 (doc / "README").write_text(
-    "Z8.Work local preview for Debian 13 ARM64. Start from the application menu or z8-desktop.\n"
+    f"Z8.Work local preview for Linux {arch}. Start from the application menu or z8-desktop.\n"
     "Conversion engines are bundled. GTK/WebKit are system dependencies.\n"
     "Engine notices: /usr/lib/" + resource_name + "/engines/licenses\n"
     "This preview has not completed store, upgrade or redistribution acceptance.\n"
@@ -119,7 +120,7 @@ scan.mkdir(parents=True)
 (scan / "control").write_text(
     "Source: z8-work\nSection: utils\nPriority: optional\n"
     "Maintainer: Z8.Work <contact@web.casa>\n\n"
-    "Package: z8-work\nArchitecture: arm64\nDescription: Local file conversion\n"
+    f"Package: z8-work\nArchitecture: {arch}\nDescription: Local file conversion\n"
 )
 with (output / "dependency-scan.log").open("w") as log:
     substvars = run(["dpkg-shlibdeps", "-O", f"-e{binary}"], cwd=scan.parent, stderr=log)
@@ -128,14 +129,14 @@ control = stage / "DEBIAN"
 control.mkdir()
 size = sum(p.stat().st_size for p in (stage / "usr").rglob("*") if p.is_file())
 (control / "control").write_text(
-    f"Package: z8-work\nVersion: {version}\nArchitecture: arm64\n"
+    f"Package: z8-work\nVersion: {version}\nArchitecture: {arch}\n"
     "Section: utils\nPriority: optional\nMaintainer: Z8.Work <contact@web.casa>\n"
     f"Installed-Size: {(size + 1023) // 1024}\nDepends: {dependencies}\n"
     "Homepage: https://z8.work/\nDescription: Local multi-file conversion tool (preview)\n"
     " Convert images, PDF pages, audio and plain-text documents locally.\n"
     " Includes native conversion engines; requires a graphical desktop.\n"
 )
-deb = output / f"z8-work_{version}_arm64.deb"
+deb = output / f"z8-work_{version}_{arch}.deb"
 run(["dpkg-deb", "--root-owner-group", "-Zxz", "-z6", "--build", str(stage), str(deb)], env={**os.environ, "SOURCE_DATE_EPOCH": "0"})
 extracted = output / "extracted"
 run(["dpkg-deb", "--extract", str(deb), str(extracted)])
@@ -145,7 +146,7 @@ for original in (stage / "usr").rglob("*"):
 (output / "SHA256SUMS").write_text(f"{digest(deb)}  {deb.name}\n")
 (output / "package.json").write_text(json.dumps({
     "file": deb.name, "sha256": digest(deb), "bytes": deb.stat().st_size,
-    "architecture": "arm64", "testedDistribution": "Debian 13",
+    "architecture": arch, "builderDistribution": Path("/etc/os-release").read_text(),
     "sourceCandidateSha256": report["sha256"],
     "applicationSha256": report["applicationSha256"],
     "sourceEngineManifestSha256": report["engineManifestSha256"],

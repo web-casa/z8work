@@ -51,6 +51,15 @@
 			"format": "app",
 			"priority": "P0",
 			"updater": false
+		},
+		{
+			"id": "linux-amd64-validation",
+			"os": "linux",
+			"arch": "x86_64",
+			"channel": "local-validation",
+			"format": "tar.gz",
+			"priority": "local-evidence",
+			"updater": false
 		}
 	]
 }
