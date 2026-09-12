@@ -180,9 +180,9 @@ export async function inspectMacBundle(root, minimumSystemVersion) {
 	}
 	for (const entry of Object.values(bundle.manifest.engines))
 		if (objects.get(entry.path)?.fileType !== 2)
-			throw new Error("Engine must be an ARM64 executable");
+			throw new Error("Engine must be a native executable");
 	if (objects.get("validation/bundle-check")?.fileType !== 2)
-		throw new Error("Missing ARM64 verifier");
+		throw new Error("Missing native verifier");
 	const dependencies = [];
 	for (const [name, object] of objects) {
 		if (object.arch !== bundle.manifest.arch)

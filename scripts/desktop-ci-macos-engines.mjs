@@ -11,6 +11,7 @@ import {
 	stat,
 	chmod,
 	cp,
+	symlink,
 } from "node:fs/promises";
 import { resolve, join, dirname, basename, relative, posix } from "node:path";
 import { inspectMachO } from "./lib/desktop-macos.mjs";
@@ -316,6 +317,10 @@ run(
 const app = join(root, "candidate", config.name + ".app");
 const downloads = join(root, "downloads");
 await mkdir(downloads);
+const dmgRoot = join(root, "dmg-root");
+await mkdir(dmgRoot);
+await cp(app, join(dmgRoot, config.name + ".app"), { recursive: true });
+await symlink("/Applications", join(dmgRoot, "Applications"));
 const dmg = `Z8.Work-macos-${process.arch === "arm64" ? "arm64" : "amd64"}-preview.dmg`;
 run(
 	"/usr/bin/hdiutil",
@@ -324,7 +329,7 @@ run(
 		"-volname",
 		"Z8.Work",
 		"-srcfolder",
-		app,
+		dmgRoot,
 		"-format",
 		"UDZO",
 		join(downloads, dmg),
@@ -332,6 +337,51 @@ run(
 	300000,
 );
 run("/usr/bin/hdiutil", ["verify", join(downloads, dmg)], 300000);
+const mounted = join(root, "mounted-dmg");
+await mkdir(mounted);
+run(
+	"/usr/bin/hdiutil",
+	[
+		"attach",
+		"-readonly",
+		"-nobrowse",
+		"-mountpoint",
+		mounted,
+		join(downloads, dmg),
+	],
+	120000,
+);
+try {
+	const receipt = JSON.parse(
+		await readFile(join(root, "candidate/candidate.json"), "utf8"),
+	);
+	const mountedApp = join(mounted, config.name + ".app");
+	for (const [name, expected] of Object.entries(receipt.files)) {
+		const actual = await fileInfo(mountedApp, name, expected.bytes);
+		if (
+			actual.sha256 !== expected.sha256 ||
+			actual.bytes !== expected.bytes
+		)
+			throw new Error(`DMG payload changed: ${name}`);
+	}
+	run("/usr/bin/codesign", ["--verify", "--deep", "--strict", mountedApp]);
+	await writeFile(
+		join(root, "dmg-check.json"),
+		JSON.stringify(
+			{
+				status: "passed",
+				files: Object.keys(receipt.files).length,
+				artifact: await fileInfo(downloads, dmg),
+				mountedReadOnly: true,
+				gui: "not-run",
+			},
+			null,
+			2,
+		) + "\n",
+	);
+} finally {
+	run("/usr/bin/hdiutil", ["detach", mounted], 120000);
+}
 await writeFile(
 	join(downloads, "SHA256SUMS"),
 	`${(await fileInfo(downloads, dmg)).sha256}  ${dmg}\n`,

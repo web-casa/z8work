@@ -29,7 +29,9 @@ export function inspectPe(bytes, expectedArch = "x86_64") {
 		!["x86_64", "aarch64"].includes(expectedArch) ||
 		u16(pe + 4) !== { x86_64: 0x8664, aarch64: 0xaa64 }[expectedArch]
 	)
-		throw new Error("Expected matching Windows PE machine");
+		throw new Error(
+			`Expected Windows ${expectedArch === "x86_64" ? "x64" : "ARM64"} PE machine`,
+		);
 	const count = u16(pe + 6),
 		optionalSize = u16(pe + 20),
 		flags = u16(pe + 22);

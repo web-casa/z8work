@@ -296,3 +296,17 @@ test("ARM64 PE inspection is explicit and does not relax the default x64 gate", 
 	assert.equal(inspectPe(bytes, "aarch64").arch, "aarch64");
 	assert.throws(() => inspectPe(fixture(), "aarch64"));
 });
+
+test("Mixed-process architecture inspection rejects cross-architecture private DLL loading", async (t) => {
+	const root = await temporary(t);
+	const exe = fixture({ imports: ["helper.dll"] });
+	exe.writeUInt16LE(0xaa64, 132);
+	await writeFile(join(root, "app.exe"), exe);
+	await writeFile(join(root, "helper.dll"), fixture({ dll: true }));
+	await assert.rejects(
+		inspectWindowsTree(root, (name) =>
+			name === "app.exe" ? "aarch64" : "x86_64",
+		),
+		/Private DLL architecture mismatch/,
+	);
+});

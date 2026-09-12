@@ -66,3 +66,13 @@ test("independent MSIX archive verification rejects corruption and unsafe archiv
 	);
 	assert.equal(result, "");
 });
+
+test("ARM64 development MSIX declares Windows 11 for x64 subprocess compatibility", async () => {
+	const c = await msixConfig();
+	c.architecture = "arm64";
+	assert.throws(() => validateMsixConfig(c));
+	c.minimumWindowsVersion = c.maxVersionTested = "10.0.22000.0";
+	assert.ok(msixManifest(c).includes('ProcessorArchitecture="arm64"'));
+	c.architecture = "neutral";
+	assert.throws(() => validateMsixConfig(c));
+});
