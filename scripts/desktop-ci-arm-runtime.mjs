@@ -2,10 +2,11 @@
 // already used by the x64 bundle. This step runs on Linux with cabextract.
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile, copyFile } from "node:fs/promises";
-import { resolve, join } from "node:path";
+import { resolve, join, dirname } from "node:path";
 import { fileInfo } from "./lib/desktop-sources.mjs";
 const root = resolve(".desktop-local/arm-runtime");
-await mkdir(root, { recursive: true });
+await mkdir(dirname(root), { recursive: true });
+await mkdir(root);
 const lock = JSON.parse(
 	await readFile("packaging/desktop/windows/engines.lock.json", "utf8"),
 );

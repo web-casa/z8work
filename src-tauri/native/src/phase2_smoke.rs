@@ -428,20 +428,11 @@ pub fn verify_engines(
         }
     }
     let ogg = root.path().join("source.ogg");
-    command(
-        &engines,
-        "ffmpeg",
-        &[
-            "-nostdin",
-            "-v",
-            "error",
-            "-i",
-            name(&audio),
-            "-c:a",
-            "libvorbis",
-            name(&ogg),
-        ],
-    )?;
+    // Vorbis is an input format, not an offered output encoder. Use a fixed
+    // synthetic stereo fixture so decoder coverage does not require libvorbis
+    // encoding support in the shipped FFmpeg build.
+    std::fs::write(&ogg, include_bytes!("../fixtures/stereo-vorbis.ogg"))
+        .map_err(|e| e.to_string())?;
     audio_inputs.push(ogg);
     for (ext, vc, ac) in [
         ("mp4", "mpeg4", "aac"),
