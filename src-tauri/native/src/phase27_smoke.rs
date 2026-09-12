@@ -234,7 +234,10 @@ pub fn verify_engines(
                 &Cancel::default(),
             )?;
             let extracted = root.path().join("output.icc");
-            command(&engines, "magick", &[&result.path, name(&extracted)])?;
+            // A Windows C: drive can be parsed as the cyan coder. Prefix only
+            // the output; -profile inputs must remain ordinary filesystem paths.
+            let target = format!("ICC:{}", extracted.display());
+            command(&engines, "magick", &[&result.path, &target])?;
             if fs::read(&extracted).map_err(|e| e.to_string())?
                 != fs::read(&profile).map_err(|e| e.to_string())?
             {

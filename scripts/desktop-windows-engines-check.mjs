@@ -167,7 +167,13 @@ try {
 		await save("integrity.json", integrity.stdout);
 		report.checks.integrity = "passed";
 		if (values.full) {
-			const result = await run(binary, [argument, "--quality"], 1200000);
+			// Wine under CPU emulation runs the 240 calibration encodes much
+			// slower. Keep native acceptance bounded to its existing 20 minutes.
+			const result = await run(
+				binary,
+				[argument, "--quality"],
+				wine ? 3600000 : 1200000,
+			);
 			await save("conversion-stderr.txt", result.stderr);
 			await save("conversions.json", result.stdout);
 			validateQuality(JSON.parse(result.stdout), "windows-x86_64");

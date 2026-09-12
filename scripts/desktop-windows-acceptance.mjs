@@ -189,7 +189,8 @@ try {
 		const engines = await run(
 			join(root, "candidate/engines/validation/bundle-check.exe"),
 			[windowsPath(join(root, "candidate/engines")), "--quality"],
-			1200000,
+			// Match the engine checker: extra time is diagnostic-only for Wine.
+			wine ? 3600000 : 1200000,
 		);
 		await save("conversions.json", engines.stdout);
 		await save("conversion-stderr.txt", engines.stderr);
