@@ -23,6 +23,7 @@
 	} from "./platform/preview";
 	import { invoke, isTauri } from "@tauri-apps/api/core";
 	import PixelIcon from "../../src/lib/components/pixel/PixelIcon.svelte";
+	import { formats } from "./platform/queue-contract";
 	import type {
 		Snapshot,
 		Task,
@@ -108,18 +109,7 @@
 	const batchTasks = $derived(
 		queueState?.tasks.filter((t) => t.formats.includes(batchFormat)) ?? [],
 	);
-	const allFormats: Format[] = [
-		"png",
-		"jpeg",
-		"webp",
-		"avif",
-		"wav",
-		"mp3",
-		"flac",
-		"opus",
-		"m4a",
-		"txt",
-	];
+	const allFormats = formats;
 	async function configure(ids: string[], options: Options, format?: Format) {
 		pending = undefined;
 		await action("configure_tasks", {
@@ -664,8 +654,9 @@
 							>{/each}</select
 					></label
 				>
-				{#if ["png", "jpeg", "webp", "avif"].includes(batchFormat)}<OptionsEditor
+				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"].includes(batchFormat)}<OptionsEditor
 						options={batchOptions}
+						format={batchFormat}
 						{english}
 						pdf={true}
 						disabled={working ||
@@ -823,6 +814,7 @@
 							{/if}
 							{#if task.formats.includes("png")}<OptionsEditor
 									options={task.options}
+									format={task.format}
 									{english}
 									pdf={task.name
 										.toLowerCase()

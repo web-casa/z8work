@@ -19,6 +19,9 @@ pub enum OutputFormat {
     Jpeg,
     Webp,
     Avif,
+    Bmp,
+    Tga,
+    Qoi,
     Wav,
     Mp3,
     Flac,
@@ -33,6 +36,9 @@ impl OutputFormat {
             Self::Jpeg => "jpg",
             Self::Webp => "webp",
             Self::Avif => "avif",
+            Self::Bmp => "bmp",
+            Self::Tga => "tga",
+            Self::Qoi => "qoi",
             Self::Wav => "wav",
             Self::Mp3 => "mp3",
             Self::Flac => "flac",
@@ -47,6 +53,9 @@ impl OutputFormat {
             Self::Png => "PNG",
             Self::Webp => "WEBP",
             Self::Avif => "AVIF",
+            Self::Bmp => "BMP3",
+            Self::Tga => "TGA",
+            Self::Qoi => "QOI",
             _ => "",
         }
     }
@@ -181,7 +190,8 @@ const POLICY: &str = r#"<policymap>
 <policy domain="filter" rights="none" pattern="*"/>
 <policy domain="path" rights="none" pattern="@*"/>
 <policy domain="coder" rights="none" pattern="*"/>
-<policy domain="coder" rights="read|write" pattern="{PNG,JPEG,WEBP,AVIF,HEIC}"/>
+<policy domain="coder" rights="read|write" pattern="{PNG,JPEG,WEBP,AVIF,HEIC,BMP,BMP2,BMP3,TGA,QOI}"/>
+<policy domain="coder" rights="read" pattern="ICC"/>
 <policy domain="resource" name="memory" value="256MiB"/>
 <policy domain="resource" name="map" value="256MiB"/>
 <policy domain="resource" name="disk" value="512MiB"/>
@@ -341,7 +351,14 @@ pub fn convert_source(
                 format,
                 &context.options,
             )?;
-            "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.".to_string()
+            if matches!(
+                format,
+                OutputFormat::Bmp | OutputFormat::Tga | OutputFormat::Qoi
+            ) {
+                "First frame only. BMP uses a white background; TGA/QOI preserve alpha. 8-bit output; metadata and ICC profiles are omitted. Output may be larger.".to_string()
+            } else {
+                "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.".to_string()
+            }
         }
     };
     if let Some(report) = &context.progress {
@@ -389,6 +406,9 @@ fn input_coder(ext: &str) -> &str {
         "heif" | "heic" => "HEIC",
         "avif" => "AVIF",
         "webp" => "WEBP",
+        "bmp" => "BMP",
+        "tga" => "TGA",
+        "qoi" => "QOI",
         _ => "PNG",
     }
 }
@@ -404,7 +424,7 @@ fn encode_image(
     if !options.keep_metadata {
         args.extend([text("+profile"), text("exif,xmp,iptc")]);
     }
-    if format == OutputFormat::Jpeg {
+    if matches!(format, OutputFormat::Jpeg | OutputFormat::Bmp) {
         args.extend([
             text("-background"),
             text("white"),
@@ -428,6 +448,29 @@ fn encode_image(
             text("webp:method=4"),
             text("-define"),
             text("webp:lossless=false"),
+        ]);
+    }
+    if matches!(
+        format,
+        OutputFormat::Bmp | OutputFormat::Tga | OutputFormat::Qoi
+    ) {
+        // These outputs have no portable EXIF/XMP/ICC contract. Apply orientation
+        // before removing profiles, then explicitly quantize to RGB(A) 8-bit.
+        let srgb = job.cwd.join("output-srgb.icc");
+        fs::write(
+            &srgb,
+            include_bytes!("../../../packaging/desktop/profiles/srgb.icc"),
+        )
+        .map_err(|e| e.to_string())?;
+        args.extend([
+            text("-profile"),
+            job.work_file(&srgb)?,
+            text("-colorspace"),
+            text("sRGB"),
+            text("-depth"),
+            text("8"),
+            text("+profile"),
+            text("*"),
         ]);
     }
     // PNG quality is a compression/filter setting, not a lossy quality scale.
@@ -473,6 +516,24 @@ fn validate_image_encoding(path: &Path, format: OutputFormat) -> Result<(), Stri
         OutputFormat::Png => bytes.starts_with(b"\x89PNG\r\n\x1a\n"),
         OutputFormat::Jpeg => bytes.starts_with(&[0xff, 0xd8, 0xff]),
         OutputFormat::Webp => bytes.starts_with(b"RIFF") && bytes.get(8..12) == Some(b"WEBP"),
+        OutputFormat::Bmp => {
+            bytes.starts_with(b"BM") && bytes.get(14..18) == Some(&40u32.to_le_bytes())
+        }
+        OutputFormat::Qoi => {
+            bytes.starts_with(b"qoif")
+                && matches!(bytes.get(12), Some(3 | 4))
+                && matches!(bytes.get(13), Some(0 | 1))
+        }
+        // TGA has no magic prefix; require the structural fields our encoder emits,
+        // then require successful decoding below (not just a file extension).
+        OutputFormat::Tga => {
+            bytes.len() >= 18
+                && bytes[1] <= 1
+                && matches!(bytes[2], 1 | 2 | 3 | 9 | 10 | 11)
+                && u16::from_le_bytes([bytes[12], bytes[13]]) > 0
+                && u16::from_le_bytes([bytes[14], bytes[15]]) > 0
+                && matches!(bytes[16], 8 | 16 | 24 | 32)
+        }
         OutputFormat::Avif => {
             let length = bytes
                 .get(..4)
@@ -988,6 +1049,9 @@ mod encoding_tests {
                 OutputFormat::Jpeg,
                 OutputFormat::Webp,
                 OutputFormat::Avif,
+                OutputFormat::Bmp,
+                OutputFormat::Tga,
+                OutputFormat::Qoi,
             ] {
                 assert!(validate_image_encoding(&path, format).is_err());
             }

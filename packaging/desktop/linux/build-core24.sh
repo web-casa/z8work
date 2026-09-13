@@ -79,3 +79,6 @@ cp src-tauri/target/release/z8-desktop "$Z8_BUILD_OUTPUT/z8-desktop"
 "$Z8_BUILD_OUTPUT/z8-desktop" --build-info > "$Z8_BUILD_OUTPUT/build-info.json"
 "$Z8_BUILD_OUTPUT/engines/$(node -p "JSON.parse(require('fs').readFileSync(process.argv[1])).loader" "$Z8_BUILD_OUTPUT/engines/engines.json")" --library-path "$Z8_BUILD_OUTPUT/engines/lib" \
     "$Z8_BUILD_OUTPUT/engines/validation/bundle-check" "$Z8_BUILD_OUTPUT/engines" --quality > "$Z8_BUILD_OUTPUT/conversions.json"
+
+"$Z8_BUILD_OUTPUT/engines/$(node -p "JSON.parse(require('fs').readFileSync(process.argv[1])).loader" "$Z8_BUILD_OUTPUT/engines/engines.json")" --library-path "$Z8_BUILD_OUTPUT/engines/lib" \
+    "$Z8_BUILD_OUTPUT/engines/validation/bundle-check" "$Z8_BUILD_OUTPUT/engines" --image-expansion > "$Z8_BUILD_OUTPUT/image-expansion.json"

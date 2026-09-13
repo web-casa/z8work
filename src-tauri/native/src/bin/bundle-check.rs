@@ -3,10 +3,11 @@ fn main() -> Result<(), String> {
     z8_native::watchdog_entry();
     let mut args = std::env::args_os().skip(1);
     let root = args.next().ok_or(
-        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--pdf-color|--capabilities]",
+        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--pdf-color|--capabilities|--image-expansion]",
     )?;
     let mode = match args.next() {
         None => "integrity",
+        Some(arg) if arg == "--image-expansion" => "image-expansion",
         Some(arg) if arg == "--capabilities" => "capabilities",
         Some(arg) if arg == "--full" => "full",
         Some(arg) if arg == "--quality" => "quality",
@@ -17,7 +18,9 @@ fn main() -> Result<(), String> {
         return Err("Too many arguments".into());
     }
     let engines = z8_native::Engines::load_bundle(std::path::Path::new(&root))?;
-    let report = if mode == "capabilities" {
+    let report = if mode == "image-expansion" {
+        z8_native::image_expansion_checks::verify(&engines)?
+    } else if mode == "capabilities" {
         z8_native::capabilities::inspect(&engines)?
     } else if mode == "pdf-color" {
         z8_native::pdf_color_checks::verify(&engines)?

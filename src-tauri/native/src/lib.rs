@@ -45,3 +45,6 @@ pub mod startup;
 
 #[cfg(feature = "engine-validation")]
 pub mod capabilities;
+
+#[cfg(any(feature = "development-engines", feature = "engine-validation"))]
+pub mod image_expansion_checks;

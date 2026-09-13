@@ -1,6 +1,6 @@
 {
 	"schema": 1,
-	"id": "v1-r1",
+	"id": "v1-format-expansion-2",
 	"languages": ["zh-Hans", "en"],
 	"languagePreferences": ["system", "zh_hans", "en"],
 	"artifacts": [
@@ -14,30 +14,43 @@
 	"groups": [
 		{
 			"id": "images",
-			"inputs": ["png", "jpg", "jpeg", "webp", "avif", "heic", "heif"],
-			"outputs": ["png", "jpeg", "webp", "avif"],
+			"inputs": [
+				"png",
+				"jpg",
+				"jpeg",
+				"webp",
+				"avif",
+				"heic",
+				"heif",
+				"bmp",
+				"tga",
+				"qoi"
+			],
+			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"],
 			"engines": ["magick"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
 				"tests/fixtures/gradient-10bit.heic",
 				"tests/fixtures/cover.png",
 				"src-tauri/native/src/phase2_smoke.rs",
-				"src-tauri/native/src/phase27_smoke.rs"
+				"src-tauri/native/src/phase27_smoke.rs",
+				"src-tauri/native/src/image_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: 28 real decoded routes including jpeg/heif aliases; alpha, EXIF orientation 6, ICC byte preservation, 16-bit PNG and four calibration fixtures. See Phase 27 matrix; installed-package coverage remains R6."
+			"sampleNotes": "R4: 28 real decoded routes including jpeg/heif aliases; alpha, EXIF orientation 6, ICC byte preservation, 16-bit PNG and four calibration fixtures. See Phase 27 matrix; installed-package coverage remains R6. Format expansion 2: BMP white background; TGA/QOI 8-bit alpha; additional routes verified separately."
 		},
 		{
 			"id": "pdf",
 			"inputs": ["pdf"],
-			"outputs": ["png", "jpeg", "webp", "avif"],
+			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"],
 			"engines": ["mutool", "magick"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
 				"src-tauri/native/src/phase2_smoke.rs",
 				"src-tauri/native/src/phase27_smoke.rs",
-				"desktop/tests/fixtures/embedded-font.pdf"
+				"desktop/tests/fixtures/embedded-font.pdf",
+				"src-tauri/native/src/image_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: four outputs, three-page base-14 font fixture plus embedded Host Grotesk font, page dimensions/order/names, partial retry and over-limit refusal. Installed-package/font fallback coverage remains R6."
+			"sampleNotes": "R4: four outputs, three-page base-14 font fixture plus embedded Host Grotesk font, page dimensions/order/names, partial retry and over-limit refusal. Installed-package/font fallback coverage remains R6. Format expansion 2: BMP white background; TGA/QOI 8-bit alpha; additional routes verified separately."
 		},
 		{
 			"id": "media",

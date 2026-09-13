@@ -21,6 +21,10 @@ pub(crate) fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<Stri
             if id == "magick" && Path::new(arg).is_absolute() {
                 let coder = match Path::new(arg).extension().and_then(|e| e.to_str()) {
                     Some("png") => Some("PNG"),
+                    Some("bmp") => Some("BMP"),
+                    Some("tga") => Some("TGA"),
+                    Some("qoi") => Some("QOI"),
+                    Some("icc") => Some("ICC"),
                     Some("jpg" | "jpeg") => Some("JPEG"),
                     Some("webp") => Some("WEBP"),
                     Some("avif") => Some("AVIF"),

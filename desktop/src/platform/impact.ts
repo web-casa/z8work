@@ -50,6 +50,10 @@ export function summarizeSavedImages(
 export function resultNote(note: string, english: boolean): string {
 	const notes = [
 		[
+			"First frame only. BMP uses a white background; TGA/QOI preserve alpha. 8-bit output; metadata and ICC profiles are omitted. Output may be larger.",
+			"仅转换首帧。BMP 使用白底；TGA/QOI 保留透明度。8 位输出，不保留元数据与 ICC 配置。输出可能变大。",
+		],
+		[
 			"First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.",
 			"仅保留第一条音轨。WAV 使用 16 位 PCM；MP3/AAC/Opus 为有损编码。元数据会移除。",
 		],

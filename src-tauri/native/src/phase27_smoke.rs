@@ -33,7 +33,7 @@ pub(crate) fn image_semantics(
         engines,
         input,
         &root.join("expected.rgba"),
-        format == OutputFormat::Jpeg,
+        matches!(format, OutputFormat::Jpeg | OutputFormat::Bmp),
     )?;
     let b = raw(engines, output, &root.join("actual.rgba"), false)?;
     let dims = |path: &Path| {

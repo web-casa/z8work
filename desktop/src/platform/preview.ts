@@ -1,3 +1,4 @@
+import scope from "../../../packaging/desktop/v1-scope.json" with { type: "json" };
 export type PreviewState = {
 	id: string;
 	url: string;
@@ -11,7 +12,12 @@ export const emptyPreview = (): PreviewState => ({
 	error: "",
 });
 export function previewKind(name: string) {
-	if (/\.(png|jpe?g|webp|avif|hei[cf])$/i.test(name)) return "image";
+	if (
+		scope.groups
+			.find((g) => g.id === "images")
+			?.inputs.includes(name.split(".").pop()?.toLowerCase() ?? "")
+	)
+		return "image";
 	if (/\.pdf$/i.test(name)) return "pdf";
 	if (/\.(mp4|mov|mkv|webm)$/i.test(name)) return "video";
 	if (/\.(mp3|wav|flac|ogg|m4a|opus)$/i.test(name)) return "audio";

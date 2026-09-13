@@ -1,5 +1,6 @@
 import { summarizeInventory } from "./lib/desktop-format-inventory.mjs";
 // Inspect only a reviewed, hash-pinned package. No installation or network conversion.
+import { validateImageExpansion } from "./lib/desktop-image-expansion.mjs";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -54,6 +55,10 @@ try {
 		process.platform === "win32" ? "bundle-check.exe" : "bundle-check",
 	);
 	const report = JSON.parse(run(tool, [engines, "--capabilities"]));
+	const expansion = JSON.parse(
+		run(tool, [engines, "--image-expansion"], 900000),
+	);
+	validateImageExpansion(expansion);
 	if (
 		report.schema !== 1 ||
 		report.scope !== "engine-discovery-not-conversion-acceptance" ||
@@ -74,6 +79,7 @@ try {
 				),
 				commit: process.env.GITHUB_SHA,
 				report,
+				expansion,
 				summary: summarizeInventory(report),
 			},
 			null,
