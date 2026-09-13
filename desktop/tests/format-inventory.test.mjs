@@ -81,10 +81,10 @@ test("inventory preserves read/write direction, excludes pseudo formats from pro
 	assert.deepEqual(
 		[
 			...codecInventory(
-				"V..... = Video\n V....D libx264 H264\n A....D aac AAC\n not an encoder",
+				"V..... = Video\n V....D libx264 H264\n A....D aac AAC\n V....D libvpx-vp9 VP9\n not an encoder",
 			),
 		],
-		["libx264", "aac"],
+		["libx264", "aac", "libvpx-vp9"],
 	);
 });
 

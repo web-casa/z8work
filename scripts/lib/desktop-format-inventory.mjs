@@ -24,7 +24,7 @@ export function codecInventory(raw) {
 		const row = line.trim().split(/\s+/);
 		if (
 			/^[VAS][A-Z.]{5}$/.test(row[0] ?? "") &&
-			/^[a-zA-Z0-9_]+$/.test(row[1] ?? "")
+			/^[a-zA-Z0-9_-]+$/.test(row[1] ?? "")
 		)
 			entries.add(row[1]);
 	}
