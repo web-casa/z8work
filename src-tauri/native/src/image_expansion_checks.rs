@@ -114,6 +114,40 @@ pub fn verify(engines: &Engines) -> Result<Value, String> {
             routes.push(json!({"input":ext,"output":format,"bytes":result.bytes,"inputSha256":hash_file(input)?,"decoded":true,"semantic":semantic}));
         }
     }
+    let mut controls = vec![];
+    for ext in ["bmp", "tga", "qoi"] {
+        let input = inputs
+            .iter()
+            .find(|p| p.extension().and_then(|s| s.to_str()) == Some(ext))
+            .unwrap();
+        let preview = crate::convert::preview(
+            engines,
+            source(input, ConversionContext::default())?,
+            &Cancel::default(),
+        )?;
+        if !preview.starts_with(b"\x89PNG\r\n\x1a\n") {
+            return Err("New input preview is not PNG".into());
+        }
+        let cancel = Cancel::default();
+        cancel.cancel();
+        if convert(engines, input, &out, OutputFormat::Png, &cancel).unwrap_err() != "Cancelled" {
+            return Err("Expansion cancellation failed".into());
+        }
+        let corrupt = root.path().join(format!("corrupt.{ext}"));
+        fs::write(&corrupt, b"this is not an image").map_err(|e| e.to_string())?;
+        if convert(
+            engines,
+            &corrupt,
+            &out,
+            OutputFormat::Png,
+            &Cancel::default(),
+        )
+        .is_ok()
+        {
+            return Err("Corrupt image was published".into());
+        }
+        controls.push(json!({"input":ext,"preview":true,"cancel":true,"corruptRejected":true}));
+    }
     let pdf = root.path().join("pages.pdf");
     fs::write(&pdf, pdf_fixture(3)).map_err(|e| e.to_string())?;
     let baseline = convert(engines, &pdf, &out, OutputFormat::Png, &Cancel::default())?;
@@ -238,6 +272,6 @@ pub fn verify(engines: &Engines) -> Result<Value, String> {
         }
     }
     Ok(
-        json!({"schema":1,"scope":"static-raster-expansion-2","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"routes":routes,"presets":presets,"semantics":semantics,"engines":engines.info()}),
+        json!({"schema":1,"scope":"static-raster-expansion-2","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"routes":routes,"presets":presets,"controls":controls,"semantics":semantics,"engines":engines.info()}),
     )
 }

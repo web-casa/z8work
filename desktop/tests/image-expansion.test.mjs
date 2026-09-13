@@ -16,6 +16,12 @@ test("image expansion gate rejects a partial or duplicate route report", () => {
 		validateImageExpansion({
 			schema: 1,
 			scope: "static-raster-expansion-2",
+			controls: ["bmp", "tga", "qoi"].map((input) => ({
+				input,
+				preview: true,
+				cancel: true,
+				corruptRejected: true,
+			})),
 			routes: [],
 		}),
 	);
@@ -23,6 +29,12 @@ test("image expansion gate rejects a partial or duplicate route report", () => {
 		validateImageExpansion({
 			schema: 1,
 			scope: "static-raster-expansion-2",
+			controls: ["bmp", "tga", "qoi"].map((input) => ({
+				input,
+				preview: true,
+				cancel: true,
+				corruptRejected: true,
+			})),
 			routes: Array.from({ length: 45 }, () => ({
 				input: "png",
 				output: "bmp",

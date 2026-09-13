@@ -3,6 +3,18 @@ export function validateImageExpansion(report) {
 	assert.equal(report.schema, 1);
 	assert.equal(report.scope, "static-raster-expansion-2");
 	const extra = ["bmp", "tga", "qoi"];
+	assert.deepEqual(
+		report.controls.map((r) => r.input).sort(),
+		[...extra].sort(),
+	);
+	assert.ok(
+		report.controls.every(
+			(r) =>
+				r.preview === true &&
+				r.cancel === true &&
+				r.corruptRejected === true,
+		),
+	);
 	const images = [
 		"png",
 		"jpg",
