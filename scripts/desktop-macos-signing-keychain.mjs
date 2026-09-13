@@ -41,6 +41,17 @@ if (process.argv[2] === "cleanup") {
 	run(["create-keychain", "-p", password, keychain]);
 	run(["set-keychain-settings", "-lut", "21600", keychain]);
 	run(["unlock-keychain", "-p", password, keychain]);
+	const existing = [
+		...run(["list-keychains", "-d", "user"]).matchAll(/"([^"\n]+)"/g),
+	].map((m) => m[1]);
+	run([
+		"list-keychains",
+		"-d",
+		"user",
+		"-s",
+		keychain,
+		...existing.filter((p) => p !== keychain),
+	]);
 	try {
 		await writeFile(
 			p12,
