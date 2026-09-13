@@ -13,6 +13,8 @@ export type Format =
 	| "flac"
 	| "opus"
 	| "m4a"
+	| "ogg"
+	| "aiff"
 	| "txt";
 export type Phase =
 	| "ready"

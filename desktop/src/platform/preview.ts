@@ -21,7 +21,7 @@ export function previewKind(name: string) {
 		return "image";
 	if (/\.pdf$/i.test(name)) return "pdf";
 	if (/\.(mp4|mov|mkv|webm)$/i.test(name)) return "video";
-	if (/\.(mp3|wav|flac|ogg|m4a|opus)$/i.test(name)) return "audio";
+	if (/\.(mp3|wav|flac|ogg|m4a|opus|aiff|aif)$/i.test(name)) return "audio";
 	return undefined;
 }
 export function previewable(name: string, bytes: number): boolean {

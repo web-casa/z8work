@@ -22,6 +22,11 @@
 </script>
 
 <div class="options-editor">
+	{#if format === "ogg" || format === "aiff"}<p>
+			{english
+				? "First audio track only. OGG: lossy Vorbis, quality 5. AIFF: uncompressed PCM 16-bit; higher source bit depths are reduced. Tags and covers are removed. Output may grow."
+				: "仅保留第一条音轨。OGG：有损 Vorbis，质量 5。AIFF：未压缩的 16 位 PCM，更高源位深会降低。移除标签和封面，输出可能变大。"}
+		</p>{/if}
 	{#if format === "txt"}<p>
 			{english
 				? "Plain text only. Images and page layout are omitted. Scripts are not executed; referenced external resources are not loaded. No OCR."

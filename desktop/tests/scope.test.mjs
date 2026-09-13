@@ -13,7 +13,7 @@ const scope = await json("packaging/desktop/v1-scope.json");
 
 test("frozen desktop scope matches UI formats, languages and artifact identities", async () => {
 	assert.equal(scope.schema, 1);
-	assert.equal(scope.id, "v1-format-expansion-3a");
+	assert.equal(scope.id, "v1-format-expansion-3b");
 	const matrix = await json("packaging/desktop/artifacts.json");
 	assert.deepEqual(scope.languages, matrix.languages);
 	assert.deepEqual(
@@ -22,7 +22,7 @@ test("frozen desktop scope matches UI formats, languages and artifact identities
 	);
 	const inputs = scope.groups.flatMap((g) => g.inputs);
 	assert.equal(new Set(inputs).size, inputs.length);
-	assert.equal(inputs.length, 27);
+	assert.equal(inputs.length, 29);
 	assert.deepEqual(
 		[...new Set(scope.groups.flatMap((g) => g.outputs))].sort(),
 		[...formats].sort(),
@@ -32,7 +32,7 @@ test("frozen desktop scope matches UI formats, languages and artifact identities
 			(n, g) => n + g.inputs.length * g.outputs.length,
 			0,
 		),
-		133,
+		167,
 	);
 	for (const language of scope.languagePreferences)
 		assert.equal(

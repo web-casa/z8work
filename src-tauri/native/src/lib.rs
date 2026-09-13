@@ -51,3 +51,6 @@ pub mod image_expansion_checks;
 
 #[cfg(any(feature = "development-engines", feature = "engine-validation"))]
 pub mod document_expansion_checks;
+
+#[cfg(any(feature = "development-engines", feature = "engine-validation"))]
+pub mod audio_expansion_checks;

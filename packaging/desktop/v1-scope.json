@@ -1,6 +1,6 @@
 {
 	"schema": 1,
-	"id": "v1-format-expansion-3a",
+	"id": "v1-format-expansion-3b",
 	"languages": ["zh-Hans", "en"],
 	"languagePreferences": ["system", "zh_hans", "en"],
 	"artifacts": [
@@ -64,17 +64,20 @@
 				"mp4",
 				"mov",
 				"mkv",
-				"webm"
+				"webm",
+				"aiff",
+				"aif"
 			],
-			"outputs": ["wav", "mp3", "flac", "opus", "m4a"],
+			"outputs": ["wav", "mp3", "flac", "opus", "m4a", "ogg", "aiff"],
 			"engines": ["ffmpeg", "ffprobe"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
 				"tests/fixtures/cover.mp3",
 				"src-tauri/native/src/phase2_smoke.rs",
-				"src-tauri/native/src/phase27_smoke.rs"
+				"src-tauri/native/src/phase27_smoke.rs",
+				"src-tauri/native/src/audio_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: 50 real decoded routes; two-channel 440/880 Hz signal survives each route, with duration/channel checks. These samples do not cover every container codec; installed packages remain R6."
+			"sampleNotes": "R4: 50 real decoded routes; two-channel 440/880 Hz signal survives each route, with duration/channel checks. These samples do not cover every container codec; installed packages remain R6. Expansion 3b: OGG/Vorbis quality 5 output; AIFF/AIF input and AIFF PCM16 output. Explicit container, codec, sample rate, decoded signal and boundary checks."
 		},
 		{
 			"id": "documents",

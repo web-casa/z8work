@@ -1,3 +1,4 @@
+import { validateAudioExpansion } from "./lib/desktop-audio-expansion.mjs";
 import { validateDocumentExpansion } from "./lib/desktop-document-expansion.mjs";
 import { summarizeInventory } from "./lib/desktop-format-inventory.mjs";
 // Inspect only a reviewed, hash-pinned package. No installation or network conversion.
@@ -64,6 +65,8 @@ try {
 		run(tool, [engines, "--document-expansion"], 180000),
 	);
 	validateDocumentExpansion(documents, { requireNetwork: true });
+	const audio = JSON.parse(run(tool, [engines, "--audio-expansion"], 900000));
+	validateAudioExpansion(audio);
 	if (
 		report.schema !== 1 ||
 		report.scope !== "engine-discovery-not-conversion-acceptance" ||
@@ -86,6 +89,7 @@ try {
 				report,
 				expansion,
 				documents,
+				audio,
 				summary: summarizeInventory(report),
 			},
 			null,

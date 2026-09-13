@@ -39,9 +39,11 @@
 				"mp4",
 				"mov",
 				"mkv",
-				"webm"
+				"webm",
+				"aiff",
+				"aif"
 			],
-			"outputs": ["wav", "mp3", "flac", "opus", "m4a"]
+			"outputs": ["wav", "mp3", "flac", "opus", "m4a", "ogg", "aiff"]
 		},
 		{
 			"kind": "text",
@@ -101,7 +103,7 @@
 				},
 				{
 					"title": "Supported conversions",
-					"body": "Image output: PNG, JPEG, WebP, AVIF, BMP, TGA and QOI. PDF exports pages to those image formats. Audio output: WAV, MP3, FLAC, Opus and M4A; supported videos can supply an audio track. Markdown, DOCX, HTML, ODT and EPUB can export plain text. This desktop version does not support OCR, spreadsheet conversion, formatted document output or video output."
+					"body": "Image output: PNG, JPEG, WebP, AVIF, BMP, TGA and QOI. PDF exports pages to those image formats. Audio output: WAV, MP3, FLAC, Opus, M4A, OGG/Vorbis and AIFF/PCM16; supported videos can supply an audio track. Markdown, DOCX, HTML, ODT and EPUB can export plain text. This desktop version does not support OCR, spreadsheet conversion, formatted document output or video output."
 				},
 				{
 					"title": "Retry saving an encoded result",
@@ -172,7 +174,7 @@
 				},
 				{
 					"title": "支持的转换",
-					"body": "图片可输出 PNG、JPEG、WebP、AVIF、BMP、TGA 和 QOI，PDF 可将页面导出为这些格式。音频可输出 WAV、MP3、FLAC、Opus 和 M4A，也可从支持的视频中提取音轨。Markdown、DOCX、HTML、ODT 和 EPUB 可输出纯文本。本桌面版不支持 OCR、电子表格转换、保留排版的文档输出或视频输出。"
+					"body": "图片可输出 PNG、JPEG、WebP、AVIF、BMP、TGA 和 QOI，PDF 可将页面导出为这些格式。音频可输出 WAV、MP3、FLAC、Opus、M4A、OGG/Vorbis 和 AIFF/PCM16，也可从支持的视频中提取音轨。Markdown、DOCX、HTML、ODT 和 EPUB 可输出纯文本。本桌面版不支持 OCR、电子表格转换、保留排版的文档输出或视频输出。"
 				},
 				{
 					"title": "仅重试保存已编码结果",

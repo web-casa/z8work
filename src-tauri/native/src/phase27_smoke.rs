@@ -451,6 +451,7 @@ pub fn verify_engines(
             .map_err(|e| e.to_string())?;
     let expansion = crate::image_expansion_checks::verify(&engines)?;
     let documents = crate::document_expansion_checks::verify(&engines)?;
+    let audio = crate::audio_expansion_checks::verify(&engines)?;
     let routes: Vec<_> = report["routes"]
         .as_array()
         .ok_or("Missing route results")?
@@ -465,6 +466,12 @@ pub fn verify_engines(
             documents["routes"]
                 .as_array()
                 .ok_or("Missing document routes")?
+                .iter(),
+        )
+        .chain(
+            audio["routes"]
+                .as_array()
+                .ok_or("Missing audio routes")?
                 .iter(),
         )
         .collect();
@@ -491,6 +498,7 @@ pub fn verify_engines(
     }
     report["imageExpansion"] = expansion;
     report["documentExpansion"] = documents;
+    report["audioExpansion"] = audio;
     report["phase"] = json!(27);
     report["qualityChecks"] = json!(checks);
     report["pdfColor"] = pdf_color;

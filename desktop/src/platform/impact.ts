@@ -50,6 +50,10 @@ export function summarizeSavedImages(
 export function resultNote(note: string, english: boolean): string {
 	const notes = [
 		[
+			"First audio track only. OGG uses lossy Vorbis quality 5; AIFF uses uncompressed PCM 16-bit. Tags and cover art are removed. Output may be larger.",
+			"仅保留第一条音轨。OGG 使用有损 Vorbis（质量 5）；AIFF 使用未压缩的 16 位 PCM。移除标签和封面，输出可能变大。",
+		],
+		[
 			"First frame only. BMP uses a white background; TGA/QOI preserve alpha. 8-bit output; metadata and ICC profiles are omitted. Output may be larger.",
 			"仅转换首帧。BMP 使用白底；TGA/QOI 保留透明度。8 位输出，不保留元数据与 ICC 配置。输出可能变大。",
 		],

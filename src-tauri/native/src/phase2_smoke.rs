@@ -432,9 +432,8 @@ pub fn verify_engines(
         }
     }
     let ogg = root.path().join("source.ogg");
-    // Vorbis is an input format, not an offered output encoder. Use a fixed
-    // synthetic stereo fixture so decoder coverage does not require libvorbis
-    // encoding support in the shipped FFmpeg build.
+    // Keep the original fixed Vorbis decoder fixture independent of the
+    // encoder; the additional encoder routes have their own acceptance matrix.
     std::fs::write(&ogg, include_bytes!("../fixtures/stereo-vorbis.ogg"))
         .map_err(|e| e.to_string())?;
     audio_inputs.push(ogg);

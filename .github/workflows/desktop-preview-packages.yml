@@ -88,7 +88,7 @@ jobs:
               run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
             - name: Prepare native engine toolchain
               if: runner.os == 'macOS'
-              run: brew install imagemagick ffmpeg mupdf-tools
+              run: brew install imagemagick ffmpeg-full mupdf-tools
             - name: Relocate engines, validate conversions and package DMG
               if: runner.os == 'macOS'
               run: node scripts/desktop-ci-macos-engines.mjs

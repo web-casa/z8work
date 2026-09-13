@@ -1,3 +1,4 @@
+import { validateAudioExpansion } from "./desktop-audio-expansion.mjs";
 import { validateDocumentExpansion } from "./desktop-document-expansion.mjs";
 // Read-only snapd transport and validation for an already installed candidate.
 import { validateImageExpansion } from "./desktop-image-expansion.mjs";
@@ -411,6 +412,7 @@ export function validateQuality(report, expectedPlatform) {
 	validatePdfColor(report.pdfColor);
 	validateImageExpansion(report.imageExpansion);
 	validateDocumentExpansion(report.documentExpansion);
+	validateAudioExpansion(report.audioExpansion);
 	if (
 		report.phase !== 27 ||
 		report.qualityChecks?.length !== 20 ||

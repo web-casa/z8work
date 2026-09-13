@@ -27,6 +27,8 @@ pub enum OutputFormat {
     Flac,
     Opus,
     M4a,
+    Ogg,
+    Aiff,
     Txt,
 }
 impl OutputFormat {
@@ -44,6 +46,8 @@ impl OutputFormat {
             Self::Flac => "flac",
             Self::Opus => "opus",
             Self::M4a => "m4a",
+            Self::Ogg => "ogg",
+            Self::Aiff => "aiff",
             Self::Txt => "txt",
         }
     }
@@ -333,9 +337,15 @@ pub fn convert_source(
         | OutputFormat::Mp3
         | OutputFormat::Flac
         | OutputFormat::Opus
-        | OutputFormat::M4a => {
+        | OutputFormat::M4a
+        | OutputFormat::Ogg
+        | OutputFormat::Aiff => {
             encode_audio(&job, &staged, &output, format, context.progress.clone())?;
-            "First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.".to_string()
+            if matches!(format, OutputFormat::Ogg | OutputFormat::Aiff) {
+                "First audio track only. OGG uses lossy Vorbis quality 5; AIFF uses uncompressed PCM 16-bit. Tags and cover art are removed. Output may be larger.".to_string()
+            } else {
+                "First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.".to_string()
+            }
         }
         OutputFormat::Txt => {
             job.run(
@@ -570,6 +580,7 @@ fn media_demuxer(extension: &str) -> Option<&'static str> {
     Some(match extension {
         "mp3" => "mp3",
         "wav" => "wav",
+        "aiff" | "aif" => "aiff",
         "flac" => "flac",
         "ogg" | "opus" => "ogg",
         "m4a" | "mp4" | "mov" => "mov",
@@ -592,6 +603,8 @@ fn encode_audio(
         OutputFormat::Flac => ("flac", "flac", "flac", None),
         OutputFormat::Opus => ("libopus", "opus", "opus", Some("128k")),
         OutputFormat::M4a => ("aac", "ipod", "aac", Some("192k")),
+        OutputFormat::Ogg => ("libvorbis", "ogg", "vorbis", None),
+        OutputFormat::Aiff => ("pcm_s16be", "aiff", "pcm_s16be", None),
         _ => return Err("Unsupported audio format".into()),
     };
     let mut probe_args = vec![
@@ -614,7 +627,7 @@ fn encode_audio(
         text("-select_streams"),
         text("a:0"),
         text("-show_entries"),
-        text("stream=duration,channels:format=duration"),
+        text("stream=duration,channels,sample_rate:format=duration"),
         text("-of"),
         text("json"),
         input.as_os_str().into(),
@@ -674,6 +687,9 @@ fn encode_audio(
             ],
         );
     }
+    if format == OutputFormat::Ogg {
+        args.extend([text("-q:a"), text("5")]);
+    }
     if let Some(bitrate) = bitrate {
         args.extend([text("-b:a"), text(bitrate)]);
     }
@@ -719,6 +735,22 @@ fn encode_audio(
     let value: serde_json::Value = serde_json::from_str(&probe).map_err(|e| e.to_string())?;
     if value["streams"][0]["codec_name"] != expected {
         return Err("Audio output validation failed".into());
+    }
+    if matches!(format, OutputFormat::Ogg | OutputFormat::Aiff) {
+        let mut header = [0u8; 12];
+        fs::File::open(output)
+            .and_then(|mut f| f.read_exact(&mut header))
+            .map_err(|e| e.to_string())?;
+        let container_matches = match format {
+            OutputFormat::Ogg => &header[..4] == b"OggS",
+            OutputFormat::Aiff => &header[..4] == b"FORM" && &header[8..] == b"AIFF",
+            _ => false,
+        };
+        if !container_matches
+            || value["streams"][0]["sample_rate"] != original["streams"][0]["sample_rate"]
+        {
+            return Err("Audio container or sample rate changed; no output was published".into());
+        }
     }
     let encoded_duration = duration(&value).ok_or("Cannot verify output audio duration")?;
     if (encoded_duration - original_duration).abs() > 0.2

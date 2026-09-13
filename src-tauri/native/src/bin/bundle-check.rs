@@ -3,10 +3,11 @@ fn main() -> Result<(), String> {
     z8_native::watchdog_entry();
     let mut args = std::env::args_os().skip(1);
     let root = args.next().ok_or(
-        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--pdf-color|--capabilities|--image-expansion|--document-expansion]",
+        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--pdf-color|--capabilities|--image-expansion|--document-expansion|--audio-expansion]",
     )?;
     let mode = match args.next() {
         None => "integrity",
+        Some(arg) if arg == "--audio-expansion" => "audio-expansion",
         Some(arg) if arg == "--document-expansion" => "document-expansion",
         Some(arg) if arg == "--image-expansion" => "image-expansion",
         Some(arg) if arg == "--capabilities" => "capabilities",
@@ -19,7 +20,9 @@ fn main() -> Result<(), String> {
         return Err("Too many arguments".into());
     }
     let engines = z8_native::Engines::load_bundle(std::path::Path::new(&root))?;
-    let report = if mode == "document-expansion" {
+    let report = if mode == "audio-expansion" {
+        z8_native::audio_expansion_checks::verify(&engines)?
+    } else if mode == "document-expansion" {
         z8_native::document_expansion_checks::verify_with_network(&engines)?
     } else if mode == "image-expansion" {
         z8_native::image_expansion_checks::verify(&engines)?

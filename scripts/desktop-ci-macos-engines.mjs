@@ -1,6 +1,7 @@
 // Native preview preparation: capture installed formula receipts, copy the
 // dependency closure, relocate private copies, then sign before fingerprinting.
 import { execFileSync } from "node:child_process";
+import { codecInventory } from "./lib/desktop-format-inventory.mjs";
 import {
 	readFile,
 	writeFile,
@@ -54,10 +55,26 @@ run("/usr/bin/unzip", [
 	"-d",
 	join(root, "pandoc"),
 ]);
-const formulae = ["imagemagick", "ffmpeg", "mupdf-tools"];
+const formulae = ["imagemagick", "ffmpeg-full", "mupdf-tools"];
 const prefixes = Object.fromEntries(
 	formulae.map((f) => [f, run("brew", ["--prefix", f]).trim()]),
 );
+prefixes.ffmpeg = prefixes["ffmpeg-full"];
+// Do not select Homebrew's minimal ffmpeg accidentally when both kegs exist.
+const encoders = codecInventory(
+	run(join(prefixes.ffmpeg, "bin/ffmpeg"), ["-hide_banner", "-encoders"]),
+);
+for (const encoder of [
+	"libmp3lame",
+	"libopus",
+	"aac",
+	"flac",
+	"pcm_s16le",
+	"pcm_s16be",
+	"libvorbis",
+])
+	if (!encoders.has(encoder))
+		throw new Error(`Required audio encoder missing: ${encoder}`);
 prefixes.pandoc = join(root, "pandoc", `pandoc-3.11-${pandocArch}`);
 const sources = JSON.parse(
 	run("brew", ["info", "--json=v2", "--installed"]),

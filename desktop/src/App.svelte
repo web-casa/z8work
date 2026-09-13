@@ -455,8 +455,8 @@
 				>
 				<p>
 					{t(
-						"图片只转换首帧，PNG 保持无损、JPEG 使用白色背景。PDF 逐页导出，最多 200 页、每页 4000 × 4000 像素；音频支持 5 种输出。文档仅提取纯文本。输出可能变大。引擎加载状态见下方。",
-						"Images: first frame, lossless PNG, white JPEG background. PDF: all pages, up to 200 pages and 4000 × 4000 pixels per page. Five audio outputs. Documents: text only. Output may grow. See engine status below.",
+						"图片只转换首帧，PNG 保持无损、JPEG 使用白色背景。PDF 逐页导出，最多 200 页、每页 4000 × 4000 像素；音频支持 7 种输出。文档仅提取纯文本。输出可能变大。引擎加载状态见下方。",
+						"Images: first frame, lossless PNG, white JPEG background. PDF: all pages, up to 200 pages and 4000 × 4000 pixels per page. Seven audio outputs. Documents: text only. Output may grow. See engine status below.",
 					)}
 				</p>
 			</div>
@@ -654,11 +654,19 @@
 							>{/each}</select
 					></label
 				>
-				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi", "txt"].includes(batchFormat)}<OptionsEditor
+				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi", "txt", "ogg", "aiff"].includes(batchFormat)}<OptionsEditor
 						options={batchOptions}
 						format={batchFormat}
 						{english}
-						pdf={batchFormat !== "txt"}
+						pdf={[
+							"png",
+							"jpeg",
+							"webp",
+							"avif",
+							"bmp",
+							"tga",
+							"qoi",
+						].includes(batchFormat)}
 						disabled={working ||
 							blocked ||
 							preferences.busy ||
@@ -689,8 +697,9 @@
 					</h2>
 					<p>
 						PNG / JPEG / WebP / AVIF / HEIC / BMP / TGA / QOI · PDF
-						· MP3 / WAV / FLAC / OGG / M4A / OPUS · MP4 / MOV / MKV
-						/ WebM → Audio · Markdown / DOCX / HTML / ODT / EPUB
+						· MP3 / WAV / FLAC / OGG / M4A / OPUS / AIFF · MP4 / MOV
+						/ MKV / WebM → Audio · Markdown / DOCX / HTML / ODT /
+						EPUB
 					</p>
 					<p>
 						{t(
@@ -812,7 +821,7 @@
 									)}
 								</p>
 							{/if}
-							{#if task.formats.includes("png") || task.format === "txt"}<OptionsEditor
+							{#if task.formats.includes("png") || ["txt", "ogg", "aiff"].includes(task.format)}<OptionsEditor
 									options={task.options}
 									format={task.format}
 									{english}

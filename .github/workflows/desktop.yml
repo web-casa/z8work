@@ -107,6 +107,7 @@ jobs:
             - run: bunx playwright install --with-deps chromium
             - run: bun run desktop:test:image-expansion
             - run: bun run desktop:test:document-expansion
+            - run: bun run desktop:test:audio-expansion
             - run: bun run desktop:store:check
             - run: bunx eslint desktop scripts/desktop-*.mjs scripts/lib/desktop-*.mjs
             - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/frontend-inputs.json
