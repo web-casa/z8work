@@ -449,7 +449,18 @@ pub fn verify_engines(
     let scope: Value =
         serde_json::from_str(include_str!("../../../packaging/desktop/v1-scope.json"))
             .map_err(|e| e.to_string())?;
-    let routes = report["routes"].as_array().ok_or("Missing route results")?;
+    let expansion = crate::image_expansion_checks::verify(&engines)?;
+    let routes: Vec<_> = report["routes"]
+        .as_array()
+        .ok_or("Missing route results")?
+        .iter()
+        .chain(
+            expansion["routes"]
+                .as_array()
+                .ok_or("Missing expansion routes")?
+                .iter(),
+        )
+        .collect();
     let mut expected = 0;
     for group in scope["groups"].as_array().ok_or("Missing scope")? {
         for input in group["inputs"].as_array().unwrap() {
@@ -471,6 +482,7 @@ pub fn verify_engines(
     if routes.len() != expected {
         return Err("Unfrozen route tested".into());
     }
+    report["imageExpansion"] = expansion;
     report["phase"] = json!(27);
     report["qualityChecks"] = json!(checks);
     report["pdfColor"] = pdf_color;

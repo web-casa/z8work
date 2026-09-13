@@ -1,4 +1,5 @@
 // Read-only snapd transport and validation for an already installed candidate.
+import { validateImageExpansion } from "./desktop-image-expansion.mjs";
 import { request } from "node:http";
 import { spawn } from "node:child_process";
 import { StringDecoder } from "node:string_decoder";
@@ -407,6 +408,7 @@ export function validateConversions(report, expectedPlatform = "linux-x86_64") {
 export function validateQuality(report, expectedPlatform) {
 	validateConversions(report, expectedPlatform);
 	validatePdfColor(report.pdfColor);
+	validateImageExpansion(report.imageExpansion);
 	if (
 		report.phase !== 27 ||
 		report.qualityChecks?.length !== 20 ||
