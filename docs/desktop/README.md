@@ -8,7 +8,7 @@
 
 2026-09-13 格式扩展专题：[原生格式能力、同类项目与扩展优先级调研](FORMAT_EXPANSION_RESEARCH.md)，包含最终 Linux ARM64 引擎探测及对先前范围判断的修正。
 
-格式扩展实施：[第一步：统一路由、六平台能力盘点与输出编码校验](FORMAT_EXPANSION_PHASE1.md)；[第二步：BMP、TGA、QOI 输入输出与 PDF 扩展](FORMAT_EXPANSION_PHASE2.md)；[第三步 A：HTML/ODT/EPUB 文档输入](FORMAT_EXPANSION_PHASE3A.md)；[第三步 B：OGG/Vorbis 与 AIFF](FORMAT_EXPANSION_PHASE3B.md)。
+格式扩展实施：[第一步：统一路由、六平台能力盘点与输出编码校验](FORMAT_EXPANSION_PHASE1.md)；[第二步：BMP、TGA、QOI 输入输出与 PDF 扩展](FORMAT_EXPANSION_PHASE2.md)；[第三步 A：HTML/ODT/EPUB 文档输入](FORMAT_EXPANSION_PHASE3A.md)；[第三步 B：OGG/Vorbis 与 AIFF](FORMAT_EXPANSION_PHASE3B.md)；[格式扩展后的跨平台预览包交付](FORMAT_EXPANSION_DELIVERY.md)。
 
 ## 文档导航
 

@@ -1,0 +1,17 @@
+{
+  "run": "34769462749",
+  "artifact": "windows-x64-preview-and-development-msix",
+  "commit": "cb639ba3bf9c7cb623538963b9c47baed643e59c",
+  "files": {
+    "z8-work-development.msix": {
+      "sha256": "310c1ffa37cec3ab23d5716955f0fac559fefc4ecaf7c6ec061d128d7cdc366d",
+      "bytes": 173762411
+    },
+    "Z8.Work-windows-x64-preview.zip": {
+      "sha256": "ba4f624732737a8ed61806769109e879f77b307224cc687f21db764e987dc4aa",
+      "bytes": 171712341
+    }
+  },
+  "artifactId": 10321249545,
+  "download": "https://github.com/web-casa/z8work/actions/runs/34769462749/artifacts/10321249545"
+}

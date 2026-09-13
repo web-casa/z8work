@@ -1,0 +1,346 @@
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	﻿2026-09-13T16:39:01.8078500Z Current runner version: '2.337.0'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8117120Z ##[group]Runner Image Provisioner
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8118120Z Hosted Compute Agent
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8118830Z Version: 20260819.586
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8119710Z Commit: 3cc4a88dfa507ef76119ad1bb3eccc6378bb2b76
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8120660Z Build Date: 2026-08-18T23:20:18Z
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8121790Z Worker ID: {afc59f74-aab4-4731-8aff-578a2e7471d2}
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8122730Z Azure Region: westus
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8123420Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8125490Z ##[group]Operating System
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8126250Z macOS
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8126850Z 15.7.9
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8127450Z 24G830
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8128070Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8128720Z ##[group]Runner Image
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8129420Z Image: macos-15
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8130090Z Version: 20260824.0482.1
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8131750Z Included Software: https://github.com/actions/runner-images/blob/macos-15/20260824.0482/images/macos/macos-15-Readme.md
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8136490Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15%2F20260824.0482
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8138750Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8140520Z ##[group]GITHUB_TOKEN Permissions
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8162650Z Actions: read
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8163650Z Contents: read
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8164430Z Metadata: read
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8168180Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8171630Z Secret source: Actions
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8175420Z Cache mode: write
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:01.8182950Z Prepare workflow directory
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:02.0108830Z Prepare all required actions
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:02.0313820Z Getting action download info
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:02.2588800Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:03.5666770Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:05.0586000Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:07.2000970Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2329850Z Uses: web-casa/z8work/.github/workflows/desktop-macos-sign.yml@refs/heads/fix/windows-pdf-path (39e660c8a9514cfb973be8284d4581f54321e4aa)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2340200Z ##[group] Inputs
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2341290Z   capability_platform: all
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2342310Z   target: macos-signed
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2346210Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.2348210Z Complete job name: macos-signed / sign (amd64, macos-15-intel, 34766937495)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4585440Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4637250Z ##[group]Run actions/checkout@v4
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4638780Z with:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4639540Z   repository: web-casa/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4659480Z   token: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4660350Z   ssh-strict: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4661340Z   ssh-user: git
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4662170Z   persist-credentials: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4663110Z   clean: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4664020Z   sparse-checkout-cone-mode: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4665120Z   fetch-depth: 1
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4666070Z   fetch-tags: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4667430Z   show-progress: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4668880Z   lfs: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4669970Z   submodules: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4671050Z   set-safe-directory: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4672640Z   allow-unsafe-pr-checkout: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:09.4676150Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.2331960Z Syncing repository: web-casa/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.2336810Z ##[group]Getting Git version info
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.2339130Z Working directory is '/Users/runner/work/z8work/z8work'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.2342890Z [command]/usr/local/bin/git version
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.5104350Z git version 2.55.0
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6750950Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6790940Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/59e64fc8-210e-4439-a9b6-78f76b4ced68/.gitconfig'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6810560Z Temporarily overriding HOME='/Users/runner/work/_temp/59e64fc8-210e-4439-a9b6-78f76b4ced68' before making global git config changes
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6847050Z Adding repository directory to the temporary git global config as a safe directory
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6869610Z [command]/usr/local/bin/git config --global --add safe.directory /Users/runner/work/z8work/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6950540Z Deleting the contents of '/Users/runner/work/z8work/z8work'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6967530Z ##[group]Initializing the repository
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.6975300Z [command]/usr/local/bin/git init /Users/runner/work/z8work/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7676470Z hint: Using 'master' as the name for the initial branch. This default branch name
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7680620Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7684340Z hint: to use in all of your new repositories, which will suppress this warning,
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7687790Z hint: call:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7689110Z hint:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7690540Z hint: 	git config --global init.defaultBranch <name>
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7692370Z hint:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7694510Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7697550Z hint: 'development'. The just-created branch can be renamed via this command:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7700440Z hint:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7702690Z hint: 	git branch -m <name>
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7704340Z hint:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7706680Z hint: Disable this message with "git config set advice.defaultBranchName false"
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7711870Z Initialized empty Git repository in /Users/runner/work/z8work/z8work/.git/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7718040Z [command]/usr/local/bin/git remote add origin https://github.com/web-casa/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7984420Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7986340Z ##[group]Disabling automatic garbage collection
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.7988980Z [command]/usr/local/bin/git config --local gc.auto 0
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.8193830Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.8195430Z ##[group]Setting up auth
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.8204170Z [command]/usr/local/bin/git config --local --name-only --get-regexp core\.sshCommand
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:11.8469640Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:13.0373600Z [command]/usr/local/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:13.0619710Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:14.3352650Z [command]/usr/local/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:14.3877410Z [command]/usr/local/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:15.6097060Z [command]/usr/local/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:15.7236860Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:15.7278540Z ##[group]Fetching the repository
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:15.7323810Z [command]/usr/local/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +39e660c8a9514cfb973be8284d4581f54321e4aa:refs/remotes/origin/fix/windows-pdf-path
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.1932470Z From https://github.com/web-casa/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2197720Z  * [new ref]         39e660c8a9514cfb973be8284d4581f54321e4aa -> origin/fix/windows-pdf-path
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2213120Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2216140Z ##[group]Determining the checkout info
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2224530Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2229070Z [command]/usr/local/bin/git sparse-checkout disable
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2309450Z [command]/usr/local/bin/git config --local --unset-all extensions.worktreeConfig
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2592890Z ##[group]Checking out the ref
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:22.2595370Z [command]/usr/local/bin/git checkout --progress --force -B fix/windows-pdf-path refs/remotes/origin/fix/windows-pdf-path
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:23.4018130Z Updating files:  10% (225/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:23.6664740Z Updating files:  11% (226/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:23.7682650Z Updating files:  12% (247/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:23.8687630Z Updating files:  13% (267/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:23.9700990Z Updating files:  14% (288/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.0775270Z Updating files:  15% (308/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.1779210Z Updating files:  16% (329/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.2776200Z Updating files:  17% (349/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.2814250Z Updating files:  18% (370/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.2865840Z Updating files:  19% (390/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.2866910Z Updating files:  20% (411/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.2924130Z Updating files:  21% (431/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.3042610Z Updating files:  22% (452/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.3094630Z Updating files:  22% (466/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.3194210Z Updating files:  23% (472/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.3572190Z Updating files:  24% (493/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.3854100Z Updating files:  25% (513/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4060530Z Updating files:  26% (534/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4154410Z Updating files:  27% (554/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4305780Z Updating files:  28% (575/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4580500Z Updating files:  29% (595/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4732470Z Updating files:  30% (616/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.4847540Z Updating files:  31% (636/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5116230Z Updating files:  32% (657/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5270810Z Updating files:  33% (677/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5409620Z Updating files:  34% (698/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5572200Z Updating files:  35% (718/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5826890Z Updating files:  36% (739/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.5953890Z Updating files:  37% (759/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.6205500Z Updating files:  38% (780/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.6397710Z Updating files:  39% (800/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.6720950Z Updating files:  40% (821/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.7821960Z Updating files:  41% (841/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:24.7963000Z Updating files:  42% (862/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.0349310Z Updating files:  43% (882/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.1379600Z Updating files:  44% (903/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.2374140Z Updating files:  45% (923/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.3374830Z Updating files:  46% (944/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4279450Z Updating files:  47% (964/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4611840Z Updating files:  48% (985/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4656480Z Updating files:  49% (1005/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4700370Z Updating files:  50% (1026/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4704430Z Updating files:  50% (1041/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4709240Z Updating files:  51% (1047/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.4727930Z Updating files:  52% (1067/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.5343150Z Updating files:  53% (1088/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.5455990Z Updating files:  54% (1108/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.5621050Z Updating files:  55% (1129/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.5780180Z Updating files:  56% (1149/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.5982670Z Updating files:  57% (1170/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6119390Z Updating files:  58% (1190/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6321300Z Updating files:  59% (1211/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6478200Z Updating files:  60% (1231/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6757940Z Updating files:  61% (1252/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6868290Z Updating files:  62% (1272/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6912580Z Updating files:  63% (1293/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.6966850Z Updating files:  64% (1313/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7033330Z Updating files:  65% (1334/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7109920Z Updating files:  66% (1354/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7187910Z Updating files:  67% (1375/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7244310Z Updating files:  68% (1395/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7328960Z Updating files:  69% (1416/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7405960Z Updating files:  70% (1436/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7707690Z Updating files:  71% (1457/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7791710Z Updating files:  72% (1477/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7792940Z Updating files:  73% (1498/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.7883860Z Updating files:  74% (1518/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8041250Z Updating files:  75% (1539/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8172620Z Updating files:  76% (1559/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8233540Z Updating files:  77% (1580/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8296410Z Updating files:  78% (1600/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8369610Z Updating files:  79% (1621/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8438610Z Updating files:  80% (1641/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8492950Z Updating files:  81% (1662/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8554970Z Updating files:  82% (1682/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8606280Z Updating files:  83% (1703/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8668930Z Updating files:  84% (1723/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8727440Z Updating files:  85% (1744/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8782760Z Updating files:  86% (1764/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8841940Z Updating files:  87% (1785/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8901630Z Updating files:  88% (1805/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.8982780Z Updating files:  89% (1826/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9059740Z Updating files:  90% (1846/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9114340Z Updating files:  91% (1867/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9182240Z Updating files:  92% (1887/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9238970Z Updating files:  93% (1908/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9287010Z Updating files:  94% (1928/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:25.9339280Z Updating files:  95% (1949/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.0029960Z Updating files:  96% (1969/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3005330Z Updating files:  97% (1990/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3006950Z Updating files:  97% (2009/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3076170Z Updating files:  98% (2010/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3142810Z Updating files:  99% (2031/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3143670Z Updating files: 100% (2051/2051)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3144400Z Updating files: 100% (2051/2051), done.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3268730Z Switched to a new branch 'fix/windows-pdf-path'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3290440Z branch 'fix/windows-pdf-path' set up to track 'origin/fix/windows-pdf-path'.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3375090Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3587820Z [command]/usr/local/bin/git log -1 --format=%H
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.3730550Z 39e660c8a9514cfb973be8284d4581f54321e4aa
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4379280Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4382520Z ##[group]Run actions/setup-node@v4
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4383000Z with:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4383340Z   node-version: 22.22.2
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4383740Z   always-auth: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4384130Z   check-latest: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4389290Z   token: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:26.4389650Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:27.1450930Z (node:23406) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:27.1792850Z (Use `node --trace-deprecation ...` to show where the warning was created)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:27.1838730Z Attempting to download 22.22.2...
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:28.7399970Z Acquiring 22.22.2 - x64 from https://github.com/actions/node-versions/releases/download/22.22.2-23521889093/node-22.22.2-darwin-x64.tar.gz
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:30.0748640Z Extracting ...
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:30.0992190Z [command]/usr/bin/tar xz --strip 1 -C /Users/runner/work/_temp/8898f1d3-c2d7-485c-9ea4-13934c4f8a7e -f /Users/runner/work/_temp/f9b66086-1bc5-4db1-926f-28dac430b3d5
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:32.8851260Z Adding to the cache ...
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:38.8529840Z ##[group]Environment details
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2117980Z node: v22.22.2
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2118690Z npm: 10.9.7
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2119420Z yarn: 1.22.22
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2120900Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2410800Z ##[group]Run node scripts/desktop-macos-signing-keychain.mjs
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2412270Z [36;1mnode scripts/desktop-macos-signing-keychain.mjs[0m
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2499630Z shell: /bin/bash -e {0}
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2500110Z env:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2543310Z   MACOS_CERTIFICATE_P12_BASE64: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2543870Z   MACOS_CERTIFICATE_PASSWORD: 
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2544410Z   APPLE_ID: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2544820Z   APPLE_TEAM_ID: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2545360Z   APPLE_APP_SPECIFIC_PASSWORD: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:39.2545880Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.3721250Z Certificate/private key and Apple notarization credentials validated.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4359450Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4362170Z ##[group]Run actions/download-artifact@v4
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4362770Z with:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4367890Z   github-token: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4368350Z   run-id: 34766937495
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4368820Z   name: macos-amd64-complete-preview
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4369420Z   path: .desktop-local/mac-input
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4369950Z   merge-multiple: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4370420Z   repository: web-casa/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.4370940Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.6798470Z Downloading single artifact
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.6898290Z (node:23843) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.6900160Z (Use `node --trace-deprecation ...` to show where the warning was created)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:44.7206220Z (node:23843) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.1564280Z Preparing to download the following artifacts:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.1566160Z - macos-amd64-complete-preview (ID: 10320574161, Size: 120112501, Expected Digest: sha256:1331fcf3a93b4e5c167fc4afa9404eff5dae95a0b35caea005584a364aa94e18)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.1608040Z Downloading artifact '10320574161' from 'web-casa/z8work'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.4989400Z Redirecting to blob download url: https://productionresultssa15.blob.core.windows.net/actions-results/948e25a4-d8ba-49ec-a20b-4139be73b469/workflow-job-run-cb0f66f0-9237-554b-940e-da75bc07b1c2/artifacts/3d889578d0e6008bc68e744cc57a1196830372a4b5a7e8de2d953a99cddf1e14.zip
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.5022360Z Starting download of artifact to: /Users/runner/work/z8work/z8work/.desktop-local/mac-input
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:45.6174290Z (node:23843) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2186500Z SHA256 digest of downloaded artifact is 1331fcf3a93b4e5c167fc4afa9404eff5dae95a0b35caea005584a364aa94e18
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2280820Z Artifact download completed successfully.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2282930Z Total of 1 artifact(s) downloaded
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2285270Z Download artifact has finished successfully
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2352940Z ##[group]Run node scripts/desktop-macos-sign.mjs
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2353910Z [36;1mnode scripts/desktop-macos-sign.mjs[0m
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2418990Z shell: /bin/bash -e {0}
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2419500Z env:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2420380Z   APPLE_TEAM_ID: ***
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:39:49.2420860Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T16:41:15.0810740Z Signed 241 engine objects and application; starting conversion quality checks.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5871710Z file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-sign.mjs:25
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5953600Z 		throw new Error(
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5954000Z 		      ^
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5954190Z 
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5954920Z Error: hdiutil create failed: hdiutil: create failed - Resource busy
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5955550Z 
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5956700Z     at run (file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-sign.mjs:25:9)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5957890Z     at file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-sign.mjs:160:1
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5959040Z 
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5959200Z Node.js v22.22.2
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.5979490Z ##[error]Process completed with exit code 1.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9086730Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9089510Z ##[group]Run actions/upload-artifact@v4
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9089990Z with:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9090470Z   name: macos-amd64-notary-pending-candidate
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9091450Z   path: .desktop-local/mac-signed/downloads/*
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9092320Z   include-hidden-files: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9093090Z   if-no-files-found: ignore
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9093910Z   retention-days: 14
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9094610Z   compression-level: 6
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9095440Z   overwrite: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:08.9096160Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.5926520Z (node:71022) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.5929330Z (Use `node --trace-deprecation ...` to show where the warning was created)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.5992390Z No files were found with the provided path: .desktop-local/mac-signed/downloads/*. No artifacts will be uploaded.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8550220Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8552750Z ##[group]Run actions/upload-artifact@v4
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8553320Z with:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8553730Z   name: macos-amd64-signing-reports
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8554320Z   path: .desktop-local/mac-signed/reports/*
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8554900Z   include-hidden-files: true
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8555390Z   if-no-files-found: ignore
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8555900Z   retention-days: 14
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8556330Z   compression-level: 6
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8556780Z   overwrite: false
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:09.8557220Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.0909230Z (node:71025) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.0910940Z (Use `node --trace-deprecation ...` to show where the warning was created)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.0972390Z With the provided path, there will be 2 files uploaded
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.0978510Z Artifact name is valid!
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.0979690Z Root directory input is valid!
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3162310Z Beginning upload of artifact content to blob storage
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3477080Z (node:71025) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3794140Z Uploaded bytes 65235
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3945530Z Finished uploading artifact content to blob storage!
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3947030Z SHA256 digest of uploaded artifact zip is 160f76ccd1beb6db5d5bcabbcbb74f196acf5c82a41b955a735742c2b4274ce0
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.3948130Z Finalizing artifact upload
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.5979120Z Artifact macos-amd64-signing-reports.zip successfully finalized. Artifact ID 10321672527
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.5981020Z Artifact macos-amd64-signing-reports has been successfully uploaded! Final size is 65235 bytes. Artifact ID is 10321672527
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:10.7549170Z Artifact download URL: https://github.com/web-casa/z8work/actions/runs/34769210630/artifacts/10321672527
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:11.0863930Z ##[group]Run node scripts/desktop-macos-signing-keychain.mjs cleanup
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:11.0864990Z [36;1mnode scripts/desktop-macos-signing-keychain.mjs cleanup[0m
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.0732470Z shell: /bin/bash -e {0}
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.0733040Z ##[endgroup]
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.5724120Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.5726670Z Post job cleanup.
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.8154780Z [command]/usr/local/bin/git version
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.9838580Z git version 2.55.0
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:12.9876010Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/39094291-55d6-4954-8977-4eff437c9d9f/.gitconfig'
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.0593200Z Temporarily overriding HOME='/Users/runner/work/_temp/39094291-55d6-4954-8977-4eff437c9d9f' before making global git config changes
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.0595000Z Adding repository directory to the temporary git global config as a safe directory
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.0600940Z [command]/usr/local/bin/git config --global --add safe.directory /Users/runner/work/z8work/z8work
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.1440450Z [command]/usr/local/bin/git config --local --name-only --get-regexp core\.sshCommand
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.1538670Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.5546450Z [command]/usr/local/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.5628510Z http.https://github.com/.extraheader
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.5641690Z [command]/usr/local/bin/git config --local --unset-all http.https://github.com/.extraheader
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.8021690Z [command]/usr/local/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.9304960Z [command]/usr/local/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:13.9405360Z [command]/usr/local/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:14.2200610Z Cleaning up orphan processes
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:14.3105040Z Terminate orphan process: pid (70669) (diskimages-help)
+macos-signed / sign (amd64, macos-15-intel, 34766937495)	UNKNOWN STEP	2026-09-13T17:01:14.3709440Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

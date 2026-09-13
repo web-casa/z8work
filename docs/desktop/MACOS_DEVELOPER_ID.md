@@ -1,5 +1,7 @@
 # macOS Developer ID 签名与公证
 
+2026-09-14 新格式包及最新下载入口见 [格式扩展后的跨平台预览包交付](FORMAT_EXPANSION_DELIVERY.md)。下文保留前批次产物与验证历史，不能用旧包代表当前 167 条路线。
+
 核对日期：2026-09-13。用于 Z8.Work 官网 / GitHub 直接分发的签名预览包，不是 Mac App Store 构建或提交。
 
 ## 凭据

@@ -15,3 +15,6 @@ docs/desktop/evidence/windows-pdf-path-20260913/** -whitespace
 docs/desktop/evidence/complete-previews-20260913/** -whitespace
 
 docs/desktop/evidence/macos-developer-id-20260913/** -whitespace
+
+# Keep cross-platform delivery reports and original failed-attempt logs intact.
+docs/desktop/evidence/format-delivery-20260914/** -whitespace

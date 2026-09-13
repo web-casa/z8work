@@ -1,0 +1,14 @@
+{
+  "applicationId": "work.z8.desktop.m0",
+  "arch": "aarch64",
+  "customProtocol": true,
+  "debug": false,
+  "engines": "bundled",
+  "fileDialog": "native",
+  "os": "windows",
+  "processLifetime": "job-close-v1",
+  "resourceDirectoryName": "Z8.Work Desktop Dev",
+  "schema": 1,
+  "updater": false,
+  "version": "0.1.0"
+}
