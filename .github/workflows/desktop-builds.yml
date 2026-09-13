@@ -165,7 +165,7 @@ jobs:
             - name: Diagnose native MuPDF path handling
               run: node scripts/desktop-windows-pdf-paths.mjs --root .desktop-local/ci/handoff/candidate --output .desktop-local/ci/pdf-paths
             - name: Validate native Windows lifecycle and conversion matrix
-              run: node scripts/desktop-windows-acceptance.mjs --root .desktop-local/ci/handoff --output .desktop-local/ci/native-check --runtime native
+              run: node .desktop-local/ci/handoff/scripts/desktop-windows-acceptance.mjs --root .desktop-local/ci/handoff --output .desktop-local/ci/native-check --runtime native
             - name: Package and unpack with Windows SDK
               shell: pwsh
               run: |
