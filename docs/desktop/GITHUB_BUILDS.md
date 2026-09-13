@@ -1,5 +1,7 @@
 # GitHub 桌面构建（2026-09-12）
 
+2026-09-13 更新：两个 Mac 架构已有 Developer ID 正式签名并通过 Apple 公证的 DMG，见 [签名、公证与下载记录](MACOS_DEVELOPER_ID.md)。下文原始预览包记录保留，签名版本使用独立摘要。
+
 新增工作流 `.github/workflows/desktop-builds.yml`。推送 `desktop-ci/**` 分支触发；工作流进入默认分支后，也可在 Actions 手动 Run workflow。产物在运行页面的 Artifacts 下载，不创建 GitHub Release，不提交商店。
 
 ## 默认 application-only 构建与完整包入口

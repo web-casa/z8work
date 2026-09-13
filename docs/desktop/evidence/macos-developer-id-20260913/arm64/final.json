@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "arch": "arm64",
+  "artifact": {
+    "sha256": "a2be7d8006fe15a53a14a5bdc22429d8cc0a2322a47ae695e563c6f35750151a",
+    "bytes": 119449613
+  },
+  "notarization": {
+    "message": "Processing complete",
+    "id": "684ddd95-a1f4-4435-8a78-ff91ed662f7e",
+    "status": "Accepted"
+  },
+  "signature": "Developer ID Application",
+  "gatekeeper": "passed",
+  "gui": "not-run",
+  "installation": "not-run",
+  "storeSubmission": "not-applicable"
+}

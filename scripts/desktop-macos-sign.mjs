@@ -107,6 +107,9 @@ await writeFile(
 await inspectMacBundle(engines, "15.0.0");
 sign(app);
 run("codesign", ["--verify", "--deep", "--strict", app]);
+console.log(
+	`Signed ${signedObjects} engine objects and application; starting conversion quality checks.`,
+);
 const quality = JSON.parse(
 	run(
 		join(engines, "validation/bundle-check"),
@@ -160,6 +163,9 @@ run(
 sign(dmg, false);
 const submitted = await fileInfo(downloads, dmgName);
 const auth = ["--keychain-profile", "z8-notary", "--keychain", keychain];
+console.log(
+	"Conversion quality checks passed; submitting signed DMG for notarization.",
+);
 const submission = JSON.parse(
 	run(
 		"xcrun",
@@ -171,6 +177,7 @@ await writeFile(
 	join(reports, "submission.json"),
 	JSON.stringify({ submission, artifact: submitted }, null, 2) + "\n",
 );
+console.log(`Notarization submitted: ${submission.id}; waiting for Apple.`);
 // Save ID immediately; never resubmit on timeout.
 const wait = spawnSync(
 	"xcrun",
