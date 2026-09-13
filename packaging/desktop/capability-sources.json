@@ -49,10 +49,10 @@
 		"os": "darwin",
 		"arch": "x64",
 		"target": "x86_64-apple-darwin",
-		"run": "34757200403",
-		"artifact": "macos-amd64-signed-notarized",
-		"file": "Z8.Work-macos-amd64-signed.dmg",
-		"sha256": "7737f6baf7f7c32f0965b3017881e77cef0273979982c93a32e1f4ab3dda243c"
+		"run": "34766937495",
+		"artifact": "macos-amd64-complete-preview",
+		"file": "Z8.Work-macos-amd64-preview.dmg",
+		"sha256": "1127dd75672a2a04c4c5022c80f2c59e4a8158d2009b9eb016b37d900801aff5"
 	},
 	{
 		"id": "macos-arm64",
@@ -60,9 +60,9 @@
 		"os": "darwin",
 		"arch": "arm64",
 		"target": "aarch64-apple-darwin",
-		"run": "34757200403",
-		"artifact": "macos-arm64-signed-notarized",
-		"file": "Z8.Work-macos-arm64-signed.dmg",
-		"sha256": "a2be7d8006fe15a53a14a5bdc22429d8cc0a2322a47ae695e563c6f35750151a"
+		"run": "34766937495",
+		"artifact": "macos-arm64-complete-preview",
+		"file": "Z8.Work-macos-arm64-preview.dmg",
+		"sha256": "07482d8dedca83092fe1954feb8a801a45200cedbb719227e330377b5b0844e8"
 	}
 ]

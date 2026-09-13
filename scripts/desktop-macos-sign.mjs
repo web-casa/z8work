@@ -8,8 +8,8 @@ import { validateQuality } from "./lib/desktop-snap-installed.mjs";
 if (process.platform !== "darwin") throw new Error("Native macOS required");
 const arch = process.arch === "arm64" ? "arm64" : "amd64";
 const expected = {
-	arm64: "11c6aed579f39c2cbfd3a2122110e979272ae17f4d3e587c849bc44d6181941e",
-	amd64: "216b32ea76757e45b40586552221232adaddc6eb9cf1f6d2bce86c24728df84d",
+	arm64: "07482d8dedca83092fe1954feb8a801a45200cedbb719227e330377b5b0844e8",
+	amd64: "1127dd75672a2a04c4c5022c80f2c59e4a8158d2009b9eb016b37d900801aff5",
 }[arch];
 const root = resolve(".desktop-local/mac-signed");
 await mkdir(root, { recursive: true });
@@ -60,7 +60,16 @@ try {
 	run("hdiutil", ["detach", mount]);
 }
 const engines = join(app, "Contents/Resources/engines");
-await inspectMacBundle(engines, "15.0.0");
+// Read the deployment floor from the hash-verified application's own plist.
+const minimumSystemVersion = run("/usr/bin/plutil", [
+	"-extract",
+	"LSMinimumSystemVersion",
+	"raw",
+	"-o",
+	"-",
+	join(app, "Contents/Info.plist"),
+]).trim();
+await inspectMacBundle(engines, minimumSystemVersion);
 function sign(path, runtime = true) {
 	run("codesign", [
 		"--force",
@@ -104,7 +113,7 @@ await writeFile(
 	join(engines, "engines.json"),
 	JSON.stringify(manifest, null, 2) + "\n",
 );
-await inspectMacBundle(engines, "15.0.0");
+await inspectMacBundle(engines, minimumSystemVersion);
 sign(app);
 run("codesign", ["--verify", "--deep", "--strict", app]);
 console.log(
@@ -131,10 +140,12 @@ await writeFile(
 		{
 			source: original,
 			arch,
+			minimumSystemVersion,
 			signedObjects,
 			files,
 			signingCommit: process.env.GITHUB_SHA,
-			sourceCommit: "b1c0079",
+			sourceCommit: "3984230458b4f021cf255105b4018ff7f755c88a",
+			sourceRun: "34766937495",
 			gui: "not-run",
 		},
 		null,
