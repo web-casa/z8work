@@ -1,0 +1,69 @@
+name: Sign and notarize reviewed macOS previews
+on:
+    workflow_call:
+permissions:
+    contents: read
+    actions: read
+jobs:
+    sign:
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - arch: arm64
+                      runner: macos-15
+                      source: "34712238836"
+                    - arch: amd64
+                      runner: macos-15-intel
+                      source: "34712242360"
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 90
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - name: Import certificate and validate notarization credentials
+              env:
+                  MACOS_CERTIFICATE_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+                  MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+                  APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+              run: node scripts/desktop-macos-signing-keychain.mjs
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: ${{ matrix.source }}
+                  name: macos-${{ matrix.arch }}-complete-preview
+                  path: .desktop-local/mac-input
+            - name: Sign, validate conversions, notarize and verify DMG
+              env:
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+              run: node scripts/desktop-macos-sign.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: macos-${{ matrix.arch }}-signed-notarized
+                  path: .desktop-local/mac-signed/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: macos-${{ matrix.arch }}-notary-pending-candidate
+                  path: .desktop-local/mac-signed/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: ignore
+                  retention-days: 14
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: macos-${{ matrix.arch }}-signing-reports
+                  path: .desktop-local/mac-signed/reports/*
+                  include-hidden-files: true
+                  if-no-files-found: ignore
+                  retention-days: 14
+            - if: always()
+              name: Remove temporary signing keychain
+              run: node scripts/desktop-macos-signing-keychain.mjs cleanup
