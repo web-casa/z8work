@@ -1,6 +1,7 @@
 mod convert;
 mod engine_bundle;
 mod engines;
+mod formats;
 mod input;
 mod options;
 mod process;
@@ -41,3 +42,6 @@ pub mod failure;
 pub mod progress;
 
 pub mod startup;
+
+#[cfg(feature = "engine-validation")]
+pub mod capabilities;

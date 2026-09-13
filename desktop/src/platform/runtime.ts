@@ -1,3 +1,4 @@
+import scope from "../../../packaging/desktop/v1-scope.json" with { type: "json" };
 import type { Task } from "./queue-contract";
 export const failureCodes = [
 	"preparing",
@@ -106,22 +107,10 @@ export function taskReadiness(
 ): "preparing" | "ready" | "failed" {
 	if (task.phase === "awaiting_save") return "ready";
 	const ext = task.name.split(".").at(-1)?.toLowerCase();
-	const ids =
-		ext === "pdf"
-			? ["magick", "mutool"]
-			: ext === "md" || ext === "docx"
-				? ["pandoc"]
-				: [
-							"png",
-							"jpg",
-							"jpeg",
-							"webp",
-							"avif",
-							"heic",
-							"heif",
-					  ].includes(ext ?? "")
-					? ["magick"]
-					: ["ffmpeg", "ffprobe"];
+	const ids = scope.groups.find((group) =>
+		group.inputs.includes(ext ?? ""),
+	)?.engines;
+	if (!ids) return "failed";
 	if (ids.some((id) => states.find((s) => s.id === id)?.phase === "failed"))
 		return "failed";
 	return ids.every((id) => states.find((s) => s.id === id)?.phase === "ready")

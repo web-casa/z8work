@@ -1,3 +1,4 @@
+import scope from "../../../packaging/desktop/v1-scope.json" with { type: "json" };
 import { failureCodes, type Failure } from "./runtime.ts";
 export type Format =
 	| "png"
@@ -104,17 +105,8 @@ export type Submission = {
 	}[];
 };
 export const formats: Format[] = [
-	"png",
-	"jpeg",
-	"webp",
-	"avif",
-	"wav",
-	"mp3",
-	"flac",
-	"opus",
-	"m4a",
-	"txt",
-];
+	...new Set(scope.groups.flatMap((g) => g.outputs)),
+] as Format[];
 const phases: string[] = [
 	"ready",
 	"queued",

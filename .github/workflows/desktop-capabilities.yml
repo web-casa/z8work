@@ -1,0 +1,47 @@
+name: Reviewed package format inventories
+on:
+    workflow_call:
+permissions:
+    contents: read
+    actions: read
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              run: echo "entries=$(jq -c . packaging/desktop/capability-sources.json)" >> "$GITHUB_OUTPUT"
+    inspect:
+        needs: matrix
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: dtolnay/rust-toolchain@1.96.0
+              with:
+                  targets: ${{ matrix.target }}
+            - run: cargo build --locked --release --manifest-path src-tauri/Cargo.toml -p z8-native --features engine-validation --bin bundle-check --target ${{ matrix.target }}
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: ${{ matrix.run }}
+                  name: ${{ matrix.artifact }}
+                  path: .desktop-local/capability-input
+            - run: node scripts/desktop-capability-audit.mjs ${{ matrix.id }}
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-format-inventory
+                  path: .desktop-local/capabilities/report.json
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 30

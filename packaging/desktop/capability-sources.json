@@ -1,0 +1,68 @@
+[
+	{
+		"id": "linux-amd64",
+		"runner": "ubuntu-24.04",
+		"os": "linux",
+		"arch": "x64",
+		"target": "x86_64-unknown-linux-gnu",
+		"run": "34711315368",
+		"artifact": "linux-amd64-complete-preview",
+		"file": "z8-work_0.1.0~preview1_amd64.deb",
+		"sha256": "0e1c8d58fd0a0f67cb9ec06a13af6e0a45f2d76b8df56b6094470b089d30962b"
+	},
+	{
+		"id": "linux-arm64",
+		"runner": "ubuntu-24.04-arm",
+		"os": "linux",
+		"arch": "arm64",
+		"target": "aarch64-unknown-linux-gnu",
+		"run": "34711315368",
+		"artifact": "linux-arm64-complete-preview",
+		"file": "z8-work_0.1.0~preview1_arm64.deb",
+		"sha256": "803ec9939c3e7018840abfaab223862006c94a00b1b3ac5eed8b6be8a3c36e8e"
+	},
+	{
+		"id": "windows-amd64",
+		"runner": "windows-2025",
+		"os": "win32",
+		"arch": "x64",
+		"target": "x86_64-pc-windows-msvc",
+		"run": "34708127226",
+		"artifact": "windows-x64-preview-and-development-msix",
+		"file": "Z8.Work-windows-x64-preview.zip",
+		"sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd"
+	},
+	{
+		"id": "windows-arm64",
+		"runner": "windows-11-arm",
+		"os": "win32",
+		"arch": "arm64",
+		"target": "aarch64-pc-windows-msvc",
+		"run": "34712677526",
+		"artifact": "windows-arm64-complete-preview",
+		"file": "Z8.Work-windows-arm64-preview.zip",
+		"sha256": "6efa8a02a3946e19fcf5334e7e1cb57894165f45d254fc6843292415f01ddcbf"
+	},
+	{
+		"id": "macos-amd64",
+		"runner": "macos-15-intel",
+		"os": "darwin",
+		"arch": "x64",
+		"target": "x86_64-apple-darwin",
+		"run": "34757200403",
+		"artifact": "macos-amd64-signed-notarized",
+		"file": "Z8.Work-macos-amd64-signed.dmg",
+		"sha256": "7737f6baf7f7c32f0965b3017881e77cef0273979982c93a32e1f4ab3dda243c"
+	},
+	{
+		"id": "macos-arm64",
+		"runner": "macos-15",
+		"os": "darwin",
+		"arch": "arm64",
+		"target": "aarch64-apple-darwin",
+		"run": "34757200403",
+		"artifact": "macos-arm64-signed-notarized",
+		"file": "Z8.Work-macos-arm64-signed.dmg",
+		"sha256": "a2be7d8006fe15a53a14a5bdc22429d8cc0a2322a47ae695e563c6f35750151a"
+	}
+]

@@ -200,6 +200,9 @@ impl Runtime {
             return Err("Z8:closing".into());
         }
         let required = required(extension);
+        if required.is_empty() {
+            return Err("Unsupported input format".into());
+        }
         if required
             .iter()
             .any(|id| state.phases.get(*id) == Some(&Phase::Failed))
@@ -224,12 +227,7 @@ impl Runtime {
     }
 }
 pub fn required(extension: &str) -> &'static [&'static str] {
-    match extension.to_ascii_lowercase().as_str() {
-        "pdf" => &["magick", "mutool"],
-        "md" | "docx" => &["pandoc"],
-        "png" | "jpg" | "jpeg" | "webp" | "avif" | "heic" | "heif" => &["magick"],
-        _ => &["ffmpeg", "ffprobe"],
-    }
+    crate::formats::required(extension)
 }
 
 #[cfg(all(test, unix))]

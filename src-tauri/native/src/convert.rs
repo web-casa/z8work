@@ -52,17 +52,7 @@ impl OutputFormat {
     }
 }
 pub fn output_formats(extension: &str) -> Vec<OutputFormat> {
-    use OutputFormat::*;
-    match extension.to_ascii_lowercase().as_str() {
-        "png" | "jpg" | "jpeg" | "webp" | "avif" | "heic" | "heif" | "pdf" => {
-            vec![Png, Jpeg, Webp, Avif]
-        }
-        "mp3" | "wav" | "flac" | "ogg" | "m4a" | "opus" | "mp4" | "mov" | "mkv" | "webm" => {
-            vec![Wav, Mp3, Flac, Opus, M4a]
-        }
-        "md" | "docx" => vec![Txt],
-        _ => vec![],
-    }
+    crate::formats::outputs(extension)
 }
 #[derive(Clone, Deserialize, Serialize, Debug)]
 pub struct ConversionResult {
@@ -453,6 +443,7 @@ fn encode_image(
         coder_path(format.coder(), output, false),
     ]);
     job.run("magick", &args)?;
+    validate_image_encoding(output, format)?;
     let dimensions = job.run(
         "magick",
         &[
@@ -470,6 +461,36 @@ fn encode_image(
         return Err("Image output validation failed".into());
     }
     Ok(())
+}
+// The decoder check below is still required: a matching header alone is not a valid image.
+fn validate_image_encoding(path: &Path, format: OutputFormat) -> Result<(), String> {
+    let file = crate::input::open_regular(path).map_err(|e| e.to_string())?;
+    let mut bytes = vec![];
+    file.take(4096)
+        .read_to_end(&mut bytes)
+        .map_err(|e| e.to_string())?;
+    let matches = match format {
+        OutputFormat::Png => bytes.starts_with(b"\x89PNG\r\n\x1a\n"),
+        OutputFormat::Jpeg => bytes.starts_with(&[0xff, 0xd8, 0xff]),
+        OutputFormat::Webp => bytes.starts_with(b"RIFF") && bytes.get(8..12) == Some(b"WEBP"),
+        OutputFormat::Avif => {
+            let length = bytes
+                .get(..4)
+                .map(|b| u32::from_be_bytes(b.try_into().unwrap()) as usize)
+                .unwrap_or(0);
+            length >= 16
+                && length <= bytes.len()
+                && bytes.get(4..8) == Some(b"ftyp")
+                && (bytes.get(8..12) == Some(b"avif")
+                    || bytes[16..length].chunks_exact(4).any(|b| b == b"avif"))
+        }
+        _ => false,
+    };
+    if matches {
+        Ok(())
+    } else {
+        Err("Image output encoding does not match requested format".into())
+    }
 }
 fn media_demuxer(extension: &str) -> Option<&'static str> {
     // Force the declared container: never sniff a renamed playlist.
@@ -945,5 +966,48 @@ mod tests {
         assert_eq!(output_formats("docx"), vec![OutputFormat::Txt]);
         assert!(!output_formats("png").contains(&OutputFormat::Wav));
         assert!(output_formats("mp4").contains(&OutputFormat::Opus));
+    }
+}
+
+#[cfg(test)]
+mod encoding_tests {
+    use super::*;
+    #[test]
+    fn rejects_renamed_ppm_and_wrong_container_before_publish() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("result.png");
+        for payload in [
+            b"P6\n2 2\n255\n".as_slice(),
+            b"RIFFxxxxWAVE",
+            b"",
+            b"\0\0\0\x10ftypheic\0\0\0\0",
+        ] {
+            fs::write(&path, payload).unwrap();
+            for format in [
+                OutputFormat::Png,
+                OutputFormat::Jpeg,
+                OutputFormat::Webp,
+                OutputFormat::Avif,
+            ] {
+                assert!(validate_image_encoding(&path, format).is_err());
+            }
+        }
+    }
+    #[test]
+    fn accepts_target_headers_but_not_avif_text_outside_the_brand_box() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("result");
+        for (format, payload) in [
+            (OutputFormat::Png, b"\x89PNG\r\n\x1a\n".as_slice()),
+            (OutputFormat::Jpeg, b"\xff\xd8\xff"),
+            (OutputFormat::Webp, b"RIFFxxxxWEBP"),
+            (OutputFormat::Avif, b"\0\0\0\x10ftypavif\0\0\0\0"),
+            (OutputFormat::Avif, b"\0\0\0\x14ftypmif1\0\0\0\0avif"),
+        ] {
+            fs::write(&path, payload).unwrap();
+            assert!(validate_image_encoding(&path, format).is_ok());
+        }
+        fs::write(&path, b"\0\0\0\x10ftypmif1\0\0\0\0avif").unwrap();
+        assert!(validate_image_encoding(&path, OutputFormat::Avif).is_err());
     }
 }

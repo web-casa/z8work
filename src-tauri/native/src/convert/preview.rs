@@ -17,12 +17,7 @@ pub(crate) fn preview(
         .and_then(|s| s.to_str())
         .unwrap_or("")
         .to_ascii_lowercase();
-    if media_demuxer(&ext).is_none()
-        && !matches!(
-            ext.as_str(),
-            "png" | "jpg" | "jpeg" | "webp" | "avif" | "heic" | "heif" | "pdf"
-        )
-    {
+    if media_demuxer(&ext).is_none() && !crate::formats::image_input(&ext) && ext != "pdf" {
         return Err("Preview is available for image, PDF and media inputs only".into());
     }
     let mut input = source.file;

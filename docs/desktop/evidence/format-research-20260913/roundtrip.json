@@ -1,0 +1,163 @@
+{
+  "scope": "engine-only synthetic 2x2 smoke, not GUI support or full quality acceptance",
+  "platform": "linux-arm64",
+  "manifestSha256": "603d3284f31c7c836fbb01be648fe6deb27953652140f6ef425fb74c5bd5d84f",
+  "results": [
+    {
+      "format": "bmp",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `BMP' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "gif",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `GIF' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "ico",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `ICO' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "tga",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `TGA' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "qoi",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `QOI' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "ppm",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 0,
+        "stdout": "PPM 2 2",
+        "stderr": ""
+      }
+    },
+    {
+      "format": "tiff",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `TIFF' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "jxl",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `JXL' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "exr",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `EXR' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "jp2",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "magick: UnableToOpenConfigureFile `delegates.xml' @ warning/configure.c/GetConfigureOptions/722.\nmagick: NoDecodeDelegateForThisImageFormat `JP2' @ error/constitute.c/ReadImage/746.\n"
+      }
+    },
+    {
+      "format": "heic",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 0,
+        "stdout": "HEIC 2 2",
+        "stderr": ""
+      }
+    },
+    {
+      "format": "avif",
+      "encode": {
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "decodeDimensions": {
+        "exit": 0,
+        "stdout": "AVIF 2 2",
+        "stderr": ""
+      }
+    }
+  ]
+}
