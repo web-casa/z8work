@@ -1,6 +1,6 @@
 # 原生格式扩展第三步 B：OGG/Vorbis 与 AIFF
 
-日期：2026-09-13。承接 [文档输入扩展](FORMAT_EXPANSION_PHASE3A.md)，继续 [原生格式调研](FORMAT_EXPANSION_RESEARCH.md) 中的音频方向。
+日期：2026-09-13–14。承接 [文档输入扩展](FORMAT_EXPANSION_PHASE3A.md)，继续 [原生格式调研](FORMAT_EXPANSION_RESEARCH.md) 中的音频方向。
 
 ## 范围与语义
 
@@ -23,6 +23,7 @@
 - UI 增加转换前编码取舍说明，隐藏不适用的图片质量/元数据/PDF DPI 控件；AIFF/AIF 加入音频预览识别及格式偏好恢复测试。没有内嵌封面不表示无法转换。
 - 修正首页原有“5 种音频输出”声明，同步商店支持范围和双语支持页草稿。旧结果说明仍能识别，新增说明明确 Vorbis 有损和 AIFF 位深限制。
 - 新增独立 `--audio-expansion` 验收，与完整质量矩阵和六平台能力工作流相连；完整门禁要求 34 条音频新增结果，旧 133 条报告不再代表当前范围。
+- Review 为浏览器 mock 补齐 FFprobe 就绪状态，并断言转换和封面按钮在引擎就绪后可用；不能只检查选项文字存在。
 - 浏览器音频选项测试接入已有桌面 CI；使用官方 Tauri IPC mock，只验证交互，不代替系统对话框和原生 WebView 验收。
 
 ## macOS 打包缺口
@@ -46,10 +47,12 @@
 
 本机脚本测试 199 项通过；Svelte 检查 0 errors / 0 warnings；前端构建和音频浏览器检查通过。Rust 首轮有一项既有工作目录回收测试 `normal_drop_failure_also_retains_ownership_marker` 的 deferred 数量断言失败；单项重跑及完整重跑均通过（120 passed、3 ignored）。该失败未能复现，未修改回收逻辑，也未将其称为已经修复。初始失败与复跑日志一并保留。
 
-完整质量回归的 167 条路线、20 项质量检查、240 项图片校准及 PDF ICC 检查通过；六平台结果将在本轮验收完成后补记。证据目录：[format-phase3b-20260913](evidence/format-phase3b-20260913/)。
+完整质量回归的 167 条路线、20 项质量检查、240 项图片校准及 PDF ICC 检查通过；Windows 与 Linux 的 AMD64/ARM64 均通过新增 34 条路线、10 项边界以及取消/重复保存/伪装输入检查；使用本轮源码构建验证工具，对哈希固定的已有包内引擎执行真实转换，并非重建四个平台的应用安装包。macOS 双架构的新完整包正在构建，尚不计入通过。证据目录：[format-phase3b-20260913](evidence/format-phase3b-20260913/)。
+
+跨平台运行记录：[Windows 双架构](https://github.com/web-casa/z8work/actions/runs/34766940159)、[Linux 双架构](https://github.com/web-casa/z8work/actions/runs/34766945978)、[macOS 新完整包](https://github.com/web-casa/z8work/actions/runs/34766937495)。四个平台证据记录工具提交 `3984230`、输入包来源与 SHA-256，避免将旧应用包误称为新增功能版本。
 
 ## 交付边界
 
-本轮是源码与包内引擎验收，不自动重发安装包。历史安装包不会自动获得新路线。本地支持页和商店草稿更新不等于部署或上架。
+本轮包含源码与包内引擎验收，以及补齐 Vorbis 编码器所需的 Mac 新预览包构建；不自动发布 GitHub Release 或商店版本。历史安装包不会自动获得新路线。本地支持页和商店草稿更新不等于部署或上架。
 
 RTF 仍因上一轮正文顺序问题暂缓；AAC 裸流、ALAC、音频码率/质量设置、多声道专项、富文本输出及其他图像/视频扩展继续留在后续范围。

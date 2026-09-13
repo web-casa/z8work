@@ -1,0 +1,1892 @@
+{
+  "run": 34766940159,
+  "source": {
+    "id": "windows-amd64",
+    "runner": "windows-2025",
+    "os": "win32",
+    "arch": "x64",
+    "target": "x86_64-pc-windows-msvc",
+    "run": "34708127226",
+    "artifact": "windows-x64-repacked-preview-and-development-msix",
+    "file": "Z8.Work-windows-x64-preview.zip",
+    "sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd"
+  },
+  "artifact": {
+    "sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd",
+    "bytes": 171584989
+  },
+  "tool": {
+    "sha256": "a321741d17ed09a8d27f44ccf81be97c05a778964eca49bd137762915cc0116e",
+    "bytes": 1603584
+  },
+  "commit": "3984230458b4f021cf255105b4018ff7f755c88a",
+  "audio": {
+    "arch": "x86_64",
+    "boundaries": [
+      {
+        "check": "mono",
+        "decodedSamples": 8000,
+        "encoding": {
+          "channels": 1,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 8000,
+          "tagsRemoved": true
+        },
+        "format": "ogg",
+        "passed": true,
+        "peak": 6704,
+        "sampleRate": 8000
+      },
+      {
+        "check": "mono",
+        "decodedSamples": 8000,
+        "encoding": {
+          "channels": 1,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 8000,
+          "tagsRemoved": true
+        },
+        "format": "aiff",
+        "passed": true,
+        "peak": 6554,
+        "sampleRate": 8000
+      },
+      {
+        "check": "mono",
+        "decodedSamples": 43972,
+        "encoding": {
+          "channels": 1,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 44100,
+          "tagsRemoved": true
+        },
+        "format": "ogg",
+        "passed": true,
+        "peak": 6681,
+        "sampleRate": 44100
+      },
+      {
+        "check": "mono",
+        "decodedSamples": 44100,
+        "encoding": {
+          "channels": 1,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 44100,
+          "tagsRemoved": true
+        },
+        "format": "aiff",
+        "passed": true,
+        "peak": 6554,
+        "sampleRate": 44100
+      },
+      {
+        "check": "pcm16",
+        "decodedSamples": 48000,
+        "passed": true,
+        "sourceDepth": 16
+      },
+      {
+        "check": "pcm16",
+        "decodedSamples": 48000,
+        "passed": true,
+        "sourceDepth": 24
+      },
+      {
+        "check": "first-track",
+        "format": "ogg",
+        "passed": true,
+        "rejectedTrackAmplitude": [
+          0.000036338419928722386,
+          0.000019501760368816506
+        ]
+      },
+      {
+        "check": "first-track",
+        "format": "aiff",
+        "passed": true,
+        "rejectedTrackAmplitude": [
+          3.580630157142785e-17,
+          2.926436884486839e-17
+        ]
+      },
+      {
+        "check": "no-audio",
+        "format": "ogg",
+        "passed": true
+      },
+      {
+        "check": "no-audio",
+        "format": "aiff",
+        "passed": true
+      }
+    ],
+    "controls": [
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "aiff",
+        "playlistRejected": true
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "aif",
+        "playlistRejected": true
+      }
+    ],
+    "engines": [
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "magick",
+        "version": "7.1.2-31"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffmpeg",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffprobe",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "pandoc",
+        "version": "3.11"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "mutool",
+        "version": "1.28.0"
+      }
+    ],
+    "platform": "windows",
+    "routes": [
+      {
+        "bytes": 9528,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "wav",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16le"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20208100533522694,
+            0.20162804026526637
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "wav",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16le"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9707,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mp3",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "mp3"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19592538165997658,
+            0.1955386795894325
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mp3",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "mp3"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19401687014545535,
+            0.19401173419030396
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9528,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "flac",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20208100533522694,
+            0.20162804026526637
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "flac",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9726,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "opus",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.00649999999999995,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.006500"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20190494902203596,
+            0.20160531043670604
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "opus",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.00649999999999995,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.006500"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19990209180115745,
+            0.19991335768553434
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 10094,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "m4a",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20144379448982128,
+            0.2017220373732286
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "m4a",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1995615578538248,
+            0.20008010257573472
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 8787,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "ogg",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20274060881432077,
+            0.2021868088756469
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 191542,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "ogg",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.002666999999999975,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.2014717813756788,
+            0.2010704182207685
+          ],
+          "output": {
+            "format": {
+              "duration": "0.997333"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192078,
+        "decoded": true,
+        "encoding": null,
+        "input": "aiff",
+        "output": "wav",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16le"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 25388,
+        "decoded": true,
+        "encoding": null,
+        "input": "aiff",
+        "output": "mp3",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1940169402028601,
+            0.1940118014715358
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "mp3"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 44339,
+        "decoded": true,
+        "encoding": null,
+        "input": "aiff",
+        "output": "flac",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 22325,
+        "decoded": true,
+        "encoding": null,
+        "input": "aiff",
+        "output": "opus",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.00649999999999995,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19990214991544905,
+            0.19991345378149106
+          ],
+          "output": {
+            "format": {
+              "duration": "1.006500"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 24807,
+        "decoded": true,
+        "encoding": null,
+        "input": "aiff",
+        "output": "m4a",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19956153096071724,
+            0.20008013279657164
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9528,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "aiff",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20208100533522694,
+            0.20162804026526637
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "aiff",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192078,
+        "decoded": true,
+        "encoding": null,
+        "input": "aif",
+        "output": "wav",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16le"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 25388,
+        "decoded": true,
+        "encoding": null,
+        "input": "aif",
+        "output": "mp3",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1940169402028601,
+            0.1940118014715358
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "mp3"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 44339,
+        "decoded": true,
+        "encoding": null,
+        "input": "aif",
+        "output": "flac",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 22325,
+        "decoded": true,
+        "encoding": null,
+        "input": "aif",
+        "output": "opus",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.00649999999999995,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19990214991544905,
+            0.19991345378149106
+          ],
+          "output": {
+            "format": {
+              "duration": "1.006500"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 24807,
+        "decoded": true,
+        "encoding": null,
+        "input": "aif",
+        "output": "m4a",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19956153096071724,
+            0.20008013279657164
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9528,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "aif",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20208100533522694,
+            0.20162804026526637
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "aif",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9919,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mp4",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20186627147356698,
+            0.20155645991987298
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mp4",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19995618778290203,
+            0.19994403859003687
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9919,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mov",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20186627147356698,
+            0.20155645991987298
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mov",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.19995618778290203,
+            0.19994403859003687
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9528,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mkv",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20208100533522694,
+            0.20162804026526637
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "mkv",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "flac"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.1999994276837565,
+            0.19999907067785352
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 9681,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "vorbis",
+          "container": "ogg",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "webm",
+        "output": "ogg",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.008000000000000007,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.008000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.20237949308919542,
+            0.2014720819136901
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "vorbis"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      },
+      {
+        "bytes": 192054,
+        "decoded": true,
+        "encoding": {
+          "channels": 2,
+          "codec": "pcm_s16be",
+          "container": "aiff",
+          "sampleRate": 48000,
+          "tagsRemoved": true
+        },
+        "input": "webm",
+        "output": "aiff",
+        "semantic": {
+          "amplitudeRange": [
+            0.08,
+            0.3
+          ],
+          "durationDeltaSeconds": 0.008000000000000007,
+          "durationLimitSeconds": 0.15,
+          "input": {
+            "format": {
+              "duration": "1.008000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "opus"
+              }
+            ]
+          },
+          "left440HzRight880HzAmplitude": [
+            0.2003895371317794,
+            0.19975580011868718
+          ],
+          "output": {
+            "format": {
+              "duration": "1.000000"
+            },
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "channels": 2,
+                "codec_name": "pcm_s16be"
+              }
+            ]
+          }
+        },
+        "sourceUnchanged": true
+      }
+    ],
+    "schema": 1,
+    "scope": "audio-expansion-3b"
+  }
+}
