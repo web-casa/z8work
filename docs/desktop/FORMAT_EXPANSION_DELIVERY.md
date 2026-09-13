@@ -23,15 +23,15 @@ Mac 复用前轮运行 `34766937495` 的精确 DMG，签名前先检查固定 SH
 
 初始 Windows AMD64 运行 [34769215736](https://github.com/web-casa/z8work/actions/runs/34769215736) 因上述 review 修正主动取消，不计作构建失败或通过；修正后从新提交完整重建。Linux、Windows ARM64 和 Mac 不使用这个交接组装器，保持原任务继续执行。
 
-Intel Mac 首次签名任务在完整质量检查通过后，创建 DMG 时收到 `hdiutil: create failed - Resource busy`。当时尚未生成 DMG 或提交公证；保留原始失败日志及已完成的质量报告，只对失败分支发起一次相同来源的重试。ARM64 成功结果保持原样，不重复提交公证。该错误的文件占用根因尚未确认，不能称为已修复的应用缺陷。
+Intel Mac 首次签名任务在完整质量检查通过后，创建 DMG 时收到 `hdiutil: create failed - Resource busy`。当时尚未生成 DMG 或提交公证；保留原始失败日志及已完成的质量报告，只对失败分支发起一次相同来源的重试。ARM64 成功结果保持原样，不重复提交公证。第二次任务已通过签名后的完整质量检查、DMG 创建、公证、staple 和 Gatekeeper 检查。该错误的文件占用根因尚未确认，不能称为已修复的应用缺陷；原始失败记录继续保留。
 
 Mac 原始已验收候选的许可资源也按最终应用清单检查：ARM64 803 项、AMD64 800 项，均在 UI 的 1024 项 / 单项 2 MiB 限制内。这只是可读取性检查，不替代许可内容与源码交付审查。
 
-本地 201 项脚本测试通过；修改文件的 ESLint、Prettier 和 Windows 工作流 actionlint 通过。没有修改转换算法，因此不重复运行上一阶段的整套本地 Rust 转换矩阵；本轮远端会对每个平台的新包执行完整 167 条路线和质量门禁。
+本地 201 项脚本测试通过；修改文件的 ESLint、Prettier 和 Windows 工作流 actionlint 通过。没有修改转换算法，因此不重复运行上一阶段的整套本地 Rust 转换矩阵；本轮远端已对每个平台的新包执行并通过完整 167 条路线和质量门禁。
 
 ## 验收与下载
 
-已完成的最终文件已下载并复核 SHA-256，平台质量报告经当前校验器复核；Intel Mac 的单次重试仍在运行，尚未列为完成。
+已完成的最终文件已下载并复核 SHA-256，平台质量报告经当前校验器复核；六个平台均已完成本轮验收，最终文件的哈希和下载入口见下表。
 
 | 平台          | 下载入口                                                                                               | 当前结果                                                                                    |
 | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -39,9 +39,12 @@ Mac 原始已验收候选的许可资源也按最终应用清单检查：ARM64 8
 | Windows ARM64 | [ZIP + 开发 MSIX](https://github.com/web-casa/z8work/actions/runs/34769218259/artifacts/10321658238)   | 原生主机 167 条路线、混合架构依赖、MSIX 打包/解包及最终文件哈希通过                         |
 | Linux AMD64   | [deb + Snap 开发包](https://github.com/web-casa/z8work/actions/runs/34769213214/artifacts/10322335442) | 候选 167 条路线与 deb 文件一致性通过；Snap 只完成包完整性，未执行安装后转换/strict 权限验收 |
 | Linux ARM64   | [deb](https://github.com/web-casa/z8work/actions/runs/34769213214/artifacts/10321623622)               | 候选 167 条路线、deb 文件一致性及最终哈希通过；隔离容器安装、普通用户新增音频转换与卸载通过 |
+| macOS AMD64   | [signed DMG](https://github.com/web-casa/z8work/actions/runs/34769210630/artifacts/10322525821)        | 第二次任务的 167 条路线、Developer ID、公证 Accepted、staple 与 Gatekeeper 通过             |
 | macOS ARM64   | [signed DMG](https://github.com/web-casa/z8work/actions/runs/34769210630/artifacts/10321697366)        | 167 条路线、Developer ID、公证 Accepted、staple 与 Gatekeeper 通过                          |
 
 证据目录：[format-delivery-20260914](evidence/format-delivery-20260914/)。Windows 构建收据记录实际 CRLF 检出字节；对五个相关校验输入按同样的 CRLF 检出形式与精确 Git 提交核对，全部匹配。安装包及原始报告的哈希一律按原始字节检查，不转换换行。
+
+后续能力验收输入已将六个平台全部更新为本轮最终包的运行编号、文件名和 SHA-256；Mac 使用 staple 后的 signed DMG，不能沿用签名前或提交 Apple 时的摘要。相同名称的 Mac Intel 报告存在两个 attempt，最终证据明确固定第二次报告 artifact `10322565545`，首次失败材料另存。
 
 下载使用运行页面的 Artifacts，不要选择 `application-only` 作为转换器。最终下载包目前保留 14 天，Windows 中间交接包保留 7 天；不是永久 Release 下载链接。所有哈希均针对最终文件；签名身份与来源另外核对，SHA-256 本身不提供发布者身份保证。
 

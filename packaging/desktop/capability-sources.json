@@ -49,10 +49,10 @@
 		"os": "darwin",
 		"arch": "x64",
 		"target": "x86_64-apple-darwin",
-		"run": "34766937495",
-		"artifact": "macos-amd64-complete-preview",
-		"file": "Z8.Work-macos-amd64-preview.dmg",
-		"sha256": "1127dd75672a2a04c4c5022c80f2c59e4a8158d2009b9eb016b37d900801aff5"
+		"run": "34769210630",
+		"artifact": "macos-amd64-signed-notarized",
+		"file": "Z8.Work-macos-amd64-signed.dmg",
+		"sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
 	},
 	{
 		"id": "macos-arm64",
