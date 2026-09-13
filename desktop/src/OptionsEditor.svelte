@@ -15,11 +15,19 @@
 		pdf?: boolean;
 		onchange: (options: Options) => void;
 	} = $props();
+	const imageOptions = $derived(
+		["png", "jpeg", "webp", "avif"].includes(format),
+	);
 	const fixedRaster = $derived(["bmp", "tga", "qoi"].includes(format));
 </script>
 
 <div class="options-editor">
-	{#if !fixedRaster}<label
+	{#if format === "txt"}<p>
+			{english
+				? "Plain text only. Images, scripts and page layout are omitted; external resources are not loaded. No OCR."
+				: "仅提取纯文本，不保留图片、脚本和页面排版，不加载外部资源，不提供 OCR。"}
+		</p>{/if}
+	{#if imageOptions}<label
 			>{english ? "Image quality" : "图片质量"}
 			<select
 				{disabled}
@@ -65,7 +73,7 @@
 				><option value={144}>144 DPI</option>
 			</select>
 		</label>{/if}
-	{#if !fixedRaster}<label class="checkbox"
+	{#if imageOptions}<label class="checkbox"
 			><input
 				type="checkbox"
 				{disabled}

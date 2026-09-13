@@ -142,7 +142,7 @@ try {
 		) + "\n",
 	);
 	console.log(
-		`All ${report.routes.length + report.imageExpansion.routes.length} routes passed using only the bundled runtime: ${output}`,
+		`All ${report.routes.length + report.imageExpansion.routes.length + report.documentExpansion.routes.length} routes passed using only the bundled runtime: ${output}`,
 	);
 } finally {
 	// Remove only this invocation's uniquely named resources, including after timeout.

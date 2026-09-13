@@ -1,3 +1,4 @@
+import { validateDocumentExpansion } from "./lib/desktop-document-expansion.mjs";
 import { summarizeInventory } from "./lib/desktop-format-inventory.mjs";
 // Inspect only a reviewed, hash-pinned package. No installation or network conversion.
 import { validateImageExpansion } from "./lib/desktop-image-expansion.mjs";
@@ -59,6 +60,10 @@ try {
 		run(tool, [engines, "--image-expansion"], 900000),
 	);
 	validateImageExpansion(expansion);
+	const documents = JSON.parse(
+		run(tool, [engines, "--document-expansion"], 180000),
+	);
+	validateDocumentExpansion(documents, { requireNetwork: true });
 	if (
 		report.schema !== 1 ||
 		report.scope !== "engine-discovery-not-conversion-acceptance" ||
@@ -80,6 +85,7 @@ try {
 				commit: process.env.GITHUB_SHA,
 				report,
 				expansion,
+				documents,
 				summary: summarizeInventory(report),
 			},
 			null,

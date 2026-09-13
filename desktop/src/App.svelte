@@ -654,11 +654,11 @@
 							>{/each}</select
 					></label
 				>
-				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"].includes(batchFormat)}<OptionsEditor
+				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi", "txt"].includes(batchFormat)}<OptionsEditor
 						options={batchOptions}
 						format={batchFormat}
 						{english}
-						pdf={true}
+						pdf={batchFormat !== "txt"}
 						disabled={working ||
 							blocked ||
 							preferences.busy ||
@@ -688,9 +688,10 @@
 						{t("从几个小文件开始", "Start with a few small files")}
 					</h2>
 					<p>
-						PNG / JPEG / WebP / AVIF / HEIC · PDF · MP3 / WAV / FLAC
-						/ OGG / M4A / OPUS · MP4 / MOV / MKV / WebM → Audio ·
-						Markdown / DOCX
+						PNG / JPEG / WebP / AVIF / HEIC / BMP / TGA / QOI · PDF
+						· MP3 / WAV / FLAC / OGG / M4A / OPUS · MP4 / MOV / MKV
+						/ WebM → Audio · Markdown / DOCX / HTML / RTF / ODT /
+						EPUB
 					</p>
 					<p>
 						{t(
@@ -812,7 +813,7 @@
 									)}
 								</p>
 							{/if}
-							{#if task.formats.includes("png")}<OptionsEditor
+							{#if task.formats.includes("png") || task.format === "txt"}<OptionsEditor
 									options={task.options}
 									format={task.format}
 									{english}

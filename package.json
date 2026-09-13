@@ -80,7 +80,8 @@
 		"desktop:notices": "node scripts/desktop-notices.mjs",
 		"desktop:bundle:macos": "node scripts/desktop-bundle-macos.mjs",
 		"desktop:test:faults": "node scripts/desktop-faults.mjs",
-		"desktop:test:image-expansion": "node scripts/desktop-image-expansion-browser.mjs"
+		"desktop:test:image-expansion": "node scripts/desktop-image-expansion-browser.mjs",
+		"desktop:test:document-expansion": "node scripts/desktop-document-expansion-browser.mjs"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "^2.5.0",

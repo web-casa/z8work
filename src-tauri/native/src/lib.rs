@@ -48,3 +48,6 @@ pub mod capabilities;
 
 #[cfg(any(feature = "development-engines", feature = "engine-validation"))]
 pub mod image_expansion_checks;
+
+#[cfg(any(feature = "development-engines", feature = "engine-validation"))]
+pub mod document_expansion_checks;

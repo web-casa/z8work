@@ -201,6 +201,19 @@ const POLICY: &str = r#"<policymap>
 <policy domain="resource" name="time" value="90"/>
 </policymap>"#;
 
+// Fixed readers only: an unknown extension must never fall back to Markdown.
+fn document_reader(extension: &str) -> Result<&'static str, String> {
+    match extension {
+        "md" => Ok("markdown"),
+        "docx" => Ok("docx"),
+        "html" | "htm" => Ok("html+raw_html"),
+        "rtf" => Ok("rtf"),
+        "odt" => Ok("odt"),
+        "epub" => Ok("epub"),
+        _ => Err("Unsupported document input".into()),
+    }
+}
+
 pub fn convert(
     engines: &Engines,
     input: &Path,
@@ -331,7 +344,7 @@ pub fn convert_source(
                 &[
                     text("--sandbox"),
                     text("--from"),
-                    text(if ext == "docx" { "docx" } else { "markdown" }),
+                    text(document_reader(&ext)?),
                     text("--to"),
                     text("plain"),
                     text("--output"),
@@ -977,6 +990,18 @@ fn convert_pdf(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn document_scope_requires_an_explicit_reader() {
+        for input in &crate::formats::group("docx").unwrap().inputs {
+            assert!(document_reader(input).is_ok(), "{input}");
+        }
+        assert_eq!(
+            document_reader("htm").unwrap(),
+            document_reader("html").unwrap()
+        );
+        assert!(document_reader("xlsx").is_err());
+    }
+
     #[test]
     fn engine_work_files_are_relative_and_confined_to_the_private_job() {
         let root = tempfile::tempdir().unwrap();

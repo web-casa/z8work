@@ -25,6 +25,13 @@ test("candidate quality gate rejects old scope, omitted checks, duplicates and b
 			"utf8",
 		),
 	);
+	assert.throws(() => validateQuality(current, "linux-aarch64"));
+	current.documentExpansion = JSON.parse(
+		await readFile(
+			"docs/desktop/evidence/format-phase3a-20260913/local-documents.json",
+			"utf8",
+		),
+	);
 	validateQuality(current, "linux-aarch64");
 	const old = JSON.parse(
 		await readFile(
@@ -42,6 +49,8 @@ test("candidate quality gate rejects old scope, omitted checks, duplicates and b
 		(r) => r.routes.pop(),
 		(r) => r.imageExpansion.routes.pop(),
 		(r) => (r.imageExpansion = undefined),
+		(r) => (r.documentExpansion = undefined),
+		(r) => r.documentExpansion.routes.pop(),
 		(r) => (r.phase = 2),
 	]) {
 		const changed = structuredClone(current);
