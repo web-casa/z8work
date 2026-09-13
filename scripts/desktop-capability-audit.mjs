@@ -1,3 +1,4 @@
+import { summarizeInventory } from "./lib/desktop-format-inventory.mjs";
 // Inspect only a reviewed, hash-pinned package. No installation or network conversion.
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve, join } from "node:path";
@@ -73,6 +74,7 @@ try {
 				),
 				commit: process.env.GITHUB_SHA,
 				report,
+				summary: summarizeInventory(report),
 			},
 			null,
 			2,

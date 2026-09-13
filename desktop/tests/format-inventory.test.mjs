@@ -49,3 +49,41 @@ test("frontend readiness uses reviewed routes and rejects unknown inputs even wh
 		"ready",
 	);
 });
+
+const { imageInventory, codecInventory, summarizeInventory } = await import(
+	"../../scripts/lib/desktop-format-inventory.mjs"
+);
+test("inventory preserves read/write direction, excludes pseudo formats from product summary and never treats an unavailable probe as absence", () => {
+	const raw =
+		" Format Module Mode Description\n PNG* PNG rw- Portable\r\n HEIC HEIC r-- Read only\n INFO INFO -w+ Metadata\n GRADIENT* GRADIENT r-- Generator\n JXL JXL --- Disabled";
+	assert.deepEqual(imageInventory(raw).get("HEIC"), {
+		read: true,
+		write: false,
+		multiImage: false,
+	});
+	assert.deepEqual(imageInventory(raw).get("INFO"), {
+		read: false,
+		write: true,
+		multiImage: true,
+	});
+	const s = summarizeInventory({
+		probes: [{ kind: "image-formats", status: "listed", raw }],
+	});
+	assert.equal(s.images.HEIC.write, false);
+	assert.equal(s.images.BMP.status, "not-listed");
+	assert.equal(s.images.JXL.write, false);
+	assert.ok(!("GRADIENT" in s.images));
+	assert.equal(s.encoders.aac, "unknown");
+	assert.equal(
+		summarizeInventory({ probes: [] }).images.BMP.status,
+		"unknown",
+	);
+	assert.deepEqual(
+		[
+			...codecInventory(
+				"V..... = Video\n V....D libx264 H264\n A....D aac AAC\n not an encoder",
+			),
+		],
+		["libx264", "aac"],
+	);
+});

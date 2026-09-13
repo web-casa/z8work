@@ -42,7 +42,8 @@ pub fn inspect(engines: &Engines) -> Result<Value, String> {
             )
         })();
         probes.push(match result {
-            Ok(raw) => json!({"engine":engine,"kind":kind,"status":"listed","raw":raw}),
+            Ok(raw) if !raw.trim().is_empty() => json!({"engine":engine,"kind":kind,"status":"listed","raw":raw}),
+            Ok(_) => json!({"engine":engine,"kind":kind,"status":"unavailable","error":"Empty inventory output"}),
             Err(error) => json!({"engine":engine,"kind":kind,"status":"unavailable","error":error}),
         });
     }
@@ -53,4 +54,39 @@ pub fn inspect(engines: &Engines) -> Result<Value, String> {
     Ok(
         json!({"schema":1,"scope":"engine-discovery-not-conversion-acceptance","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"engines":engines.info(),"productRoutes":routes,"probes":probes,"notes":["Enumerated readers/writers/codecs do not authorize additional routes.","Hardware availability, external delegates, rendering fidelity and real conversions require separate tests.","Pandoc PDF output listing does not establish that a PDF typesetting engine is packaged."]}),
     )
+}
+
+#[cfg(all(test, unix))]
+mod tests {
+    use super::*;
+    #[test]
+    fn successful_process_with_empty_inventory_is_not_reported_as_capable() {
+        let path = std::path::PathBuf::from("/usr/bin/true");
+        let entry = crate::engines::Entry {
+            sha256: crate::hash_file(&path).unwrap(),
+            path,
+            version: "test fixture".into(),
+            library_dir: None,
+            data_dir: None,
+        };
+        let engines = Engines {
+            entries: [
+                ("magick".into(), entry.clone()),
+                ("ffmpeg".into(), entry.clone()),
+                ("pandoc".into(), entry),
+            ]
+            .into(),
+            development: true,
+            unavailable: Default::default(),
+            bundle: None,
+        };
+        let report = inspect(&engines).unwrap();
+        assert_eq!(report["probes"].as_array().unwrap().len(), 7);
+        assert!(report["probes"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|p| p["status"] == "unavailable" && p["error"] == "Empty inventory output"));
+        assert!(crate::output_formats("tiff").is_empty());
+    }
 }
