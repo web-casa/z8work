@@ -1,6 +1,10 @@
 name: Reviewed package format inventories
 on:
     workflow_call:
+        inputs:
+            platform:
+                type: string
+                default: all
 permissions:
     contents: read
     actions: read
@@ -12,7 +16,12 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - id: matrix
-              run: echo "entries=$(jq -c . packaging/desktop/capability-sources.json)" >> "$GITHUB_OUTPUT"
+              env:
+                  PLATFORM: ${{ inputs.platform }}
+              run: |
+                  entries=$(jq -c --arg platform "$PLATFORM" '[.[] | select($platform == "all" or (.id | startswith($platform + "-")))]' packaging/desktop/capability-sources.json)
+                  test "$(printf '%s' "$entries" | jq length)" -gt 0
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
     inspect:
         needs: matrix
         strategy:

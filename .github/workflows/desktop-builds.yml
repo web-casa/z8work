@@ -3,6 +3,11 @@ name: Desktop binaries and Windows development MSIX
 on:
     workflow_dispatch:
         inputs:
+            capability_platform:
+                description: Platform subset for capability and image route validation
+                type: choice
+                default: all
+                options: [all, linux, windows, macos]
             source_run:
                 description: Optional run ID to repackage an already validated Windows candidate
                 type: string
@@ -227,3 +232,5 @@ jobs:
     capabilities:
         if: inputs.target == 'capabilities'
         uses: ./.github/workflows/desktop-capabilities.yml
+        with:
+            platform: ${{ inputs.capability_platform || 'all' }}
