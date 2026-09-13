@@ -35,12 +35,25 @@
 
 首轮 CI `34764753112` 在 Windows/macOS 的 Pandoc 3.11 上发现 RTF 正文顺序错误：标题和导语后的列表，在转换结果中移到了文档开头。本机下载并校验官方 Linux ARM64 Pandoc 3.11 后也复现，所以不能归因于 Windows 路径或 GUI。
 
-最小 RTF 原件中的顺序是 BEFORE、INTRO、ITEM_ONE、ITEM_TWO、表格、AFTER；3.11 reader 输出把两个 ITEM 移到了 BEFORE 前。3.1.11.1 reader 读取这个 RTF 也会把列表并入表格，不能简单降级规避。旧 writer 生成的较简单样本在两版 reader 上通过，并不能否定新样本的失败。[3.11 官方发布记录](https://github.com/jgm/pandoc/releases/tag/3.11)说明该版本更改了 RTF 列表输出并增加嵌套表格读取能力，但本轮未定位到具体上游源码缺陷行。
+最小 RTF 原件中的顺序是 BEFORE、INTRO、ITEM_ONE、ITEM_TWO、表格、AFTER；3.11 reader 输出把两个 ITEM 移到了 BEFORE 前。3.1.11.1 reader 读取这个 RTF 也会把列表并入表格，不能简单降级规避。旧 writer 生成的较简单样本在两版 reader 上通过，并不能否定新样本的失败。[3.11 官方发布记录](https://github.com/jgm/pandoc/releases/tag/3.11)说明该版本更改了 RTF 列表输出并增加嵌套表格读取能力，静态 review 还发现 [3.11 RTF reader 的 intbl 分支](https://github.com/jgm/pandoc/blob/3.11/src/Text/Pandoc/Readers/RTF.hs#L625) 将关闭的列表前置到已累计的正文块，与复现现象吻合；这是候选原因，尚未编译修改后的 Pandoc 验证。
 
 本轮删除 RTF 的产品路线、reader、UI 与商店支持声明，保留失败最小复现。既有队列导入现在拒绝 RTF；不降低正文顺序断言、不改用只检查文件生成成功。RTF 输入与输出均待引擎专项修复后重新验收。本轮“第三步 A”完成范围以 133 条路线为准，不代表第三步所有候选都完成。
 
 ## 平台状态
 
-六个平台的固定包内引擎验收待本轮 CI 完成后补记。本轮未重发 Windows/macOS/Linux 主程序安装包；历史安装包不会因源码增加路线自动获得新功能。商店草稿/静态支持页的本地更新不表示部署或上架完成。
+[第二轮六平台验收 34765258166](https://github.com/web-casa/z8work/actions/runs/34765258166) 全部通过，工具代码为 `e7ac7d3`。每个平台运行四条新文档路线、重名/预取消/损坏压缩文档/外部资源检查，并重跑 45 条图片扩展路线。下表的“通过”是包内引擎与新工具的有限验收，不是新安装包安装验收。
+
+| 平台          | 包内 Pandoc        | 文档路线与边界检查 | 来源报告                                                    |
+| ------------- | ------------------ | ------------------ | ----------------------------------------------------------- |
+| Linux AMD64   | 3.1.3              | 通过               | [报告](evidence/format-phase3a-20260913/linux-amd64.json)   |
+| Linux ARM64   | 3.1.3              | 通过               | [报告](evidence/format-phase3a-20260913/linux-arm64.json)   |
+| Windows AMD64 | 3.11               | 通过               | [报告](evidence/format-phase3a-20260913/windows-amd64.json) |
+| Windows ARM64 | 3.11，x64 兼容运行 | 通过               | [报告](evidence/format-phase3a-20260913/windows-arm64.json) |
+| macOS AMD64   | 3.11               | 通过               | [报告](evidence/format-phase3a-20260913/macos-amd64.json)   |
+| macOS ARM64   | 3.11               | 通过               | [报告](evidence/format-phase3a-20260913/macos-arm64.json)   |
+
+报告保留源包 run/文件/SHA-256、工具 SHA-256、提交及原始文档验收结果。本机另验证开发引擎 Pandoc 3.1.11.1 与官方 3.11；不能用本机版本替代包内版本。
+
+本轮未重发 Windows/macOS/Linux 主程序安装包；历史安装包不会因源码增加路线自动获得新功能。商店草稿/静态支持页的本地更新不表示部署或上架完成。
 
 后续按 [调研方案](FORMAT_EXPANSION_RESEARCH.md)继续音频输出、富文本路线，以及独立的 TIFF/ICO/动画等批次；本阶段不宣称这些已经完成。

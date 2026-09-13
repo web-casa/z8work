@@ -1,0 +1,134 @@
+{
+  "run": 34765258166,
+  "commit": "e7ac7d3120e706dcb9ed1e4e9a6085c0f8875309",
+  "source": {
+    "id": "macos-amd64",
+    "runner": "macos-15-intel",
+    "os": "darwin",
+    "arch": "x64",
+    "target": "x86_64-apple-darwin",
+    "run": "34757200403",
+    "artifact": "macos-amd64-signed-notarized",
+    "file": "Z8.Work-macos-amd64-signed.dmg",
+    "sha256": "7737f6baf7f7c32f0965b3017881e77cef0273979982c93a32e1f4ab3dda243c"
+  },
+  "artifact": {
+    "sha256": "7737f6baf7f7c32f0965b3017881e77cef0273979982c93a32e1f4ab3dda243c",
+    "bytes": 101899973
+  },
+  "tool": {
+    "sha256": "97a29041d1cc0093a66a1e7f620ef72f5624232236d5e74bc2b1f71a05e948c1",
+    "bytes": 1703864
+  },
+  "documents": {
+    "arch": "x86_64",
+    "controls": [
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "html"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "htm"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "odt"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "epub"
+      }
+    ],
+    "corruptArchivesRejected": [
+      "odt",
+      "epub"
+    ],
+    "engines": [
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "magick",
+        "version": "Version: ImageMagick 7.1.2-30 Q16-HDRI x86_64 7d45ed032:20260823 https://imagemagick.org"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffmpeg",
+        "version": "ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffprobe",
+        "version": "ffprobe version 9.0.1 Copyright (c) 2007-2026 the FFmpeg developers"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "pandoc",
+        "version": "pandoc 3.11"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "mutool",
+        "version": "mutool version 1.28.2"
+      }
+    ],
+    "platform": "macos",
+    "resourceIsolation": {
+      "localFileOmitted": true,
+      "network": {
+        "httpRequests": 0,
+        "status": "passed"
+      },
+      "scriptOmitted": true
+    },
+    "routes": [
+      {
+        "bytes": 188,
+        "input": "html",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 188,
+        "input": "htm",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 188,
+        "input": "odt",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 170,
+        "input": "epub",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      }
+    ],
+    "schema": 1,
+    "scope": "document-input-expansion-3a"
+  }
+}
