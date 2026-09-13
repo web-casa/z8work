@@ -44,3 +44,23 @@ test("image expansion gate rejects a partial or duplicate route report", () => {
 		}),
 	);
 });
+
+test("image expansion evidence rejects untyped decode and byte fields", async () => {
+	const { readFile } = await import("node:fs/promises");
+	const report = JSON.parse(
+		await readFile(
+			"docs/desktop/evidence/format-phase2-20260913/local-expansion.json",
+			"utf8",
+		),
+	);
+	validateImageExpansion(report);
+	for (const change of [
+		(r) => (r.routes[0].decoded = "yes"),
+		(r) => (r.routes[0].bytes = "100"),
+		(r) => (r.routes[0].bytes = 1.5),
+	]) {
+		const invalid = structuredClone(report);
+		change(invalid);
+		assert.throws(() => validateImageExpansion(invalid));
+	}
+});

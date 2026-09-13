@@ -39,7 +39,8 @@ export function validateImageExpansion(report) {
 	assert.ok(
 		report.routes.every(
 			(r) =>
-				r.decoded &&
+				r.decoded === true &&
+				Number.isSafeInteger(r.bytes) &&
 				r.bytes > 0 &&
 				(r.input !== "pdf" || r.pages === 3),
 		),
