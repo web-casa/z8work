@@ -5,10 +5,10 @@
 		"os": "linux",
 		"arch": "x64",
 		"target": "x86_64-unknown-linux-gnu",
-		"run": "34711315368",
+		"run": "34762003724",
 		"artifact": "linux-amd64-complete-preview",
 		"file": "z8-work_0.1.0~preview1_amd64.deb",
-		"sha256": "0e1c8d58fd0a0f67cb9ec06a13af6e0a45f2d76b8df56b6094470b089d30962b"
+		"sha256": "566b55fd85ab0cba0512096be7953508758838684566f2f079f812bb0381c66f"
 	},
 	{
 		"id": "linux-arm64",
@@ -16,10 +16,10 @@
 		"os": "linux",
 		"arch": "arm64",
 		"target": "aarch64-unknown-linux-gnu",
-		"run": "34711315368",
+		"run": "34762003724",
 		"artifact": "linux-arm64-complete-preview",
 		"file": "z8-work_0.1.0~preview1_arm64.deb",
-		"sha256": "803ec9939c3e7018840abfaab223862006c94a00b1b3ac5eed8b6be8a3c36e8e"
+		"sha256": "030356f30961dacd10098939c2608a1ca54acd3f4da73f2b3dc0b08f55c69045"
 	},
 	{
 		"id": "windows-amd64",

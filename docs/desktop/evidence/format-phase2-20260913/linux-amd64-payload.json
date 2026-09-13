@@ -1,0 +1,12 @@
+{
+  "platform": "linux-amd64",
+  "sourceCommit": "e98f8bf1df1843f7e7f51bf5815531c0be51dbd2",
+  "run": 34762003724,
+  "packageSha256": "566b55fd85ab0cba0512096be7953508758838684566f2f079f812bb0381c66f",
+  "applicationSha256": "e08b75870d1d32ba979bd8f767ac570f42492688d19276261d14f2d8135eebc8",
+  "engineManifestSha256": "8a7b17e996e2a73ea2feaa165aa826e4e2b6b313447f318529b6718c15a1c093",
+  "engineFilesVerified": 1337,
+  "matchesCandidate": true,
+  "symlinks": false,
+  "installedGuiTest": "not-run"
+}
