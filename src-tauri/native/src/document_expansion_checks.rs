@@ -17,7 +17,7 @@ use std::{
     time::Duration,
 };
 
-const INPUTS: [&str; 5] = ["html", "htm", "rtf", "odt", "epub"];
+const INPUTS: [&str; 4] = ["html", "htm", "odt", "epub"];
 // The listener replies if contacted, so a privacy regression fails promptly instead of hanging.
 struct NetworkProbe {
     stop: Arc<AtomicBool>,

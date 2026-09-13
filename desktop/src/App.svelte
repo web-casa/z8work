@@ -690,8 +690,7 @@
 					<p>
 						PNG / JPEG / WebP / AVIF / HEIC / BMP / TGA / QOI · PDF
 						· MP3 / WAV / FLAC / OGG / M4A / OPUS · MP4 / MOV / MKV
-						/ WebM → Audio · Markdown / DOCX / HTML / RTF / ODT /
-						EPUB
+						/ WebM → Audio · Markdown / DOCX / HTML / ODT / EPUB
 					</p>
 					<p>
 						{t(

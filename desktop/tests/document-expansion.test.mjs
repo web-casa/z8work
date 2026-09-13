@@ -10,6 +10,12 @@ test("document gate rejects missing routes, coercion, unsafe resources and faile
 		),
 	);
 	validateDocumentExpansion(report, { requireNetwork: true });
+	const confined = structuredClone(report);
+	confined.resourceIsolation.network = { status: "not-run" };
+	validateDocumentExpansion(confined);
+	assert.throws(() =>
+		validateDocumentExpansion(confined, { requireNetwork: true }),
+	);
 	for (const change of [
 		(r) => r.routes.pop(),
 		(r) => r.routes.push(r.routes[0]),

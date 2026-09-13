@@ -24,8 +24,8 @@
 <div class="options-editor">
 	{#if format === "txt"}<p>
 			{english
-				? "Plain text only. Images, scripts and page layout are omitted; external resources are not loaded. No OCR."
-				: "仅提取纯文本，不保留图片、脚本和页面排版，不加载外部资源，不提供 OCR。"}
+				? "Plain text only. Images and page layout are omitted. Scripts are not executed; referenced external resources are not loaded. No OCR."
+				: "仅提取纯文本，不保留图片和页面排版；不执行脚本，不加载文档引用的外部资源，不提供 OCR。"}
 		</p>{/if}
 	{#if imageOptions}<label
 			>{english ? "Image quality" : "图片质量"}

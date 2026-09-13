@@ -53,7 +53,7 @@
       "development": true,
       "error": null,
       "id": "pandoc",
-      "version": "pandoc 3.1.11.1"
+      "version": "pandoc 3.11"
     },
     {
       "available": true,
@@ -74,7 +74,7 @@
   },
   "routes": [
     {
-      "bytes": 192,
+      "bytes": 188,
       "input": "html",
       "orderedText": true,
       "output": "txt",
@@ -82,7 +82,7 @@
       "utf8": true
     },
     {
-      "bytes": 192,
+      "bytes": 188,
       "input": "htm",
       "orderedText": true,
       "output": "txt",
@@ -90,7 +90,7 @@
       "utf8": true
     },
     {
-      "bytes": 200,
+      "bytes": 188,
       "input": "odt",
       "orderedText": true,
       "output": "txt",
@@ -98,7 +98,7 @@
       "utf8": true
     },
     {
-      "bytes": 174,
+      "bytes": 170,
       "input": "epub",
       "orderedText": true,
       "output": "txt",

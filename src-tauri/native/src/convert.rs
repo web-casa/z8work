@@ -207,7 +207,6 @@ fn document_reader(extension: &str) -> Result<&'static str, String> {
         "md" => Ok("markdown"),
         "docx" => Ok("docx"),
         "html" | "htm" => Ok("html+raw_html"),
-        "rtf" => Ok("rtf"),
         "odt" => Ok("odt"),
         "epub" => Ok("epub"),
         _ => Err("Unsupported document input".into()),
@@ -1000,6 +999,7 @@ mod tests {
             document_reader("html").unwrap()
         );
         assert!(document_reader("xlsx").is_err());
+        assert!(output_formats("rtf").is_empty());
     }
 
     #[test]

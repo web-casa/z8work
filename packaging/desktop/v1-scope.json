@@ -78,7 +78,7 @@
 		},
 		{
 			"id": "documents",
-			"inputs": ["md", "docx", "html", "htm", "rtf", "odt", "epub"],
+			"inputs": ["md", "docx", "html", "htm", "odt", "epub"],
 			"outputs": ["txt"],
 			"engines": ["pandoc"],
 			"implementation": "src-tauri/native/src/convert.rs",
@@ -87,7 +87,7 @@
 				"src-tauri/native/src/phase2_smoke.rs",
 				"src-tauri/native/src/document_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: Markdown and DOCX Chinese/body text assertions. Rich formatting is intentionally omitted; installed packages remain R6. Expansion 3a: HTML/HTM, RTF, ODT and EPUB to UTF-8 plain text, with sandboxed resource handling; no OCR or layout preservation."
+			"sampleNotes": "R4: Markdown and DOCX Chinese/body text assertions. Rich formatting is intentionally omitted; installed packages remain R6. Expansion 3a: HTML/HTM, ODT and EPUB to UTF-8 plain text, with sandboxed resource handling; no OCR or layout preservation."
 		}
 	],
 	"limits": [

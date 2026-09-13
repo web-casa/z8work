@@ -5,7 +5,7 @@ export function validateDocumentExpansion(
 ) {
 	assert.equal(report?.schema, 1);
 	assert.equal(report.scope, "document-input-expansion-3a");
-	const inputs = ["html", "htm", "rtf", "odt", "epub"].sort();
+	const inputs = ["html", "htm", "odt", "epub"].sort();
 	assert.deepEqual(report.routes.map((r) => r.input).sort(), inputs);
 	assert.ok(
 		report.routes.every(

@@ -14,7 +14,7 @@ const server = await createServer({
 await server.listen();
 const browser = await chromium.launch({ headless: true });
 try {
-	for (const format of ["html", "htm", "rtf", "odt", "epub"]) {
+	for (const format of ["html", "htm", "odt", "epub"]) {
 		const page = await browser.newPage({
 			viewport: { width: 1100, height: 850 },
 		});

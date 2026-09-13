@@ -104,6 +104,9 @@ jobs:
             - run: bun run desktop:build
             - run: sudo apt-get update && sudo apt-get install -y squashfs-tools desktop-file-utils
             - run: bun run desktop:test:ui
+            - run: bunx playwright install --with-deps chromium
+            - run: bun run desktop:test:image-expansion
+            - run: bun run desktop:test:document-expansion
             - run: bun run desktop:store:check
             - run: bunx eslint desktop scripts/desktop-*.mjs scripts/lib/desktop-*.mjs
             - run: node scripts/desktop-windows-inputs.mjs --verify .desktop-local/frontend-inputs.json
