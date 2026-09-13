@@ -4,6 +4,25 @@ import { join, dirname, basename, sep } from "node:path";
 import { fileInfo, listFiles } from "./desktop-sources.mjs";
 import { windowsResource } from "./desktop-windows-bundle.mjs";
 
+// Explicit standalone handoff dependencies, also exercised outside the repository.
+export const handoffSupportFiles = Object.freeze([
+	"scripts/desktop-windows-acceptance.mjs",
+	"scripts/desktop-windows-engines-check.mjs",
+	"scripts/lib/desktop-windows-acceptance.mjs",
+	"scripts/lib/desktop-windows-bundle.mjs",
+	"scripts/lib/desktop-windows.mjs",
+	"scripts/lib/desktop-artifacts.mjs",
+	"scripts/lib/desktop-sources.mjs",
+	"scripts/lib/desktop-snap-installed.mjs",
+	"scripts/lib/desktop-image-expansion.mjs",
+	"scripts/lib/desktop-document-expansion.mjs",
+	"scripts/lib/desktop-audio-expansion.mjs",
+	"packaging/desktop/artifacts.json",
+	"packaging/desktop/windows/engines.lock.json",
+	"packaging/desktop/windows/lifecycle-tests.json",
+	"LICENSE",
+]);
+
 export const processTests = JSON.parse(
 	readFileSync(
 		new URL(
@@ -92,7 +111,7 @@ export async function verifyHandoff(root) {
 		"validation/native-tests.exe",
 		"validation/validation-run.exe",
 		"build-inputs.json",
-		"scripts/desktop-windows-acceptance.mjs",
+		...handoffSupportFiles,
 	])
 		if (!names.includes(required))
 			throw new Error(`Missing handoff input: ${required}`);

@@ -7,6 +7,7 @@ import { fileInfo, listFiles, inspectBundle } from "./lib/desktop-sources.mjs";
 import { inspectWindowsTree } from "./lib/desktop-windows.mjs";
 import {
 	assertOutside,
+	handoffSupportFiles,
 	verifyHandoff,
 } from "./lib/desktop-windows-acceptance.mjs";
 const { values } = parseArgs({
@@ -61,20 +62,7 @@ const copies = [
 	[tests, "validation/native-tests.exe"],
 	[resolve(values.supervisor), "validation/validation-run.exe"],
 	[inputs, "build-inputs.json"],
-	...[
-		"scripts/desktop-windows-acceptance.mjs",
-		"scripts/desktop-windows-engines-check.mjs",
-		"scripts/lib/desktop-windows-acceptance.mjs",
-		"scripts/lib/desktop-windows-bundle.mjs",
-		"scripts/lib/desktop-windows.mjs",
-		"scripts/lib/desktop-artifacts.mjs",
-		"scripts/lib/desktop-sources.mjs",
-		"scripts/lib/desktop-snap-installed.mjs",
-		"packaging/desktop/artifacts.json",
-		"packaging/desktop/windows/engines.lock.json",
-		"packaging/desktop/windows/lifecycle-tests.json",
-		"LICENSE",
-	].map((name) => [join(repo, name), name]),
+	...handoffSupportFiles.map((name) => [join(repo, name), name]),
 ];
 const files = {};
 for (const [source, name] of copies) {
@@ -94,7 +82,7 @@ if ((await inspectWindowsTree(output)).missing.length)
 	throw new Error("Missing validation DLL dependency");
 await writeFile(
 	join(output, "README.txt"),
-	`Z8.Work Windows x64 validation handoff - local development only\n\nRequires Node 22+ and a native Windows x64 test desktop. No npm install needed.\nFrom this directory, first inspect handoff.json against the independently supplied SHA-256,\nthen verify every transferred file before running candidate executables:\n\nnode scripts/desktop-windows-acceptance.mjs --root . --output ../z8-static-check\nnode scripts/desktop-windows-acceptance.mjs --root . --output ../z8-native-check --runtime native\n\nOutputs must be new directories outside this handoff. Missing WebView2 is reported after\ncore checks; the tool never installs it. Stable runtime detection does not prove GUI works.\nThe tool runs eight existing Rust process tests and the 84-route engine matrix.\nWine diagnostics require --runtime wine and never count as native Windows acceptance.\nKeep user files out of testing. Do not install over an existing app with user data.\nGUI, file permissions, restart/upgrade/uninstall, MSIX/WACK and licenses remain pending.\nHashes show byte consistency, not publisher identity. Build inputs are a supplied\nbuild receipt, not a cryptographic proof that an executable came from those sources.\n`,
+	`Z8.Work Windows x64 validation handoff - local development only\n\nRequires Node 22+ and a native Windows x64 test desktop. No npm install needed.\nFrom this directory, first inspect handoff.json against the independently supplied SHA-256,\nthen verify every transferred file before running candidate executables:\n\nnode scripts/desktop-windows-acceptance.mjs --root . --output ../z8-static-check\nnode scripts/desktop-windows-acceptance.mjs --root . --output ../z8-native-check --runtime native\n\nOutputs must be new directories outside this handoff. Missing WebView2 is reported after\ncore checks; the tool never installs it. Stable runtime detection does not prove GUI works.\nThe tool runs eight existing Rust process tests and the current full conversion quality matrix.\nWine diagnostics require --runtime wine and never count as native Windows acceptance.\nKeep user files out of testing. Do not install over an existing app with user data.\nGUI, file permissions, restart/upgrade/uninstall, MSIX/WACK and licenses remain pending.\nHashes show byte consistency, not publisher identity. Build inputs are a supplied\nbuild receipt, not a cryptographic proof that an executable came from those sources.\n`,
 	{ flag: "wx" },
 );
 files["README.txt"] = await fileInfo(output, "README.txt");

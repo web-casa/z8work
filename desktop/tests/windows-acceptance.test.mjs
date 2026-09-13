@@ -7,9 +7,12 @@ import {
 	readFile,
 	rm,
 	symlink,
+	copyFile,
 } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { fileInfo } from "../../scripts/lib/desktop-sources.mjs";
 import {
 	processTests,
@@ -17,7 +20,46 @@ import {
 	webviewReadiness,
 	assertOutside,
 	verifyHandoff,
+	handoffSupportFiles,
 } from "../../scripts/lib/desktop-windows-acceptance.mjs";
+
+test("standalone Windows handoff loads without repository dependencies", async (t) => {
+	const root = await mkdtemp(join(tmpdir(), "z8-handoff-import-"));
+	t.after(() => rm(root, { recursive: true, force: true }));
+	for (const name of handoffSupportFiles) {
+		await mkdir(join(root, name, ".."), { recursive: true });
+		await copyFile(
+			new URL(`../../${name}`, import.meta.url),
+			join(root, name),
+		);
+	}
+	const run = () =>
+		promisify(execFile)(
+			process.execPath,
+			["scripts/desktop-windows-acceptance.mjs"],
+			{ cwd: root, timeout: 10000, encoding: "utf8" },
+		);
+	// No --runtime: only load the isolated CLI and reach argument validation.
+	await assert.rejects(run(), (error) => {
+		assert.equal(error.code, 1);
+		assert.match(error.stderr, /Use --root HANDOFF --output NEW_DIRECTORY/);
+		assert.doesNotMatch(error.stderr, /ERR_MODULE_NOT_FOUND/);
+		return true;
+	});
+	for (const type of ["image", "document", "audio"]) {
+		const name = `scripts/lib/desktop-${type}-expansion.mjs`;
+		await rm(join(root, name));
+		await assert.rejects(run(), (error) => {
+			assert.match(error.stderr, /ERR_MODULE_NOT_FOUND/);
+			assert.ok(error.stderr.includes(`desktop-${type}-expansion.mjs`));
+			return true;
+		});
+		await copyFile(
+			new URL(`../../${name}`, import.meta.url),
+			join(root, name),
+		);
+	}
+});
 async function fixture(t) {
 	const root = await mkdtemp(join(tmpdir(), "z8-win-accept-"));
 	t.after(() => rm(root, { recursive: true, force: true }));
@@ -28,7 +70,7 @@ async function fixture(t) {
 		"validation/native-tests.exe",
 		"validation/validation-run.exe",
 		"build-inputs.json",
-		"scripts/desktop-windows-acceptance.mjs",
+		...handoffSupportFiles,
 	]) {
 		await mkdir(join(root, name, ".."), { recursive: true });
 		await writeFile(join(root, name), "fixture");
@@ -141,4 +183,16 @@ test("reports cannot mutate input directories through direct or symlink paths", 
 			/outside immutable/,
 		);
 	}
+});
+
+test("handoff rejects a consistently inventoried but incomplete tool closure", async (t) => {
+	const f = await fixture(t);
+	const name = "scripts/lib/desktop-audio-expansion.mjs";
+	await rm(join(f.root, name));
+	delete f.manifest.files[name];
+	await f.save();
+	await assert.rejects(
+		verifyHandoff(f.root),
+		/Missing handoff input: scripts\/lib\/desktop-audio-expansion.mjs/,
+	);
 });
