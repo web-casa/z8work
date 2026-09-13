@@ -87,3 +87,12 @@ test("inventory preserves read/write direction, excludes pseudo formats from pro
 		["libx264", "aac"],
 	);
 });
+
+test("Windows ImageMagick inventory without module column is parsed", () => {
+	const rows = imageInventory(
+		" PNG* rw- Portable Network Graphics\r\n AVIF rw+ AV1\r\n HEIC r-- HEIF",
+	);
+	assert.equal(rows.get("PNG").write, true);
+	assert.equal(rows.get("AVIF").multiImage, true);
+	assert.equal(rows.get("HEIC").write, false);
+});

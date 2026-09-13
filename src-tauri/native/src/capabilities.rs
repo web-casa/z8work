@@ -35,7 +35,7 @@ pub fn inspect(engines: &Engines) -> Result<Value, String> {
                 .env("TMP", work.path())
                 .env("LANG", "C.UTF-8");
             engines.configure_command(&mut command, engine)?;
-            crate::process::run(
+            crate::process::run_inventory(
                 command,
                 &cancel,
                 deadline.min(Instant::now() + Duration::from_secs(15)),

@@ -3,16 +3,17 @@ export function imageInventory(raw) {
 	const entries = new Map();
 	for (const line of raw.split(/\r?\n/)) {
 		const row = line.trim().split(/\s+/);
+		const mode = /^[r-][w-][+-]$/.test(row[1] ?? "") ? row[1] : row[2];
 		if (
-			row.length < 4 ||
+			row.length < 3 ||
 			!/^[A-Z0-9]+\*?$/.test(row[0]) ||
-			!/^[r-][w-][+-]$/.test(row[2])
+			!/^[r-][w-][+-]$/.test(mode ?? "")
 		)
 			continue;
 		entries.set(row[0].replace(/\*$/, ""), {
-			read: row[2][0] === "r",
-			write: row[2][1] === "w",
-			multiImage: row[2][2] === "+",
+			read: mode[0] === "r",
+			write: mode[1] === "w",
+			multiImage: mode[2] === "+",
 		});
 	}
 	return entries;

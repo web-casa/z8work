@@ -65,21 +65,38 @@ impl Drop for Guard {
 fn drain(
     mut pipe: impl Read + Send + 'static,
     mut progress: Option<crate::progress::Parser>,
+    complete_limit: Option<usize>,
 ) -> mpsc::Receiver<Result<String, String>> {
     let (sender, receiver) = mpsc::channel();
     thread::spawn(move || {
         let mut tail = Vec::new();
         let mut buffer = [0; 4096];
+        let mut overflow = false;
         let result = loop {
             match pipe.read(&mut buffer) {
-                Ok(0) => break Ok(String::from_utf8_lossy(&tail).into_owned()),
+                Ok(0) => {
+                    break if overflow {
+                        Err("Inventory output exceeds capture limit".into())
+                    } else {
+                        Ok(String::from_utf8_lossy(&tail).into_owned())
+                    }
+                }
                 Ok(n) => {
                     if let Some(parser) = &mut progress {
                         parser.feed(&buffer[..n], Instant::now());
                     }
-                    tail.extend_from_slice(&buffer[..n]);
-                    if tail.len() > 8192 {
-                        tail.drain(..tail.len() - 8192);
+                    if let Some(limit) = complete_limit {
+                        if n > limit.saturating_sub(tail.len()) {
+                            overflow = true;
+                        }
+                        if !overflow {
+                            tail.extend_from_slice(&buffer[..n]);
+                        }
+                    } else {
+                        tail.extend_from_slice(&buffer[..n]);
+                        if tail.len() > 8192 {
+                            tail.drain(..tail.len() - 8192);
+                        }
                     }
                 }
                 Err(e) => break Err(e.to_string()),
@@ -118,6 +135,23 @@ pub(crate) fn run_progress(
     deadline: Instant,
     progress: Option<crate::progress::Parser>,
 ) -> Result<String, String> {
+    run_capture(command, cancel, deadline, progress, None)
+}
+#[cfg(feature = "engine-validation")]
+pub(crate) fn run_inventory(
+    command: Command,
+    cancel: &Cancel,
+    deadline: Instant,
+) -> Result<String, String> {
+    run_capture(command, cancel, deadline, None, Some(1024 * 1024))
+}
+fn run_capture(
+    command: Command,
+    cancel: &Cancel,
+    deadline: Instant,
+    progress: Option<crate::progress::Parser>,
+    complete_limit: Option<usize>,
+) -> Result<String, String> {
     cancel.check(deadline)?;
     let mut command = command;
     command
@@ -153,9 +187,11 @@ pub(crate) fn run_progress(
     let out = drain(
         child.child.stdout().take().ok_or("Missing stdout pipe")?,
         progress,
+        complete_limit,
     );
     let err = drain(
         child.child.stderr().take().ok_or("Missing stderr pipe")?,
+        None,
         None,
     );
     let status = loop {
@@ -338,6 +374,18 @@ mod tests {
         )
         .unwrap();
         assert_eq!(output.len(), 8192);
+    }
+    #[test]
+    fn inventory_capture_preserves_long_output_and_rejects_overflow() {
+        let bytes = vec![b'x'; 32000];
+        let result = drain(std::io::Cursor::new(bytes.clone()), None, Some(64000));
+        assert_eq!(result.recv().unwrap().unwrap().as_bytes(), bytes);
+        let result = drain(std::io::Cursor::new(bytes), None, Some(10000));
+        assert!(result
+            .recv()
+            .unwrap()
+            .unwrap_err()
+            .contains("capture limit"));
     }
     #[test]
     fn failure_is_observable() {
