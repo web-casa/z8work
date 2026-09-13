@@ -13,6 +13,7 @@ export const emptyPreview = (): PreviewState => ({
 });
 export function previewKind(name: string) {
 	if (
+		name.lastIndexOf(".") > 0 &&
 		scope.groups
 			.find((g) => g.id === "images")
 			?.inputs.includes(name.split(".").pop()?.toLowerCase() ?? "")

@@ -30,7 +30,15 @@ test("preview contract bounds payload, dimensions and explicit preview routes", 
 	assert.equal(previewable("PIC.HEIC", 33554432), true);
 	for (const ext of ["BMP", "TGA", "QOI"])
 		assert.equal(previewKind(`photo.${ext}`), "image");
-	for (const name of ["file.svg", "file.png.exe", "file.m3u8"])
+	for (const name of [
+		"file.svg",
+		"file.png.exe",
+		"file.m3u8",
+		"bmp",
+		".bmp",
+		"qoi",
+		".qoi",
+	])
 		assert.equal(previewable(name, 10), false);
 	assert.equal(previewable("file.png", 33554433), false);
 });
