@@ -678,7 +678,9 @@ pub fn verify_engines(
         let missing_path = root.path().join("missing.json");
         fs::write(&missing_path, serde_json::to_vec(&missing).unwrap()).unwrap();
         let degraded = Engines::load_available(&missing_path)?;
-        if !degraded.formats_for("docx").is_empty() || degraded.formats_for("png").len() != 4 {
+        if !degraded.formats_for("docx").is_empty()
+            || degraded.formats_for("png") != crate::output_formats("png")
+        {
             return Err("Missing engine blocked unrelated capabilities".into());
         }
         convert(
