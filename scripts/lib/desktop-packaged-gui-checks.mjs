@@ -215,6 +215,21 @@ export async function checkPackagedGui({
 		close,
 	});
 	await checkPackagedActiveQuit({
+		action: "cancel-queued",
+		root,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		xdotool,
+		windows,
+		open,
+		close,
+	});
+	await checkPackagedActiveQuit({
 		root,
 		invoke,
 		js,

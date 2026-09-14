@@ -1,3 +1,4 @@
+import { checkPackagedCancelQueued } from "./desktop-packaged-cancel-queued.mjs";
 import { checkPackagedCancelAll } from "./desktop-packaged-cancel-all.mjs";
 import { checkPackagedCancelCurrent } from "./desktop-packaged-cancel-current.mjs";
 import assert from "node:assert/strict";
@@ -36,7 +37,11 @@ export async function checkPackagedActiveQuit({
 	open,
 	close,
 }) {
-	assert.ok(["quit", "cancel-current", "cancel-all"].includes(action));
+	assert.ok(
+		["quit", "cancel-current", "cancel-all", "cancel-queued"].includes(
+			action,
+		),
+	);
 	await change(".language select", "en");
 	await until(
 		async () =>
@@ -174,11 +179,16 @@ export async function checkPackagedActiveQuit({
 		assert.equal(running.tasks[0].id, task.id);
 		assertQueued(running, "queued");
 		if (action !== "quit") {
-			const checkCancel =
-				action === "cancel-current"
-					? checkPackagedCancelCurrent
-					: checkPackagedCancelAll;
+			const checkCancel = {
+				"cancel-current": checkPackagedCancelCurrent,
+				"cancel-all": checkPackagedCancelAll,
+				"cancel-queued": checkPackagedCancelQueued,
+			}[action];
 			await checkCancel({
+				executable,
+				magick,
+				prefix,
+				env,
 				root,
 				output,
 				input,
