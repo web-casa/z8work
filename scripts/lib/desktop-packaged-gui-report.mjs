@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 export const packagedGuiChecks = Object.freeze([
+	"keyboard-cancel-current-reaps-encoder-and-queued-task-saves",
+	"cancel-current-keeps-originals-existing-results-and-decodable-next-output",
 	"queued-task-survives-escape-cancels-on-quit-and-never-auto-resumes",
 	"active-encoder-injected-stop-escape-preserves-running-task",
 	"active-confirmed-native-quit-reaps-observed-encoder-without-output",

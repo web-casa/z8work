@@ -1,3 +1,4 @@
+import { checkPackagedCancelCurrent } from "./desktop-packaged-cancel-current.mjs";
 import assert from "node:assert/strict";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -20,6 +21,7 @@ import {
 } from "./desktop-linux-process.mjs";
 const execute = promisify(execFile);
 export async function checkPackagedActiveQuit({
+	cancelCurrent = false,
 	root,
 	invoke,
 	js,
@@ -68,9 +70,13 @@ export async function checkPackagedActiveQuit({
 		MAGICK_CODER_MODULE_PATH: join(engineRoot, manifest.magick_modules),
 		LIBHEIF_PLUGIN_PATH: join(engineRoot, manifest.heif_plugins),
 	};
-	const input = join(root, "active-fixture", "active.png"),
-		output = join(root, "active-output");
-	await mkdir(output);
+	const input = join(
+			root,
+			cancelCurrent ? "cancel-fixture" : "active-fixture",
+			"active.png",
+		),
+		output = join(root, cancelCurrent ? "results" : "active-output");
+	if (!cancelCurrent) await mkdir(output);
 	await mkdir(dirname(input));
 	await execute(
 		executable,
@@ -169,6 +175,30 @@ export async function checkPackagedActiveQuit({
 		assert.equal(running.tasks[0].attempt, 1);
 		assert.equal(running.tasks[0].id, task.id);
 		assertQueued(running, "queued");
+		if (cancelCurrent) {
+			await checkPackagedCancelCurrent({
+				root,
+				output,
+				input,
+				original,
+				queuedInput,
+				queuedOriginal,
+				task,
+				queued,
+				running,
+				held,
+				app,
+				invoke,
+				js,
+				until,
+				screenshot,
+				checks,
+				xdotool,
+				main,
+			});
+			return;
+		}
+
 		await screenshot("active-running.png", `[data-task-id="${task.id}"]`);
 		const requestClose = () =>
 			execute(

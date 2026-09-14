@@ -185,6 +185,21 @@ export async function checkPackagedGui({
 		xdotool,
 	});
 	await checkPackagedActiveQuit({
+		cancelCurrent: true,
+		root,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		xdotool,
+		windows,
+		open,
+		close,
+	});
+	await checkPackagedActiveQuit({
 		root,
 		invoke,
 		js,
