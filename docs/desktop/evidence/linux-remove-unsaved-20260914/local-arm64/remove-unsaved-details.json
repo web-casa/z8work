@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "beforeRemoval": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-remove-unsaved-20260914/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "save-probe.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "f795134f-4aa4-4ab1-bddc-85bcab3db5cd"
+      },
+      {
+        "bytes": 147,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "remove-keep.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "5988c9ad-7f03-48b9-96fd-aa5df297455a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 53,
+    "epoch": "ce013718-8123-494e-8dba-2631aefd45c1",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "cf2c6f7d-6982-4946-9143-dceaf0eeb563",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "f795134f-4aa4-4ab1-bddc-85bcab3db5cd": "publish",
+      "5988c9ad-7f03-48b9-96fd-aa5df297455a": "publish"
+    }
+  },
+  "afterRemoval": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-remove-unsaved-20260914/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 147,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "remove-keep.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "5988c9ad-7f03-48b9-96fd-aa5df297455a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 55,
+    "epoch": "ce013718-8123-494e-8dba-2631aefd45c1",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "cf2c6f7d-6982-4946-9143-dceaf0eeb563",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "5988c9ad-7f03-48b9-96fd-aa5df297455a": "publish"
+    }
+  },
+  "afterSave": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-remove-unsaved-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 147,
+        "attempt": 2,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04",
+              "path": "/home/ivmm/VERT/.desktop-local/packaged-remove-unsaved-20260914/gui/results/remove-keep-z8-1.webp",
+              "bytes": 78
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/ivmm/VERT/.desktop-local/packaged-remove-unsaved-20260914/gui/results/remove-keep-z8-1.webp",
+          "bytes": 78
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "remove-keep.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "5988c9ad-7f03-48b9-96fd-aa5df297455a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 59,
+    "epoch": "ce013718-8123-494e-8dba-2631aefd45c1",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "cf2c6f7d-6982-4946-9143-dceaf0eeb563",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "appRemainedOpen": true,
+  "sourceUnavailableDuringSave": true,
+  "collisionsPreserved": 2000,
+  "discardedPayload": {
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+    "decoded": [
+      32,
+      32
+    ]
+  },
+  "retainedPayload": {
+    "bytes": 78,
+    "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04",
+    "decoded": [
+      48,
+      24
+    ]
+  },
+  "decoded": [
+    48,
+    24
+  ],
+  "output": {
+    "file": "remove-keep-z8-1.webp",
+    "bytes": 78,
+    "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04"
+  }
+}

@@ -1,0 +1,11 @@
+Error serving connection: hyper::Error(User(Service), client error (Connect)
+
+Caused by:
+    0: tcp connect error
+    1: Connection refused (os error 111))
+
+** (z8-desktop:3588110): WARNING **: 13:56:17.394: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+
+** (z8-desktop:3589728): WARNING **: 13:56:24.485: atk-bridge: Couldn't listen on dbus server: Socket name too long
+

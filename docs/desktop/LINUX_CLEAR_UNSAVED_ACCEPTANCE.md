@@ -46,3 +46,5 @@ gh workflow run desktop-builds.yml --ref fix/windows-pdf-path -f target=linux-gu
 ## 边界
 
 本新增场景是单项 WebP 的文件名碰撞保存失败，不注入磁盘耗尽，不修改应用缓存。它不替代多项未保存结果、单项移除、升级、Snap strict、Windows/macOS GUI 或商店验收。沿用的其他活动转换场景仍含 SIGSTOP 注入；R6 不能据此整体标为完成。
+
+后续：[单项移除与暂存保存验收](LINUX_REMOVE_UNSAVED_ACCEPTANCE.md)补齐两项等待保存时的选择性缓存清理，当前门禁扩展为二十八项；本页二十六项报告保留为历史证据。

@@ -51,3 +51,6 @@ docs/desktop/evidence/linux-clear-20260914/** -whitespace
 
 # Preserve unsaved-result clearing evidence.
 docs/desktop/evidence/linux-clear-unsaved-20260914/** -whitespace
+
+# Preserve selective unsaved task removal evidence.
+docs/desktop/evidence/linux-remove-unsaved-20260914/** -whitespace
