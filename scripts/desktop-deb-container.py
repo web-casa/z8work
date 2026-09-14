@@ -45,6 +45,11 @@ def main():
     require(run(['dpkg-deb', '-f', str(candidate), 'Architecture']).strip() == architecture,
             'Package architecture mismatch')
     if sys.argv[1] == 'prepare':
+        # The minimal Ubuntu container drops /usr/share/doc by default. Include
+        # only this package's documentation, as a normal desktop install does.
+        Path('/etc/dpkg/dpkg.cfg.d/z8-check-documents').write_text(
+            'path-include=/usr/share/doc/z8-work\n'
+            'path-include=/usr/share/doc/z8-work/*\n')
         subprocess.run(['apt-get', '-o', 'Acquire::Retries=1', '-o',
                         'Acquire::http::Timeout=30', 'update'], check=True, timeout=180)
         subprocess.run(['apt-get', '-o', 'Acquire::Retries=1', '-o',
@@ -60,17 +65,20 @@ def main():
     expected = Path('/expected')
     subprocess.run(['dpkg-deb', '-x', str(candidate), str(expected)], check=True, timeout=120)
     checked = 0
+    installed_files = []
     for item in expected.rglob('*'):
         installed = Path('/') / item.relative_to(expected)
         if item.is_symlink():
             require(installed.is_symlink() and os.readlink(item) == os.readlink(installed),
                     f'Installed symlink mismatch: {installed}')
+            installed_files.append(installed)
             checked += 1
         elif item.is_file():
             require(installed.is_file() and not installed.is_symlink()
                     and digest(item) == digest(installed)
                     and item.stat().st_mode & 0o7777 == installed.stat().st_mode & 0o7777,
                     f'Installed file mismatch: {installed}')
+            installed_files.append(installed)
             checked += 1
     require(checked > 0, 'No installed files checked')
     shutil.rmtree(expected)
@@ -96,7 +104,8 @@ def main():
              Path('/usr/share/icons/hicolor/192x192/apps/z8-work.png')]
     require(all(p.exists() for p in paths), 'Missing installed integration')
     subprocess.run(['apt-get', 'purge', '-y', 'z8-work'], check=True, timeout=120)
-    require(all(not p.exists() for p in paths), 'Package files retained after purge')
+    require(all(not os.path.lexists(p) for p in installed_files),
+            'Package files retained after purge')
     require(sentinel.read_text() == 'preserved' and sentinel.stat().st_uid == uid,
             'User-owned file changed during purge')
     remaining = subprocess.run(['dpkg-query', '-W', '-f=${Status}', 'z8-work'],
@@ -107,6 +116,7 @@ def main():
         'status': 'passed', 'machine': machine, 'ordinaryUserUid': uid,
         'installedFilesChecked': checked, 'installedApplicationHash': app_hash,
         'installation': 'passed', 'networkInterfaces': ['lo'],
+        'containerDocumentationFilter': 'include-z8-work-only',
         'removal': 'passed', 'unownedFileRetained': True,
         'gui': 'not-run', 'upgrade': 'not-run',
     }, indent=2) + '\n')

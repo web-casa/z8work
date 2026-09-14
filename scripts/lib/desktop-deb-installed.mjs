@@ -17,6 +17,7 @@ export async function inspectDebInContainer({
 	assert.ok(["arm64", "x64"].includes(source.arch));
 	assert.match(image, /^ubuntu(?::24\.04)?@sha256:[a-f0-9]{64}$/);
 	let result;
+	let failure;
 	try {
 		await docker([
 			"create",
@@ -100,10 +101,22 @@ export async function inspectDebInContainer({
 			installation: check,
 			hostInstallationModified: false,
 		};
+	} catch (error) {
+		failure = error;
+		throw error;
 	} finally {
 		// Killing the Docker CLI alone does not stop a timed-out container command.
 		// A failed cleanup must also fail the acceptance result.
-		await docker(["rm", "--force", name]);
+		try {
+			await docker(["rm", "--force", name]);
+		} catch (cleanupError) {
+			if (failure)
+				throw new AggregateError(
+					[failure, cleanupError],
+					"Acceptance failed and container cleanup failed",
+				);
+			throw cleanupError;
+		}
 	}
 	return result;
 }

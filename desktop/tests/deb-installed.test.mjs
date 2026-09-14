@@ -91,3 +91,16 @@ test("invalid quality and failed cleanup cannot produce acceptance", async () =>
 		/simulated failure/,
 	);
 });
+
+test("conversion and cleanup errors both remain observable", async () => {
+	await assert.rejects(
+		inspectDebInContainer(
+			fixture({ fail: "verify", cleanupFails: true }).options,
+		),
+		(error) => {
+			assert.ok(error instanceof AggregateError);
+			assert.equal(error.errors.length, 2);
+			return true;
+		},
+	);
+});
