@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[六平台预览包交付](FORMAT_EXPANSION_DELIVERY.md)，将此前仅在 ARM64 手工执行的音频安装检查扩展为 AMD64 / ARM64 的可重复完整质量验收。本轮不新增格式、不重建安装包，也不发布商店版本。
 
+后续原生界面检查见 [Linux 已安装包原生界面验收](LINUX_GUI_ACCEPTANCE.md)；本页保留离线容器验收的原始范围。
+
 ## 实现
 
 `desktop-builds.yml` 新增 `linux-installed` 入口，调用双架构原生 runner。输入仍来自 `capability-sources.json` 中固定运行、文件名和 SHA-256 的已交付 deb；下载后先验证哈希，再创建独立容器。应用与引擎都使用安装包原件，不从当前源码重编验证程序。

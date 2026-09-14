@@ -1,0 +1,2 @@
+
+(xdg-desktop-portal-gtk:4809): dbind-WARNING **: 02:06:10.126: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files

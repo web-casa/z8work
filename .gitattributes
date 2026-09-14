@@ -21,3 +21,6 @@ docs/desktop/evidence/format-delivery-20260914/** -whitespace
 
 # Preserve original installed-package test logs.
 docs/desktop/evidence/linux-installed-20260914/** -whitespace
+
+# Preserve native GUI evidence and logs.
+docs/desktop/evidence/linux-gui-20260914/** -whitespace
