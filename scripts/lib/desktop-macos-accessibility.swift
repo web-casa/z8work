@@ -59,7 +59,7 @@ if args.count == 2 && args[1] == "environment" {
     guard result == .success else { fputs("AXPress failed: \(result.rawValue)\n", stderr); exit(1) }
 } else if args.count == 4 && ["key", "type"].contains(args[1]), let pid = Int32(args[2]) {
     guard AXIsProcessTrusted(), let app = NSRunningApplication(processIdentifier: pid) else { exit(2) }
-    app.activate(options: [.activateIgnoringOtherApps])
+    app.activate(options: [])
     Thread.sleep(forTimeInterval: 0.15)
     let source = CGEventSource(stateID: .hidSystemState)
     let codes: [String: CGKeyCode] = ["return":36,"escape":53,"go":5]
@@ -78,7 +78,7 @@ if args.count == 2 && args[1] == "environment" {
     for i in 0..<(32*32*3) { rep.bitmapData![i] = UInt8(i % 251) }
     try rep.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: args[2]))
 } else if args.count == 3 && args[1] == "decode" {
-    guard let rep = NSBitmapImageRep(contentsOfFile: args[2]) else { exit(1) }
+    guard let rep = NSBitmapImageRep(data: try Data(contentsOf: URL(fileURLWithPath: args[2]))) else { exit(1) }
     emit(["width":rep.pixelsWide,"height":rep.pixelsHigh])
 } else if args.count == 3 && args[1] == "quit", let pid = Int32(args[2]), let app = NSRunningApplication(processIdentifier: pid) {
     guard app.terminate() else { exit(1) }

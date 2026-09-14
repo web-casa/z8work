@@ -1,3 +1,4 @@
+import { validateMacGuiReport } from "./lib/desktop-macos-gui-report.mjs";
 import { checkMacGui } from "./lib/desktop-macos-gui-checks.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
@@ -176,9 +177,29 @@ try {
 		}
 	}
 	if (installed && report.exit === "terminated") {
-		await rm(app, { recursive: true });
-		report.uninstall = "removed-test-copy";
+		try {
+			await rm(app, { recursive: true });
+			report.uninstall = "removed-test-copy";
+			if (report.result) {
+				const result = await hash(report.result.file);
+				assert.equal(result.sha256, report.result.sha256);
+				assert.equal(result.bytes, report.result.bytes);
+				report.resultRetainedAfterUninstall = true;
+			}
+		} catch (e) {
+			report.cleanupError = String(e);
+			process.exitCode = 1;
+		}
 	}
 	if (process.exitCode) report.status = "failed";
+	if (report.status === "passed") {
+		try {
+			validateMacGuiReport(report, pin);
+		} catch (e) {
+			report.status = "failed";
+			report.validationError = String(e);
+			process.exitCode = 1;
+		}
+	}
 	await record("report.json", report);
 }
