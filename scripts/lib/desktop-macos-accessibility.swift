@@ -71,7 +71,8 @@ if args.count == 2 && args[1] == "environment" {
             let chars = Array(args[3].utf16)
             chars.withUnsafeBufferPointer { event.keyboardSetUnicodeString(stringLength: chars.count, unicodeString: $0.baseAddress!) }
         } else if args[3] == "go" { event.flags = [.maskCommand,.maskShift] }
-        event.post(tap: .cghidEventTap)
+        event.postToPid(pid)
+        Thread.sleep(forTimeInterval: 0.1)
     }
 } else if args.count == 3 && args[1] == "fixture" {
     let rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: 32, pixelsHigh: 32, bitsPerSample: 8, samplesPerPixel: 3, hasAlpha: false, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 96, bitsPerPixel: 24)!

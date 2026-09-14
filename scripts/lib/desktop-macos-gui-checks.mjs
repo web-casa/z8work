@@ -30,7 +30,11 @@ export async function checkMacGui({
 	};
 	const press = (title, role = "AXButton") =>
 		run(helper, ["press", String(pid), role, title]);
-	const key = (k) => run(helper, ["key", String(pid), k]);
+	const key = (k) =>
+		run("osascript", [
+			"-e",
+			`tell application "System Events" to key code ${{ go: 5, return: 36, escape: 53 }[k]}${k === "go" ? " using {command down, shift down}" : ""}`,
+		]);
 	const shot = (name) => {
 		if (report.environment.screenCaptureAllowed)
 			run("screencapture", ["-x", join(root, name + ".png")]);
@@ -54,7 +58,10 @@ export async function checkMacGui({
 		await openPicker(label);
 		key("go");
 		await delay(500);
+		await record("picker-go.json", tree());
 		run(helper, ["type", String(pid), path]);
+		await delay(500);
+		await record("picker-typed.json", tree());
 		key("return");
 		await delay(700);
 		key("return");
@@ -144,7 +151,13 @@ export async function checkMacGui({
 	await until(() => has(tree(), "测试 image.png"), "History did not restore");
 	const restarted = await snapshot("restarted");
 	assert.ok(has(restarted, "Choose file again"));
-	assert.ok(has(restarted, "Save to: Choose a folder"));
+	assert.ok(
+		flat(restarted).some((n) =>
+			String(n.AXValue ?? "").includes(
+				"Choose the folder again to authorize",
+			),
+		),
+	);
 	assert.deepEqual(await readFile(saved), bytes);
 	report.checks.push("restart-history-without-input-output-authorization");
 	press("Clear file list");
