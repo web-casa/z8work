@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned AVIF encoder",
+  "beforeCancel": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21536509,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "6a404867-ae98-48e5-a5aa-8c5e1e004c82"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "a84d2e7c-69ea-4561-9f1c-56bba835181f"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 44,
+    "epoch": "83f8500f-6f45-4f65-bd15-eb9a47b4e3e7",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "b95233bb-01df-403e-91ae-1bbd759abf13",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterCancel": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21536509,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "active.png",
+        "error": "Cancelled",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "6a404867-ae98-48e5-a5aa-8c5e1e004c82"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "a84d2e7c-69ea-4561-9f1c-56bba835181f"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 46,
+    "epoch": "83f8500f-6f45-4f65-bd15-eb9a47b4e3e7",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "b95233bb-01df-403e-91ae-1bbd759abf13",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "6a404867-ae98-48e5-a5aa-8c5e1e004c82": "cancelled"
+    }
+  },
+  "afterRetry": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21536509,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "active.png",
+        "error": "Cancelled",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "6a404867-ae98-48e5-a5aa-8c5e1e004c82"
+      },
+      {
+        "bytes": 119,
+        "attempt": 2,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+              "path": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/results/queued-z8-2.webp",
+              "bytes": 82
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/results/queued-z8-2.webp",
+          "bytes": 82
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "a84d2e7c-69ea-4561-9f1c-56bba835181f"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 50,
+    "epoch": "83f8500f-6f45-4f65-bd15-eb9a47b4e3e7",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "b95233bb-01df-403e-91ae-1bbd759abf13",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "6a404867-ae98-48e5-a5aa-8c5e1e004c82": "cancelled"
+    }
+  },
+  "observedEncoders": [
+    {
+      "pid": 3497641,
+      "state": "R",
+      "parent": 3497018,
+      "start": "84932933",
+      "command": [
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-AFRRUc/job-ZBvgoy/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-AFRRUc/job-ZBvgoy/output.avif"
+      ],
+      "cwd": "/home/ivmm/VERT/.desktop-local/packaged-all-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-AFRRUc/job-ZBvgoy"
+    }
+  ],
+  "appRemainedOpen": true,
+  "observedEncodersExited": true,
+  "noOutputBeforeExplicitRetry": true,
+  "decoded": [
+    32,
+    32
+  ],
+  "output": {
+    "file": "queued-z8-2.webp",
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

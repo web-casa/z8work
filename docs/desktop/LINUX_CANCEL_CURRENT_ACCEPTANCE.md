@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[排队任务退出验收](LINUX_QUEUED_QUIT_ACCEPTANCE.md)，补齐单项取消对后续任务的影响。本轮复用固定 deb，不修改生产取消逻辑、转换算法或安装包。
 
+后续[全部取消与显式重试验收](LINUX_CANCEL_ALL_ACCEPTANCE.md)扩展到二十组门禁；本页保留原十八组覆盖范围。
+
 ## 实现与 review
 
 在现有真实 AVIF 编码进程暂停夹具中增加独立场景：第一项为合成 PNG → AVIF，第二项为微型 PNG → WebP。确认第一项 running、第二项 queued 后，通过第一项可见的 `Cancel task` 按钮聚焦并发送 Return，触发正常的单项取消。测试不直接发送取消 IPC。

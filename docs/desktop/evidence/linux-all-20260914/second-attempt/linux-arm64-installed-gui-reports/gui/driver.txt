@@ -1,0 +1,14 @@
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+** (z8-desktop:5096): WARNING **: 03:57:17.685: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+** (z8-desktop:5536): WARNING **: 03:57:25.143: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering

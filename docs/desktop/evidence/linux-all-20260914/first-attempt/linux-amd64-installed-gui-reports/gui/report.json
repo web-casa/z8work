@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "platform": "linux/x64",
+  "mode": "packaged-product",
+  "binarySha256": "a19d11cb98488a10cc1641956369975a9d7fdad5c7ca86a320c683379cf55ad3",
+  "routes": [],
+  "checks": [
+    "native-input-picker-cancel-keeps-queue-empty",
+    "convert-button-save-picker-cancel-does-not-start",
+    "visible-format-and-keyboard-convert-save-decodable-webp-original-unchanged",
+    "native-restart-restores-language-and-history-without-file-authorization",
+    "keyboard-clear-retains-original-and-saved-result",
+    "save-picker-cancel-retains-output-grant-and-cached-bytes",
+    "keyboard-save-only-publishes-identical-cache-with-source-unavailable",
+    "save-recovery-clear-keeps-result-original-and-collision-files",
+    "keyboard-cancel-current-reaps-encoder-and-queued-task-saves",
+    "cancel-current-keeps-originals-existing-results-and-decodable-next-output",
+    "keyboard-cancel-all-stops-running-and-queued-without-new-output",
+    "cancel-all-explicit-single-retry-saves-without-restarting-other-task"
+  ],
+  "installation": "not-run"
+}

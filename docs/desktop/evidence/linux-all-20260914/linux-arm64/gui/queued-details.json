@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "runningTaskId": "c481c713-d18f-4774-b970-44e3a82e03bc",
+  "queuedTaskId": "6201da85-d7e0-4d70-ae36-412942da8fee",
+  "beforeClose": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21512643,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "c481c713-d18f-4774-b970-44e3a82e03bc"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "6201da85-d7e0-4d70-ae36-412942da8fee"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 59,
+    "epoch": "23cf1909-d441-41dc-b713-3312ed959e0b",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "56140467-7cce-4949-a95d-c32cb0ebc7b4",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterEscape": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21512643,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "c481c713-d18f-4774-b970-44e3a82e03bc"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "6201da85-d7e0-4d70-ae36-412942da8fee"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 59,
+    "epoch": "23cf1909-d441-41dc-b713-3312ed959e0b",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "56140467-7cce-4949-a95d-c32cb0ebc7b4",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterRestartReady": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21512643,
+        "attempt": 1,
+        "authorized": false,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "active.png",
+        "error": "Cancelled",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "c481c713-d18f-4774-b970-44e3a82e03bc"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": false,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "6201da85-d7e0-4d70-ae36-412942da8fee"
+      }
+    ],
+    "output_authorized": false,
+    "revision": 62,
+    "epoch": "23cf1909-d441-41dc-b713-3312ed959e0b",
+    "processing": false,
+    "import_report": null,
+    "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+    "failures": {
+      "c481c713-d18f-4774-b970-44e3a82e03bc": "cancelled"
+    }
+  },
+  "outputFiles": 0,
+  "queuedOriginal": {
+    "bytes": 119,
+    "sha256": "0baaa94a444218fa87fce9270362c4d253b3680e648a9b2789c3b52e72a0bf35"
+  }
+}

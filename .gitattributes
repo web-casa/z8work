@@ -39,3 +39,6 @@ docs/desktop/evidence/linux-queued-20260914/** -whitespace
 
 # Preserve single-task cancellation evidence.
 docs/desktop/evidence/linux-cancel-20260914/** -whitespace
+
+# Preserve cancel-all and retry evidence.
+docs/desktop/evidence/linux-all-20260914/** -whitespace

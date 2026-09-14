@@ -1,0 +1,110 @@
+["dpkg-deb","-f","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb","Package"]
+z8-work
+["dpkg-deb","-x","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/extracted"]
+["sudo","-n","apt-get","install","--no-install-recommends","-y","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb"]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  z8-work
+0 upgraded, 1 newly installed, 0 to remove and 50 not upgraded.
+Need to get 0 B/136 MB of archives.
+After this operation, 533 MB of additional disk space will be used.
+Get:1 /home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb z8-work amd64 0.1.0~preview1 [136 MB]
+Selecting previously unselected package z8-work.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 202530 files and directories currently installed.)
+Preparing to unpack .../z8-work_0.1.0~preview1_amd64.deb ...
+Unpacking z8-work (0.1.0~preview1) ...
+Setting up z8-work (0.1.0~preview1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+["/usr/bin/z8-desktop","--build-info"]
+{"applicationId":"work.z8.desktop.m0","arch":"x86_64","customProtocol":true,"debug":false,"engines":"bundled","fileDialog":"xdg-portal","os":"linux","processLifetime":"watchdog-pipe-v1","resourceDirectoryName":"Z8.Work Desktop Dev","schema":1,"updater":false,"version":"0.1.0"}
+["xvfb-run","-a","-s","-screen 0 1280x1024x24","dbus-run-session","--","bash","scripts/desktop-gui-session.sh"]
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='org.freedesktop.portal.Documents' requested by ':1.0' (uid=1001 pid=4821 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.1' (uid=1001 pid=4833 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.0' (uid=1001 pid=4821 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='org.a11y.Bus' requested by ':1.5' (uid=1001 pid=4851 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[4873]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1001 pid=4820 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.9' (uid=1001 pid=4860 comm="/usr/bin/z8-desktop" label="unconfined")
+dbus-daemon[4873]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.329: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.329: The preferred method to match portal implementations to desktop environments is to use the portals.conf(5) configuration file
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.360: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.360: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.361: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.361: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.361: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.362: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.363: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.365: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.366: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.367: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'org.freedesktop.portal.Desktop'
+[W][00138.666742] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00138.667109] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.373: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.373: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.374: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:4890): xdg-desktop-portal-WARNING **: 04:01:26.374: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[4816]: [session uid=1001 pid=4816] Activating service name='ca.desrt.dconf' requested by ':1.10' (uid=1001 pid=4851 comm="/usr/libexec/xdg-desktop-portal-gtk" label="unconfined")
+dbus-daemon[4816]: [session uid=1001 pid=4816] Successfully activated service 'ca.desrt.dconf'
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:01:30.645: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:01:36.478: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:01:44.606: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:01:46.374: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:01:53.290: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:02:02.240: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4851): Gtk-CRITICAL **: 04:02:02.247: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":99"
+      after 5 requests (5 known processed) with 0 events remaining.
+["sudo","-n","apt-get","purge","-y","z8-work"]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  z8-work*
+0 upgraded, 0 newly installed, 1 to remove and 50 not upgraded.
+After this operation, 533 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 203919 files and directories currently installed.)
+Removing z8-work (0.1.0~preview1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
