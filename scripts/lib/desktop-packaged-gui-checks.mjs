@@ -1,3 +1,4 @@
+import { checkPackagedActiveQuit } from "./desktop-packaged-active-quit.mjs";
 import { checkPackagedSave } from "./desktop-packaged-save-checks.mjs";
 import { checkPackagedQuit } from "./desktop-packaged-quit-checks.mjs";
 import assert from "node:assert/strict";
@@ -182,6 +183,20 @@ export async function checkPackagedGui({
 		checks,
 		windows,
 		xdotool,
+	});
+	await checkPackagedActiveQuit({
+		root,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		xdotool,
+		windows,
+		open,
+		close,
 	});
 	await checkPackagedQuit({
 		invoke,

@@ -14,8 +14,8 @@ const fixture = () => ({
 	binarySha256: expected.sha256,
 	checks: [...packagedGuiChecks],
 });
-test("packaged GUI gate binds all twelve native interaction checks to the actual binary", () => {
-	assert.equal(packagedGuiChecks.length, 12);
+test("packaged GUI gate binds all fifteen native interaction checks to the actual binary", () => {
+	assert.equal(packagedGuiChecks.length, 15);
 	validatePackagedGuiReport(fixture(), expected);
 	for (const mutate of [
 		(r) => r.checks.pop(),
