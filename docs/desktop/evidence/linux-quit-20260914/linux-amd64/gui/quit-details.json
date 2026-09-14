@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "cachedPayloads": [
+    {
+      "bytes": 82,
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+    }
+  ],
+  "cacheRemovedBeforeRestart": true,
+  "restoredPhase": "interrupted",
+  "restoredAttempt": 1,
+  "collisionsPreserved": 1000,
+  "nativeConfirmedExit": true,
+  "idleNativeExit": true
+}

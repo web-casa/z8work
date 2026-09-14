@@ -1,0 +1,43 @@
+{
+  "clearing": false,
+  "closing": false,
+  "schema": 3,
+  "output": "/home/ivmm/VERT/.desktop-local/packaged-quit-20260914/final-gui/quit-collisions",
+  "persistence_error": null,
+  "tasks": [
+    {
+      "bytes": 119,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif",
+        "bmp",
+        "tga",
+        "qoi"
+      ],
+      "phase": "interrupted",
+      "name": "quit-probe.png",
+      "error": "Saved result expired or unavailable; convert again",
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "webp",
+      "id": "83f62fb6-e9fe-4257-a1c6-6d8bd0f376e0"
+    }
+  ],
+  "output_authorized": false,
+  "revision": 19,
+  "epoch": "d13a1a27-8a7a-40ee-9aaa-15a0667478e2",
+  "processing": false,
+  "import_report": null,
+  "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+  "failures": {
+    "83f62fb6-e9fe-4257-a1c6-6d8bd0f376e0": "cache_expired"
+  }
+}

@@ -1,0 +1,45 @@
+["dpkg-deb","-f","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb","Package"]
+z8-work
+["dpkg-deb","-x","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/extracted"]
+["sudo","-n","apt-get","install","--no-install-recommends","-y","/home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb"]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  z8-work
+0 upgraded, 1 newly installed, 0 to remove and 50 not upgraded.
+Need to get 0 B/136 MB of archives.
+After this operation, 533 MB of additional disk space will be used.
+Get:1 /home/runner/work/z8work/z8work/.desktop-local/installed-gui-input/z8-work_0.1.0~preview1_amd64.deb z8-work amd64 0.1.0~preview1 [136 MB]
+Selecting previously unselected package z8-work.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 202510 files and directories currently installed.)
+Preparing to unpack .../z8-work_0.1.0~preview1_amd64.deb ...
+Unpacking z8-work (0.1.0~preview1) ...
+Setting up z8-work (0.1.0~preview1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+["/usr/bin/z8-desktop","--build-info"]
+{"applicationId":"work.z8.desktop.m0","arch":"x86_64","customProtocol":true,"debug":false,"engines":"bundled","fileDialog":"xdg-portal","os":"linux","processLifetime":"watchdog-pipe-v1","resourceDirectoryName":"Z8.Work Desktop Dev","schema":1,"updater":false,"version":"0.1.0"}
+["xvfb-run","-a","-s","-screen 0 1280x1024x24","dbus-run-session","--","bash","scripts/desktop-gui-session.sh"]
+Command exited 1
+
+["sudo","-n","apt-get","purge","-y","z8-work"]
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  z8-work*
+0 upgraded, 0 newly installed, 1 to remove and 50 not upgraded.
+After this operation, 533 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 203899 files and directories currently installed.)
+Removing z8-work (0.1.0~preview1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...

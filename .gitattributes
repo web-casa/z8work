@@ -24,3 +24,6 @@ docs/desktop/evidence/linux-installed-20260914/** -whitespace
 
 # Preserve native GUI evidence and logs.
 docs/desktop/evidence/linux-gui-20260914/** -whitespace
+
+# Preserve native quit acceptance evidence.
+docs/desktop/evidence/linux-quit-20260914/** -whitespace

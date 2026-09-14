@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[安装后离线转换验收](LINUX_INSTALLED_ACCEPTANCE.md)，本轮补齐真实 WebKit 窗口与 portal 文件选择的有限验收。应用、引擎和转换格式范围保持上一轮最终 deb 的字节；没有重编应用或发布新的包。
 
+后续补充见 [未保存结果与原生退出验收](LINUX_QUIT_ACCEPTANCE.md)；本页保留首轮五组 GUI 检查的范围和原始报告。
+
 ## 覆盖内容
 
 使用 Tauri 的外部 `tauri-driver` 2.0.6、系统 WebKitWebDriver、Xvfb、独立 D-Bus 会话和 GTK portal backend。WebDriver 操作正式应用的 WebView，xdotool 操作系统文件选择窗口及键盘；不使用浏览器 IPC mock，不注入测试插件或替换转换后端。读取队列状态使用正式只读 IPC，导入、格式选择、转换、清空使用可见控件。

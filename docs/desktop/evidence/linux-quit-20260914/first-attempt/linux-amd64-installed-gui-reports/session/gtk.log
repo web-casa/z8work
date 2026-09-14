@@ -1,0 +1,8 @@
+
+(xdg-desktop-portal-gtk:4761): dbind-WARNING **: 02:38:10.904: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(xdg-desktop-portal-gtk:4761): Gtk-CRITICAL **: 02:38:15.075: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4761): Gtk-CRITICAL **: 02:38:20.953: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4761): Gtk-CRITICAL **: 02:38:20.960: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
