@@ -46,3 +46,5 @@ gh workflow run desktop-builds.yml --ref fix/windows-pdf-path -f target=linux-gu
 ## 边界
 
 本轮新增覆盖两项 WebP 文件名碰撞造成的等待保存，移除第一项后保存第二项。不替代活动任务单项移除、多页 PDF 暂存、大批次、磁盘故障、升级、Snap strict 或 Windows/macOS GUI 验收。原有活动转换回归仍包含 SIGSTOP 注入，R6 整体继续保留缺项。
+
+后续：[活动任务移除与队列继续验收](LINUX_REMOVE_CURRENT_ACCEPTANCE.md)补齐移除活动编码任务，当前门禁扩展为三十项；本页二十八项报告保留为历史证据。

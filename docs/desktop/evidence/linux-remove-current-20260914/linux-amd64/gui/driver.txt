@@ -1,0 +1,19 @@
+Error serving connection: hyper::Error(User(Service), client error (Connect)
+
+Caused by:
+    0: tcp connect error
+    1: Connection refused (os error 111))
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+** (z8-desktop:5046): WARNING **: 06:29:17.448: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+
+** (z8-desktop:5923): WARNING **: 06:29:23.390: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering

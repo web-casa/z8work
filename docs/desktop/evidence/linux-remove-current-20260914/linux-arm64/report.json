@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "gui": "passed",
+  "installation": "native-github-runner",
+  "source": {
+    "id": "linux-arm64",
+    "runner": "ubuntu-24.04-arm",
+    "os": "linux",
+    "arch": "arm64",
+    "target": "aarch64-unknown-linux-gnu",
+    "run": "34769213214",
+    "artifact": "linux-arm64-complete-preview",
+    "file": "z8-work_0.1.0~preview1_arm64.deb",
+    "sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f"
+  },
+  "application": {
+    "sha256": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+    "bytes": 18600240
+  },
+  "resultsRetained": {
+    "active-z8-1.avif": {
+      "sha256": "d6404319cacaf7b16b3ae790df73d93d4e2ca00b9b050bf4d24b2eed02ae474f",
+      "bytes": 101407
+    },
+    "queued-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "queued-z8-2.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "queued-z8-3.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "queued-z8-4.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "remove-keep-z8-1.webp": {
+      "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04",
+      "bytes": 78
+    },
+    "sample-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "save-probe-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "save-probe-z8-2.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    }
+  },
+  "upgrade": "not-run",
+  "networkIsolation": "not-run"
+}
