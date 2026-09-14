@@ -5,6 +5,10 @@ export const packagedGuiChecks = Object.freeze([
 	"visible-format-and-keyboard-convert-save-decodable-webp-original-unchanged",
 	"native-restart-restores-language-and-history-without-file-authorization",
 	"keyboard-clear-retains-original-and-saved-result",
+	"unsaved-close-single-confirmation-escape-retains-payload",
+	"unsaved-close-default-enter-stays-in-app",
+	"confirmed-native-quit-discards-cache-restart-requires-manual-conversion",
+	"idle-native-window-close-exits-without-confirmation",
 ]);
 export function validatePackagedGuiReport(report, { arch, sha256 }) {
 	assert.equal(report.schema, 1);
