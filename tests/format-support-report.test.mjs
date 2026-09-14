@@ -18,6 +18,19 @@ test("format support report is generated from the current public contracts", asy
 		new URL("../docs/desktop/FORMAT_SUPPORT_REPORT.html", import.meta.url),
 		"utf8",
 	);
+	const catalog = JSON.parse(
+		await readFile(
+			new URL(
+				"../docs/desktop/format-expansion-catalog.json",
+				import.meta.url,
+			),
+			"utf8",
+		),
+	);
+	const markdownCatalog = await readFile(
+		new URL("../docs/desktop/FORMAT_EXPANSION_CATALOG.md", import.meta.url),
+		"utf8",
+	);
 	for (const value of [
 		"Z8.Work 格式能力对照报告",
 		"XLSX",
@@ -35,4 +48,20 @@ test("format support report is generated from the current public contracts", asy
 	assert.match(report, /evidence\/format-research-20260913/);
 	assert.match(report, /data-filter="\.web-format-table"/);
 	assert.match(report, /data-filter="\.why-table"/);
+	assert.equal(catalog.schema, 1);
+	assert.deepEqual(
+		catalog.tiers.map((tier) => tier.label),
+		["超低", "低", "中", "高", "超高"],
+	);
+	assert.equal(
+		new Set(catalog.items.map((item) => item.id)).size,
+		catalog.items.length,
+	);
+	assert.match(report, /扩展格式选择目录/);
+	assert.match(report, /data-catalog-search/);
+	assert.match(markdownCatalog, /# Z8\.Work 原生格式扩展选择目录/);
+	for (const item of catalog.items) {
+		assert.match(report, new RegExp(`>${item.id}<`));
+		assert.ok(markdownCatalog.includes(`\`${item.id}\``));
+	}
 });

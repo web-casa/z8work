@@ -6,6 +6,10 @@ import prettier from "prettier";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = resolve(root, "docs/desktop/FORMAT_SUPPORT_REPORT.html");
+const catalogMarkdownPath = resolve(
+	root,
+	"docs/desktop/FORMAT_EXPANSION_CATALOG.md",
+);
 const reportDate = "2026-09-14";
 
 const read = (path) => readFile(resolve(root, path), "utf8");
@@ -140,6 +144,132 @@ function table(rows, headers, className = "") {
 		.join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
 }
 
+function validateCatalog(catalog) {
+	if (catalog.schema !== 1) throw new Error("Unsupported catalog schema");
+	if (!Array.isArray(catalog.tiers) || !Array.isArray(catalog.items))
+		throw new Error("Catalog must contain tiers and items");
+	const tierIds = new Set();
+	for (const tier of catalog.tiers) {
+		for (const field of ["id", "label", "summary"]) {
+			if (!tier[field] || typeof tier[field] !== "string")
+				throw new Error(`Catalog tier is missing ${field}`);
+		}
+		if (tierIds.has(tier.id))
+			throw new Error(`Duplicate catalog tier: ${tier.id}`);
+		tierIds.add(tier.id);
+	}
+	if (tierIds.size !== 5) throw new Error("Catalog must define five tiers");
+	const itemIds = new Set();
+	const counts = new Map([...tierIds].map((tier) => [tier, 0]));
+	for (const item of catalog.items) {
+		for (const field of [
+			"id",
+			"tier",
+			"title",
+			"direction",
+			"engine",
+			"boundary",
+			"work",
+			"recommendation",
+		]) {
+			if (!item[field] || typeof item[field] !== "string")
+				throw new Error(
+					`Catalog item ${item.id ?? "unknown"} is missing ${field}`,
+				);
+		}
+		if (!/^(?:UL|L|M|H|UH)-\d{2}$/.test(item.id))
+			throw new Error(`Invalid catalog item id: ${item.id}`);
+		if (!tierIds.has(item.tier))
+			throw new Error(
+				`Unknown catalog tier for ${item.id}: ${item.tier}`,
+			);
+		if (!Array.isArray(item.formats) || item.formats.length === 0)
+			throw new Error(`Catalog item ${item.id} has no formats`);
+		if (itemIds.has(item.id))
+			throw new Error(`Duplicate catalog item: ${item.id}`);
+		itemIds.add(item.id);
+		counts.set(item.tier, counts.get(item.tier) + 1);
+	}
+	for (const [tier, count] of counts) {
+		if (count === 0) throw new Error(`Catalog tier has no items: ${tier}`);
+	}
+	if (!Array.isArray(catalog.recommendedPacks))
+		throw new Error("Catalog must contain recommended packs");
+	for (const pack of catalog.recommendedPacks) {
+		for (const field of ["id", "label", "why"]) {
+			if (!pack[field] || typeof pack[field] !== "string")
+				throw new Error(`Catalog pack is missing ${field}`);
+		}
+		if (!Array.isArray(pack.items) || pack.items.length === 0)
+			throw new Error(`Catalog pack ${pack.id} has no items`);
+		for (const id of pack.items) {
+			if (!itemIds.has(id))
+				throw new Error(
+					`Catalog pack ${pack.id} references unknown item ${id}`,
+				);
+		}
+	}
+}
+
+function markdownCell(value) {
+	return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
+}
+
+function renderCatalogMarkdown(catalog) {
+	const lines = [
+		"# Z8.Work 原生格式扩展选择目录",
+		"",
+		`核查日期：${catalog.reviewedOn}。`,
+		"",
+		catalog.appliesTo,
+		"",
+		"## 如何选择",
+		"",
+		"难度表示接入到当前 Z8.Work 架构所需的工程层数，不是工期承诺，也不是上游引擎的格式数量。选择某个编号后，仍要完成产品路由、输入安全、最终包依赖和六个桌面目标的真实文件验收。",
+		"",
+		"超低项只解决文件名兼容，不能算作新的用户格式。回复编号即可，例如 `M-01 M-02 M-06`；也可以直接选择下方组合包。",
+		"",
+		"## 建议组合包",
+		"",
+	];
+	for (const pack of catalog.recommendedPacks) {
+		lines.push(
+			`- **${pack.label}**（${pack.items.map((id) => `\`${id}\``).join("、")}）：${pack.why}`,
+		);
+	}
+	for (const tier of catalog.tiers) {
+		const items = catalog.items.filter((item) => item.tier === tier.id);
+		lines.push(
+			"",
+			`## ${tier.label}（${items.length} 项）`,
+			"",
+			tier.summary,
+			"",
+			"| 编号 | 格式 | 首版路线与边界 | 引擎基础 | 主要工作 | 建议 |",
+			"| --- | --- | --- | --- | --- | --- |",
+		);
+		for (const item of items) {
+			lines.push(
+				`| \`${item.id}\` ${markdownCell(item.title)} | ${item.formats.map((format) => `\`${format}\``).join(" ")} | ${markdownCell(`${item.direction}。${item.boundary}`)} | ${markdownCell(item.engine)} | ${markdownCell(item.work)} | ${markdownCell(item.recommendation)} |`,
+			);
+		}
+	}
+	lines.push(
+		"",
+		"## 共同验收门槛",
+		"",
+		"1. 路由和 UI 白名单明确，不依赖引擎自动猜测扩展名。",
+		"2. 最终安装包在 Linux、Windows、macOS 的 AMD64 与 ARM64 上分别验证依赖和实际转换。",
+		"3. 真实文件验证格式/容器、重新解码、语义边界、取消、磁盘/保存失败与恶意或伪装输入。",
+		"4. 有动画、多页、图层、多轨、专业色彩或 OCR 时，先定义保留/舍弃的用户可见行为。",
+		"",
+		"资料依据：`FORMAT_EXPANSION_RESEARCH.md`、`FORMAT_EXPANSION_PHASE1.md`、`FORMAT_EXPANSION_PHASE3A.md`、`FORMAT_EXPANSION_PHASE3B.md` 与 `FORMAT_SUPPORT_REPORT.html`。上游资料：[ImageMagick](https://imagemagick.org/formats/)、[FFmpeg](https://ffmpeg.org/general.html)、[Pandoc](https://pandoc.org/MANUAL.html)、[resvg](https://github.com/linebender/resvg)、[LibRaw](https://www.libraw.org/docs)、[Tesseract](https://tesseract-ocr.github.io/tessdoc/Installation.html)、[LibreOffice](https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html)。",
+		"",
+		"本文件由 `node scripts/generate-format-support-report.mjs` 从 `format-expansion-catalog.json` 生成，请修改 JSON 源文件而不是直接编辑本文件。",
+	);
+	return `${lines.join("\n")}\n`;
+}
+
 const [
 	scope,
 	magickSource,
@@ -147,6 +277,7 @@ const [
 	ffmpegSource,
 	pandocSource,
 	pdfSource,
+	catalog,
 	engineEvidence,
 ] = await Promise.all([
 	json("packaging/desktop/v1-scope.json"),
@@ -155,6 +286,7 @@ const [
 	read("src/lib/converters/ffmpeg.svelte.ts"),
 	read("src/lib/converters/pandoc.svelte.ts"),
 	read("src/lib/util/pdf-options.ts"),
+	json("docs/desktop/format-expansion-catalog.json"),
 	Promise.all([
 		json(
 			"docs/desktop/evidence/format-research-20260913/magick-formats.json",
@@ -173,6 +305,8 @@ const [
 		),
 	]),
 ]);
+
+validateCatalog(catalog);
 
 const [
 	magickEvidence,
@@ -401,6 +535,59 @@ const whyRows = [
 		)}</td><td>${escape(row.next)}</td></tr>`,
 );
 
+const catalogItemById = new Map(catalog.items.map((item) => [item.id, item]));
+const catalogTierSections = catalog.tiers.map((tier) => {
+	const items = catalog.items.filter((item) => item.tier === tier.id);
+	const rows = items.map(
+		(item) =>
+			`<tr data-search="${escape(
+				[
+					item.id,
+					item.title,
+					...item.formats,
+					item.direction,
+					item.engine,
+					item.boundary,
+					item.work,
+					item.recommendation,
+				].join(" "),
+			)}"><th scope="row"><code>${escape(item.id)}</code><br><span class="catalog-title">${escape(
+				item.title,
+			)}</span></th><td>${namedPills(item.formats)}</td><td><strong>${escape(
+				item.direction,
+			)}</strong><p class="small">${escape(item.boundary)}</p></td><td>${escape(
+				item.engine,
+			)}</td><td>${escape(item.work)}</td><td>${escape(
+				item.recommendation,
+			)}</td></tr>`,
+	);
+	return `<details class="catalog-tier" data-catalog-tier${tier.id === "medium" ? " open" : ""}><summary><span class="tier-badge tier-${escape(
+		tier.id,
+	)}">${escape(tier.label)}</span> ${escape(tier.summary)} <span class="muted">（${items.length} 项）</span></summary><div class="details-content">${table(
+		rows,
+		[
+			"编号 / 能力",
+			"格式",
+			"首版路线与边界",
+			"已有基础",
+			"主要工作",
+			"建议",
+		],
+		"catalog-table",
+	)}</div></details>`;
+});
+const catalogPackCards = catalog.recommendedPacks
+	.map(
+		(pack) =>
+			`<article class="catalog-pack"><h3>${escape(pack.label)}</h3><p>${pack.items
+				.map((id) => {
+					const item = catalogItemById.get(id);
+					return `<code title="${escape(item.title)}">${escape(id)}</code>`;
+				})
+				.join(" ")}</p><p>${escape(pack.why)}</p></article>`,
+	)
+	.join("");
+
 const magickRows = magickFormats.map(
 	(item) =>
 		`<tr><th scope="row"><code>${escape(item.tag)}</code></th><td><code>${escape(
@@ -419,6 +606,7 @@ const routeSourceDigest = createHash("sha256")
 			ffmpegSource,
 			pandocSource,
 			pdfSource,
+			JSON.stringify(catalog),
 		].join("\0"),
 	)
 	.digest("hex")
@@ -432,6 +620,8 @@ const sourcePaths = [
 	["src/lib/converters/ffmpeg.svelte.ts", "网页媒体转换器"],
 	["src/lib/converters/pandoc.svelte.ts", "网页文档转换器"],
 	["src/lib/util/pdf-options.ts", "网页 PDF 23 输出"],
+	["docs/desktop/format-expansion-catalog.json", "格式扩展选择目录源数据"],
+	["docs/desktop/FORMAT_EXPANSION_CATALOG.md", "格式扩展选择目录"],
 	["docs/desktop/FORMAT_EXPANSION_RESEARCH.md", "已有原生格式调研"],
 	["docs/desktop/FORMAT_EXPANSION_PHASE3B.md", "桌面音频扩展验收"],
 ];
@@ -486,6 +676,22 @@ const html = `<!doctype html>
     summary { cursor:pointer; padding:13px 2px; font-weight:750; }
     details[open] summary { border-bottom:1px solid var(--line); margin-bottom:13px; }
     .details-content { padding-bottom:14px; }
+    .catalog-packs { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin:18px 0; }
+    .catalog-pack { border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:10px; background:var(--surface); padding:14px; }
+    .catalog-pack h3 { margin:0; color:var(--accent); }
+    .catalog-pack p { margin:8px 0 0; color:var(--muted); font-size:.88rem; }
+    .catalog-pack p + p { color:var(--ink); }
+    .catalog-tier { margin:12px 0; }
+    .catalog-tier summary { display:flex; align-items:center; gap:8px; }
+    .tier-badge { display:inline-block; border:1px solid currentColor; border-radius:999px; padding:2px 8px; font-size:.78rem; line-height:1.2; white-space:nowrap; }
+    .tier-ultra-low { color:var(--muted); }
+    .tier-low { color:var(--green); }
+    .tier-medium { color:var(--accent); }
+    .tier-high { color:var(--amber); }
+    .tier-ultra-high { color:var(--red); }
+    .catalog-title { display:inline-block; margin-top:6px; min-width:135px; }
+    .catalog-table table { min-width:1180px; }
+    .catalog-table td p { margin:7px 0 0; }
     .comparison { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
     .comparison article { border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:15px; }
     .comparison h3 { color:var(--accent); }
@@ -534,6 +740,19 @@ const html = `<!doctype html>
     <p class="small">当前范围的 167 条路线有独立的格式扩展验收记录；它不把任一历史下载包自动视为已升级。实际安装包仍应按版本、平台与架构核对。${sourceLink("docs/desktop/FORMAT_EXPANSION_PHASE3B.md", "查看音频扩展验收记录")}</p>
     ${table(desktopRows, ["类别", "可导入扩展名", "可输出扩展名", "所用原生引擎", "验证语义"])}
     <div class="callout warning"><strong>桌面包的边界</strong>PDF 最多 200 页；普通图片只处理首帧。文档输出是纯文本，视频输入只提取第一条音轨。JPEG/BMP 透明区域会填白；BMP/TGA/QOI 为 8 位 sRGB，且不保留元数据或 ICC 配置。格式名称相同不代表结果一定无损或一定更小。</div>
+  </section>
+
+  <section id="catalog">
+    <h2>扩展格式选择目录</h2>
+    <p>以下 ${catalog.items.length} 项按照<strong>接入当前桌面架构的难度</strong>分组。难度不是工期承诺，也不是上游组件格式数量：它综合了现有代码路径、包内依赖、安全策略、用户可见语义和六个平台最终包验收。${escape(catalog.appliesTo)}</p>
+    <p class="small">组件资料：${engineLink("https://imagemagick.org/formats/", "ImageMagick")} · ${engineLink("https://ffmpeg.org/general.html", "FFmpeg")} · ${engineLink("https://pandoc.org/MANUAL.html", "Pandoc")} · ${engineLink("https://github.com/linebender/resvg", "resvg")} · ${engineLink("https://www.libraw.org/docs", "LibRaw")} · ${engineLink("https://tesseract-ocr.github.io/tessdoc/Installation.html", "Tesseract")} · ${engineLink("https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html", "LibreOffice")}</p>
+    <div class="callout"><strong>选择方式</strong>回复编号即可，例如 <code>M-01 M-02 M-06</code>；也可以直接选择一个组合包。每个编号都写明首版会保留什么、会舍弃什么，避免把“能生成同名文件”当成格式支持。</div>
+    <h3>建议组合包</h3>
+    <div class="catalog-packs">${catalogPackCards}</div>
+    <input class="search" type="search" placeholder="筛选候选，例如 tiff、ocr、视频、M-06" data-catalog-search>
+    <p class="small">超低项仅是扩展名兼容，不计为新增格式。每一个低及以上的候选都需要显式路线、真实输入样本、输出读回，以及 Linux、Windows、macOS 的 AMD64/ARM64 最终包验证。</p>
+    ${catalogTierSections.join("\n")}
+    <p class="small">可阅读版本：${sourceLink("docs/desktop/FORMAT_EXPANSION_CATALOG.md", "Markdown 选择目录")}；可维护源：${sourceLink("docs/desktop/format-expansion-catalog.json", "JSON 目录数据")}。</p>
   </section>
 
   <section id="web">
@@ -602,6 +821,30 @@ const html = `<!doctype html>
       }
     });
   }
+  const catalogSearch = document.querySelector('[data-catalog-search]');
+  if (catalogSearch) {
+    const filterCatalog = () => {
+      const query = catalogSearch.value.trim().toLowerCase();
+      for (const tier of document.querySelectorAll('[data-catalog-tier]')) {
+        let visible = false;
+        for (const row of tier.querySelectorAll('tbody tr[data-search]')) {
+          const matches = !query || row.textContent.toLowerCase().includes(query);
+          row.hidden = !matches;
+          visible ||= matches;
+        }
+        tier.hidden = Boolean(query) && !visible;
+        if (query && visible && !tier.open) {
+          tier.open = true;
+          tier.dataset.openedBySearch = "true";
+        }
+        if (!query && tier.dataset.openedBySearch === "true") {
+          tier.open = false;
+          delete tier.dataset.openedBySearch;
+        }
+      }
+    };
+    catalogSearch.addEventListener('input', filterCatalog);
+  }
 </script>
 </body>
 </html>
@@ -613,4 +856,12 @@ await writeFile(
 	reportPath,
 	await prettier.format(html, { ...prettierOptions, filepath: reportPath }),
 );
+await writeFile(
+	catalogMarkdownPath,
+	await prettier.format(renderCatalogMarkdown(catalog), {
+		...prettierOptions,
+		filepath: catalogMarkdownPath,
+	}),
+);
 console.log(`Wrote ${relative(root, reportPath)}`);
+console.log(`Wrote ${relative(root, catalogMarkdownPath)}`);
