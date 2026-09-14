@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[已安装包原生界面验收](LINUX_GUI_ACCEPTANCE.md)，补齐此前由 WebDriver 结束应用会话所不能证明的原生关闭流程。本轮仍使用哈希固定的既有 deb；没有修改或重编应用、引擎及安装包。
 
+后续[保存恢复验收](LINUX_SAVE_RECOVERY_ACCEPTANCE.md)把安装包 GUI 门禁扩展到十二组；本页保留本轮九组验收的历史范围。
+
 ## 范围与实现
 
 复用 `desktop-quit-window.py` 向测试窗口发送 `WM_DELETE_WINDOW`，进入应用自己的关闭处理。确认按钮通过 PID 限定的 AT-SPI 查找并点击；先确认应用 PID 消失，才删除已退出的 WebDriver 会话。因此本轮原生退出不是由删除 WebDriver 会话或强杀进程造成的。
