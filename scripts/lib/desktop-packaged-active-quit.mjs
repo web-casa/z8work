@@ -3,6 +3,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import {
 	readFile,
+	copyFile,
 	writeFile,
 	mkdir,
 	readdir,
@@ -83,6 +84,27 @@ export async function checkPackagedActiveQuit({
 		"Active fixture missing",
 	);
 	await change(`[data-task-id="${task.id}"] select`, "avif");
+	const queuedInput = join(dirname(input), "queued.png");
+	await copyFile(join(root, "sample.png"), queuedInput);
+	const queuedOriginal = await readFile(queuedInput);
+	await choose("button-input", queuedInput, "^Z8.Work — Select input files$");
+	const queued = await until(
+		async () =>
+			(await invoke("queue_snapshot")).tasks.find(
+				(t) => t.name === "queued.png",
+			),
+		"Queued fixture missing",
+	);
+	await change(`[data-task-id="${queued.id}"] select`, "webp");
+	const assertQueued = (state, phase) => {
+		assert.equal(state.tasks.length, 2);
+		const pending = state.tasks.find((t) => t.id === queued.id);
+		assert.ok(pending);
+		assert.equal(pending.phase, phase);
+		assert.equal(pending.attempt, 1);
+		assert.equal(pending.result, null);
+	};
+
 	await choose(
 		"button-output",
 		output + "/",
@@ -145,6 +167,8 @@ export async function checkPackagedActiveQuit({
 		assert.equal(running.processing, true);
 		assert.equal(running.tasks[0].phase, "running");
 		assert.equal(running.tasks[0].attempt, 1);
+		assert.equal(running.tasks[0].id, task.id);
+		assertQueued(running, "queued");
 		await screenshot("active-running.png", `[data-task-id="${task.id}"]`);
 		const requestClose = () =>
 			execute(
@@ -175,6 +199,8 @@ export async function checkPackagedActiveQuit({
 		assert.equal(stays.processing, true);
 		assert.equal(stays.tasks[0].phase, "running");
 		assert.equal(stays.tasks[0].attempt, 1);
+		assertQueued(stays, "queued");
+		await screenshot("active-queued.png", `[data-task-id="${queued.id}"]`);
 		for (const child of held)
 			assert.equal((await sameProcess(child))?.state, "T");
 		checks.push(
@@ -219,7 +245,11 @@ export async function checkPackagedActiveQuit({
 		const restored = await invoke("queue_snapshot");
 		assert.equal(restored.processing, false);
 		assert.equal(restored.output_authorized, false);
-		assert.equal(restored.tasks.length, 1);
+		assertQueued(restored, "cancelled");
+		assert.equal(
+			restored.tasks.find((t) => t.id === queued.id).authorized,
+			false,
+		);
 		assert.equal(restored.tasks[0].phase, "cancelled");
 		assert.equal(restored.tasks[0].attempt, 1);
 		assert.equal(restored.tasks[0].authorized, false);
@@ -237,6 +267,42 @@ export async function checkPackagedActiveQuit({
 		);
 		assert.deepEqual(await readdir(output), []);
 		assert.deepEqual(await readFile(input), original);
+		const settled = await invoke("queue_snapshot");
+		assertQueued(settled, "cancelled");
+		assert.equal(
+			settled.tasks.find((t) => t.id === task.id).phase,
+			"cancelled",
+		);
+		assert.equal(settled.processing, false);
+		assert.equal(settled.output_authorized, false);
+		assert.ok(settled.tasks.every((t) => !t.authorized));
+		assert.deepEqual(await readFile(queuedInput), queuedOriginal);
+		await writeFile(
+			join(root, "queued-details.json"),
+			JSON.stringify(
+				{
+					schema: 1,
+					runningTaskId: task.id,
+					queuedTaskId: queued.id,
+					beforeClose: running,
+					afterEscape: stays,
+					afterRestartReady: settled,
+					outputFiles: 0,
+					queuedOriginal: {
+						bytes: queuedOriginal.length,
+						sha256: createHash("sha256")
+							.update(queuedOriginal)
+							.digest("hex"),
+					},
+				},
+				null,
+				2,
+			) + "\n",
+		);
+		checks.push(
+			"queued-task-survives-escape-cancels-on-quit-and-never-auto-resumes",
+		);
+
 		await js('document.querySelector(".toolbar .danger").click()');
 		await until(
 			async () => (await invoke("queue_snapshot")).tasks.length === 0,

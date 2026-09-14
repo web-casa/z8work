@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 export const packagedGuiChecks = Object.freeze([
+	"queued-task-survives-escape-cancels-on-quit-and-never-auto-resumes",
 	"active-encoder-injected-stop-escape-preserves-running-task",
 	"active-confirmed-native-quit-reaps-observed-encoder-without-output",
 	"active-quit-restart-cancelled-no-auto-resume-or-authorization",
