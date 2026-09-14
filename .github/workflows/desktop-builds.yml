@@ -20,6 +20,7 @@ on:
                     [
                         all,
                         capabilities,
+                        linux-installed,
                         windows-amd64,
                         macos,
                         macos-signed,
@@ -219,7 +220,7 @@ jobs:
             source_run: ${{ inputs.source_run }}
 
     complete-previews:
-        if: ${{ inputs.target != 'macos-signed' && (startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') || inputs.target == 'windows-arm64') }}
+        if: ${{ inputs.target != 'macos-signed' && inputs.target != 'linux-installed' && (startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') || inputs.target == 'windows-arm64') }}
         uses: ./.github/workflows/desktop-preview-packages.yml
         with:
             target: ${{ inputs.target }}
@@ -234,3 +235,7 @@ jobs:
         uses: ./.github/workflows/desktop-capabilities.yml
         with:
             platform: ${{ inputs.capability_platform || 'all' }}
+
+    linux-installed:
+        if: inputs.target == 'linux-installed'
+        uses: ./.github/workflows/desktop-deb-installed.yml

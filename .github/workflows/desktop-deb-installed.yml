@@ -1,0 +1,46 @@
+name: Installed Linux deb offline acceptance
+on:
+    workflow_call:
+permissions:
+    contents: read
+    actions: read
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              run: |
+                  entries=$(jq -c '[.[] | select(.os == "linux")]' packaging/desktop/capability-sources.json)
+                  test "$(printf '%s' "$entries" | jq length)" -eq 2
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
+    installed:
+        needs: matrix
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 50
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: ${{ matrix.run }}
+                  name: ${{ matrix.artifact }}
+                  path: .desktop-local/deb-installed-input
+            - run: node scripts/desktop-deb-installed.mjs ${{ matrix.id }} .desktop-local/deb-installed-input .desktop-local/deb-installed-report
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-installed-offline-reports
+                  path: .desktop-local/deb-installed-report/
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 30

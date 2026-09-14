@@ -38,3 +38,30 @@ test("CI targets all six native OS/architecture combinations without substitutin
 	assert.equal(workflow.on.push.branches[0], "desktop-ci/**");
 	assert.equal(workflow.on.release, undefined);
 });
+
+test("installed Linux dispatch runs acceptance without rebuilding or publishing", async () => {
+	const workflow = parse(
+		await readFile(".github/workflows/desktop-builds.yml", "utf8"),
+	);
+	assert.ok(
+		workflow.on.workflow_dispatch.inputs.target.options.includes(
+			"linux-installed",
+		),
+	);
+	assert.ok(
+		workflow.jobs["complete-previews"].if.includes(
+			"inputs.target != 'linux-installed'",
+		),
+	);
+	assert.equal(
+		workflow.jobs["linux-installed"].uses,
+		"./.github/workflows/desktop-deb-installed.yml",
+	);
+	const installed = parse(
+		await readFile(".github/workflows/desktop-deb-installed.yml", "utf8"),
+	);
+	assert.equal(installed.permissions.contents, "read");
+	assert.equal(installed.jobs.installed.strategy["fail-fast"], false);
+	assert.equal(installed.jobs.installed["runs-on"], "${{ matrix.runner }}");
+	assert.equal(installed.jobs.installed.steps.at(-1).if, "always()");
+});
