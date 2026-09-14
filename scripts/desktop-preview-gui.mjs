@@ -1,3 +1,4 @@
+import { checkPackagedGui } from "./lib/desktop-packaged-gui-checks.mjs";
 import { benchmarkStartup } from "./lib/desktop-startup-benchmark.mjs";
 import { checkProduct } from "./lib/desktop-product-checks.mjs";
 import { startupFixture } from "./lib/desktop-startup-checks.mjs";
@@ -31,10 +32,13 @@ import {
 	truncate,
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
+const packaged = process.argv.includes("--packaged-product");
+if (packaged && !process.env.Z8_GUI_BINARY)
+	throw new Error("Packaged GUI checks require Z8_GUI_BINARY");
 if (
 	!process.env.DISPLAY ||
 	!process.env.DBUS_SESSION_BUS_ADDRESS ||
-	!process.env.Z8_DEV_ENGINE_MANIFEST
+	(!packaged && !process.env.Z8_DEV_ENGINE_MANIFEST)
 )
 	throw new Error(
 		"Run under xvfb-run + dbus-run-session with Z8_DEV_ENGINE_MANIFEST",
@@ -45,7 +49,7 @@ if (!xd) throw new Error("Set Z8_XDOTOOL");
 const checks = [];
 const routes = [];
 const benchmarkOnly = process.argv.includes("--startup-benchmark-only");
-const productOnly = process.argv.includes("--product-only");
+const productOnly = packaged || process.argv.includes("--product-only");
 const productMode =
 	benchmarkOnly || productOnly || process.argv.includes("--product");
 const startupMode =
@@ -57,29 +61,32 @@ const workspaceMode = storageMode || process.argv.includes("--workspaces");
 const importMode = workspaceMode || process.argv.includes("--imports");
 const mediaMode = importMode || process.argv.includes("--media");
 const pdfMode = mediaMode || process.argv.includes("--pdf");
-const root = await mkdtemp(
-	resolve(
-		productMode
-			? ".desktop-local/phase27-gui-"
-			: startupMode
-				? ".desktop-local/phase26-gui-"
-				: saveRetryMode
-					? ".desktop-local/phase25-gui-"
-					: diagnosticsMode
-						? ".desktop-local/phase23-gui-"
-						: storageMode
-							? ".desktop-local/phase22-gui-"
-							: workspaceMode
-								? ".desktop-local/phase21-gui-"
-								: importMode
-									? ".desktop-local/phase20-gui-"
-									: mediaMode
-										? ".desktop-local/phase19-gui-"
-										: pdfMode
-											? ".desktop-local/phase18-gui-"
-											: ".desktop-local/phase17-gui-",
-	),
-);
+const root = process.env.Z8_GUI_OUTPUT
+	? resolve(process.env.Z8_GUI_OUTPUT)
+	: await mkdtemp(
+			resolve(
+				productMode
+					? ".desktop-local/phase27-gui-"
+					: startupMode
+						? ".desktop-local/phase26-gui-"
+						: saveRetryMode
+							? ".desktop-local/phase25-gui-"
+							: diagnosticsMode
+								? ".desktop-local/phase23-gui-"
+								: storageMode
+									? ".desktop-local/phase22-gui-"
+									: workspaceMode
+										? ".desktop-local/phase21-gui-"
+										: importMode
+											? ".desktop-local/phase20-gui-"
+											: mediaMode
+												? ".desktop-local/phase19-gui-"
+												: pdfMode
+													? ".desktop-local/phase18-gui-"
+													: ".desktop-local/phase17-gui-",
+			),
+		);
+if (process.env.Z8_GUI_OUTPUT) await mkdir(root);
 // Snapshot the development executable so rebuilds cannot invalidate current_exe
 // while its process supervisors are launching watchdogs. Explicit binary paths
 // retain their layout (for callers testing a self-contained resource directory).
@@ -197,14 +204,16 @@ await mkdir(output);
 const fixture = join(root, "sample.png");
 await copyFile("tests/fixtures/cover.png", fixture);
 const big = join(root, "large.png");
-const manifest = JSON.parse(
-	await readFile(process.env.Z8_DEV_ENGINE_MANIFEST, "utf8"),
-);
-await execute(
-	manifest.engines.magick.path,
-	["-size", "1024x768", "plasma:fractal", big],
-	{ timeout: 30000 },
-);
+const manifest = packaged
+	? undefined
+	: JSON.parse(await readFile(process.env.Z8_DEV_ENGINE_MANIFEST, "utf8"));
+if (packaged) await copyFile(fixture, big);
+else
+	await execute(
+		manifest.engines.magick.path,
+		["-size", "1024x768", "plasma:fractal", big],
+		{ timeout: 30000 },
+	);
 async function xdotool(...args) {
 	return (
 		await execute(xd, args, {
@@ -229,11 +238,20 @@ async function windows(title) {
 	}
 }
 async function choose(command, path, title, selectAll = false) {
-	// Start the picker without waiting for the promise; drive the native UI.
-	await js(
-		"window.pickerDone=false;window.pickerError=null;window.__TAURI_INTERNALS__.invoke(arguments[0]).then(()=>{window.pickerDone=true},e=>{window.pickerError=String(e);window.pickerDone=true});",
-		[command],
-	);
+	const ui = command === "button-input" || command === "button-output";
+	if (ui) {
+		await js("document.querySelector(arguments[0]).click()", [
+			command === "button-input"
+				? "[data-choose-files]"
+				: ".toolbar button:nth-child(2)",
+		]);
+	} else {
+		// Start the picker without waiting for the promise; drive the native UI.
+		await js(
+			"window.pickerDone=false;window.pickerError=null;window.__TAURI_INTERNALS__.invoke(arguments[0]).then(()=>{window.pickerDone=true},e=>{window.pickerError=String(e);window.pickerDone=true});",
+			[command],
+		);
+	}
 	const win = await until(
 		async () => (await windows(title))[0],
 		"Picker did not open",
@@ -255,7 +273,7 @@ async function choose(command, path, title, selectAll = false) {
 		await xdotool("key", "ctrl+a");
 		await xdotool("key", "Return");
 	}
-	if (command === "pick_output") {
+	if (command === "pick_output" || command === "button-output") {
 		await new Promise((r) => setTimeout(r, 300));
 		if ((await windows(title)).includes(win)) {
 			// GTK Recent view may complete the typed folder on the first Enter.
@@ -269,6 +287,7 @@ async function choose(command, path, title, selectAll = false) {
 		async () => (await windows(title)).length === 0,
 		"Picker did not close",
 	);
+	if (ui) return;
 	await until(
 		() =>
 			js(
@@ -367,6 +386,25 @@ try {
 			js,
 			until,
 			checks,
+		});
+	} else if (packaged) {
+		await checkPackagedGui({
+			invoke,
+			js,
+			change,
+			choose,
+			until,
+			screenshot,
+			checks,
+			xdotool,
+			windows,
+			root,
+			output,
+			open,
+			close: async () => {
+				await request(prefix, null, "DELETE");
+				prefix = undefined;
+			},
 		});
 	} else if (productOnly) {
 		await checkProduct({
@@ -756,10 +794,31 @@ try {
 		try {
 			await request(prefix, null, "DELETE");
 		} catch (e) {
+			passed = false;
 			logs += `\nCleanup: ${e.message}`;
 		}
 	}
+	const stopped = once(driver, "close");
 	driver.kill("SIGTERM");
+	const forced = setTimeout(() => driver.kill("SIGKILL"), 2000);
+	try {
+		if (driver.exitCode === null && driver.signalCode === null)
+			await Promise.race([
+				stopped,
+				new Promise((_, reject) => {
+					const timer = setTimeout(
+						() => reject(new Error("Driver did not stop")),
+						5000,
+					);
+					timer.unref();
+				}),
+			]);
+	} catch (error) {
+		passed = false;
+		logs += `\nDriver cleanup: ${error.message}`;
+	} finally {
+		clearTimeout(forced);
+	}
 	await workspaces?.close();
 	await writeFile(join(root, "driver.txt"), logs);
 	await writeFile(
@@ -769,6 +828,7 @@ try {
 				schema: 1,
 				status: passed ? "passed" : "failed",
 				platform: `${process.platform}/${process.arch}`,
+				mode: packaged ? "packaged-product" : "legacy",
 				binarySha256,
 				routes,
 				checks,
@@ -779,4 +839,5 @@ try {
 		) + "\n",
 	);
 	console.log(root);
+	if (!passed) process.exitCode = 1;
 }

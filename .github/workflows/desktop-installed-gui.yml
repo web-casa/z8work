@@ -1,0 +1,55 @@
+name: Installed Linux native WebKit GUI acceptance
+on:
+    workflow_call:
+permissions:
+    contents: read
+    actions: read
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              run: |
+                  entries=$(jq -c '[.[] | select(.os == "linux")]' packaging/desktop/capability-sources.json)
+                  test "$(printf '%s' "$entries" | jq length)" -eq 2
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
+    gui:
+        needs: matrix
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: dtolnay/rust-toolchain@1.96.0
+            - run: cargo install tauri-driver --version 2.0.6 --locked
+            - run: sudo apt-get update && sudo apt-get install --no-install-recommends -y xvfb xauth xdotool dbus-x11 xdg-desktop-portal xdg-desktop-portal-gtk webkit2gtk-driver fonts-noto-cjk
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: ${{ matrix.run }}
+                  name: ${{ matrix.artifact }}
+                  path: .desktop-local/installed-gui-input
+            - run: node scripts/desktop-installed-gui.mjs ${{ matrix.id }} .desktop-local/installed-gui-input .desktop-local/installed-gui-report
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-installed-gui-reports
+                  path: |
+                      .desktop-local/installed-gui-report/*.json
+                      .desktop-local/installed-gui-report/*.log
+                      .desktop-local/installed-gui-report/gui/*.json
+                      .desktop-local/installed-gui-report/gui/*.txt
+                      .desktop-local/installed-gui-report/gui/*.png
+                      .desktop-local/installed-gui-report/session/*.log
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 30

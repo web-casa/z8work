@@ -65,3 +65,34 @@ test("installed Linux dispatch runs acceptance without rebuilding or publishing"
 	assert.equal(installed.jobs.installed["runs-on"], "${{ matrix.runner }}");
 	assert.equal(installed.jobs.installed.steps.at(-1).if, "always()");
 });
+
+test("installed GUI dispatch uses native runners and publishes reports only", async () => {
+	const workflow = parse(
+		await readFile(".github/workflows/desktop-builds.yml", "utf8"),
+	);
+	assert.ok(
+		workflow.on.workflow_dispatch.inputs.target.options.includes(
+			"linux-gui",
+		),
+	);
+	assert.ok(
+		workflow.jobs["complete-previews"].if.includes(
+			"inputs.target != 'linux-gui'",
+		),
+	);
+	assert.equal(
+		workflow.jobs["linux-gui"].uses,
+		"./.github/workflows/desktop-installed-gui.yml",
+	);
+	const gui = parse(
+		await readFile(".github/workflows/desktop-installed-gui.yml", "utf8"),
+	);
+	assert.equal(gui.jobs.gui["runs-on"], "${{ matrix.runner }}");
+	assert.equal(gui.permissions.contents, "read");
+	assert.equal(gui.jobs.gui.steps.at(-1).if, "always()");
+	assert.ok(
+		gui.jobs.gui.steps.some((s) =>
+			s.run?.includes("tauri-driver --version 2.0.6 --locked"),
+		),
+	);
+});

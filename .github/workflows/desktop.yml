@@ -29,6 +29,8 @@ on:
                 ".github/workflows/desktop-repack.yml",
                 ".github/workflows/desktop-preview-packages.yml",
                 ".github/workflows/desktop-capabilities.yml",
+                ".github/workflows/desktop-deb-installed.yml",
+                ".github/workflows/desktop-installed-gui.yml",
                 ".github/workflows/desktop-macos-sign.yml",
             ]
     push:
@@ -60,6 +62,8 @@ on:
                 ".github/workflows/desktop-repack.yml",
                 ".github/workflows/desktop-preview-packages.yml",
                 ".github/workflows/desktop-capabilities.yml",
+                ".github/workflows/desktop-deb-installed.yml",
+                ".github/workflows/desktop-installed-gui.yml",
                 ".github/workflows/desktop-macos-sign.yml",
             ]
     workflow_dispatch:
