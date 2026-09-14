@@ -1,5 +1,7 @@
 # 格式扩展后的跨平台预览包交付
 
+> 后续安装使用进展（2026-09-14）：[macOS 双架构基础使用](MACOS_INSTALLED_ACCEPTANCE.md)和[Linux 双架构三十项 GUI 回归](LINUX_REMOVE_CURRENT_ACCEPTANCE.md)已完成。下文是本次包交付当时的证据边界，当前缺项见[剩余清单](REMAINING_STATUS.md)。
+
 日期：2026-09-14。承接 [Phase 3B 音频扩展](FORMAT_EXPANSION_PHASE3B.md)，本轮将已经通过源码与引擎验收的能力落实到新完整包，并完成 Mac 签名、公证及最终字节核对。没有新增转换格式，也不创建公开 Release 或商店提交。
 
 后续安装验证见 [Linux 双架构安装后离线验收](LINUX_INSTALLED_ACCEPTANCE.md)；下文保留本轮交付时的原始覆盖范围。

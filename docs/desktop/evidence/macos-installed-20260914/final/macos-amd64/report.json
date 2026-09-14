@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "source": {
+    "id": "macos-amd64",
+    "runner": "macos-15-intel",
+    "os": "darwin",
+    "arch": "x64",
+    "target": "x86_64-apple-darwin",
+    "run": "34769210630",
+    "artifact": "macos-amd64-signed-notarized",
+    "file": "Z8.Work-macos-amd64-signed.dmg",
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "toolCommit": "318bf1c0f1b866da56b7df44518d907a34cc461a",
+  "checks": [
+    "fixed-dmg-hash",
+    "stapled-dmg-gatekeeper-before-install",
+    "installed-application-signature-and-gatekeeper",
+    "launchservices-from-applications",
+    "native-input-picker-cancel-keeps-empty-workspace",
+    "conversion-output-picker-cancel",
+    "native-pickers-unicode-path-webp-conversion-and-real-decode",
+    "native-idle-quit",
+    "restart-history-without-input-output-authorization",
+    "clear-keeps-original-and-saved-result"
+  ],
+  "gui": "passed",
+  "artifact": {
+    "bytes": 129499688,
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "environment": {
+    "accessibilityTrusted": true,
+    "screenCaptureAllowed": true,
+    "screens": 1
+  },
+  "system": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.9\nBuildVersion:\t\t24G830",
+  "application": {
+    "bytes": 12494000,
+    "sha256": "94e690fefbf3f0e7123dc14cc3f32338bf7c4324090f9ee7d2fe7c30bccc9183"
+  },
+  "launch": {
+    "bundle": "/Applications/Z8.Work Desktop Dev.app",
+    "pid": 3162
+  },
+  "result": {
+    "file": "/Users/runner/work/z8work/z8work/.desktop-local/mac-installed-report/输出 results/测试 image-z8-1.webp",
+    "bytes": 380,
+    "sha256": "243c3ab9c3df3fb53b8ef8f27bf75fa6ac79136a3dd7173d14dd46dea1de836b",
+    "decoded": {
+      "height": 32,
+      "width": 32
+    }
+  },
+  "exit": "terminated",
+  "uninstall": "removed-test-copy",
+  "resultRetainedAfterUninstall": true
+}

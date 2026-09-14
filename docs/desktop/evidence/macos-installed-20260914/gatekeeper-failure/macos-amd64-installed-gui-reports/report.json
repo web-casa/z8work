@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "source": {
+    "id": "macos-amd64",
+    "runner": "macos-15-intel",
+    "os": "darwin",
+    "arch": "x64",
+    "target": "x86_64-apple-darwin",
+    "run": "34769210630",
+    "artifact": "macos-amd64-signed-notarized",
+    "file": "Z8.Work-macos-amd64-signed.dmg",
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "toolCommit": "96e08d87d3c48387b1b895a3b2e6957531317a20",
+  "checks": [
+    "fixed-dmg-hash"
+  ],
+  "gui": "not-run",
+  "artifact": {
+    "bytes": 129499688,
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "environment": {
+    "accessibilityTrusted": true,
+    "screenCaptureAllowed": true,
+    "screens": 1
+  },
+  "system": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.9\nBuildVersion:\t\t24G830",
+  "application": {
+    "bytes": 12494000,
+    "sha256": "94e690fefbf3f0e7123dc14cc3f32338bf7c4324090f9ee7d2fe7c30bccc9183"
+  },
+  "error": "Error: Command failed: spctl --assess --type execute --verbose=4 /Applications/Z8.Work Desktop Dev.app\n/Applications/Z8.Work Desktop Dev.app: rejected\nsource=Unnotarized Developer ID\n\n    at genericNodeError (node:internal/errors:983:15)\n    at wrappedFn (node:internal/errors:537:14)\n    at checkExecSyncError (node:child_process:916:11)\n    at execFileSync (node:child_process:952:15)\n    at run (file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-installed-gui.mjs:45:2)\n    at file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-installed-gui.mjs:101:2"
+}

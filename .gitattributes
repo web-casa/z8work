@@ -57,3 +57,6 @@ docs/desktop/evidence/linux-remove-unsaved-20260914/** -whitespace
 
 # Preserve active task removal evidence.
 docs/desktop/evidence/linux-remove-current-20260914/** -whitespace
+
+# Preserve original macOS installed GUI evidence.
+docs/desktop/evidence/macos-installed-20260914/** -whitespace

@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "source": {
+    "id": "macos-amd64",
+    "runner": "macos-15-intel",
+    "os": "darwin",
+    "arch": "x64",
+    "target": "x86_64-apple-darwin",
+    "run": "34769210630",
+    "artifact": "macos-amd64-signed-notarized",
+    "file": "Z8.Work-macos-amd64-signed.dmg",
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "toolCommit": "126b4b38a0a6187aa83f6d70751bfb20b94078a0",
+  "checks": [
+    "fixed-dmg-hash",
+    "installed-application-signature-and-gatekeeper",
+    "launchservices-from-applications",
+    "native-input-picker-cancel-keeps-empty-workspace"
+  ],
+  "gui": "not-run",
+  "artifact": {
+    "bytes": 129499688,
+    "sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+  },
+  "environment": {
+    "accessibilityTrusted": true,
+    "screenCaptureAllowed": true,
+    "screens": 1
+  },
+  "system": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.9\nBuildVersion:\t\t24G830",
+  "application": {
+    "bytes": 12494000,
+    "sha256": "94e690fefbf3f0e7123dc14cc3f32338bf7c4324090f9ee7d2fe7c30bccc9183"
+  },
+  "launch": {
+    "bundle": "/Applications/Z8.Work Desktop Dev.app",
+    "pid": 10296
+  },
+  "error": "Error: Picker did not close\n    at until (file:///Users/runner/work/z8work/z8work/scripts/lib/desktop-macos-gui-checks.mjs:29:9)\n    at async choose (file:///Users/runner/work/z8work/z8work/scripts/lib/desktop-macos-gui-checks.mjs:61:3)\n    at async checkMacGui (file:///Users/runner/work/z8work/z8work/scripts/lib/desktop-macos-gui-checks.mjs:70:2)\n    at async file:///Users/runner/work/z8work/z8work/scripts/desktop-macos-installed-gui.mjs:122:2",
+  "exit": "terminated",
+  "uninstall": "removed-test-copy"
+}

@@ -1,0 +1,2 @@
+Processing: /Users/runner/work/z8work/z8work/.desktop-local/mac-installed-input/Z8.Work-macos-amd64-signed.dmg
+The validate action worked!

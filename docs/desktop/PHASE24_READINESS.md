@@ -1,5 +1,7 @@
 # Phase 24：首版矩阵、平台条件与风险清单
 
+> 本页是 2026-09-09 的 R1 历史清点。2026-09-14 当前平台候选、实际验收和缺项见[剩余清单](REMAINING_STATUS.md)及[六平台交付](FORMAT_EXPANSION_DELIVERY.md)，不要从本页旧能力数量或平台条件推导当前状态。
+
 日期：2026-09-09。范围：R1 清点与源码契约，未执行商店提交或三端安装验收。能力定义见 [v1-scope.json](../../packaging/desktop/v1-scope.json)，最终验收仍按[七阶段方案](REMAINING_V1_PLAN.md)。
 
 ## 能力与验收归属
