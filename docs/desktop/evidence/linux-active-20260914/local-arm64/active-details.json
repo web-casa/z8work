@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned ImageMagick process",
+  "observedEncoders": [
+    {
+      "pid": 3435765,
+      "state": "R",
+      "parent": 3434094,
+      "start": "84645471",
+      "command": [
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/ivmm/VERT/.desktop-local/packaged-active-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-BuQjzv/job-F8n0x0/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/ivmm/VERT/.desktop-local/packaged-active-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-BuQjzv/job-F8n0x0/output.avif"
+      ],
+      "cwd": "/home/ivmm/VERT/.desktop-local/packaged-active-20260914/final-gui/cache/work.z8.desktop.m0/native-work-v1/session-BuQjzv/job-F8n0x0"
+    }
+  ],
+  "encoderExecutable": "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+  "elapsedMs": 171.7477669999971,
+  "appExited": true,
+  "observedEncodersExited": true,
+  "outputFiles": 0,
+  "restoredPhase": "cancelled",
+  "original": {
+    "bytes": 21461991,
+    "sha256": "e1025ffe53b6393eab3aa7aa1263b27be684f422798d3c441e8e6e4e6db7260e"
+  }
+}

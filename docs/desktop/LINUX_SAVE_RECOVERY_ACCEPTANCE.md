@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[原生退出验收](LINUX_QUIT_ACCEPTANCE.md)，补齐 R6 所要求的 R2 保存恢复在最终安装包上的 GUI 回归。本轮复用固定哈希的 Linux deb；没有修改转换算法、生产界面、原生引擎或重打安装包。
 
+后续[活动编码进程退出验收](LINUX_ACTIVE_QUIT_ACCEPTANCE.md)扩展为十五组 GUI 门禁；本页保留当时十二组的覆盖范围。
+
 ## 实现与验收依据
 
 新模块 `scripts/lib/desktop-packaged-save-checks.mjs` 接入现有 `--packaged-product`，在原先九组检查之外增加三组检查。导入、格式选择、转换、目录切换和清空通过现有可见控件执行；“仅重试保存”通过聚焦按钮后发送真实 Return 键触发。IPC 只读取状态，不绕过界面提交转换或保存。

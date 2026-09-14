@@ -1,0 +1,36 @@
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.0' (uid=501 pid=3419759 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.0' (uid=501 pid=3419759 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=501 pid=3419758 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.0' (uid=501 pid=3419759 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3419792]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=501 pid=3419758 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3419792]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.5' (uid=501 pid=3419758 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3419754]: [session uid=501 pid=3419754 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+/home/ivmm/VERT/.desktop-local/packaged-active-20260914/gui
+node:internal/errors:985
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick -size 2048x2048 plasma:fractal /home/ivmm/VERT/.desktop-local/packaged-active-20260914/gui/active.png
+/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick: error while loading shared libraries: libMagickCore-7.Q16HDRI.so.10: cannot open shared object file: No such file or directory
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5) {
+  code: 127,
+  killed: false,
+  signal: null,
+  cmd: '/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick -size 2048x2048 plasma:fractal /home/ivmm/VERT/.desktop-local/packaged-active-20260914/gui/active.png',
+  stdout: '',
+  stderr: '/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick: error while loading shared libraries: libMagickCore-7.Q16HDRI.so.10: cannot open shared object file: No such file or directory\n'
+}
+
+Node.js v24.18.0

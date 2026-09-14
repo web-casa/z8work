@@ -30,3 +30,6 @@ docs/desktop/evidence/linux-quit-20260914/** -whitespace
 
 # Preserve installed save-recovery evidence.
 docs/desktop/evidence/linux-save-20260914/** -whitespace
+
+# Preserve active-encoder quit evidence.
+docs/desktop/evidence/linux-active-20260914/** -whitespace
