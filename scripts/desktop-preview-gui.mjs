@@ -239,12 +239,21 @@ async function windows(title) {
 }
 async function choose(command, path, title, selectAll = false) {
 	const ui = command === "button-input" || command === "button-output";
+	const selector =
+		command === "button-input"
+			? "[data-choose-files]"
+			: ".toolbar button:nth-child(2)";
 	if (ui) {
-		await js("document.querySelector(arguments[0]).click()", [
-			command === "button-input"
-				? "[data-choose-files]"
-				: ".toolbar button:nth-child(2)",
-		]);
+		// Queue IPC can settle before the WebView releases its busy state.
+		// Click only a usable control; disabled HTMLElement.click() is a silent no-op.
+		await until(
+			() =>
+				js(
+					"const e=document.querySelector(arguments[0]);if(!e||e.disabled)return false;e.click();return true",
+					[selector],
+				),
+			"Picker control did not become available",
+		);
 	} else {
 		// Start the picker without waiting for the promise; drive the native UI.
 		await js(
@@ -287,7 +296,17 @@ async function choose(command, path, title, selectAll = false) {
 		async () => (await windows(title)).length === 0,
 		"Picker did not close",
 	);
-	if (ui) return;
+	if (ui) {
+		await until(
+			() =>
+				js(
+					"const e=document.querySelector(arguments[0]);return !!e&&!e.disabled",
+					[selector],
+				),
+			"Picker registration did not release control",
+		);
+		return;
+	}
 	await until(
 		() =>
 			js(
