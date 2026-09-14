@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[单项取消与队列继续验收](LINUX_CANCEL_CURRENT_ACCEPTANCE.md)，补齐批量取消及取消后继续使用的最终 deb 回归。本轮不修改生产代码、引擎或安装包。
 
+后续[取消排队项验收](LINUX_CANCEL_QUEUED_ACCEPTANCE.md)补齐当前编码继续完成，门禁扩展到二十二组；本页保留当时二十组的历史范围。
+
 ## 实现与 review
 
 复用真实 AVIF 编码进程暂停夹具，构造一项 running、一项 queued，通过可见 `Cancel all` 按钮聚焦并发送 Return。检查两项均 cancelled、没有结果，队列不再 processing/clearing/closing，应用仍存在，已观测编码进程消失。输出目录必须与操作前完全一致，包括既有文件字节。
