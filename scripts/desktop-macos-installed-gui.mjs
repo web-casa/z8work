@@ -1,3 +1,4 @@
+import { checkMacGui } from "./lib/desktop-macos-gui-checks.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import {
@@ -117,13 +118,34 @@ try {
 	}
 	const tree = JSON.parse(run(helper, ["tree", String(pid)]));
 	await record("launch-tree.json", tree);
-	report.gui = "inspection-only";
-	throw new Error(
-		"GUI interaction checks not yet implemented; launch/tree alone is not full acceptance",
-	);
+	await checkMacGui({
+		root,
+		helper,
+		run,
+		record,
+		report,
+		pid,
+		app,
+		hash,
+		setPid: (value) => {
+			pid = value;
+		},
+	});
+	report.status = "passed";
 } catch (error) {
 	report.status = "failed";
 	report.error = error.stack;
+	if (pid && report.environment?.accessibilityTrusted) {
+		try {
+			await record(
+				"failure-tree.json",
+				JSON.parse(run(join(root, "ax-helper"), ["tree", String(pid)])),
+			);
+			run("screencapture", ["-x", join(root, "failure.png")]);
+		} catch (e) {
+			report.diagnosticsError = String(e);
+		}
+	}
 	process.exitCode = 1;
 } finally {
 	if (pid) {
@@ -157,5 +179,6 @@ try {
 		await rm(app, { recursive: true });
 		report.uninstall = "removed-test-copy";
 	}
+	if (process.exitCode) report.status = "failed";
 	await record("report.json", report);
 }
