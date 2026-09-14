@@ -59,7 +59,22 @@ export async function checkMacGui({
 		key("go");
 		await delay(500);
 		await record("picker-go.json", tree());
-		run(helper, ["type", String(pid), path]);
+		run(helper, [
+			"set-text",
+			String(pid),
+			"AXTextField",
+			"PathTextField",
+			path,
+		]);
+		await until(
+			() =>
+				flat(tree()).some(
+					(n) =>
+						n.AXIdentifier === "PathTextField" &&
+						n.AXValue === path,
+				),
+			"Native path field value mismatch",
+		);
 		await delay(500);
 		await record("picker-typed.json", tree());
 		key("return");

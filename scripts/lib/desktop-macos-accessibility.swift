@@ -40,7 +40,7 @@ if args.count == 2 && args[1] == "environment" {
         return result
     }
     emit(walk(AXUIElementCreateApplication(pid), 0))
-} else if args.count == 5 && args[1] == "press", let pid = Int32(args[2]) {
+} else if ((args.count == 5 && args[1] == "press") || (args.count == 6 && args[1] == "set-text")), let pid = Int32(args[2]) {
     guard AXIsProcessTrusted() else { exit(2) }
     var found: [AXUIElement] = []
     var count = 0
@@ -50,12 +50,13 @@ if args.count == 2 && args[1] == "environment" {
         let role = attr(e, "AXRole") as? String ?? ""
         let title = attr(e, "AXTitle") as? String ?? ""
         let description = attr(e, "AXDescription") as? String ?? ""
-        if role == args[3] && (title == args[4] || description == args[4]) { found.append(e) }
+        let identifier = attr(e, "AXIdentifier") as? String ?? ""
+        if role == args[3] && (title == args[4] || description == args[4] || identifier == args[4]) { found.append(e) }
         if let children = attr(e, "AXChildren") as? [AXUIElement] { for c in children { find(c, depth+1) } }
     }
     find(AXUIElementCreateApplication(pid), 0)
     guard found.count == 1 else { fputs("Expected one matching control; got \(found.count)\n", stderr); exit(1) }
-    let result = AXUIElementPerformAction(found[0], kAXPressAction as CFString)
+    let result = args[1] == "set-text" ? AXUIElementSetAttributeValue(found[0], kAXValueAttribute as CFString, args[5] as CFString) : AXUIElementPerformAction(found[0], kAXPressAction as CFString)
     guard result == .success else { fputs("AXPress failed: \(result.rawValue)\n", stderr); exit(1) }
 } else if args.count == 4 && ["key", "type"].contains(args[1]), let pid = Int32(args[2]) {
     guard AXIsProcessTrusted(), let app = NSRunningApplication(processIdentifier: pid) else { exit(2) }
