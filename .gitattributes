@@ -36,3 +36,6 @@ docs/desktop/evidence/linux-active-20260914/** -whitespace
 
 # Preserve queued-task quit evidence.
 docs/desktop/evidence/linux-queued-20260914/** -whitespace
+
+# Preserve single-task cancellation evidence.
+docs/desktop/evidence/linux-cancel-20260914/** -whitespace

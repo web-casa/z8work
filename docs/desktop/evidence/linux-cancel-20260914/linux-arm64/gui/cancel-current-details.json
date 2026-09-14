@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned AVIF encoder",
+  "beforeCancel": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21685544,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "7a49956a-a07c-497c-a0df-6fcbb2c79af2"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "03186abc-9550-4caf-b851-99faacb57c74"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 30,
+    "epoch": "629d2568-297a-4012-b043-d6869b6a6765",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "1067e52f-dc06-40ba-aecf-637223e4992d",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterCompletion": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21685544,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "active.png",
+        "error": "Cancelled",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "7a49956a-a07c-497c-a0df-6fcbb2c79af2"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+              "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/queued-z8-1.webp",
+              "bytes": 82
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/queued-z8-1.webp",
+          "bytes": 82
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "03186abc-9550-4caf-b851-99faacb57c74"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 35,
+    "epoch": "629d2568-297a-4012-b043-d6869b6a6765",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "1067e52f-dc06-40ba-aecf-637223e4992d",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "7a49956a-a07c-497c-a0df-6fcbb2c79af2": "cancelled"
+    }
+  },
+  "observedEncoders": [
+    {
+      "pid": 5271,
+      "state": "R",
+      "parent": 5020,
+      "start": "138533",
+      "command": [
+        "/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-PA8Kk0/job-oqBX9p/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-PA8Kk0/job-oqBX9p/output.avif"
+      ],
+      "cwd": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-PA8Kk0/job-oqBX9p"
+    }
+  ],
+  "appRemainedOpen": true,
+  "observedEncodersExited": true,
+  "decoded": [
+    32,
+    32
+  ],
+  "output": {
+    "file": "queued-z8-1.webp",
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

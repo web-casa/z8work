@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[活动编码进程退出验收](LINUX_ACTIVE_QUIT_ACCEPTANCE.md)，补齐“一个活动任务加一个尚未开始的排队任务”的最终安装包回归。不修改生产队列、转换算法或包文件。
 
+后续[单项取消与队列继续验收](LINUX_CANCEL_CURRENT_ACCEPTANCE.md)补齐取消活动任务后下一项实际保存，门禁扩展为十八组；本页保留原十六组覆盖范围。
+
 ## 实现
 
 扩展现有 `desktop-packaged-active-quit.mjs`，继续通过真实文件选择器导入合成大图并选择 AVIF，随后导入微型 PNG 副本并选择 WebP。通过可见转换按钮一次提交两项任务。复用此前对真实 AVIF 编码进程的 SIGSTOP 注入，使第一项稳定处于 running，第二项处于 queued。
