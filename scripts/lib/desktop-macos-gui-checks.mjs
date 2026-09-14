@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile, readdir, mkdir } from "node:fs/promises";
+import { readFile, readdir, mkdir, copyFile } from "node:fs/promises";
 import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 export async function checkMacGui({
@@ -107,7 +107,8 @@ export async function checkMacGui({
 	press("Cancel");
 	await until(() => !has(tree(), "Cancel"), "Output cancel did not close");
 	assert.deepEqual(await readdir(output), []);
-	assert.ok(!has(tree(), "Saved· Attempt 1"));
+	assert.ok(has(tree(), "Ready"));
+	await snapshot("output-picker-cancelled");
 	report.checks.push("conversion-output-picker-cancel");
 	await choose("Save folder", output + "/");
 	await snapshot("output-selected");
@@ -142,6 +143,7 @@ export async function checkMacGui({
 	}, "Saved UI state missing");
 	await record("saved-tree.json", complete);
 	shot("saved");
+	await copyFile(saved, join(root, "converted.webp"));
 	report.result = { file: saved, ...(await hash(saved)), decoded };
 	report.checks.push(
 		"native-pickers-unicode-path-webp-conversion-and-real-decode",
@@ -161,6 +163,7 @@ export async function checkMacGui({
 	await quit();
 	report.checks.push("native-idle-quit");
 	const launched = JSON.parse(run(helper, ["launch", app]));
+	assert.equal(launched.bundle, app);
 	pid = launched.pid;
 	setPid(pid);
 	await until(() => has(tree(), "测试 image.png"), "History did not restore");

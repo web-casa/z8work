@@ -57,24 +57,7 @@ if args.count == 2 && args[1] == "environment" {
     find(AXUIElementCreateApplication(pid), 0)
     guard found.count == 1 else { fputs("Expected one matching control; got \(found.count)\n", stderr); exit(1) }
     let result = args[1] == "set-text" ? AXUIElementSetAttributeValue(found[0], kAXValueAttribute as CFString, args[5] as CFString) : AXUIElementPerformAction(found[0], kAXPressAction as CFString)
-    guard result == .success else { fputs("AXPress failed: \(result.rawValue)\n", stderr); exit(1) }
-} else if args.count == 4 && ["key", "type"].contains(args[1]), let pid = Int32(args[2]) {
-    guard AXIsProcessTrusted(), let app = NSRunningApplication(processIdentifier: pid) else { exit(2) }
-    app.activate(options: [])
-    Thread.sleep(forTimeInterval: 0.15)
-    let source = CGEventSource(stateID: .hidSystemState)
-    let codes: [String: CGKeyCode] = ["return":36,"escape":53,"go":5]
-    let code = args[1] == "type" ? 0 : (codes[args[3]] ?? 65535)
-    guard code != 65535 else { exit(1) }
-    for down in [true,false] {
-        let event = CGEvent(keyboardEventSource: source, virtualKey: code, keyDown: down)!
-        if args[1] == "type" {
-            let chars = Array(args[3].utf16)
-            chars.withUnsafeBufferPointer { event.keyboardSetUnicodeString(stringLength: chars.count, unicodeString: $0.baseAddress!) }
-        } else if args[3] == "go" { event.flags = [.maskCommand,.maskShift] }
-        event.postToPid(pid)
-        Thread.sleep(forTimeInterval: 0.1)
-    }
+    guard result == .success else { fputs("Accessibility action failed: \(result.rawValue)\n", stderr); exit(1) }
 } else if args.count == 3 && args[1] == "fixture" {
     let rep = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: 32, pixelsHigh: 32, bitsPerSample: 8, samplesPerPixel: 3, hasAlpha: false, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 96, bitsPerPixel: 24)!
     for i in 0..<(32*32*3) { rep.bitmapData![i] = UInt8(i % 251) }
@@ -85,6 +68,6 @@ if args.count == 2 && args[1] == "environment" {
 } else if args.count == 3 && args[1] == "quit", let pid = Int32(args[2]), let app = NSRunningApplication(processIdentifier: pid) {
     guard app.terminate() else { exit(1) }
 } else {
-    fputs("Usage: helper environment | launch app | tree pid | quit pid\n", stderr)
+    fputs("Usage: helper environment | launch app | tree pid | press pid role label | set-text pid role identifier text | fixture path | decode path | quit pid\n", stderr)
     exit(1)
 }

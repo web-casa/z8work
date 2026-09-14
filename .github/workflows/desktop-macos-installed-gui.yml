@@ -35,6 +35,7 @@ jobs:
                   path: |
                       .desktop-local/mac-installed-report/*.json
                       .desktop-local/mac-installed-report/*.png
+                      .desktop-local/mac-installed-report/*.webp
                   include-hidden-files: true
                   if-no-files-found: error
                   retention-days: 30
