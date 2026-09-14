@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 export const packagedGuiChecks = Object.freeze([
+	"save-picker-cancel-retains-output-grant-and-cached-bytes",
+	"keyboard-save-only-publishes-identical-cache-with-source-unavailable",
+	"save-recovery-clear-keeps-result-original-and-collision-files",
 	"native-input-picker-cancel-keeps-queue-empty",
 	"convert-button-save-picker-cancel-does-not-start",
 	"visible-format-and-keyboard-convert-save-decodable-webp-original-unchanged",

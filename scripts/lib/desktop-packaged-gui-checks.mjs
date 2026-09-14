@@ -1,3 +1,4 @@
+import { checkPackagedSave } from "./desktop-packaged-save-checks.mjs";
 import { checkPackagedQuit } from "./desktop-packaged-quit-checks.mjs";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -169,6 +170,19 @@ export async function checkPackagedGui({
 	assert.deepEqual(await readFile(root + "/sample.png"), original);
 	await screenshot("packaged-cleared.png", "[data-choose-files]");
 	checks.push("keyboard-clear-retains-original-and-saved-result");
+	await checkPackagedSave({
+		root,
+		output,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		windows,
+		xdotool,
+	});
 	await checkPackagedQuit({
 		invoke,
 		js,

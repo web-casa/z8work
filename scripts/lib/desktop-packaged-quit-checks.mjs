@@ -14,7 +14,7 @@ import { join } from "node:path";
 const execute = promisify(execFile);
 
 // Inspect only this harness's private cache. Lease markers can outlive payloads.
-async function cachedWebp(root) {
+export async function cachedWebp(root) {
 	const found = [];
 	for (const item of await readdir(root, { withFileTypes: true })) {
 		const path = join(root, item.name);
