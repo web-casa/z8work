@@ -103,20 +103,19 @@ export async function inspectDebInContainer({
 		};
 	} catch (error) {
 		failure = error;
-		throw error;
-	} finally {
-		// Killing the Docker CLI alone does not stop a timed-out container command.
-		// A failed cleanup must also fail the acceptance result.
-		try {
-			await docker(["rm", "--force", name]);
-		} catch (cleanupError) {
-			if (failure)
-				throw new AggregateError(
+	}
+	// Killing the Docker CLI alone does not stop a timed-out container command.
+	// A failed cleanup must also fail acceptance, preserving the first failure.
+	try {
+		await docker(["rm", "--force", name]);
+	} catch (cleanupError) {
+		failure = failure
+			? new AggregateError(
 					[failure, cleanupError],
 					"Acceptance failed and container cleanup failed",
-				);
-			throw cleanupError;
-		}
+				)
+			: cleanupError;
 	}
+	if (failure) throw failure;
 	return result;
 }
