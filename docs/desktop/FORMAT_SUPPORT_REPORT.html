@@ -1,0 +1,2137 @@
+<!doctype html>
+<html lang="zh-Hans">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Z8.Work 格式能力对照报告</title>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f7f5ef;
+				--surface: #fffdf8;
+				--ink: #1d2930;
+				--muted: #5d6c73;
+				--line: #d9d6cd;
+				--accent: #05668d;
+				--green: #0d7a54;
+				--amber: #a85f00;
+				--red: #a33b35;
+				--code: #edf4f6;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--ink);
+				font-family:
+					Inter,
+					ui-sans-serif,
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					"Segoe UI",
+					sans-serif;
+				line-height: 1.55;
+			}
+			main {
+				max-width: 1500px;
+				margin: 0 auto;
+				padding: 36px clamp(16px, 4vw, 56px) 72px;
+			}
+			header {
+				border-bottom: 4px solid var(--ink);
+				padding-bottom: 24px;
+				margin-bottom: 28px;
+			}
+			.eyebrow {
+				margin: 0 0 8px;
+				color: var(--accent);
+				font-weight: 800;
+				font-size: 0.78rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+			h1 {
+				font-size: clamp(2rem, 5vw, 4.25rem);
+				line-height: 0.96;
+				letter-spacing: -0.055em;
+				max-width: 15ch;
+				margin: 0;
+			}
+			h2 {
+				font-size: clamp(1.45rem, 2.8vw, 2.25rem);
+				letter-spacing: -0.035em;
+				line-height: 1.1;
+				margin: 0 0 12px;
+			}
+			h3 {
+				font-size: 1.05rem;
+				margin: 0 0 8px;
+			}
+			p {
+				max-width: 100ch;
+			}
+			a {
+				color: var(--accent);
+				text-decoration-thickness: 1.5px;
+				text-underline-offset: 3px;
+			}
+			.meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px 18px;
+				margin-top: 20px;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			.meta strong {
+				color: var(--ink);
+			}
+			.callout {
+				border-left: 5px solid var(--accent);
+				background: color-mix(
+					in srgb,
+					var(--accent) 8%,
+					var(--surface)
+				);
+				padding: 16px 18px;
+				margin: 22px 0;
+			}
+			.callout strong {
+				display: block;
+				margin-bottom: 4px;
+			}
+			.warning {
+				border-left-color: var(--amber);
+				background: color-mix(in srgb, var(--amber) 9%, var(--surface));
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+				gap: 12px;
+				margin: 18px 0 32px;
+			}
+			.card {
+				background: var(--surface);
+				border: 1px solid var(--line);
+				padding: 16px;
+				border-radius: 10px;
+			}
+			.card .number {
+				display: block;
+				font-size: 2rem;
+				line-height: 1;
+				letter-spacing: -0.06em;
+				font-weight: 800;
+				color: var(--accent);
+				margin: 5px 0 8px;
+			}
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			section {
+				margin-top: 46px;
+				scroll-margin-top: 20px;
+			}
+			.legend {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				padding: 0;
+				list-style: none;
+			}
+			.legend li {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 4px 9px;
+				font-size: 0.84rem;
+				background: var(--surface);
+			}
+			.legend .product {
+				border-color: var(--green);
+				color: var(--green);
+			}
+			.legend .component {
+				border-color: var(--accent);
+				color: var(--accent);
+			}
+			.legend .missing {
+				border-color: var(--amber);
+				color: var(--amber);
+			}
+			.search {
+				width: min(100%, 640px);
+				padding: 11px 13px;
+				border-radius: 8px;
+				border: 1px solid var(--line);
+				background: var(--surface);
+				color: var(--ink);
+				font: inherit;
+				margin: 10px 0 14px;
+			}
+			.table-wrap {
+				overflow: auto;
+				border: 1px solid var(--line);
+				border-radius: 10px;
+				background: var(--surface);
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				min-width: 850px;
+				font-size: 0.9rem;
+			}
+			th,
+			td {
+				padding: 12px;
+				text-align: left;
+				vertical-align: top;
+				border-bottom: 1px solid var(--line);
+			}
+			thead th {
+				position: sticky;
+				top: 0;
+				background: var(--ink);
+				color: #fff;
+				z-index: 1;
+				font-size: 0.8rem;
+				letter-spacing: 0.03em;
+			}
+			tbody tr:last-child > * {
+				border-bottom: 0;
+			}
+			tbody tr:hover {
+				background: color-mix(
+					in srgb,
+					var(--accent) 5%,
+					var(--surface)
+				);
+			}
+			th[scope="row"] {
+				min-width: 135px;
+				font-weight: 750;
+			}
+			code {
+				background: var(--code);
+				border: 1px solid
+					color-mix(in srgb, var(--accent) 15%, var(--line));
+				border-radius: 4px;
+				color: inherit;
+				padding: 1px 4px;
+				font:
+					0.82em ui-monospace,
+					SFMono-Regular,
+					Menlo,
+					Monaco,
+					Consolas,
+					monospace;
+				white-space: nowrap;
+			}
+			.pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px;
+				margin-top: 7px;
+				min-width: 210px;
+			}
+			.pills code {
+				font-size: 0.74rem;
+			}
+			.muted,
+			.small {
+				color: var(--muted);
+			}
+			.small {
+				font-size: 0.86rem;
+			}
+			details {
+				border: 1px solid var(--line);
+				background: var(--surface);
+				border-radius: 10px;
+				padding: 0 14px;
+				margin: 16px 0;
+			}
+			summary {
+				cursor: pointer;
+				padding: 13px 2px;
+				font-weight: 750;
+			}
+			details[open] summary {
+				border-bottom: 1px solid var(--line);
+				margin-bottom: 13px;
+			}
+			.details-content {
+				padding-bottom: 14px;
+			}
+			.comparison {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 12px;
+			}
+			.comparison article {
+				border: 1px solid var(--line);
+				background: var(--surface);
+				border-radius: 10px;
+				padding: 15px;
+			}
+			.comparison h3 {
+				color: var(--accent);
+			}
+			.comparison p {
+				font-size: 0.88rem;
+				color: var(--muted);
+			}
+			.difference {
+				columns: 2 16rem;
+				column-gap: 22px;
+			}
+			.difference code {
+				display: inline-block;
+				margin: 2px;
+			}
+			footer {
+				margin-top: 54px;
+				border-top: 1px solid var(--line);
+				padding-top: 18px;
+				color: var(--muted);
+				font-size: 0.86rem;
+			}
+			@media (max-width: 780px) {
+				main {
+					padding-top: 24px;
+				}
+				.comparison {
+					grid-template-columns: 1fr;
+				}
+				h1 {
+					max-width: none;
+				}
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #13191d;
+					--surface: #1b252b;
+					--ink: #edf3f3;
+					--muted: #b3c0c4;
+					--line: #344249;
+					--accent: #75c8e8;
+					--green: #6fdaac;
+					--amber: #f1b665;
+					--red: #f08a82;
+					--code: #26343a;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<p class="eyebrow">Z8.Work · 格式能力对照</p>
+				<h1>组件能做什么，产品实际开放什么</h1>
+				<p>
+					这份报告把三个层级分开：上游转换组件的能力、当前网页端公开路线、当前桌面端公开路线。它回答“为什么桌面版比网页少”，同时避免把某个引擎的格式清单误写成
+					Z8.Work 已经支持的功能。
+				</p>
+				<div class="meta">
+					<span>核对日期：<strong>2026-09-14</strong></span
+					><span>路线来源摘要：<strong>fb0301fb2223</strong></span
+					><span
+						>桌面路线：<strong
+							>29 个输入扩展 / 15 个输出格式 / 167
+							条声明路线</strong
+						></span
+					>
+				</div>
+			</header>
+
+			<div class="callout">
+				<strong>结论</strong>
+				桌面版不是“原生引擎只能处理少数格式”。它故意只公开已接入、已定义语义、可在目标平台包中验证的路线。引擎能够列出一个
+				coder、decoder 或
+				writer，只说明可能具备入口；它不自动解决容器/codec
+				组合、图层或多帧取舍、颜色与元数据、依赖封装、跨平台签名和真实文件验收。
+			</div>
+			<ul class="legend">
+				<li class="component">组件能力：引擎/官方文档或本地清单</li>
+				<li class="product">产品路线：当前源码明确允许</li>
+				<li class="missing">
+					未开放：可能是产品范围、打包依赖或缺少专用引擎
+				</li>
+			</ul>
+
+			<div class="grid">
+				<article class="card">
+					<strong>网页图片</strong
+					><span class="number">123 → 152</span>
+					<p>静态源码白名单中的输入 / 输出名称。</p>
+				</article>
+				<article class="card">
+					<strong>网页 PDF</strong><span class="number">1 → 23</span>
+					<p>.pdf 输入可导出 23 个栅格扩展名；包含别名。</p>
+				</article>
+				<article class="card">
+					<strong>网页媒体</strong><span class="number">50 → 20</span>
+					<p>视频只作为音频提取输入，不代表网页视频输出。</p>
+				</article>
+				<article class="card">
+					<strong>桌面版</strong><span class="number">29 → 15</span>
+					<p>167 条公开路线，来自统一范围文件。</p>
+				</article>
+			</div>
+
+			<section id="matrix">
+				<h2>一览：三个层级</h2>
+				<div class="comparison">
+					<article>
+						<h3>上游组件</h3>
+						<p>
+							ImageMagick、FFmpeg、Pandoc、MuPDF
+							的能力会随编译选项和操作系统变化。组件可以有很多格式入口，但不等于应用安全、完整地提供此转换。
+						</p>
+					</article>
+					<article>
+						<h3>网页版本</h3>
+						<p>
+							由 Svelte/WASM 转换器的
+							<code>FormatInfo</code>
+							白名单决定；输入与输出方向分开声明，具体组合还需经过网页转换器的方向判断。
+						</p>
+					</article>
+					<article>
+						<h3>桌面版本</h3>
+						<p>
+							由 <code>v1-scope.json</code> 驱动 Rust
+							路由和前端契约。未知扩展会被拒绝，而不是尝试让引擎猜测。
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="desktop">
+				<h2>桌面版现在实际支持的格式</h2>
+				<p>
+					下表是当前桌面产品合同，不是计划，也不是原生命令行工具的完整能力。<code
+						>jpeg</code
+					>
+					的实际文件扩展名为 <code>.jpg</code>。
+				</p>
+				<p class="small">
+					当前范围的 167
+					条路线有独立的格式扩展验收记录；它不把任一历史下载包自动视为已升级。实际安装包仍应按版本、平台与架构核对。<a
+						href="FORMAT_EXPANSION_PHASE3B.md"
+						>查看音频扩展验收记录</a
+					>
+				</p>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">类别</th>
+								<th scope="col">可导入扩展名</th>
+								<th scope="col">可输出扩展名</th>
+								<th scope="col">所用原生引擎</th>
+								<th scope="col">验证语义</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="png jpg jpeg webp avif heic heif bmp tga qoi png jpeg webp avif bmp tga qoi magick"
+							>
+								<th scope="row">images</th>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.jpeg</code><code>.webp</code
+										><code>.avif</code><code>.heic</code
+										><code>.heif</code><code>.bmp</code
+										><code>.tga</code><code>.qoi</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.webp</code><code>.avif</code
+										><code>.bmp</code><code>.tga</code
+										><code>.qoi</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills"><code>magick</code></div>
+								</td>
+								<td>
+									图片/PDF
+									路线有独立的像素、文件头和重新解码校验
+								</td>
+							</tr>
+							<tr
+								data-search="pdf png jpeg webp avif bmp tga qoi mutool magick"
+							>
+								<th scope="row">pdf</th>
+								<td>
+									<div class="pills"><code>.pdf</code></div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.webp</code><code>.avif</code
+										><code>.bmp</code><code>.tga</code
+										><code>.qoi</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>mutool</code><code>magick</code>
+									</div>
+								</td>
+								<td>
+									图片/PDF
+									路线有独立的像素、文件头和重新解码校验
+								</td>
+							</tr>
+							<tr
+								data-search="mp3 wav flac ogg m4a opus mp4 mov mkv webm aiff aif wav mp3 flac opus m4a ogg aiff ffmpeg ffprobe"
+							>
+								<th scope="row">media</th>
+								<td>
+									<div class="pills">
+										<code>.mp3</code><code>.wav</code
+										><code>.flac</code><code>.ogg</code
+										><code>.m4a</code><code>.opus</code
+										><code>.mp4</code><code>.mov</code
+										><code>.mkv</code><code>.webm</code
+										><code>.aiff</code><code>.aif</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.wav</code><code>.mp3</code
+										><code>.flac</code><code>.opus</code
+										><code>.m4a</code><code>.ogg</code
+										><code>.aiff</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>ffmpeg</code><code>ffprobe</code>
+									</div>
+								</td>
+								<td>音频路线校验容器、编解码器、时长和声道</td>
+							</tr>
+							<tr
+								data-search="md docx html htm odt epub txt pandoc"
+							>
+								<th scope="row">documents</th>
+								<td>
+									<div class="pills">
+										<code>.md</code><code>.docx</code
+										><code>.html</code><code>.htm</code
+										><code>.odt</code><code>.epub</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills"><code>.txt</code></div>
+								</td>
+								<td>
+									<div class="pills"><code>pandoc</code></div>
+								</td>
+								<td>文档仅验证 UTF-8 纯文本；不承诺排版保真</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="callout warning">
+					<strong>桌面包的边界</strong>PDF 最多 200
+					页；普通图片只处理首帧。文档输出是纯文本，视频输入只提取第一条音轨。JPEG/BMP
+					透明区域会填白；BMP/TGA/QOI 为 8 位 sRGB，且不保留元数据或
+					ICC 配置。格式名称相同不代表结果一定无损或一定更小。
+				</div>
+			</section>
+
+			<section id="web">
+				<h2>网页版本当前公开的格式白名单</h2>
+				<p>
+					输入和输出是独立方向。这里展示的是代码声明，不把“某个 WASM
+					组件理论可用”加进列表。PDF 的 23 个输出也单独列出。
+				</p>
+				<input
+					class="search"
+					type="search"
+					placeholder="筛选网页格式，例如 avif、xlsx、video"
+					data-filter=".web-format-table"
+				/>
+				<div class="table-wrap web-format-table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">网页转换器</th>
+								<th scope="col">输入</th>
+								<th scope="col">输出</th>
+								<th scope="col">边界</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="图片（ImageMagick WASM） 3fr aai ani arw avif avs bmp bmp2 bmp3 cin cr2 cr3 crw cur dcr dcx dds dng dpx dxt1 dxt5 erf exr farbfeld fax ff fit fits fl32 fts g3 gif gif87 hdr heic heif hrz icb icns ico icon ipl j2c j2k jfif jng jp2 jpc jpe jpeg jpg jpm jps jxl mat mef miff mng mos mrw mtv nef nrw orf otb palm pam pbm pcd pcds pct pcx pdb pef pfm pgm pgx phm picon pict pjpeg png png00 png24 png32 png48 png64 png8 pnm ppm psb psd ptif qoi raf ras raw rgf rw2 sgi six sixel sr2 srf srw sun svg tga tif tiff tiff64 vda vicar viff vips vst wbmp webp wpg xbm xcf xpm xv a aai ai art avif avs b bgr bgra bgro bmp bmp2 bmp3 brf cal cals cin cip cmyk cmyka cur dcx dds dpx dxt1 dxt5 epdf epi eps eps2 eps3 epsf epsi ept ept2 ept3 exr farbfeld fax ff fit fits fl32 fts ftxt g g3 g4 gif gif87 gray graya group4 hdr hrz icb ico icon info ipl isobrl isobrl6 j2c j2k jfif jng jp2 jpc jpe jpeg jpg jpm jps jxl map mat miff mng mono mtv o otb pal palm pam pbm pcd pcds pcl pct pcx pdb pfm pgm pgx phm picon pict pjpeg png png00 png24 png32 png48 png64 png8 pnm ppm ps ps1 ps2 ps3 psb psd ptif qoi r ras rgb rgba rgbo rgf sgi six sixel sparse-color strimg sun svg svgz tga tif tiff tiff64 ubrl ubrl6 uil uyvy vda vicar viff vips vst wbmp webp wpg xbm xpm xv ycbcr ycbcra yuv"
+							>
+								<th scope="row">图片（ImageMagick WASM）</th>
+								<td>
+									<strong>123</strong>
+									<div class="pills">
+										<code>.3fr</code><code>.aai</code
+										><code>.ani</code><code>.arw</code
+										><code>.avif</code><code>.avs</code
+										><code>.bmp</code><code>.bmp2</code
+										><code>.bmp3</code><code>.cin</code
+										><code>.cr2</code><code>.cr3</code
+										><code>.crw</code><code>.cur</code
+										><code>.dcr</code><code>.dcx</code
+										><code>.dds</code><code>.dng</code
+										><code>.dpx</code><code>.dxt1</code
+										><code>.dxt5</code><code>.erf</code
+										><code>.exr</code><code>.farbfeld</code
+										><code>.fax</code><code>.ff</code
+										><code>.fit</code><code>.fits</code
+										><code>.fl32</code><code>.fts</code
+										><code>.g3</code><code>.gif</code
+										><code>.gif87</code><code>.hdr</code
+										><code>.heic</code><code>.heif</code
+										><code>.hrz</code><code>.icb</code
+										><code>.icns</code><code>.ico</code
+										><code>.icon</code><code>.ipl</code
+										><code>.j2c</code><code>.j2k</code
+										><code>.jfif</code><code>.jng</code
+										><code>.jp2</code><code>.jpc</code
+										><code>.jpe</code><code>.jpeg</code
+										><code>.jpg</code><code>.jpm</code
+										><code>.jps</code><code>.jxl</code
+										><code>.mat</code><code>.mef</code
+										><code>.miff</code><code>.mng</code
+										><code>.mos</code><code>.mrw</code
+										><code>.mtv</code><code>.nef</code
+										><code>.nrw</code><code>.orf</code
+										><code>.otb</code><code>.palm</code
+										><code>.pam</code><code>.pbm</code
+										><code>.pcd</code><code>.pcds</code
+										><code>.pct</code><code>.pcx</code
+										><code>.pdb</code><code>.pef</code
+										><code>.pfm</code><code>.pgm</code
+										><code>.pgx</code><code>.phm</code
+										><code>.picon</code><code>.pict</code
+										><code>.pjpeg</code><code>.png</code
+										><code>.png00</code><code>.png24</code
+										><code>.png32</code><code>.png48</code
+										><code>.png64</code><code>.png8</code
+										><code>.pnm</code><code>.ppm</code
+										><code>.psb</code><code>.psd</code
+										><code>.ptif</code><code>.qoi</code
+										><code>.raf</code><code>.ras</code
+										><code>.raw</code><code>.rgf</code
+										><code>.rw2</code><code>.sgi</code
+										><code>.six</code><code>.sixel</code
+										><code>.sr2</code><code>.srf</code
+										><code>.srw</code><code>.sun</code
+										><code>.svg</code><code>.tga</code
+										><code>.tif</code><code>.tiff</code
+										><code>.tiff64</code><code>.vda</code
+										><code>.vicar</code><code>.viff</code
+										><code>.vips</code><code>.vst</code
+										><code>.wbmp</code><code>.webp</code
+										><code>.wpg</code><code>.xbm</code
+										><code>.xcf</code><code>.xpm</code
+										><code>.xv</code>
+									</div>
+								</td>
+								<td>
+									<strong>152</strong>
+									<div class="pills">
+										<code>.a</code><code>.aai</code
+										><code>.ai</code><code>.art</code
+										><code>.avif</code><code>.avs</code
+										><code>.b</code><code>.bgr</code
+										><code>.bgra</code><code>.bgro</code
+										><code>.bmp</code><code>.bmp2</code
+										><code>.bmp3</code><code>.brf</code
+										><code>.cal</code><code>.cals</code
+										><code>.cin</code><code>.cip</code
+										><code>.cmyk</code><code>.cmyka</code
+										><code>.cur</code><code>.dcx</code
+										><code>.dds</code><code>.dpx</code
+										><code>.dxt1</code><code>.dxt5</code
+										><code>.epdf</code><code>.epi</code
+										><code>.eps</code><code>.eps2</code
+										><code>.eps3</code><code>.epsf</code
+										><code>.epsi</code><code>.ept</code
+										><code>.ept2</code><code>.ept3</code
+										><code>.exr</code><code>.farbfeld</code
+										><code>.fax</code><code>.ff</code
+										><code>.fit</code><code>.fits</code
+										><code>.fl32</code><code>.fts</code
+										><code>.ftxt</code><code>.g</code
+										><code>.g3</code><code>.g4</code
+										><code>.gif</code><code>.gif87</code
+										><code>.gray</code><code>.graya</code
+										><code>.group4</code><code>.hdr</code
+										><code>.hrz</code><code>.icb</code
+										><code>.ico</code><code>.icon</code
+										><code>.info</code><code>.ipl</code
+										><code>.isobrl</code
+										><code>.isobrl6</code><code>.j2c</code
+										><code>.j2k</code><code>.jfif</code
+										><code>.jng</code><code>.jp2</code
+										><code>.jpc</code><code>.jpe</code
+										><code>.jpeg</code><code>.jpg</code
+										><code>.jpm</code><code>.jps</code
+										><code>.jxl</code><code>.map</code
+										><code>.mat</code><code>.miff</code
+										><code>.mng</code><code>.mono</code
+										><code>.mtv</code><code>.o</code
+										><code>.otb</code><code>.pal</code
+										><code>.palm</code><code>.pam</code
+										><code>.pbm</code><code>.pcd</code
+										><code>.pcds</code><code>.pcl</code
+										><code>.pct</code><code>.pcx</code
+										><code>.pdb</code><code>.pfm</code
+										><code>.pgm</code><code>.pgx</code
+										><code>.phm</code><code>.picon</code
+										><code>.pict</code><code>.pjpeg</code
+										><code>.png</code><code>.png00</code
+										><code>.png24</code><code>.png32</code
+										><code>.png48</code><code>.png64</code
+										><code>.png8</code><code>.pnm</code
+										><code>.ppm</code><code>.ps</code
+										><code>.ps1</code><code>.ps2</code
+										><code>.ps3</code><code>.psb</code
+										><code>.psd</code><code>.ptif</code
+										><code>.qoi</code><code>.r</code
+										><code>.ras</code><code>.rgb</code
+										><code>.rgba</code><code>.rgbo</code
+										><code>.rgf</code><code>.sgi</code
+										><code>.six</code><code>.sixel</code
+										><code>.sparse-color</code
+										><code>.strimg</code><code>.sun</code
+										><code>.svg</code><code>.svgz</code
+										><code>.tga</code><code>.tif</code
+										><code>.tiff</code><code>.tiff64</code
+										><code>.ubrl</code><code>.ubrl6</code
+										><code>.uil</code><code>.uyvy</code
+										><code>.vda</code><code>.vicar</code
+										><code>.viff</code><code>.vips</code
+										><code>.vst</code><code>.wbmp</code
+										><code>.webp</code><code>.wpg</code
+										><code>.xbm</code><code>.xpm</code
+										><code>.xv</code><code>.ycbcr</code
+										><code>.ycbcra</code><code>.yuv</code>
+									</div>
+								</td>
+								<td>
+									静态声明；SVG
+									会先走专用栅格化路径。每个输入/输出组合仍由转换器方向与运行时编码器决定。
+								</td>
+							</tr>
+							<tr
+								data-search="PDF → 栅格图片（MuPDF WASM + 图像编码器） pdf png jpeg jpg webp avif jxl gif bmp tiff tif ico jp2 psd qoi tga ppm pgm pbm pnm pcx dds exr hdr"
+							>
+								<th scope="row">
+									PDF → 栅格图片（MuPDF WASM + 图像编码器）
+								</th>
+								<td>
+									<strong>1</strong>
+									<div class="pills"><code>.pdf</code></div>
+								</td>
+								<td>
+									<strong>23</strong>
+									<div class="pills">
+										<code>.png</code><code>.jpeg</code
+										><code>.jpg</code><code>.webp</code
+										><code>.avif</code><code>.jxl</code
+										><code>.gif</code><code>.bmp</code
+										><code>.tiff</code><code>.tif</code
+										><code>.ico</code><code>.jp2</code
+										><code>.psd</code><code>.qoi</code
+										><code>.tga</code><code>.ppm</code
+										><code>.pgm</code><code>.pbm</code
+										><code>.pnm</code><code>.pcx</code
+										><code>.dds</code><code>.exr</code
+										><code>.hdr</code>
+									</div>
+								</td>
+								<td>
+									PDF 输入只有 .pdf；23 个输出扩展含 JPG/JPEG
+									和 TIF/TIFF 两组别名。
+								</td>
+							</tr>
+							<tr
+								data-search="音频/视频 → 音频（FFmpeg WASM） 3g2 3gp aac ac3 aif aifc aiff alac amr au avi caf dff divx dsd dsf f4v flac flv m2ts m4a m4b m4v mkv mogg mov mp1 mp2 mp3 mp4 mpc mpeg mpg mqa mts mxf oga ogg ogv opus rm rmvb ts vob voc wav weba webm wma wmv aac ac3 aif aifc aiff alac amr au flac m4a m4b mp2 mp3 oga ogg opus voc wav weba wma"
+							>
+								<th scope="row">
+									音频/视频 → 音频（FFmpeg WASM）
+								</th>
+								<td>
+									<strong>50</strong>
+									<div class="pills">
+										<code>.3g2</code><code>.3gp</code
+										><code>.aac</code><code>.ac3</code
+										><code>.aif</code><code>.aifc</code
+										><code>.aiff</code><code>.alac</code
+										><code>.amr</code><code>.au</code
+										><code>.avi</code><code>.caf</code
+										><code>.dff</code><code>.divx</code
+										><code>.dsd</code><code>.dsf</code
+										><code>.f4v</code><code>.flac</code
+										><code>.flv</code><code>.m2ts</code
+										><code>.m4a</code><code>.m4b</code
+										><code>.m4v</code><code>.mkv</code
+										><code>.mogg</code><code>.mov</code
+										><code>.mp1</code><code>.mp2</code
+										><code>.mp3</code><code>.mp4</code
+										><code>.mpc</code><code>.mpeg</code
+										><code>.mpg</code><code>.mqa</code
+										><code>.mts</code><code>.mxf</code
+										><code>.oga</code><code>.ogg</code
+										><code>.ogv</code><code>.opus</code
+										><code>.rm</code><code>.rmvb</code
+										><code>.ts</code><code>.vob</code
+										><code>.voc</code><code>.wav</code
+										><code>.weba</code><code>.webm</code
+										><code>.wma</code><code>.wmv</code>
+									</div>
+								</td>
+								<td>
+									<strong>20</strong>
+									<div class="pills">
+										<code>.aac</code><code>.ac3</code
+										><code>.aif</code><code>.aifc</code
+										><code>.aiff</code><code>.alac</code
+										><code>.amr</code><code>.au</code
+										><code>.flac</code><code>.m4a</code
+										><code>.m4b</code><code>.mp2</code
+										><code>.mp3</code><code>.oga</code
+										><code>.ogg</code><code>.opus</code
+										><code>.voc</code><code>.wav</code
+										><code>.weba</code><code>.wma</code>
+									</div>
+								</td>
+								<td>
+									视频格式在此版本只作为音频提取输入，不构成网页视频输出能力。
+								</td>
+							</tr>
+							<tr
+								data-search="文档（Pandoc WASM） csv doc docbook docx epub html json md odt rst rtf tsv csv doc docbook docx epub html json md odt rst rtf tsv"
+							>
+								<th scope="row">文档（Pandoc WASM）</th>
+								<td>
+									<strong>12</strong>
+									<div class="pills">
+										<code>.csv</code><code>.doc</code
+										><code>.docbook</code><code>.docx</code
+										><code>.epub</code><code>.html</code
+										><code>.json</code><code>.md</code
+										><code>.odt</code><code>.rst</code
+										><code>.rtf</code><code>.tsv</code>
+									</div>
+								</td>
+								<td>
+									<strong>12</strong>
+									<div class="pills">
+										<code>.csv</code><code>.doc</code
+										><code>.docbook</code><code>.docx</code
+										><code>.epub</code><code>.html</code
+										><code>.json</code><code>.md</code
+										><code>.odt</code><code>.rst</code
+										><code>.rtf</code><code>.tsv</code>
+									</div>
+								</td>
+								<td>
+									声明的是网页转换器白名单；其中 JSON 必须是
+									Pandoc JSON。
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<details>
+					<summary>查看网页图片的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（123）</h3>
+						<div class="pills">
+							<code>.3fr</code><code>.aai</code><code>.ani</code
+							><code>.arw</code><code>.avif</code><code>.avs</code
+							><code>.bmp</code><code>.bmp2</code
+							><code>.bmp3</code><code>.cin</code><code>.cr2</code
+							><code>.cr3</code><code>.crw</code><code>.cur</code
+							><code>.dcr</code><code>.dcx</code><code>.dds</code
+							><code>.dng</code><code>.dpx</code><code>.dxt1</code
+							><code>.dxt5</code><code>.erf</code><code>.exr</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code><code>.g3</code
+							><code>.gif</code><code>.gif87</code
+							><code>.hdr</code><code>.heic</code
+							><code>.heif</code><code>.hrz</code><code>.icb</code
+							><code>.icns</code><code>.ico</code
+							><code>.icon</code><code>.ipl</code><code>.j2c</code
+							><code>.j2k</code><code>.jfif</code><code>.jng</code
+							><code>.jp2</code><code>.jpc</code><code>.jpe</code
+							><code>.jpeg</code><code>.jpg</code><code>.jpm</code
+							><code>.jps</code><code>.jxl</code><code>.mat</code
+							><code>.mef</code><code>.miff</code><code>.mng</code
+							><code>.mos</code><code>.mrw</code><code>.mtv</code
+							><code>.nef</code><code>.nrw</code><code>.orf</code
+							><code>.otb</code><code>.palm</code><code>.pam</code
+							><code>.pbm</code><code>.pcd</code><code>.pcds</code
+							><code>.pct</code><code>.pcx</code><code>.pdb</code
+							><code>.pef</code><code>.pfm</code><code>.pgm</code
+							><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png</code
+							><code>.png00</code><code>.png24</code
+							><code>.png32</code><code>.png48</code
+							><code>.png64</code><code>.png8</code
+							><code>.pnm</code><code>.ppm</code><code>.psb</code
+							><code>.psd</code><code>.ptif</code><code>.qoi</code
+							><code>.raf</code><code>.ras</code><code>.raw</code
+							><code>.rgf</code><code>.rw2</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sr2</code><code>.srf</code><code>.srw</code
+							><code>.sun</code><code>.svg</code><code>.tga</code
+							><code>.tif</code><code>.tiff</code
+							><code>.tiff64</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.webp</code
+							><code>.wpg</code><code>.xbm</code><code>.xcf</code
+							><code>.xpm</code><code>.xv</code>
+						</div>
+						<h3>输出（152）</h3>
+						<div class="pills">
+							<code>.a</code><code>.aai</code><code>.ai</code
+							><code>.art</code><code>.avif</code><code>.avs</code
+							><code>.b</code><code>.bgr</code><code>.bgra</code
+							><code>.bgro</code><code>.bmp</code
+							><code>.bmp2</code><code>.bmp3</code
+							><code>.brf</code><code>.cal</code><code>.cals</code
+							><code>.cin</code><code>.cip</code><code>.cmyk</code
+							><code>.cmyka</code><code>.cur</code
+							><code>.dcx</code><code>.dds</code><code>.dpx</code
+							><code>.dxt1</code><code>.dxt5</code
+							><code>.epdf</code><code>.epi</code><code>.eps</code
+							><code>.eps2</code><code>.eps3</code
+							><code>.epsf</code><code>.epsi</code
+							><code>.ept</code><code>.ept2</code
+							><code>.ept3</code><code>.exr</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code
+							><code>.ftxt</code><code>.g</code><code>.g3</code
+							><code>.g4</code><code>.gif</code><code>.gif87</code
+							><code>.gray</code><code>.graya</code
+							><code>.group4</code><code>.hdr</code
+							><code>.hrz</code><code>.icb</code><code>.ico</code
+							><code>.icon</code><code>.info</code
+							><code>.ipl</code><code>.isobrl</code
+							><code>.isobrl6</code><code>.j2c</code
+							><code>.j2k</code><code>.jfif</code><code>.jng</code
+							><code>.jp2</code><code>.jpc</code><code>.jpe</code
+							><code>.jpeg</code><code>.jpg</code><code>.jpm</code
+							><code>.jps</code><code>.jxl</code><code>.map</code
+							><code>.mat</code><code>.miff</code><code>.mng</code
+							><code>.mono</code><code>.mtv</code><code>.o</code
+							><code>.otb</code><code>.pal</code><code>.palm</code
+							><code>.pam</code><code>.pbm</code><code>.pcd</code
+							><code>.pcds</code><code>.pcl</code><code>.pct</code
+							><code>.pcx</code><code>.pdb</code><code>.pfm</code
+							><code>.pgm</code><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png</code
+							><code>.png00</code><code>.png24</code
+							><code>.png32</code><code>.png48</code
+							><code>.png64</code><code>.png8</code
+							><code>.pnm</code><code>.ppm</code><code>.ps</code
+							><code>.ps1</code><code>.ps2</code><code>.ps3</code
+							><code>.psb</code><code>.psd</code><code>.ptif</code
+							><code>.qoi</code><code>.r</code><code>.ras</code
+							><code>.rgb</code><code>.rgba</code
+							><code>.rgbo</code><code>.rgf</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sparse-color</code><code>.strimg</code
+							><code>.sun</code><code>.svg</code><code>.svgz</code
+							><code>.tga</code><code>.tif</code><code>.tiff</code
+							><code>.tiff64</code><code>.ubrl</code
+							><code>.ubrl6</code><code>.uil</code
+							><code>.uyvy</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.webp</code
+							><code>.wpg</code><code>.xbm</code><code>.xpm</code
+							><code>.xv</code><code>.ycbcr</code
+							><code>.ycbcra</code><code>.yuv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页媒体的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（50）</h3>
+						<div class="pills">
+							<code>.3g2</code><code>.3gp</code><code>.aac</code
+							><code>.ac3</code><code>.aif</code><code>.aifc</code
+							><code>.aiff</code><code>.alac</code
+							><code>.amr</code><code>.au</code><code>.avi</code
+							><code>.caf</code><code>.dff</code><code>.divx</code
+							><code>.dsd</code><code>.dsf</code><code>.f4v</code
+							><code>.flac</code><code>.flv</code
+							><code>.m2ts</code><code>.m4a</code><code>.m4b</code
+							><code>.m4v</code><code>.mkv</code><code>.mogg</code
+							><code>.mov</code><code>.mp1</code><code>.mp2</code
+							><code>.mp3</code><code>.mp4</code><code>.mpc</code
+							><code>.mpeg</code><code>.mpg</code><code>.mqa</code
+							><code>.mts</code><code>.mxf</code><code>.oga</code
+							><code>.ogg</code><code>.ogv</code><code>.opus</code
+							><code>.rm</code><code>.rmvb</code><code>.ts</code
+							><code>.vob</code><code>.voc</code><code>.wav</code
+							><code>.weba</code><code>.webm</code
+							><code>.wma</code><code>.wmv</code>
+						</div>
+						<h3>输出（20）</h3>
+						<div class="pills">
+							<code>.aac</code><code>.ac3</code><code>.aif</code
+							><code>.aifc</code><code>.aiff</code
+							><code>.alac</code><code>.amr</code><code>.au</code
+							><code>.flac</code><code>.m4a</code><code>.m4b</code
+							><code>.mp2</code><code>.mp3</code><code>.oga</code
+							><code>.ogg</code><code>.opus</code><code>.voc</code
+							><code>.wav</code><code>.weba</code
+							><code>.wma</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页文档的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（12）</h3>
+						<div class="pills">
+							<code>.csv</code><code>.doc</code
+							><code>.docbook</code><code>.docx</code
+							><code>.epub</code><code>.html</code
+							><code>.json</code><code>.md</code><code>.odt</code
+							><code>.rst</code><code>.rtf</code><code>.tsv</code>
+						</div>
+						<h3>输出（12）</h3>
+						<div class="pills">
+							<code>.csv</code><code>.doc</code
+							><code>.docbook</code><code>.docx</code
+							><code>.epub</code><code>.html</code
+							><code>.json</code><code>.md</code><code>.odt</code
+							><code>.rst</code><code>.rtf</code><code>.tsv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页 PDF 的全部 23 个图片输出</summary>
+					<div class="details-content">
+						<div class="pills">
+							<code>.png</code><code>.jpeg</code><code>.jpg</code
+							><code>.webp</code><code>.avif</code
+							><code>.jxl</code><code>.gif</code><code>.bmp</code
+							><code>.tiff</code><code>.tif</code><code>.ico</code
+							><code>.jp2</code><code>.psd</code><code>.qoi</code
+							><code>.tga</code><code>.ppm</code><code>.pgm</code
+							><code>.pbm</code><code>.pnm</code><code>.pcx</code
+							><code>.dds</code><code>.exr</code><code>.hdr</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="why">
+				<h2>为什么这些格式目前桌面版不能支持</h2>
+				<p>
+					“不能支持”在这里表示<strong>当前桌面产品没有开放该路线</strong>。原因分为：尚未接入并验收、包内依赖/模块没有跨平台保证、或现有组件根本不负责这一类任务。
+				</p>
+				<input
+					class="search"
+					type="search"
+					placeholder="筛选限制原因，例如 TIFF、XLSX、OCR、视频"
+					data-filter=".why-table"
+				/>
+				<div class="table-wrap why-table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">格式族</th>
+								<th scope="col">典型格式</th>
+								<th scope="col">组件层面</th>
+								<th scope="col">网页现状</th>
+								<th scope="col">桌面现状</th>
+								<th scope="col">为何不开放</th>
+								<th scope="col">下一步</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="网页已开放、桌面未开放的常用图片输出 GIF、JXL、TIFF/TIF、ICO、JP2/J2K、PSD、DDS、PCX、EXR、HDR、PNM/PBM/PGM/PPM 等；完整差集见下方。 ImageMagick 官方可支持的范围很广，但实际可读写项目取决于编译 delegate、coder 模块和包内库。 网页图片和/或 PDF 输出白名单中存在许多这些格式。 当前 v1 范围只公开 PNG、JPEG、WebP、AVIF、BMP、TGA、QOI。 这是明确的产品白名单，不会因为原生引擎列出了 coder 就自动出现。每个新增格式还要在六个系统/架构的最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。 可扩展；先按格式补齐模块、固定编码参数和逐平台验收。"
+							>
+								<th scope="row">
+									网页已开放、桌面未开放的常用图片输出
+								</th>
+								<td>
+									GIF、JXL、TIFF/TIF、ICO、JP2/J2K、PSD、DDS、PCX、EXR、HDR、PNM/PBM/PGM/PPM
+									等；完整差集见下方。
+								</td>
+								<td>
+									ImageMagick
+									官方可支持的范围很广，但实际可读写项目取决于编译
+									delegate、coder 模块和包内库。
+								</td>
+								<td>
+									网页图片和/或 PDF
+									输出白名单中存在许多这些格式。
+								</td>
+								<td>
+									当前 v1 范围只公开
+									PNG、JPEG、WebP、AVIF、BMP、TGA、QOI。
+								</td>
+								<td>
+									这是明确的产品白名单，不会因为原生引擎列出了
+									coder
+									就自动出现。每个新增格式还要在六个系统/架构的最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。
+								</td>
+								<td>
+									可扩展；先按格式补齐模块、固定编码参数和逐平台验收。
+								</td>
+							</tr>
+							<tr
+								data-search="HEIC/HEIF 输出 HEIC、HEIF ImageMagick 的 HEIC delegate 可以是读写能力，且具体编码插件、版本与参数会影响结果。 网页白名单把 HEIC/HEIF 标为输入，不标为输出。 桌面同样只接收 HEIC/HEIF 输入。 两端都没有把它作为公开输出路线。需要先固定有损/无损策略、色彩/位深/alpha 处理与跨平台 HEIF 编码器，再验证真实图片；不能把“可解码 HEIC”推成“应公开 HEIC 编码”。 可扩展，但应作为独立 HEIF 编码验收。"
+							>
+								<th scope="row">HEIC/HEIF 输出</th>
+								<td>HEIC、HEIF</td>
+								<td>
+									ImageMagick 的 HEIC delegate
+									可以是读写能力，且具体编码插件、版本与参数会影响结果。
+								</td>
+								<td>
+									网页白名单把 HEIC/HEIF
+									标为输入，不标为输出。
+								</td>
+								<td>桌面同样只接收 HEIC/HEIF 输入。</td>
+								<td>
+									两端都没有把它作为公开输出路线。需要先固定有损/无损策略、色彩/位深/alpha
+									处理与跨平台 HEIF
+									编码器，再验证真实图片；不能把“可解码
+									HEIC”推成“应公开 HEIC 编码”。
+								</td>
+								<td>可扩展，但应作为独立 HEIF 编码验收。</td>
+							</tr>
+							<tr
+								data-search="SVG、EPS/PS 与相机 RAW SVG、EPS、PS、ARW、CR2、DNG、NEF、RAF、ORF、RW2 等 需要 SVG 渲染器、字体/外部资源策略，或 LibRaw/相机 vendor delegate；ImageMagick 的格式表不是对所有包的承诺。 网页声明部分 SVG、EPS/PS 或 RAW 为输入/输出，但其中多项只读或有专用前处理。 当前桌面范围没有这些输入或输出。 它们不是简单的像素重编码：矢量文件涉及字体、脚本和外部资源，RAW 涉及相机型号、显影和色彩配置。当前包没有对应的产品路线与质量合同。 需要专用引擎和独立安全/保真验收。"
+							>
+								<th scope="row">SVG、EPS/PS 与相机 RAW</th>
+								<td>
+									SVG、EPS、PS、ARW、CR2、DNG、NEF、RAF、ORF、RW2
+									等
+								</td>
+								<td>
+									需要 SVG 渲染器、字体/外部资源策略，或
+									LibRaw/相机 vendor delegate；ImageMagick
+									的格式表不是对所有包的承诺。
+								</td>
+								<td>
+									网页声明部分 SVG、EPS/PS 或 RAW
+									为输入/输出，但其中多项只读或有专用前处理。
+								</td>
+								<td>当前桌面范围没有这些输入或输出。</td>
+								<td>
+									它们不是简单的像素重编码：矢量文件涉及字体、脚本和外部资源，RAW
+									涉及相机型号、显影和色彩配置。当前包没有对应的产品路线与质量合同。
+								</td>
+								<td>需要专用引擎和独立安全/保真验收。</td>
+							</tr>
+							<tr
+								data-search="动画、多页和多尺寸图像 GIF/APNG/动画 WebP、TIFF 多页、ICO 多尺寸、PSD 图层等 图像库能列出读写，不表示保留帧时长、循环、页序、图层或图标尺寸。 网页某些扩展可选，但产品仍需按具体转换器处理。 桌面普通图片按首帧处理；PDF 是唯一具有逐页恢复语义的多页路线。 若默认只取第一帧/第一页却称为完整格式转换，会造成数据语义丢失。需要定义帧/页/图层策略和资源上限，并做专门回归。 产品设计与验收后再开放。"
+							>
+								<th scope="row">动画、多页和多尺寸图像</th>
+								<td>
+									GIF/APNG/动画 WebP、TIFF 多页、ICO
+									多尺寸、PSD 图层等
+								</td>
+								<td>
+									图像库能列出读写，不表示保留帧时长、循环、页序、图层或图标尺寸。
+								</td>
+								<td>
+									网页某些扩展可选，但产品仍需按具体转换器处理。
+								</td>
+								<td>
+									桌面普通图片按首帧处理；PDF
+									是唯一具有逐页恢复语义的多页路线。
+								</td>
+								<td>
+									若默认只取第一帧/第一页却称为完整格式转换，会造成数据语义丢失。需要定义帧/页/图层策略和资源上限，并做专门回归。
+								</td>
+								<td>产品设计与验收后再开放。</td>
+							</tr>
+							<tr
+								data-search="更多音频/视频容器，以及视频输出 AAC、WMA、AMR、AU、CAF、AVI、TS/MTS、MPEG、FLV、3GP、MXF 等；MP4/WebM/MKV → 视频输出亦在此列。 FFmpeg 的 demuxer/muxer 与 encoder 列表远大于产品路线；容器、codec、字幕、多音轨、HDR 和硬件加速是不同维度。 网页列出更多媒体输入，但当前只把它们转/提取为音频，不提供视频输出。 桌面只接收 12 个媒体扩展，输出 7 个音频格式；MP4/MOV/MKV/WebM 仅取第一条音轨。 扩展名不够判断可转换性。当前实现明确限定 demuxer、只映射第一条音轨，并验证指定 codec/容器；视频输出会新增预设、流选择、字幕/旋转/色彩、磁盘预算与硬件回退责任。 更多音频容器可逐项扩展；视频输出是独立功能阶段。"
+							>
+								<th scope="row">
+									更多音频/视频容器，以及视频输出
+								</th>
+								<td>
+									AAC、WMA、AMR、AU、CAF、AVI、TS/MTS、MPEG、FLV、3GP、MXF
+									等；MP4/WebM/MKV → 视频输出亦在此列。
+								</td>
+								<td>
+									FFmpeg 的 demuxer/muxer 与 encoder
+									列表远大于产品路线；容器、codec、字幕、多音轨、HDR
+									和硬件加速是不同维度。
+								</td>
+								<td>
+									网页列出更多媒体输入，但当前只把它们转/提取为音频，不提供视频输出。
+								</td>
+								<td>
+									桌面只接收 12 个媒体扩展，输出 7
+									个音频格式；MP4/MOV/MKV/WebM
+									仅取第一条音轨。
+								</td>
+								<td>
+									扩展名不够判断可转换性。当前实现明确限定
+									demuxer、只映射第一条音轨，并验证指定
+									codec/容器；视频输出会新增预设、流选择、字幕/旋转/色彩、磁盘预算与硬件回退责任。
+								</td>
+								<td>
+									更多音频容器可逐项扩展；视频输出是独立功能阶段。
+								</td>
+							</tr>
+							<tr
+								data-search="富文本文档输出与额外文档输入 DOC、RTF、CSV、TSV、Pandoc JSON、RST、DocBook，以及 DOCX/ODT/EPUB/HTML → DOCX/HTML/EPUB/PDF 等 Pandoc 有大量 reader/writer；PDF writer 还需要实际 PDF 排版引擎，不能只看 writer 列表。 网页 Pandoc 白名单开放 12 个输入/输出名称。 桌面只接收 MD、DOCX、HTML/HTM、ODT、EPUB，并且只输出 UTF-8 TXT。 桌面合同明确选择文本提取，不保留图片、字体、分页、布局或复杂表格。RTF 曾在验收中出现正文顺序问题，因此被明确移出桌面路线；这类路线不能因能生成文件就算支持。 结构化文档可逐路线扩展；排版保真与 PDF 输出需单独引擎/测试。"
+							>
+								<th scope="row">
+									富文本文档输出与额外文档输入
+								</th>
+								<td>
+									DOC、RTF、CSV、TSV、Pandoc
+									JSON、RST、DocBook，以及 DOCX/ODT/EPUB/HTML
+									→ DOCX/HTML/EPUB/PDF 等
+								</td>
+								<td>
+									Pandoc 有大量 reader/writer；PDF writer
+									还需要实际 PDF 排版引擎，不能只看 writer
+									列表。
+								</td>
+								<td>
+									网页 Pandoc 白名单开放 12 个输入/输出名称。
+								</td>
+								<td>
+									桌面只接收
+									MD、DOCX、HTML/HTM、ODT、EPUB，并且只输出
+									UTF-8 TXT。
+								</td>
+								<td>
+									桌面合同明确选择文本提取，不保留图片、字体、分页、布局或复杂表格。RTF
+									曾在验收中出现正文顺序问题，因此被明确移出桌面路线；这类路线不能因能生成文件就算支持。
+								</td>
+								<td>
+									结构化文档可逐路线扩展；排版保真与 PDF
+									输出需单独引擎/测试。
+								</td>
+							</tr>
+							<tr
+								data-search="电子表格、演示文稿与 OCR XLS、XLSX、ODS、PPT、PPTX；扫描 PDF/图片 → 可搜索文本 现有 Pandoc/MuPDF/ImageMagick/FFmpeg 组合不是完整 Office 或 OCR 引擎。 当前网页没有 XLS/XLSX/ODS/PPT/PPTX 或 OCR 路线。 当前桌面也没有；Rust 测试明确断言 XLSX 没有输出路线。 工作簿包含多工作表、公式、图表和打印区域，不能把 XLSX → CSV 当成保真转换。OCR 还需要语言模型、识别准确度、隐私/包体积和平台分发策略。 需要新增 LibreOffice/专门表格引擎或 Tesseract 等专用组件，并单独做发行审核。"
+							>
+								<th scope="row">电子表格、演示文稿与 OCR</th>
+								<td>
+									XLS、XLSX、ODS、PPT、PPTX；扫描 PDF/图片 →
+									可搜索文本
+								</td>
+								<td>
+									现有 Pandoc/MuPDF/ImageMagick/FFmpeg
+									组合不是完整 Office 或 OCR 引擎。
+								</td>
+								<td>
+									当前网页没有 XLS/XLSX/ODS/PPT/PPTX 或 OCR
+									路线。
+								</td>
+								<td>
+									当前桌面也没有；Rust 测试明确断言 XLSX
+									没有输出路线。
+								</td>
+								<td>
+									工作簿包含多工作表、公式、图表和打印区域，不能把
+									XLSX → CSV 当成保真转换。OCR
+									还需要语言模型、识别准确度、隐私/包体积和平台分发策略。
+								</td>
+								<td>
+									需要新增 LibreOffice/专门表格引擎或
+									Tesseract 等专用组件，并单独做发行审核。
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<details>
+					<summary>
+						网页图片输出中、桌面图片输出中没有的全部名称（143）
+					</summary>
+					<div class="details-content">
+						<p class="small">
+							其中有编码器别名、伪格式和专业格式。它们不应以“名称数量”替代产品支持数量。
+						</p>
+						<div class="difference">
+							<code>.a</code><code>.aai</code><code>.ai</code
+							><code>.art</code><code>.avs</code><code>.b</code
+							><code>.bgr</code><code>.bgra</code
+							><code>.bgro</code><code>.bmp2</code
+							><code>.bmp3</code><code>.brf</code><code>.cal</code
+							><code>.cals</code><code>.cin</code><code>.cip</code
+							><code>.cmyk</code><code>.cmyka</code
+							><code>.cur</code><code>.dcx</code><code>.dds</code
+							><code>.dpx</code><code>.dxt1</code
+							><code>.dxt5</code><code>.epdf</code
+							><code>.epi</code><code>.eps</code><code>.eps2</code
+							><code>.eps3</code><code>.epsf</code
+							><code>.epsi</code><code>.ept</code
+							><code>.ept2</code><code>.ept3</code
+							><code>.exr</code><code>.farbfeld</code
+							><code>.fax</code><code>.ff</code><code>.fit</code
+							><code>.fits</code><code>.fl32</code
+							><code>.fts</code><code>.ftxt</code><code>.g</code
+							><code>.g3</code><code>.g4</code><code>.gif</code
+							><code>.gif87</code><code>.gray</code
+							><code>.graya</code><code>.group4</code
+							><code>.hdr</code><code>.hrz</code><code>.icb</code
+							><code>.ico</code><code>.icon</code
+							><code>.info</code><code>.ipl</code
+							><code>.isobrl</code><code>.isobrl6</code
+							><code>.j2c</code><code>.j2k</code><code>.jfif</code
+							><code>.jng</code><code>.jp2</code><code>.jpc</code
+							><code>.jpm</code><code>.jps</code><code>.jxl</code
+							><code>.map</code><code>.mat</code><code>.miff</code
+							><code>.mng</code><code>.mono</code><code>.mtv</code
+							><code>.o</code><code>.otb</code><code>.pal</code
+							><code>.palm</code><code>.pam</code><code>.pbm</code
+							><code>.pcd</code><code>.pcds</code><code>.pcl</code
+							><code>.pct</code><code>.pcx</code><code>.pdb</code
+							><code>.pfm</code><code>.pgm</code><code>.pgx</code
+							><code>.phm</code><code>.picon</code
+							><code>.pict</code><code>.pjpeg</code
+							><code>.png00</code><code>.png24</code
+							><code>.png32</code><code>.png48</code
+							><code>.png64</code><code>.png8</code
+							><code>.pnm</code><code>.ppm</code><code>.ps</code
+							><code>.ps1</code><code>.ps2</code><code>.ps3</code
+							><code>.psb</code><code>.psd</code><code>.ptif</code
+							><code>.r</code><code>.ras</code><code>.rgb</code
+							><code>.rgba</code><code>.rgbo</code
+							><code>.rgf</code><code>.sgi</code><code>.six</code
+							><code>.sixel</code><code>.sparse-color</code
+							><code>.strimg</code><code>.sun</code
+							><code>.svg</code><code>.svgz</code><code>.tif</code
+							><code>.tiff</code><code>.tiff64</code
+							><code>.ubrl</code><code>.ubrl6</code
+							><code>.uil</code><code>.uyvy</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.wpg</code><code>.xbm</code
+							><code>.xpm</code><code>.xv</code><code>.ycbcr</code
+							><code>.ycbcra</code><code>.yuv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面图片输入中没有的全部名称（112）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.3fr</code><code>.aai</code><code>.ani</code
+							><code>.arw</code><code>.avs</code><code>.bmp2</code
+							><code>.bmp3</code><code>.cin</code><code>.cr2</code
+							><code>.cr3</code><code>.crw</code><code>.cur</code
+							><code>.dcr</code><code>.dcx</code><code>.dds</code
+							><code>.dng</code><code>.dpx</code><code>.dxt1</code
+							><code>.dxt5</code><code>.erf</code><code>.exr</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code><code>.g3</code
+							><code>.gif</code><code>.gif87</code
+							><code>.hdr</code><code>.hrz</code><code>.icb</code
+							><code>.icns</code><code>.ico</code
+							><code>.icon</code><code>.ipl</code><code>.j2c</code
+							><code>.j2k</code><code>.jfif</code><code>.jng</code
+							><code>.jp2</code><code>.jpc</code><code>.jpm</code
+							><code>.jps</code><code>.jxl</code><code>.mat</code
+							><code>.mef</code><code>.miff</code><code>.mng</code
+							><code>.mos</code><code>.mrw</code><code>.mtv</code
+							><code>.nef</code><code>.nrw</code><code>.orf</code
+							><code>.otb</code><code>.palm</code><code>.pam</code
+							><code>.pbm</code><code>.pcd</code><code>.pcds</code
+							><code>.pct</code><code>.pcx</code><code>.pdb</code
+							><code>.pef</code><code>.pfm</code><code>.pgm</code
+							><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png00</code
+							><code>.png24</code><code>.png32</code
+							><code>.png48</code><code>.png64</code
+							><code>.png8</code><code>.pnm</code><code>.ppm</code
+							><code>.psb</code><code>.psd</code><code>.ptif</code
+							><code>.raf</code><code>.ras</code><code>.raw</code
+							><code>.rgf</code><code>.rw2</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sr2</code><code>.srf</code><code>.srw</code
+							><code>.sun</code><code>.svg</code><code>.tif</code
+							><code>.tiff</code><code>.tiff64</code
+							><code>.vda</code><code>.vicar</code
+							><code>.viff</code><code>.vips</code
+							><code>.vst</code><code>.wbmp</code><code>.wpg</code
+							><code>.xbm</code><code>.xcf</code><code>.xpm</code
+							><code>.xv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面媒体输入中没有的全部名称（37）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.3g2</code><code>.3gp</code><code>.aac</code
+							><code>.ac3</code><code>.aifc</code
+							><code>.alac</code><code>.amr</code><code>.au</code
+							><code>.avi</code><code>.caf</code><code>.dff</code
+							><code>.divx</code><code>.dsd</code><code>.dsf</code
+							><code>.f4v</code><code>.flv</code><code>.m2ts</code
+							><code>.m4b</code><code>.m4v</code><code>.mogg</code
+							><code>.mp1</code><code>.mp2</code><code>.mpc</code
+							><code>.mpeg</code><code>.mpg</code><code>.mqa</code
+							><code>.mts</code><code>.mxf</code><code>.ogv</code
+							><code>.rm</code><code>.rmvb</code><code>.ts</code
+							><code>.vob</code><code>.voc</code><code>.weba</code
+							><code>.wma</code><code>.wmv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面文档输入中没有的全部名称（7）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.csv</code><code>.doc</code
+							><code>.docbook</code><code>.json</code
+							><code>.rst</code><code>.rtf</code><code>.tsv</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="components">
+				<h2>上游组件的证据与完整清单</h2>
+				<p>
+					下列“组件能力”不等于产品支持。ImageMagick 和 FFmpeg
+					都是按构建配置加载可选模块；Pandoc 的 PDF writer
+					也不代表打包了 PDF
+					排版引擎。官网清单用于了解上限，本项目归档清单用于追溯一次受控
+					Linux ARM64 引擎探测。
+				</p>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">组件</th>
+								<th scope="col">本项目可追溯证据</th>
+								<th scope="col">正确解释</th>
+								<th scope="col">来源</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">ImageMagick</th>
+								<td>
+									Version: ImageMagick 7.1.1-43 Q16-HDRI
+									aarch64 22550 https://imagemagick.org
+								</td>
+								<td>
+									图片 coder 的读写模式取决于模块/委托库。
+								</td>
+								<td>
+									<a
+										href="https://imagemagick.org/formats/"
+										rel="noopener noreferrer"
+										>官方格式表</a
+									>；<a
+										href="evidence/format-research-20260913/magick-formats.json"
+										>归档 Linux ARM64 清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">FFmpeg</th>
+								<td>归档清单列出 220 个 encoder 名称。</td>
+								<td>
+									容器（muxer/demuxer）、codec（encoder/decoder）和硬件能力必须分别判断。
+								</td>
+								<td>
+									<a
+										href="https://ffmpeg.org/general.html"
+										rel="noopener noreferrer"
+										>官方格式/codec 说明</a
+									>；<a
+										href="evidence/format-research-20260913/ffmpeg-encoders.json"
+										>归档 encoder 清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">Pandoc</th>
+								<td>归档清单：43 个 reader，64 个 writer。</td>
+								<td>
+									结构化转换并不保证页面布局、复杂表格或字体完全保留。
+								</td>
+								<td>
+									<a
+										href="https://pandoc.org/MANUAL.html"
+										rel="noopener noreferrer"
+										>Pandoc 手册</a
+									>；<a
+										href="evidence/format-research-20260913/pandoc-inputs.json"
+										>归档输入清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">MuPDF</th>
+								<td>桌面产品只把它用于 PDF 渲染。</td>
+								<td>
+									官方列出的输入包括
+									PDF、EPUB、常见图片、SVG、CBZ、XPS；输出包括
+									PDF、文本、HTML、PostScript、PNG、SVG、PNM/PAM。
+								</td>
+								<td>
+									<a
+										href="https://mupdf.com/"
+										rel="noopener noreferrer"
+										>MuPDF 官方文档</a
+									>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<details>
+					<summary>
+						ImageMagick 归档构建的格式清单（39 条 coder 行）
+					</summary>
+					<div class="details-content">
+						<p class="small">
+							这是 2026-09-13 归档的 Linux ARM64
+							引擎发现结果，非所有平台发布包的保证。<code>r</code>
+							表示可读，<code>w</code> 表示可写，<code>+</code>
+							表示多图像支持。
+						</p>
+						<div class="table-wrap engine-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Tag</th>
+										<th scope="col">模块</th>
+										<th scope="col">模式</th>
+										<th scope="col">描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><code>AVCI</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>---</code></td>
+										<td>AVC Image File Format (1.17.6)</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>AVIF</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>AV1 Image File Format (1.17.6)</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>CANVAS*</code>
+										</th>
+										<td><code>XC</code></td>
+										<td><code>r--</code></td>
+										<td>Constant image uniform color</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>FRACTAL*</code>
+										</th>
+										<td><code>PLASMA</code></td>
+										<td><code>r--</code></td>
+										<td>Plasma fractal image</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>GRADIENT*</code>
+										</th>
+										<td><code>GRADIENT</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Gradual linear passing from one
+											shade to another
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>HEIC</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											High Efficiency Image Format
+											(1.17.6)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>HEIF</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											High Efficiency Image Format
+											(1.17.6)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>INFO</code></th>
+										<td><code>INFO</code></td>
+										<td><code>-w+</code></td>
+										<td>
+											The image format and characteristics
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>JPEG Network Graphics</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPE*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPEG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPS*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>MNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Multiple-image Network Graphics
+											(libpng 1.6.43)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>MPO*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>NULL*</code></th>
+										<td><code>NULL</code></td>
+										<td><code>rw-</code></td>
+										<td>Constant image of uniform color</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PAM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Common 2-dimensional bitmap format
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PBM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Portable bitmap format (black and
+											white)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PFM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable float format</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PGM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Portable graymap format (gray scale)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PHM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable half float format</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PJPEG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>PLASMA*</code>
+										</th>
+										<td><code>PLASMA</code></td>
+										<td><code>r--</code></td>
+										<td>Plasma fractal image</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Portable Network Graphics (libpng
+											1.6.43)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG00*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											PNG inheriting bit-depth, color-type
+											from original, if possible
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG24*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or binary transparent 24-bit
+											RGB
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG32*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or transparent 32-bit RGBA
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG48*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or binary transparent 48-bit
+											RGB
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG64*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or transparent 64-bit RGBA
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG8*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											8-bit indexed with optional binary
+											transparency
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable anymap</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PPM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable pixmap format (color)</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>RADIAL-GRADIENT*</code>
+										</th>
+										<td><code>GRADIENT</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Gradual radial passing from one
+											shade to another
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGB*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, and blue samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>RGB565*</code>
+										</th>
+										<td><code>RGB</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Raw red, green, blue samples in 565
+											format
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGBA*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, blue, and alpha
+											samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGBO*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, blue, and opacity
+											samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>WEBP*</code></th>
+										<td><code>WEBP</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											WebP Image Format (libwebp 1.3.2
+											[020F])
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>XC*</code></th>
+										<td><code>XC</code></td>
+										<td><code>r--</code></td>
+										<td>Constant image uniform color</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>FFmpeg 归档构建的 encoder 名称（220）</summary>
+					<div class="details-content">
+						<p class="small">
+							这是
+							encoder，不是“文件扩展名列表”，也不是所有可输入容器。实际产品仍需决定
+							muxer、codec、流选择与参数。
+						</p>
+						<div class="pills">
+							<code>=</code><code>=</code><code>=</code
+							><code>a64multi</code><code>a64multi5</code
+							><code>alias_pix</code><code>amv</code
+							><code>apng</code><code>asv1</code><code>asv2</code
+							><code>libaom-av1</code><code>librav1e</code
+							><code>libsvtav1</code><code>av1_nvenc</code
+							><code>av1_vaapi</code><code>avrp</code
+							><code>avui</code><code>ayuv</code
+							><code>bitpacked</code><code>bmp</code
+							><code>cfhd</code><code>cinepak</code
+							><code>cljr</code><code>vc2</code><code>dnxhd</code
+							><code>dpx</code><code>dvvideo</code><code>exr</code
+							><code>ffv1</code><code>ffvhuff</code
+							><code>fits</code><code>flashsv</code
+							><code>flashsv2</code><code>flv</code
+							><code>gif</code><code>h261</code><code>h263</code
+							><code>h263_v4l2m2m</code><code>h263p</code
+							><code>libx264</code><code>libx264rgb</code
+							><code>h264_nvenc</code><code>h264_v4l2m2m</code
+							><code>h264_vaapi</code><code>hap</code
+							><code>hdr</code><code>libx265</code
+							><code>hevc_nvenc</code><code>hevc_v4l2m2m</code
+							><code>hevc_vaapi</code><code>huffyuv</code
+							><code>jpeg2000</code><code>libopenjpeg</code
+							><code>jpegls</code><code>libjxl</code
+							><code>ljpeg</code><code>magicyuv</code
+							><code>mjpeg</code><code>mjpeg_vaapi</code
+							><code>mpeg1video</code><code>mpeg2video</code
+							><code>mpeg2_vaapi</code><code>mpeg4</code
+							><code>libxvid</code><code>mpeg4_v4l2m2m</code
+							><code>msmpeg4v2</code><code>msmpeg4</code
+							><code>msrle</code><code>msvideo1</code
+							><code>pam</code><code>pbm</code><code>pcx</code
+							><code>pfm</code><code>pgm</code><code>pgmyuv</code
+							><code>phm</code><code>png</code><code>ppm</code
+							><code>prores</code><code>prores_aw</code
+							><code>prores_ks</code><code>qoi</code
+							><code>qtrle</code><code>r10k</code><code>r210</code
+							><code>rawvideo</code><code>roqvideo</code
+							><code>rpza</code><code>rv10</code><code>rv20</code
+							><code>sgi</code><code>smc</code><code>snow</code
+							><code>speedhq</code><code>sunrast</code
+							><code>svq1</code><code>targa</code
+							><code>libtheora</code><code>tiff</code
+							><code>utvideo</code><code>v210</code
+							><code>v308</code><code>v408</code><code>v410</code
+							><code>vbn</code><code>vnull</code
+							><code>libvpx</code><code>vp8_v4l2m2m</code
+							><code>vp8_vaapi</code><code>libvpx-vp9</code
+							><code>vp9_vaapi</code><code>wbmp</code
+							><code>libwebp_anim</code><code>libwebp</code
+							><code>wmv1</code><code>wmv2</code
+							><code>wrapped_avframe</code><code>xbm</code
+							><code>xface</code><code>xwd</code><code>y41p</code
+							><code>yuv4</code><code>zlib</code><code>zmbv</code
+							><code>aac</code><code>ac3</code
+							><code>ac3_fixed</code><code>adpcm_adx</code
+							><code>adpcm_argo</code><code>g722</code
+							><code>g726</code><code>g726le</code
+							><code>adpcm_ima_alp</code><code>adpcm_ima_amv</code
+							><code>adpcm_ima_apm</code><code>adpcm_ima_qt</code
+							><code>adpcm_ima_ssi</code><code>adpcm_ima_wav</code
+							><code>adpcm_ima_ws</code><code>adpcm_ms</code
+							><code>adpcm_swf</code><code>adpcm_yamaha</code
+							><code>alac</code><code>anull</code><code>aptx</code
+							><code>aptx_hd</code><code>libcodec2</code
+							><code>comfortnoise</code><code>dfpwm</code
+							><code>dca</code><code>eac3</code><code>flac</code
+							><code>g723_1</code><code>libgsm</code
+							><code>libgsm_ms</code><code>mlp</code
+							><code>mp2</code><code>mp2fixed</code
+							><code>libtwolame</code><code>libmp3lame</code
+							><code>libshine</code><code>nellymoser</code
+							><code>opus</code><code>libopus</code
+							><code>pcm_alaw</code><code>pcm_bluray</code
+							><code>pcm_dvd</code><code>pcm_f32be</code
+							><code>pcm_f32le</code><code>pcm_f64be</code
+							><code>pcm_f64le</code><code>pcm_mulaw</code
+							><code>pcm_s16be</code><code>pcm_s16be_planar</code
+							><code>pcm_s16le</code><code>pcm_s16le_planar</code
+							><code>pcm_s24be</code><code>pcm_s24daud</code
+							><code>pcm_s24le</code><code>pcm_s24le_planar</code
+							><code>pcm_s32be</code><code>pcm_s32le</code
+							><code>pcm_s32le_planar</code><code>pcm_s64be</code
+							><code>pcm_s64le</code><code>pcm_s8</code
+							><code>pcm_s8_planar</code><code>pcm_u16be</code
+							><code>pcm_u16le</code><code>pcm_u24be</code
+							><code>pcm_u24le</code><code>pcm_u32be</code
+							><code>pcm_u32le</code><code>pcm_u8</code
+							><code>pcm_vidc</code><code>real_144</code
+							><code>roq_dpcm</code><code>s302m</code
+							><code>sbc</code><code>sonic</code
+							><code>sonicls</code><code>libspeex</code
+							><code>truehd</code><code>tta</code
+							><code>vorbis</code><code>libvorbis</code
+							><code>wavpack</code><code>wmav1</code
+							><code>wmav2</code><code>ssa</code><code>ass</code
+							><code>dvbsub</code><code>dvdsub</code
+							><code>mov_text</code><code>srt</code
+							><code>subrip</code><code>text</code
+							><code>ttml</code><code>webvtt</code
+							><code>xsub</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>Pandoc 归档 reader / writer 名称</summary>
+					<div class="details-content">
+						<h3>Reader（43）</h3>
+						<div class="pills">
+							<code>biblatex</code><code>bibtex</code
+							><code>commonmark</code><code>commonmark_x</code
+							><code>creole</code><code>csljson</code
+							><code>csv</code><code>docbook</code
+							><code>docx</code><code>dokuwiki</code
+							><code>endnotexml</code><code>epub</code
+							><code>fb2</code><code>gfm</code><code>haddock</code
+							><code>html</code><code>ipynb</code><code>jats</code
+							><code>jira</code><code>json</code><code>latex</code
+							><code>man</code><code>markdown</code
+							><code>markdown_github</code
+							><code>markdown_mmd</code
+							><code>markdown_phpextra</code
+							><code>markdown_strict</code><code>mediawiki</code
+							><code>muse</code><code>native</code><code>odt</code
+							><code>opml</code><code>org</code><code>ris</code
+							><code>rst</code><code>rtf</code><code>t2t</code
+							><code>textile</code><code>tikiwiki</code
+							><code>tsv</code><code>twiki</code><code>typst</code
+							><code>vimwiki</code>
+						</div>
+						<h3>Writer（64）</h3>
+						<div class="pills">
+							<code>asciidoc</code><code>asciidoctor</code
+							><code>beamer</code><code>biblatex</code
+							><code>bibtex</code><code>chunkedhtml</code
+							><code>commonmark</code><code>commonmark_x</code
+							><code>context</code><code>csljson</code
+							><code>docbook</code><code>docbook4</code
+							><code>docbook5</code><code>docx</code
+							><code>dokuwiki</code><code>dzslides</code
+							><code>epub</code><code>epub2</code
+							><code>epub3</code><code>fb2</code><code>gfm</code
+							><code>haddock</code><code>html</code
+							><code>html4</code><code>html5</code
+							><code>icml</code><code>ipynb</code><code>jats</code
+							><code>jats_archiving</code
+							><code>jats_articleauthoring</code
+							><code>jats_publishing</code><code>jira</code
+							><code>json</code><code>latex</code><code>man</code
+							><code>markdown</code><code>markdown_github</code
+							><code>markdown_mmd</code
+							><code>markdown_phpextra</code
+							><code>markdown_strict</code><code>markua</code
+							><code>mediawiki</code><code>ms</code
+							><code>muse</code><code>native</code><code>odt</code
+							><code>opendocument</code><code>opml</code
+							><code>org</code><code>pdf</code><code>plain</code
+							><code>pptx</code><code>revealjs</code
+							><code>rst</code><code>rtf</code><code>s5</code
+							><code>slideous</code><code>slidy</code
+							><code>tei</code><code>texinfo</code
+							><code>textile</code><code>typst</code
+							><code>xwiki</code><code>zimwiki</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="method">
+				<h2>判定方法和报告限制</h2>
+				<ol>
+					<li>
+						<strong>先看产品路线。</strong
+						>桌面以统一范围文件为准；网页以各个转换器的
+						<code>FormatInfo</code>
+						为准。两者都不是“按照扩展名盲猜引擎”。
+					</li>
+					<li>
+						<strong>再看引擎可用性。</strong>ImageMagick 的
+						coder、FFmpeg 的 muxer/demuxer/codec、Pandoc 的
+						reader/writer 以及附属动态库都可能按平台不同。
+					</li>
+					<li>
+						<strong>最后看真实验收。</strong
+						>新增路线至少应验证真实文件头/容器、重新解码、像素或音频语义、取消、磁盘不足、保存失败与各系统/架构的最终包。退出码为零或生成同名文件不够。
+					</li>
+				</ol>
+				<div class="callout warning">
+					<strong>不要把“格式数”当成能力指标</strong
+					>JPG/JPEG、TIF/TIFF、AIF/AIFF 是别名；ImageMagick
+					的伪格式也不是用户可上传文件；FFmpeg 的一个容器可装多种
+					codec。报告把这些列出来是为了可追溯，不把它们夸大成独立用户功能。
+				</div>
+			</section>
+
+			<footer>
+				<p>
+					源码依据：<a href="../../packaging/desktop/v1-scope.json"
+						>桌面产品范围</a
+					>
+					·
+					<a href="../../src-tauri/native/src/formats.rs"
+						>Rust 路由读取范围</a
+					>
+					·
+					<a href="../../src-tauri/native/src/convert.rs"
+						>桌面转换实现与输出枚举</a
+					>
+					·
+					<a href="../../desktop/src/platform/queue-contract.ts"
+						>桌面前端契约</a
+					>
+					·
+					<a href="../../src/lib/converters/magick.svelte.ts"
+						>网页图像转换器</a
+					>
+					·
+					<a href="../../src/lib/converters/ffmpeg.svelte.ts"
+						>网页媒体转换器</a
+					>
+					·
+					<a href="../../src/lib/converters/pandoc.svelte.ts"
+						>网页文档转换器</a
+					>
+					·
+					<a href="../../src/lib/util/pdf-options.ts"
+						>网页 PDF 23 输出</a
+					>
+					·
+					<a href="FORMAT_EXPANSION_RESEARCH.md">已有原生格式调研</a>
+					· <a href="FORMAT_EXPANSION_PHASE3B.md">桌面音频扩展验收</a>
+				</p>
+				<p>
+					生成命令：<code
+						>node scripts/generate-format-support-report.mjs</code
+					>。该报告为离线
+					HTML，不会读取用户文件或发起网络请求；外部链接只在用户主动打开时访问。
+				</p>
+			</footer>
+		</main>
+		<script>
+			for (const input of document.querySelectorAll("[data-filter]")) {
+				const table = document.querySelector(input.dataset.filter);
+				if (!table) continue;
+				input.addEventListener("input", () => {
+					const query = input.value.trim().toLowerCase();
+					for (const row of table.querySelectorAll("tbody tr")) {
+						row.hidden =
+							Boolean(query) &&
+							!row.textContent.toLowerCase().includes(query);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
