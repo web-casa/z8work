@@ -1,0 +1,68 @@
+{
+  "clearing": false,
+  "closing": false,
+  "schema": 3,
+  "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/active-output",
+  "persistence_error": null,
+  "tasks": [
+    {
+      "bytes": 21235523,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif",
+        "bmp",
+        "tga",
+        "qoi"
+      ],
+      "phase": "cancelled",
+      "name": "active.png",
+      "error": "Cancelled",
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "avif",
+      "id": "1516dd48-c56b-4cf7-bec9-4adcee32f73a"
+    },
+    {
+      "bytes": 119,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif",
+        "bmp",
+        "tga",
+        "qoi"
+      ],
+      "phase": "cancelled",
+      "name": "queued.png",
+      "error": null,
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "webp",
+      "id": "a36cef56-3bbe-41b3-9cc8-4fbe5f603583"
+    }
+  ],
+  "output_authorized": false,
+  "revision": 110,
+  "epoch": "04486a8c-ddfb-472d-8589-8bc9a889aa06",
+  "processing": false,
+  "import_report": null,
+  "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+  "failures": {
+    "1516dd48-c56b-4cf7-bec9-4adcee32f73a": "cancelled"
+  }
+}

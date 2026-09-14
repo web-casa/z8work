@@ -48,3 +48,6 @@ docs/desktop/evidence/linux-skip-20260914/** -whitespace
 
 # Preserve active queue clearing evidence.
 docs/desktop/evidence/linux-clear-20260914/** -whitespace
+
+# Preserve unsaved-result clearing evidence.
+docs/desktop/evidence/linux-clear-unsaved-20260914/** -whitespace

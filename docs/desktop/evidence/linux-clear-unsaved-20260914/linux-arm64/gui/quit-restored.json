@@ -1,0 +1,43 @@
+{
+  "clearing": false,
+  "closing": false,
+  "schema": 3,
+  "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/quit-collisions",
+  "persistence_error": null,
+  "tasks": [
+    {
+      "bytes": 119,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif",
+        "bmp",
+        "tga",
+        "qoi"
+      ],
+      "phase": "interrupted",
+      "name": "quit-probe.png",
+      "error": "Saved result expired or unavailable; convert again",
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "webp",
+      "id": "080d32c4-499a-41bf-83c0-277f6b4d132e"
+    }
+  ],
+  "output_authorized": false,
+  "revision": 121,
+  "epoch": "c04d2f57-ffec-4448-86d0-30033170109b",
+  "processing": false,
+  "import_report": null,
+  "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+  "failures": {
+    "080d32c4-499a-41bf-83c0-277f6b4d132e": "cache_expired"
+  }
+}

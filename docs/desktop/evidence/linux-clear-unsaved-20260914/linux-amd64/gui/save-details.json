@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "sourceUnavailableDuringSave": true,
+  "originalRestored": true,
+  "cacheRemovedAfterSave": true,
+  "collisionsPreserved": 1000,
+  "attemptBefore": 1,
+  "attemptAfter": 2,
+  "output": {
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

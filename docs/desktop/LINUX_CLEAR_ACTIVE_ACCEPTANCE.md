@@ -48,3 +48,5 @@ gh workflow run desktop-builds.yml --ref fix/windows-pdf-path -f target=linux-gu
 ## 边界
 
 含 SIGSTOP 故障注入，覆盖一项活动 AVIF 加一项排队 WebP。不是自然编码时序性能、大批次、等待保存结果时清空、单项移除、升级、Wayland、Snap strict、其他系统 GUI 或商店审核验收；R6 剩余缺项继续单列。
+
+后续：[等待保存时清空验收](LINUX_CLEAR_UNSAVED_ACCEPTANCE.md)补齐单项 WebP 暂存清理，并将当前门禁扩展为二十六项。本页二十四项报告保留为历史证据。
