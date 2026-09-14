@@ -1,3 +1,4 @@
+import { checkPackagedClearActive } from "./desktop-packaged-clear-active.mjs";
 import { checkPackagedCancelQueued } from "./desktop-packaged-cancel-queued.mjs";
 import { checkPackagedCancelAll } from "./desktop-packaged-cancel-all.mjs";
 import { checkPackagedCancelCurrent } from "./desktop-packaged-cancel-current.mjs";
@@ -22,6 +23,12 @@ import {
 	signalEncoder,
 } from "./desktop-linux-process.mjs";
 const execute = promisify(execFile);
+const activeChecks = {
+	"cancel-current": checkPackagedCancelCurrent,
+	"cancel-all": checkPackagedCancelAll,
+	"cancel-queued": checkPackagedCancelQueued,
+	"clear-active": checkPackagedClearActive,
+};
 export async function checkPackagedActiveQuit({
 	action = "quit",
 	root,
@@ -37,11 +44,7 @@ export async function checkPackagedActiveQuit({
 	open,
 	close,
 }) {
-	assert.ok(
-		["quit", "cancel-current", "cancel-all", "cancel-queued"].includes(
-			action,
-		),
-	);
+	assert.ok(action === "quit" || Object.hasOwn(activeChecks, action));
 	await change(".language select", "en");
 	await until(
 		async () =>
@@ -179,12 +182,10 @@ export async function checkPackagedActiveQuit({
 		assert.equal(running.tasks[0].id, task.id);
 		assertQueued(running, "queued");
 		if (action !== "quit") {
-			const checkCancel = {
-				"cancel-current": checkPackagedCancelCurrent,
-				"cancel-all": checkPackagedCancelAll,
-				"cancel-queued": checkPackagedCancelQueued,
-			}[action];
+			const checkCancel = activeChecks[action];
 			await checkCancel({
+				choose,
+				change,
 				executable,
 				magick,
 				prefix,
