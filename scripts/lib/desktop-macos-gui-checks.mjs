@@ -57,7 +57,10 @@ export async function checkMacGui({
 	const choose = async (label, path) => {
 		await openPicker(label);
 		key("go");
-		await delay(500);
+		await until(
+			() => flat(tree()).some((n) => n.AXIdentifier === "PathTextField"),
+			"Go-to-path field did not open",
+		);
 		await record("picker-go.json", tree());
 		run(helper, [
 			"set-text",
@@ -78,8 +81,14 @@ export async function checkMacGui({
 		await delay(500);
 		await record("picker-typed.json", tree());
 		key("return");
-		await delay(700);
-		key("return");
+		await until(() => {
+			const nodes = flat(tree());
+			return (
+				!nodes.some((n) => n.AXIdentifier === "GoToWindow") &&
+				nodes.some((n) => n.AXIdentifier === "OKButton" && n.AXEnabled)
+			);
+		}, "Native picker confirmation did not become ready");
+		press("OKButton");
 		await until(() => !has(tree(), "Cancel"), "Picker did not close");
 	};
 	assert.ok(has(tree(), "Start with a few small files"));
