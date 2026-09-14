@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 export const macGuiChecks = Object.freeze([
 	"fixed-dmg-hash",
+	"stapled-dmg-gatekeeper-before-install",
 	"installed-application-signature-and-gatekeeper",
 	"launchservices-from-applications",
 	"native-input-picker-cancel-keeps-empty-workspace",

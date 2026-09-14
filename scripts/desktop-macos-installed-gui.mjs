@@ -58,6 +58,7 @@ const hash = async (p) => {
 };
 const dmg = resolve(".desktop-local/mac-installed-input", pin.file),
 	mount = join(root, "mount");
+let launchAttempted = false;
 let mounted = false,
 	installed = false,
 	pid,
@@ -66,6 +67,19 @@ try {
 	report.artifact = await hash(dmg);
 	assert.equal(report.artifact.sha256, pin.sha256);
 	report.checks.push("fixed-dmg-hash");
+	// Assess the distributed container before extracting, as in the signing verifier.
+	const ticket = run("xcrun", ["stapler", "validate", dmg]);
+	run("spctl", [
+		"--assess",
+		"--type",
+		"open",
+		"--context",
+		"context:primary-signature",
+		"--verbose=4",
+		dmg,
+	]);
+	await writeFile(join(root, "dmg-ticket.txt"), ticket);
+	report.checks.push("stapled-dmg-gatekeeper-before-install");
 	run("xcrun", [
 		"swiftc",
 		"scripts/lib/desktop-macos-accessibility.swift",
@@ -102,6 +116,7 @@ try {
 	report.checks.push("installed-application-signature-and-gatekeeper");
 	run("hdiutil", ["detach", mount]);
 	mounted = false;
+	launchAttempted = true;
 	const launched = JSON.parse(run(helper, ["launch", app]));
 	pid = launched.pid;
 	assert.equal(launched.bundle, app);
@@ -176,7 +191,7 @@ try {
 			process.exitCode = 1;
 		}
 	}
-	if (installed && report.exit === "terminated") {
+	if (installed && (!launchAttempted || report.exit === "terminated")) {
 		try {
 			await rm(app, { recursive: true });
 			report.uninstall = "removed-test-copy";

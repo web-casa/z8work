@@ -34,6 +34,7 @@ jobs:
                   name: ${{ matrix.id }}-installed-gui-reports
                   path: |
                       .desktop-local/mac-installed-report/*.json
+                      .desktop-local/mac-installed-report/*.txt
                       .desktop-local/mac-installed-report/*.png
                       .desktop-local/mac-installed-report/*.webp
                   include-hidden-files: true
