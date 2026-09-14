@@ -1,0 +1,34 @@
+{
+  "toolFiles": {
+    "scripts/desktop-deb-installed.mjs": {
+      "sha256": "328167e5d613aa52de54b09fb6aa5bdb713df36d5d8174096a3757fd263a4153",
+      "bytes": 3277
+    },
+    "scripts/desktop-deb-container.py": {
+      "sha256": "5f16860a25ef8d1a7774bfeb537b4854f09b09b192b78e26c60634ff232642d8",
+      "bytes": 6203
+    },
+    "scripts/lib/desktop-deb-installed.mjs": {
+      "sha256": "7795dc00b73392d9c9138bb8e35b5acdc807b1efc4e84fad2f6f2c924ba73ea7",
+      "bytes": 3470
+    }
+  },
+  "worktreeDirty": false,
+  "source": {
+    "id": "linux-arm64",
+    "runner": "ubuntu-24.04-arm",
+    "os": "linux",
+    "arch": "arm64",
+    "target": "aarch64-unknown-linux-gnu",
+    "run": "34769213214",
+    "artifact": "linux-arm64-complete-preview",
+    "file": "z8-work_0.1.0~preview1_arm64.deb",
+    "sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f"
+  },
+  "artifact": {
+    "sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f",
+    "bytes": 126862672
+  },
+  "image": "ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517",
+  "toolCommit": "008db9dc5ee839e57344210b86df6f810c1055f2"
+}

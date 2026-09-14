@@ -18,3 +18,6 @@ docs/desktop/evidence/macos-developer-id-20260913/** -whitespace
 
 # Keep cross-platform delivery reports and original failed-attempt logs intact.
 docs/desktop/evidence/format-delivery-20260914/** -whitespace
+
+# Preserve original installed-package test logs.
+docs/desktop/evidence/linux-installed-20260914/** -whitespace
