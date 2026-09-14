@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[保存恢复验收](LINUX_SAVE_RECOVERY_ACCEPTANCE.md)，把既有开发环境的暂停编码进程方法接入最终 deb 的原生 GUI 回归。本轮不修改应用、引擎、安装包或发行版本。
 
+后续[排队任务退出验收](LINUX_QUEUED_QUIT_ACCEPTANCE.md)扩展到一个活动任务加一个排队任务，门禁改为十六组；本页保留当时单项任务的历史范围。
+
 ## 范围与方法
 
 以固定哈希的完整 deb 运行，复用现有 portal、WebKit 驱动和 `desktop-quit-window.py`。输入由随包 ImageMagick 在隔离目录生成，为 2048 × 2048 的合成 PNG；通过可见控件导入并选择 AVIF，再点击转换按钮。
