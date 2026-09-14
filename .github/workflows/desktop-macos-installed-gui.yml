@@ -1,0 +1,40 @@
+name: Installed macOS GUI acceptance
+on:
+    workflow_call:
+permissions:
+    contents: read
+    actions: read
+jobs:
+    gui:
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - id: macos-arm64
+                      runner: macos-15
+                    - id: macos-amd64
+                      runner: macos-15-intel
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: "34769210630"
+                  name: ${{ matrix.id }}-signed-notarized
+                  path: .desktop-local/mac-installed-input
+            - run: node scripts/desktop-macos-installed-gui.mjs ${{ matrix.id }}
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-installed-gui-reports
+                  path: |
+                      .desktop-local/mac-installed-report/*.json
+                      .desktop-local/mac-installed-report/*.png
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 30

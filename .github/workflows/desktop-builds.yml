@@ -25,6 +25,7 @@ on:
                         windows-amd64,
                         macos,
                         macos-signed,
+                        macos-gui,
                         macos-arm64,
                         macos-amd64,
                         linux,
@@ -221,7 +222,7 @@ jobs:
             source_run: ${{ inputs.source_run }}
 
     complete-previews:
-        if: ${{ inputs.target != 'macos-signed' && inputs.target != 'linux-installed' && inputs.target != 'linux-gui' && (startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') || inputs.target == 'windows-arm64') }}
+        if: ${{ inputs.target != 'macos-gui' && inputs.target != 'macos-signed' && inputs.target != 'linux-installed' && inputs.target != 'linux-gui' && (startsWith(inputs.target, 'macos') || startsWith(inputs.target, 'linux') || inputs.target == 'windows-arm64') }}
         uses: ./.github/workflows/desktop-preview-packages.yml
         with:
             target: ${{ inputs.target }}
@@ -244,3 +245,7 @@ jobs:
     linux-gui:
         if: inputs.target == 'linux-gui'
         uses: ./.github/workflows/desktop-installed-gui.yml
+
+    macos-gui:
+        if: inputs.target == 'macos-gui'
+        uses: ./.github/workflows/desktop-macos-installed-gui.yml
