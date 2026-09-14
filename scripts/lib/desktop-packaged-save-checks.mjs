@@ -1,3 +1,4 @@
+import { checkPackagedClearUnsaved } from "./desktop-packaged-clear-unsaved.mjs";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import {
@@ -205,4 +206,20 @@ export async function checkPackagedSave({
 			2,
 		) + "\n",
 	);
+	await checkPackagedClearUnsaved({
+		root,
+		output,
+		input,
+		original,
+		collisions,
+		invoke,
+		js,
+		change,
+		choose,
+		until,
+		screenshot,
+		checks,
+		windows,
+		xdotool,
+	});
 }

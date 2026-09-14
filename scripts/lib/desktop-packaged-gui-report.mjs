@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 export const packagedGuiChecks = Object.freeze([
+	"keyboard-clear-unsaved-discards-cache-keeps-original-and-existing-results",
+	"clear-unsaved-new-task-converts-without-restart-or-restored-cache",
 	"keyboard-clear-active-removes-running-and-queued-without-deleting-files",
 	"clear-active-workspace-accepts-new-conversion-without-restart",
 	"keyboard-cancel-queued-leaves-active-encoder-and-task-running",
