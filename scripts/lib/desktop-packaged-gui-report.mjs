@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 export const packagedGuiChecks = Object.freeze([
+	"keyboard-remove-current-reaps-encoder-removes-record-and-queued-task-saves",
+	"remove-current-keeps-batch-originals-and-decodable-next-output",
 	"keyboard-remove-one-unsaved-releases-only-selected-cache",
 	"remove-one-unsaved-other-result-saves-without-source-or-reencoding",
 	"keyboard-clear-unsaved-discards-cache-keeps-original-and-existing-results",

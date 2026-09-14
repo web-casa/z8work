@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { sameProcess } from "./desktop-linux-process.mjs";
 
 export async function checkPackagedCancelCurrent({
+	action = "cancel-current",
 	root,
 	output,
 	input,
@@ -24,13 +25,18 @@ export async function checkPackagedCancelCurrent({
 	xdotool,
 	main,
 }) {
+	assert.ok(["cancel-current", "remove-current"].includes(action));
+	const removing = action === "remove-current";
 	const existing = new Map();
 	for (const name of await readdir(output))
 		existing.set(name, await readFile(join(output, name)));
-	// Resolve the actual row action by its visible label; never send cancel IPC.
+	// Resolve the actual row action by its visible label; never send mutation IPC.
 	await js(
-		'const row=document.querySelector(arguments[0]);const button=[...row.querySelectorAll("button")].find(b=>b.textContent.trim()==="Cancel task");if(!button||button.disabled)throw new Error("Cancel task unavailable");button.focus()',
-		[`[data-task-id="${task.id}"]`],
+		'const row=document.querySelector(arguments[0]);const button=[...row.querySelectorAll("button")].find(b=>b.textContent.trim()===arguments[1]);if(!button||button.disabled)throw new Error("Task action unavailable");button.focus()',
+		[
+			`[data-task-id="${task.id}"]`,
+			removing ? "Remove task" : "Cancel task",
+		],
 	);
 	await xdotool("windowfocus", main);
 	await xdotool("key", "Return");
@@ -41,22 +47,30 @@ export async function checkPackagedCancelCurrent({
 			if (next?.phase === "failed") throw new Error(next.error);
 			return !state.processing && next?.phase === "saved" && state;
 		},
-		"Cancelling current task did not let queued task save",
+		"Current task action did not let queued task save",
 		30000,
 	);
-	assert.equal(completed.tasks.length, 2);
+	assert.equal(completed.tasks.length, removing ? 1 : 2);
 	const cancelled = completed.tasks.find((t) => t.id === task.id),
 		saved = completed.tasks.find((t) => t.id === queued.id);
-	assert.equal(cancelled.phase, "cancelled");
-	assert.equal(cancelled.attempt, 1);
-	assert.equal(cancelled.result, null);
+	if (removing) {
+		assert.equal(cancelled, undefined);
+		assert.equal(completed.epoch, running.epoch);
+		assert.equal(completed.clearing, false);
+		assert.equal(completed.output, output);
+		assert.equal(completed.output_authorized, true);
+	} else {
+		assert.equal(cancelled.phase, "cancelled");
+		assert.equal(cancelled.attempt, 1);
+		assert.equal(cancelled.result, null);
+	}
 	assert.equal(saved.attempt, 1);
 	assert.equal(completed.closing, false);
-	assert.ok(await sameProcess(app), "App exited on task cancellation");
+	assert.ok(await sameProcess(app), "App exited on task action");
 	for (const child of held)
 		await until(
 			async () => !(await sameProcess(child)),
-			"Cancelled encoder survived",
+			"Stopped encoder survived",
 			10000,
 		);
 	assert.equal(dirname(saved.result.path), output);
@@ -85,28 +99,36 @@ export async function checkPackagedCancelCurrent({
 	assert.deepEqual(await readFile(input), original);
 	assert.deepEqual(await readFile(queuedInput), queuedOriginal);
 	await screenshot(
-		"cancel-current-saved.png",
+		`${action}-saved.png`,
 		`[data-task-id="${queued.id}"] .saved-path`,
 	);
-	checks.push("keyboard-cancel-current-reaps-encoder-and-queued-task-saves");
+	checks.push(
+		removing
+			? "keyboard-remove-current-reaps-encoder-removes-record-and-queued-task-saves"
+			: "keyboard-cancel-current-reaps-encoder-and-queued-task-saves",
+	);
 	await js('document.querySelector(".toolbar .danger").click()');
 	await until(
 		async () => (await invoke("queue_snapshot")).tasks.length === 0,
-		"Cancel scenario did not clear",
+		"Task action scenario did not clear",
 	);
 	assert.deepEqual(await readFile(saved.result.path), bytes);
 	assert.deepEqual(await readFile(input), original);
 	assert.deepEqual(await readFile(queuedInput), queuedOriginal);
 	checks.push(
-		"cancel-current-keeps-originals-existing-results-and-decodable-next-output",
+		removing
+			? "remove-current-keeps-batch-originals-and-decodable-next-output"
+			: "cancel-current-keeps-originals-existing-results-and-decodable-next-output",
 	);
 	await writeFile(
-		join(root, "cancel-current-details.json"),
+		join(root, `${action}-details.json`),
 		JSON.stringify(
 			{
 				schema: 1,
 				faultInjection: "SIGSTOP on observed app-owned AVIF encoder",
-				beforeCancel: running,
+				...(removing
+					? { beforeRemoval: running }
+					: { beforeCancel: running }),
 				afterCompletion: completed,
 				observedEncoders: held,
 				appRemainedOpen: true,

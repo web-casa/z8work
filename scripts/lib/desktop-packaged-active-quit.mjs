@@ -25,6 +25,7 @@ import {
 const execute = promisify(execFile);
 const activeChecks = {
 	"cancel-current": checkPackagedCancelCurrent,
+	"remove-current": checkPackagedCancelCurrent,
 	"cancel-all": checkPackagedCancelAll,
 	"cancel-queued": checkPackagedCancelQueued,
 	"clear-active": checkPackagedClearActive,
@@ -182,8 +183,9 @@ export async function checkPackagedActiveQuit({
 		assert.equal(running.tasks[0].id, task.id);
 		assertQueued(running, "queued");
 		if (action !== "quit") {
-			const checkCancel = activeChecks[action];
-			await checkCancel({
+			const checkAction = activeChecks[action];
+			await checkAction({
+				action,
 				choose,
 				change,
 				executable,
