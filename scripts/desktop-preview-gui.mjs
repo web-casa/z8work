@@ -778,6 +778,22 @@ try {
 		}
 	}
 	passed = true;
+} catch (error) {
+	// Persist the primary failure before process cleanup; outer supervisors may
+	// terminate the process tree before an uncaught exception reaches stderr.
+	await writeFile(
+		join(root, "failure.json"),
+		JSON.stringify(
+			{
+				message: String(error.message ?? error),
+				stack: error.stack,
+				stderr: error.stderr?.toString().slice(-16000),
+			},
+			null,
+			2,
+		) + "\n",
+	);
+	throw error;
 } finally {
 	if (!passed) {
 		try {
