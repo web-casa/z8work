@@ -2,6 +2,8 @@
 
 日期：2026-09-14。承接[全部取消与显式重试验收](LINUX_CANCEL_ALL_ACCEPTANCE.md)，补齐单独取消排队项时对当前转换的影响。本轮复用固定 deb，不修改生产队列、转换算法或安装包。
 
+后续[转换中清空列表验收](LINUX_CLEAR_ACTIVE_ACCEPTANCE.md)扩展到二十四组门禁；本页保留原二十二组覆盖范围。
+
 ## 实现与 review
 
 新增 `desktop-packaged-cancel-queued.mjs`，复用已有 AVIF 真实编码进程的 SIGSTOP 夹具。第一项是合成 PNG → AVIF，第二项是微型 PNG → WebP；通过第二项可见的 `Cancel task` 按钮聚焦并发送 Return，取消该排队项。

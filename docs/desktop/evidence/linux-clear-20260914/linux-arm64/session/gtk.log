@@ -1,0 +1,67 @@
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:03:49.056: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:03:55.507: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:03:55.513: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:03.970: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:05.643: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:05.649: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:15.083: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:16.728: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:25.124: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:25.130: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:26.812: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:26.819: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:34.695: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:36.343: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:36.349: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:41.084: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:41.090: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:46.641: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:46.647: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4718): Gtk-CRITICAL **: 05:04:48.255: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+** (xdg-desktop-portal-gtk:4718): WARNING **: 05:04:53.151: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): GLib-GObject-CRITICAL **: 05:05:00.672: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): GLib-GObject-CRITICAL **: 05:05:00.672: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): Atk-CRITICAL **: 05:05:00.672: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4718): GLib-GObject-CRITICAL **: 05:05:00.672: g_object_unref: assertion 'G_IS_OBJECT (object)' failed

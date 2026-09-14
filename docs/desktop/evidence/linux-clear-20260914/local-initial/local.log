@@ -1,0 +1,34 @@
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.0' (uid=501 pid=3537449 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.0' (uid=501 pid=3537449 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.0' (uid=501 pid=3537449 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.3' (uid=501 pid=3537448 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[3537490]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=501 pid=3537448 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3537490]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.6' (uid=501 pid=3537448 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3537444]: [session uid=501 pid=3537444 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+/home/ivmm/VERT/.desktop-local/packaged-clear-20260914/gui
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(
+
+    at checkPackagedActiveQuit (file:///home/ivmm/VERT/scripts/lib/desktop-packaged-active-quit.mjs:41:9)
+    at checkPackagedGui (file:///home/ivmm/VERT/scripts/lib/desktop-packaged-gui-checks.mjs:232:8)
+    at async file:///home/ivmm/VERT/scripts/desktop-preview-gui.mjs:410:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.18.0

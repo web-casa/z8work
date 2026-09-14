@@ -1,0 +1,24 @@
+{
+  "source": {
+    "id": "linux-arm64",
+    "runner": "ubuntu-24.04-arm",
+    "os": "linux",
+    "arch": "arm64",
+    "target": "aarch64-unknown-linux-gnu",
+    "run": "34769213214",
+    "artifact": "linux-arm64-complete-preview",
+    "file": "z8-work_0.1.0~preview1_arm64.deb",
+    "sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f"
+  },
+  "artifact": {
+    "sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f",
+    "bytes": 126862672
+  },
+  "application": {
+    "sha256": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+    "bytes": 18600240
+  },
+  "toolCommit": "4cdfb102a42a708557a8bd23ca3f33b0108bbc29",
+  "host": "Debian 13 ARM64",
+  "installation": "not-run"
+}
