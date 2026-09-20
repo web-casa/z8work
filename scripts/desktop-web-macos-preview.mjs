@@ -27,7 +27,11 @@ assert.equal(arch, "arm64");
 assert.equal(value("CFBundleShortVersionString"), config.version);
 assert.equal(value("CFBundleIdentifier"), config.identifier);
 run("codesign", ["--verify", "--deep", "--strict", app]);
-const dependencies = run("otool", ["-L", binary]);
+// The first line names the inspected executable; only subsequent lines are dependencies.
+const dependencies = run("otool", ["-L", binary])
+	.split("\n")
+	.slice(1)
+	.join("\n");
 assert.doesNotMatch(dependencies, /\/opt\/homebrew|\/usr\/local|\/Users\//);
 
 const output = resolve(".desktop-local/macos-web-preview");
