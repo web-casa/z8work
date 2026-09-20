@@ -357,7 +357,7 @@ export class VertFile {
 			snapshot.originalName,
 			snapshot.to,
 		);
-		saveDownload(snapshot.input, name);
+		await saveDownload(snapshot.input, name);
 	}
 
 	public hash(): Promise<string> {

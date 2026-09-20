@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-finish-save"
+description = "Enables the finish_save command without any pre-configured scope."
+commands.allow = ["finish_save"]
+
+[[permission]]
+identifier = "deny-finish-save"
+description = "Denies the finish_save command without any pre-configured scope."
+commands.deny = ["finish_save"]

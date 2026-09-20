@@ -1,3 +1,5 @@
+import { isDesktop, saveDesktopBlob } from "./desktop";
+
 interface DownloadFile {
 	file: File;
 	result: { file: File; to: string } | null;
@@ -51,7 +53,8 @@ export function zipEntries(snapshot: ReturnType<typeof downloadSnapshot>) {
 	});
 }
 
-export function saveDownload(blob: Blob, name: string) {
+export async function saveDownload(blob: Blob, name: string) {
+	if (isDesktop()) return saveDesktopBlob(blob, name);
 	const url = URL.createObjectURL(
 		new Blob([blob], { type: "application/octet-stream" }),
 	);
