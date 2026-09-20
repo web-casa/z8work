@@ -7,6 +7,20 @@ func attr(_ element: AXUIElement, _ name: String) -> AnyObject? {
     guard AXUIElementCopyAttributeValue(element, name as CFString, &value) == .success else { return nil }
     return value
 }
+// Modal NSAlert windows are not always included in AXChildren. Query the
+// application's window/focus attributes as well, with identity deduplication.
+func children(_ element: AXUIElement) -> [AXUIElement] {
+    var result = attr(element, "AXChildren") as? [AXUIElement] ?? []
+    if attr(element, "AXRole") as? String == "AXApplication" {
+        result += attr(element, "AXWindows") as? [AXUIElement] ?? []
+        for name in ["AXFocusedWindow", "AXFocusedUIElement"] {
+            if let value = attr(element, name), CFGetTypeID(value) == AXUIElementGetTypeID() {
+                result.append(value as! AXUIElement)
+            }
+        }
+    }
+    return result
+}
 func emit(_ value: Any) {
     let bytes = try! JSONSerialization.data(withJSONObject: value, options: [.prettyPrinted, .sortedKeys])
     print(String(data: bytes, encoding: .utf8)!)
@@ -28,14 +42,17 @@ if args.count == 2 && args[1] == "environment" {
 } else if args.count == 3 && args[1] == "tree", let pid = Int32(args[2]) {
     guard AXIsProcessTrusted() else { fputs("Accessibility permission unavailable\n", stderr); exit(2) }
     var count = 0
+    var visited: [AXUIElement] = []
     func walk(_ element: AXUIElement, _ depth: Int) -> [String: Any] {
+        if visited.contains(where: { CFEqual($0, element) }) { return [:] }
+        visited.append(element)
         count += 1
         var result: [String: Any] = [:]
         for name in ["AXRole", "AXTitle", "AXDescription", "AXValue", "AXIdentifier", "AXEnabled", "AXPlaceholderValue"] {
             if let value = attr(element, name), value is String || value is NSNumber { result[name] = value }
         }
-        if depth < 18 && count < 2500, let children = attr(element, "AXChildren") as? [AXUIElement] {
-            result["children"] = children.prefix(250).map { walk($0, depth + 1) }
+        if depth < 18 && count < 2500 {
+            result["children"] = children(element).prefix(250).map { walk($0, depth + 1) }
         }
         return result
     }
@@ -44,7 +61,10 @@ if args.count == 2 && args[1] == "environment" {
     guard AXIsProcessTrusted() else { exit(2) }
     var found: [AXUIElement] = []
     var count = 0
+    var visited: [AXUIElement] = []
     func find(_ e: AXUIElement, _ depth: Int) {
+        if visited.contains(where: { CFEqual($0, e) }) { return }
+        visited.append(e)
         count += 1
         guard depth < 24 && count < 4000 else { return }
         let role = attr(e, "AXRole") as? String ?? ""
@@ -52,7 +72,7 @@ if args.count == 2 && args[1] == "environment" {
         let description = attr(e, "AXDescription") as? String ?? ""
         let identifier = attr(e, "AXIdentifier") as? String ?? ""
         if role == args[3] && (title == args[4] || description == args[4] || identifier == args[4]) { found.append(e) }
-        if let children = attr(e, "AXChildren") as? [AXUIElement] { for c in children { find(c, depth+1) } }
+        for c in children(e) { find(c, depth+1) }
     }
     find(AXUIElementCreateApplication(pid), 0)
     if args[1] == "press-at" {
