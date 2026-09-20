@@ -1,0 +1,60 @@
+{
+	"schema": 1,
+	"engines": [
+		{
+			"name": "pandoc",
+			"version": "3.5 (binary marker)",
+			"file": "static/pandoc.wasm",
+			"sha256": "48d9ceed3ef805f6acc28e6f58c2439cdeb1f71864244fffcc155e2c045aa7fc",
+			"license": "GPL-2.0-or-later",
+			"repository": "https://github.com/haskell-wasm/pandoc-wasm",
+			"sourceCommit": null,
+			"sourceStatus": "pending",
+			"pending": "Exact WASM build revision, patched dependencies and build inputs are not recoverable from the version marker. Imported at a84837cff4177d0fe2bb13da7c2488ce33ca5726."
+		},
+		{
+			"name": "@ffmpeg/core",
+			"version": "0.12.10",
+			"file": "node_modules/@ffmpeg/core/dist/esm/ffmpeg-core.wasm",
+			"sha256": "9f57947a5bd530d8f00c5b3f2cb2a3492faa7e5d823315342d6a8656d0a6b7b7",
+			"license": "GPL-2.0-or-later",
+			"repository": "https://github.com/ffmpegwasm/ffmpeg.wasm",
+			"sourceCommit": "71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
+			"sourceStatus": "pending",
+			"pending": "Release commit identified. Dockerfile contains floating dependency branches; exact embedded dependency revisions and complete corresponding source archive still need verification."
+		},
+		{
+			"name": "@imagemagick/magick-wasm",
+			"version": "0.0.43",
+			"file": "node_modules/@imagemagick/magick-wasm/dist/x86/magick.wasm",
+			"sha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7",
+			"license": "Apache-2.0 AND embedded library licenses",
+			"repository": "https://github.com/dlemstra/magick-wasm",
+			"sourceCommit": "85008a8006a0283ebf7e3cfba67e27e430693254",
+			"sourceStatus": "pending",
+			"pending": "Packaged LICENSE and NOTICE include embedded libraries. Review full embedded library license/source obligations."
+		},
+		{
+			"name": "mupdf",
+			"version": "1.28.1",
+			"file": "node_modules/mupdf/dist/mupdf-wasm.wasm",
+			"sha256": "5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7",
+			"license": "AGPL-3.0-or-later",
+			"repository": "https://cgit.ghostscript.com/mupdf.git/",
+			"sourceCommit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
+			"sourceStatus": "pending",
+			"pending": "npm gitHead identified; archive complete corresponding sources, build inputs and dependencies for distribution."
+		},
+		{
+			"name": "vert-wasm",
+			"version": "0.0.2",
+			"file": "node_modules/vert-wasm/vert_wasm_bg.wasm",
+			"sha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+			"license": "AGPL-3.0",
+			"repository": "https://github.com/VERT-sh/vert-wasm",
+			"sourceCommit": "4f99ef9abad355a390f1e1dfab4769ef815f54f3",
+			"sourceStatus": "pending",
+			"pending": "npm gitHead identified; archive complete corresponding sources and build inputs for distribution."
+		}
+	]
+}

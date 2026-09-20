@@ -70,3 +70,18 @@ export async function guardDesktopClose(hasWork: () => boolean) {
 		}
 	});
 }
+
+/** Preserve the original diagnostic, adding recovery guidance for known allocation failures. */
+export function desktopConversionError(message: string): string {
+	if (
+		/out of memory|memory allocation|cannot enlarge memory|array buffer allocation failed|could not allocate memory/i.test(
+			message,
+		)
+	) {
+		return (
+			"Not enough memory. Try a smaller file or fewer files, close other apps, then retry / 内存不足，请缩小文件或减少文件数量，关闭其他应用后重试。\n" +
+			message
+		);
+	}
+	return message;
+}

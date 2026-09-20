@@ -24,7 +24,12 @@ const js = ts
 	})
 	.outputText.replaceAll('"@tauri-apps/api/core"', JSON.stringify(stub))
 	.replaceAll('"@tauri-apps/api/window"', JSON.stringify(windowStub));
-const { saveDesktopBlob, isDesktop, guardDesktopClose } = await import(
+const {
+	saveDesktopBlob,
+	isDesktop,
+	guardDesktopClose,
+	desktopConversionError,
+} = await import(
 	"data:text/javascript;base64," + Buffer.from(js).toString("base64")
 );
 
@@ -182,4 +187,16 @@ test("failed save can retry the same blob in another destination", async () => {
 	fail = false;
 	assert.equal(await saveDesktopBlob(blob, "test.bin"), true);
 	assert.equal(bytes, blob.size);
+});
+
+test("allocation failures include recovery advice without relabelling unrelated traps", () => {
+	assert.match(
+		desktopConversionError("Cannot enlarge memory arrays"),
+		/Try a smaller file/,
+	);
+	assert.equal(
+		desktopConversionError("memory access out of bounds"),
+		"memory access out of bounds",
+	);
+	assert.equal(desktopConversionError("Invalid PDF"), "Invalid PDF");
 });

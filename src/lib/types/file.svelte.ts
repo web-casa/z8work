@@ -1,3 +1,4 @@
+import { isDesktop, desktopConversionError } from "$lib/util/desktop";
 import { byNative, converters } from "$lib/converters";
 import { converterSupports } from "$lib/util/output-formats";
 import { inputFormat, normalizedInputName } from "$lib/util/input-format";
@@ -141,7 +142,11 @@ export class VertFile {
 						: typeof err === "string"
 							? err
 							: "";
-				this.toastErr(err);
+				if (isDesktop())
+					this.errorMessage = desktopConversionError(
+						this.errorMessage,
+					);
+				this.toastErr(this.errorMessage || err);
 			}
 			if (version === this.conversionVersion) this.result = null;
 		} finally {

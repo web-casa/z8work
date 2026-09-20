@@ -25,7 +25,10 @@
 		"desktop:test": "cargo test --locked --manifest-path src-tauri/Cargo.toml",
 		"desktop:test:ui": "node --test tests/desktop-web.test.mjs",
 		"desktop:test:browser": "node scripts/desktop-web-browser.mjs",
-		"desktop:test:native": "node scripts/desktop-web-native.mjs"
+		"desktop:test:native": "node scripts/desktop-web-native.mjs",
+		"desktop:test:stress": "node scripts/desktop-web-browser.mjs --stress",
+		"desktop:release:check": "node scripts/desktop-web-release.mjs check",
+		"desktop:package:release": "tauri build --config packaging/desktop-web/tauri.release.json"
 	},
 	"devDependencies": {
 		"@inlang/paraglide-js": "^2.5.0",

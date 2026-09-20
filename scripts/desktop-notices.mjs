@@ -14,6 +14,7 @@ import { sha256 } from "./lib/desktop-artifacts.mjs";
 import { fileInfo } from "./lib/desktop-sources.mjs";
 const { values } = parseArgs({
 	options: {
+		web: { type: "boolean", default: false },
 		output: { type: "string" },
 		target: { type: "string" },
 		portal: { type: "boolean", default: false },
@@ -38,7 +39,7 @@ if (values.portal && !values.target.endsWith("linux-gnu"))
 const root = process.cwd(),
 	output = resolve(values.output),
 	features = [
-		"packaged-engines",
+		...(values.web ? [] : ["packaged-engines"]),
 		"custom-protocol",
 		...(values.target.endsWith("linux-gnu")
 			? [values.portal ? "linux-portal" : "gtk-dialog"]
@@ -47,7 +48,7 @@ const root = process.cwd(),
 const args = [
 	"metadata",
 	"--locked",
-	"--offline",
+	...(values.web ? [] : ["--offline"]),
 	"--format-version",
 	"1",
 	"--manifest-path",
@@ -65,9 +66,10 @@ const metadata = JSON.parse(
 		maxBuffer: 32 * 1024 ** 2,
 	}),
 );
-const graph = JSON.parse(
-	await readFile(".desktop-local/frontend-modules.json", "utf8"),
-);
+const graphPath = values.web
+	? ".desktop-local/web-frontend-modules.json"
+	: ".desktop-local/frontend-modules.json";
+const graph = JSON.parse(await readFile(graphPath, "utf8"));
 if (graph.schema !== 1 || !Array.isArray(graph.modules))
 	throw new Error("Build desktop frontend first");
 await mkdir(output);
@@ -109,6 +111,35 @@ async function collect(
 		if ((await fileInfo(output, to)).sha256 !== info.sha256)
 			throw new Error("Notice changed while copying");
 		notices.push({ file: to, ...info });
+	}
+	if (!notices.length && values.web && kind === "npm") {
+		const overrides = {
+			"@ffmpeg/core@0.12.10": "ffmpeg-core-GPL-2.0.txt",
+			"@ffmpeg/ffmpeg@0.12.15": "ffmpeg-MIT.txt",
+		};
+		const file = overrides[`${name}@${version}`];
+		if (file) {
+			const manifest = JSON.parse(
+				await readFile(
+					"packaging/desktop-web/notices/provenance.json",
+					"utf8",
+				),
+			);
+			const entry = manifest.find((n) => n.file === file);
+			const info = await fileInfo(
+				"packaging/desktop-web/notices",
+				file,
+				2 * 1024 ** 2,
+			);
+			if (!entry || entry.sha256 !== info.sha256)
+				throw Error("Web notice provenance mismatch");
+			const to = posix.join("licenses", key + "-" + file);
+			await copyFile(
+				join("packaging/desktop-web/notices", file),
+				join(output, to),
+			);
+			notices.push({ file: to, ...info, url: entry.url });
+		}
 	}
 	if (!notices.length && kind === "cargo") {
 		const added = supplement.components.find(
@@ -256,23 +287,64 @@ await collectApplicationAsset(
 	"HostGrotesk-OFL.txt",
 	"https://github.com/Element-Type/HostGrotesk/tree/ab2ba6769119e7ae71aa2fab46eedcb993c670a3",
 );
-await collectApplicationAsset(
-	"DroidSansFallbackFull",
-	"Apache-2.0",
-	"Android-Apache-2.0-NOTICE.txt",
-	"https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r25/data/fonts/DroidSansFallbackFull.ttf",
-);
+if (!values.web)
+	await collectApplicationAsset(
+		"DroidSansFallbackFull",
+		"Apache-2.0",
+		"Android-Apache-2.0-NOTICE.txt",
+		"https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r25/data/fonts/DroidSansFallbackFull.ttf",
+	);
 const inputs = {};
 for (const path of [
 	"bun.lock",
 	"src-tauri/Cargo.lock",
-	".desktop-local/frontend-modules.json",
+	graphPath,
 	"packaging/desktop/fonts/HostGrotesk-Regular.ttf",
 	"packaging/desktop/fonts/DroidSansFallbackFull.ttf",
 	"packaging/desktop/fonts/HostGrotesk-OFL.txt",
 	"packaging/desktop/fonts/Android-Apache-2.0-NOTICE.txt",
-])
+].filter((p) => !values.web || !/DroidSans|Android-Apache/.test(p)))
 	inputs[path] = sha256(await readFile(path));
+if (values.web) {
+	for (const name of await readdir("src/lib/assets/font"))
+		inputs[`src/lib/assets/font/${name}`] = sha256(
+			await readFile(`src/lib/assets/font/${name}`),
+		);
+	await collect(
+		"application-asset",
+		"ICC-profiles",
+		"embedded",
+		"See profile notice",
+		"src/lib/assets/profiles",
+		"LICENSE.txt",
+		"src/lib/assets/profiles/README.md",
+	);
+}
+if (values.web) {
+	const provenance = JSON.parse(
+		await readFile("packaging/desktop-web/notices/provenance.json", "utf8"),
+	);
+	const entry = provenance.find((n) => n.file === "pandoc-COPYRIGHT.txt");
+	const file = join("packaging/desktop-web/notices", entry.file);
+	if (sha256(await readFile(file)) !== entry.sha256)
+		throw Error("Pandoc notice changed");
+	const to = "licenses/wasm-pandoc-COPYRIGHT.txt";
+	await copyFile(file, join(output, to));
+	records.push({
+		kind: "wasm",
+		name: "Pandoc",
+		version: "3.5 (binary marker)",
+		declaredLicense: "GPL-2.0-or-later",
+		source: entry.url,
+		notices: [{ file: to, ...(await fileInfo(output, to)) }],
+		status: "upstream-version-notice-collected-build-provenance-pending",
+	});
+	for (const path of [
+		"packaging/desktop-web/engines.json",
+		"packaging/desktop-web/notices/provenance.json",
+	])
+		inputs[path] = sha256(await readFile(path));
+}
 const report = {
 	schema: 1,
 	target: values.target,
@@ -288,7 +360,9 @@ const report = {
 	pending: [
 		"Review SPDX alternatives and compatibility for the actual linked application",
 		"Collect complete corresponding sources, patches and reproducible build inputs",
-		"Native engine/delegate notices and source closure are tracked in the engine dossier",
+		values.web
+			? "WASM embedded libraries and corresponding sources are tracked in packaging/desktop-web/engines.json"
+			: "Native engine/delegate notices and source closure are tracked in the engine dossier",
 	],
 };
 await writeFile(

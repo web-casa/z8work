@@ -1,6 +1,11 @@
 name: macOS web acceptance and signing preflight
 on:
     workflow_dispatch:
+        inputs:
+            sign:
+                description: "Sign and notarize the pinned preview candidate after GUI acceptance"
+                type: boolean
+                default: false
 permissions:
     contents: read
     actions: read
@@ -55,7 +60,7 @@ jobs:
 
     signed:
         needs: [credentials, gui]
-        if: github.run_attempt == 1 && contains(github.event.head_commit.message, '[sign-macos]')
+        if: github.run_attempt == 1 && inputs.sign
         runs-on: macos-15
         timeout-minutes: 65
         steps:

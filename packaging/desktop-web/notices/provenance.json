@@ -1,0 +1,17 @@
+[
+	{
+		"file": "ffmpeg-core-GPL-2.0.txt",
+		"url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/n5.1.4/COPYING.GPLv2",
+		"sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+	},
+	{
+		"file": "ffmpeg-MIT.txt",
+		"url": "https://raw.githubusercontent.com/ffmpegwasm/ffmpeg.wasm/f78aed147c4185484da8eba1d97c51354a5e3352/LICENSE",
+		"sha256": "3e123e29517d76504ffce77b3f8e2ccffd4712493f27694b0aba3e376676459f"
+	},
+	{
+		"file": "pandoc-COPYRIGHT.txt",
+		"url": "https://raw.githubusercontent.com/jgm/pandoc/3.5/COPYRIGHT",
+		"sha256": "e9dd2c20808f570f0fe3c06b36246711e253543ba4eda22c8cc934addd007b48"
+	}
+]

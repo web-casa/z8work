@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { isDesktop } from "$lib/util/desktop";
+	import { getLocale } from "$lib/paraglide/runtime";
+	import DesktopNotices from "./DesktopNotices.svelte";
 	import Panel from "$lib/components/visual/Panel.svelte";
 	import { CONTACT_EMAIL, GITHUB_URL_PROJECT } from "$lib/util/consts";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
@@ -37,5 +40,18 @@
 				<span class="text-sm break-all">{CONTACT_EMAIL}</span>
 			</span>
 		</a>
+		{#if isDesktop()}
+			<a
+				href="https://github.com/web-casa/z8work/releases"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn min-w-0 p-4 bg-button"
+			>
+				{getLocale().startsWith("zh")
+					? "查看发行版本与下载"
+					: "Releases and downloads"}
+			</a>
+			<DesktopNotices />
+		{/if}
 	</div>
 </Panel>

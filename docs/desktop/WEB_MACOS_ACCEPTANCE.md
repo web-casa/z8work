@@ -18,7 +18,7 @@
 
 - `packaging/desktop-web/macos-candidate.json` 固定构建运行、源码和 ZIP SHA-256。
 - `.github/workflows/desktop-web-macos-acceptance.yml` 先执行凭据预检和真实 GUI 回归。
-- 提交标题包含 `[sign-macos]` 且两个前置任务成功时，才执行签名公证；同一 workflow 的重跑不会重新提交公证。
+- 历史签名运行使用提交标题 `[sign-macos]`；当前已改为手动触发且 `sign=true`、两个前置任务成功时才签名公证，默认不签名；同一 workflow 重跑不再次提交公证。
 - 公证保存 submission ID 和提交前文件哈希；等待超时或失败时保留候选及报告，不自动重复提交。
 - 最终 DMG 经签名、公证、staple、Gatekeeper 检查后，再挂载、安装到 `/Applications`，执行同一 GUI 回归。
 - 签名 GUI 先安装、启动用户已试用的旧预览，再替换为签名候选。此步骤验证替换安装与启动，不等同于全部历史版本偏好迁移。
@@ -59,3 +59,5 @@
 - [仓库内验收摘要](evidence/web-macos-arm64-20260920.json)。
 
 本轮退出 GUI 覆盖应用菜单快捷键与窗口关闭；Dock 退出、系统注销及转换中强制终止未验收。签名测试候选仍沿用 0.2.0 / `work.z8.desktop.m0` / `Z8.Work Desktop Dev` 身份；公开发行及商店提交不属于本次交付。
+
+后续开发（含 AppKit 退出保护、保存故障恢复、离线许可和发行预检）见 [后续开发记录](WEB_DEVELOPMENT_FOLLOWUP.md)。这些改动尚未构建新的 Mac 安装件，不覆盖上面的历史候选证据。

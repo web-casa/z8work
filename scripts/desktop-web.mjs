@@ -1,5 +1,5 @@
-import { spawnSync } from "node:child_process";
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { readFileSync, readdirSync, statSync, mkdtempSync } from "node:fs";
 import { join } from "node:path";
 const mode = process.argv[2];
 if (!["dev", "build", "check"].includes(mode))
@@ -44,6 +44,22 @@ run([
 		: ["build"]),
 ]);
 if (mode === "build") {
+	const target =
+		process.env.Z8_DESKTOP_TARGET ||
+		execFileSync("rustc", ["-vV"], { encoding: "utf8" }).match(
+			/^host: (.+)$/m,
+		)?.[1];
+	if (!target) throw Error("Unable to determine desktop notice target");
+	const parent = mkdtempSync(".desktop-local/web-notices-");
+	const dossier = join(parent, "collected");
+	run([
+		"scripts/desktop-web-notices.mjs",
+		"--target",
+		target,
+		"--output",
+		dossier,
+	]);
+	run(["scripts/desktop-web-license-page.mjs", dossier]);
 	const walk = (root) =>
 		readdirSync(root).flatMap((name) => {
 			const path = join(root, name);

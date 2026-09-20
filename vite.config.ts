@@ -4,6 +4,34 @@ import { defineConfig, type PluginOption } from "vite";
 import svg from "@poppanator/sveltekit-svg";
 import wasm from "vite-plugin-wasm";
 import { execSync } from "child_process";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { relative } from "node:path";
+
+const desktopModules = new Set<string>();
+const receipt = (): PluginOption => ({
+	name: "desktop-module-receipt",
+	generateBundle() {
+		if (process.env.Z8_DESKTOP !== "1") return;
+		for (const id of this.getModuleIds()) {
+			if (id.startsWith(process.cwd()))
+				desktopModules.add(
+					relative(process.cwd(), id.split("?")[0]).replaceAll(
+						"\\",
+						"/",
+					),
+				);
+		}
+		mkdirSync(".desktop-local", { recursive: true });
+		writeFileSync(
+			".desktop-local/web-frontend-modules.json",
+			JSON.stringify(
+				{ schema: 1, modules: [...desktopModules].sort() },
+				null,
+				2,
+			) + "\n",
+		);
+	},
+});
 
 // coollify removes the .git folder but exposes commit via SOURCE_COMMIT env variable
 let commitHash = process.env.SOURCE_COMMIT
@@ -21,6 +49,7 @@ if (commitHash === "unknown") {
 
 export default defineConfig(({ command }) => {
 	const plugins: PluginOption[] = [
+		receipt(),
 		sveltekit(),
 		paraglideVitePlugin({
 			project: "./project.inlang",
@@ -49,7 +78,7 @@ export default defineConfig(({ command }) => {
 	return {
 		plugins,
 		worker: {
-			plugins: () => [wasm()],
+			plugins: () => [wasm(), receipt()],
 			format: "es",
 		},
 		optimizeDeps: {

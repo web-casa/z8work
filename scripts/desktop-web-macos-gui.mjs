@@ -306,6 +306,16 @@ try {
 	key(13, "command down"); // Cmd-W follows the same guarded path.
 	await cancelQuit(await confirmation());
 	report.checks.push("cmd-w-cancel-preserves-result");
+	// NSRunningApplication.terminate enters the AppKit termination delegate, as
+	// Dock Quit does; it is deliberately separate from the custom Cmd-Q item.
+	run(helper, ["quit", String(pid)]);
+	await cancelQuit(await confirmation());
+	assert.ok(has("Download this file"));
+	report.checks.push("appkit-quit-cancel-preserves-result");
+	run(helper, ["quit", String(pid)]);
+	await cancelQuit(await confirmation());
+	assert.ok(has("Download this file"));
+	report.checks.push("appkit-quit-retry-after-cancel");
 
 	async function convertAndSave(inputPath, extension, tag) {
 		press("Remove all files");

@@ -2,7 +2,7 @@
 
 日期：2026-09-20。范围为 `feat/desktop-web-conversion` 相对原生快照 `00389e9` 的改动。
 
-后续 macOS ARM64 界面验收、退出修复与签名记录见 [Mac 验收记录](WEB_MACOS_ACCEPTANCE.md)。下文保留迁移完成时的验证范围。
+后续 macOS ARM64 界面验收、退出修复与签名记录见 [Mac 验收记录](WEB_MACOS_ACCEPTANCE.md)。后续边界与发行准备开发见 [后续开发记录](WEB_DEVELOPMENT_FOLLOWUP.md)。下文保留迁移完成时的验证范围。
 
 ## Review 结论
 
