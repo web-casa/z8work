@@ -113,6 +113,41 @@ fn open_external(url: &tauri::Url) {
     }
 }
 
+// The standard macOS Quit item calls NSApplication.terminate directly, bypassing
+// Tauri's ExitRequested event. Use an ordinary menu item to enter our guarded path.
+#[cfg(target_os = "macos")]
+fn install_macos_menu(app: &tauri::AppHandle) -> tauri::Result<()> {
+    use tauri::menu::{Menu, MenuItem, PredefinedMenuItem, Submenu};
+    let menu = Menu::default(app)?;
+    let quit = MenuItem::with_id(
+        app,
+        "guarded-quit",
+        "Quit Z8.Work",
+        true,
+        Some("CmdOrCtrl+Q"),
+    )?;
+    let application = Submenu::with_items(
+        app,
+        "Z8.Work",
+        true,
+        &[
+            &PredefinedMenuItem::about(app, None, None)?,
+            &PredefinedMenuItem::separator(app)?,
+            &PredefinedMenuItem::services(app, None)?,
+            &PredefinedMenuItem::separator(app)?,
+            &PredefinedMenuItem::hide(app, None)?,
+            &PredefinedMenuItem::hide_others(app, None)?,
+            &PredefinedMenuItem::separator(app)?,
+            &quit,
+        ],
+    )?;
+    // Tauri 2.11's default menu starts with the macOS application submenu.
+    menu.remove_at(0)?;
+    menu.insert(&application, 0)?;
+    app.set_menu(menu)?;
+    Ok(())
+}
+
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_single_instance::init(|app, _, _| {
@@ -124,7 +159,14 @@ fn main() {
         .plugin(tauri_plugin_dialog::init())
         .manage(Saves::default())
         .manage(ExitApproved::default())
+        .on_menu_event(|app, event| {
+            if event.id().as_ref() == "guarded-quit" {
+                app.exit(0);
+            }
+        })
         .setup(|app| {
+            #[cfg(target_os = "macos")]
+            install_macos_menu(app.handle())?;
             tauri::WebviewWindowBuilder::from_config(app, &app.config().app.windows[0])?
                 .on_navigation(|url| {
                     if local_navigation(url) {
