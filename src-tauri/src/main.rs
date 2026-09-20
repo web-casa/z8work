@@ -1,4 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+#[cfg(target_os = "macos")]
+mod macos_termination;
 mod web_save;
 use std::sync::atomic::{AtomicBool, Ordering};
 use tauri::{Manager, State};
@@ -11,6 +13,21 @@ struct ExitApproved(AtomicBool);
 #[tauri::command]
 fn finish_close(app: tauri::AppHandle, approved: State<'_, ExitApproved>) {
     approved.0.store(true, Ordering::SeqCst);
+    if let Ok(mut saves) = app.state::<Saves>().0.lock() {
+        saves.clear();
+    }
+    #[cfg(target_os = "macos")]
+    {
+        let handle = app.clone();
+        if let Err(error) = app.run_on_main_thread(move || {
+            macos_termination::reply(true);
+            handle.exit(0);
+        }) {
+            eprintln!("Could not finish termination: {error}");
+            app.exit(0);
+        }
+    }
+    #[cfg(not(target_os = "macos"))]
     app.exit(0);
 }
 
@@ -20,6 +37,9 @@ async fn begin_save(
     name: String,
     size: u64,
 ) -> Result<Option<String>, String> {
+    if size > web_save::OUTPUT_LIMIT {
+        return Err("Output exceeds the 2 GiB save limit / 输出超过 2 GiB 保存上限".into());
+    }
     tauri::async_runtime::spawn_blocking(move || {
         let destination = app
             .dialog()
@@ -89,10 +109,17 @@ fn abort_save(token: String, saves: State<'_, Saves>) -> Result<(), String> {
 
 #[tauri::command]
 async fn confirm_close(app: tauri::AppHandle) -> Result<bool, String> {
-    tauri::async_runtime::spawn_blocking(move || {
-        app.dialog().message("Tasks and unsaved results will be lost. Close?\n任务和未保存的结果将丢失，是否退出？")
+    let handle = app.clone();
+    let result = tauri::async_runtime::spawn_blocking(move || {
+        handle.dialog().message("Tasks and unsaved results will be lost. Close?\n任务和未保存的结果将丢失，是否退出？")
             .title("Z8.Work").buttons(MessageDialogButtons::OkCancel).blocking_show()
-    }).await.map_err(|e| e.to_string())
+    }).await.map_err(|e| e.to_string());
+    #[cfg(target_os = "macos")]
+    if !matches!(result, Ok(true)) {
+        app.run_on_main_thread(|| macos_termination::reply(false))
+            .map_err(|e| e.to_string())?;
+    }
+    result
 }
 
 fn local_navigation(url: &tauri::Url) -> bool {
@@ -166,7 +193,10 @@ fn main() {
         })
         .setup(|app| {
             #[cfg(target_os = "macos")]
-            install_macos_menu(app.handle())?;
+            {
+                install_macos_menu(app.handle())?;
+                macos_termination::install(app.handle())?;
+            }
             tauri::WebviewWindowBuilder::from_config(app, &app.config().app.windows[0])?
                 .on_navigation(|url| {
                     if local_navigation(url) {

@@ -150,3 +150,36 @@ test("empty queue approves app exit without prompting; repeated requests share a
 	await first;
 	assert.deepEqual(calls, ["confirm_close", "finish_close"]);
 });
+
+test("oversized output fails before native dialog and leaves saving unlocked", async () => {
+	const calls = [];
+	globalThis.__desktopInvoke = async (command) => {
+		calls.push(command);
+		return null;
+	};
+	await assert.rejects(
+		saveDesktopBlob({ size: 2 * 1024 ** 3 + 1 }, "large.bin"),
+		/2 GiB/,
+	);
+	assert.deepEqual(calls, []);
+	assert.equal(
+		await saveDesktopBlob(new Blob(["retry"]), "retry.bin"),
+		false,
+	);
+});
+test("failed save can retry the same blob in another destination", async () => {
+	const blob = new Blob([new Uint8Array(2 * 1024 ** 2 + 3).fill(19)]);
+	let fail = true,
+		bytes = 0;
+	globalThis.__desktopInvoke = async (command, chunk) => {
+		if (command === "begin_save") return "token";
+		if (command === "append_save") {
+			if (fail) throw Error("Disk full");
+			bytes += chunk.byteLength;
+		}
+	};
+	await assert.rejects(saveDesktopBlob(blob, "test.bin"), /Disk full/);
+	fail = false;
+	assert.equal(await saveDesktopBlob(blob, "test.bin"), true);
+	assert.equal(bytes, blob.size);
+});

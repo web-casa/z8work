@@ -14,6 +14,7 @@ linux-portal = ["tauri-plugin-dialog/xdg-portal"]
 custom-protocol = ["tauri/custom-protocol"]
 
 [build-dependencies]
+cc = "1"
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
@@ -24,3 +25,6 @@ tauri-plugin-opener = "=2.5.4"
 serde = { version = "1", features = ["derive"] }
 tempfile = "3"
 uuid = { version = "1", features = ["v4"] }
+
+[target.'cfg(unix)'.dev-dependencies]
+libc = "0.2"

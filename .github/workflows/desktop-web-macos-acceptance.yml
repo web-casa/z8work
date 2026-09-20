@@ -1,13 +1,6 @@
 name: macOS web acceptance and signing preflight
 on:
     workflow_dispatch:
-    push:
-        branches: [feat/desktop-web-conversion]
-        paths:
-            - .github/workflows/desktop-web-macos-acceptance.yml
-            - scripts/desktop-web-macos-gui.mjs
-            - scripts/lib/desktop-macos-accessibility.swift
-            - packaging/desktop-web/macos-candidate.json
 permissions:
     contents: read
     actions: read

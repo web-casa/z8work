@@ -3,6 +3,7 @@ export function isDesktop(): boolean {
 	return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
 }
 
+export const DESKTOP_SAVE_LIMIT = 2 * 1024 * 1024 * 1024;
 let saving = false;
 export const isSavingDesktop = () => saving;
 
@@ -10,6 +11,10 @@ export async function saveDesktopBlob(
 	blob: Blob,
 	name: string,
 ): Promise<boolean> {
+	if (blob.size > DESKTOP_SAVE_LIMIT)
+		throw new Error(
+			"Output exceeds the 2 GiB save limit. Convert fewer files at once / 输出超过 2 GiB 保存上限，请减少单次转换文件数量",
+		);
 	if (saving)
 		throw new Error("A save is already in progress / 正在保存，请稍候");
 	saving = true;
