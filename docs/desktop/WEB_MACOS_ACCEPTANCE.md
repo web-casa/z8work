@@ -33,4 +33,29 @@
 
 ## 最终结果
 
-候选重新构建及完整 GUI 验收进行中；签名、公证及最终 DMG 验收尚未完成。完成后在此记录确切运行、产物和哈希。
+[验收与签名运行 35510545929](https://github.com/web-casa/z8work/actions/runs/35510545929) 全部成功。前置候选 12 项检查通过，最终签名 DMG 13 项检查通过（增加旧预览替换安装启动）。
+
+| 项目                                    | 结果与证据                                                                 |
+| --------------------------------------- | -------------------------------------------------------------------------- |
+| 渠道 / 架构                             | macOS 直发测试候选 / ARM64                                                 |
+| 应用源码                                | `6f166c4a271a9cb49c1d5133efd038bf3bb8bc11`                                 |
+| 构建                                    | [35505026289](https://github.com/web-casa/z8work/actions/runs/35505026289) |
+| 验收工具源码                            | `07a805a417666d2e8a256239d72286c360bbf709`                                 |
+| 最终文件                                | `Z8.Work-0.2.0-macos-arm64-signed.dmg`，35,947,531 字节                    |
+| Developer ID / hardened runtime         | 通过                                                                       |
+| Apple 公证                              | 通过：`Accepted`，ID `b2b8f368-5c07-4e78-9aa4-0323ae38eb94`                |
+| Staple / Gatekeeper / DMG / 签名完整性  | 通过                                                                       |
+| 签名 DMG 挂载安装、旧预览替换与实际 GUI | 通过；四类转换、批量保存、退出取消、确认退出及重启                         |
+| 下载后 SHA-256 核对                     | 通过，与 runner 最终报告一致                                               |
+
+最终 SHA-256（公证票据已附加）：
+
+```text
+16ea1be9b47cbbb3a0ae1414ebe8018581d027798ec5697e7b05173b1e899914
+```
+
+- [下载签名 DMG 与 SHA256SUMS](https://github.com/web-casa/z8work/actions/runs/35510545929/artifacts/10605097893)（Actions 产物保留 30 天）。
+- [完整报告与截图](https://github.com/web-casa/z8work/actions/runs/35510545929/artifacts/10605156723)。
+- [仓库内验收摘要](evidence/web-macos-arm64-20260920.json)。
+
+本轮退出 GUI 覆盖应用菜单快捷键与窗口关闭；Dock 退出、系统注销及转换中强制终止未验收。签名测试候选仍沿用 0.2.0 / `work.z8.desktop.m0` / `Z8.Work Desktop Dev` 身份；公开发行及商店提交不属于本次交付。

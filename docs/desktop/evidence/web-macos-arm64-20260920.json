@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "source": {
+    "version": "0.2.0",
+    "runId": "35505026289",
+    "sourceCommit": "6f166c4a271a9cb49c1d5133efd038bf3bb8bc11",
+    "artifactName": "z8-work-web-macos-arm64-preview",
+    "appName": "Z8.Work Desktop Dev.app",
+    "zip": "Z8.Work-0.2.0-macos-arm64-preview.app.zip",
+    "zipSha256": "58e65a320fed3c1eb51dd3d27d5ce7c4ec59b83ed2299345dfa1e0a42d2e63e7"
+  },
+  "artifact": {
+    "name": "Z8.Work-0.2.0-macos-arm64-signed.dmg",
+    "bytes": 35947531,
+    "sha256": "16ea1be9b47cbbb3a0ae1414ebe8018581d027798ec5697e7b05173b1e899914"
+  },
+  "notarization": {
+    "status": "Accepted",
+    "id": "b2b8f368-5c07-4e78-9aa4-0323ae38eb94",
+    "message": "Processing complete"
+  },
+  "signature": "Developer ID Application",
+  "gatekeeper": "passed",
+  "gui": "passed: signed DMG installation, conversion, save, batch and exit regression",
+  "toolCommit": "07a805a417666d2e8a256239d72286c360bbf709",
+  "guiChecks": [
+    "previous-preview-installed-and-launched-before-replacement",
+    "fixed-preview-hash-and-installed-signature",
+    "input-picker-cancel",
+    "save-cancel-retains-result",
+    "unicode-input-output-webp-independent-decode",
+    "cmd-q-cancel-preserves-result",
+    "cmd-w-cancel-preserves-result",
+    "markdown-to-html-content",
+    "multipage-pdf-zip-two-images-independent-decode",
+    "wav-to-flac-duration-sample-rate-and-multichunk-save",
+    "two-file-batch-zip-independent-decode",
+    "confirmed-quit-and-relaunch-keeps-saved-file",
+    "empty-queue-quit-without-dialog"
+  ],
+  "acceptanceRun": "https://github.com/web-casa/z8work/actions/runs/35510545929",
+  "download": "https://github.com/web-casa/z8work/actions/runs/35510545929/artifacts/10605097893",
+  "evidence": "https://github.com/web-casa/z8work/actions/runs/35510545929/artifacts/10605156723",
+  "signedGui": {
+    "status": "passed",
+    "sourceRun": "35505026289",
+    "signedCandidate": true,
+    "toolCommit": "07a805a417666d2e8a256239d72286c360bbf709",
+    "checks": [
+      "previous-preview-installed-and-launched-before-replacement",
+      "fixed-preview-hash-and-installed-signature",
+      "input-picker-cancel",
+      "save-cancel-retains-result",
+      "unicode-input-output-webp-independent-decode",
+      "cmd-q-cancel-preserves-result",
+      "cmd-w-cancel-preserves-result",
+      "markdown-to-html-content",
+      "multipage-pdf-zip-two-images-independent-decode",
+      "wav-to-flac-duration-sample-rate-and-multichunk-save",
+      "two-file-batch-zip-independent-decode",
+      "confirmed-quit-and-relaunch-keeps-saved-file",
+      "empty-queue-quit-without-dialog"
+    ],
+    "environment": {
+      "accessibilityTrusted": true,
+      "screenCaptureAllowed": true,
+      "screens": 1
+    },
+    "artifact": {
+      "name": "Z8.Work-0.2.0-macos-arm64-signed.dmg",
+      "bytes": 35947531,
+      "sha256": "16ea1be9b47cbbb3a0ae1414ebe8018581d027798ec5697e7b05173b1e899914"
+    },
+    "image": {
+      "sha256": "a34fab418b1de639a582ff3f422374d6f5879cf8802656b3bd6a771801f194bd",
+      "decoded": {
+        "height": 32,
+        "width": 32
+      }
+    }
+  }
+}
