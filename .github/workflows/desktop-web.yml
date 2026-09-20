@@ -17,7 +17,7 @@ on:
                 ".github/workflows/desktop-web.yml",
             ]
     push:
-        branches: [main, feat/desktop-web-conversion]
+        branches: [main]
         paths:
             [
                 "src/**",
