@@ -254,6 +254,20 @@ try {
 	report.checks.push("unicode-input-output-webp-independent-decode");
 	await snapshot("saved");
 
+	// An OS quit request must preserve the queue when cancelled, then exit on approval.
+	key(12, "command down");
+	await until(() => has("Cancel") && has("OK"), "Cmd-Q confirmation missing");
+	await snapshot("cmd-q");
+	press("Cancel");
+	await until(() => !has("Cancel"), "Quit cancellation failed");
+	assert.ok(has("Download this file"));
+	report.checks.push("cmd-q-cancel-preserves-result");
+	key(13, "command down"); // Cmd-W follows the same guarded path.
+	await until(() => has("Cancel") && has("OK"), "Cmd-W confirmation missing");
+	press("Cancel");
+	await until(() => !has("Cancel"), "Window close cancellation failed");
+	report.checks.push("cmd-w-cancel-preserves-result");
+
 	async function convertAndSave(inputPath, extension, tag) {
 		press("Remove all files");
 		await until(() => !has("Download this file"), "Queue did not clear");
@@ -369,19 +383,6 @@ try {
 	}
 	report.checks.push("two-file-batch-zip-independent-decode");
 
-	// An OS quit request must preserve the queue when cancelled, then exit on approval.
-	key(12, "command down");
-	await until(() => has("Cancel") && has("OK"), "Cmd-Q confirmation missing");
-	await snapshot("cmd-q");
-	press("Cancel");
-	await until(() => !has("Cancel"), "Quit cancellation failed");
-	assert.ok(has("Download this file"));
-	report.checks.push("cmd-q-cancel-preserves-result");
-	key(13, "command down"); // Cmd-W follows the same guarded path.
-	await until(() => has("Cancel") && has("OK"), "Cmd-W confirmation missing");
-	press("Cancel");
-	await until(() => !has("Cancel"), "Window close cancellation failed");
-	report.checks.push("cmd-w-cancel-preserves-result");
 	key(12, "command down");
 	await until(() => has("OK"), "Quit retry missing");
 	press("OK");

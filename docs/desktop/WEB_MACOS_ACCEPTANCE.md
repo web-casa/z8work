@@ -4,11 +4,13 @@
 
 ## 已发现并修复
 
-真实 macOS 15 ARM64 GUI 在旧预览上复现：队列有转换结果时，Cmd-Q 直接退出，绕过窗口关闭确认。原因为只监听窗口关闭，未接管应用级 `ExitRequested`。
+真实 macOS 15 ARM64 GUI 在旧预览上复现：队列有转换结果时，Cmd-Q 直接退出，绕过窗口关闭确认。原因为只监听窗口关闭；且 macOS 默认退出菜单直接调用 `NSApplication.terminate`，绕过 Tauri 的 `ExitRequested`。
 
-修复将应用退出转交现有窗口关闭确认；前端确认后通过 `finish_close` 明确批准退出。空队列直接批准，重复请求共享同一确认，取消后仍可重新请求退出。去掉前端直接销毁窗口的权限。
+修复将 macOS 默认退出菜单替换为普通菜单项，经 `app.exit` 进入 `ExitRequested`，再转交现有窗口关闭确认；前端确认后通过 `finish_close` 明确批准退出。空队列直接批准，重复请求共享同一确认，取消后仍可重新请求退出。去掉前端直接销毁窗口的权限。
 
 复现运行：[35503756301](https://github.com/web-casa/z8work/actions/runs/35503756301)。该运行仅为基础探测成功，**不代表退出验收通过**；报告记录 `exited-without-confirmation`。此前两次失败为 AX 格式控件定位错误，已根据系统实际控件树修正。
+
+第二轮 [35504679501](https://github.com/web-casa/z8work/actions/runs/35504679501) 四类转换及批量保存均通过，确认仅增加 `ExitRequested` 仍不足以保护默认菜单退出。因此追加菜单修复后重新构建。
 
 本地：189 项 JavaScript 测试、4 项 Rust 测试通过；Svelte 检查 0 errors / 0 warnings。新增退出测试覆盖取消、确认、空队列和重复请求。
 
