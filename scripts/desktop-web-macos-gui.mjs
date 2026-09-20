@@ -151,7 +151,7 @@ try {
 		".webp",
 	]);
 	await until(() => has(".webp"), "WebP option missing");
-	press(".webp");
+	press(".webp", "AXCheckBox");
 	press("Convert this file");
 	await until(
 		() => has("Download this file"),
