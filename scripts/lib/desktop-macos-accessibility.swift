@@ -26,7 +26,13 @@ func emit(_ value: Any) {
     print(String(data: bytes, encoding: .utf8)!)
 }
 let args = CommandLine.arguments
-if args.count == 2 && args[1] == "environment" {
+if args.count == 2 && args[1] == "window-processes" {
+    let windows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as? [[String: Any]] ?? []
+    emit(windows.compactMap { w -> [String: Any]? in
+        guard let pid = w[kCGWindowOwnerPID as String] as? Int else { return nil }
+        return ["pid": pid, "owner": w[kCGWindowOwnerName as String] as? String ?? "", "title": w[kCGWindowName as String] as? String ?? ""]
+    })
+} else if args.count == 2 && args[1] == "environment" {
     emit(["accessibilityTrusted": AXIsProcessTrusted(), "screenCaptureAllowed": CGPreflightScreenCaptureAccess(), "screens": NSScreen.screens.count])
 } else if args.count == 3 && args[1] == "launch" {
     let url = URL(fileURLWithPath: args[2])

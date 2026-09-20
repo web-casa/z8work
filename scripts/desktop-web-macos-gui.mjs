@@ -54,7 +54,8 @@ const helper = join(root, "ax-helper");
 let installed = false,
 	pid;
 const flat = (t) => [t, ...(t.children ?? []).flatMap(flat)];
-const tree = () => JSON.parse(run(helper, ["tree", String(pid)]));
+const treeFor = (target) => JSON.parse(run(helper, ["tree", String(target)]));
+const tree = () => treeFor(pid);
 const has = (text) =>
 	flat(tree()).some((n) =>
 		[n.AXTitle, n.AXDescription, n.AXValue, n.AXIdentifier].includes(text),
@@ -67,13 +68,54 @@ const until = async (fn, label, ms = 30000) => {
 	}
 	throw Error(label);
 };
-const press = (label, role = "AXButton", index = 0) =>
-	run(helper, ["press-at", String(pid), role, label, String(index)]);
+const press = (label, role = "AXButton", index = 0, target = pid) =>
+	run(helper, ["press-at", String(target), role, label, String(index)]);
 const key = (code, modifiers = "") =>
 	run("osascript", [
 		"-e",
 		`tell application "System Events" to key code ${code}${modifiers ? ` using {${modifiers}}` : ""}`,
 	]);
+async function confirmation() {
+	let target;
+	await until(async () => {
+		// Parentless rfd dialogs use CFUserNotification, hosted by a system process.
+		const windows = JSON.parse(run(helper, ["window-processes"]));
+		for (const candidate of new Set([pid, ...windows.map((w) => w.pid)])) {
+			const nodes = flat(treeFor(candidate));
+			const values = nodes.flatMap((n) => [
+				n.AXTitle,
+				n.AXDescription,
+				n.AXValue,
+			]);
+			if (
+				values.some(
+					(v) =>
+						typeof v === "string" &&
+						v.includes("Tasks and unsaved results"),
+				) &&
+				values.includes("Cancel") &&
+				values.includes("OK")
+			) {
+				target = candidate;
+				await record("quit-dialog", {
+					pid: target,
+					tree: treeFor(target),
+					windows,
+				});
+				return true;
+			}
+		}
+		return false;
+	}, "Quit confirmation missing");
+	return target;
+}
+async function cancelQuit(target) {
+	press("Cancel", "AXButton", 0, target);
+	await until(
+		() => !flat(treeFor(target)).some((n) => n.AXTitle === "Cancel"),
+		"Quit cancellation failed",
+	);
+}
 async function snapshot(name) {
 	await record(name, tree());
 	if (report.environment.screenCaptureAllowed)
@@ -256,16 +298,13 @@ try {
 
 	// An OS quit request must preserve the queue when cancelled, then exit on approval.
 	key(12, "command down");
-	await until(() => has("Cancel") && has("OK"), "Cmd-Q confirmation missing");
+	const quitDialog = await confirmation();
 	await snapshot("cmd-q");
-	press("Cancel");
-	await until(() => !has("Cancel"), "Quit cancellation failed");
+	await cancelQuit(quitDialog);
 	assert.ok(has("Download this file"));
 	report.checks.push("cmd-q-cancel-preserves-result");
 	key(13, "command down"); // Cmd-W follows the same guarded path.
-	await until(() => has("Cancel") && has("OK"), "Cmd-W confirmation missing");
-	press("Cancel");
-	await until(() => !has("Cancel"), "Window close cancellation failed");
+	await cancelQuit(await confirmation());
 	report.checks.push("cmd-w-cancel-preserves-result");
 
 	async function convertAndSave(inputPath, extension, tag) {
@@ -384,8 +423,7 @@ try {
 	report.checks.push("two-file-batch-zip-independent-decode");
 
 	key(12, "command down");
-	await until(() => has("OK"), "Quit retry missing");
-	press("OK");
+	press("OK", "AXButton", 0, await confirmation());
 	await until(() => {
 		try {
 			process.kill(pid, 0);
