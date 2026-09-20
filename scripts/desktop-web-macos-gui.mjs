@@ -135,13 +135,13 @@ try {
 	await snapshot("imported");
 	const format = flat(tree()).find(
 		(n) =>
-			n.AXRole === "AXButton" &&
+			["AXButton", "AXPopUpButton"].includes(n.AXRole) &&
 			String(n.AXDescription ?? n.AXTitle ?? "").startsWith(
 				"Output format:",
 			),
 	);
 	assert.ok(format, "Output format control missing");
-	press(format.AXDescription ?? format.AXTitle);
+	press(format.AXDescription || format.AXTitle, format.AXRole);
 	await until(() => has("Search format"), "Format dialog missing");
 	run(helper, [
 		"set-text",
