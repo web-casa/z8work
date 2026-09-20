@@ -30,12 +30,13 @@ async function fixture(t) {
 	await save(stage, "usr/bin/z8-desktop", app);
 	await chmod(join(stage, "usr/bin/z8-desktop"), 0o755);
 	const manifest = {
-		schema: 2,
+		schema: 3,
 		kind: "bundled",
 		os: "linux",
 		arch: "x86_64",
 		engines: {},
 		files: {},
+		format_acceptance: "format-acceptance.json",
 	};
 	for (const id of ["magick", "ffmpeg", "ffprobe", "pandoc", "mutool"]) {
 		const file = "bin/" + id;
@@ -43,6 +44,18 @@ async function fixture(t) {
 		manifest.files[file] = { sha256: hash(app), bytes: app.length };
 		manifest.engines[id] = { path: file, sha256: hash(app) };
 	}
+	const acceptance = JSON.stringify({
+		schema: 1,
+		scope: "v1-format-expansion-3b",
+		os: "linux",
+		arch: "x86_64",
+		routes: [],
+	});
+	await save(stage, resource + "/format-acceptance.json", acceptance);
+	manifest.files["format-acceptance.json"] = {
+		sha256: hash(acceptance),
+		bytes: Buffer.byteLength(acceptance),
+	};
 	const provenance = JSON.stringify({
 		schema: 1,
 		host: 'ID=ubuntu\nVERSION_ID="24.04"',

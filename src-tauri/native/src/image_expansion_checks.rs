@@ -10,6 +10,23 @@ use std::{
     path::{Path, PathBuf},
 };
 const NEW: [OutputFormat; 3] = [OutputFormat::Bmp, OutputFormat::Tga, OutputFormat::Qoi];
+// This suite predates the broader format matrix. Keep its historical coverage
+// fixed so that adding a new product route cannot accidentally broaden this
+// bounded quality regression or apply its full-colour fidelity assertion to a
+// deliberately grayscale/palette/bitmap output. Every expanded route is
+// instead exercised by `bundle-check --format-matrix` against the final
+// package bytes.
+const EXISTING: [OutputFormat; 4] = [
+    OutputFormat::Png,
+    OutputFormat::Jpeg,
+    OutputFormat::Webp,
+    OutputFormat::Avif,
+];
+pub(crate) const FROZEN_ROUTE_COUNT: usize = 45;
+
+fn owns_route(input: &str, output: OutputFormat) -> bool {
+    NEW.contains(&output) || (["bmp", "tga", "qoi"].contains(&input) && EXISTING.contains(&output))
+}
 
 fn pixels(engines: &Engines, path: &Path, root: &Path, white: bool) -> Result<Vec<u8>, String> {
     let dest = root.join("pixels.rgba");
@@ -98,7 +115,7 @@ pub fn verify(engines: &Engines) -> Result<Value, String> {
     for input in &inputs {
         let ext = input.extension().unwrap().to_str().unwrap();
         for format in output_formats(ext) {
-            if !NEW.contains(&format) && !["bmp", "tga", "qoi"].contains(&ext) {
+            if !owns_route(ext, format) {
                 continue;
             }
             let result = convert(engines, input, &out, format, &Cancel::default())?;
@@ -271,7 +288,28 @@ pub fn verify(engines: &Engines) -> Result<Value, String> {
             }
         }
     }
+    if routes.len() != FROZEN_ROUTE_COUNT {
+        return Err(format!(
+            "Incomplete static-raster frozen route regression suite: expected {FROZEN_ROUTE_COUNT}, got {}",
+            routes.len()
+        ));
+    }
     Ok(
         json!({"schema":1,"scope":"static-raster-expansion-2","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"routes":routes,"presets":presets,"controls":controls,"semantics":semantics,"engines":engines.info()}),
     )
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn bounded_regression_does_not_inherit_new_product_routes() {
+        assert!(owns_route("png", OutputFormat::Bmp));
+        assert!(!owns_route("png", OutputFormat::Png));
+        assert!(owns_route("bmp", OutputFormat::Png));
+        assert!(owns_route("qoi", OutputFormat::Avif));
+        assert!(!owns_route("bmp", OutputFormat::Pbm));
+        assert!(!owns_route("tga", OutputFormat::Xbm));
+    }
 }

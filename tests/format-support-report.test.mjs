@@ -31,15 +31,42 @@ test("format support report is generated from the current public contracts", asy
 		new URL("../docs/desktop/FORMAT_EXPANSION_CATALOG.md", import.meta.url),
 		"utf8",
 	);
+	const scope = JSON.parse(
+		await readFile(
+			new URL("../packaging/desktop/v1-scope.json", import.meta.url),
+			"utf8",
+		),
+	);
+	const desktopInputs = new Set(
+		scope.groups.flatMap((group) => group.inputs),
+	);
+	const desktopOutputs = new Set(
+		scope.groups.flatMap((group) => group.outputs),
+	);
+	const desktopRouteCount = scope.groups.reduce(
+		(total, group) => total + group.inputs.length * group.outputs.length,
+		0,
+	);
 	for (const value of [
 		"Z8.Work 格式能力对照报告",
 		"XLSX",
 		"OCR",
-		"GIF、JXL、TIFF/TIF",
+		"JP2/J2K、PSD、DDS",
 		"23 个栅格扩展名",
 	])
 		assert.match(report, new RegExp(value));
-	assert.match(report, /29 个输入扩展 \/ 15 个输出格式 \/ 167\s*条声明路线/);
+	assert.match(
+		report,
+		new RegExp(
+			`${desktopInputs.size} 个输入扩展 / ${desktopOutputs.size} 个输出格式 / ${desktopRouteCount}\\s*条声明路线`,
+		),
+	);
+	assert.match(
+		report,
+		new RegExp(
+			`当前源码范围的\\s*${desktopRouteCount}\\s*条路线必须逐一经过最终包验收`,
+		),
+	);
 	assert.doesNotMatch(
 		report,
 		/<strong>undefined<\/strong>|<td>undefined<\/td>/,

@@ -1,6 +1,6 @@
 {
 	"schema": 1,
-	"reviewedOn": "2026-09-14",
+	"reviewedOn": "2026-09-15",
 	"appliesTo": "这是桌面版原生路线的候选目录。网页端已有的同名格式不代表桌面端自动可用；每项仍需按 Linux、Windows、macOS 的 AMD64 与 ARM64 最终包验收。",
 	"tiers": [
 		{
@@ -33,25 +33,43 @@
 		{
 			"id": "pack-image-compat",
 			"label": "图片兼容基础包",
-			"items": ["M-01", "M-02", "M-03"],
+			"items": [
+				"M-01",
+				"M-02",
+				"M-03"
+			],
 			"why": "覆盖 PNM、静态 GIF 与受限 TIFF；先把“静态单图”作为共同合同，动画、多页和高位深另行处理。"
 		},
 		{
 			"id": "pack-audio-compat",
 			"label": "音频兼容基础包",
-			"items": ["L-02", "M-06", "M-07"],
+			"items": [
+				"L-02",
+				"M-06",
+				"M-07"
+			],
 			"why": "先扩大可读来源和两种常用输出，不开放视频编码、不默认保留多音轨或元数据。"
 		},
 		{
 			"id": "pack-text-extraction",
 			"label": "本地文本提取包",
-			"items": ["L-01", "L-03", "M-08", "M-09"],
+			"items": [
+				"L-01",
+				"L-03",
+				"M-08",
+				"M-09"
+			],
 			"why": "复用 Pandoc 和 MuPDF，仅输出纯文本；不承诺布局、公式、图像或扫描件文字。"
 		},
 		{
 			"id": "pack-modern-image",
 			"label": "现代图片专业包",
-			"items": ["H-04", "H-05", "H-06", "H-07"],
+			"items": [
+				"H-04",
+				"H-05",
+				"H-06",
+				"H-07"
+			],
 			"why": "JPEG XL、JPEG 2000、HEIF 输出与静态 SVG 都有明确价值，但应分别固定依赖、质量参数与跨平台包。"
 		}
 	],
@@ -60,7 +78,10 @@
 			"id": "UL-01",
 			"tier": "ultra-low",
 			"title": "JPEG 文件名兼容别名",
-			"formats": ["jpe", "jfif"],
+			"formats": [
+				"jpe",
+				"jfif"
+			],
 			"direction": "输入别名 → 现有图片输出",
 			"engine": "现有 ImageMagick JPEG coder",
 			"boundary": "只是在导入时把文件名映射到 JPEG；仍以实际 JPEG 解码成功为准，不新增 JPEG 输出选项。",
@@ -71,7 +92,13 @@
 			"id": "L-01",
 			"tier": "low",
 			"title": "纯文本与 Markdown 文件名扩展",
-			"formats": ["txt", "text", "markdown", "mdown", "mkdn"],
+			"formats": [
+				"txt",
+				"text",
+				"markdown",
+				"mdown",
+				"mkdn"
+			],
 			"direction": "输入 → TXT",
 			"engine": "现有 Pandoc 的 plain / markdown reader",
 			"boundary": "只做本地纯文本归一化；Markdown 不下载资源，图片、布局和样式不会进入输出。",
@@ -82,7 +109,11 @@
 			"id": "L-02",
 			"tier": "low",
 			"title": "Ogg、Matroska 与 WebM 音频文件名兼容",
-			"formats": ["oga", "mka", "weba"],
+			"formats": [
+				"oga",
+				"mka",
+				"weba"
+			],
 			"direction": "输入 → 现有 WAV / MP3 / FLAC / Opus / M4A / OGG / AIFF 输出",
 			"engine": "现有 FFmpeg 与已使用的 ogg / matroska demuxer",
 			"boundary": "只提取第一条音轨，仍强制指定容器且禁止网络协议；扩展名不能绕过实际解码检查。",
@@ -93,7 +124,9 @@
 			"id": "L-03",
 			"tier": "low",
 			"title": "reStructuredText 文本提取",
-			"formats": ["rst"],
+			"formats": [
+				"rst"
+			],
 			"direction": "输入 → TXT",
 			"engine": "现有 Pandoc RST reader",
 			"boundary": "只输出正文文本；include、图片和外部资源不作为可读取能力承诺。RTF 不在本项内。",
@@ -104,7 +137,13 @@
 			"id": "M-01",
 			"tier": "medium",
 			"title": "PNM 静态图片家族",
-			"formats": ["pbm", "pgm", "ppm", "pnm", "pam"],
+			"formats": [
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam"
+			],
 			"direction": "静态图片输入/输出；PDF 页面可导出同类格式",
 			"engine": "ImageMagick PNM coder；Linux 当前打包脚本已复制 pnm 模块",
 			"boundary": "只处理单帧/单页，先固定受支持的位深、灰度/alpha 和颜色转换；不把裸 raw pixel 数据当作自动可识别文件。",
@@ -115,7 +154,9 @@
 			"id": "M-02",
 			"tier": "medium",
 			"title": "静态 GIF",
-			"formats": ["gif"],
+			"formats": [
+				"gif"
+			],
 			"direction": "输入首帧/输出单帧 GIF；PDF 页面可导出 GIF",
 			"engine": "ImageMagick GIF coder，需要确认 Linux 模块和策略",
 			"boundary": "首版明确不是动画 GIF：不保留帧时长、循环、处置方式或多帧内容；调色板和透明色需要专门测试。",
@@ -126,7 +167,10 @@
 			"id": "M-03",
 			"tier": "medium",
 			"title": "基线 TIFF 单页模式",
-			"formats": ["tif", "tiff"],
+			"formats": [
+				"tif",
+				"tiff"
+			],
 			"direction": "单页图片输入/输出；PDF 页面可导出 TIFF",
 			"engine": "ImageMagick + libtiff；Linux 构建当前显式 --without-tiff",
 			"boundary": "首版仅单页、受限 RGB/RGBA；不承诺 CMYK、BigTIFF、16 位、ICC 或多页 TIFF 的完整保真。",
@@ -137,7 +181,9 @@
 			"id": "M-04",
 			"tier": "medium",
 			"title": "基础 ICO 单图模式",
-			"formats": ["ico"],
+			"formats": [
+				"ico"
+			],
 			"direction": "输入一张选定图像 / 输出一个固定尺寸 ICO",
 			"engine": "ImageMagick ICO coder，需要确认 Linux 模块和策略",
 			"boundary": "只处理一个明确尺寸的位图；不把 ICO 内多个尺寸/位深当作完整保留或自动挑选。",
@@ -148,7 +194,11 @@
 			"id": "M-05",
 			"tier": "medium",
 			"title": "传统静态位图兼容包",
-			"formats": ["pcx", "xbm", "xpm"],
+			"formats": [
+				"pcx",
+				"xbm",
+				"xpm"
+			],
 			"direction": "静态图片输入/输出",
 			"engine": "ImageMagick coder；每种格式须独立确认包内模块",
 			"boundary": "只转像素平面；调色板、热点、注释和应用专用扩展不会作为保真承诺。DDS 不包含在本项。",
@@ -180,7 +230,10 @@
 			"id": "M-07",
 			"tier": "medium",
 			"title": "AAC 与 ALAC 音频输出",
-			"formats": ["aac", "alac / m4a"],
+			"formats": [
+				"aac",
+				"alac / m4a"
+			],
 			"direction": "现有音频输入 → ADTS AAC 或 ALAC 封装的 M4A",
 			"engine": "当前六平台能力盘点均列出 aac 与 alac encoder；仍需测试具体 muxer",
 			"boundary": "AAC 是有损；ALAC 的文件扩展通常仍是 .m4a，必须在 UI 中显示 codec，不能只靠扩展名区分。",
@@ -191,18 +244,25 @@
 			"id": "M-08",
 			"tier": "medium",
 			"title": "结构化文档的纯文本提取",
-			"formats": ["csv", "tsv", "docbook", "org"],
+			"formats": [
+				"csv",
+				"tsv",
+				"docbook",
+				"org"
+			],
 			"direction": "输入 → TXT",
 			"engine": "现有 Pandoc readers + 当前 sandboxed TXT pipeline",
-			"boundary": "CSV/TSV 不保留公式、单元格样式、多工作表或图表；DocBook/Org 不读取外部资源，也不保留页面布局。",
-			"work": "为每种 reader 建立明确映射和恶意资源负例，检查 Unicode、表格阅读顺序、空文件、取消和 UTF-8 输出。",
+			"boundary": "CSV/TSV 不保留公式、单元格样式、多工作表或图表；DocBook/Org 不读取外部资源，也不保留页面布局。Org 的下划线可表示下标；需保留原样标识符时使用字面/代码标记或 #+OPTIONS: ^:{}。",
+			"work": "为每种 reader 建立明确映射和恶意资源负例，检查 Unicode、表格阅读顺序、Org 下划线/字面标记、空文件、取消和 UTF-8 输出。",
 			"recommendation": "建议作为文本提取包的第二批；不应把它宣传为表格转换。"
 		},
 		{
 			"id": "M-09",
 			"tier": "medium",
 			"title": "PDF 已有文本层提取",
-			"formats": ["pdf"],
+			"formats": [
+				"pdf"
+			],
 			"direction": "PDF 输入 → TXT",
 			"engine": "现有 MuPDF；需要新增文本提取路线",
 			"boundary": "只提取 PDF 内已有的文字对象；扫描件、照片页和缺失文字层的 PDF 不会变成可搜索文本，也不属于 OCR。",
@@ -213,7 +273,11 @@
 			"id": "H-01",
 			"tier": "high",
 			"title": "完整 TIFF",
-			"formats": ["tif", "tiff", "bigtiff"],
+			"formats": [
+				"tif",
+				"tiff",
+				"bigtiff"
+			],
 			"direction": "多页、高位深、CMYK/ICC TIFF 输入/输出",
 			"engine": "ImageMagick + libtiff，需完整跨平台依赖与质量合同",
 			"boundary": "需要定义页选择/全部页、压缩、CMYK↔RGB、16 位、ICC 和超大文件的取舍；不能沿用单页首帧行为。",
@@ -224,7 +288,11 @@
 			"id": "H-02",
 			"tier": "high",
 			"title": "真实动画图像",
-			"formats": ["gif", "apng", "animated webp"],
+			"formats": [
+				"gif",
+				"apng",
+				"animated webp"
+			],
 			"direction": "动画输入/输出并保留帧时间、循环和处置方式",
 			"engine": "ImageMagick / FFmpeg 组合，取决于最终包组件",
 			"boundary": "必须保留或明确转换动画帧、延时、循环次数和透明度，并限制总帧数、像素数和临时磁盘。",
@@ -235,7 +303,11 @@
 			"id": "H-03",
 			"tier": "high",
 			"title": "多尺寸图标包",
-			"formats": ["ico", "cur", "icns"],
+			"formats": [
+				"ico",
+				"cur",
+				"icns"
+			],
 			"direction": "多源图像 → 多尺寸图标；图标包导入/导出",
 			"engine": "ImageMagick 或专用图标编码；需平台样本验证",
 			"boundary": "要定义尺寸集、热点、PNG/BMP payload、透明和逐层选择；单图 ICO 不能替代此能力。",
@@ -246,7 +318,9 @@
 			"id": "H-04",
 			"tier": "high",
 			"title": "JPEG XL",
-			"formats": ["jxl"],
+			"formats": [
+				"jxl"
+			],
 			"direction": "静态图片输入/输出；PDF 页面可选输出",
 			"engine": "ImageMagick JXL coder + libjxl；Linux 构建当前显式 --without-jxl，历史 macOS 包未列出 JXL",
 			"boundary": "需要明确有损/无损、质量/距离参数、ICC、动画与高位深的支持范围；首版不应借此承诺动画 JXL。",
@@ -257,7 +331,11 @@
 			"id": "H-05",
 			"tier": "high",
 			"title": "JPEG 2000",
-			"formats": ["jp2", "j2k", "j2c"],
+			"formats": [
+				"jp2",
+				"j2k",
+				"j2c"
+			],
 			"direction": "静态图片输入/输出",
 			"engine": "ImageMagick + OpenJPEG；当前各平台包能力不一致",
 			"boundary": "需确定输出容器、质量、alpha、色彩和高位深；只读不能推导可安全写入。",
@@ -268,7 +346,10 @@
 			"id": "H-06",
 			"tier": "high",
 			"title": "HEIC / HEIF 输出",
-			"formats": ["heic", "heif"],
+			"formats": [
+				"heic",
+				"heif"
+			],
 			"direction": "静态图片输入 → HEIC / HEIF 输出",
 			"engine": "ImageMagick HEIC coder + libheif 及实际编码插件；Windows 历史包只声明读取",
 			"boundary": "要固定 AV1/HEVC 编码器、质量/无损选项、alpha、色彩和方向处理；不能将现有 HEIC 导入能力视为输出已具备。",
@@ -279,7 +360,9 @@
 			"id": "H-07",
 			"tier": "high",
 			"title": "静态 SVG 栅格化",
-			"formats": ["svg"],
+			"formats": [
+				"svg"
+			],
 			"direction": "SVG 输入 → PNG / JPEG / WebP / AVIF 等位图",
 			"engine": "建议新增 resvg/usvg，而不是让 ImageMagick 执行任意 delegate",
 			"boundary": "只承诺静态 SVG 子集；脚本、事件、动画和不受控外部资源不执行，字体回退和输出尺寸需明确。",
@@ -290,18 +373,26 @@
 			"id": "H-08",
 			"tier": "high",
 			"title": "高动态范围与专业图像",
-			"formats": ["exr", "hdr", "dpx"],
-			"direction": "专业图像输入/输出",
-			"engine": "ImageMagick + OpenEXR 等 delegate；Linux 当前显式 --without-openexr",
-			"boundary": "线性色彩、浮点/半精度、gamma、曝光和色域不能按普通 sRGB 图片处理，输出到 8 位格式必须披露色调映射。",
-			"work": "新增依赖和参数模型，定义 HDR→SDR 处理，建立高位深色彩样本及跨平台像素容差。",
-			"recommendation": "只在影视、渲染或摄影工作流有明确需求时选择。"
+			"formats": [
+				"exr",
+				"hdr",
+				"dpx"
+			],
+			"direction": "候选包已接入：专业图像输入 → 受限 SDR 位图输出",
+			"engine": "ImageMagick + 随包 OpenEXR；Linux ARM64 候选已验证实际引擎闭包与 DPX/EXR/HDR 像素读回",
+			"boundary": "EXR/HDR 使用固定曝光降至 8-bit sRGB SDR；DPX 按解码后的解释降至 8-bit sRGB SDR。Log/相机专用 LUT、自定义参考黑白点、多元素、制作元数据和高位深保真不保留。",
+			"work": "维护有效 10-bit DPX、EXR/HDR 高亮与 Log/YCbCr 负向样本；分别在 Linux、Windows、macOS 的 AMD64/ARM64 最终包做读回和显示边界验收。",
+			"recommendation": "适合需要影视、渲染或摄影静态导入的用户；首版不替代调色软件或专业 DPX 往返工作流。"
 		},
 		{
 			"id": "H-09",
 			"tier": "high",
 			"title": "扁平化设计图导入",
-			"formats": ["psd", "xcf", "ora"],
+			"formats": [
+				"psd",
+				"xcf",
+				"ora"
+			],
 			"direction": "输入 → 普通位图输出",
 			"engine": "ImageMagick 可作为 PSD 起点；XCF/ORA 需要逐格式确认或专用 reader",
 			"boundary": "仅导出合成后的可见像素；图层、蒙版、文字、混合模式、智能对象和可编辑性均不保留。",
@@ -333,7 +424,11 @@
 			"id": "H-11",
 			"tier": "high",
 			"title": "通用 CPU 视频输出",
-			"formats": ["mp4 / h264+aac", "webm / vp9+opus", "mkv"],
+			"formats": [
+				"mp4 / h264+aac",
+				"webm / vp9+opus",
+				"mkv"
+			],
 			"direction": "视频输入 → 视频输出",
 			"engine": "已打包 FFmpeg 的部分编码器；当前产品只做第一条音轨提取",
 			"boundary": "首版需固定 CPU 预设、视频/音频流选择、旋转、奇数尺寸、字幕和 HDR 降级行为；硬件编码不作为默认保证。",
@@ -344,7 +439,13 @@
 			"id": "H-12",
 			"tier": "high",
 			"title": "无损重封装与流提取",
-			"formats": ["mp4", "mov", "mkv", "webm", "m4a"],
+			"formats": [
+				"mp4",
+				"mov",
+				"mkv",
+				"webm",
+				"m4a"
+			],
 			"direction": "兼容容器间 stream copy / 选定音轨、字幕或章节提取",
 			"engine": "现有 FFmpeg，但需要新的“无重编码”任务模式",
 			"boundary": "只有 codec 与目标容器兼容时才可无损；关键帧裁切、字幕、章节、多轨和封面都需明确是否保留。",
@@ -355,7 +456,15 @@
 			"id": "H-13",
 			"tier": "high",
 			"title": "结构化文档互转",
-			"formats": ["md", "html", "rst", "docx", "odt", "epub", "docbook"],
+			"formats": [
+				"md",
+				"html",
+				"rst",
+				"docx",
+				"odt",
+				"epub",
+				"docbook"
+			],
 			"direction": "受支持文档输入 ↔ 结构化文档输出",
 			"engine": "现有 Pandoc writer；输出资源、模板和归档文件需要产品层处理",
 			"boundary": "保留的是可表达的文档结构，不是 Word/LibreOffice 的分页、字体、复杂表格或嵌入对象的视觉等价。",
@@ -366,7 +475,9 @@
 			"id": "H-14",
 			"tier": "high",
 			"title": "文档生成 PDF",
-			"formats": ["pdf"],
+			"formats": [
+				"pdf"
+			],
 			"direction": "文档输入 → PDF",
 			"engine": "Pandoc 需要额外 PDF 排版引擎；当前 Pandoc writer 列表不证明该引擎已打包",
 			"boundary": "要选择 TeX、Typst、HTML PDF 等后端并限制资源访问；排版、字体、可访问性和 PDF/A 不是自动保证。",
@@ -377,7 +488,14 @@
 			"id": "H-15",
 			"tier": "high",
 			"title": "图片合成 PDF",
-			"formats": ["png", "jpeg", "webp", "avif", "tiff", "pdf"],
+			"formats": [
+				"png",
+				"jpeg",
+				"webp",
+				"avif",
+				"tiff",
+				"pdf"
+			],
 			"direction": "单张/多张图片 → 多页 PDF",
 			"engine": "需要安全 PDF writer 或受控文档/PDF 组合；当前产品只有 PDF→图片",
 			"boundary": "要定义页面尺寸、排序、DPI、透明底、ICC、压缩、元数据和多文件导入顺序。",
@@ -388,7 +506,10 @@
 			"id": "H-16",
 			"tier": "high",
 			"title": "EPS / PostScript 图形导入",
-			"formats": ["eps", "ps"],
+			"formats": [
+				"eps",
+				"ps"
+			],
 			"direction": "向位图/PDF 的受限渲染",
 			"engine": "通常需要 Ghostscript；当前 Linux ImageMagick 构建禁用相关 delegate",
 			"boundary": "PostScript 是可执行描述语言，必须使用受控解释器、严格资源/进程限制，不能让 ImageMagick 自动调用任意 delegate。",
@@ -399,7 +520,11 @@
 			"id": "H-17",
 			"tier": "high",
 			"title": "电子书、漫画与 XPS 页面渲染",
-			"formats": ["epub", "cbz", "xps"],
+			"formats": [
+				"epub",
+				"cbz",
+				"xps"
+			],
 			"direction": "页面型文档输入 → 图片或受限文本",
 			"engine": "MuPDF 可作为候选，但当前桌面产品只把它用于 PDF",
 			"boundary": "需定义章节/页码、内嵌字体、受 DRM 文件拒绝、书签和文本顺序；EPUB→TXT 与 EPUB 页面渲染不是同一能力。",
@@ -410,7 +535,9 @@
 			"id": "H-18",
 			"tier": "high",
 			"title": "DDS 游戏纹理",
-			"formats": ["dds"],
+			"formats": [
+				"dds"
+			],
 			"direction": "DDS 输入/输出",
 			"engine": "ImageMagick 可提供像素入口，但需要确认压缩与 mipmap 支持",
 			"boundary": "必须说明是否保留 mipmap、块压缩、法线贴图和颜色空间；扁平单层位图导出不能称为纹理保真。",
@@ -421,7 +548,13 @@
 			"id": "UH-01",
 			"tier": "ultra-high",
 			"title": "电子表格转换",
-			"formats": ["xls", "xlsx", "ods", "csv", "tsv"],
+			"formats": [
+				"xls",
+				"xlsx",
+				"ods",
+				"csv",
+				"tsv"
+			],
 			"direction": "工作簿 → PDF / 图片 / CSV 等",
 			"engine": "需要 LibreOffice Calc 或专用表格引擎；Pandoc 不能替代工作簿转换",
 			"boundary": "工作表、公式、图表、筛选、宏、打印区域和外部链接均需逐项定义；CSV 不等于保真 XLSX。",
@@ -432,7 +565,11 @@
 			"id": "UH-02",
 			"tier": "ultra-high",
 			"title": "演示文稿转换",
-			"formats": ["ppt", "pptx", "odp"],
+			"formats": [
+				"ppt",
+				"pptx",
+				"odp"
+			],
 			"direction": "演示文稿 → PDF / 幻灯片图片",
 			"engine": "需要 LibreOffice Impress 或同类排版引擎",
 			"boundary": "主题、动画、嵌入媒体、字体、图表、讲稿和幻灯片尺寸会影响结果；静态图片导出不保留演示行为。",
@@ -443,7 +580,13 @@
 			"id": "UH-03",
 			"tier": "ultra-high",
 			"title": "视觉保真 Office / 旧 Word 文档",
-			"formats": ["doc", "docx", "odt", "rtf", "pdf"],
+			"formats": [
+				"doc",
+				"docx",
+				"odt",
+				"rtf",
+				"pdf"
+			],
 			"direction": "文档 → 排版 PDF / 图片",
 			"engine": "需要 LibreOffice/Word 类排版引擎；现有 Pandoc 只适合结构化转换",
 			"boundary": "不能承诺跨系统字体、分页、宏、嵌入对象、修订和复杂表格的完全相同外观；当前 RTF reader 已有已复现的正文顺序缺陷。",
@@ -473,7 +616,12 @@
 			"id": "UH-05",
 			"tier": "ultra-high",
 			"title": "可编辑图层与设计文件保真",
-			"formats": ["psd", "xcf", "ora", "ai"],
+			"formats": [
+				"psd",
+				"xcf",
+				"ora",
+				"ai"
+			],
 			"direction": "设计源文件之间的可编辑转换",
 			"engine": "没有一个现有引擎可作为通用保真路线；通常要格式专用解析/写入或原应用自动化",
 			"boundary": "图层、文字、智能对象、矢量路径、滤镜、混合模式、色彩配置和应用私有数据都不能靠扁平图片恢复。",
@@ -503,7 +651,11 @@
 			"id": "UH-07",
 			"tier": "ultra-high",
 			"title": "医疗、科学与工程图像工作流",
-			"formats": ["dcm", "fits", "dicom series"],
+			"formats": [
+				"dcm",
+				"fits",
+				"dicom series"
+			],
 			"direction": "专业图像导入、窗口化、序列/元数据处理",
 			"engine": "需要格式专用库和领域逻辑；ImageMagick 的单帧 coder 不构成完整工作流",
 			"boundary": "医学窗口、空间坐标、病人信息、序列、科学数据单位和隐私要求不能被普通位图转换替代。",

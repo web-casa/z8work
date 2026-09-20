@@ -1,0 +1,7 @@
+started=2026-09-15T11:05:09+08:00
+source_path=/home/ivmm/z8-format-matrix-source-safe.InnTwe
+image=z8-core24-format-matrix@sha256:a5e61c3d7d31f3e08b76009eb85b772b6a2a0450ceb625e6d10b5902d8d9dcca
+    Finished `release` profile [optimized] target(s) in 0.37s
+5bf248ef281eab440d4c9e1c67ea5b2dfe43714a33c0efd1d37a299824b0dbc1  /home/ivmm/z8-format-matrix-source-safe.InnTwe/src-tauri/target/release/bundle-check
+binary_bytes=10572936\nbinary_modified=2026-09-15 02:20:29.556079215 +0800
+ended=2026-09-15T11:05:10+08:00

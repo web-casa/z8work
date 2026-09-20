@@ -39,6 +39,11 @@ pub struct EngineInfo {
     pub available: bool,
     pub error: Option<String>,
 }
+#[derive(Serialize)]
+pub struct FormatRoute {
+    pub input: String,
+    pub outputs: Vec<crate::OutputFormat>,
+}
 pub fn hash_file(path: &Path) -> Result<String, String> {
     hash_file_checked(
         path,
@@ -186,13 +191,30 @@ impl Engines {
             .collect()
     }
     pub fn formats_for(&self, extension: &str) -> Vec<crate::OutputFormat> {
-        let formats = crate::output_formats(extension);
+        let formats = self
+            .bundle
+            .as_ref()
+            .map(|bundle| bundle.formats_for(extension))
+            .unwrap_or_else(|| crate::output_formats(extension));
         let required = crate::startup::required(extension);
         if required.iter().all(|id| self.entries.contains_key(*id)) {
             formats
         } else {
             vec![]
         }
+    }
+    pub fn routes(&self) -> Vec<FormatRoute> {
+        crate::formats::groups()
+            .iter()
+            .flat_map(|group| group.inputs.iter())
+            .filter_map(|input| {
+                let outputs = self.formats_for(input);
+                (!outputs.is_empty()).then(|| FormatRoute {
+                    input: input.clone(),
+                    outputs,
+                })
+            })
+            .collect()
     }
     pub(crate) fn identity(&self) -> String {
         if let Some(bundle) = &self.bundle {
@@ -379,7 +401,7 @@ mod tests {
                 }
             }
         }
-        for unsupported in ["xlsx", "xls", "exe", "svg", "tiff", "", ".png"] {
+        for unsupported in ["xlsx", "xls", "exe", "svgz", "", ".png"] {
             assert!(crate::output_formats(unsupported).is_empty());
         }
     }

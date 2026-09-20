@@ -4,7 +4,7 @@
 	"contact": "contact@web.casa",
 	"website": "https://z8.work/",
 	"source": "https://github.com/web-casa/z8work",
-	"updated": "2026-09-13",
+	"updated": "2026-09-14",
 	"routes": [
 		{
 			"kind": "image",
@@ -12,20 +12,84 @@
 				"png",
 				"jpg",
 				"jpeg",
+				"jpe",
+				"jfif",
 				"webp",
 				"avif",
 				"heic",
 				"heif",
 				"bmp",
 				"tga",
-				"qoi"
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"svg",
+				"jxl",
+				"exr",
+				"hdr",
+				"dpx"
 			],
-			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"]
+			"outputs": [
+				"png",
+				"jpeg",
+				"webp",
+				"avif",
+				"bmp",
+				"tga",
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"heic",
+				"heif",
+				"jxl"
+			]
 		},
 		{
 			"kind": "pdf",
 			"inputs": ["pdf"],
-			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"]
+			"outputs": [
+				"png",
+				"jpeg",
+				"webp",
+				"avif",
+				"bmp",
+				"tga",
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"heic",
+				"heif",
+				"jxl",
+				"txt"
+			]
 		},
 		{
 			"kind": "audio",
@@ -41,28 +105,70 @@
 				"mkv",
 				"webm",
 				"aiff",
-				"aif"
+				"aif",
+				"oga",
+				"mka",
+				"weba",
+				"aac",
+				"ac3",
+				"amr",
+				"au",
+				"caf",
+				"wma",
+				"mp2",
+				"voc",
+				"wv"
 			],
-			"outputs": ["wav", "mp3", "flac", "opus", "m4a", "ogg", "aiff"]
+			"outputs": [
+				"wav",
+				"mp3",
+				"flac",
+				"opus",
+				"m4a",
+				"ogg",
+				"aiff",
+				"aac",
+				"alac"
+			]
+		},
+		{
+			"kind": "plain-text",
+			"inputs": ["txt", "text"],
+			"outputs": ["txt"]
 		},
 		{
 			"kind": "text",
-			"inputs": ["md", "docx", "html", "htm", "odt", "epub"],
+			"inputs": [
+				"md",
+				"markdown",
+				"mdown",
+				"mkdn",
+				"rst",
+				"docx",
+				"html",
+				"htm",
+				"odt",
+				"epub",
+				"csv",
+				"tsv",
+				"docbook",
+				"org"
+			],
 			"outputs": ["txt"]
 		}
 	],
 	"locales": {
 		"en": {
-			"summary": "Convert images, PDF pages and audio locally",
+			"summary": "Convert files locally with native engines",
 			"shortDescription": "A local file workspace with batch conversion, image quality controls and resumable PDF page export.",
-			"description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and file contents are not uploaded by the converter.\n\nConvert images to PNG, JPEG, WebP, AVIF, BMP, TGA or QOI. Export PDF pages as images. Convert audio or extract an audio track from supported video files. Extract plain text from Markdown, DOCX, HTML, ODT and EPUB documents.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. If encoding succeeds but saving fails, a retained single-file result can be saved to another folder during the same session without re-encoding. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. JPEG/BMP use a white background for transparency. BMP/TGA/QOI use 8-bit sRGB and omit metadata and ICC profiles. PDF export is limited to 200 pages and 4000 by 4000 pixels per page. Documents export plain text, without layout preservation or OCR. Video output and spreadsheets are not supported in this desktop version. Output files may be larger than their sources.",
+			"description": "Z8.Work processes files on your computer using native conversion engines. Choose files and a save folder, adjust output formats and quality, then let the local queue handle your batch. No account is required, and the converter does not upload file contents.\n\nThe app shows only routes bound to the signed acceptance list in that installed package. A format in the source catalog is not advertised to users until the exact target package has converted and re-read it successfully. The visible formats may therefore differ by operating system and architecture.\n\nReview saved file sizes, cancel queued work and retry unfinished PDF pages. If encoding succeeds but saving fails, a retained single-file result can be saved to another folder during the same session without re-encoding. Queue history survives a restart; reselect the source files and save folder before retrying.\n\nImages use the first frame only. HEIC/HEIF output uses a lossy HEVC 8-bit SDR profile; JPEG XL preview support varies between other apps. Static SVG input has no scripts or external resources. TIFF and HDR professional preservation, OCR, spreadsheet conversion, formatted document output and video output are not offered. Output files may be larger than their sources.",
 			"features": [
 				"Local native conversion without uploading file contents",
 				"Batch output formats and three image quality presets",
-				"PNG, JPEG, WebP, AVIF, BMP, TGA and QOI image output",
+				"Only signed, target-package-verified conversion routes are shown",
 				"Multi-page PDF export with partial-result recovery",
 				"Audio conversion and audio extraction from supported videos",
-				"Plain-text extraction from Markdown, DOCX, HTML, ODT and EPUB"
+				"Clear boundaries for HEIF, JPEG XL, static SVG, TIFF and HDR input"
 			],
 			"draftNotice": "Desktop preview documentation. Store releases and cross-platform installation acceptance are still pending.",
 			"privacyTitle": "Desktop privacy",
@@ -103,7 +209,11 @@
 				},
 				{
 					"title": "Supported conversions",
-					"body": "Image output: PNG, JPEG, WebP, AVIF, BMP, TGA and QOI. PDF exports pages to those image formats. Audio output: WAV, MP3, FLAC, Opus, M4A, OGG/Vorbis and AIFF/PCM16; supported videos can supply an audio track. Markdown, DOCX, HTML, ODT and EPUB can export plain text. This desktop version does not support OCR, spreadsheet conversion, formatted document output or video output."
+					"body": "The conversion list inside the installed app is authoritative: it is a signed, target-package-specific acceptance list. It exposes a source route only after the exact package has converted and independently decoded it. This prevents an engine inventory, a file extension, or a source catalog from promising a route that is unavailable on that operating system or architecture. OCR, spreadsheet conversion, formatted document output and video output are not supported."
+				},
+				{
+					"title": "Extended image compatibility",
+					"body": "HEIC and HEIF output use one lossy HEVC 8-bit SDR profile, but other Windows applications can require an optional codec to preview it. JPEG XL is checked by Z8.Work but browser and system preview support varies. Static SVG does not run scripts or load external files; embedded raster data and bundled fonts are bounded. TIFF is a one-page 8-bit route, while EXR, HDR and DPX are SDR imports rather than high-dynamic-range preservation."
 				},
 				{
 					"title": "Retry saving an encoded result",
@@ -124,16 +234,16 @@
 			]
 		},
 		"zh-Hans": {
-			"summary": "在本机批量转换图片、PDF 页面和音频",
+			"summary": "使用本机原生引擎转换文件",
 			"shortDescription": "本地多文件转换处理工具，支持批量转换、图片质量设置和 PDF 未完成页面重试。",
-			"description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n图片可输出 PNG、JPEG、WebP、AVIF、BMP、TGA 和 QOI；PDF 可逐页导出图片；支持音频转换和从支持的视频文件中提取音轨；Markdown、DOCX、HTML、ODT 和 EPUB 可提取纯文本。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。编码成功但保存失败时，若单文件结果已暂存，可在本次会话中更换目录仅重试保存，无需重新编码。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧，JPEG/BMP 将透明区域填为白色。BMP/TGA/QOI 使用 8 位 sRGB，不保留元数据与 ICC 配置。PDF 最多 200 页，每页最多 4000 × 4000 像素。文档仅输出纯文本，不保留排版，也不提供 OCR。本桌面版尚不支持视频输出和电子表格转换。输出文件可能比原文件更大。",
+			"description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n应用只显示该安装包中已签名确认的格式路线。源码目录出现的格式，必须先由对应操作系统和架构的实际安装包完成转换和独立读回验证，才会向用户显示。因此不同系统和架构可见的格式可能不同。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。编码成功但保存失败时，若单文件结果已暂存，可在本次会话中更换目录仅重试保存，无需重新编码。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧。HEIC/HEIF 输出采用有损 HEVC、8 位 SDR 档位；JPEG XL 在其他应用中的预览支持并不一致。静态 SVG 输入不执行脚本，也不加载外部资源。TIFF 与 HDR 专业保真、OCR、电子表格转换、保留排版的文档输出和视频输出均不在本版范围内。输出文件可能比原文件更大。",
 			"features": [
 				"原生引擎本地转换，不上传文件内容",
 				"批量设置输出格式与三档图片质量",
-				"支持 PNG、JPEG、WebP、AVIF 图片输出",
+				"仅显示已签名、已在目标安装包验证的转换路线",
 				"PDF 多页导出与部分结果恢复",
 				"音频转换和从支持的视频中提取音轨",
-				"从 Markdown、DOCX、HTML、ODT 和 EPUB 提取纯文本"
+				"明确 HEIF、JPEG XL、静态 SVG、TIFF 和 HDR 输入的兼容性边界"
 			],
 			"draftNotice": "桌面预览版说明。商店发行与跨平台安装验收仍未完成。",
 			"privacyTitle": "桌面版隐私说明",
@@ -174,7 +284,11 @@
 				},
 				{
 					"title": "支持的转换",
-					"body": "图片可输出 PNG、JPEG、WebP、AVIF、BMP、TGA 和 QOI，PDF 可将页面导出为这些格式。音频可输出 WAV、MP3、FLAC、Opus、M4A、OGG/Vorbis 和 AIFF/PCM16，也可从支持的视频中提取音轨。Markdown、DOCX、HTML、ODT 和 EPUB 可输出纯文本。本桌面版不支持 OCR、电子表格转换、保留排版的文档输出或视频输出。"
+					"body": "安装包内应用显示的转换列表才是权威来源：它是按目标安装包签名确认的路线清单。只有该安装包实际转换并独立解码验证过的路线才会出现，不能由引擎清单、文件扩展名或源码目录替代。这避免在某个操作系统或架构上承诺实际不可用的格式。OCR、电子表格转换、保留排版的文档输出和视频输出均不支持。"
+				},
+				{
+					"title": "扩展图片格式兼容性",
+					"body": "HEIC 与 HEIF 输出统一使用有损 HEVC、8 位 SDR 档位，但 Windows 上的其他应用预览时可能需要可选编解码器。JPEG XL 会由 Z8.Work 自行验证，但浏览器和系统预览支持并不一致。静态 SVG 不执行脚本或加载外部文件，嵌入位图和随包字体均有上限。TIFF 是单页 8 位路线；EXR、HDR、DPX 仅作为映射到 SDR 的输入，不宣称高动态范围保真。"
 				},
 				{
 					"title": "仅重试保存已编码结果",

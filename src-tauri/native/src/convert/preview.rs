@@ -106,6 +106,8 @@ pub(crate) fn preview(
         )?;
     } else if media_demuxer(&ext).is_some() {
         media::render(&job, &staged, &output, &ext)?;
+    } else if ext == "svg" {
+        super::svg::render(&staged, &output, Some(SIDE))?;
     } else {
         job.run(
             "magick",

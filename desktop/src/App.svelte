@@ -23,7 +23,6 @@
 	} from "./platform/preview";
 	import { invoke, isTauri } from "@tauri-apps/api/core";
 	import PixelIcon from "../../src/lib/components/pixel/PixelIcon.svelte";
-	import { formats } from "./platform/queue-contract";
 	import type {
 		Snapshot,
 		Task,
@@ -66,6 +65,7 @@
 			available: boolean;
 			error: string | null;
 		}[];
+		routes: { input: string; outputs: Format[] }[];
 		error: string | null;
 		queue_error: string | null;
 	};
@@ -106,10 +106,37 @@
 	let pending: Submission | undefined;
 	const batchFormat = $derived(preferences.draft.batch_format);
 	const batchOptions = $derived(preferences.draft.batch_options);
-	const batchTasks = $derived(
-		queueState?.tasks.filter((t) => t.formats.includes(batchFormat)) ?? [],
+	function extension(name: string) {
+		return name.split(".").at(-1)?.toLowerCase() ?? "";
+	}
+	function acceptedFormats(task: Task): Format[] {
+		const route = info?.routes.find(
+			(candidate) => candidate.input === extension(task.name),
+		);
+		// The queue carries the reviewed source contract. Intersect it with the
+		// signed package route so neither an IPC response nor a stale task can
+		// broaden the selectable output formats.
+		return task.formats.filter((format) => route?.outputs.includes(format));
+	}
+	function routeAccepted(task: Task) {
+		return acceptedFormats(task).includes(task.format);
+	}
+	const allFormats = $derived([
+		...new Set((info?.routes ?? []).flatMap((route) => route.outputs)),
+	] as Format[]);
+	// Preferences may outlive an engine update. Keep the displayed and submitted
+	// batch choice inside this package's signed route list without silently
+	// rewriting the saved preference.
+	const selectedBatchFormat = $derived(
+		allFormats.includes(batchFormat)
+			? batchFormat
+			: (allFormats.at(0) ?? batchFormat),
 	);
-	const allFormats = formats;
+	const batchTasks = $derived(
+		queueState?.tasks.filter((task) =>
+			acceptedFormats(task).includes(selectedBatchFormat),
+		) ?? [],
+	);
 	async function configure(ids: string[], options: Options, format?: Format) {
 		pending = undefined;
 		await action("configure_tasks", {
@@ -140,6 +167,73 @@
 			: `${delta < 0 ? t("减少", "Smaller by") : t("增加", "Larger by")} ${size(Math.abs(delta))}${percent}`;
 	}
 	const t = (zh: string, en: string) => (english ? en : zh);
+	function formatLabel(format: Format) {
+		const labels: Record<Format, [string, string]> = {
+			png: ["PNG", "PNG"],
+			jpeg: ["JPEG", "JPEG"],
+			webp: ["WebP", "WebP"],
+			avif: ["AVIF", "AVIF"],
+			bmp: ["BMP", "BMP"],
+			tga: ["TGA", "TGA"],
+			qoi: ["QOI", "QOI"],
+			pbm: ["PBM（黑白）", "PBM (monochrome)"],
+			pgm: ["PGM（灰度）", "PGM (grayscale)"],
+			ppm: ["PPM", "PPM"],
+			pnm: ["PNM", "PNM"],
+			pam: ["PAM", "PAM"],
+			gif: ["GIF（静态）", "GIF (static)"],
+			tiff: ["TIFF（单页）", "TIFF (one page)"],
+			ico: ["ICO（256 像素）", "ICO (256 px)"],
+			pcx: ["PCX", "PCX"],
+			xbm: ["XBM（黑白）", "XBM (monochrome)"],
+			xpm: ["XPM（256 色）", "XPM (256 colors)"],
+			heic: ["HEIC（HEVC）", "HEIC (HEVC)"],
+			heif: ["HEIF（HEVC）", "HEIF (HEVC)"],
+			jxl: ["JPEG XL（JXL）", "JPEG XL (JXL)"],
+			wav: ["WAV", "WAV"],
+			mp3: ["MP3", "MP3"],
+			flac: ["FLAC", "FLAC"],
+			opus: ["Opus", "Opus"],
+			m4a: ["M4A（AAC）", "M4A (AAC)"],
+			ogg: ["OGG（Vorbis）", "OGG (Vorbis)"],
+			aiff: ["AIFF（PCM）", "AIFF (PCM)"],
+			aac: ["AAC（ADTS）", "AAC (ADTS)"],
+			alac: ["ALAC（M4A，无损）", "ALAC (M4A, lossless)"],
+			txt: ["TXT（纯文本）", "TXT (plain text)"],
+		};
+		return labels[format][english ? 1 : 0];
+	}
+	const imageOutputs = [
+		"png",
+		"jpeg",
+		"webp",
+		"avif",
+		"bmp",
+		"tga",
+		"qoi",
+		"pbm",
+		"pgm",
+		"ppm",
+		"pnm",
+		"pam",
+		"gif",
+		"tiff",
+		"ico",
+		"pcx",
+		"xbm",
+		"xpm",
+		"heic",
+		"heif",
+		"jxl",
+	] as Format[];
+	const optionsFormats = [
+		...imageOutputs,
+		"txt",
+		"ogg",
+		"aiff",
+		"aac",
+		"alac",
+	] as Format[];
 	const working = $derived(
 		busy ||
 			preview.busy ||
@@ -152,12 +246,14 @@
 			!!info?.error ||
 			!!info?.queue_error ||
 			!!queueState?.persistence_error ||
-			!!connectionError,
+			!!connectionError ||
+			preferences.busy,
 	);
 	const eligible = $derived(
 		queueState?.tasks.filter(
 			(task) =>
 				(task.authorized || task.phase === "awaiting_save") &&
+				(task.phase === "awaiting_save" || routeAccepted(task)) &&
 				!["queued", "running", "saving", "saved"].includes(
 					task.phase,
 				) &&
@@ -455,8 +551,8 @@
 				>
 				<p>
 					{t(
-						"图片只转换首帧，PNG 保持无损、JPEG 使用白色背景。PDF 逐页导出，最多 200 页、每页 4000 × 4000 像素；音频支持 7 种输出。文档仅提取纯文本。输出可能变大。引擎加载状态见下方。",
-						"Images: first frame, lossless PNG, white JPEG background. PDF: all pages, up to 200 pages and 4000 × 4000 pixels per page. Seven audio outputs. Documents: text only. Output may grow. See engine status below.",
+						"图片只转换首帧，PNG 保持无损、JPEG 使用白色背景。PDF 逐页导出，最多 200 页、每页 4000 × 4000 像素；文档仅提取纯文本。当前安装包只显示已验收的格式路线，输出可能变大。引擎加载状态见下方。",
+						"Images use the first frame; PNG is lossless and JPEG has a white background. PDFs export all pages, up to 200 pages and 4000 × 4000 pixels per page. Documents are text only. This package shows only verified routes, and output may grow. See engine status below.",
 					)}
 				</p>
 			</div>
@@ -638,35 +734,33 @@
 			</p>
 			<details class="batch-settings">
 				<summary>{t("批量设置", "Batch settings")}</summary>
-				<label
-					>{t("目标格式", "Output format")}<select
-						value={batchFormat}
-						onchange={(e) =>
-							savePreferences({
-								batch_format: e.currentTarget.value as Format,
-							})}
-						disabled={working ||
-							blocked ||
-							preferences.busy ||
-							!preferences.record}
-						>{#each allFormats as format}<option value={format}
-								>{format.toUpperCase()}</option
-							>{/each}</select
-					></label
-				>
-				{#if ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi", "txt", "ogg", "aiff"].includes(batchFormat)}<OptionsEditor
+				{#if allFormats.length}<label
+						>{t("目标格式", "Output format")}<select
+							value={selectedBatchFormat}
+							onchange={(e) =>
+								savePreferences({
+									batch_format: e.currentTarget
+										.value as Format,
+								})}
+							disabled={working ||
+								blocked ||
+								preferences.busy ||
+								!preferences.record}
+							>{#each allFormats as format}<option value={format}
+									>{formatLabel(format)}</option
+								>{/each}</select
+						></label
+					>{:else}<p role="status" data-format-acceptance-pending>
+						{t(
+							"正在读取此安装包已验收的格式路线。",
+							"Reading the conversion routes verified for this installed package.",
+						)}
+					</p>{/if}
+				{#if optionsFormats.includes(selectedBatchFormat)}<OptionsEditor
 						options={batchOptions}
-						format={batchFormat}
+						format={selectedBatchFormat}
 						{english}
-						pdf={[
-							"png",
-							"jpeg",
-							"webp",
-							"avif",
-							"bmp",
-							"tga",
-							"qoi",
-						].includes(batchFormat)}
+						pdf={imageOutputs.includes(selectedBatchFormat)}
 						disabled={working ||
 							blocked ||
 							preferences.busy ||
@@ -683,7 +777,7 @@
 						configure(
 							batchTasks.map((t) => t.id),
 							batchOptions,
-							batchFormat,
+							selectedBatchFormat,
 						)}
 					>{t("应用到", "Apply to")}
 					{batchTasks.length}
@@ -696,10 +790,10 @@
 						{t("从几个小文件开始", "Start with a few small files")}
 					</h2>
 					<p>
-						PNG / JPEG / WebP / AVIF / HEIC / BMP / TGA / QOI · PDF
-						· MP3 / WAV / FLAC / OGG / M4A / OPUS / AIFF · MP4 / MOV
-						/ MKV / WebM → Audio · Markdown / DOCX / HTML / ODT /
-						EPUB
+						{t(
+							"此安装包只显示已经在本机目标平台验收的转换路线。选择文件后可查看可用输出格式。",
+							"This package shows only conversion routes validated for its target platform. Choose files to see their available output formats.",
+						)}
 					</p>
 					<p>
 						{t(
@@ -715,24 +809,35 @@
 							task.name,
 							english,
 						)}
+						{@const taskFormats = acceptedFormats(task)}
 						<li data-task-id={task.id} data-phase={task.phase}>
 							<div class="file-heading">
 								<PixelIcon name="file" /><strong
 									>{task.name}</strong
-								><span>{size(task.bytes)}</span><select
-									aria-label={`${task.name} ${t("输出格式", "output format")}`}
-									value={task.format}
-									onchange={(e) =>
-										formatChanged(
-											task.id,
-											e.currentTarget.value,
-										)}
-									disabled={working || blocked}
-									>{#each task.formats as format}<option
-											value={format}
-											>{format.toUpperCase()}</option
-										>{/each}</select
-								>
+								><span>{size(task.bytes)}</span
+								>{#if taskFormats.length}<select
+										aria-label={`${task.name} ${t("输出格式", "output format")}`}
+										value={task.format}
+										onchange={(e) =>
+											formatChanged(
+												task.id,
+												e.currentTarget.value,
+											)}
+										disabled={working ||
+											blocked ||
+											!routeAccepted(task)}
+										>{#each taskFormats as format}<option
+												value={format}
+											>{formatLabel(format)}</option
+											>{/each}</select
+									>{:else}<span
+										class="route-unavailable"
+										role="status"
+										>{t(
+											"此安装包尚未验收该文件的转换路线。",
+											"This installed package has not verified a conversion route for this file.",
+										)}</span
+									>{/if}
 							</div>
 							{#if previewDetails && previewable(task.name, task.bytes)}
 								<div class="input-preview">
@@ -821,13 +926,11 @@
 									)}
 								</p>
 							{/if}
-							{#if task.formats.includes("png") || ["txt", "ogg", "aiff"].includes(task.format)}<OptionsEditor
+							{#if optionsFormats.includes(task.format)}<OptionsEditor
 									options={task.options}
 									format={task.format}
 									{english}
-									pdf={task.name
-										.toLowerCase()
-										.endsWith(".pdf")}
+								pdf={extension(task.name) === "pdf" && imageOutputs.includes(task.format)}
 									disabled={working || blocked}
 									onchange={(value) =>
 										configure([task.id], value)}
@@ -912,7 +1015,14 @@
 										{resultNote(task.result.note, english)}
 									</p>{/if}
 							{/if}
-							{#if !["saved", "running", "saving", "queued"].includes(task.phase) && taskReadiness(task, info?.startup ?? []) !== "ready"}
+							{#if !["saved", "running", "saving", "queued", "awaiting_save"].includes(task.phase) && !routeAccepted(task)}
+								<p role="status">
+									{t(
+										"此文件的格式组合未在当前安装包中通过验收；可保留或移除文件，其他已验收格式不受影响。",
+										"This file's conversion route has not passed acceptance in this installed package. Keep or remove it; other verified routes remain available.",
+									)}
+								</p>
+							{:else if !["saved", "running", "saving", "queued"].includes(task.phase) && taskReadiness(task, info?.startup ?? []) !== "ready"}
 								<p role="status">
 									{failureMessage(
 										taskReadiness(
@@ -994,6 +1104,7 @@
 											blocked ||
 											!task.authorized ||
 											!queueState.output_authorized ||
+											!routeAccepted(task) ||
 											taskReadiness(
 												task,
 												info?.startup ?? [],

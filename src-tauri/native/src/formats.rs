@@ -5,6 +5,7 @@ use serde::Deserialize;
 use std::sync::OnceLock;
 #[derive(Deserialize)]
 struct Scope {
+    id: String,
     groups: Vec<RawGroup>,
 }
 #[derive(Deserialize)]
@@ -39,6 +40,14 @@ pub(crate) struct Group {
     pub inputs: Vec<String>,
     pub outputs: Vec<OutputFormat>,
     pub engines: Vec<&'static str>,
+}
+pub(crate) fn scope_id() -> &'static str {
+    static ID: OnceLock<String> = OnceLock::new();
+    ID.get_or_init(|| {
+        serde_json::from_str::<Scope>(include_str!("../../../packaging/desktop/v1-scope.json"))
+            .expect("Embedded format scope must be valid")
+            .id
+    })
 }
 pub(crate) fn groups() -> &'static [Group] {
     static GROUPS: OnceLock<Vec<Group>> = OnceLock::new();

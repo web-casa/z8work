@@ -116,7 +116,7 @@ jobs:
               if: runner.os == 'Linux'
               run: |
                   sudo apt-get update
-                  sudo apt-get install -y build-essential pkg-config patchelf libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev python3 libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev libmujs-dev libopenjp2-7-dev zlib1g-dev libpng-dev libjpeg-dev libwebp-dev liblcms2-dev libheif-dev libheif-plugin-aomenc libheif-plugin-aomdec libheif-plugin-libde265 libheif-plugin-x265 ffmpeg pandoc pandoc-data squashfs-tools desktop-file-utils xvfb xauth dbus-x11 xdg-desktop-portal-gtk autoconf automake libtool libltdl-dev libxml2-dev patch dpkg-dev
+                  sudo apt-get install -y build-essential pkg-config patchelf cmake ninja-build libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev python3 libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev libmujs-dev libopenjp2-7-dev zlib1g-dev libpng-dev libjpeg-dev libwebp-dev liblcms2-dev libhwy-dev libbrotli-dev libtiff-dev libopenexr-dev libheif-dev libheif-plugin-aomenc libheif-plugin-aomdec libheif-plugin-libde265 libheif-plugin-x265 ffmpeg pandoc pandoc-data squashfs-tools desktop-file-utils xvfb xauth dbus-x11 xdg-desktop-portal-gtk autoconf automake libtool libltdl-dev libxml2-dev patch dpkg-dev
                   sudo install -d -o "$(id -u)" -g "$(id -g)" /opt/z8-im
             - if: matrix.id == 'linux-amd64'
               run: sudo snap install snapcraft --classic

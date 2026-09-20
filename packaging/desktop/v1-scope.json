@@ -18,15 +18,56 @@
 				"png",
 				"jpg",
 				"jpeg",
+				"jpe",
+				"jfif",
 				"webp",
 				"avif",
 				"heic",
 				"heif",
 				"bmp",
 				"tga",
-				"qoi"
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"svg",
+				"jxl",
+				"exr",
+				"hdr",
+				"dpx"
 			],
-			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"],
+			"outputs": [
+				"png",
+				"jpeg",
+				"webp",
+				"avif",
+				"bmp",
+				"tga",
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"heic",
+				"heif",
+				"jxl"
+			],
 			"engines": ["magick"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
@@ -36,12 +77,35 @@
 				"src-tauri/native/src/phase27_smoke.rs",
 				"src-tauri/native/src/image_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: 28 real decoded routes including jpeg/heif aliases; alpha, EXIF orientation 6, ICC byte preservation, 16-bit PNG and four calibration fixtures. See Phase 27 matrix; installed-package coverage remains R6. Format expansion 2: BMP white background; TGA/QOI 8-bit alpha; additional routes verified separately."
+			"sampleNotes": "R4: existing decoded routes; expanded routes require the package-local acceptance document, independent decode and target-package evidence. Static-only contract: first frame, bounded pixels and no animation, multipage or HDR preservation claim. SVG uses the in-process static renderer; EXR/HDR/DPX are SDR imports only."
 		},
 		{
 			"id": "pdf",
 			"inputs": ["pdf"],
-			"outputs": ["png", "jpeg", "webp", "avif", "bmp", "tga", "qoi"],
+			"outputs": [
+				"png",
+				"jpeg",
+				"webp",
+				"avif",
+				"bmp",
+				"tga",
+				"qoi",
+				"pbm",
+				"pgm",
+				"ppm",
+				"pnm",
+				"pam",
+				"gif",
+				"tiff",
+				"ico",
+				"pcx",
+				"xbm",
+				"xpm",
+				"heic",
+				"heif",
+				"jxl",
+				"txt"
+			],
 			"engines": ["mutool", "magick"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
@@ -50,7 +114,7 @@
 				"desktop/tests/fixtures/embedded-font.pdf",
 				"src-tauri/native/src/image_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: four outputs, three-page base-14 font fixture plus embedded Host Grotesk font, page dimensions/order/names, partial retry and over-limit refusal. Installed-package/font fallback coverage remains R6. Format expansion 2: BMP white background; TGA/QOI 8-bit alpha; additional routes verified separately."
+			"sampleNotes": "Image export is static page rasterization. TXT uses the existing PDF text layer only and does not run OCR; an empty text layer is a reported failure. Expanded image outputs need independent package acceptance."
 		},
 		{
 			"id": "media",
@@ -66,9 +130,31 @@
 				"mkv",
 				"webm",
 				"aiff",
-				"aif"
+				"aif",
+				"oga",
+				"mka",
+				"weba",
+				"aac",
+				"ac3",
+				"amr",
+				"au",
+				"caf",
+				"wma",
+				"mp2",
+				"voc",
+				"wv"
 			],
-			"outputs": ["wav", "mp3", "flac", "opus", "m4a", "ogg", "aiff"],
+			"outputs": [
+				"wav",
+				"mp3",
+				"flac",
+				"opus",
+				"m4a",
+				"ogg",
+				"aiff",
+				"aac",
+				"alac"
+			],
 			"engines": ["ffmpeg", "ffprobe"],
 			"implementation": "src-tauri/native/src/convert.rs",
 			"samples": [
@@ -77,11 +163,35 @@
 				"src-tauri/native/src/phase27_smoke.rs",
 				"src-tauri/native/src/audio_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: 50 real decoded routes; two-channel 440/880 Hz signal survives each route, with duration/channel checks. These samples do not cover every container codec; installed packages remain R6. Expansion 3b: OGG/Vorbis quality 5 output; AIFF/AIF input and AIFF PCM16 output. Explicit container, codec, sample rate, decoded signal and boundary checks."
+			"sampleNotes": "Every input has an explicit FFmpeg demuxer; only first audio stream is converted. AAC output is ADTS; ALAC output is M4A/MP4-family container. No video output, playlist, URL, raw PCM or automatic demuxer detection claim."
+		},
+		{
+			"id": "plain-text",
+			"inputs": ["txt", "text"],
+			"outputs": ["txt"],
+			"engines": [],
+			"implementation": "src-tauri/native/src/convert.rs",
+			"samples": ["src-tauri/native/src/convert.rs"],
+			"sampleNotes": "UTF-8 plain text is normalized in process. Binary, non-UTF-8 and empty inputs are rejected; no external program, resource or script is invoked."
 		},
 		{
 			"id": "documents",
-			"inputs": ["md", "docx", "html", "htm", "odt", "epub"],
+			"inputs": [
+				"md",
+				"markdown",
+				"mdown",
+				"mkdn",
+				"rst",
+				"docx",
+				"html",
+				"htm",
+				"odt",
+				"epub",
+				"csv",
+				"tsv",
+				"docbook",
+				"org"
+			],
 			"outputs": ["txt"],
 			"engines": ["pandoc"],
 			"implementation": "src-tauri/native/src/convert.rs",
@@ -90,7 +200,7 @@
 				"src-tauri/native/src/phase2_smoke.rs",
 				"src-tauri/native/src/document_expansion_checks.rs"
 			],
-			"sampleNotes": "R4: Markdown and DOCX Chinese/body text assertions. Rich formatting is intentionally omitted; installed packages remain R6. Expansion 3a: HTML/HTM, ODT and EPUB to UTF-8 plain text, with sandboxed resource handling; no OCR or layout preservation."
+			"sampleNotes": "All Pandoc routes use an explicit reader and --sandbox. The result is UTF-8 plain text only: no layout, images, formulas, external resources, spreadsheet semantics or OCR."
 		}
 	],
 	"limits": [
@@ -118,6 +228,26 @@
 			"id": "pdf-side-pixels",
 			"value": 4000,
 			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "plain-text-input-bytes",
+			"value": 16777216,
+			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "text-output-bytes",
+			"value": 67108864,
+			"source": "src-tauri/native/src/convert.rs"
+		},
+		{
+			"id": "svg-input-bytes",
+			"value": 10485760,
+			"source": "src-tauri/native/src/convert/svg.rs"
+		},
+		{
+			"id": "svg-raster-pixels",
+			"value": 64000000,
+			"source": "src-tauri/native/src/convert/svg.rs"
 		},
 		{
 			"id": "preview-input-bytes",

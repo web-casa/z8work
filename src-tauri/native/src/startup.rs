@@ -191,6 +191,9 @@ impl Runtime {
     pub fn info(&self) -> Vec<EngineInfo> {
         self.state.lock().unwrap().engines.info()
     }
+    pub fn routes(&self) -> Vec<crate::FormatRoute> {
+        self.state.lock().unwrap().engines.routes()
+    }
     pub fn engines(&self) -> Engines {
         self.state.lock().unwrap().engines.clone()
     }
@@ -199,10 +202,10 @@ impl Runtime {
         if state.closing {
             return Err("Z8:closing".into());
         }
-        let required = required(extension);
-        if required.is_empty() {
+        if crate::formats::group(extension).is_none() {
             return Err("Unsupported input format".into());
         }
+        let required = required(extension);
         if required
             .iter()
             .any(|id| state.phases.get(*id) == Some(&Phase::Failed))

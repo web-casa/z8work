@@ -31,6 +31,10 @@ if not arch or report["artifact"] != f"linux-{arch}-validation":
     raise ValueError("A matching Linux validation candidate is required")
 if any(report["checks"][key]["status"] != "passed" for key in ("integrity", "conversion")):
     raise ValueError("Candidate integrity and conversion checks must have passed")
+format_matrix = candidate / "format-matrix.json"
+if arch == "arm64":
+    if report["checks"].get("formatMatrix", {}).get("status") != "passed" or not format_matrix.is_file():
+        raise ValueError("Linux ARM64 expanded routes require final-archive format-matrix evidence")
 if run(["dpkg", "--print-architecture"]) != arch:
     raise ValueError("Dependency scanning requires the matching native Debian/Ubuntu builder")
 if digest(candidate / report["filename"]) != report["sha256"]:
@@ -150,6 +154,7 @@ for original in (stage / "usr").rglob("*"):
     "sourceCandidateSha256": report["sha256"],
     "applicationSha256": report["applicationSha256"],
     "sourceEngineManifestSha256": report["engineManifestSha256"],
+    **({"formatMatrix": {"sha256": digest(format_matrix), "bytes": format_matrix.stat().st_size}} if format_matrix.is_file() else {}),
     "engineManifestSha256": digest(engines / "engines.json"),
     "licenseVolumes": license_volumes,
     "dependencies": dependencies, "extractedFilesMatch": True,

@@ -190,11 +190,16 @@ export async function inspectBundle(root, expectedOs = "linux") {
 		await readFile(join(root, "engines.json"), "utf8"),
 	);
 	if (
-		manifest.schema !== 2 ||
+		manifest.schema !== 3 ||
 		manifest.kind !== "bundled" ||
 		manifest.os !== expectedOs
 	)
-		throw new Error(`Expected schema 2 ${expectedOs} bundle`);
+		throw new Error(`Expected schema 3 ${expectedOs} bundle`);
+	if (
+		manifest.format_acceptance !== "format-acceptance.json" ||
+		!manifest.files[manifest.format_acceptance]
+	)
+		throw new Error("Missing package format acceptance");
 	const listed = Object.keys(manifest.files);
 	if (!listed.length || listed.length > 10000)
 		throw new Error("Invalid bundle inventory");
@@ -371,6 +376,7 @@ export async function auditSources(
 	for (const [name, file] of Object.entries(manifest.files)) {
 		if (
 			name === "provenance.json" ||
+			name === manifest.format_acceptance ||
 			name.startsWith("licenses/") ||
 			name.startsWith("validation/")
 		)

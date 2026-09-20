@@ -27,6 +27,22 @@ struct Bundle {
     magick_modules: Option<String>,
     magick_config: Option<String>,
     heif_plugins: Option<String>,
+    format_acceptance: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct FormatAcceptance {
+    schema: u8,
+    scope: String,
+    os: String,
+    arch: String,
+    routes: Vec<AcceptedRoute>,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct AcceptedRoute {
+    input: String,
+    outputs: Vec<crate::OutputFormat>,
 }
 #[derive(Clone)]
 pub(crate) struct VerifiedBundle {
@@ -37,6 +53,7 @@ pub(crate) struct VerifiedBundle {
     pub magick_config: Option<PathBuf>,
     pub heif_plugins: Option<PathBuf>,
     pub identity: String,
+    accepted_routes: BTreeMap<String, Vec<crate::OutputFormat>>,
 }
 fn relative(value: &str) -> Result<&Path, String> {
     let path = Path::new(value);
@@ -96,7 +113,7 @@ fn license_manifest(root: &Path) -> Result<Bundle, String> {
         return Err("License manifest too large".into());
     }
     let bundle: Bundle = serde_json::from_slice(&data).map_err(|e| e.to_string())?;
-    if bundle.schema != 2
+    if bundle.schema != 3
         || bundle.kind != "bundled"
         || bundle.os != std::env::consts::OS
         || bundle.arch != std::env::consts::ARCH
@@ -153,6 +170,12 @@ pub fn read_license(root: &Path, id: &str) -> Result<String, String> {
     String::from_utf8(data).map_err(|_| "License notice is not UTF-8".into())
 }
 impl VerifiedBundle {
+    pub(crate) fn formats_for(&self, extension: &str) -> Vec<crate::OutputFormat> {
+        self.accepted_routes
+            .get(&extension.to_ascii_lowercase())
+            .cloned()
+            .unwrap_or_default()
+    }
     pub fn verify(&self) -> Result<(), String> {
         self.verify_checked(
             &crate::Cancel::default(),
@@ -207,6 +230,76 @@ impl VerifiedBundle {
         Ok(())
     }
 }
+fn read_format_acceptance(
+    root: &Path,
+    bundle: &Bundle,
+    cancel: &crate::Cancel,
+    deadline: std::time::Instant,
+) -> Result<BTreeMap<String, Vec<crate::OutputFormat>>, String> {
+    const MAX_BYTES: u64 = 256 * 1024;
+    relative(&bundle.format_acceptance)?;
+    let resource = bundle
+        .files
+        .get(&bundle.format_acceptance)
+        .ok_or("Format acceptance is not listed in the bundle")?;
+    if resource.bytes > MAX_BYTES {
+        return Err("Format acceptance is too large".into());
+    }
+    let path = inside(root, &bundle.format_acceptance, false)?;
+    let mut bytes = Vec::new();
+    crate::input::open_regular(&path)
+        .map_err(|e| e.to_string())?
+        .take(resource.bytes.saturating_add(1))
+        .read_to_end(&mut bytes)
+        .map_err(|e| e.to_string())?;
+    cancel.check(deadline)?;
+    if bytes.len() as u64 != resource.bytes
+        || crate::engines::hash_file_checked(&path, cancel, deadline)? != resource.sha256
+    {
+        return Err("Format acceptance integrity mismatch".into());
+    }
+    let acceptance: FormatAcceptance = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+    if acceptance.schema != 1
+        || acceptance.scope != crate::formats::scope_id()
+        || acceptance.os != bundle.os
+        || acceptance.arch != bundle.arch
+        || acceptance.routes.len() > 512
+    {
+        return Err("Invalid format acceptance contract".into());
+    }
+    let mut routes = BTreeMap::new();
+    for route in acceptance.routes {
+        if route.input.is_empty()
+            || route.input.len() > 16
+            || route.input != route.input.to_ascii_lowercase()
+            || !route
+                .input
+                .bytes()
+                .all(|byte| byte.is_ascii_lowercase() || byte.is_ascii_digit())
+            || route.outputs.is_empty()
+            || routes.contains_key(&route.input)
+        {
+            return Err("Invalid format acceptance route".into());
+        }
+        let expected = crate::formats::outputs(&route.input);
+        if expected.is_empty()
+            || route.outputs.len() > expected.len()
+            || route
+                .outputs
+                .iter()
+                .any(|output| !expected.contains(output))
+            || route
+                .outputs
+                .iter()
+                .enumerate()
+                .any(|(index, output)| route.outputs[..index].contains(output))
+        {
+            return Err("Format acceptance exceeds the reviewed product scope".into());
+        }
+        routes.insert(route.input, route.outputs);
+    }
+    Ok(routes)
+}
 impl Engines {
     /// Only the Rust package resolver may choose this root; it is never an IPC argument.
     pub fn load_bundle(root: &Path) -> Result<Self, String> {
@@ -241,7 +334,7 @@ impl Engines {
             return Err("Bundle manifest too large".into());
         }
         let bundle: Bundle = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
-        if bundle.schema != 2 || bundle.kind != "bundled" {
+        if bundle.schema != 3 || bundle.kind != "bundled" {
             return Err("Unsupported bundle schema/kind".into());
         }
         if bundle.os != std::env::consts::OS || bundle.arch != std::env::consts::ARCH {
@@ -291,14 +384,16 @@ impl Engines {
             .transpose()?;
         let verified = VerifiedBundle {
             root: root.clone(),
-            files: bundle.files,
+            files: bundle.files.clone(),
             loader,
             magick_modules: modules,
             magick_config,
             heif_plugins,
             identity: crate::hash_file(&manifest_path)?,
+            accepted_routes: BTreeMap::new(),
         };
         verified.verify_checked(cancel, deadline)?;
+        let accepted_routes = read_format_acceptance(&root, &bundle, cancel, deadline)?;
         if bundle.engines.len() != 5 {
             return Err("Bundle must contain exactly five engine entries".into());
         }
@@ -333,7 +428,10 @@ impl Engines {
             entries,
             development: false,
             unavailable: BTreeMap::new(),
-            bundle: Some(verified),
+            bundle: Some(VerifiedBundle {
+                accepted_routes,
+                ..verified
+            }),
         })
     }
 }
@@ -345,11 +443,28 @@ mod tests {
         let root = tempfile::tempdir().unwrap();
         fs::write(root.path().join("tool"), b"fixture").unwrap();
         let hash = crate::hash_file(&root.path().join("tool")).unwrap();
+        let acceptance = serde_json::json!({
+            "schema": 1,
+            "scope": crate::formats::scope_id(),
+            "os": std::env::consts::OS,
+            "arch": std::env::consts::ARCH,
+            "routes": [{"input":"png","outputs":["png"]}],
+        });
+        fs::write(
+            root.path().join("format-acceptance.json"),
+            serde_json::to_vec(&acceptance).unwrap(),
+        )
+        .unwrap();
+        let acceptance_hash =
+            crate::hash_file(&root.path().join("format-acceptance.json")).unwrap();
+        let acceptance_bytes = fs::metadata(root.path().join("format-acceptance.json"))
+            .unwrap()
+            .len();
         let entry = serde_json::json!({"path":"tool", "sha256":hash,"version":"test"});
         let engines: BTreeMap<_, _> = ["magick", "ffmpeg", "ffprobe", "pandoc", "mutool"]
             .map(|id| (id, entry.clone()))
             .into();
-        let value = serde_json::json!({"schema":2,"kind":"bundled","os":std::env::consts::OS,"arch":std::env::consts::ARCH,"engines":engines,"files":{"tool":{"sha256":hash,"bytes":7}},"loader":null,"magick_modules":null});
+        let value = serde_json::json!({"schema":3,"kind":"bundled","os":std::env::consts::OS,"arch":std::env::consts::ARCH,"engines":engines,"files":{"tool":{"sha256":hash,"bytes":7},"format-acceptance.json":{"sha256":acceptance_hash,"bytes":acceptance_bytes}},"loader":null,"magick_modules":null,"format_acceptance":"format-acceptance.json"});
         (root, value)
     }
     fn load(root: &Path, value: &serde_json::Value) -> Result<Engines, String> {
@@ -421,6 +536,32 @@ mod tests {
         assert!(engines.verify_bundle().is_err());
         fs::write(root.path().join("tool"), b"fixture").unwrap();
         fs::write(root.path().join("extra"), b"extra").unwrap();
+        assert!(load(root.path(), &value).is_err());
+    }
+    #[test]
+    fn format_acceptance_is_hash_bound_and_cannot_expand_scope() {
+        let (root, mut value) = fixture();
+        let engines = load(root.path(), &value).unwrap();
+        assert_eq!(engines.formats_for("png"), vec![crate::OutputFormat::Png]);
+        assert!(engines.formats_for("jpeg").is_empty());
+
+        let path = root.path().join("format-acceptance.json");
+        fs::write(
+            &path,
+            serde_json::to_vec(&serde_json::json!({
+                "schema": 1,
+                "scope": crate::formats::scope_id(),
+                "os": std::env::consts::OS,
+                "arch": std::env::consts::ARCH,
+                "routes": [{"input":"png","outputs":["wav"]}],
+            }))
+            .unwrap(),
+        )
+        .unwrap();
+        value["files"]["format-acceptance.json"] = serde_json::json!({
+            "sha256": crate::hash_file(&path).unwrap(),
+            "bytes": fs::metadata(&path).unwrap().len(),
+        });
         assert!(load(root.path(), &value).is_err());
     }
     #[test]

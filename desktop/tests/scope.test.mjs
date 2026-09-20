@@ -22,7 +22,7 @@ test("frozen desktop scope matches UI formats, languages and artifact identities
 	);
 	const inputs = scope.groups.flatMap((g) => g.inputs);
 	assert.equal(new Set(inputs).size, inputs.length);
-	assert.equal(inputs.length, 29);
+	assert.equal(inputs.length, 70);
 	assert.deepEqual(
 		[...new Set(scope.groups.flatMap((g) => g.outputs))].sort(),
 		[...formats].sort(),
@@ -32,7 +32,7 @@ test("frozen desktop scope matches UI formats, languages and artifact identities
 			(n, g) => n + g.inputs.length * g.outputs.length,
 			0,
 		),
-		167,
+		863,
 	);
 	for (const language of scope.languagePreferences)
 		assert.equal(

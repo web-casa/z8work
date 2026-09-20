@@ -10,7 +10,7 @@ const catalogMarkdownPath = resolve(
 	root,
 	"docs/desktop/FORMAT_EXPANSION_CATALOG.md",
 );
-const reportDate = "2026-09-14";
+const reportDate = "2026-09-15";
 
 const read = (path) => readFile(resolve(root, path), "utf8");
 const json = async (path) => JSON.parse(await read(path));
@@ -447,15 +447,15 @@ const webRows = [
 
 const whyRows = [
 	{
-		family: "网页已开放、桌面未开放的常用图片输出",
-		formats:
-			"GIF、JXL、TIFF/TIF、ICO、JP2/J2K、PSD、DDS、PCX、EXR、HDR、PNM/PBM/PGM/PPM 等；完整差集见下方。",
+		family: "网页已开放、桌面仍未开放的图片输出",
+		formats: "JP2/J2K、PSD、DDS 等；完整差集见下方。",
 		component:
 			"ImageMagick 官方可支持的范围很广，但实际可读写项目取决于编译 delegate、coder 模块和包内库。",
 		web: "网页图片和/或 PDF 输出白名单中存在许多这些格式。",
-		desktop: "当前 v1 范围只公开 PNG、JPEG、WebP、AVIF、BMP、TGA、QOI。",
-		why: "这是明确的产品白名单，不会因为原生引擎列出了 coder 就自动出现。每个新增格式还要在六个系统/架构的最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。",
-		next: "可扩展；先按格式补齐模块、固定编码参数和逐平台验收。",
+		desktop:
+			"桌面源码范围已包含 GIF、JXL、TIFF/TIF、ICO、PCX、PNM/PBM/PGM/PPM、HEIC/HEIF 等；JP2/J2K、PSD、DDS 尚未纳入。",
+		why: "产品范围不会因为原生引擎列出了 coder 就自动扩大。新增路线仍要在各目标最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。",
+		next: "仍可逐格式扩展；先补齐模块、固定编码参数和逐平台验收。",
 	},
 	{
 		family: "HEIC/HEIF 输出",
@@ -463,9 +463,10 @@ const whyRows = [
 		component:
 			"ImageMagick 的 HEIC delegate 可以是读写能力，且具体编码插件、版本与参数会影响结果。",
 		web: "网页白名单把 HEIC/HEIF 标为输入，不标为输出。",
-		desktop: "桌面同样只接收 HEIC/HEIF 输入。",
-		why: "两端都没有把它作为公开输出路线。需要先固定有损/无损策略、色彩/位深/alpha 处理与跨平台 HEIF 编码器，再验证真实图片；不能把“可解码 HEIC”推成“应公开 HEIC 编码”。",
-		next: "可扩展，但应作为独立 HEIF 编码验收。",
+		desktop:
+			"桌面源码范围已定义 HEIC/HEIF 输出为 HEVC、有损、8-bit SDR 的同一兼容档位；具体安装包仍须通过随包编码器与读回验收后才显示。",
+		why: "可解码 HEIC 不等于每个平台都具备可发布的编码器。路线固定了色彩、位深和 alpha 的降级语义，仍需分别验证真实文件与包内插件闭包。",
+		next: "在每个目标包通过 HEIF 编码/读回和许可证复核前，不扩展其公开 profile。",
 	},
 	{
 		family: "SVG、EPS/PS 与相机 RAW",
@@ -473,8 +474,9 @@ const whyRows = [
 		component:
 			"需要 SVG 渲染器、字体/外部资源策略，或 LibRaw/相机 vendor delegate；ImageMagick 的格式表不是对所有包的承诺。",
 		web: "网页声明部分 SVG、EPS/PS 或 RAW 为输入/输出，但其中多项只读或有专用前处理。",
-		desktop: "当前桌面范围没有这些输入或输出。",
-		why: "它们不是简单的像素重编码：矢量文件涉及字体、脚本和外部资源，RAW 涉及相机型号、显影和色彩配置。当前包没有对应的产品路线与质量合同。",
+		desktop:
+			"桌面源码范围支持受限的静态 SVG 输入；EPS/PS 与相机 RAW 仍没有产品路线。",
+		why: "它们不是简单的像素重编码：静态 SVG 仍须限制字体、脚本和外部资源，RAW 则涉及相机型号、显影和色彩配置。EPS/PS、RAW 没有对应的产品路线与质量合同。",
 		next: "需要专用引擎和独立安全/保真验收。",
 	},
 	{
@@ -496,7 +498,7 @@ const whyRows = [
 			"FFmpeg 的 demuxer/muxer 与 encoder 列表远大于产品路线；容器、codec、字幕、多音轨、HDR 和硬件加速是不同维度。",
 		web: "网页列出更多媒体输入，但当前只把它们转/提取为音频，不提供视频输出。",
 		desktop:
-			"桌面只接收 12 个媒体扩展，输出 7 个音频格式；MP4/MOV/MKV/WebM 仅取第一条音轨。",
+			"桌面源码范围接收 24 个媒体扩展、输出 9 个音频格式；MP4/MOV/MKV/WebM 仅取第一条音轨。",
 		why: "扩展名不够判断可转换性。当前实现明确限定 demuxer、只映射第一条音轨，并验证指定 codec/容器；视频输出会新增预设、流选择、字幕/旋转/色彩、磁盘预算与硬件回退责任。",
 		next: "更多音频容器可逐项扩展；视频输出是独立功能阶段。",
 	},
@@ -508,7 +510,7 @@ const whyRows = [
 			"Pandoc 有大量 reader/writer；PDF writer 还需要实际 PDF 排版引擎，不能只看 writer 列表。",
 		web: "网页 Pandoc 白名单开放 12 个输入/输出名称。",
 		desktop:
-			"桌面只接收 MD、DOCX、HTML/HTM、ODT、EPUB，并且只输出 UTF-8 TXT。",
+			"桌面源码范围接收 TXT/TEXT、Markdown 别名、RST、DOCX、HTML/HTM、ODT、EPUB、CSV/TSV、DocBook、Org，并且只输出 UTF-8 TXT。",
 		why: "桌面合同明确选择文本提取，不保留图片、字体、分页、布局或复杂表格。RTF 曾在验收中出现正文顺序问题，因此被明确移出桌面路线；这类路线不能因能生成文件就算支持。",
 		next: "结构化文档可逐路线扩展；排版保真与 PDF 输出需单独引擎/测试。",
 	},
@@ -708,8 +710,8 @@ const html = `<!doctype html>
   <header>
     <p class="eyebrow">Z8.Work · 格式能力对照</p>
     <h1>组件能做什么，产品实际开放什么</h1>
-    <p>这份报告把三个层级分开：上游转换组件的能力、当前网页端公开路线、当前桌面端公开路线。它回答“为什么桌面版比网页少”，同时避免把某个引擎的格式清单误写成 Z8.Work 已经支持的功能。</p>
-    <div class="meta"><span>核对日期：<strong>${reportDate}</strong></span><span>路线来源摘要：<strong>${escape(routeSourceDigest)}</strong></span><span>桌面路线：<strong>${desktopInputs.length} 个输入扩展 / ${desktopOutputs.length} 个输出格式 / ${desktopRouteCount} 条声明路线</strong></span></div>
+    <p>这份报告把三个层级分开：上游转换组件的能力、当前网页端公开路线、桌面源码范围与各安装包已验收路线。它回答“为什么桌面版比网页少”，同时避免把某个引擎的格式清单误写成 Z8.Work 已经支持的功能。</p>
+    <div class="meta"><span>核对日期：<strong>${reportDate}</strong></span><span>路线来源摘要：<strong>${escape(routeSourceDigest)}</strong></span><span>桌面源码路线：<strong>${desktopInputs.length} 个输入扩展 / ${desktopOutputs.length} 个输出格式 / ${desktopRouteCount} 条声明路线</strong></span></div>
   </header>
 
   <div class="callout">
@@ -722,7 +724,7 @@ const html = `<!doctype html>
     <article class="card"><strong>网页图片</strong><span class="number">${web.image.inputs.length} → ${web.image.outputs.length}</span><p>静态源码白名单中的输入 / 输出名称。</p></article>
     <article class="card"><strong>网页 PDF</strong><span class="number">1 → ${web.pdf.outputs.length}</span><p>.pdf 输入可导出 ${web.pdf.outputs.length} 个栅格扩展名；包含别名。</p></article>
     <article class="card"><strong>网页媒体</strong><span class="number">${web.media.inputs.length} → ${web.media.outputs.length}</span><p>视频只作为音频提取输入，不代表网页视频输出。</p></article>
-    <article class="card"><strong>桌面版</strong><span class="number">${desktopInputs.length} → ${desktopOutputs.length}</span><p>${desktopRouteCount} 条公开路线，来自统一范围文件。</p></article>
+    <article class="card"><strong>桌面源码范围</strong><span class="number">${desktopInputs.length} → ${desktopOutputs.length}</span><p>${desktopRouteCount} 条声明路线，来自统一范围文件。</p></article>
   </div>
 
   <section id="matrix">
@@ -735,9 +737,9 @@ const html = `<!doctype html>
   </section>
 
   <section id="desktop">
-    <h2>桌面版现在实际支持的格式</h2>
-    <p>下表是当前桌面产品合同，不是计划，也不是原生命令行工具的完整能力。<code>jpeg</code> 的实际文件扩展名为 <code>.jpg</code>。</p>
-    <p class="small">当前范围的 167 条路线有独立的格式扩展验收记录；它不把任一历史下载包自动视为已升级。实际安装包仍应按版本、平台与架构核对。${sourceLink("docs/desktop/FORMAT_EXPANSION_PHASE3B.md", "查看音频扩展验收记录")}</p>
+    <h2>桌面源码范围当前定义的格式</h2>
+    <p>下表是当前桌面源码合同，不是计划，也不是原生命令行工具的完整能力。<code>jpeg</code> 的实际文件扩展名为 <code>.jpg</code>。</p>
+    <p class="small">当前源码范围的 ${desktopRouteCount} 条路线必须逐一经过最终包验收；历史下载包不会自动升级。实际用户可见路线以安装包随附的已签署 acceptance list 为准，并按版本、平台与架构分别核对。${sourceLink("docs/desktop/FORMAT_EXPANSION_PHASE3B.md", "查看历史音频扩展验收记录")}</p>
     ${table(desktopRows, ["类别", "可导入扩展名", "可输出扩展名", "所用原生引擎", "验证语义"])}
     <div class="callout warning"><strong>桌面包的边界</strong>PDF 最多 200 页；普通图片只处理首帧。文档输出是纯文本，视频输入只提取第一条音轨。JPEG/BMP 透明区域会填白；BMP/TGA/QOI 为 8 位 sRGB，且不保留元数据或 ICC 配置。格式名称相同不代表结果一定无损或一定更小。</div>
   </section>
@@ -767,8 +769,8 @@ const html = `<!doctype html>
   </section>
 
   <section id="why">
-    <h2>为什么这些格式目前桌面版不能支持</h2>
-    <p>“不能支持”在这里表示<strong>当前桌面产品没有开放该路线</strong>。原因分为：尚未接入并验收、包内依赖/模块没有跨平台保证、或现有组件根本不负责这一类任务。</p>
+    <h2>为什么这些格式尚未对全部桌面包开放</h2>
+    <p>“尚未开放”表示当前桌面源码或某个最终安装包没有授权该路线。原因分为：尚未接入并验收、包内依赖/模块没有跨平台保证，或现有组件根本不负责这一类任务。</p>
     <input class="search" type="search" placeholder="筛选限制原因，例如 TIFF、XLSX、OCR、视频" data-filter=".why-table">
     ${table(whyRows, ["格式族", "典型格式", "组件层面", "网页现状", "桌面现状", "为何不开放", "下一步"], "why-table")}
 

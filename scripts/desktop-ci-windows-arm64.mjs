@@ -14,6 +14,7 @@ import {
 	windowsPreviewArchitecture,
 } from "./lib/desktop-msix.mjs";
 import { validateQuality } from "./lib/desktop-snap-installed.mjs";
+import { formatAcceptance } from "./lib/desktop-format-acceptance.mjs";
 if (process.platform !== "win32" || process.arch !== "arm64")
 	throw new Error("Native Windows ARM64 runner required");
 const root = resolve(".desktop-local/windows-arm-preview");
@@ -118,6 +119,11 @@ const manifest = JSON.parse(
 	await readFile(join(engines, "engines.json"), "utf8"),
 );
 manifest.arch = "aarch64";
+await writeFile(
+	join(engines, "format-acceptance.json"),
+	JSON.stringify(await formatAcceptance("windows", "aarch64"), null, 2) +
+		"\n",
+);
 manifest.engines.magick.sha256 = (
 	await fileInfo(engines, "bin/magick.exe")
 ).sha256;

@@ -32,12 +32,13 @@ async function fixture(t) {
 	const root = await mkdtemp(join(tmpdir(), "z8-source-"));
 	t.after(() => rm(root, { recursive: true, force: true }));
 	const manifest = {
-		schema: 2,
+		schema: 3,
 		kind: "bundled",
 		os: "linux",
 		arch: "aarch64",
 		engines: {},
 		files: {},
+		format_acceptance: "format-acceptance.json",
 	};
 	const provenance = {
 		schema: 1,
@@ -61,6 +62,18 @@ async function fixture(t) {
 					: "fixture:arm64",
 		};
 	}
+	const acceptance = JSON.stringify({
+		schema: 1,
+		scope: "v1-format-expansion-3b",
+		os: "linux",
+		arch: "aarch64",
+		routes: [],
+	});
+	await save(join(root, "format-acceptance.json"), acceptance);
+	manifest.files["format-acceptance.json"] = {
+		sha256: hash(acceptance),
+		bytes: Buffer.byteLength(acceptance),
+	};
 	for (const name of [
 		"licenses/fixture_arm64.copyright",
 		"licenses/extracted-pandoc.copyright",

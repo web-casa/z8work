@@ -14,6 +14,7 @@ import {
 } from "node:fs/promises";
 import { basename, dirname, join, resolve, isAbsolute } from "node:path";
 import { execFileSync } from "node:child_process";
+import { writeFormatAcceptance } from "./lib/desktop-format-acceptance.mjs";
 
 const { values } = parseArgs({
 	options: Object.fromEntries(
@@ -23,10 +24,17 @@ const { values } = parseArgs({
 			"magick-modules",
 			"magick-config",
 			"heif-plugins",
+			"extra-library-dir",
 			"extracted-root",
 			"extra-license-dir",
 			"verifier",
-		].map((k) => [k, { type: "string" }]),
+		].map((k) => [
+			k,
+			{
+				type: "string",
+				...(k === "extra-library-dir" ? { multiple: true } : {}),
+			},
+		]),
 	),
 });
 if (process.platform !== "linux")
@@ -42,6 +50,13 @@ for (const key of [
 	if (!values[key] || !isAbsolute(values[key]))
 		throw new Error(`An absolute --${key} is required`);
 const output = resolve(values.output);
+const extraLibraryDirs = values["extra-library-dir"] ?? [];
+for (const dir of extraLibraryDirs)
+	if (!isAbsolute(dir))
+		throw new Error("Every --extra-library-dir must be absolute");
+const verifiedExtraLibraryDirs = await Promise.all(
+	extraLibraryDirs.map((dir) => realpath(dir)),
+);
 // Refuse overwriting any previous candidate, even an empty one.
 await mkdir(output);
 const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
@@ -92,7 +107,7 @@ async function copy(sourcePath, destination, elf = false) {
 	if (elf) elfSources.set(original, destination);
 }
 const manifest = {
-	schema: 2,
+	schema: 3,
 	kind: "bundled",
 	os: "linux",
 	arch: rustArch,
@@ -102,6 +117,7 @@ const manifest = {
 	magick_modules: "modules",
 	magick_config: "magick-config",
 	heif_plugins: "heif-plugins",
+	format_acceptance: "format-acceptance.json",
 };
 for (const id of ["magick", "ffmpeg", "ffprobe", "pandoc", "mutool"]) {
 	const entry = source.engines[id];
@@ -148,6 +164,16 @@ for (const name of [
 	"meta",
 	"magick",
 	"pnm",
+	"gif",
+	"tiff",
+	"icon",
+	"pcx",
+	"xbm",
+	"xpm",
+	"dpx",
+	"exr",
+	"hdr",
+	"jxl",
 ]) {
 	await copy(
 		join(values["magick-modules"], `${name}.so`),
@@ -183,7 +209,8 @@ const libraryDirs = [
 	...new Set(
 		Object.values(source.engines)
 			.map((e) => e.library_dir)
-			.filter(Boolean),
+			.filter(Boolean)
+			.concat(verifiedExtraLibraryDirs),
 	),
 ];
 for (const [original] of elfSources) {
@@ -287,6 +314,7 @@ if (values["extra-license-dir"])
 for (const name of await readdir("/usr/share/common-licenses")) {
 	await copy(`/usr/share/common-licenses/${name}`, `licenses/common/${name}`);
 }
+await writeFormatAcceptance(output, "linux", rustArch);
 const provenance = {
 	schema: 1,
 	scope: "local-validation-only",
@@ -319,6 +347,7 @@ const provenance = {
 		}),
 	},
 	sourceManifestSha256: hash(await readFile(values.manifest)),
+	explicitRuntimeLibraryDirs: verifiedExtraLibraryDirs,
 	packages: Object.fromEntries(packages),
 	unresolved,
 	resources: Object.fromEntries(origins),

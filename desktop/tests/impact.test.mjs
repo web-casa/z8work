@@ -81,7 +81,7 @@ test("zero upload capability fails closed for missing backend or unknown routes"
 		assert.equal(localProcessing(location, [task()]), false);
 	assert.equal(localProcessing("device-v1", [task()]), true);
 	assert.equal(
-		localProcessing("device-v1", [task({ name: "image.tiff" })]),
+		localProcessing("device-v1", [task({ name: "image.svgz" })]),
 		false,
 	);
 	assert.equal(
@@ -106,10 +106,34 @@ test("desktop scenario reuses the web model and source allowlist matches", async
 		assert.ok(rust.includes(url), url);
 });
 test("result notes translate application copy without echoing unknown logs", () => {
+	const mp3 =
+		"First audio track only. MP3 is lossy at 192 kb/s; sources at unsupported MP3 sampling rates are resampled. Metadata is removed.";
+	assert.match(resultNote(mp3, false), /MP3/);
+	const opus =
+		"First audio track only. Opus is lossy at 128 kb/s and uses a 48 kHz clock; sources not at 48 kHz are resampled. Metadata is removed.";
+	assert.match(resultNote(opus, false), /48 kHz/);
 	const audio =
-		"First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.";
+		"First audio track only. WAV uses PCM 16-bit; FLAC is lossless. Metadata is removed.";
 	assert.equal(resultNote(audio, true), audio);
 	assert.match(resultNote(audio, false), /第一条音轨/);
+	const aac =
+		"First audio track only. AAC uses a lossy ADTS stream at 192 kb/s; sources at unsupported AAC sampling rates are resampled. Tags and cover art are removed.";
+	assert.match(resultNote(aac, false), /重采样/);
+	const heic =
+		"First frame only. HEIC/HEIF uses a lossy HEVC 8-bit SDR compatibility profile with 4:2:0 chroma and a white background. Metadata and ICC profiles are omitted. Third-party preview support varies.";
+	assert.match(resultNote(heic, false), /有损 HEVC/);
+	const pbm =
+		"First frame only. PBM/XBM is thresholded at 50% to a 1-bit black-and-white image; metadata and ICC profiles are omitted.";
+	assert.match(resultNote(pbm, false), /1 位黑白/);
+	const pgm =
+		"First frame only. PGM is an 8-bit grayscale image; metadata and ICC profiles are omitted.";
+	assert.match(resultNote(pgm, false), /8 位灰度/);
+	const org =
+		"Text only. Org markup is interpreted by Pandoc; underscores can represent subscripts, so use Org literal/code markup or #+OPTIONS: ^:{} for identifiers that must retain underscores. Images, layout and formatting are omitted.";
+	assert.match(resultNote(org, false), /下划线可表示下标/);
+	const svg =
+		"Static SVG only. Scripts, animation, external files and system fonts are not used; embedded raster data is limited. Output is an 8-bit sRGB bitmap.";
+	assert.match(resultNote(svg, false), /静态 SVG/);
 	const pdf =
 		"PDF: 3 pages, 144 DPI, at most 4000 × 4000 pixels per page. Successfully saved pages are retained on cancellation or failure.";
 	assert.match(resultNote(pdf, false), /3 页，144 DPI/);

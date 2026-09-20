@@ -3,13 +3,14 @@ fn main() -> Result<(), String> {
     z8_native::watchdog_entry();
     let mut args = std::env::args_os().skip(1);
     let root = args.next().ok_or(
-        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--pdf-color|--capabilities|--image-expansion|--document-expansion|--audio-expansion]",
+        "Usage: bundle-check ENGINE_DIRECTORY [--full|--quality|--format-matrix|--pdf-color|--capabilities|--image-expansion|--document-expansion|--audio-expansion]",
     )?;
     let mode = match args.next() {
         None => "integrity",
         Some(arg) if arg == "--audio-expansion" => "audio-expansion",
         Some(arg) if arg == "--document-expansion" => "document-expansion",
         Some(arg) if arg == "--image-expansion" => "image-expansion",
+        Some(arg) if arg == "--format-matrix" => "format-matrix",
         Some(arg) if arg == "--capabilities" => "capabilities",
         Some(arg) if arg == "--full" => "full",
         Some(arg) if arg == "--quality" => "quality",
@@ -26,6 +27,8 @@ fn main() -> Result<(), String> {
         z8_native::document_expansion_checks::verify_with_network(&engines)?
     } else if mode == "image-expansion" {
         z8_native::image_expansion_checks::verify(&engines)?
+    } else if mode == "format-matrix" {
+        z8_native::format_matrix_checks::verify(&engines)?
     } else if mode == "capabilities" {
         z8_native::capabilities::inspect(&engines)?
     } else if mode == "pdf-color" {

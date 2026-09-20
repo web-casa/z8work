@@ -23,6 +23,7 @@ const cases = [
 	"removed",
 	"closing",
 	"empty",
+	"stale-format",
 ];
 try {
 	for (const mode of cases) {
@@ -46,9 +47,18 @@ if (mode === 'empty') state.tasks = [];
 window.calls = [];
 mockIPC(async (command, args) => {
  window.calls.push(command);
- if (command === 'read_preferences') return { schema: 1, revision: 0, preferences: { language: 'zh_hans', batch_format: 'webp', batch_options: { quality: 'balanced', keep_metadata: false, pdf_dpi: 144 } } };
- if (command === 'desktop_info') return { preparing: false, startup: [{ id: 'magick', phase: 'ready', failure: null }], pending_imports: 0, import_failure: null, workspace_error: null, temporary_cleanup: null, architecture: 'windows / x86_64', engines: [], error: null, queue_error: null };
+ if (command === 'read_preferences') return { schema: 1, revision: 0, preferences: { language: 'zh_hans', batch_format: mode === 'stale-format' ? 'jxl' : 'webp', batch_options: { quality: 'balanced', keep_metadata: false, pdf_dpi: 144 } } };
+ if (command === 'desktop_info') return { preparing: false, startup: [{ id: 'magick', phase: 'ready', failure: null }], pending_imports: 0, import_failure: null, workspace_error: null, temporary_cleanup: null, architecture: 'windows / x86_64', engines: [], routes: [{ input: 'png', outputs: ['png', 'webp', 'avif'] }], error: null, queue_error: null };
  if (command === 'queue_snapshot') return structuredClone(state);
+ if (command === 'configure_tasks') {
+  window.configure = args;
+  for (const id of args.ids) {
+   const task = state.tasks.find(task => task.id === id);
+   if (task && args.format) task.format = args.format;
+  }
+  state.revision++;
+  return structuredClone(state);
+ }
  if (command === 'pick_output') {
   await new Promise(resolve => { window.finishPicker = resolve; });
   if (mode === 'error') throw new Error('Test folder selection failed');
@@ -90,6 +100,19 @@ mockIPC(async (command, args) => {
 				await button.innerText(),
 				mode === "authorized" ? /转换未完成文件/ : /选择保存目录并转换/,
 			);
+			if (mode === "stale-format") {
+				// The batch action intentionally lives in a collapsed disclosure.
+				// Open it before querying the accessibility tree, just as a user
+				// would; closed <details> content is not exposed by Chromium.
+				await page.locator(".batch-settings summary").click();
+				const apply = page.getByRole("button", {
+					name: /应用到.*1.*兼容文件/,
+				});
+				await apply.click();
+				await page.waitForFunction(
+					() => window.configure?.format === "png",
+				);
+			}
 			if (mode === "choose") {
 				await mkdir(".desktop-local/conversion-start", {
 					recursive: true,
@@ -107,9 +130,12 @@ mockIPC(async (command, args) => {
 				await button.evaluate((el) => el.click()); // Disabled button must not open a second dialog.
 				await page.evaluate(() => window.finishPicker());
 			}
-			const starts = ["choose", "authorized", "reauthorize"].includes(
-				mode,
-			);
+			const starts = [
+				"choose",
+				"authorized",
+				"reauthorize",
+				"stale-format",
+			].includes(mode);
 			if (starts)
 				await page.waitForFunction(() =>
 					window.calls.includes("submit_batch"),
@@ -136,6 +162,11 @@ mockIPC(async (command, args) => {
 				assert.equal(
 					(await page.evaluate(() => window.request)).items[0].id,
 					fixture.tasks[0].id,
+				);
+			if (mode === "stale-format")
+				assert.equal(
+					(await page.evaluate(() => window.request)).items[0].format,
+					"png",
 				);
 			if (mode === "error")
 				assert.match(

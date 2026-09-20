@@ -12,7 +12,7 @@ pub use convert::{
     SavedFile,
 };
 pub use engine_bundle::{license_index, read_license, LicenseEntry};
-pub use engines::{hash_file, EngineInfo, Engines};
+pub use engines::{hash_file, EngineInfo, Engines, FormatRoute};
 pub use options::{Options, Quality};
 pub use process::{watchdog_entry, Cancel};
 pub use retained::PendingOutput;
@@ -54,3 +54,6 @@ pub mod document_expansion_checks;
 
 #[cfg(any(feature = "development-engines", feature = "engine-validation"))]
 pub mod audio_expansion_checks;
+
+#[cfg(any(feature = "development-engines", feature = "engine-validation"))]
+pub mod format_matrix_checks;

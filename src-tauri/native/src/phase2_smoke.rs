@@ -10,6 +10,11 @@ use std::{
     sync::{Arc, Mutex},
     time::{Duration, Instant},
 };
+
+// This is the bounded, historical M2 route suite. New product routes belong
+// to the package-local format matrix rather than changing this regression
+// contract implicitly.
+pub(crate) const FROZEN_ROUTE_COUNT: usize = 84;
 pub(crate) fn command(engines: &Engines, id: &str, args: &[&str]) -> Result<String, String> {
     eprintln!("[validation] {id} {args:?}");
     let mut cmd = engines.command(id)?;
@@ -86,7 +91,10 @@ pub fn pdf_fixture(pages: u32) -> Vec<u8> {
         let (w, h, color) = if page % 2 == 0 {
             (72, 48, "1 0 0")
         } else {
-            (48, 72, "0 1 0")
+            // Keep the background below the fixed 50% PBM/XBM threshold so
+            // every page retains contrast with its white text in the bounded
+            // one-bit regression route.
+            (48, 72, "0 0.4 0")
         };
         let stream = format!(
             "{color} rg 0 0 {w} {h} re f\n1 1 1 rg BT /F1 10 Tf 6 12 Td (Z8 Page {}) Tj ET\n",
@@ -117,6 +125,19 @@ pub fn pdf_fixture(pages: u32) -> Vec<u8> {
         objects.len() + 1
     ));
     pdf.into_bytes()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn pdf_fixture_keeps_contrast_for_one_bit_page_exports() {
+        let fixture = String::from_utf8(pdf_fixture(3)).unwrap();
+        assert_eq!(fixture.matches("1 0 0 rg").count(), 2);
+        assert!(fixture.contains("0 0.4 0 rg 0 0 48 72 re f"));
+        assert_eq!(fixture.matches("1 1 1 rg BT").count(), 3);
+    }
 }
 pub(crate) fn source(
     path: &Path,
@@ -689,6 +710,12 @@ pub fn verify_engines(
             OutputFormat::Avif,
             &Cancel::default(),
         )?;
+    }
+    if cases.len() != FROZEN_ROUTE_COUNT {
+        return Err(format!(
+            "Incomplete M2 frozen route regression suite: expected {FROZEN_ROUTE_COUNT}, got {}",
+            cases.len()
+        ));
     }
     Ok(
         json!({"scope":if development_manifest.is_some() { "M2 local development engines; not a released package" } else { "M3 bundled engine verification; not installer certification" },"platform":format!("{}-{}",std::env::consts::OS,std::env::consts::ARCH),"engines":engines.info(),"routes":cases,"calibration":calibration,"checks":{"png_alpha_pixels":true,"xmp_metadata_toggle":true,"png_16bit_pixels":true,"pdf_page_order_dimensions":true,"pdf_partial_cancel":true,"pdf_resume_no_duplicate":true,"pdf_missing_page_regenerated":true,"pdf_changed_settings_no_reuse":true,"pdf_changed_input_no_reuse":true,"pdf_200_page_limit":true,"missing_pandoc_keeps_images":development_manifest.is_some(),"unicode_filename_budget":true,"disguised_playlist_rejected":true,"audio_duration_channels":true}}),

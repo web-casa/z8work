@@ -12,16 +12,19 @@ export const emptyPreview = (): PreviewState => ({
 	error: "",
 });
 export function previewKind(name: string) {
+	const extension = name.split(".").pop()?.toLowerCase() ?? "";
 	if (
 		name.lastIndexOf(".") > 0 &&
-		scope.groups
-			.find((g) => g.id === "images")
-			?.inputs.includes(name.split(".").pop()?.toLowerCase() ?? "")
+		scope.groups.find((g) => g.id === "images")?.inputs.includes(extension)
 	)
 		return "image";
 	if (/\.pdf$/i.test(name)) return "pdf";
-	if (/\.(mp4|mov|mkv|webm)$/i.test(name)) return "video";
-	if (/\.(mp3|wav|flac|ogg|m4a|opus|aiff|aif)$/i.test(name)) return "audio";
+	if (["mp4", "mov", "mkv", "webm"].includes(extension)) return "video";
+	if (
+		name.lastIndexOf(".") > 0 &&
+		scope.groups.find((g) => g.id === "media")?.inputs.includes(extension)
+	)
+		return "audio";
 	return undefined;
 }
 export function previewable(name: string, bytes: number): boolean {

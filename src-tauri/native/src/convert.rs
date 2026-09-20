@@ -2,6 +2,7 @@ use crate::{Cancel, Engines};
 mod preview;
 #[cfg(all(test, unix))]
 mod storage_tests;
+mod svg;
 pub(crate) use preview::preview;
 use serde::{Deserialize, Serialize};
 use std::{
@@ -22,6 +23,20 @@ pub enum OutputFormat {
     Bmp,
     Tga,
     Qoi,
+    Pbm,
+    Pgm,
+    Ppm,
+    Pnm,
+    Pam,
+    Gif,
+    Tiff,
+    Ico,
+    Pcx,
+    Xbm,
+    Xpm,
+    Heic,
+    Heif,
+    Jxl,
     Wav,
     Mp3,
     Flac,
@@ -29,6 +44,8 @@ pub enum OutputFormat {
     M4a,
     Ogg,
     Aiff,
+    Aac,
+    Alac,
     Txt,
 }
 impl OutputFormat {
@@ -41,6 +58,20 @@ impl OutputFormat {
             Self::Bmp => "bmp",
             Self::Tga => "tga",
             Self::Qoi => "qoi",
+            Self::Pbm => "pbm",
+            Self::Pgm => "pgm",
+            Self::Ppm => "ppm",
+            Self::Pnm => "pnm",
+            Self::Pam => "pam",
+            Self::Gif => "gif",
+            Self::Tiff => "tiff",
+            Self::Ico => "ico",
+            Self::Pcx => "pcx",
+            Self::Xbm => "xbm",
+            Self::Xpm => "xpm",
+            Self::Heic => "heic",
+            Self::Heif => "heif",
+            Self::Jxl => "jxl",
             Self::Wav => "wav",
             Self::Mp3 => "mp3",
             Self::Flac => "flac",
@@ -48,10 +79,14 @@ impl OutputFormat {
             Self::M4a => "m4a",
             Self::Ogg => "ogg",
             Self::Aiff => "aiff",
+            Self::Aac => "aac",
+            // ALAC is stored in an M4A/MP4-family container. Keep the extension
+            // truthful even though its serialized output choice is `alac`.
+            Self::Alac => "m4a",
             Self::Txt => "txt",
         }
     }
-    fn coder(self) -> &'static str {
+    pub(crate) fn coder(self) -> &'static str {
         match self {
             Self::Jpeg => "JPEG",
             Self::Png => "PNG",
@@ -60,6 +95,19 @@ impl OutputFormat {
             Self::Bmp => "BMP3",
             Self::Tga => "TGA",
             Self::Qoi => "QOI",
+            Self::Pbm => "PBM",
+            Self::Pgm => "PGM",
+            Self::Ppm => "PPM",
+            Self::Pnm => "PNM",
+            Self::Pam => "PAM",
+            Self::Gif => "GIF",
+            Self::Tiff => "TIFF",
+            Self::Ico => "ICO",
+            Self::Pcx => "PCX",
+            Self::Xbm => "XBM",
+            Self::Xpm => "XPM",
+            Self::Heic | Self::Heif => "HEIC",
+            Self::Jxl => "JXL",
             _ => "",
         }
     }
@@ -194,7 +242,7 @@ const POLICY: &str = r#"<policymap>
 <policy domain="filter" rights="none" pattern="*"/>
 <policy domain="path" rights="none" pattern="@*"/>
 <policy domain="coder" rights="none" pattern="*"/>
-<policy domain="coder" rights="read|write" pattern="{PNG,JPEG,WEBP,AVIF,HEIC,BMP,BMP2,BMP3,TGA,QOI}"/>
+<policy domain="coder" rights="read|write" pattern="{PNG,PNG32,JPEG,WEBP,AVIF,HEIC,BMP,BMP2,BMP3,TGA,QOI,PNM,PAM,PBM,PGM,PPM,GIF,TIFF,ICON,ICO,PCX,XBM,XPM,JXL,EXR,HDR,DPX}"/>
 <policy domain="coder" rights="read" pattern="ICC"/>
 <policy domain="resource" name="memory" value="256MiB"/>
 <policy domain="resource" name="map" value="256MiB"/>
@@ -205,16 +253,56 @@ const POLICY: &str = r#"<policymap>
 <policy domain="resource" name="time" value="90"/>
 </policymap>"#;
 
+const PLAIN_TEXT_INPUT_LIMIT: u64 = 16 * 1024 * 1024;
+const TEXT_OUTPUT_LIMIT: u64 = 64 * 1024 * 1024;
+
 // Fixed readers only: an unknown extension must never fall back to Markdown.
 fn document_reader(extension: &str) -> Result<&'static str, String> {
     match extension {
-        "md" => Ok("markdown"),
+        "md" | "markdown" | "mdown" | "mkdn" => Ok("markdown"),
+        "rst" => Ok("rst"),
         "docx" => Ok("docx"),
         "html" | "htm" => Ok("html+raw_html"),
         "odt" => Ok("odt"),
         "epub" => Ok("epub"),
+        "csv" => Ok("csv"),
+        "tsv" => Ok("tsv"),
+        "docbook" => Ok("docbook"),
+        "org" => Ok("org"),
         _ => Err("Unsupported document input".into()),
     }
+}
+
+fn plain_text_input(extension: &str) -> bool {
+    matches!(extension, "txt" | "text")
+}
+
+fn normalized_text(bytes: &[u8], empty: &str) -> Result<Vec<u8>, String> {
+    if bytes.len() as u64 > TEXT_OUTPUT_LIMIT {
+        return Err("Text output exceeds the 64 MiB budget".into());
+    }
+    let value = std::str::from_utf8(bytes).map_err(|_| "Text is not valid UTF-8")?;
+    let value = value.strip_prefix('\u{feff}').unwrap_or(value);
+    if value.contains('\0') {
+        return Err("Text contains NUL bytes".into());
+    }
+    let normalized = value.replace("\r\n", "\n").replace('\r', "\n");
+    if !normalized
+        .chars()
+        .any(|character| !character.is_whitespace())
+    {
+        return Err(empty.into());
+    }
+    Ok(normalized.into_bytes())
+}
+
+fn normalize_text_file(path: &Path, empty: &str) -> Result<(), String> {
+    let bytes = fs::read(path).map_err(|e| e.to_string())?;
+    let normalized = normalized_text(&bytes, empty)?;
+    if normalized != bytes {
+        fs::write(path, normalized).map_err(|e| e.to_string())?;
+    }
+    Ok(())
 }
 
 pub fn convert(
@@ -274,11 +362,18 @@ pub fn convert_source(
         .and_then(|e| e.to_str())
         .unwrap_or("")
         .to_ascii_lowercase();
+    // Keep unsupported extensions from reaching any filesystem work, while the
+    // package-specific authorization check remains after output preflight. The
+    // latter ordering preserves a useful storage error and still occurs before
+    // staging or starting an engine process.
     if !output_formats(&ext).contains(&format) {
-        return Err("Unsupported conversion in this M0 prototype".into());
+        return Err("Unsupported conversion in this installed package".into());
     }
     if ext == "pdf" && initial_metadata.len() > 100 * 1024 * 1024 {
         return Err("PDF input limit is 100 MiB".into());
+    }
+    if plain_text_input(&ext) && initial_metadata.len() > PLAIN_TEXT_INPUT_LIMIT {
+        return Err("Plain text input limit is 16 MiB".into());
     }
     // A private work directory avoids passing user-controlled engine filename syntax.
     let work = match &context.workspace {
@@ -294,6 +389,9 @@ pub fn convert_source(
         initial_metadata.len(),
         crate::storage::Area::Workspace,
     )?;
+    if !engines.formats_for(&ext).contains(&format) {
+        return Err("Unsupported conversion in this installed package".into());
+    }
     engines.verify_bundle()?;
     fs::write(work.path().join("policy.xml"), POLICY).map_err(|e| e.to_string())?;
     let staged = work.path().join(format!("input.{ext}"));
@@ -339,48 +437,56 @@ pub fn convert_source(
         | OutputFormat::Opus
         | OutputFormat::M4a
         | OutputFormat::Ogg
-        | OutputFormat::Aiff => {
+        | OutputFormat::Aiff
+        | OutputFormat::Aac
+        | OutputFormat::Alac => {
             encode_audio(&job, &staged, &output, format, context.progress.clone())?;
-            if matches!(format, OutputFormat::Ogg | OutputFormat::Aiff) {
-                "First audio track only. OGG uses lossy Vorbis quality 5; AIFF uses uncompressed PCM 16-bit. Tags and cover art are removed. Output may be larger.".to_string()
-            } else {
-                "First audio track only. WAV uses PCM 16-bit; MP3/AAC/Opus are lossy. Metadata is removed.".to_string()
-            }
+            audio_note(format).into()
         }
         OutputFormat::Txt => {
-            job.run(
-                "pandoc",
-                &[
-                    text("--sandbox"),
-                    text("--from"),
-                    text(document_reader(&ext)?),
-                    text("--to"),
-                    text("plain"),
-                    text("--output"),
-                    output.clone().into_os_string(),
-                    staged.clone().into_os_string(),
-                ],
-            )?;
-            fs::read_to_string(&output).map_err(|_| "Document output is not valid UTF-8")?;
-            "Text only; images, layout and formatting are omitted.".to_string()
+            if plain_text_input(&ext) {
+                let bytes = fs::read(&staged).map_err(|e| e.to_string())?;
+                let normalized = normalized_text(&bytes, "Text input contains no readable text")?;
+                fs::write(&output, normalized).map_err(|e| e.to_string())?;
+            } else {
+                job.run(
+                    "pandoc",
+                    &[
+                        text("--sandbox"),
+                        text("--from"),
+                        text(document_reader(&ext)?),
+                        text("--to"),
+                        text("plain"),
+                        text("--output"),
+                        output.clone().into_os_string(),
+                        staged.clone().into_os_string(),
+                    ],
+                )?;
+                normalize_text_file(&output, "Document contains no readable text")?;
+            }
+            document_note(&ext).to_string()
         }
         _ => {
+            let raster = if ext == "svg" {
+                let raster = work.path().join("static-svg.png");
+                svg::render(&staged, &raster, None)?;
+                raster
+            } else {
+                staged.clone()
+            };
             encode_image(
                 &job,
-                &staged,
-                input_coder(&ext),
+                &raster,
+                if ext == "svg" {
+                    "PNG"
+                } else {
+                    input_coder(&ext)
+                },
                 &output,
                 format,
                 &context.options,
             )?;
-            if matches!(
-                format,
-                OutputFormat::Bmp | OutputFormat::Tga | OutputFormat::Qoi
-            ) {
-                "First frame only. BMP uses a white background; TGA/QOI preserve alpha. 8-bit output; metadata and ICC profiles are omitted. Output may be larger.".to_string()
-            } else {
-                "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.".to_string()
-            }
+            image_note(&ext, format)
         }
     };
     if let Some(report) = &context.progress {
@@ -422,18 +528,175 @@ pub fn convert_source(
         fingerprint: String::new(),
     })
 }
-fn input_coder(ext: &str) -> &str {
+
+fn image_note(input: &str, format: OutputFormat) -> String {
+    if input == "svg" {
+        return "Static SVG only. Scripts, animation, external files and system fonts are not used; embedded raster data is limited. Output is an 8-bit sRGB bitmap.".into();
+    }
+    let coder = input_coder(input);
+    if fixed_exposure_hdr_input(coder) {
+        return "First image only. HDR/linear source is mapped with a fixed exposure to 8-bit sRGB SDR; it is not a high-dynamic-range preservation conversion.".into();
+    }
+    if coder == "DPX" {
+        return "First image only. DPX is reduced to 8-bit sRGB SDR using ImageMagick's decoded DPX interpretation. Log/camera-specific LUTs, custom reference black/white choices, production metadata, multiple elements and high-bit-depth preservation are not retained.".into();
+    }
+    match format {
+        OutputFormat::Heic | OutputFormat::Heif => "First frame only. HEIC/HEIF uses a lossy HEVC 8-bit SDR compatibility profile with 4:2:0 chroma and a white background. Metadata and ICC profiles are omitted. Third-party preview support varies.".into(),
+        OutputFormat::Jxl => "First frame only. JPEG XL is 8-bit sRGB. Metadata and ICC profiles are omitted; operating-system and browser preview support varies.".into(),
+        OutputFormat::Gif => "First frame only. GIF is a static 256-color image; metadata and ICC profiles are omitted. Output may be larger.".into(),
+        OutputFormat::Tiff => "First frame only. TIFF is a single 8-bit sRGB page, not BigTIFF, multi-page, CMYK or high-bit-depth preservation. Metadata and ICC profiles are omitted.".into(),
+        OutputFormat::Ico => "First frame only. ICO is a single centered 256 × 256 icon; metadata and ICC profiles are omitted.".into(),
+        OutputFormat::Pbm | OutputFormat::Xbm => "First frame only. PBM/XBM is thresholded at 50% to a 1-bit black-and-white image; metadata and ICC profiles are omitted.".into(),
+        OutputFormat::Pgm => "First frame only. PGM is an 8-bit grayscale image; metadata and ICC profiles are omitted.".into(),
+        OutputFormat::Xpm => "First frame only. XPM is limited to 256 colors; metadata and ICC profiles are omitted.".into(),
+        OutputFormat::Bmp | OutputFormat::Tga | OutputFormat::Qoi | OutputFormat::Ppm | OutputFormat::Pnm | OutputFormat::Pam | OutputFormat::Pcx => "First frame only. Fixed 8-bit sRGB output; metadata and ICC profiles are omitted. Formats without alpha use a white background.".into(),
+        _ => "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.".into(),
+    }
+}
+
+fn document_note(input: &str) -> &'static str {
+    if input == "org" {
+        return "Text only. Org markup is interpreted by Pandoc; underscores can represent subscripts, so use Org literal/code markup or #+OPTIONS: ^:{} for identifiers that must retain underscores. Images, layout and formatting are omitted.";
+    }
+    "Text only; images, layout and formatting are omitted."
+}
+
+fn audio_note(format: OutputFormat) -> &'static str {
+    match format {
+        OutputFormat::Ogg => "First audio track only. OGG uses lossy Vorbis quality 5. Tags and cover art are removed. Output may be larger.",
+        OutputFormat::Aiff => "First audio track only. AIFF uses uncompressed PCM 16-bit; higher source bit depths are reduced. Tags and cover art are removed. Output may be larger.",
+        OutputFormat::Mp3 => "First audio track only. MP3 is lossy at 192 kb/s; sources at unsupported MP3 sampling rates are resampled. Metadata is removed.",
+        OutputFormat::M4a => "First audio track only. M4A uses lossy AAC at 192 kb/s; sources at unsupported AAC sampling rates are resampled. Metadata is removed.",
+        OutputFormat::Aac => "First audio track only. AAC uses a lossy ADTS stream at 192 kb/s; sources at unsupported AAC sampling rates are resampled. Tags and cover art are removed.",
+        OutputFormat::Alac => "First audio track only. ALAC is lossless and stored in an M4A container. Tags and cover art are removed; output may be larger.",
+        OutputFormat::Opus => "First audio track only. Opus is lossy at 128 kb/s and uses a 48 kHz clock; sources not at 48 kHz are resampled. Metadata is removed.",
+        _ => "First audio track only. WAV uses PCM 16-bit; FLAC is lossless. Metadata is removed.",
+    }
+}
+
+const MP3_SAMPLE_RATES: [u32; 9] = [48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000];
+const AAC_SAMPLE_RATES: [u32; 13] = [
+    96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350,
+];
+
+fn nearest_supported_sample_rate_matches(
+    source_rate: Option<&str>,
+    output_rate: Option<&str>,
+    supported: &[u32],
+) -> bool {
+    let (Some(source_rate), Some(output_rate)) = (
+        source_rate.and_then(|rate| rate.parse::<u32>().ok()),
+        output_rate.and_then(|rate| rate.parse::<u32>().ok()),
+    ) else {
+        return false;
+    };
+    let Some(delta) = supported
+        .iter()
+        .map(|rate| rate.abs_diff(source_rate))
+        .min()
+    else {
+        return false;
+    };
+    supported
+        .iter()
+        .any(|rate| *rate == output_rate && rate.abs_diff(source_rate) == delta)
+}
+
+/// Opus readers report the codec's 48 kHz clock. MP3 and AAC have discrete
+/// supported sample-rate sets, so FFmpeg resamples an unsupported source rate
+/// to the nearest valid value. Other output formats must preserve the source
+/// rate; accepting arbitrary resampling would hide a conversion regression.
+pub(crate) fn audio_output_sample_rate_matches_contract(
+    format: OutputFormat,
+    source_rate: Option<&str>,
+    output_rate: Option<&str>,
+) -> bool {
+    match format {
+        OutputFormat::Opus => output_rate == Some("48000"),
+        OutputFormat::Mp3 => {
+            nearest_supported_sample_rate_matches(source_rate, output_rate, &MP3_SAMPLE_RATES)
+        }
+        OutputFormat::M4a | OutputFormat::Aac => {
+            nearest_supported_sample_rate_matches(source_rate, output_rate, &AAC_SAMPLE_RATES)
+        }
+        _ => source_rate.is_some() && source_rate == output_rate,
+    }
+}
+pub(crate) fn input_coder(ext: &str) -> &str {
     match ext {
-        "jpg" | "jpeg" => "JPEG",
+        "jpg" | "jpeg" | "jpe" | "jfif" => "JPEG",
         "heif" | "heic" => "HEIC",
         "avif" => "AVIF",
         "webp" => "WEBP",
         "bmp" => "BMP",
         "tga" => "TGA",
         "qoi" => "QOI",
+        "pbm" => "PBM",
+        "pgm" => "PGM",
+        "ppm" => "PPM",
+        "pnm" => "PNM",
+        "pam" => "PAM",
+        "gif" => "GIF",
+        "tif" | "tiff" => "TIFF",
+        "ico" => "ICO",
+        "pcx" => "PCX",
+        "xbm" => "XBM",
+        "xpm" => "XPM",
+        "jxl" => "JXL",
+        "exr" => "EXR",
+        "hdr" => "HDR",
+        "dpx" => "DPX",
         _ => "PNG",
     }
 }
+
+fn fixed_sdr_output(format: OutputFormat) -> bool {
+    matches!(
+        format,
+        OutputFormat::Bmp
+            | OutputFormat::Tga
+            | OutputFormat::Qoi
+            | OutputFormat::Pbm
+            | OutputFormat::Pgm
+            | OutputFormat::Ppm
+            | OutputFormat::Pnm
+            | OutputFormat::Pam
+            | OutputFormat::Gif
+            | OutputFormat::Tiff
+            | OutputFormat::Ico
+            | OutputFormat::Pcx
+            | OutputFormat::Xbm
+            | OutputFormat::Xpm
+            | OutputFormat::Heic
+            | OutputFormat::Heif
+            | OutputFormat::Jxl
+    )
+}
+
+fn white_background_output(format: OutputFormat) -> bool {
+    matches!(
+        format,
+        OutputFormat::Jpeg
+            | OutputFormat::Bmp
+            | OutputFormat::Pbm
+            | OutputFormat::Pgm
+            | OutputFormat::Ppm
+            | OutputFormat::Pnm
+            | OutputFormat::Pcx
+            | OutputFormat::Xbm
+            | OutputFormat::Heic
+            | OutputFormat::Heif
+    )
+}
+
+fn fixed_exposure_hdr_input(coder: &str) -> bool {
+    matches!(coder, "EXR" | "HDR")
+}
+
+fn professional_sdr_input(coder: &str) -> bool {
+    fixed_exposure_hdr_input(coder) || coder == "DPX"
+}
+
 fn encode_image(
     job: &Job<'_>,
     image: &Path,
@@ -446,7 +709,7 @@ fn encode_image(
     if !options.keep_metadata {
         args.extend([text("+profile"), text("exif,xmp,iptc")]);
     }
-    if matches!(format, OutputFormat::Jpeg | OutputFormat::Bmp) {
+    if white_background_output(format) {
         args.extend([
             text("-background"),
             text("white"),
@@ -472,12 +735,33 @@ fn encode_image(
             text("webp:lossless=false"),
         ]);
     }
-    if matches!(
-        format,
-        OutputFormat::Bmp | OutputFormat::Tga | OutputFormat::Qoi
-    ) {
-        // These outputs have no portable EXIF/XMP/ICC contract. Apply orientation
-        // before removing profiles, then explicitly quantize to RGB(A) 8-bit.
+    if fixed_exposure_hdr_input(coder) {
+        // This is intentionally a fixed SDR import, not a color-managed HDR
+        // round trip. Work in linear RGB, use a fixed exposure, clip remaining
+        // out-of-range values, then encode sRGB below. DPX has distinct
+        // logarithmic / reference-point conventions, so it is intentionally
+        // not forced through this generic exposure adjustment.
+        args.extend([
+            text("-colorspace"),
+            text("RGB"),
+            text("-evaluate"),
+            text("Multiply"),
+            text("0.25"),
+            text("-clamp"),
+        ]);
+    }
+    if professional_sdr_input(coder) {
+        // All reviewed professional-image import routes publish SDR bitmaps.
+        // For DPX this lets ImageMagick apply its decoded DPX interpretation;
+        // product-specific Log LUTs and reference points remain outside the
+        // bounded first-version contract stated in image_note().
+        args.extend([text("-colorspace"), text("sRGB"), text("-depth"), text("8")]);
+    }
+    if fixed_sdr_output(format) {
+        // These outputs have a deliberately limited, portable first-version
+        // contract. Apply orientation before stripping metadata, then quantize
+        // to sRGB 8-bit. TIFF is one static RGB/RGBA page, not a preservation
+        // route for BigTIFF, CMYK, layers or high-bit-depth source data.
         let srgb = job.cwd.join("output-srgb.icc");
         fs::write(
             &srgb,
@@ -494,6 +778,42 @@ fn encode_image(
             text("+profile"),
             text("*"),
         ]);
+    }
+    match format {
+        OutputFormat::Pbm | OutputFormat::Xbm => args.extend([
+            text("-colorspace"),
+            text("Gray"),
+            text("-threshold"),
+            text("50%"),
+        ]),
+        OutputFormat::Pgm => args.extend([text("-colorspace"), text("Gray")]),
+        OutputFormat::Gif | OutputFormat::Xpm => args.extend([text("-colors"), text("256")]),
+        OutputFormat::Tiff => args.extend([
+            text("-define"),
+            text("tiff:write-layers=false"),
+            text("-compress"),
+            text("zip"),
+        ]),
+        OutputFormat::Ico => args.extend([
+            text("-background"),
+            text("none"),
+            text("-resize"),
+            text("256x256"),
+            text("-gravity"),
+            text("center"),
+            text("-extent"),
+            text("256x256"),
+            text("-define"),
+            text("icon:auto-resize=256"),
+        ]),
+        OutputFormat::Heic | OutputFormat::Heif => args.extend([
+            text("-define"),
+            text("heic:lossless=false"),
+            text("-define"),
+            text("heic:chroma=420"),
+        ]),
+        OutputFormat::Jxl => args.extend([text("-define"), text("jxl:effort=7")]),
+        _ => {}
     }
     // PNG quality is a compression/filter setting, not a lossy quality scale.
     args.extend([
@@ -567,6 +887,32 @@ fn validate_image_encoding(path: &Path, format: OutputFormat) -> Result<(), Stri
                 && (bytes.get(8..12) == Some(b"avif")
                     || bytes[16..length].chunks_exact(4).any(|b| b == b"avif"))
         }
+        OutputFormat::Pbm => matches!(bytes.get(..2), Some(b"P1") | Some(b"P4")),
+        OutputFormat::Pgm => matches!(bytes.get(..2), Some(b"P2") | Some(b"P5")),
+        OutputFormat::Ppm => matches!(bytes.get(..2), Some(b"P3") | Some(b"P6")),
+        OutputFormat::Pnm => matches!(
+            bytes.get(..2),
+            Some(b"P1") | Some(b"P2") | Some(b"P3") | Some(b"P4") | Some(b"P5") | Some(b"P6")
+        ),
+        OutputFormat::Pam => bytes.starts_with(b"P7\n"),
+        OutputFormat::Gif => bytes.starts_with(b"GIF87a") || bytes.starts_with(b"GIF89a"),
+        OutputFormat::Tiff => bytes.starts_with(b"II*\0") || bytes.starts_with(b"MM\0*"),
+        OutputFormat::Ico => {
+            bytes.len() >= 6
+                && bytes[..4] == [0, 0, 1, 0]
+                && u16::from_le_bytes([bytes[4], bytes[5]]) > 0
+        }
+        OutputFormat::Pcx => bytes.len() >= 4 && bytes[0] == 0x0a && bytes[1] <= 5 && bytes[2] == 1,
+        OutputFormat::Xbm => bytes.starts_with(b"#define "),
+        OutputFormat::Xpm => bytes.starts_with(b"/* XPM */"),
+        OutputFormat::Heic | OutputFormat::Heif => is_heic_header(&bytes),
+        OutputFormat::Jxl => {
+            bytes.starts_with(&[0xff, 0x0a])
+                || (bytes.get(4..8) == Some(b"JXL ")
+                    && bytes
+                        .get(8..12)
+                        .is_some_and(|box_type| box_type == b"\r\n\x87\n"))
+        }
         _ => false,
     };
     if matches {
@@ -575,16 +921,43 @@ fn validate_image_encoding(path: &Path, format: OutputFormat) -> Result<(), Stri
         Err("Image output encoding does not match requested format".into())
     }
 }
+
+fn is_heic_header(bytes: &[u8]) -> bool {
+    let length = bytes
+        .get(..4)
+        .map(|b| u32::from_be_bytes(b.try_into().unwrap()) as usize)
+        .unwrap_or(0);
+    length >= 16
+        && length <= bytes.len()
+        && bytes.get(4..8) == Some(b"ftyp")
+        && bytes.get(8..12).is_some_and(|brand| {
+            brand == b"heic"
+                || brand == b"heix"
+                || brand == b"hevc"
+                || brand == b"hevx"
+                || brand == b"mif1"
+        })
+}
 fn media_demuxer(extension: &str) -> Option<&'static str> {
     // Force the declared container: never sniff a renamed playlist.
     Some(match extension {
         "mp3" => "mp3",
+        // FFmpeg's MP3 demuxer is the documented reader for MPEG layer II and III.
+        "mp2" => "mp3",
+        "aac" => "aac",
+        "ac3" => "ac3",
+        "amr" => "amr",
+        "au" => "au",
+        "caf" => "caf",
+        "wma" => "asf",
+        "voc" => "voc",
+        "wv" => "wv",
         "wav" => "wav",
         "aiff" | "aif" => "aiff",
         "flac" => "flac",
-        "ogg" | "opus" => "ogg",
+        "ogg" | "opus" | "oga" => "ogg",
         "m4a" | "mp4" | "mov" => "mov",
-        "mkv" | "webm" => "matroska",
+        "mkv" | "webm" | "mka" | "weba" => "matroska",
         _ => return None,
     })
 }
@@ -605,6 +978,8 @@ fn encode_audio(
         OutputFormat::M4a => ("aac", "ipod", "aac", Some("192k")),
         OutputFormat::Ogg => ("libvorbis", "ogg", "vorbis", None),
         OutputFormat::Aiff => ("pcm_s16be", "aiff", "pcm_s16be", None),
+        OutputFormat::Aac => ("aac", "adts", "aac", Some("192k")),
+        OutputFormat::Alac => ("alac", "ipod", "alac", None),
         _ => return Err("Unsupported audio format".into()),
     };
     let mut probe_args = vec![
@@ -726,7 +1101,7 @@ fn encode_audio(
             text("-v"),
             text("error"),
             text("-show_entries"),
-            text("stream=codec_name,sample_rate,channels,duration:format=duration"),
+            text("stream=codec_name,sample_rate,channels,duration:format=format_name,duration"),
             text("-of"),
             text("json"),
             output.as_os_str().into(),
@@ -736,7 +1111,17 @@ fn encode_audio(
     if value["streams"][0]["codec_name"] != expected {
         return Err("Audio output validation failed".into());
     }
-    if matches!(format, OutputFormat::Ogg | OutputFormat::Aiff) {
+    if !audio_output_sample_rate_matches_contract(
+        format,
+        original["streams"][0]["sample_rate"].as_str(),
+        value["streams"][0]["sample_rate"].as_str(),
+    ) {
+        return Err("Audio sample rate changed; no output was published".into());
+    }
+    if matches!(
+        format,
+        OutputFormat::Ogg | OutputFormat::Aiff | OutputFormat::Aac
+    ) {
         let mut header = [0u8; 12];
         fs::File::open(output)
             .and_then(|mut f| f.read_exact(&mut header))
@@ -744,13 +1129,23 @@ fn encode_audio(
         let container_matches = match format {
             OutputFormat::Ogg => &header[..4] == b"OggS",
             OutputFormat::Aiff => &header[..4] == b"FORM" && &header[8..] == b"AIFF",
+            OutputFormat::Aac => header[0] == 0xff && (header[1] & 0xf6) == 0xf0,
             _ => false,
         };
-        if !container_matches
-            || value["streams"][0]["sample_rate"] != original["streams"][0]["sample_rate"]
-        {
-            return Err("Audio container or sample rate changed; no output was published".into());
+        if !container_matches {
+            return Err("Audio container validation failed; no output was published".into());
         }
+    }
+    if matches!(format, OutputFormat::M4a | OutputFormat::Alac)
+        && !value["format"]["format_name"]
+            .as_str()
+            .is_some_and(|names| {
+                names
+                    .split(',')
+                    .any(|name| matches!(name, "mov" | "mp4" | "m4a"))
+            })
+    {
+        return Err("M4A output container validation failed".into());
     }
     let encoded_duration = duration(&value).ok_or("Cannot verify output audio duration")?;
     if (encoded_duration - original_duration).abs() > 0.2
@@ -900,21 +1295,10 @@ fn convert_pdf(
     context: &ConversionContext,
 ) -> Result<ConversionResult, String> {
     use sha2::{Digest, Sha256};
-    let count = job.run(
-        "mutool",
-        &[
-            text("show"),
-            job.work_file(staged)?,
-            text("trailer/Root/Pages/Count"),
-        ],
-    )?;
-    let total: u32 = count
-        .trim()
-        .parse()
-        .map_err(|_| "Cannot determine PDF page count (invalid or encrypted PDF)")?;
-    if total == 0 || total > 200 {
-        return Err("PDF must contain 1 to 200 pages".into());
+    if format == OutputFormat::Txt {
+        return convert_pdf_text(job, staged, input, directory, context);
     }
+    let total = pdf_page_count(job, staged)?;
     let fingerprint = format!(
         "{:x}",
         Sha256::digest(format!(
@@ -1018,9 +1402,158 @@ fn convert_pdf(
     Ok(result)
 }
 
+fn pdf_page_count(job: &Job<'_>, staged: &Path) -> Result<u32, String> {
+    let count = job.run(
+        "mutool",
+        &[
+            text("show"),
+            job.work_file(staged)?,
+            text("trailer/Root/Pages/Count"),
+        ],
+    )?;
+    let total: u32 = count
+        .trim()
+        .parse()
+        .map_err(|_| "Cannot determine PDF page count (invalid or encrypted PDF)")?;
+    if total == 0 || total > 200 {
+        return Err("PDF must contain 1 to 200 pages".into());
+    }
+    Ok(total)
+}
+
+fn convert_pdf_text(
+    job: &Job<'_>,
+    staged: &Path,
+    input: &Path,
+    directory: &Path,
+    context: &ConversionContext,
+) -> Result<ConversionResult, String> {
+    let total = pdf_page_count(job, staged)?;
+    let output = job.cwd.join("output.txt");
+    job.run(
+        "mutool",
+        &[
+            text("draw"),
+            text("-q"),
+            text("-L"),
+            text("-F"),
+            text("txt"),
+            text("-o"),
+            job.work_file(&output)?,
+            job.work_file(staged)?,
+        ],
+    )?;
+    normalize_text_file(
+        &output,
+        "PDF has no extractable text layer; OCR is not included",
+    )?;
+    if let Some(report) = &context.progress {
+        report(crate::progress::Progress {
+            stage: crate::progress::Stage::Publishing,
+            percent: None,
+        });
+    }
+    let saved = publish(
+        job,
+        &output,
+        directory,
+        input,
+        OutputFormat::Txt,
+        None,
+        TEXT_OUTPUT_LIMIT,
+    )?;
+    Ok(ConversionResult {
+        path: saved.path.clone(),
+        bytes: saved.bytes,
+        note: format!(
+            "PDF text layer extracted from {total} pages. Images, layout and OCR are omitted."
+        ),
+        files: vec![saved],
+        fingerprint: String::new(),
+        total: 1,
+        complete: true,
+    })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn imagemagick_policy_keeps_default_deny_and_allows_ico_png32_internally() {
+        assert!(POLICY.contains(r#"domain="delegate" rights="none" pattern="*""#));
+        assert!(POLICY.contains(r#"domain="filter" rights="none" pattern="*""#));
+        assert!(POLICY.contains(r#"domain="coder" rights="none" pattern="*""#));
+        assert!(POLICY.contains("{PNG,PNG32,JPEG,"));
+        assert!(!POLICY.contains("PDF,"));
+        assert!(!POLICY.contains(r#"rights="read|write" pattern="*""#));
+    }
+
+    #[test]
+    fn limited_raster_notes_describe_the_actual_encoding_contract() {
+        assert!(image_note("png", OutputFormat::Pbm).contains("thresholded at 50%"));
+        assert!(image_note("png", OutputFormat::Xbm).contains("1-bit black-and-white"));
+        assert!(image_note("png", OutputFormat::Pgm).contains("8-bit grayscale"));
+        assert!(image_note("png", OutputFormat::Xpm).contains("256 colors"));
+    }
+
+    #[test]
+    fn professional_image_imports_have_separate_sdr_contracts() {
+        assert!(fixed_exposure_hdr_input("EXR"));
+        assert!(fixed_exposure_hdr_input("HDR"));
+        assert!(!fixed_exposure_hdr_input("DPX"));
+        assert!(professional_sdr_input("DPX"));
+        assert!(image_note("dpx", OutputFormat::Png).contains("decoded DPX interpretation"));
+    }
+
+    #[test]
+    fn org_text_note_explains_its_markup_semantics() {
+        assert!(document_note("org").contains("#+OPTIONS: ^:{}"));
+        assert_eq!(
+            document_note("md"),
+            "Text only; images, layout and formatting are omitted."
+        );
+    }
+
+    #[test]
+    fn audio_sample_rate_contract_allows_only_codec_required_normalization() {
+        assert!(audio_output_sample_rate_matches_contract(
+            OutputFormat::Opus,
+            Some("8000"),
+            Some("48000")
+        ));
+        assert!(!audio_output_sample_rate_matches_contract(
+            OutputFormat::Opus,
+            Some("8000"),
+            Some("8000")
+        ));
+        assert!(audio_output_sample_rate_matches_contract(
+            OutputFormat::Mp3,
+            Some("47994"),
+            Some("48000")
+        ));
+        assert!(!audio_output_sample_rate_matches_contract(
+            OutputFormat::Mp3,
+            Some("47994"),
+            Some("44100")
+        ));
+        assert!(audio_output_sample_rate_matches_contract(
+            OutputFormat::Aac,
+            Some("10000"),
+            Some("11025")
+        ));
+        assert!(!audio_output_sample_rate_matches_contract(
+            OutputFormat::Aac,
+            Some("10000"),
+            Some("8000")
+        ));
+        assert!(!audio_output_sample_rate_matches_contract(
+            OutputFormat::Flac,
+            None,
+            Some("48000")
+        ));
+    }
+
     #[test]
     fn document_scope_requires_an_explicit_reader() {
         for input in &crate::formats::group("docx").unwrap().inputs {
@@ -1032,6 +1565,37 @@ mod tests {
         );
         assert!(document_reader("xlsx").is_err());
         assert!(output_formats("rtf").is_empty());
+    }
+
+    #[test]
+    fn plain_text_is_local_bounded_and_normalized() {
+        assert!(plain_text_input("txt"));
+        assert!(plain_text_input("text"));
+        assert!(!plain_text_input("md"));
+        assert_eq!(
+            normalized_text(b"\xef\xbb\xbfFirst\r\nSecond\rThird\n", "empty").unwrap(),
+            b"First\nSecond\nThird\n"
+        );
+        assert_eq!(
+            normalized_text(b"\xff", "empty").unwrap_err(),
+            "Text is not valid UTF-8"
+        );
+        assert_eq!(
+            normalized_text(b"valid\0text", "empty").unwrap_err(),
+            "Text contains NUL bytes"
+        );
+        assert_eq!(normalized_text(b" \n\t", "empty").unwrap_err(), "empty");
+    }
+
+    #[test]
+    fn explicit_media_demuxers_cover_the_reviewed_media_scope() {
+        let group = crate::formats::group("mp3").unwrap();
+        for input in &group.inputs {
+            assert!(media_demuxer(input).is_some(), "{input}");
+        }
+        assert_eq!(media_demuxer("wma"), Some("asf"));
+        assert_eq!(media_demuxer("mp2"), Some("mp3"));
+        assert_eq!(media_demuxer("unknown"), None);
     }
 
     #[test]
@@ -1081,9 +1645,15 @@ mod tests {
     fn routes_are_explicit() {
         assert!(output_formats("xlsx").is_empty());
         assert!(output_formats("PDF").contains(&OutputFormat::Avif));
+        assert!(output_formats("PDF").contains(&OutputFormat::Txt));
         assert_eq!(output_formats("docx"), vec![OutputFormat::Txt]);
+        assert_eq!(output_formats("txt"), vec![OutputFormat::Txt]);
+        assert!(output_formats("svg").contains(&OutputFormat::Heic));
+        assert!(output_formats("exr").contains(&OutputFormat::Jxl));
         assert!(!output_formats("png").contains(&OutputFormat::Wav));
         assert!(output_formats("mp4").contains(&OutputFormat::Opus));
+        assert!(output_formats("wma").contains(&OutputFormat::Alac));
+        assert_eq!(OutputFormat::Alac.extension(), "m4a");
     }
 }
 
@@ -1130,5 +1700,34 @@ mod encoding_tests {
         }
         fs::write(&path, b"\0\0\0\x10ftypmif1\0\0\0\0avif").unwrap();
         assert!(validate_image_encoding(&path, OutputFormat::Avif).is_err());
+    }
+
+    #[test]
+    fn target_headers_are_specific_for_expanded_raster_outputs() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("result");
+        for (format, payload) in [
+            (OutputFormat::Pbm, b"P4\n".as_slice()),
+            (OutputFormat::Pgm, b"P5\n"),
+            (OutputFormat::Ppm, b"P6\n"),
+            (OutputFormat::Pnm, b"P3\n"),
+            (OutputFormat::Pam, b"P7\n"),
+            (OutputFormat::Gif, b"GIF89a"),
+            (OutputFormat::Tiff, b"II*\0"),
+            (OutputFormat::Ico, b"\0\0\x01\0\x01\0"),
+            (OutputFormat::Pcx, b"\x0a\x05\x01\0"),
+            (OutputFormat::Xbm, b"#define width 1\n"),
+            (OutputFormat::Xpm, b"/* XPM */"),
+            (OutputFormat::Heic, b"\0\0\0\x10ftypheic\0\0\0\0"),
+            (OutputFormat::Heif, b"\0\0\0\x10ftypmif1\0\0\0\0"),
+            (OutputFormat::Jxl, b"\xff\x0a"),
+            (OutputFormat::Jxl, b"\0\0\0\x0cJXL \r\n\x87\n"),
+        ] {
+            fs::write(&path, payload).unwrap();
+            assert!(validate_image_encoding(&path, format).is_ok(), "{format:?}");
+        }
+        fs::write(&path, b"\0\0\0\x10ftypavif\0\0\0\0").unwrap();
+        assert!(validate_image_encoding(&path, OutputFormat::Heic).is_err());
+        assert!(validate_image_encoding(&path, OutputFormat::Jxl).is_err());
     }
 }

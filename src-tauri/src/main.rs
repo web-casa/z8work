@@ -21,7 +21,7 @@ use tauri::{Emitter, Manager, State};
 use tauri_plugin_dialog::DialogExt;
 use z8_native::{
     queue::{Queue, Snapshot, Submission},
-    EngineInfo, OutputFormat,
+    EngineInfo, FormatRoute, OutputFormat,
 };
 struct Backend {
     diagnostics: z8_native::diagnostics::Store,
@@ -147,6 +147,7 @@ struct DesktopInfo {
     workspace_error: Option<String>,
     temporary_cleanup: Option<z8_native::workspaces::CleanupReport>,
     engines: Vec<EngineInfo>,
+    routes: Vec<FormatRoute>,
     error: Option<String>,
     queue_error: Option<String>,
     architecture: String,
@@ -166,6 +167,7 @@ fn desktop_info(state: State<Backend>) -> DesktopInfo {
             .and_then(|s| s.workspace.as_ref().ok())
             .and_then(|s| s.report().ok()),
         engines: state.engines.info(),
+        routes: state.engines.routes(),
         error: None,
         queue_error: state.queue().err().filter(|e| e != "Z8:preparing"),
         architecture: format!("{} / {}", std::env::consts::OS, std::env::consts::ARCH),

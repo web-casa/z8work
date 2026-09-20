@@ -7,6 +7,7 @@ import { fileInfo, listFiles, relativeName } from "./lib/desktop-sources.mjs";
 import { inspectMacBundle } from "./lib/desktop-macos.mjs";
 import { assertOutside } from "./lib/desktop-windows-acceptance.mjs";
 import { sha256 } from "./lib/desktop-artifacts.mjs";
+import { writeFormatAcceptance } from "./lib/desktop-format-acceptance.mjs";
 const { values } = parseArgs({
 	options: Object.fromEntries(
 		["resources", "manifest", "record", "output"].map((k) => [
@@ -56,13 +57,14 @@ if (
 )
 	throw new Error("Prepared verifier and notices required");
 const manifest = {
-	schema: 2,
+	schema: 3,
 	kind: "bundled",
 	os: "macos",
 	arch: record.arch,
 	loader: null,
 	engines: {},
 	files: {},
+	format_acceptance: "format-acceptance.json",
 };
 function local(path) {
 	const value = relative(root, resolve(path)).split(sep).join("/");
@@ -102,6 +104,11 @@ for (const name of files) {
 		throw new Error("Copied resource changed");
 	manifest.files[name] = copied;
 }
+await writeFormatAcceptance(output, "macos", record.arch);
+manifest.files["format-acceptance.json"] = await fileInfo(
+	output,
+	"format-acceptance.json",
+);
 const provenance = {
 	schema: 1,
 	kind: "macos-explicit-resources",

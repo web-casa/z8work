@@ -14,6 +14,7 @@ export const handoffSupportFiles = Object.freeze([
 	"scripts/lib/desktop-artifacts.mjs",
 	"scripts/lib/desktop-sources.mjs",
 	"scripts/lib/desktop-snap-installed.mjs",
+	"scripts/lib/desktop-format-acceptance.mjs",
 	"scripts/lib/desktop-image-expansion.mjs",
 	"scripts/lib/desktop-document-expansion.mjs",
 	"scripts/lib/desktop-audio-expansion.mjs",

@@ -15,6 +15,9 @@ uuid = { version = "1", features = ["v4"] }
 sha2 = "0.10"
 tempfile = "3"
 process-wrap = { version = "10", features = ["std"] }
+# Static SVG rasterization. Default features deliberately stay off so this
+# crate cannot load SVGZ input or any system fonts.
+resvg = { version = "0.48.1", default-features = false, features = ["text", "raster-images"] }
 
 [[bin]]
 name = "smoke"

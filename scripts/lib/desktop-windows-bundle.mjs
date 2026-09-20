@@ -12,6 +12,7 @@ import { execFileSync } from "node:child_process";
 import { fileInfo, relativeName, inspectBundle } from "./desktop-sources.mjs";
 import { inspectWindowsTree } from "./desktop-windows.mjs";
 import { sha256 } from "./desktop-artifacts.mjs";
+import { writeFormatAcceptance } from "./desktop-format-acceptance.mjs";
 
 export function windowsResource(name) {
 	relativeName(name);
@@ -114,7 +115,7 @@ export async function assembleWindowsBundle({
 	await mkdir(output); // Never overwrite previous bundles.
 	const temporary = await mkdtemp(join(tmpdir(), "z8-windows-extract-"));
 	const manifest = {
-		schema: 2,
+		schema: 3,
 		kind: "bundled",
 		os: "windows",
 		arch: "x86_64",
@@ -124,6 +125,7 @@ export async function assembleWindowsBundle({
 		magick_modules: null,
 		magick_config: "magick-config",
 		heif_plugins: null,
+		format_acceptance: "format-acceptance.json",
 	};
 	const run = (bin, args) =>
 		execFileSync(bin, args, {
@@ -259,6 +261,11 @@ export async function assembleWindowsBundle({
 				version: source.version,
 			};
 		}
+		await writeFormatAcceptance(output, "windows", "x86_64");
+		manifest.files["format-acceptance.json"] = await fileInfo(
+			output,
+			"format-acceptance.json",
+		);
 		const pe = await inspectWindowsTree(output);
 		if (pe.missing.length)
 			throw new Error(

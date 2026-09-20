@@ -30,7 +30,7 @@ window.calls=[];
 mockIPC(async(command,args)=>{
  window.calls.push(command);
  if(command==='read_preferences') return {schema:1,revision:0,preferences:{language:'zh_hans',batch_format:'txt',batch_options:{quality:'balanced',keep_metadata:false,pdf_dpi:144}}};
- if(command==='desktop_info') return {preparing:false,startup:[{id:'pandoc',phase:'ready',failure:null}],pending_imports:0,import_failure:null,workspace_error:null,temporary_cleanup:null,architecture:'test',engines:[],error:null,queue_error:null};
+ if(command==='desktop_info') return {preparing:false,startup:[{id:'pandoc',phase:'ready',failure:null}],pending_imports:0,import_failure:null,workspace_error:null,temporary_cleanup:null,architecture:'test',engines:[],routes:[{input:'${format}',outputs:['txt']}],error:null,queue_error:null};
  if(command==='queue_snapshot')return structuredClone(state);
  if(command==='set_task_format'){state.tasks[0].format=args.format;state.revision++;return structuredClone(state);}
  throw new Error('Unexpected IPC: '+command);

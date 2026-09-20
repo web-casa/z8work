@@ -1,7 +1,7 @@
 //! Bounded real-document checks through the production conversion path; no IPC.
 use crate::{
     convert, hash_file,
-    phase2_smoke::{command, name},
+    phase2_smoke::name,
     Cancel, Engines, OutputFormat,
 };
 use serde_json::{json, Value};
@@ -9,6 +9,7 @@ use std::{
     fs,
     io::Write,
     net::TcpListener,
+    path::Path,
     sync::{
         atomic::{AtomicBool, AtomicUsize, Ordering},
         Arc,
@@ -18,6 +19,23 @@ use std::{
 };
 
 const INPUTS: [&str; 4] = ["html", "htm", "odt", "epub"];
+const HTML_FIXTURE: &[u8] = include_bytes!("../fixtures/document-expansion.html");
+const ODT_FIXTURE: &[u8] = include_bytes!("../fixtures/document-expansion.odt");
+const EPUB_FIXTURE: &[u8] = include_bytes!("../fixtures/document-expansion.epub");
+const TEXT_TOKENS: [&str; 11] = [
+    "第一章",
+    "起点",
+    "Café",
+    "Ελληνικά",
+    "项目一",
+    "项目二",
+    "表格正文",
+    "单元格内容",
+    "第二章",
+    "终点",
+    "Z8_END",
+];
+pub(crate) const FROZEN_ROUTE_COUNT: usize = INPUTS.len();
 // The listener replies if contacted, so a privacy regression fails promptly instead of hanging.
 struct NetworkProbe {
     stop: Arc<AtomicBool>,
@@ -68,6 +86,17 @@ impl Drop for NetworkProbe {
     }
 }
 
+fn write_input_fixture(path: &Path, input: &str) -> Result<(), String> {
+    let fixture = match input {
+        // HTML and HTM are aliases at the product reader boundary.
+        "html" | "htm" => HTML_FIXTURE,
+        "odt" => ODT_FIXTURE,
+        "epub" => EPUB_FIXTURE,
+        _ => return Err(format!("Unexpected document expansion fixture: {input}")),
+    };
+    fs::write(path, fixture).map_err(|error| error.to_string())
+}
+
 pub fn verify(engines: &Engines) -> Result<Value, String> {
     verify_inner(engines, false)
 }
@@ -80,47 +109,19 @@ fn verify_inner(engines: &Engines, network_probe: bool) -> Result<Value, String>
     let root = tempfile::tempdir().map_err(|e| e.to_string())?;
     let out = root.path().join("output");
     fs::create_dir(&out).map_err(|e| e.to_string())?;
-    let markdown = root.path().join("fixture.md");
-    fs::write(&markdown, "# 第一章\n\n起点 Café Ελληνικά\n\n- 项目一\n- 项目二\n\n| 键 | 值 |\n|---|---|\n| 表格正文 | 单元格内容 |\n\n# 第二章\n\n终点 Z8_END\n").map_err(|e| e.to_string())?;
     let mut routes = Vec::new();
     let mut controls = Vec::new();
     for input in INPUTS {
         let path = root.path().join(format!("中文 空格.{input}"));
-        let writer = if input == "htm" { "html" } else { input };
-        command(
-            engines,
-            "pandoc",
-            &[
-                "--from",
-                "markdown",
-                "--to",
-                writer,
-                "--standalone",
-                "--metadata",
-                "title=Document fixture",
-                "--output",
-                name(&path),
-                name(&markdown),
-            ],
-        )?;
+        // Exercise the production reader with fixed, real document bytes.
+        // Generating ODT/EPUB through the bundled Pandoc writer would require
+        // writer templates and would not validate this advertised input route.
+        write_input_fixture(&path, input)?;
         let before = hash_file(&path)?;
         let result = convert(engines, &path, &out, OutputFormat::Txt, &Cancel::default())?;
         let text = fs::read_to_string(&result.path).map_err(|e| e.to_string())?;
-        let tokens = [
-            "第一章",
-            "起点",
-            "Café",
-            "Ελληνικά",
-            "项目一",
-            "项目二",
-            "表格正文",
-            "单元格内容",
-            "第二章",
-            "终点",
-            "Z8_END",
-        ];
         let mut cursor = 0;
-        for token in tokens {
+        for token in TEXT_TOKENS {
             let offset = text[cursor..]
                 .find(token)
                 .ok_or_else(|| format!("{input}: missing or reordered {token}: {text}"))?;
@@ -193,6 +194,12 @@ fn verify_inner(engines: &Engines, network_probe: bool) -> Result<Value, String>
             .is_some_and(|p| p.hits.load(Ordering::SeqCst) != 0)
     {
         return Err(format!("HTML external resource isolation failed: {text}"));
+    }
+    if routes.len() != FROZEN_ROUTE_COUNT {
+        return Err(format!(
+            "Incomplete document frozen route regression suite: expected {FROZEN_ROUTE_COUNT}, got {}",
+            routes.len()
+        ));
     }
     Ok(
         json!({"schema":1,"scope":"document-input-expansion-3a","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"engines":engines.info(),"routes":routes,"controls":controls,"corruptArchivesRejected":["odt","epub"],"resourceIsolation":{"network":if network_probe { json!({"status":"passed","httpRequests":0}) } else { json!({"status":"not-run"}) },"localFileOmitted":true,"scriptOmitted":true}}),

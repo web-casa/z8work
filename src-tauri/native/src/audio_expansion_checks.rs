@@ -11,6 +11,10 @@ use std::{
     path::{Path, PathBuf},
 };
 const NEW: [OutputFormat; 2] = [OutputFormat::Ogg, OutputFormat::Aiff];
+// Ten fixtures exercise the two original routes; the AIFF and AIF aliases
+// additionally exercise the seven original outputs plus AAC and ALAC. Keep
+// that deliberate baseline independent of later product-scope expansion.
+pub(crate) const FROZEN_ROUTE_COUNT: usize = 38;
 
 fn probe(engines: &Engines, path: &Path) -> Result<Value, String> {
     serde_json::from_str(&command(
@@ -392,6 +396,12 @@ pub fn verify(engines: &Engines) -> Result<Value, String> {
             return Err("Disguised AIFF playlist accepted".into());
         }
         controls.push(json!({"input":ext,"cancel":true,"collision":true,"playlistRejected":true}));
+    }
+    if routes.len() != FROZEN_ROUTE_COUNT {
+        return Err(format!(
+            "Incomplete audio frozen route regression suite: expected {FROZEN_ROUTE_COUNT}, got {}",
+            routes.len()
+        ));
     }
     Ok(
         json!({"schema":1,"scope":"audio-expansion-3b","platform":std::env::consts::OS,"arch":std::env::consts::ARCH,"engines":engines.info(),"routes":routes,"boundaries":boundaries,"controls":controls}),

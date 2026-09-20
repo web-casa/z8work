@@ -199,13 +199,16 @@ test("macOS bundle checks every code resource and refuses missing, changed and l
 		"lib/a.dylib": macho(6, ["/usr/lib/libSystem.B.dylib"]),
 		"validation/bundle-check": macho(),
 		"provenance.json": Buffer.from('{"schema":1}'),
+		"format-acceptance.json": Buffer.from(
+			'{"schema":1,"scope":"v1-format-expansion-3b","os":"macos","arch":"aarch64","routes":[]}',
+		),
 	};
 	for (const [name, bytes] of Object.entries(files)) {
 		await mkdir(join(root, name, ".."), { recursive: true });
 		await writeFile(join(root, name), bytes);
 	}
 	const manifest = {
-		schema: 2,
+		schema: 3,
 		kind: "bundled",
 		os: "macos",
 		arch: "aarch64",
@@ -225,6 +228,7 @@ test("macOS bundle checks every code resource and refuses missing, changed and l
 				{ sha256: sha256(b), bytes: b.length },
 			]),
 		),
+		format_acceptance: "format-acceptance.json",
 	};
 	await writeFile(join(root, "engines.json"), JSON.stringify(manifest));
 	assert.equal((await inspectMacBundle(root)).machObjects, 3);

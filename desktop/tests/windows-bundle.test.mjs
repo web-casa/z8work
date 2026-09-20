@@ -149,10 +149,12 @@ test("Windows source lock is pinned and rejects unsafe paths, collisions and inc
 	}
 });
 
-test("assembler creates a schema 2 bundle with exact copied hashes and no host fallback", async (t) => {
+test("assembler creates a schema 3 bundle with exact copied hashes and no host fallback", async (t) => {
 	const f = await fixture(t),
 		bundle = await assembleWindowsBundle(f);
 	assert.equal(bundle.manifest.os, "windows");
+	assert.equal(bundle.manifest.schema, 3);
+	assert.equal(bundle.manifest.format_acceptance, "format-acceptance.json");
 	assert.equal(Object.keys(bundle.manifest.engines).length, 5);
 	assert.equal(bundle.manifest.loader, null);
 	assert.equal(bundle.provenance.redistributionApproved, false);

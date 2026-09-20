@@ -87,6 +87,9 @@ mod tests {
             .unwrap()
             .iter()
             .all(|p| p["status"] == "unavailable" && p["error"] == "Empty inventory output"));
-        assert!(crate::output_formats("tiff").is_empty());
+        // Discovery output is empty, but the reviewed scope remains explicit:
+        // a listed/absent codec inventory cannot add an unrelated route.
+        assert!(crate::output_formats("tiff").contains(&crate::OutputFormat::Jxl));
+        assert!(crate::output_formats("xlsx").is_empty());
     }
 }

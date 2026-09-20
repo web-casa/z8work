@@ -13,6 +13,10 @@ fn main() -> Result<(), String> {
         z8_native::image_expansion_checks::verify(&z8_native::Engines::load(
             std::path::Path::new(&path),
         )?)?
+    } else if std::env::args().any(|arg| arg == "--format-matrix") {
+        z8_native::format_matrix_checks::verify(&z8_native::Engines::load(std::path::Path::new(
+            &path,
+        ))?)?
     } else if std::env::args().any(|arg| arg == "--phase27") {
         z8_native::phase27_smoke::verify(std::path::Path::new(&path))?
     } else if std::env::args().any(|arg| arg == "--phase2") {

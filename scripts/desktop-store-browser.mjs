@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { once } from "node:events";
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { readFile, mkdir, mkdtemp, writeFile } from "node:fs/promises";
 import { join, dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
 import { chromium } from "playwright";
@@ -10,10 +10,15 @@ const { content, matrix } = await loadStore();
 const { values } = parseArgs({
 	options: {
 		"pages-root": { type: "string", default: "build-pages" },
-		output: { type: "string", default: ".desktop-local/phase4-browser" },
+		output: { type: "string" },
 	},
 });
-const output = resolve(values.output);
+const output = values.output
+	? resolve(values.output)
+	: await (async () => {
+			await mkdir(".desktop-local", { recursive: true });
+			return mkdtemp(resolve(".desktop-local", "phase4-browser-"));
+		})();
 const files = new Map();
 for (const locale of matrix.languages)
 	for (const kind of ["privacy", "support"]) {
@@ -29,8 +34,10 @@ for (const locale of matrix.languages)
 		);
 		files.set(path, html);
 	}
-await mkdir(dirname(output), { recursive: true });
-await mkdir(output); // Refuse to replace historical screenshots/reports.
+if (values.output) {
+	await mkdir(dirname(output), { recursive: true });
+	await mkdir(output); // Refuse to replace historical screenshots/reports.
+}
 const server = createServer((req, res) => {
 	const html = files.get(req.url);
 	res.writeHead(html ? 200 : 404, {

@@ -232,11 +232,45 @@ await collect(
 	null,
 	"https://github.com/web-casa/z8work",
 );
+async function collectApplicationAsset(name, license, notice, source) {
+	const root = join("packaging", "desktop", "fonts");
+	const info = await fileInfo(root, notice, 2 * 1024 ** 2);
+	const key = `application-asset-${name}`;
+	const target = posix.join("licenses", `${key}-${basename(notice)}`);
+	await copyFile(join(root, notice), join(output, target));
+	if ((await fileInfo(output, target)).sha256 !== info.sha256)
+		throw new Error("Application asset notice changed while copying");
+	records.push({
+		kind: "application-asset",
+		name,
+		version: "embedded",
+		declaredLicense: license,
+		source,
+		notices: [{ file: target, ...info }],
+		status: "notices-collected-review-pending",
+	});
+}
+await collectApplicationAsset(
+	"HostGrotesk-Regular",
+	"OFL-1.1",
+	"HostGrotesk-OFL.txt",
+	"https://github.com/Element-Type/HostGrotesk/tree/ab2ba6769119e7ae71aa2fab46eedcb993c670a3",
+);
+await collectApplicationAsset(
+	"DroidSansFallbackFull",
+	"Apache-2.0",
+	"Android-Apache-2.0-NOTICE.txt",
+	"https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r25/data/fonts/DroidSansFallbackFull.ttf",
+);
 const inputs = {};
 for (const path of [
 	"bun.lock",
 	"src-tauri/Cargo.lock",
 	".desktop-local/frontend-modules.json",
+	"packaging/desktop/fonts/HostGrotesk-Regular.ttf",
+	"packaging/desktop/fonts/DroidSansFallbackFull.ttf",
+	"packaging/desktop/fonts/HostGrotesk-OFL.txt",
+	"packaging/desktop/fonts/Android-Apache-2.0-NOTICE.txt",
 ])
 	inputs[path] = sha256(await readFile(path));
 const report = {

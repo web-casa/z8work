@@ -28,10 +28,20 @@ test("preview contract bounds payload, dimensions and explicit preview routes", 
 	])
 		assert.throws(() => previewBytes(v));
 	assert.equal(previewable("PIC.HEIC", 33554432), true);
-	for (const ext of ["BMP", "TGA", "QOI"])
+	for (const ext of [
+		"BMP",
+		"TGA",
+		"QOI",
+		"TIFF",
+		"SVG",
+		"JXL",
+		"EXR",
+		"HDR",
+		"DPX",
+	])
 		assert.equal(previewKind(`photo.${ext}`), "image");
 	for (const name of [
-		"file.svg",
+		"file.svgz",
 		"file.png.exe",
 		"file.m3u8",
 		"bmp",
@@ -121,7 +131,7 @@ test("media previews classify frames and covers without admitting playlists or i
 		assert.equal(previewKind(`file.${ext}`), "audio");
 		assert.equal(previewable(`file.${ext}`, 33554433), false);
 	}
-	for (const name of ["list.m3u8", "file.mp4.exe", "file.docx", "file.svg"])
+	for (const name of ["list.m3u8", "file.mp4.exe", "file.docx", "file.svgz"])
 		assert.equal(previewKind(name), undefined);
 	for (const size of [-1, NaN, Infinity])
 		assert.equal(previewable("file.mp4", size), false);

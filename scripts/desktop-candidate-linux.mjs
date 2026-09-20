@@ -1,4 +1,5 @@
 import { validateQuality } from "./lib/desktop-snap-installed.mjs";
+import { validateFormatMatrix } from "./lib/desktop-format-matrix.mjs";
 // Local candidate only. Resources are copied to Tauri's actual ../lib/<package> layout.
 import { parseArgs } from "node:util";
 import {
@@ -110,6 +111,7 @@ const digest = sha256(await readFile(archive));
 // Verify the extracted final archive, not only the pre-archive staging directory.
 const check = await mkdtemp(join(output, "unpack-check-"));
 let quality;
+let formatMatrix;
 try {
 	run("tar", ["-xzf", archive, "-C", check]);
 	const root = join(check, "z8-work/usr/lib", resourceName, "engines");
@@ -126,6 +128,24 @@ try {
 			1800000,
 		),
 	);
+	// Linux ARM64 is the first target whose reviewed acceptance profile grants
+	// the expanded routes. Run the expensive exact matrix only after extracting
+	// the final archive, so the evidence belongs to the bytes users receive.
+	if (artifact.id === "linux-arm64-validation") {
+		formatMatrix = JSON.parse(
+			run(
+				join(root, manifest.loader),
+				[
+					"--library-path",
+					join(root, "lib"),
+					join(root, "validation/bundle-check"),
+					root,
+					"--format-matrix",
+				],
+				1800000,
+			),
+		);
+	}
 	if (
 		sha256(await readFile(join(check, "z8-work/usr/bin/z8-desktop"))) !==
 		sha256(binary)
@@ -135,11 +155,22 @@ try {
 	await rm(check, { recursive: true, force: true });
 }
 validateQuality(quality, `linux-${artifact.arch}`);
+if (formatMatrix)
+	await validateFormatMatrix(formatMatrix, {
+		os: "linux",
+		arch: artifact.arch,
+	});
 await writeFile(
 	join(output, "quality.json"),
 	JSON.stringify(quality, null, 2) + "\n",
 	{ flag: "wx" },
 );
+if (formatMatrix)
+	await writeFile(
+		join(output, "format-matrix.json"),
+		JSON.stringify(formatMatrix, null, 2) + "\n",
+		{ flag: "wx" },
+	);
 const report = {
 	schema: 1,
 	artifact: artifact.id,
@@ -158,6 +189,12 @@ const report = {
 			status: "passed",
 			report: "quality.json; executed against final extracted archive",
 		},
+		formatMatrix: formatMatrix
+			? {
+					status: "passed",
+					report: "format-matrix.json; all reviewed routes executed against the final extracted archive",
+				}
+			: { status: "not-applicable" },
 		gui: { status: "not-run" },
 		install: { status: "not-run" },
 		upgrade: { status: "not-run" },
