@@ -7,6 +7,7 @@ on:
             - .github/workflows/desktop-web-macos-acceptance.yml
             - scripts/desktop-web-macos-gui.mjs
             - scripts/lib/desktop-macos-accessibility.swift
+            - packaging/desktop-web/macos-candidate.json
 permissions:
     contents: read
     actions: read
@@ -37,12 +38,18 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                   node-version: "22.22.2"
+            - id: candidate
+              run: node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
             - uses: actions/download-artifact@v4
               with:
                   github-token: ${{ github.token }}
-                  run-id: "35501918930"
-                  name: z8-work-web-macos-arm64-preview
+                  run-id: ${{ steps.candidate.outputs.run }}
+                  name: ${{ steps.candidate.outputs.name }}
                   path: .desktop-local/macos-web-input
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: bun install --frozen-lockfile
             - run: node scripts/desktop-web-macos-gui.mjs
             - uses: actions/upload-artifact@v4
               if: always()
@@ -52,3 +59,75 @@ jobs:
                   include-hidden-files: true
                   if-no-files-found: error
                   retention-days: 14
+
+    signed:
+        needs: [credentials, gui]
+        if: github.run_attempt == 1 && contains(github.event.head_commit.message, '[sign-macos]')
+        runs-on: macos-15
+        timeout-minutes: 65
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: bun install --frozen-lockfile
+            - id: candidate
+              run: node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: ${{ steps.candidate.outputs.run }}
+                  name: ${{ steps.candidate.outputs.name }}
+                  path: .desktop-local/macos-web-input
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: "35501918930"
+                  name: z8-work-web-macos-arm64-preview
+                  path: .desktop-local/macos-web-previous
+            - name: Prepare existing signing credentials
+              env:
+                  MACOS_CERTIFICATE_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+                  MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+                  APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+              run: node scripts/desktop-macos-signing-keychain.mjs
+            - name: Sign and notarize exact candidate
+              env:
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+              run: node scripts/desktop-web-macos-sign.mjs
+            - name: Test final signed DMG in actual macOS UI
+              env:
+                  SIGNED_CANDIDATE: "1"
+              run: node scripts/desktop-web-macos-gui.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: z8-work-web-macos-arm64-signed
+                  path: .desktop-local/mac-web-signed/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 30
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: macos-web-signing-and-gui-evidence
+                  path: |
+                      .desktop-local/mac-web-signed/reports/*
+                      .desktop-local/macos-web-signed-gui/*
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 30
+            - uses: actions/upload-artifact@v4
+              if: failure()
+              with:
+                  name: macos-web-incomplete-signing-candidate
+                  path: .desktop-local/mac-web-signed/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: ignore
+                  retention-days: 30
+            - if: always()
+              run: node scripts/desktop-macos-signing-keychain.mjs cleanup
