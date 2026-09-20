@@ -9,8 +9,8 @@
 		"allow-finish-save",
 		"allow-abort-save",
 		"allow-confirm-close",
+		"allow-finish-close",
 		"core:event:allow-listen",
-		"core:event:allow-unlisten",
-		"core:window:allow-destroy"
+		"core:event:allow-unlisten"
 	]
 }

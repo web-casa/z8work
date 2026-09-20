@@ -1,8 +1,18 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod web_save;
+use std::sync::atomic::{AtomicBool, Ordering};
 use tauri::{Manager, State};
 use tauri_plugin_dialog::{DialogExt, MessageDialogButtons};
 use web_save::{PendingSave, Saves};
+
+#[derive(Default)]
+struct ExitApproved(AtomicBool);
+
+#[tauri::command]
+fn finish_close(app: tauri::AppHandle, approved: State<'_, ExitApproved>) {
+    approved.0.store(true, Ordering::SeqCst);
+    app.exit(0);
+}
 
 #[tauri::command]
 async fn begin_save(
@@ -113,6 +123,7 @@ fn main() {
         }))
         .plugin(tauri_plugin_dialog::init())
         .manage(Saves::default())
+        .manage(ExitApproved::default())
         .setup(|app| {
             tauri::WebviewWindowBuilder::from_config(app, &app.config().app.windows[0])?
                 .on_navigation(|url| {
@@ -135,10 +146,24 @@ fn main() {
             append_save,
             finish_save,
             abort_save,
-            confirm_close
+            confirm_close,
+            finish_close
         ])
-        .run(tauri::generate_context!())
-        .expect("Desktop application failed");
+        .build(tauri::generate_context!())
+        .expect("Desktop application failed")
+        .run(|app, event| {
+            if let tauri::RunEvent::ExitRequested { api, .. } = event {
+                if !app.state::<ExitApproved>().0.load(Ordering::SeqCst) {
+                    if let Some(window) = app.get_webview_window("main") {
+                        // Menu Quit and Cmd-Q must use the same confirmation as the close button.
+                        api.prevent_exit();
+                        if let Err(error) = window.close() {
+                            eprintln!("Could not request window close: {error}");
+                        }
+                    }
+                }
+            }
+        });
 }
 
 #[cfg(test)]

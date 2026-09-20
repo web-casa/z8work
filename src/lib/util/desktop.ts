@@ -54,13 +54,12 @@ export async function guardDesktopClose(hasWork: () => boolean) {
 	]);
 	let asking = false;
 	return getCurrentWindow().onCloseRequested(async (event) => {
-		if (!hasWork()) return;
 		event.preventDefault();
 		if (asking) return;
 		asking = true;
 		try {
-			if (await invoke<boolean>("confirm_close"))
-				await getCurrentWindow().destroy();
+			if (!hasWork() || (await invoke<boolean>("confirm_close")))
+				await invoke("finish_close");
 		} finally {
 			asking = false;
 		}

@@ -10,6 +10,11 @@ const stub =
 	encodeURIComponent(
 		"export const invoke = (...args) => globalThis.__desktopInvoke(...args)",
 	);
+const windowStub =
+	"data:text/javascript," +
+	encodeURIComponent(
+		"export const getCurrentWindow = () => ({ onCloseRequested: (fn) => { globalThis.__closeHandler = fn; return () => {}; } })",
+	);
 const js = ts
 	.transpileModule(source, {
 		compilerOptions: {
@@ -17,8 +22,9 @@ const js = ts
 			target: ts.ScriptTarget.ES2022,
 		},
 	})
-	.outputText.replaceAll('"@tauri-apps/api/core"', JSON.stringify(stub));
-const { saveDesktopBlob, isDesktop } = await import(
+	.outputText.replaceAll('"@tauri-apps/api/core"', JSON.stringify(stub))
+	.replaceAll('"@tauri-apps/api/window"', JSON.stringify(windowStub));
+const { saveDesktopBlob, isDesktop, guardDesktopClose } = await import(
 	"data:text/javascript;base64," + Buffer.from(js).toString("base64")
 );
 
@@ -101,4 +107,46 @@ test("concurrent clicks cannot open multiple save dialogs", async () => {
 	assert.equal(await first, false);
 	globalThis.__desktopInvoke = async () => null;
 	assert.equal(await saveDesktopBlob(new Blob(["retry"]), "a.txt"), false);
+});
+
+test("all close requests wait for confirmation, cancellation permits retry", async () => {
+	const calls = [];
+	let answer = false;
+	globalThis.__desktopInvoke = async (command) => {
+		calls.push(command);
+		return command === "confirm_close" ? answer : undefined;
+	};
+	await guardDesktopClose(() => true);
+	let prevented = 0;
+	const event = { preventDefault: () => prevented++ };
+	await globalThis.__closeHandler(event);
+	assert.deepEqual(calls, ["confirm_close"]);
+	answer = true;
+	await globalThis.__closeHandler(event);
+	assert.deepEqual(calls, ["confirm_close", "confirm_close", "finish_close"]);
+	assert.equal(prevented, 2);
+});
+
+test("empty queue approves app exit without prompting; repeated requests share a prompt", async () => {
+	const calls = [];
+	let resolve;
+	globalThis.__desktopInvoke = async (command) => {
+		calls.push(command);
+		if (command === "confirm_close")
+			return new Promise((r) => {
+				resolve = r;
+			});
+	};
+	await guardDesktopClose(() => false);
+	const event = { preventDefault() {} };
+	await globalThis.__closeHandler(event);
+	assert.deepEqual(calls, ["finish_close"]);
+	calls.length = 0;
+	await guardDesktopClose(() => true);
+	const first = globalThis.__closeHandler(event);
+	await globalThis.__closeHandler(event);
+	assert.deepEqual(calls, ["confirm_close"]);
+	resolve(true);
+	await first;
+	assert.deepEqual(calls, ["confirm_close", "finish_close"]);
 });

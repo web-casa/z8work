@@ -6,6 +6,9 @@ on:
         paths:
             - .github/workflows/desktop-web-macos-preview.yml
             - scripts/desktop-web-macos-preview.mjs
+            - src-tauri/src/main.rs
+            - src-tauri/build.rs
+            - src/lib/util/desktop.ts
 permissions:
     contents: read
 concurrency:
