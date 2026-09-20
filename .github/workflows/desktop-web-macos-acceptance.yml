@@ -1,0 +1,54 @@
+name: macOS web acceptance and signing preflight
+on:
+    workflow_dispatch:
+    push:
+        branches: [feat/desktop-web-conversion]
+        paths:
+            - .github/workflows/desktop-web-macos-acceptance.yml
+            - scripts/desktop-web-macos-gui.mjs
+            - scripts/lib/desktop-macos-accessibility.swift
+permissions:
+    contents: read
+    actions: read
+jobs:
+    credentials:
+        runs-on: macos-15
+        timeout-minutes: 10
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - name: Validate existing signing credentials without exposing values
+              env:
+                  MACOS_CERTIFICATE_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+                  MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+                  APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+              run: node scripts/desktop-macos-signing-keychain.mjs
+            - if: always()
+              run: node scripts/desktop-macos-signing-keychain.mjs cleanup
+    gui:
+        runs-on: macos-15
+        timeout-minutes: 15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/download-artifact@v4
+              with:
+                  github-token: ${{ github.token }}
+                  run-id: "35501918930"
+                  name: z8-work-web-macos-arm64-preview
+                  path: .desktop-local/macos-web-input
+            - run: node scripts/desktop-web-macos-gui.mjs
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: macos-web-gui-evidence
+                  path: .desktop-local/macos-web-gui/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14

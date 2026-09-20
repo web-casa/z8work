@@ -31,7 +31,7 @@ if args.count == 2 && args[1] == "environment" {
     func walk(_ element: AXUIElement, _ depth: Int) -> [String: Any] {
         count += 1
         var result: [String: Any] = [:]
-        for name in ["AXRole", "AXTitle", "AXDescription", "AXValue", "AXIdentifier", "AXEnabled"] {
+        for name in ["AXRole", "AXTitle", "AXDescription", "AXValue", "AXIdentifier", "AXEnabled", "AXPlaceholderValue"] {
             if let value = attr(element, name), value is String || value is NSNumber { result[name] = value }
         }
         if depth < 18 && count < 2500, let children = attr(element, "AXChildren") as? [AXUIElement] {
@@ -40,7 +40,7 @@ if args.count == 2 && args[1] == "environment" {
         return result
     }
     emit(walk(AXUIElementCreateApplication(pid), 0))
-} else if ((args.count == 5 && args[1] == "press") || (args.count == 6 && args[1] == "set-text")), let pid = Int32(args[2]) {
+} else if ((args.count == 5 && args[1] == "press") || (args.count == 6 && ["set-text", "press-at"].contains(args[1]))), let pid = Int32(args[2]) {
     guard AXIsProcessTrusted() else { exit(2) }
     var found: [AXUIElement] = []
     var count = 0
@@ -55,6 +55,10 @@ if args.count == 2 && args[1] == "environment" {
         if let children = attr(e, "AXChildren") as? [AXUIElement] { for c in children { find(c, depth+1) } }
     }
     find(AXUIElementCreateApplication(pid), 0)
+    if args[1] == "press-at" {
+        guard let index = Int(args[5]), index >= 0, index < found.count else { fputs("Control index unavailable\n", stderr); exit(1) }
+        found = [found[index]]
+    }
     guard found.count == 1 else { fputs("Expected one matching control; got \(found.count)\n", stderr); exit(1) }
     let result = args[1] == "set-text" ? AXUIElementSetAttributeValue(found[0], kAXValueAttribute as CFString, args[5] as CFString) : AXUIElementPerformAction(found[0], kAXPressAction as CFString)
     guard result == .success else { fputs("Accessibility action failed: \(result.rawValue)\n", stderr); exit(1) }
