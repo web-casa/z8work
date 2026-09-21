@@ -1,0 +1,102 @@
+name: desktop-web-store-msix
+
+# Builds unsigned Microsoft Store MSIX candidates (x64 + ARM64) from the store
+# feature configuration and verifies them with the independent ZIP/BlockMap
+# checker. No signing, installation, WACK or submission happens here: those are
+# real-machine acceptance steps owned by humans. Dispatch-only on purpose.
+#
+# Builds use packaging/desktop-web/tauri.microsoft-store-ci.json, which keeps the
+# base beforeBuildCommand (npm run desktop:build): the release gate's prepare
+# cannot run off-repo because its digest binding includes .desktop-local/
+# archives and build inputs that are not in Git. After the build the gate check
+# runs and must report ONLY local-file unavailability issues; any digest drift
+# fails the job.
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    msix-candidate:
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - {
+                          runner: windows-2025,
+                          target: x86_64-pc-windows-msvc,
+                          arch: x64,
+                      }
+                    - {
+                          runner: windows-11-arm,
+                          target: aarch64-pc-windows-msvc,
+                          arch: arm64,
+                      }
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 45
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - run: bun install --frozen-lockfile
+            - run: npm run i18n:compile
+            - uses: dtolnay/rust-toolchain@stable
+              with:
+                  targets: ${{ matrix.target }}
+            - name: Build store-feature executable
+              run: npm run desktop:package -- --config packaging/desktop-web/tauri.microsoft-store-ci.json --target ${{ matrix.target }} --bundles none
+            - name: Release gate check (local-only files may be unavailable; digests must not drift)
+              shell: pwsh
+              run: |
+                  node scripts/desktop-web-release.mjs check | Out-File -Encoding utf8 gate-ci.json
+                  node -e "const fs=require('fs');const r=JSON.parse(fs.readFileSync('gate-ci.json','utf8').replace(/^\uFEFF/,''));const bad=r.issues.filter(i=>!/(source archive|build input) unavailable/.test(i));console.log('gate issues:',r.issues.length,'unexpected:',bad.length);if(bad.length){console.error(bad.join('\n'));process.exit(1)}"
+            - name: Stage clean payload (exe + optional WebView2 loader only)
+              shell: pwsh
+              run: |
+                  New-Item -ItemType Directory -Force payload | Out-Null
+                  Copy-Item "src-tauri/target/${{ matrix.target }}/release/z8-desktop.exe" payload/
+                  if (Test-Path "src-tauri/target/${{ matrix.target }}/release/WebView2Loader.dll") {
+                      Copy-Item "src-tauri/target/${{ matrix.target }}/release/WebView2Loader.dll" payload/
+                  }
+                  Get-ChildItem payload
+            - name: Prepare store MSIX layout
+              run: node scripts/desktop-web-msix.mjs --payload payload --output layout --arch ${{ matrix.arch }} --source-commit ${{ github.sha }}
+            - name: Locate MakeAppx from the Windows SDK
+              shell: pwsh
+              run: |
+                  $makeappx = Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin" -Recurse -Filter makeappx.exe |
+                      Where-Object { $_.FullName -match '\\x64\\' } |
+                      Sort-Object FullName -Descending |
+                      Select-Object -First 1
+                  if (-not $makeappx) { throw "MakeAppx not found in Windows SDK" }
+                  $makeappx.FullName | Out-File -Encoding utf8 makeappx-path.txt
+                  Get-Content makeappx-path.txt
+            - name: Pack and independently verify the MSIX
+              shell: pwsh
+              run: |
+                  $tool = (Get-Content makeappx-path.txt | Select-Object -First 1).Trim()
+                  node scripts/desktop-msix-pack.mjs --prepared layout --tool $tool --kind makeappx --output package --python python --web-store
+            - name: Record candidate digest
+              shell: pwsh
+              run: |
+                  $digest = (Get-FileHash "package/z8-work-store-candidate.msix" -Algorithm SHA256).Hash.ToLower()
+                  "$digest  z8-work-store-candidate-${{ matrix.arch }}.msix" | Out-File -Encoding utf8 package/SHA256SUMS
+                  Get-Content package/SHA256SUMS
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: store-msix-${{ matrix.arch }}-unsigned
+                  path: |
+                      package/z8-work-store-candidate.msix
+                      package/SHA256SUMS
+                      package/archive-check.json
+                      package/archive-check.log
+                      package/pack.log
+                      package/unpack.log
+                      package/prepared.json
+                  if-no-files-found: error
+                  retention-days: 14
