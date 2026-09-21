@@ -12,14 +12,13 @@ const receipt = (): PluginOption => ({
 	name: "desktop-module-receipt",
 	generateBundle() {
 		if (process.env.Z8_DESKTOP !== "1") return;
+		// Windows module ids use forward slashes while process.cwd() does not;
+		// normalize both sides or every prefix check misses (empty receipt).
+		const cwd = process.cwd().replaceAll("\\", "/");
 		for (const id of this.getModuleIds()) {
-			if (id.startsWith(process.cwd()))
-				desktopModules.add(
-					relative(process.cwd(), id.split("?")[0]).replaceAll(
-						"\\",
-						"/",
-					),
-				);
+			const normalized = id.split("?")[0].replaceAll("\\", "/");
+			if (normalized.startsWith(cwd))
+				desktopModules.add(relative(process.cwd(), normalized));
 		}
 		mkdirSync(".desktop-local", { recursive: true });
 		writeFileSync(
