@@ -1,5 +1,7 @@
 # 调查记录
 
+2026-09-22 第十七批发现：本仓库 pull_request 触发器历史上从未生效（无任何该事件运行），PR 的 GitHub Actions 验证需以 workflow_dispatch 于分支 ref 手动触发替代；desktop-web.yml 与 store-msix workflow 均不在 main 上，dispatch 类触发要求 workflow 存在于默认分支，故功能分支新建的 dispatch workflow 都需要一次 `[skip ci]` 最小提交注册到 main。Cloudflare Email Obfuscation 的探针必须用含 mailto 的页面，SPA 不含邮箱恒显示 0。
+
 2026-09-22 第十六批发现：Cloudflare Pages 项目为 Git 集成（main）+ 直传混用——任何对 main 的推送都会触发生产重建并覆盖此前直传的内容；在 feature 分支合并前，生产依赖"main 推送后重新直传 feature 内容"这一手工步骤。判断"Email Obfuscation 是否关闭"不能用 SPA 页面当探针（SPA 无邮箱，计数恒 0），必须探测含 mailto 的 desktop-info 页面本身。
 
 2026-09-21 第十五批发现：desktop-web-macos-preview.mjs 的验证面（架构单一性、Info.plist 三项一致、codesign --deep --strict、依赖路径白名单、zip 重解压复验、hdiutil verify）可直接作为 Developer ID 正式候选验收的脚本基础，缺的只是真实身份签名与公证环节。macOS 作业在 macos-15 成功跑通 npm test + desktop:build，使 vite receipt 修复获得三平台（Linux/Windows/macOS）实证。

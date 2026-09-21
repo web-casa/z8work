@@ -1,5 +1,7 @@
 # 实施记录
 
+2026-09-22 第十七批（评审面 + 矩阵验证）：创建 PR #1（feat → main，含全部发行说明）。发现仓库历史上从未有过 pull_request 事件运行（尽管 quality.yml 在 main 上带该触发器）——PR checks 仅 Cloudflare Pages 预览；GitHub 侧验证改用等价方式：dispatch quality.yml（分支 ref，通过）并发现 desktop-web.yml 同样不存在于 main，照 MSIX 先例以 `[skip ci]` 最小提交注册到 main 后从分支 ref dispatch 六平台矩阵（run 35626699546，结果见后续记录）。生产站点此前因推 main 被 Git 集成构建覆盖（main 无 desktop 静态页），已重部署 feature 内容恢复；Email Obfuscation 探针修正——SPA 页无邮箱、计数恒 0 不能作探针，实测 desktop-info 页改写仍在，公开页字节证据继续等所有者关闭设置。
+
 2026-09-22 第十六批（PR 评审线 + 生产回归修复）：发现推 main 注册 workflow 触发了 Git 集成 Pages 的生产重建，main 无 desktop-info/desktop-source 静态页，生产站点两处路径回退为 SPA（回归，系我方 main 推送的副作用）。已用 feature 构建重新部署生产恢复（2049306e）。公开页字节验证仍 failed：zone Email Obfuscation 改写依旧存在（此前 email-protection 计 0 系 SPA 无邮箱所致，不代表设置已关），继续等所有者仪表盘操作（已在报告中给出精确路径）。创建 PR #1（feat/desktop-web-conversion → main，含完整发行说明），触发 quality + desktop-web 六平台矩阵对整条分支做权威验证；**合并 PR 是生产不再被 main 推送覆盖的持久修复**。商店文案草案 STORE_LISTING_DRAFT.md 落地（上一批），本轮一并入 PR。
 
 2026-09-21 第十五批（review 轮 + macOS 候选线）：探测确认 zone Email Obfuscation 仍开启。dispatch macOS ARM64 web 预览工作流（run 35622039167）成功：当前分支 b01db4c 在 macos-15 构建并验证 app+dmg（ad-hoc 签名 codesign 严格校验通过、依赖仅系统框架、版本/标识一致；未公证与 GUI 冒烟如实标注），工件 SHA256SUMS 本机复算一致，证据入 docs/desktop/evidence/macos-web-preview-20260921/——这是当前分支最新的 macOS 可构建证据，不替代 Developer ID 正式候选验收。商店文案草案 STORE_LISTING_DRAFT.md 落地（双语 display name/摘要/描述/关键词/更新说明/截图说明，摘要长度 73/36 字符合限，与 content.json 隐私表述一致），README 索引同步。本轮 review 复核：macOS 作业在 macOS 上跑通 npm test 与 desktop:build，等于第三方平台实证了 vite receipt 修复与 .gitattributes 的跨平台正确性（Linux/Windows/macOS 三平台全部绿）。
