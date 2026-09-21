@@ -5,6 +5,7 @@
 		"features": ["store"]
 	},
 	"bundle": {
-		"createUpdaterArtifacts": false
+		"createUpdaterArtifacts": false,
+		"targets": "none"
 	}
 }
