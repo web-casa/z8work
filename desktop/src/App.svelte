@@ -828,7 +828,7 @@
 											!routeAccepted(task)}
 										>{#each taskFormats as format}<option
 												value={format}
-											>{formatLabel(format)}</option
+												>{formatLabel(format)}</option
 											>{/each}</select
 									>{:else}<span
 										class="route-unavailable"
@@ -930,7 +930,8 @@
 									options={task.options}
 									format={task.format}
 									{english}
-								pdf={extension(task.name) === "pdf" && imageOutputs.includes(task.format)}
+									pdf={extension(task.name) === "pdf" &&
+										imageOutputs.includes(task.format)}
 									disabled={working || blocked}
 									onchange={(value) =>
 										configure([task.id], value)}

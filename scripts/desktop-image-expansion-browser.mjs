@@ -55,7 +55,9 @@ mockIPC(async(command,args)=>{
 			0,
 		);
 		assert.equal(
-			await page.getByText(/固定 8 位 sRGB 输出，不保留元数据与 ICC/).count(),
+			await page
+				.getByText(/固定 8 位 sRGB 输出，不保留元数据与 ICC/)
+				.count(),
 			2,
 		);
 		assert.ok(

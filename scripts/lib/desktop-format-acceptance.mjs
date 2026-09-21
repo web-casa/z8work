@@ -76,7 +76,9 @@ export async function formatAcceptance(os, arch) {
 				!reviewed.has(input) ||
 				seen.has(input)
 			)
-				throw new Error("Unknown or duplicate package acceptance input");
+				throw new Error(
+					"Unknown or duplicate package acceptance input",
+				);
 			const available = reviewed.get(input);
 			const outputs = [];
 			for (const output of route.outputs) {
@@ -85,16 +87,21 @@ export async function formatAcceptance(os, arch) {
 					!available.has(output) ||
 					outputs.includes(output)
 				)
-					throw new Error("Unknown or duplicate package acceptance output");
+					throw new Error(
+						"Unknown or duplicate package acceptance output",
+					);
 				outputs.push(output);
 			}
 			if (!outputs.length)
-				throw new Error("Package acceptance route must have output formats");
+				throw new Error(
+					"Package acceptance route must have output formats",
+				);
 			seen.add(input);
 			routes.push({ input, outputs });
 		}
 	}
-	if (!routes.length) throw new Error("Package acceptance profile has no routes");
+	if (!routes.length)
+		throw new Error("Package acceptance profile has no routes");
 	return { schema: 1, scope: scope.id, os, arch, routes };
 }
 
