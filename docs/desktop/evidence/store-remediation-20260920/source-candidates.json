@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "incomplete",
+  "correspondingSourceVerified": false,
+  "engines": [
+    {
+      "name": "pandoc",
+      "wasmSha256": "48d9ceed3ef805f6acc28e6f58c2439cdeb1f71864244fffcc155e2c045aa7fc",
+      "sourceCommit": null,
+      "status": "not-acquired",
+      "pending": "Exact WASM build revision, patched dependencies and build inputs are not recoverable from the version marker. Imported at a84837cff4177d0fe2bb13da7c2488ce33ca5726."
+    },
+    {
+      "name": "@ffmpeg/core",
+      "wasmSha256": "9f57947a5bd530d8f00c5b3f2cb2a3492faa7e5d823315342d6a8656d0a6b7b7",
+      "sourceCommit": "71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
+      "status": "acquired-for-review",
+      "pending": "Release commit identified. Dockerfile contains floating dependency branches; exact embedded dependency revisions and complete corresponding source archive still need verification.",
+      "url": "https://codeload.github.com/ffmpegwasm/ffmpeg.wasm/tar.gz/71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
+      "archive": "_ffmpeg_core-71aa99d37c02a7b4c435275ca9ef50e612f6efa1.tar.gz",
+      "sha256": "53c5842f160cece0e39345876f9483b56aa84b966637ff6f624353a0fa884219",
+      "bytes": 1329368
+    },
+    {
+      "name": "@imagemagick/magick-wasm",
+      "wasmSha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7",
+      "sourceCommit": "85008a8006a0283ebf7e3cfba67e27e430693254",
+      "status": "acquired-for-review",
+      "pending": "Packaged LICENSE and NOTICE include embedded libraries. Review full embedded library license/source obligations.",
+      "url": "https://codeload.github.com/dlemstra/magick-wasm/tar.gz/85008a8006a0283ebf7e3cfba67e27e430693254",
+      "archive": "_imagemagick_magick-wasm-85008a8006a0283ebf7e3cfba67e27e430693254.tar.gz",
+      "sha256": "22c9c0383b0986dd5244a75d0e2ae3407c101d6ed4fc71829b5d6306bc20e073",
+      "bytes": 1310782
+    },
+    {
+      "name": "mupdf",
+      "wasmSha256": "5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7",
+      "sourceCommit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
+      "status": "acquired-for-review",
+      "pending": "npm gitHead identified; archive complete corresponding sources, build inputs and dependencies for distribution.",
+      "url": "https://codeload.github.com/ArtifexSoftware/mupdf/tar.gz/20061bd45183f5a2bff8f43675e4da91e5ac2901",
+      "archive": "mupdf-20061bd45183f5a2bff8f43675e4da91e5ac2901.tar.gz",
+      "sha256": "167f12f34445c21ed00f72db3a4796efeb226bb41fb52c1d9978041aedf083ab",
+      "bytes": 46096570
+    },
+    {
+      "name": "vert-wasm",
+      "wasmSha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+      "sourceCommit": "4f99ef9abad355a390f1e1dfab4769ef815f54f3",
+      "status": "acquired-for-review",
+      "pending": "npm gitHead identified; archive complete corresponding sources and build inputs for distribution.",
+      "url": "https://codeload.github.com/VERT-sh/vert-wasm/tar.gz/4f99ef9abad355a390f1e1dfab4769ef815f54f3",
+      "archive": "vert-wasm-4f99ef9abad355a390f1e1dfab4769ef815f54f3.tar.gz",
+      "sha256": "83cce6576fd713d0bb868f6aa73fbc274a6fb09224076ac9ceec67103c814a28",
+      "bytes": 14584
+    }
+  ]
+}

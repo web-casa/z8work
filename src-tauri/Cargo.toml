@@ -12,6 +12,7 @@ default = ["gtk-dialog"]
 gtk-dialog = ["tauri-plugin-dialog/gtk3"]
 linux-portal = ["tauri-plugin-dialog/xdg-portal"]
 custom-protocol = ["tauri/custom-protocol"]
+store = []
 
 [build-dependencies]
 cc = "1"

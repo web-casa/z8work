@@ -1,4 +1,5 @@
-// Finite development packaging. Never signs, installs or publishes.
+// Finite candidate packaging. Store web layouts require explicit --web-store.
+// Never signs, installs, authorizes submission or publishes.
 import { parseArgs, promisify } from "node:util";
 import { execFile } from "node:child_process";
 import { mkdir, readFile, writeFile, copyFile } from "node:fs/promises";
@@ -7,13 +8,17 @@ import { fileURLToPath } from "node:url";
 import { fileInfo, listFiles } from "./lib/desktop-sources.mjs";
 import { assertOutside } from "./lib/desktop-windows-acceptance.mjs";
 import { verifyMsixLayout } from "./lib/desktop-msix.mjs";
+import { verifyWebMsixLayout } from "./lib/desktop-web-msix.mjs";
 const { values } = parseArgs({
-	options: Object.fromEntries(
-		["prepared", "tool", "kind", "python", "output"].map((k) => [
-			k,
-			{ type: "string" },
-		]),
-	),
+	options: {
+		...Object.fromEntries(
+			["prepared", "tool", "kind", "python", "output"].map((k) => [
+				k,
+				{ type: "string" },
+			]),
+		),
+		"web-store": { type: "boolean", default: false },
+	},
 });
 if (
 	!values.prepared ||
@@ -22,7 +27,7 @@ if (
 	!["makemsix", "makeappx"].includes(values.kind)
 )
 	throw new Error(
-		"Use --prepared DIRECTORY --tool ABSOLUTE_TOOL --kind makemsix|makeappx --output NEW_DIRECTORY [--python EXECUTABLE]",
+		"Use --prepared DIRECTORY --tool ABSOLUTE_TOOL --kind makemsix|makeappx --output NEW_DIRECTORY [--python EXECUTABLE] [--web-store]",
 	);
 if (values.kind === "makeappx" && process.platform !== "win32")
 	throw new Error("MakeAppx execution requires a Windows host");
@@ -30,11 +35,19 @@ const preparedRoot = resolve(values.prepared),
 	output = resolve(values.output),
 	tool = resolve(values.tool),
 	layout = join(preparedRoot, "layout");
+const verifyLayout = values["web-store"]
+	? verifyWebMsixLayout
+	: verifyMsixLayout;
+const artifactName = values["web-store"]
+	? "z8-work-store-candidate.msix"
+	: "z8-work-development.msix";
 await assertOutside(preparedRoot, output);
 await mkdir(output);
 const report = {
 	schema: 1,
-	scope: "development-msix-package",
+	scope: values["web-store"]
+		? "web-store-msix-package"
+		: "development-msix-package",
 	status: "failed",
 	acceptance: "incomplete",
 	redistributionApproved: false,
@@ -67,14 +80,14 @@ try {
 	await fileInfo(preparedRoot, "prepared.json", 2 * 1024 ** 2);
 	const preparedBytes = await readFile(join(preparedRoot, "prepared.json"));
 	const prepared = JSON.parse(preparedBytes);
-	await verifyMsixLayout(layout, prepared);
+	await verifyLayout(layout, prepared);
 	report.checks.layout = "passed";
 	report.tool.binary = await fileInfo(dirname(tool), basename(tool));
 	await copyFile(
 		join(preparedRoot, "prepared.json"),
 		join(output, "prepared.json"),
 	);
-	const artifact = join(output, "z8-work-development.msix");
+	const artifact = join(output, artifactName);
 	const packed = await run(
 		tool,
 		values.kind === "makemsix"
@@ -84,7 +97,7 @@ try {
 	await writeFile(join(output, "pack.log"), packed.stdout + packed.stderr, {
 		flag: "wx",
 	});
-	report.artifact = await fileInfo(output, "z8-work-development.msix");
+	report.artifact = await fileInfo(output, artifactName);
 	report.checks.package = "passed";
 	const checked = await run(values.python ?? "python3", [
 		fileURLToPath(new URL("./desktop-msix-check.py", import.meta.url)),
@@ -94,6 +107,7 @@ try {
 		join(output, "prepared.json"),
 		"--output",
 		join(output, "archive-check.json"),
+		...(values["web-store"] ? ["--web-store"] : []),
 	]);
 	await writeFile(
 		join(output, "archive-check.log"),
@@ -135,12 +149,12 @@ try {
 		)
 			throw new Error(`Unpacked bytes differ: ${name}`);
 	report.checks.unpack = "passed";
-	await verifyMsixLayout(layout, prepared);
+	await verifyLayout(layout, prepared);
 	if (
 		!(await readFile(join(preparedRoot, "prepared.json"))).equals(
 			preparedBytes,
 		) ||
-		JSON.stringify(await fileInfo(output, "z8-work-development.msix")) !==
+		JSON.stringify(await fileInfo(output, artifactName)) !==
 			JSON.stringify(report.artifact) ||
 		JSON.stringify(await fileInfo(dirname(tool), basename(tool))) !==
 			JSON.stringify(report.tool.binary)

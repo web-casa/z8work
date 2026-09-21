@@ -1,0 +1,1245 @@
+{
+  "schema": 1,
+  "capture": "running pinned-image build environment",
+  "emscripten": "3.1.40",
+  "sdlPortMatchesSourceLock": true,
+  "files": [
+    {
+      "file": ".desktop-local/store-source-phase4/emscripten-version.txt",
+      "containerPath": "/emsdk/upstream/emscripten/emscripten-version.txt",
+      "sha256": "77ec05a9e8d7831475e14e0b14dcecd6eaf902535964f4a23720bec7d09cca95"
+    },
+    {
+      "file": ".desktop-local/store-source-phase4/sdl2-port.py",
+      "containerPath": "/emsdk/upstream/emscripten/tools/ports/sdl2.py",
+      "sha256": "2dff6dd2928476c78e54e20faed89cc3b688215dff54058e464ef7a0f4f9763c"
+    },
+    {
+      "file": ".desktop-local/store-source-phase4/dpkg-status.txt",
+      "containerPath": "/var/lib/dpkg/status",
+      "sha256": "dd400dfea29b6a7705f9cfca28c72d0fccacb048b93984a9378dbf1a635a8b91"
+    }
+  ],
+  "packages": [
+    {
+      "Package": "adduser",
+      "Version": "3.118ubuntu5",
+      "Architecture": "all"
+    },
+    {
+      "Package": "ant",
+      "Version": "1.10.12-1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "apt",
+      "Version": "2.4.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "autoconf",
+      "Version": "2.71-2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "automake",
+      "Version": "1:1.16.5-1.3",
+      "Architecture": "all"
+    },
+    {
+      "Package": "autotools-dev",
+      "Version": "20220109.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "base-files",
+      "Version": "12ubuntu4.3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "base-passwd",
+      "Version": "3.5.52build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "bash",
+      "Version": "5.1-6ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "binutils",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "binutils-common",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "binutils-x86-64-linux-gnu",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "bsdutils",
+      "Version": "1:2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "build-essential",
+      "Version": "12.9ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "bzip2",
+      "Version": "1.0.8-5build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "ca-certificates",
+      "Version": "20230311ubuntu0.22.04.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "ca-certificates-java",
+      "Version": "20190909ubuntu1.2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "cmake",
+      "Version": "3.22.1-1ubuntu1.22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "cmake-data",
+      "Version": "3.22.1-1ubuntu1.22.04.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "coreutils",
+      "Version": "8.32-4.1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "cpp",
+      "Version": "4:11.2.0-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "cpp-11",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "curl",
+      "Version": "7.81.0-1ubuntu1.10",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "dash",
+      "Version": "0.5.11+git20210903+057cd650a4ed-3build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "debconf",
+      "Version": "1.5.79ubuntu1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "debianutils",
+      "Version": "5.5-1ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "dh-elpa-helper",
+      "Version": "2.0.9ubuntu1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "diffutils",
+      "Version": "1:3.8-0ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "dpkg",
+      "Version": "1.21.1ubuntu2.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "dpkg-dev",
+      "Version": "1.21.1ubuntu2.2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "e2fsprogs",
+      "Version": "1.46.5-2ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "emacsen-common",
+      "Version": "3.0.4",
+      "Architecture": "all"
+    },
+    {
+      "Package": "file",
+      "Version": "1:5.41-3ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "findutils",
+      "Version": "4.8.0-1ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "fontconfig-config",
+      "Version": "2.13.1-4.2ubuntu5",
+      "Architecture": "all"
+    },
+    {
+      "Package": "fonts-dejavu-core",
+      "Version": "2.37-2build1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "g++",
+      "Version": "4:11.2.0-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "g++-11",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "gcc",
+      "Version": "4:11.2.0-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "gcc-11",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "gcc-11-base",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "gcc-12-base",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "git",
+      "Version": "1:2.34.1-1ubuntu1.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "git-lfs",
+      "Version": "3.0.2-1ubuntu0.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "git-man",
+      "Version": "1:2.34.1-1ubuntu1.9",
+      "Architecture": "all"
+    },
+    {
+      "Package": "gpgv",
+      "Version": "2.2.27-3ubuntu2.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "grep",
+      "Version": "3.7-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "gzip",
+      "Version": "1.10-4ubuntu4.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "hostname",
+      "Version": "3.23ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "init-system-helpers",
+      "Version": "1.62",
+      "Architecture": "all"
+    },
+    {
+      "Package": "java-common",
+      "Version": "0.72build2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libacl1",
+      "Version": "2.3.1-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libapt-pkg6.0",
+      "Version": "2.4.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libarchive13",
+      "Version": "3.6.0-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libasan6",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libasound2",
+      "Version": "1.2.6.1-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libasound2-data",
+      "Version": "1.2.6.1-1ubuntu1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libatomic1",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libattr1",
+      "Version": "1:2.5.1-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libaudit-common",
+      "Version": "1:3.0.7-1build1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libaudit1",
+      "Version": "1:3.0.7-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libavahi-client3",
+      "Version": "0.8-5ubuntu5",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libavahi-common-data",
+      "Version": "0.8-5ubuntu5",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libavahi-common3",
+      "Version": "0.8-5ubuntu5",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libbinutils",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libblkid1",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libbrotli1",
+      "Version": "1.0.9-2build6",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libbsd0",
+      "Version": "0.11.5-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libbz2-1.0",
+      "Version": "1.0.8-5build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libc-bin",
+      "Version": "2.35-0ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libc-dev-bin",
+      "Version": "2.35-0ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libc6",
+      "Version": "2.35-0ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libc6-dev",
+      "Version": "2.35-0ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcap-ng0",
+      "Version": "0.7.9-2.2build3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcap2",
+      "Version": "1:2.44-1build3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcbor0.8",
+      "Version": "0.8.0-2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcc1-0",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcom-err2",
+      "Version": "1.46.5-2ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcrypt-dev",
+      "Version": "1:4.4.27-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcrypt1",
+      "Version": "1:4.4.27-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libctf-nobfd0",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libctf0",
+      "Version": "2.38-4ubuntu2.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcups2",
+      "Version": "2.4.1op1-1ubuntu4.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcurl3-gnutls",
+      "Version": "7.81.0-1ubuntu1.10",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libcurl4",
+      "Version": "7.81.0-1ubuntu1.10",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libdb5.3",
+      "Version": "5.3.28+dfsg1-0.8ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libdbus-1-3",
+      "Version": "1.12.20-2ubuntu4.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libdebconfclient0",
+      "Version": "0.261ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libdpkg-perl",
+      "Version": "1.21.1ubuntu2.2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libedit2",
+      "Version": "3.1-20210910-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "liberror-perl",
+      "Version": "0.17029-1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libexpat1",
+      "Version": "2.4.7-1ubuntu0.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libext2fs2",
+      "Version": "1.46.5-2ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libffi8",
+      "Version": "3.4.2-4",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libfido2-1",
+      "Version": "1.10.0-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libfontconfig1",
+      "Version": "2.13.1-4.2ubuntu5",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libfreetype6",
+      "Version": "2.11.1+dfsg-1ubuntu0.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgcc-11-dev",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgcc-s1",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgcrypt20",
+      "Version": "1.9.4-3ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgdbm-compat4",
+      "Version": "1.23-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgdbm6",
+      "Version": "1.23-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libglib2.0-0",
+      "Version": "2.72.4-0ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgmp10",
+      "Version": "2:6.2.1+dfsg-3ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgnutls30",
+      "Version": "3.7.3-4ubuntu1.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgomp1",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgpg-error0",
+      "Version": "1.43-3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgraphite2-3",
+      "Version": "1.3.14-1build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libgssapi-krb5-2",
+      "Version": "1.19.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libharfbuzz0b",
+      "Version": "2.7.4-1ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libhogweed6",
+      "Version": "3.7.3-1build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libicu70",
+      "Version": "70.1-2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libidn12",
+      "Version": "1.38-4build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libidn2-0",
+      "Version": "2.3.2-2build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libisl23",
+      "Version": "0.24-2build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libitm1",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libjpeg-turbo8",
+      "Version": "2.1.2-0ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libjpeg8",
+      "Version": "8c-2ubuntu10",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libjsoncpp25",
+      "Version": "1.9.5-3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libk5crypto3",
+      "Version": "1.19.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libkeyutils1",
+      "Version": "1.6.1-2ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libkrb5-3",
+      "Version": "1.19.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libkrb5support0",
+      "Version": "1.19.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "liblcms2-2",
+      "Version": "2.12~rc1-2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libldap-2.5-0",
+      "Version": "2.5.14+dfsg-0ubuntu0.22.04.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "liblsan0",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libltdl-dev",
+      "Version": "2.4.6-15build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libltdl7",
+      "Version": "2.4.6-15build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "liblz4-1",
+      "Version": "1.9.3-2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "liblzma5",
+      "Version": "5.2.5-2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmagic-mgc",
+      "Version": "1:5.41-3ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmagic1",
+      "Version": "1:5.41-3ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmd0",
+      "Version": "1.0.4-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmount1",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmpc3",
+      "Version": "1.2.1-2build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmpdec3",
+      "Version": "2.5.1-2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libmpfr6",
+      "Version": "4.1.0-3build3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libncurses6",
+      "Version": "6.3-2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libncursesw6",
+      "Version": "6.3-2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnettle8",
+      "Version": "3.7.3-1build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnghttp2-14",
+      "Version": "1.43.0-1build3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnsl-dev",
+      "Version": "1.3.0-2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnsl2",
+      "Version": "1.3.0-2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnspr4",
+      "Version": "2:4.32-3build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libnss3",
+      "Version": "2:3.68.2-0ubuntu1.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libp11-kit0",
+      "Version": "0.24.0-6build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpam-modules",
+      "Version": "1.4.0-11ubuntu2.3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpam-modules-bin",
+      "Version": "1.4.0-11ubuntu2.3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpam-runtime",
+      "Version": "1.4.0-11ubuntu2.3",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libpam0g",
+      "Version": "1.4.0-11ubuntu2.3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpcre2-8-0",
+      "Version": "10.39-3ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpcre3",
+      "Version": "2:8.39-13ubuntu0.22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpcsclite1",
+      "Version": "1.9.5-3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libperl5.34",
+      "Version": "5.34.0-3ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpng16-16",
+      "Version": "1.6.37-3build5",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libprocps8",
+      "Version": "2:3.3.17-6ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpsl5",
+      "Version": "0.21.0-1.2build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpython3-stdlib",
+      "Version": "3.10.6-1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpython3.10-minimal",
+      "Version": "3.10.6-1~22.04.2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libpython3.10-stdlib",
+      "Version": "3.10.6-1~22.04.2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libquadmath0",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libreadline8",
+      "Version": "8.1.2-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "librhash0",
+      "Version": "1.4.2-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "librtmp1",
+      "Version": "2.4+20151223.gitfa8646d.1-2build4",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsasl2-2",
+      "Version": "2.1.27+dfsg2-3ubuntu1.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsasl2-modules-db",
+      "Version": "2.1.27+dfsg2-3ubuntu1.2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libseccomp2",
+      "Version": "2.5.3-2ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libselinux1",
+      "Version": "3.3-1build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsemanage-common",
+      "Version": "3.3-1build2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libsemanage2",
+      "Version": "3.3-1build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsepol2",
+      "Version": "3.3-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsigsegv2",
+      "Version": "2.13-1ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsmartcols1",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsqlite3-0",
+      "Version": "3.37.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libss2",
+      "Version": "1.46.5-2ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libssh-4",
+      "Version": "0.9.6-2build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libssl3",
+      "Version": "3.0.2-0ubuntu1.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libstdc++-11-dev",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libstdc++6",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libsystemd0",
+      "Version": "249.11-0ubuntu3.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libtasn1-6",
+      "Version": "4.18.0-4build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libtinfo6",
+      "Version": "6.3-2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libtirpc-common",
+      "Version": "1.3.2-2ubuntu0.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libtirpc-dev",
+      "Version": "1.3.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libtirpc3",
+      "Version": "1.3.2-2ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libtool",
+      "Version": "2.4.6-15build2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "libtsan0",
+      "Version": "11.3.0-1ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libubsan1",
+      "Version": "12.1.0-2ubuntu1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libudev1",
+      "Version": "249.11-0ubuntu3.9",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libunistring2",
+      "Version": "1.0-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libuuid1",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libuv1",
+      "Version": "1.43.0-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libxml2",
+      "Version": "2.9.13+dfsg-1ubuntu0.3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libxxhash0",
+      "Version": "0.8.1-1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "libzstd1",
+      "Version": "1.4.8+dfsg-3build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "linux-libc-dev",
+      "Version": "5.15.0-73.80",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "login",
+      "Version": "1:4.8.1-2ubuntu2.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "logsave",
+      "Version": "1.46.5-2ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "lsb-base",
+      "Version": "11.1.0ubuntu4",
+      "Architecture": "all"
+    },
+    {
+      "Package": "lto-disabled-list",
+      "Version": "24",
+      "Architecture": "all"
+    },
+    {
+      "Package": "m4",
+      "Version": "1.4.18-5ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "make",
+      "Version": "4.3-4.1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "mawk",
+      "Version": "1.3.4.20200120-3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "media-types",
+      "Version": "7.0.0",
+      "Architecture": "all"
+    },
+    {
+      "Package": "mount",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "ncurses-base",
+      "Version": "6.3-2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "ncurses-bin",
+      "Version": "6.3-2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "openjdk-11-jre-headless",
+      "Version": "11.0.19+7~us1-0ubuntu1~22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "openssh-client",
+      "Version": "1:8.9p1-3ubuntu0.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "openssl",
+      "Version": "3.0.2-0ubuntu1.10",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "passwd",
+      "Version": "1:4.8.1-2ubuntu2.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "patch",
+      "Version": "2.7.6-7build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "perl",
+      "Version": "5.34.0-3ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "perl-base",
+      "Version": "5.34.0-3ubuntu1.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "perl-modules-5.34",
+      "Version": "5.34.0-3ubuntu1.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "pkg-config",
+      "Version": "0.29.2-1ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "procps",
+      "Version": "2:3.3.17-6ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "python3",
+      "Version": "3.10.6-1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "python3-distutils",
+      "Version": "3.10.6-1~22.04",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3-lib2to3",
+      "Version": "3.10.6-1~22.04",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3-minimal",
+      "Version": "3.10.6-1~22.04",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "python3-pip",
+      "Version": "22.0.2+dfsg-1ubuntu0.2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3-pkg-resources",
+      "Version": "59.6.0-1.2ubuntu0.22.04.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3-setuptools",
+      "Version": "59.6.0-1.2ubuntu0.22.04.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3-wheel",
+      "Version": "0.37.1-2ubuntu0.22.04.1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "python3.10",
+      "Version": "3.10.6-1~22.04.2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "python3.10-minimal",
+      "Version": "3.10.6-1~22.04.2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "ragel",
+      "Version": "6.10-1build1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "readline-common",
+      "Version": "8.1.2-1",
+      "Architecture": "all"
+    },
+    {
+      "Package": "rpcsvc-proto",
+      "Version": "1.4.2-0ubuntu6",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "sed",
+      "Version": "4.8-1ubuntu2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "sensible-utils",
+      "Version": "0.0.17",
+      "Architecture": "all"
+    },
+    {
+      "Package": "sudo",
+      "Version": "1.9.9-1ubuntu2.4",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "sysvinit-utils",
+      "Version": "3.01-1ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "tar",
+      "Version": "1.34+dfsg-1ubuntu0.1.22.04.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "ubuntu-keyring",
+      "Version": "2021.03.26",
+      "Architecture": "all"
+    },
+    {
+      "Package": "ucf",
+      "Version": "3.0043",
+      "Architecture": "all"
+    },
+    {
+      "Package": "unzip",
+      "Version": "6.0-26ubuntu3.1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "usrmerge",
+      "Version": "25ubuntu2",
+      "Architecture": "all"
+    },
+    {
+      "Package": "util-linux",
+      "Version": "2.37.2-4ubuntu3",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "wget",
+      "Version": "1.21.2-2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "xz-utils",
+      "Version": "5.2.5-2ubuntu1",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "zip",
+      "Version": "3.0-12build2",
+      "Architecture": "amd64"
+    },
+    {
+      "Package": "zlib1g",
+      "Version": "1:1.2.11.dfsg-2ubuntu9.2",
+      "Architecture": "amd64"
+    }
+  ]
+}

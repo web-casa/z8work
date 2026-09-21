@@ -1,0 +1,192 @@
+name: Desktop Pandoc source reconstruction
+on:
+    workflow_dispatch:
+permissions:
+    contents: read
+jobs:
+    reconstruct:
+        runs-on: ubuntu-24.04
+        timeout-minutes: 360
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - name: Test Pandoc source verification tools
+              run: |
+                  python3 tests/desktop-web-git-sources.test.py
+                  python3 tests/desktop-web-pandoc-context.test.py
+                  python3 tests/desktop-web-pandoc-hackage.test.py
+            - name: Collect fixed Git sources and toolchain archives
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  python3 - <<'PY'
+                  import hashlib
+                  import json
+                  import subprocess
+                  from pathlib import Path
+
+                  lock = json.loads(Path('packaging/desktop-web/pandoc-source-build.json').read_text())
+                  def sha256(path):
+                      digest = hashlib.sha256()
+                      with path.open('rb') as stream:
+                          while chunk := stream.read(1024 * 1024):
+                              digest.update(chunk)
+                      return digest.hexdigest()
+
+                  collection = Path('.desktop-local/pandoc-sources')
+                  collection.mkdir(parents=True)
+                  for entry in lock['sources']:
+                      output = collection / entry['repository'].replace('/', '__')
+                      subprocess.run([
+                          'python3', 'scripts/desktop-web-git-sources.py',
+                          '--repository', entry['repository'],
+                          '--commit', entry['commit'], '--output', str(output),
+                      ], check=True)
+                  metadata = Path('.desktop-local/pandoc-toolchain-metadata')
+                  subprocess.run([
+                      'python3', 'scripts/desktop-web-git-sources.py',
+                      '--repository', lock['toolchain']['metadataRepository'],
+                      '--commit', lock['toolchain']['metadataCommit'],
+                      '--output', str(metadata),
+                  ], check=True)
+                  downloads = Path('.desktop-local/pandoc-tool-inputs')
+                  downloads.mkdir()
+                  for archive in lock['toolchain']['archives']:
+                      target = downloads / archive['name']
+                      subprocess.run([
+                          'curl', '--fail', '--location', '--retry', '3',
+                          '--output', str(target), archive['url'],
+                      ], check=True)
+                      digest = sha256(target)
+                      if digest != archive['sha256']:
+                          raise RuntimeError('Tool archive digest mismatch: ' + archive['name'])
+                  PY
+            - name: Prepare audited build context and fixed builder
+              run: |
+                  python3 scripts/desktop-web-pandoc-context.py \
+                    --collection-root .desktop-local/pandoc-sources \
+                    --metadata-collection .desktop-local/pandoc-toolchain-metadata \
+                    --tool-inputs .desktop-local/pandoc-tool-inputs \
+                    --output .desktop-local/pandoc-context
+                  docker build --tag z8-pandoc-builder:locked \
+                    --file packaging/desktop-web/pandoc.Dockerfile \
+                    packaging/desktop-web
+                  mkdir -p .desktop-local/pandoc-work
+                  docker run --rm --network none \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-work,dst=/work" \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-context,dst=/work/context,readonly" \
+                    z8-pandoc-builder:locked \
+                    bash /work/context/desktop-web-pandoc-toolchain.sh
+            - name: Add swap for GHC Template Haskell
+              run: |
+                  sudo fallocate -l 12G /mnt/pandoc-build.swap
+                  sudo chmod 600 /mnt/pandoc-build.swap
+                  sudo mkswap /mnt/pandoc-build.swap
+                  sudo swapon /mnt/pandoc-build.swap
+            - name: Resolve and cache the locked Hackage plan
+              timeout-minutes: 120
+              run: |
+                  mkdir -p .desktop-local/pandoc-cabal-home \
+                    .desktop-local/pandoc-bootstrap-build \
+                    .desktop-local/pandoc-bootstrap-output
+                  docker run --rm \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-context,dst=/work/context,readonly" \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-work/toolchain,dst=/work/toolchain,readonly" \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-cabal-home,dst=/work/cabal-home" \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-bootstrap-build,dst=/work/build" \
+                    --mount "type=bind,src=$PWD/.desktop-local/pandoc-bootstrap-output,dst=/work/output" \
+                    z8-pandoc-builder:locked \
+                    bash /work/context/desktop-web-pandoc-build.sh --online-bootstrap
+                  python3 scripts/desktop-web-pandoc-hackage.py \
+                    --plan .desktop-local/pandoc-bootstrap-build/cache/plan.json \
+                    --cache .desktop-local/pandoc-cabal-home/packages/hackage.haskell.org \
+                    --project .desktop-local/pandoc-context/source/cabal.project \
+                    --output .desktop-local/pandoc-hackage-lock.json
+                  cmp packaging/desktop-web/pandoc-hackage-lock.json \
+                    .desktop-local/pandoc-hackage-lock.json
+            - name: Rebuild twice without network and record outputs
+              timeout-minutes: 150
+              run: |
+                  set -o pipefail
+                  for number in 1 2; do
+                    mkdir -p ".desktop-local/pandoc-build-$number" \
+                      ".desktop-local/pandoc-output-$number"
+                    docker run --rm --network none \
+                      -e Z8_PANDOC_NETWORK_DISABLED=1 \
+                      --mount "type=bind,src=$PWD/.desktop-local/pandoc-context,dst=/work/context,readonly" \
+                      --mount "type=bind,src=$PWD/.desktop-local/pandoc-work/toolchain,dst=/work/toolchain,readonly" \
+                      --mount "type=bind,src=$PWD/.desktop-local/pandoc-cabal-home,dst=/work/cabal-home" \
+                      --mount "type=bind,src=$PWD/.desktop-local/pandoc-build-$number,dst=/work/build" \
+                      --mount "type=bind,src=$PWD/.desktop-local/pandoc-output-$number,dst=/work/output" \
+                      z8-pandoc-builder:locked \
+                      bash /work/context/desktop-web-pandoc-build.sh --network-disabled \
+                      2>&1 | tee ".desktop-local/pandoc-build-$number.log"
+                  done
+                  sha256sum .desktop-local/pandoc-output-{1,2}/pandoc{.raw,}.wasm \
+                    | tee .desktop-local/pandoc-wasm.sha256
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - name: Verify both rebuilt Pandoc outputs in the offline application
+              run: |
+                  set -o pipefail
+                  bun install --frozen-lockfile
+                  npm run desktop:build
+                  bunx playwright install --with-deps chromium
+                  for number in 1 2; do
+                    node scripts/desktop-web-browser.mjs \
+                      --pandoc-wasm ".desktop-local/pandoc-output-$number/pandoc.wasm" \
+                      2>&1 | tee ".desktop-local/pandoc-browser-$number.log"
+                  done
+            - name: Assemble local corresponding-source candidate
+              if: always()
+              run: |
+                  mkdir -p .desktop-local/pandoc-archive/metadata \
+                    .desktop-local/pandoc-archive/tracked
+                  cp -a .desktop-local/pandoc-context \
+                    .desktop-local/pandoc-archive/context
+                  cp -a .desktop-local/pandoc-cabal-home/packages \
+                    .desktop-local/pandoc-archive/cabal-packages
+                  cp -a .desktop-local/pandoc-bootstrap-build/cache/plan.json \
+                    .desktop-local/pandoc-archive/metadata/plan.json
+                  docker save z8-pandoc-builder:locked | gzip -9 \
+                    > .desktop-local/pandoc-archive/metadata/pandoc-builder-image.tar.gz
+                  cp packaging/desktop-web/pandoc-source-build.json \
+                    packaging/desktop-web/pandoc-hackage-lock.json \
+                    packaging/desktop-web/pandoc.Dockerfile \
+                    scripts/desktop-web-git-sources.py \
+                    scripts/desktop-web-pandoc-context.py \
+                    scripts/desktop-web-pandoc-hackage.py \
+                    scripts/desktop-web-pandoc-toolchain.sh \
+                    scripts/desktop-web-pandoc-build.sh \
+                    .desktop-local/pandoc-archive/tracked/
+                  tar -C .desktop-local -czf \
+                    .desktop-local/pandoc-corresponding-source.tar.gz \
+                    pandoc-archive
+                  sha256sum .desktop-local/pandoc-corresponding-source.tar.gz \
+                    > .desktop-local/pandoc-corresponding-source.tar.gz.sha256
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: pandoc-source-reconstruction
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 14
+                  path: |
+                      .desktop-local/pandoc-context/report.json
+                      .desktop-local/pandoc-context/source-lock.json
+                      .desktop-local/pandoc-hackage-lock.json
+                      .desktop-local/pandoc-wasm.sha256
+                      .desktop-local/pandoc-build-1.log
+                      .desktop-local/pandoc-build-2.log
+                      .desktop-local/pandoc-browser-1.log
+                      .desktop-local/pandoc-browser-2.log
+                      .desktop-local/pandoc-output-1/
+                      .desktop-local/pandoc-output-2/
+                      .desktop-local/pandoc-corresponding-source.tar.gz
+                      .desktop-local/pandoc-corresponding-source.tar.gz.sha256

@@ -1,0 +1,15 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { resolve, join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import assert from 'node:assert/strict';
+globalThis.self={location:{href:import.meta.url}};
+const directory=resolve(process.argv[2]), format=process.argv[3];
+const {default:create}=await import(pathToFileURL(join(directory,'ffmpeg-core.js')));
+const core=await create({wasmBinary:await readFile(join(directory,'ffmpeg-core.wasm'))});
+core.setLogger(x=>console.log(x.message));core.setTimeout(10000);
+const code=core.exec('-f','lavfi','-i','color=c=red:s=32x32:r=5:d=0.2','-c:v','libx265','-pix_fmt',format,'/hevc.mp4');
+assert.equal(code,0);
+const bytes=core.FS.readFile('/hevc.mp4');core.reset();core.setTimeout(10000);
+assert.equal(core.exec('-i','/hevc.mp4','-f','rawvideo','-pix_fmt','rgb24','/decoded.rgb'),0);
+const pixels=core.FS.readFile('/decoded.rgb');assert.equal(pixels.length,3072);assert.ok(pixels[0]>=240&&pixels[1]<=20&&pixels[2]<=20);
+await writeFile(process.argv[4],JSON.stringify({format,status:'passed',bytes:bytes.length,decodedBytes:pixels.length})+'\n');

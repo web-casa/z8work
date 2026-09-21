@@ -12,13 +12,14 @@
 		"microsoft-store": {
 			"artifact": "windows-x64-msix",
 			"displayName": "Z8.Work",
-			"identity": null,
-			"publisher": null,
-			"packageVersion": null,
-			"pricing": null,
-			"ageRating": null,
+			"identity": "53660AlanM.Z8Work",
+			"publisher": "CN=84AC3716-04E0-4D67-8951-0D3E51674CA0",
+			"packageVersion": "1.0.0.0",
+			"pricing": "free",
+			"ageRating": "3+",
 			"candidate": null,
-			"screenshots": []
+			"screenshots": [],
+			"ageRatingNotes": "Partner Center questionnaire answers: no mature content, no user-generated content, no online data sharing beyond hosting; confirm in the real questionnaire at submission."
 		},
 		"snap": {
 			"artifact": "linux-amd64-snap",
@@ -29,5 +30,13 @@
 			"screenshots": []
 		}
 	},
-	"publicPages": { "status": "not-deployed", "evidence": null }
+	"publicPages": {
+		"status": "not-deployed",
+		"evidence": null
+	},
+	"encryptionDeclaration": {
+		"status": "draft-for-partner-center",
+		"answer": "not-eligible-for-exemption-filing-required-review",
+		"note": "App ships HTTPS-only traffic via system WebView2 and does not implement its own cryptography; answer the Microsoft export compliance question at submission time and record the result here."
+	}
 }

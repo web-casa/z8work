@@ -1,0 +1,2901 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.95kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc
+#2 DONE 2.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [emsdk-base 1/2] FROM docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc
+#5 resolve docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc 0.0s done
+#5 sha256:8196144b519463d289890cfa132b6c3010c5902ec4600709b16c9420c646b23d 0B / 92B 0.2s
+#5 sha256:8f9029b6c8af3d22d907e67c558f21bd8cc43608d17941e95cff16e49baa76a6 0B / 5.12kB 0.2s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 0B / 225.32MB 0.2s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 0B / 397.30MB 0.2s
+#5 sha256:8196144b519463d289890cfa132b6c3010c5902ec4600709b16c9420c646b23d 92B / 92B 0.8s done
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 0B / 29.53MB 0.2s
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 269.15MB 1.4s done
+#4 DONE 1.9s
+
+#5 [emsdk-base 1/2] FROM docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc
+#5 sha256:8f9029b6c8af3d22d907e67c558f21bd8cc43608d17941e95cff16e49baa76a6 5.12kB / 5.12kB 1.3s done
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 2.10MB / 29.53MB 1.4s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 5.24MB / 29.53MB 1.8s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 7.34MB / 29.53MB 2.1s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 9.44MB / 29.53MB 2.4s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 15.73MB / 225.32MB 3.8s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 14.68MB / 29.53MB 2.9s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 16.78MB / 29.53MB 3.0s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 18.87MB / 29.53MB 3.6s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 19.92MB / 397.30MB 4.5s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 22.02MB / 29.53MB 4.1s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 37.75MB / 225.32MB 5.3s
+#5 sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 29.53MB / 29.53MB 4.3s done
+#5 extracting sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 40.89MB / 397.30MB 5.3s
+#5 extracting sha256:dbf6a9befcdeecbb8813406afbd62ce81394e3869d84599f19f941aa5c74f3d1 0.5s done
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 54.53MB / 225.32MB 6.0s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 60.82MB / 397.30MB 6.0s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 74.45MB / 225.32MB 6.8s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 82.84MB / 397.30MB 6.8s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 96.47MB / 225.32MB 8.4s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 103.81MB / 397.30MB 8.7s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 110.10MB / 225.32MB 9.3s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 125.83MB / 225.32MB 10.2s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 126.88MB / 397.30MB 10.1s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 138.41MB / 225.32MB 10.8s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 146.80MB / 397.30MB 11.7s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 153.09MB / 225.32MB 12.2s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 165.68MB / 225.32MB 13.7s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 168.82MB / 397.30MB 13.7s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 178.26MB / 225.32MB 14.9s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 191.89MB / 225.32MB 15.8s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 189.79MB / 397.30MB 15.8s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 203.42MB / 225.32MB 16.8s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 213.91MB / 397.30MB 17.6s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 214.96MB / 225.32MB 17.9s
+#5 sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 225.32MB / 225.32MB 18.7s done
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 235.93MB / 397.30MB 19.2s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 262.14MB / 397.30MB 21.0s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 284.16MB / 397.30MB 22.7s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 304.09MB / 397.30MB 24.2s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 326.11MB / 397.30MB 25.2s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 349.18MB / 397.30MB 26.0s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 372.24MB / 397.30MB 26.9s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 392.17MB / 397.30MB 27.6s
+#5 sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 397.30MB / 397.30MB 28.4s done
+#5 extracting sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba
+#5 extracting sha256:8b795d8f70cabbff9c390138dc5ec98b1d2cf5c8af157991ed028b2fce6292ba 4.5s done
+#5 DONE 33.5s
+
+#5 [emsdk-base 1/2] FROM docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc
+#5 extracting sha256:8f9029b6c8af3d22d907e67c558f21bd8cc43608d17941e95cff16e49baa76a6 0.0s done
+#5 extracting sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41
+#5 extracting sha256:a128c619347831c893bb6823ab47c91deb0591459722f505047f74247949fc41 2.7s done
+#5 DONE 36.3s
+
+#5 [emsdk-base 1/2] FROM docker.io/emscripten/emsdk@sha256:c1e807a6e03ac5bd5b37bae2ace3c46c08579e2ddeb951037a3b8dac7067f2cc
+#5 extracting sha256:8196144b519463d289890cfa132b6c3010c5902ec4600709b16c9420c646b23d 0.0s done
+#5 DONE 36.3s
+
+#6 [emsdk-base 2/2] RUN apt-get update &&       apt-get install -y pkg-config autoconf automake libtool ragel
+#6 0.937 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#6 0.997 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#6 1.963 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#6 2.425 Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#6 2.570 Get:5 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [84.6 kB]
+#6 2.937 Get:6 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [4291 kB]
+#6 3.183 Get:7 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#6 3.913 Get:8 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1317 kB]
+#6 4.022 Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [7717 kB]
+#6 5.842 Get:10 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+#6 6.126 Get:11 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#6 6.150 Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+#6 6.210 Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [8032 kB]
+#6 6.792 Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [93.2 kB]
+#6 6.806 Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4637 kB]
+#6 6.873 Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1620 kB]
+#6 6.935 Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [113 kB]
+#6 6.938 Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [39.1 kB]
+#6 7.490 Fetched 48.3 MB in 7s (6813 kB/s)
+#6 7.490 Reading package lists...
+#6 8.414 Reading package lists...
+#6 9.291 Building dependency tree...
+#6 9.506 Reading state information...
+#6 9.671 The following additional packages will be installed:
+#6 9.672   autotools-dev file libltdl-dev libltdl7 libmagic-mgc libmagic1 libsigsegv2
+#6 9.672   m4
+#6 9.673 Suggested packages:
+#6 9.673   autoconf-archive gnu-standards autoconf-doc gettext libtool-doc gfortran
+#6 9.673   | fortran95-compiler gcj-jdk m4-doc
+#6 9.731 The following NEW packages will be installed:
+#6 9.731   autoconf automake autotools-dev file libltdl-dev libltdl7 libmagic-mgc
+#6 9.732   libmagic1 libsigsegv2 libtool m4 pkg-config ragel
+#6 10.25 0 upgraded, 13 newly installed, 0 to remove and 141 not upgraded.
+#6 10.25 Need to get 2989 kB of archives.
+#6 10.25 After this operation, 17.7 MB of additional disk space will be used.
+#6 10.25 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmagic-mgc amd64 1:5.41-3ubuntu0.1 [257 kB]
+#6 11.22 Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libmagic1 amd64 1:5.41-3ubuntu0.1 [87.2 kB]
+#6 11.25 Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 file amd64 1:5.41-3ubuntu0.1 [21.5 kB]
+#6 11.26 Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsigsegv2 amd64 2.13-1ubuntu3 [14.6 kB]
+#6 11.26 Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 m4 amd64 1.4.18-5ubuntu2 [199 kB]
+#6 11.49 Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 autoconf all 2.71-2 [338 kB]
+#6 11.61 Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 autotools-dev all 20220109.1 [44.9 kB]
+#6 11.62 Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 automake all 1:1.16.5-1.3 [558 kB]
+#6 11.71 Get:9 http://archive.ubuntu.com/ubuntu jammy/main amd64 libltdl7 amd64 2.4.6-15build2 [39.6 kB]
+#6 11.71 Get:10 http://archive.ubuntu.com/ubuntu jammy/main amd64 libltdl-dev amd64 2.4.6-15build2 [169 kB]
+#6 11.74 Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtool all 2.4.6-15build2 [164 kB]
+#6 11.76 Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 pkg-config amd64 0.29.2-1ubuntu3 [48.2 kB]
+#6 11.76 Get:13 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ragel amd64 6.10-1build1 [1048 kB]
+#6 12.08 debconf: delaying package configuration, since apt-utils is not installed
+#6 12.13 Fetched 2989 kB in 2s (1394 kB/s)
+#6 12.21 Selecting previously unselected package libmagic-mgc.
+#6 12.21 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17688 files and directories currently installed.)
+#6 12.23 Preparing to unpack .../00-libmagic-mgc_1%3a5.41-3ubuntu0.1_amd64.deb ...
+#6 12.24 Unpacking libmagic-mgc (1:5.41-3ubuntu0.1) ...
+#6 12.37 Selecting previously unselected package libmagic1:amd64.
+#6 12.37 Preparing to unpack .../01-libmagic1_1%3a5.41-3ubuntu0.1_amd64.deb ...
+#6 12.37 Unpacking libmagic1:amd64 (1:5.41-3ubuntu0.1) ...
+#6 12.47 Selecting previously unselected package file.
+#6 12.47 Preparing to unpack .../02-file_1%3a5.41-3ubuntu0.1_amd64.deb ...
+#6 12.47 Unpacking file (1:5.41-3ubuntu0.1) ...
+#6 12.57 Selecting previously unselected package libsigsegv2:amd64.
+#6 12.57 Preparing to unpack .../03-libsigsegv2_2.13-1ubuntu3_amd64.deb ...
+#6 12.57 Unpacking libsigsegv2:amd64 (2.13-1ubuntu3) ...
+#6 12.67 Selecting previously unselected package m4.
+#6 12.67 Preparing to unpack .../04-m4_1.4.18-5ubuntu2_amd64.deb ...
+#6 12.67 Unpacking m4 (1.4.18-5ubuntu2) ...
+#6 12.77 Selecting previously unselected package autoconf.
+#6 12.77 Preparing to unpack .../05-autoconf_2.71-2_all.deb ...
+#6 12.78 Unpacking autoconf (2.71-2) ...
+#6 12.90 Selecting previously unselected package autotools-dev.
+#6 12.90 Preparing to unpack .../06-autotools-dev_20220109.1_all.deb ...
+#6 12.90 Unpacking autotools-dev (20220109.1) ...
+#6 13.00 Selecting previously unselected package automake.
+#6 13.00 Preparing to unpack .../07-automake_1%3a1.16.5-1.3_all.deb ...
+#6 13.02 Unpacking automake (1:1.16.5-1.3) ...
+#6 13.13 Selecting previously unselected package libltdl7:amd64.
+#6 13.13 Preparing to unpack .../08-libltdl7_2.4.6-15build2_amd64.deb ...
+#6 13.14 Unpacking libltdl7:amd64 (2.4.6-15build2) ...
+#6 13.22 Selecting previously unselected package libltdl-dev:amd64.
+#6 13.23 Preparing to unpack .../09-libltdl-dev_2.4.6-15build2_amd64.deb ...
+#6 13.23 Unpacking libltdl-dev:amd64 (2.4.6-15build2) ...
+#6 13.33 Selecting previously unselected package libtool.
+#6 13.33 Preparing to unpack .../10-libtool_2.4.6-15build2_all.deb ...
+#6 13.34 Unpacking libtool (2.4.6-15build2) ...
+#6 13.44 Selecting previously unselected package pkg-config.
+#6 13.44 Preparing to unpack .../11-pkg-config_0.29.2-1ubuntu3_amd64.deb ...
+#6 13.45 Unpacking pkg-config (0.29.2-1ubuntu3) ...
+#6 13.54 Selecting previously unselected package ragel.
+#6 13.54 Preparing to unpack .../12-ragel_6.10-1build1_amd64.deb ...
+#6 13.55 Unpacking ragel (6.10-1build1) ...
+#6 13.67 Setting up libmagic-mgc (1:5.41-3ubuntu0.1) ...
+#6 13.68 Setting up libmagic1:amd64 (1:5.41-3ubuntu0.1) ...
+#6 13.70 Setting up file (1:5.41-3ubuntu0.1) ...
+#6 13.71 Setting up ragel (6.10-1build1) ...
+#6 13.72 Setting up autotools-dev (20220109.1) ...
+#6 13.73 Setting up libsigsegv2:amd64 (2.13-1ubuntu3) ...
+#6 13.74 Setting up pkg-config (0.29.2-1ubuntu3) ...
+#6 13.88 Setting up libltdl7:amd64 (2.4.6-15build2) ...
+#6 13.89 Setting up libtool (2.4.6-15build2) ...
+#6 13.89 Setting up m4 (1.4.18-5ubuntu2) ...
+#6 13.90 Setting up autoconf (2.71-2) ...
+#6 13.90 Setting up automake (1:1.16.5-1.3) ...
+#6 13.94 update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+#6 13.94 update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+#6 13.94 update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+#6 13.95 Setting up libltdl-dev:amd64 (2.4.6-15build2) ...
+#6 13.95 Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+#6 DONE 14.2s
+
+#7 [x265-builder 1/3] COPY sources/ffmpegwasm__x265/ /src/
+#7 ...
+
+#8 [x264-builder 1/3] COPY sources/ffmpegwasm__x264/ /src/
+#8 DONE 0.7s
+
+#9 [ogg-builder 1/3] COPY sources/ffmpegwasm__Ogg/ /src/
+#9 DONE 0.8s
+
+#10 [ogg-builder 2/3] COPY build/ogg.sh /src/build.sh
+#10 ...
+
+#7 [x265-builder 1/3] COPY sources/ffmpegwasm__x265/ /src/
+#7 DONE 1.5s
+
+#11 [zlib-builder 1/3] COPY sources/ffmpegwasm__zlib/ /src/
+#11 DONE 1.6s
+
+#12 [x265-builder 2/3] COPY build/x265.sh /src/build.sh
+#12 ...
+
+#13 [fribidi-builder 1/3] COPY sources/fribidi__fribidi/ /src/
+#13 DONE 1.7s
+
+#14 [opus-builder 1/3] COPY sources/ffmpegwasm__opus/ /src/
+#14 DONE 1.7s
+
+#10 [ogg-builder 2/3] COPY build/ogg.sh /src/build.sh
+#10 DONE 1.0s
+
+#15 [x264-builder 2/3] COPY build/x264.sh /src/build.sh
+#15 DONE 1.0s
+
+#16 [lame-builder 1/3] COPY sources/ffmpegwasm__lame/ /src/
+#16 DONE 1.8s
+
+#17 [lame-builder 2/3] COPY build/lame.sh /src/build.sh
+#17 ...
+
+#18 [freetype2-builder 1/3] COPY sources/ffmpegwasm__freetype2/ /src/
+#18 DONE 2.1s
+
+#19 [freetype2-builder 2/3] COPY build/freetype2.sh /src/build.sh
+#19 ...
+
+#20 [libvpx-builder 1/3] COPY sources/ffmpegwasm__libvpx/ /src/
+#20 DONE 2.5s
+
+#21 [libvpx-builder 2/3] COPY build/libvpx.sh /src/build.sh
+#21 ...
+
+#12 [x265-builder 2/3] COPY build/x265.sh /src/build.sh
+#12 DONE 1.3s
+
+#22 [zlib-builder 2/3] COPY build/zlib.sh /src/build.sh
+#22 DONE 1.4s
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 ...
+
+#24 [fribidi-builder 2/3] COPY build/fribidi.sh /src/build.sh
+#24 DONE 1.3s
+
+#25 [opus-builder 2/3] COPY build/opus.sh /src/build.sh
+#25 DONE 1.3s
+
+#17 [lame-builder 2/3] COPY build/lame.sh /src/build.sh
+#17 DONE 1.3s
+
+#19 [freetype2-builder 2/3] COPY build/freetype2.sh /src/build.sh
+#19 DONE 1.1s
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 0.418 + set -euo pipefail
+#23 ...
+
+#21 [libvpx-builder 2/3] COPY build/libvpx.sh /src/build.sh
+#21 DONE 0.9s
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 0.419 + BASE_FLAGS=(-DCMAKE_TOOLCHAIN_FILE=$EM_TOOLCHAIN_FILE -DENABLE_LIBNUMA=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF)
+#23 0.421 + FLAGS_12BIT=(${BASE_FLAGS[@]} -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DMAIN12=ON)
+#23 0.422 + FLAGS_10BIT=(${BASE_FLAGS[@]} -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF)
+#23 0.423 + FLAGS_MAIN=(${BASE_FLAGS[@]} -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DEXTRA_LIB="x265_main10.a;x265_main12.a" -DEXTRA_LINK_FLAGS=-L. -DLINKED_10BIT=ON -DLINKED_12BIT=ON)
+#23 0.423 + cd source
+#23 0.423 + rm -rf build
+#23 0.436 + mkdir -p build
+#23 0.449 + cd build
+#23 0.449 + mkdir -p main 10bit 12bit
+#23 0.462 + cd 12bit
+#23 0.462 + emmake cmake ../.. '-DCMAKE_CXX_FLAGS=-I/opt/include  -O3 -msimd128' -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DENABLE_LIBNUMA=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DMAIN12=ON
+#23 ...
+
+#26 [harfbuzz-builder 1/3] COPY sources/harfbuzz__harfbuzz/ /src/
+#26 DONE 3.5s
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 0.618 make: cmake ../.. -DCMAKE_CXX_FLAGS=-I/opt/include  -O3 -msimd128 -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DENABLE_LIBNUMA=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF -DMAIN12=ON
+#23 0.679 CMake Deprecation Warning at CMakeLists.txt:10 (cmake_policy):
+#23 0.679   The OLD behavior for policy CMP0025 will be removed from a future version
+#23 0.679   of CMake.
+#23 0.679 
+#23 0.679   The cmake-policies(7) manual explains that the OLD behaviors of all
+#23 0.679   policies are deprecated and that a policy should be set to OLD only under
+#23 0.679   specific short-term circumstances.  Projects should be ported to the NEW
+#23 0.679   behavior and not rely on setting a policy to OLD.
+#23 0.679 
+#23 0.679 
+#23 0.680 -- cmake version 3.22.1
+#23 0.680 CMake Deprecation Warning at CMakeLists.txt:16 (cmake_policy):
+#23 0.680   The OLD behavior for policy CMP0054 will be removed from a future version
+#23 0.680   of CMake.
+#23 0.680 
+#23 0.680   The cmake-policies(7) manual explains that the OLD behaviors of all
+#23 0.680   policies are deprecated and that a policy should be set to OLD only under
+#23 0.680   specific short-term circumstances.  Projects should be ported to the NEW
+#23 0.680   behavior and not rely on setting a policy to OLD.
+#23 0.680 
+#23 0.680 
+#23 ...
+
+#27 [harfbuzz-builder 2/3] COPY build/harfbuzz.sh /src/build.sh
+#27 DONE 0.3s
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 0.519 + set -euo pipefail
+#28 0.520 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=x86_64-linux --enable-shared=no --enable-static=yes --disable-dependency-tracking --disable-debug)
+#28 0.525 + emconfigure ./autogen.sh --prefix=/opt --host=x86_64-linux --enable-shared=no --enable-static=yes --disable-dependency-tracking --disable-debug
+#28 0.689 configure: ./autogen.sh --prefix=/opt --host=x86_64-linux --enable-shared=no --enable-static=yes --disable-dependency-tracking --disable-debug
+#28 0.723 checking for pkg-config... /usr/bin/pkg-config
+#28 0.746 checking for libtoolize... /usr/bin/libtoolize
+#28 0.779 checking for autoreconf... /usr/bin/autoreconf
+#28 0.800 running autoreconf --force --install --verbose
+#28 0.976 autoreconf: export WARNINGS=
+#28 0.992 autoreconf: Entering directory '.'
+#28 0.994 autoreconf: configure.ac: not using Gettext
+#28 1.994 autoreconf: running: aclocal --force -I m4
+#28 4.187 autoreconf: configure.ac: tracing
+#28 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 0.469 + set -euo pipefail
+#29 0.469 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=i686-linux --disable-shared --disable-frontend --disable-analyzer-hooks --disable-dependency-tracking --disable-gtktest)
+#29 0.474 + CFLAGS='-I/opt/include  -O3 -msimd128'
+#29 0.474 + emconfigure ./configure --prefix=/opt --host=i686-linux --disable-shared --disable-frontend --disable-analyzer-hooks --disable-dependency-tracking --disable-gtktest
+#29 0.661 configure: ./configure --prefix=/opt --host=i686-linux --disable-shared --disable-frontend --disable-analyzer-hooks --disable-dependency-tracking --disable-gtktest
+#29 2.817 checking build system type... x86_64-unknown-linux-gnu
+#29 3.695 checking host system type... i686-pc-linux-gnu
+#29 4.032 checking for a BSD-compatible install... /usr/bin/install -c
+#29 4.167 checking whether build environment is sane... yes
+#29 4.377 checking for i686-linux-strip... no
+#29 4.378 checking for strip... strip
+#29 4.379 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#29 4.400 checking for gawk... no
+#29 4.400 checking for mawk... mawk
+#29 4.400 checking whether make sets $(MAKE)... yes
+#29 4.586 checking whether make supports nested variables... yes
+#29 4.770 checking whether to enable maintainer-specific portions of Makefiles... no
+#29 4.788 checking for style of include used by make... GNU
+#29 4.855 checking for i686-linux-gcc... /emsdk/upstream/emscripten/emcc
+#29 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 6.556 autoreconf: running: libtoolize --copy --force
+#28 ...
+
+#30 [ffmpeg-base  1/12] RUN embuilder build sdl2 sdl2-mt
+#30 1.003 embuilder:INFO: building sdl2
+#30 1.025 ports:INFO: retrieving port: sdl2 from https://github.com/libsdl-org/SDL/archive/release-2.24.2.zip
+#30 3.879 ports:INFO: unpacking port: sdl2
+#30 4.341 cache:INFO: generating port: sysroot/lib/wasm32-emscripten/libSDL2.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libSDL2.a" for subsequent builds)
+#30 ...
+
+#31 [zimg-builder 1/4] RUN apt-get update && apt-get install -y git
+#31 1.650 Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+#31 1.691 Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+#31 1.915 Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+#31 2.214 Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+#31 5.400 Reading package lists...
+#31 7.440 Reading package lists...
+#31 9.164 Building dependency tree...
+#31 9.627 Reading state information...
+#31 10.09 Suggested packages:
+#31 10.09   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#31 10.09   gitk gitweb git-cvs git-mediawiki git-svn
+#31 10.09 Recommended packages:
+#31 10.09   less
+#31 10.14 The following packages will be upgraded:
+#31 10.14   git
+#31 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 0.298 + set -euo pipefail
+#32 0.300 + CFLAGS='-I/opt/include  -O3 -msimd128 -DHB_NO_PRAGMA_GCC_DIAGNOSTIC_ERROR'
+#32 0.301 + [[ yes == \y\e\s ]]
+#32 0.301 + sed -i 's#\[have_pthread=true\]#\[have_pthread=false\]#g' configure.ac
+#32 0.332 + CXXFLAGS='-I/opt/include  -O3 -msimd128 -DHB_NO_PRAGMA_GCC_DIAGNOSTIC_ERROR'
+#32 0.333 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=i686-gnu --enable-shared=no --enable-static)
+#32 0.335 + emconfigure ./autogen.sh --prefix=/opt --host=i686-gnu --enable-shared=no --enable-static
+#32 0.489 configure: ./autogen.sh --prefix=/opt --host=i686-gnu --enable-shared=no --enable-static
+#32 0.520 checking for pkg-config... /usr/bin/pkg-config
+#32 0.538 checking for libtoolize... /usr/bin/libtoolize
+#32 0.570 checking for gtkdocize... *** No gtkdocize (gtk-doc) found, skipping documentation ***
+#32 0.604 checking for autoreconf... /usr/bin/autoreconf
+#32 0.633 running autoreconf --force --install --verbose
+#32 0.828 autoreconf: export WARNINGS=
+#32 0.851 autoreconf: Entering directory '.'
+#32 0.853 autoreconf: configure.ac: not using Gettext
+#32 1.854 autoreconf: running: aclocal --force -I m4
+#32 4.236 autoreconf: configure.ac: tracing
+#32 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 7.188 checking whether the C compiler works... 
+#29 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 1.277 + set -euo pipefail
+#33 1.279 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=i686-linux --disable-shared --disable-dependency-tracking --disable-maintainer-mode)
+#33 1.279 + emconfigure ./autogen.sh
+#33 1.428 configure: ./autogen.sh
+#33 1.457 Updating build configuration files for libogg, please wait....
+#33 9.785 libtoolize: putting auxiliary files in '.'.
+#33 9.785 libtoolize: copying file './ltmain.sh'
+#33 ...
+
+#34 [x264-builder 3/3] RUN bash -x /src/build.sh
+#34 1.236 + set -euo pipefail
+#34 1.237 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=x86-gnu --enable-static --disable-cli --disable-asm --extra-cflags="$CFLAGS" ${FFMPEG_ST:+ --disable-thread})
+#34 1.240 + emconfigure ./configure --prefix=/opt --host=x86-gnu --enable-static --disable-cli --disable-asm '--extra-cflags=-I/opt/include  -O3 -msimd128' --disable-thread
+#34 1.385 configure: ./configure --prefix=/opt --host=x86-gnu --enable-static --disable-cli --disable-asm "--extra-cflags=-I/opt/include  -O3 -msimd128" --disable-thread
+#34 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 8.705 libtoolize: putting auxiliary files in '.'.
+#28 8.706 libtoolize: copying file './ltmain.sh'
+#28 9.535 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#28 9.535 libtoolize: copying file 'm4/libtool.m4'
+#28 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 0.500 + set -euo pipefail
+#35 0.501 + CM_FLAGS=(-DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_TOOLCHAIN_FILE=$EM_TOOLCHAIN_FILE -DBUILD_SHARED_LIBS=OFF -DSKIP_INSTALL_FILES=ON)
+#35 0.504 + mkdir -p build
+#35 0.515 + cd build
+#35 0.518 + emmake cmake .. '-DCMAKE_C_FLAGS=-I/opt/include  -O3 -msimd128' -DCMAKE_INSTALL_PREFIX=/opt -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DBUILD_SHARED_LIBS=OFF -DSKIP_INSTALL_FILES=ON
+#35 0.679 make: cmake .. -DCMAKE_C_FLAGS=-I/opt/include  -O3 -msimd128 -DCMAKE_INSTALL_PREFIX=/opt -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DBUILD_SHARED_LIBS=OFF -DSKIP_INSTALL_FILES=ON
+#35 0.735 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#35 0.735   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#35 0.735   CMake.
+#35 0.735 
+#35 0.735   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#35 0.735   CMake that the project does not need compatibility with older versions.
+#35 0.735 
+#35 0.735 
+#35 2.486 -- Looking for sys/types.h
+#35 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 0.567 + set -euo pipefail
+#36 0.568 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=x86_64-gnu --enable-shared=no --without-harfbuzz)
+#36 0.570 + emconfigure ./autogen.sh
+#36 0.746 configure: ./autogen.sh
+#36 2.841 generating `configure.ac'
+#36 2.950 running `aclocal -I . --force'
+#36 4.298 running `libtoolize --force --copy --install'
+#36 6.137 libtoolize: putting auxiliary files in '.'.
+#36 6.137 libtoolize: copying file './config.guess'
+#36 6.411 libtoolize: copying file './config.sub'
+#36 6.531 libtoolize: copying file './install-sh'
+#36 6.678 libtoolize: copying file './ltmain.sh'
+#36 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 0.525 + set -euo pipefail
+#37 0.525 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=i686-none --enable-shared=no --disable-asm --disable-rtcd --disable-intrinsics --disable-doc --disable-extra-programs --disable-stack-protector)
+#37 0.527 + emconfigure ./autogen.sh
+#37 0.696 configure: ./autogen.sh
+#37 0.729 Updating build configuration files, please wait....
+#37 10.13 libtoolize: putting auxiliary files in '.'.
+#37 10.13 libtoolize: linking file './ltmain.sh'
+#37 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 10.16 libtoolize: copying file 'm4/ltoptions.m4'
+#28 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 0.396 + set -euo pipefail
+#38 0.398 + CONF_FLAGS=(--prefix=$INSTALL_DIR --target=generic-gnu --disable-install-bins --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-dependency-tracking --extra-cflags="$CFLAGS" --extra-cxxflags="$CXXFLAGS" ${FFMPEG_ST:+ --disable-multithread})
+#38 0.402 + emconfigure ./configure --prefix=/opt --target=generic-gnu --disable-install-bins --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-dependency-tracking '--extra-cflags=-I/opt/include  -O3 -msimd128' '--extra-cxxflags=-I/opt/include  -O3 -msimd128' --disable-multithread
+#38 0.585 configure: ./configure --prefix=/opt --target=generic-gnu --disable-install-bins --disable-examples --disable-tools --disable-docs --disable-unit-tests --disable-dependency-tracking "--extra-cflags=-I/opt/include  -O3 -msimd128" "--extra-cxxflags=-I/opt/include  -O3 -msimd128" --disable-multithread
+#38 0.755   disabling install_bins
+#38 0.802   disabling examples
+#38 0.848   disabling tools
+#38 0.895   disabling docs
+#38 0.982   disabling unit_tests
+#38 1.075   disabling dependency_tracking
+#38 1.148   disabling multithread
+#38 1.148   enabling vp8_encoder
+#38 1.148   enabling vp8_decoder
+#38 1.148   enabling vp9_encoder
+#38 1.148   enabling vp9_decoder
+#38 1.149 Configuring for target 'generic-gnu'
+#38 1.281   enabling generic
+#38 ...
+
+#31 [zimg-builder 1/4] RUN apt-get update && apt-get install -y git
+#31 10.83 1 upgraded, 0 newly installed, 0 to remove and 140 not upgraded.
+#31 10.83 Need to get 3174 kB of archives.
+#31 10.83 After this operation, 16.4 kB of additional disk space will be used.
+#31 10.83 Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.17 [3174 kB]
+#31 12.59 debconf: delaying package configuration, since apt-utils is not installed
+#31 12.70 Fetched 3174 kB in 2s (1614 kB/s)
+#31 12.89 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18149 files and directories currently installed.)
+#31 12.92 Preparing to unpack .../git_1%3a2.34.1-1ubuntu1.17_amd64.deb ...
+#31 13.37 Unpacking git (1:2.34.1-1ubuntu1.17) over (1:2.34.1-1ubuntu1.9) ...
+#31 14.45 Setting up git (1:2.34.1-1ubuntu1.17) ...
+#31 DONE 15.5s
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 10.62 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#33 10.62 libtoolize: copying file 'm4/libtool.m4'
+#33 11.17 libtoolize: copying file 'm4/ltoptions.m4'
+#33 11.83 libtoolize: copying file 'm4/ltsugar.m4'
+#33 12.24 libtoolize: copying file 'm4/ltversion.m4'
+#33 13.18 libtoolize: copying file 'm4/lt~obsolete.m4'
+#33 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 2.575 CMake Deprecation Warning at CMakeLists.txt:20 (cmake_minimum_required):
+#23 2.575   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#23 2.575   CMake.
+#23 2.575 
+#23 2.575   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#23 2.575   CMake that the project does not need compatibility with older versions.
+#23 2.575 
+#23 2.577 
+#23 2.584 -- Looking for include file inttypes.h
+#23 11.20 -- Looking for include file inttypes.h - found
+#23 11.21 -- Performing Test CC_HAS_NO_STRICT_OVERFLOW
+#23 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 11.08 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#36 11.08 libtoolize: and rerunning libtoolize and aclocal.
+#36 11.08 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#36 11.11 running `autoconf --force'
+#36 12.21 configure.ac:100: warning: The macro `AC_HEADER_STDC' is obsolete.
+#36 12.21 configure.ac:100: You should run autoupdate.
+#36 12.21 ./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+#36 12.21 configure.ac:100: the top level
+#36 12.21 configure.ac:1027: warning: back quotes and double quotes must not be escaped in: $as_me:${as_lineno-$LINENO}: checking for \`docwriter' Python module
+#36 12.21 configure.ac:1027: warning: back quotes and double quotes must not be escaped in: checking for \`docwriter' Python module... 
+#36 12.21 configure.ac:1184: warning: back quotes and double quotes must not be escaped in: $as_me:${as_lineno-$LINENO}: WARNING: 
+#36 12.21 configure.ac:1184:   \`make refdoc' will fail since pip package \`docwriter' is not installed.
+#36 12.21 configure.ac:1184:   To install, run \`$PIP install docwriter', or to use a Python
+#36 12.21 configure.ac:1184:   virtual environment, run \`make refdoc-venv' (requires pip package
+#36 12.21 configure.ac:1184:   \`virtualenv'). These operations require Python >= 3.5.
+#36 12.21 configure.ac:1184:   
+#36 12.21 configure.ac:1184: warning: back quotes and double quotes must not be escaped in: $as_me: WARNING: 
+#36 12.21 configure.ac:1184:   \`make refdoc' will fail since pip package \`docwriter' is not installed.
+#36 12.21 configure.ac:1184:   To install, run \`$PIP install docwriter', or to use a Python
+#36 12.21 configure.ac:1184:   virtual environment, run \`make refdoc-venv' (requires pip package
+#36 12.21 configure.ac:1184:   \`virtualenv'). These operations require Python >= 3.5.
+#36 12.21 configure.ac:1184:   
+#36 12.56 + emconfigure ./configure --prefix=/opt --host=x86_64-gnu --enable-shared=no --without-harfbuzz
+#36 12.81 configure: ./configure --prefix=/opt --host=x86_64-gnu --enable-shared=no --without-harfbuzz
+#36 ...
+
+#39 [zimg-builder 2/4] COPY sources/sekrit-twc__zimg/ /src/
+#39 DONE 0.5s
+
+#40 [zimg-builder 3/4] COPY build/zimg.sh /src/build.sh
+#40 DONE 0.2s
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 10.80 libtoolize: copying file 'm4/ltsugar.m4'
+#28 11.29 libtoolize: copying file 'm4/ltversion.m4'
+#28 11.94 libtoolize: copying file 'm4/lt~obsolete.m4'
+#28 12.62 autoreconf: configure.ac: not using Intltool
+#28 12.62 autoreconf: configure.ac: not using Gtkdoc
+#28 12.62 autoreconf: running: aclocal --force -I m4
+#28 15.17 autoreconf: running: /usr/bin/autoconf --force
+#28 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 13.25 
+#36 13.25 FreeType build system -- automatic system detection
+#36 13.25 
+#36 13.25 The following settings are used:
+#36 13.25 
+#36 13.25   platform                    unix
+#36 13.25   compiler                    /emsdk/upstream/emscripten/emcc
+#36 13.25   configuration directory     ./builds/unix
+#36 13.25   configuration rules         ./builds/unix/unix.mk
+#36 13.25 
+#36 13.25 If this does not correspond to your system or settings please remove the file
+#36 13.25 `config.mk' from this directory then read the INSTALL file for help.
+#36 13.25 
+#36 13.25 Otherwise, simply type `make' again to build the library,
+#36 13.25 or `make refdoc' to build the API reference (this needs Python >= 3.5).
+#36 13.25 
+#36 13.29 Generating modules list in ./objs/ftmodule.h...
+#36 13.29 done.
+#36 13.37 * module: truetype  (Windows/Mac font files with extension *.ttf or *.ttc)
+#36 13.40 * module: type1     (Postscript font files with extension *.pfa or *.pfb)
+#36 13.45 * module: cff       (OpenType fonts with extension *.otf)
+#36 13.49 * module: cid       (Postscript CID-keyed fonts, no known extension)
+#36 13.55 * module: pfr       (PFR/TrueDoc font files with extension *.pfr)
+#36 13.59 * module: type42    (Type 42 font files with no known extension)
+#36 13.63 * module: winfnt    (Windows bitmap fonts with extension *.fnt or *.fon)
+#36 13.70 * module: pcf       (pcf bitmap fonts)
+#36 13.79 * module: bdf       (bdf bitmap fonts)
+#36 13.84 * module: sfnt      (helper module for TrueType & OpenType formats)
+#36 13.89 * module: autofit   (automatic hinting module)
+#36 13.92 * module: pshinter  (Postscript hinter module)
+#36 13.96 * module: raster    (monochrome bitmap renderer)
+#36 13.99 * module: smooth    (anti-aliased bitmap renderer)
+#36 14.05 * module: psaux     (Postscript Type 1 & Type 2 helper module)
+#36 14.09 * module: psnames   (Postscript & Unicode Glyph name handling)
+#36 14.11 cd builds/unix; \
+#36 14.11         ./configure  '--prefix=/opt' '--host=x86_64-gnu' '--enable-shared=no' '--without-harfbuzz'
+#36 16.72 checking build system type... x86_64-pc-linux-gnu
+#36 17.68 checking host system type... x86_64-pc-gnu
+#36 17.78 checking for x86_64-gnu-gcc... /emsdk/upstream/emscripten/emcc
+#36 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 7.201 autoreconf: running: libtoolize --copy --force
+#32 9.753 libtoolize: putting auxiliary files in '.'.
+#32 9.753 libtoolize: copying file './ltmain.sh'
+#32 10.62 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#32 10.62 libtoolize: copying file 'm4/libtool.m4'
+#32 11.37 libtoolize: copying file 'm4/ltoptions.m4'
+#32 12.07 libtoolize: copying file 'm4/ltsugar.m4'
+#32 12.65 libtoolize: copying file 'm4/ltversion.m4'
+#32 13.47 libtoolize: copying file 'm4/lt~obsolete.m4'
+#32 14.28 autoreconf: configure.ac: not using Intltool
+#32 14.28 autoreconf: configure.ac: not using Gtkdoc
+#32 14.28 autoreconf: running: aclocal --force -I m4
+#32 17.25 autoreconf: running: /usr/bin/autoconf --force
+#32 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 0.512 + set -euo pipefail
+#41 0.515 + CONF_FLAGS=(--prefix=$INSTALL_DIR --host=x86_64-linux-gnu --disable-shared --enable-static --disable-dependency-tracking --disable-simd)
+#41 0.515 + emconfigure ./autogen.sh
+#41 0.824 configure: ./autogen.sh
+#41 1.091 autoreconf: export WARNINGS=
+#41 1.116 autoreconf: Entering directory '.'
+#41 1.119 autoreconf: configure.ac: not using Gettext
+#41 2.121 autoreconf: running: aclocal --force -I m4
+#41 4.447 autoreconf: configure.ac: tracing
+#41 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 18.29 configure.ac:23: warning: The macro `AC_PROG_CC_C99' is obsolete.
+#32 18.29 configure.ac:23: You should run autoupdate.
+#32 18.29 ./lib/autoconf/c.m4:1659: AC_PROG_CC_C99 is expanded from...
+#32 18.29 configure.ac:23: the top level
+#32 18.29 configure.ac:122: warning: $as_echo is obsolete; use AS_ECHO(["message"]) instead
+#32 18.29 lib/m4sugar/m4sh.m4:692: _AS_IF_ELSE is expanded from...
+#32 18.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#32 18.29 ./lib/autoconf/general.m4:2249: AC_CACHE_VAL is expanded from...
+#32 18.29 ./lib/autoconf/general.m4:2270: AC_CACHE_CHECK is expanded from...
+#32 18.29 m4/ax_pthread.m4:88: AX_PTHREAD is expanded from...
+#32 18.29 configure.ac:122: the top level
+#32 18.66 autoreconf: running: /usr/bin/autoheader --force
+#32 19.88 autoreconf: running: automake --add-missing --copy --force-missing
+#32 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 11.30 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#37 11.30 libtoolize: linking file 'm4/libtool.m4'
+#37 12.10 libtoolize: linking file 'm4/ltoptions.m4'
+#37 12.78 libtoolize: linking file 'm4/ltsugar.m4'
+#37 13.50 libtoolize: linking file 'm4/ltversion.m4'
+#37 14.33 libtoolize: linking file 'm4/lt~obsolete.m4'
+#37 19.29 configure.ac:37: warning: The macro `AC_MINGW32' is obsolete.
+#37 19.29 configure.ac:37: You should run autoupdate.
+#37 19.29 ./lib/autoconf/specific.m4:347: AC_MINGW32 is expanded from...
+#37 19.29 configure.ac:37: the top level
+#37 19.29 configure.ac:38: warning: The macro `AM_PROG_LIBTOOL' is obsolete.
+#37 19.29 configure.ac:38: You should run autoupdate.
+#37 19.29 m4/libtool.m4:100: AM_PROG_LIBTOOL is expanded from...
+#37 19.29 configure.ac:38: the top level
+#37 19.29 configure.ac:41: warning: The macro `AC_PROG_CC_C99' is obsolete.
+#37 19.29 configure.ac:41: You should run autoupdate.
+#37 19.29 ./lib/autoconf/c.m4:1659: AC_PROG_CC_C99 is expanded from...
+#37 19.29 configure.ac:41: the top level
+#37 19.29 configure.ac:172: warning: The macro `AC_WARN' is obsolete.
+#37 19.29 configure.ac:172: You should run autoupdate.
+#37 19.29 ./lib/autoconf/oldnames.m4:33: AC_WARN is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#37 19.29 ./lib/autoconf/general.m4:1534: AC_ARG_ENABLE is expanded from...
+#37 19.29 configure.ac:172: the top level
+#37 19.29 configure.ac:199: warning: The macro `AC_TRY_COMPILE' is obsolete.
+#37 19.29 configure.ac:199: You should run autoupdate.
+#37 19.29 ./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+#37 19.29 m4/as-gcc-inline-assembly.m4:12: AS_GCC_INLINE_ASSEMBLY is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#37 19.29 configure.ac:199: the top level
+#37 19.29 configure.ac:459: warning: The macro `AC_HELP_STRING' is obsolete.
+#37 19.29 configure.ac:459: You should run autoupdate.
+#37 19.29 ./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+#37 19.29 configure.ac:385: OPUS_PATH_NE10 is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:594: AS_CASE is expanded from...
+#37 19.29 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#37 19.29 configure.ac:459: the top level
+#37 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 11.47 -- Looking for sys/types.h - found
+#35 11.48 -- Looking for stdint.h
+#35 19.61 -- Looking for stdint.h - found
+#35 19.62 -- Looking for stddef.h
+#35 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 7.578 autoreconf: running: libtoolize --copy --force
+#41 10.12 libtoolize: putting auxiliary files in '.'.
+#41 10.12 libtoolize: copying file './ltmain.sh'
+#41 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 7.188 checking whether the C compiler works... yes
+#29 13.60 checking for C compiler default output file name... a.out
+#29 13.63 checking for suffix of executables... 
+#29 19.79 checking whether we are cross compiling... 
+#29 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 16.24 configure.ac:102: warning: The macro `AC_HEADER_STDC' is obsolete.
+#28 16.24 configure.ac:102: You should run autoupdate.
+#28 16.24 ./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+#28 16.24 configure.ac:102: the top level
+#28 16.24 configure.ac:125: warning: The macro `AC_TYPE_SIGNAL' is obsolete.
+#28 16.24 configure.ac:125: You should run autoupdate.
+#28 16.24 ./lib/autoconf/types.m4:776: AC_TYPE_SIGNAL is expanded from...
+#28 16.24 configure.ac:125: the top level
+#28 16.24 configure.ac:133: warning: The macro `AC_HELP_STRING' is obsolete.
+#28 16.24 configure.ac:133: You should run autoupdate.
+#28 16.24 ./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+#28 16.24 configure.ac:133: the top level
+#28 16.24 configure.ac:143: warning: The macro `AC_HELP_STRING' is obsolete.
+#28 16.24 configure.ac:143: You should run autoupdate.
+#28 16.24 ./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+#28 16.24 configure.ac:143: the top level
+#28 16.53 autoreconf: running: /usr/bin/autoheader --force
+#28 17.73 autoreconf: running: automake --add-missing --copy --force-missing
+#28 22.24 configure.ac:44: installing './ar-lib'
+#28 22.26 configure.ac:44: installing './compile'
+#28 22.29 configure.ac:48: installing './config.guess'
+#28 22.35 configure.ac:48: installing './config.sub'
+#28 22.38 configure.ac:41: installing './install-sh'
+#28 22.40 configure.ac:41: installing './missing'
+#28 22.45 Makefile.am: installing './INSTALL'
+#28 22.56 bin/Makefile.am: installing './depcomp'
+#28 22.63 lib/Headers.mk:25: warning: shell cat $(top_srcdir: non-POSIX variable name
+#28 22.63 lib/Headers.mk:25: (probably a GNU make extension)
+#28 22.63 doc/Makefile.am:16:   'lib/Headers.mk' included from here
+#28 22.63 doc/Makefile.am:21: warning: shell sed '$$d' $(top_srcdir: non-POSIX variable name
+#28 22.63 doc/Makefile.am:21: (probably a GNU make extension)
+#28 22.76 gen.tab/Makefile.am:28: warning: 'CFLAGS' is a user variable, you should not override it;
+#28 22.76 gen.tab/Makefile.am:28: use 'AM_CFLAGS' instead
+#28 22.76 gen.tab/Makefile.am:29: warning: 'LDFLAGS' is a user variable, you should not override it;
+#28 22.76 gen.tab/Makefile.am:29: use 'AM_LDFLAGS' instead
+#28 22.81 lib/Headers.mk:25: warning: shell cat $(top_srcdir: non-POSIX variable name
+#28 22.81 lib/Headers.mk:25: (probably a GNU make extension)
+#28 22.81 lib/Makefile.am:17:   'lib/Headers.mk' included from here
+#28 22.94 parallel-tests: installing './test-driver'
+#28 23.21 running configure --prefix=/opt --host=x86_64-linux --enable-shared=no --enable-static=yes --disable-dependency-tracking --disable-debug
+#28 23.21 autoreconf: Leaving directory '.'
+#28 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 11.14 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#41 11.14 libtoolize: copying file 'm4/libtool.m4'
+#41 11.60 libtoolize: copying file 'm4/ltoptions.m4'
+#41 12.06 libtoolize: copying file 'm4/ltsugar.m4'
+#41 12.72 libtoolize: copying file 'm4/ltversion.m4'
+#41 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 17.59 configure.ac:78: warning: The macro `AC_HEADER_STDC' is obsolete.
+#33 17.59 configure.ac:78: You should run autoupdate.
+#33 17.59 ./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+#33 17.59 configure.ac:78: the top level
+#33 23.46 configure.ac:5: installing './compile'
+#33 23.48 configure.ac:5: installing './config.guess'
+#33 23.51 configure.ac:5: installing './config.sub'
+#33 23.53 configure.ac:9: installing './install-sh'
+#33 23.55 configure.ac:9: installing './missing'
+#33 23.74 src/Makefile.am: installing './depcomp'
+#33 23.81 + emconfigure ./configure --prefix=/opt --host=i686-linux --disable-shared --disable-dependency-tracking --disable-maintainer-mode
+#33 24.05 configure: ./configure --prefix=/opt --host=i686-linux --disable-shared --disable-dependency-tracking --disable-maintainer-mode
+#33 26.24 checking build system type... x86_64-pc-linux-gnu
+#33 26.93 checking host system type... i686-pc-linux-gnu
+#33 27.12 checking how to print strings... printf
+#33 27.14 checking for i686-linux-gcc... /emsdk/upstream/emscripten/emcc
+#33 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 25.42 checking for a BSD-compatible install... /usr/bin/install -c
+#28 25.56 checking whether build environment is sane... yes
+#28 25.74 checking for x86_64-linux-strip... no
+#28 25.74 checking for strip... strip
+#28 25.74 checking for a race-free mkdir -p... /usr/bin/mkdir -p
+#28 25.82 checking for gawk... no
+#28 25.82 checking for mawk... mawk
+#28 25.82 checking whether make sets $(MAKE)... yes
+#28 26.04 checking whether make supports nested variables... yes
+#28 26.18 checking whether make supports nested variables... (cached) yes
+#28 26.18 checking whether make supports the include directive... yes (GNU style)
+#28 26.42 checking for x86_64-linux-gcc... /emsdk/upstream/emscripten/emcc
+#28 29.00 checking whether the C compiler works... 
+#28 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 19.52 -- Performing Test CC_HAS_NO_STRICT_OVERFLOW - Success
+#23 19.52 -- Performing Test CC_HAS_NO_NARROWING
+#23 27.05 -- Performing Test CC_HAS_NO_NARROWING - Success
+#23 27.05 -- Performing Test CC_HAS_NO_ARRAY_BOUNDS
+#23 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 24.62 configure.ac:17: installing './ar-lib'
+#32 24.64 configure.ac:17: installing './compile'
+#32 24.67 configure.ac:19: installing './config.guess'
+#32 24.69 configure.ac:19: installing './config.sub'
+#32 24.71 configure.ac:12: installing './install-sh'
+#32 24.74 configure.ac:12: installing './missing'
+#32 24.78 Makefile.am: installing './INSTALL'
+#32 24.86 src/Makefile.sources:328: warning: source file 'graph/gsubgpos-context.cc' is in a subdirectory,
+#32 24.86 src/Makefile.sources:328: but option 'subdir-objects' is disabled
+#32 24.86 src/Makefile.am:29:   'src/Makefile.sources' included from here
+#32 24.86 automake: warning: possible forward-incompatibility.
+#32 24.86 automake: At least one source file is in a subdirectory, but the 'subdir-objects'
+#32 24.86 automake: automake option hasn't been enabled.  For now, the corresponding output
+#32 24.86 automake: object file(s) will be placed in the top-level directory.  However, this
+#32 24.86 automake: behavior may change in a future Automake major version, with object
+#32 24.86 automake: files being placed in the same subdirectory as the corresponding sources.
+#32 24.86 automake: You are advised to start using 'subdir-objects' option throughout your
+#32 24.86 automake: project, to avoid future incompatibilities.
+#32 24.88 src/Makefile.am:426: warning: source file 'graph/test-classdef-graph.cc' is in a subdirectory,
+#32 24.88 src/Makefile.am:426: but option 'subdir-objects' is disabled
+#32 24.88 src/Makefile.am:426: warning: source file 'graph/gsubgpos-context.cc' is in a subdirectory,
+#32 24.88 src/Makefile.am:426: but option 'subdir-objects' is disabled
+#32 24.89 src/Makefile.am:422: warning: source file 'graph/gsubgpos-context.cc' is in a subdirectory,
+#32 24.89 src/Makefile.am:422: but option 'subdir-objects' is disabled
+#32 24.93 src/Makefile.am: installing './depcomp'
+#32 25.12 parallel-tests: installing './test-driver'
+#32 26.38 autoreconf: Leaving directory '.'
+#32 26.39 running configure --prefix=/opt --host=i686-gnu --enable-shared=no --enable-static
+#32 28.69 checking for a BSD-compatible install... /usr/bin/install -c
+#32 29.09 checking whether build environment is sane... yes
+#32 29.37 checking for i686-gnu-strip... no
+#32 29.37 checking for strip... strip
+#32 29.37 checking for a race-free mkdir -p... /usr/bin/mkdir -p
+#32 29.40 checking for gawk... no
+#32 29.40 checking for mawk... mawk
+#32 29.40 checking whether make sets $(MAKE)... yes
+#32 29.65 checking whether make supports nested variables... yes
+#32 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 20.24 checking whether the C compiler works... yes
+#36 26.48 checking for C compiler default output file name... a.out
+#36 26.50 checking for suffix of executables... 
+#36 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 25.29 configure.ac:38: installing './compile'
+#37 25.29 configure.ac:36: installing './config.guess'
+#37 25.29 configure.ac:36: installing './config.sub'
+#37 25.29 configure.ac:33: installing './install-sh'
+#37 25.29 configure.ac:33: installing './missing'
+#37 25.32 Makefile.am:316: warning: '%'-style pattern rules are a GNU make extension
+#37 25.32 Makefile.am:319: warning: '%'-style pattern rules are a GNU make extension
+#37 25.32 Makefile.am: installing './INSTALL'
+#37 25.38 Makefile.am: installing './depcomp'
+#37 25.39 parallel-tests: installing './test-driver'
+#37 25.50 + CFLAGS='-I/opt/include  -O3 -msimd128'
+#37 25.50 + emconfigure ./configure --prefix=/opt --host=i686-none --enable-shared=no --disable-asm --disable-rtcd --disable-intrinsics --disable-doc --disable-extra-programs --disable-stack-protector
+#37 25.73 configure: ./configure --prefix=/opt --host=i686-none --enable-shared=no --disable-asm --disable-rtcd --disable-intrinsics --disable-doc --disable-extra-programs --disable-stack-protector
+#37 28.96 checking whether make supports nested variables... yes
+#37 29.05 checking for a BSD-compatible install... /usr/bin/install -c
+#37 29.28 checking whether build environment is sane... yes
+#37 29.55 checking for i686-none-strip... no
+#37 29.56 checking for strip... strip
+#37 29.56 checking for a race-free mkdir -p... /usr/bin/mkdir -p
+#37 29.59 checking for gawk... no
+#37 29.59 checking for mawk... mawk
+#37 29.59 checking whether make sets $(MAKE)... yes
+#37 29.99 checking whether to enable maintainer-specific portions of Makefiles... yes
+#37 30.07 checking build system type... x86_64-pc-linux-gnu
+#37 31.13 checking host system type... i686-pc-none
+#37 31.22 checking how to print strings... printf
+#37 31.22 checking whether make supports the include directive... yes (GNU style)
+#37 31.41 checking for i686-none-gcc... /emsdk/upstream/emscripten/emcc
+#37 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 29.85 checking whether UID '0' is supported by ustar format... yes
+#32 29.85 checking whether GID '0' is supported by ustar format... yes
+#32 29.85 checking how to create a ustar tar archive... gnutar
+#32 30.17 checking whether make supports nested variables... (cached) yes
+#32 30.18 checking for a sed that does not truncate output... /usr/bin/sed
+#32 30.24 checking whether to build with code coverage support... no
+#32 30.24 checking whether make supports the include directive... yes (GNU style)
+#32 30.40 checking for i686-gnu-gcc... /emsdk/upstream/emscripten/emcc
+#32 33.31 checking whether the C compiler works... 
+#32 ...
+
+#30 [ffmpeg-base  1/12] RUN embuilder build sdl2 sdl2-mt
+#30 28.36 system_libs:INFO: compiled 115 inputs
+#30 28.66 cache:INFO:  - ok
+#30 28.66 embuilder:INFO: ...success. Took (27.66s)
+#30 28.66 embuilder:INFO: building sdl2-mt
+#30 28.66 cache:INFO: generating port: sysroot/lib/wasm32-emscripten/libSDL2-mt.a... (this will be cached in "/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libSDL2-mt.a" for subsequent builds)
+#30 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 34.50 -- Performing Test CC_HAS_NO_ARRAY_BOUNDS - Success
+#23 34.50 -- Performing Test CC_HAS_FAST_MATH
+#23 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 13.53 libtoolize: copying file 'm4/lt~obsolete.m4'
+#41 14.85 autoreconf: configure.ac: not using Intltool
+#41 14.85 autoreconf: configure.ac: not using Gtkdoc
+#41 14.85 autoreconf: running: aclocal --force -I m4
+#41 17.35 autoreconf: running: /usr/bin/autoconf --force
+#41 18.99 configure.ac:36: warning: $as_echo is obsolete; use AS_ECHO(["message"]) instead
+#41 18.99 lib/m4sugar/m4sh.m4:692: _AS_IF_ELSE is expanded from...
+#41 18.99 lib/m4sugar/m4sh.m4:699: AS_IF is expanded from...
+#41 18.99 ./lib/autoconf/general.m4:2249: AC_CACHE_VAL is expanded from...
+#41 18.99 ./lib/autoconf/general.m4:2270: AC_CACHE_CHECK is expanded from...
+#41 18.99 m4/ax_pthread.m4:88: AX_PTHREAD is expanded from...
+#41 18.99 configure.ac:36: the top level
+#41 19.29 autoreconf: configure.ac: not using Autoheader
+#41 19.29 autoreconf: running: automake --add-missing --copy --force-missing
+#41 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 29.00 checking whether the C compiler works... yes
+#28 36.36 checking for C compiler default output file name... a.out
+#28 36.39 checking for suffix of executables... 
+#28 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 28.32 -- Looking for stddef.h - found
+#35 28.32 -- Check size of off64_t
+#35 34.16 -- Check size of off64_t - done
+#35 34.16 -- Looking for fseeko
+#35 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 24.32 configure.ac:10: installing './compile'
+#41 24.40 configure.ac:10: installing './config.guess'
+#41 24.43 configure.ac:10: installing './config.sub'
+#41 24.59 configure.ac:7: installing './install-sh'
+#41 24.65 configure.ac:7: installing './missing'
+#41 24.78 Makefile.am: installing './depcomp'
+#41 25.00 parallel-tests: installing './test-driver'
+#41 25.10 autoreconf: Leaving directory '.'
+#41 25.17 + emconfigure ./configure --prefix=/opt --host=x86_64-linux-gnu --disable-shared --enable-static --disable-dependency-tracking --disable-simd
+#41 25.46 configure: ./configure --prefix=/opt --host=x86_64-linux-gnu --disable-shared --enable-static --disable-dependency-tracking --disable-simd
+#41 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 19.79 checking whether we are cross compiling... no
+#29 28.49 checking for suffix of object files... o
+#29 29.46 checking whether we are using the GNU C compiler... yes
+#29 30.47 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#29 31.30 checking for /emsdk/upstream/emscripten/emcc option to accept ISO C89... none needed
+#29 32.75 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#29 34.38 checking dependency style of /emsdk/upstream/emscripten/emcc... none
+#29 34.38 checking how to run the C preprocessor... /emsdk/upstream/emscripten/emcc -E
+#29 37.92 checking for grep that handles long lines and -e... /usr/bin/grep
+#29 37.98 checking for egrep... /usr/bin/grep -E
+#29 38.02 checking for ANSI C header files... 
+#29 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 30.27 checking whether the C compiler works... yes
+#33 36.87 checking for C compiler default output file name... a.out
+#33 36.90 checking for suffix of executables... 
+#33 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 26.50 checking for suffix of executables... 
+#36 33.11 checking whether we are cross compiling... 
+#36 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 27.71 checking for a BSD-compatible install... /usr/bin/install -c
+#41 27.87 checking whether build environment is sane... yes
+#41 28.07 checking for x86_64-linux-gnu-strip... x86_64-linux-gnu-strip
+#41 28.07 checking for a race-free mkdir -p... /usr/bin/mkdir -p
+#41 28.10 checking for gawk... no
+#41 28.10 checking for mawk... mawk
+#41 28.10 checking whether make sets $(MAKE)... yes
+#41 28.46 checking whether make supports nested variables... yes
+#41 28.67 checking whether make supports nested variables... (cached) yes
+#41 28.76 checking build system type... x86_64-pc-linux-gnu
+#41 29.88 checking host system type... x86_64-pc-linux-gnu
+#41 29.99 checking how to print strings... printf
+#41 30.01 checking whether make supports the include directive... yes (GNU style)
+#41 30.18 checking for x86_64-linux-gnu-gcc... /emsdk/upstream/emscripten/emcc
+#41 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 34.19 checking whether the C compiler works... yes
+#37 41.18 checking for C compiler default output file name... a.out
+#37 41.21 checking for suffix of executables... 
+#37 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 33.11 checking whether we are cross compiling... no
+#36 43.24 checking for suffix of object files... o
+#36 44.17 checking whether the compiler supports GNU C... yes
+#36 45.36 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#36 46.36 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#36 47.95 checking how to run the C preprocessor... 
+#36 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 48.51   enabling webm_io
+#38 49.31   enabling libyuv
+#38 ...
+
+#30 [ffmpeg-base  1/12] RUN embuilder build sdl2 sdl2-mt
+#30 52.77 system_libs:INFO: compiled 115 inputs
+#30 53.00 cache:INFO:  - ok
+#30 53.00 embuilder:INFO: ...success. Took (24.34s)
+#30 53.00 embuilder:INFO: Built 2 targets in (52.12s)
+#30 DONE 53.2s
+
+#42 [ffmpeg-base  2/12] COPY sources/FFmpeg__FFmpeg/ /src/
+#42 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 33.31 checking whether the C compiler works... yes
+#32 40.55 checking for C compiler default output file name... a.out
+#32 40.57 checking for suffix of executables... 
+#32 45.57 checking whether we are cross compiling... 
+#32 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 47.95 checking how to run the C preprocessor... /emsdk/upstream/emscripten/emcc -E
+#36 50.51 checking for x86_64-gnu-pkg-config... no
+#36 50.51 checking for pkg-config... /usr/bin/pkg-config
+#36 50.51 checking pkg-config is at least version 0.24... yes
+#36 50.53 checking how to print strings... printf
+#36 50.54 checking for a sed that does not truncate output... /usr/bin/sed
+#36 50.60 checking for grep that handles long lines and -e... /usr/bin/grep
+#36 50.62 checking for egrep... /usr/bin/grep -E
+#36 50.64 checking for fgrep... /usr/bin/grep -F
+#36 50.66 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#36 50.99 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#36 51.31 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#36 51.31 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... 
+#36 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 36.90 checking for suffix of executables... 
+#33 43.21 checking whether we are cross compiling... no
+#33 51.55 checking for suffix of object files... o
+#33 52.30 checking whether the compiler supports GNU C... yes
+#33 53.07 checking whether /emsdk/upstream/emscripten/emcc accepts -g... 
+#33 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 38.02 checking for ANSI C header files... yes
+#29 47.47 checking for sys/types.h... yes
+#29 48.90 checking for sys/stat.h... yes
+#29 49.81 checking for stdlib.h... yes
+#29 50.57 checking for string.h... yes
+#29 51.32 checking for memory.h... yes
+#29 52.04 checking for strings.h... 
+#29 ...
+
+#42 [ffmpeg-base  2/12] COPY sources/FFmpeg__FFmpeg/ /src/
+#42 DONE 2.2s
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 53.07 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#33 53.72 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... 
+#33 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 36.39 checking for suffix of executables... 
+#28 42.62 checking whether we are cross compiling... no
+#28 50.75 checking for suffix of object files... o
+#28 51.52 checking whether the compiler supports GNU C... yes
+#28 52.26 checking whether /emsdk/upstream/emscripten/emcc accepts -g... 
+#28 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 51.31 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#36 52.03 checking whether ln -s works... yes
+#36 52.03 checking the maximum length of command line arguments... 1572864
+#36 52.10 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-gnu format... func_convert_file_noop
+#36 52.10 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#36 52.10 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#36 52.10 checking for x86_64-gnu-objdump... no
+#36 52.10 checking for objdump... objdump
+#36 52.10 checking how to recognize dependent libraries... pass_all
+#36 52.10 checking for x86_64-gnu-dlltool... no
+#36 52.10 checking for dlltool... no
+#36 52.10 checking how to associate runtime and link libraries... printf %s\n
+#36 52.10 checking for x86_64-gnu-ar... /emsdk/upstream/emscripten/emar
+#36 52.10 checking for archiver @FILE support... 
+#36 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 43.14 -- Performing Test CC_HAS_FAST_MATH - Success
+#23 43.14 -- Performing Test CC_HAS_STACK_REALIGN
+#23 51.02 -- Performing Test CC_HAS_STACK_REALIGN - Success
+#23 51.02 -- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG
+#23 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 43.11 -- Looking for fseeko - found
+#35 43.12 -- Looking for unistd.h
+#35 50.35 -- Looking for unistd.h - found
+#35 50.35 -- Renaming
+#35 50.35 --     /src/zconf.h
+#35 50.35 -- to 'zconf.h.included' because this file is included with zlib
+#35 50.35 -- but CMake generates it automatically in the build directory.
+#35 50.35 CMake Warning (dev) at CMakeLists.txt:186 (add_library):
+#35 50.35   ADD_LIBRARY called with SHARED option but the target platform does not
+#35 50.35   support dynamic linking.  Building a STATIC library instead.  This may lead
+#35 50.35   to problems.
+#35 50.35 This warning is for project developers.  Use -Wno-dev to suppress it.
+#35 50.35 
+#35 50.36 -- Configuring done
+#35 50.39 -- Generating done
+#35 50.40 -- Build files have been written to: /src/build
+#35 50.43 + emmake make clean
+#35 50.62 make: make clean
+#35 51.31 + emmake make install
+#35 51.51 make: make install
+#35 51.87 [  2%] Building C object CMakeFiles/zlib.dir/adler32.o
+#35 52.42 /src/adler32.c:63:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 52.42 uLong ZEXPORT adler32_z(adler, buf, len)
+#35 52.42               ^
+#35 52.46 /src/adler32.c:134:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 52.46 uLong ZEXPORT adler32(adler, buf, len)
+#35 52.46               ^
+#35 52.46 /src/adler32.c:143:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 52.46 local uLong adler32_combine_(adler1, adler2, len2)
+#35 52.46             ^
+#35 52.47 /src/adler32.c:172:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 52.47 uLong ZEXPORT adler32_combine(adler1, adler2, len2)
+#35 52.47               ^
+#35 52.47 /src/adler32.c:180:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 52.47 uLong ZEXPORT adler32_combine64(adler1, adler2, len2)
+#35 52.47               ^
+#35 52.95 5 warnings generated.
+#35 53.02 [  5%] Building C object CMakeFiles/zlib.dir/compress.o
+#35 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 45.57 checking whether we are cross compiling... no
+#32 52.60 checking for suffix of object files... o
+#32 53.28 checking whether the compiler supports GNU C... yes
+#32 53.97 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#32 54.55 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... 
+#32 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 32.50 checking whether the C compiler works... yes
+#41 38.01 checking for C compiler default output file name... a.out
+#41 38.03 checking for suffix of executables... 
+#41 41.81 checking whether we are cross compiling... 
+#41 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 53.51 /src/compress.c:22:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 53.51 int ZEXPORT compress2 (dest, destLen, source, sourceLen, level)
+#35 53.51             ^
+#35 53.55 /src/compress.c:68:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 53.55 int ZEXPORT compress (dest, destLen, source, sourceLen)
+#35 53.55             ^
+#35 53.56 /src/compress.c:81:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 53.56 uLong ZEXPORT compressBound (sourceLen)
+#35 53.56               ^
+#35 53.94 3 warnings generated.
+#35 54.01 [  7%] Building C object CMakeFiles/zlib.dir/crc32.o
+#35 54.56 /src/crc32.c:202:23: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.56 unsigned long ZEXPORT crc32_z(crc, buf, len)
+#35 54.56                       ^
+#35 54.58 /src/crc32.c:237:23: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.58 unsigned long ZEXPORT crc32(crc, buf, len)
+#35 54.58                       ^
+#35 54.58 /src/crc32.c:266:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.58 local unsigned long crc32_little(crc, buf, len)
+#35 54.58                     ^
+#35 54.59 /src/crc32.c:306:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 local unsigned long crc32_big(crc, buf, len)
+#35 54.59                     ^
+#35 54.59 /src/crc32.c:344:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 local unsigned long gf2_matrix_times(mat, vec)
+#35 54.59                     ^
+#35 54.59 /src/crc32.c:361:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 local void gf2_matrix_square(square, mat)
+#35 54.59            ^
+#35 54.59 /src/crc32.c:372:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 local uLong crc32_combine_(crc1, crc2, len2)
+#35 54.59             ^
+#35 54.59 /src/crc32.c:428:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 uLong ZEXPORT crc32_combine(crc1, crc2, len2)
+#35 54.59               ^
+#35 54.59 /src/crc32.c:436:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 54.59 uLong ZEXPORT crc32_combine64(crc1, crc2, len2)
+#35 54.59               ^
+#35 55.09 9 warnings generated.
+#35 55.16 [ 10%] Building C object CMakeFiles/zlib.dir/deflate.o
+#35 55.65 /src/deflate.c:201:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.65 local void slide_hash(s)
+#35 55.65            ^
+#35 55.66 /src/deflate.c:228:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.66 int ZEXPORT deflateInit_(strm, level, version, stream_size)
+#35 55.66             ^
+#35 55.68 /src/deflate.c:240:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.68 int ZEXPORT deflateInit2_(strm, level, method, windowBits, memLevel, strategy,
+#35 55.68             ^
+#35 55.70 /src/deflate.c:353:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.70 local int deflateStateCheck (strm)
+#35 55.70           ^
+#35 55.70 /src/deflate.c:376:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.70 int ZEXPORT deflateSetDictionary (strm, dictionary, dictLength)
+#35 55.70             ^
+#35 55.71 /src/deflate.c:445:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflateGetDictionary (strm, dictionary, dictLength)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:467:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflateResetKeep (strm)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:505:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflateReset (strm)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:517:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflateSetHeader (strm, head)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:528:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflatePending (strm, pending, bits)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:542:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflatePrime (strm, bits, value)
+#35 55.71             ^
+#35 55.71 /src/deflate.c:568:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.71 int ZEXPORT deflateParams(strm, level, strategy)
+#35 55.71             ^
+#35 55.72 /src/deflate.c:617:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 int ZEXPORT deflateTune(strm, good_length, max_lazy, nice_length, max_chain)
+#35 55.72             ^
+#35 55.72 /src/deflate.c:652:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 uLong ZEXPORT deflateBound(strm, sourceLen)
+#35 55.72               ^
+#35 55.72 /src/deflate.c:716:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 local void putShortMSB (s, b)
+#35 55.72            ^
+#35 55.72 /src/deflate.c:730:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 local void flush_pending(strm)
+#35 55.72            ^
+#35 55.72 /src/deflate.c:763:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 int ZEXPORT deflate (strm, flush)
+#35 55.72             ^
+#35 55.72 /src/deflate.c:1076:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 int ZEXPORT deflateEnd (strm)
+#35 55.72             ^
+#35 55.72 /src/deflate.c:1102:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.72 int ZEXPORT deflateCopy (dest, source)
+#35 55.72             ^
+#35 55.73 /src/deflate.c:1164:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local unsigned read_buf(strm, buf, size)
+#35 55.73                ^
+#35 55.73 /src/deflate.c:1194:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local void lm_init (s)
+#35 55.73            ^
+#35 55.73 /src/deflate.c:1236:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local uInt longest_match(s, cur_match)
+#35 55.73            ^
+#35 55.73 /src/deflate.c:1482:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local void fill_window(s)
+#35 55.73            ^
+#35 55.73 /src/deflate.c:1643:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local block_state deflate_stored(s, flush)
+#35 55.73                   ^
+#35 55.73 /src/deflate.c:1824:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local block_state deflate_fast(s, flush)
+#35 55.73                   ^
+#35 55.73 /src/deflate.c:1926:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local block_state deflate_slow(s, flush)
+#35 55.73                   ^
+#35 55.73 /src/deflate.c:2057:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local block_state deflate_rle(s, flush)
+#35 55.73                   ^
+#35 55.73 /src/deflate.c:2130:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 55.73 local block_state deflate_huff(s, flush)
+#35 55.73                   ^
+#35 56.60 28 warnings generated.
+#35 56.68 [ 12%] Building C object CMakeFiles/zlib.dir/gzclose.o
+#35 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 41.21 checking for suffix of executables... 
+#37 46.88 checking whether we are cross compiling... no
+#37 53.77 checking for suffix of object files... o
+#37 54.50 checking whether the compiler supports GNU C... yes
+#37 55.16 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#37 55.75 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#37 56.94 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... 
+#37 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 57.18 /src/gzclose.c:11:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 57.18 int ZEXPORT gzclose(file)
+#35 57.18             ^
+#35 57.48 1 warning generated.
+#35 57.54 [ 15%] Building C object CMakeFiles/zlib.dir/gzlib.o
+#35 58.04 /src/gzlib.c:75:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.04 local void gz_reset(state)
+#35 58.04            ^
+#35 58.05 /src/gzlib.c:91:14: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.05 local gzFile gz_open(path, fd, mode)
+#35 58.05              ^
+#35 58.07 /src/gzlib.c:270:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.07 gzFile ZEXPORT gzopen(path, mode)
+#35 58.07                ^
+#35 58.09 /src/gzlib.c:278:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.09 gzFile ZEXPORT gzopen64(path, mode)
+#35 58.09                ^
+#35 58.09 /src/gzlib.c:286:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.09 gzFile ZEXPORT gzdopen(fd, mode)
+#35 58.09                ^
+#35 58.10 /src/gzlib.c:316:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.10 int ZEXPORT gzbuffer(file, size)
+#35 58.10             ^
+#35 58.10 /src/gzlib.c:343:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.10 int ZEXPORT gzrewind(file)
+#35 58.10             ^
+#35 58.10 /src/gzlib.c:366:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.10 z_off64_t ZEXPORT gzseek64(file, offset, whence)
+#35 58.10                   ^
+#35 58.11 /src/gzlib.c:443:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 z_off_t ZEXPORT gzseek(file, offset, whence)
+#35 58.11                 ^
+#35 58.11 /src/gzlib.c:455:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 z_off64_t ZEXPORT gztell64(file)
+#35 58.11                   ^
+#35 58.11 /src/gzlib.c:472:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 z_off_t ZEXPORT gztell(file)
+#35 58.11                 ^
+#35 58.11 /src/gzlib.c:482:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 z_off64_t ZEXPORT gzoffset64(file)
+#35 58.11                   ^
+#35 58.11 /src/gzlib.c:505:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 z_off_t ZEXPORT gzoffset(file)
+#35 58.11                 ^
+#35 58.11 /src/gzlib.c:515:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 int ZEXPORT gzeof(file)
+#35 58.11             ^
+#35 58.11 /src/gzlib.c:532:22: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 const char * ZEXPORT gzerror(file, errnum)
+#35 58.11                      ^
+#35 58.11 /src/gzlib.c:553:14: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 void ZEXPORT gzclearerr(file)
+#35 58.11              ^
+#35 58.11 /src/gzlib.c:579:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 58.11 void ZLIB_INTERNAL gz_error(state, err, msg)
+#35 58.11                    ^
+#35 58.64 17 warnings generated.
+#35 58.72 [ 17%] Building C object CMakeFiles/zlib.dir/gzread.o
+#35 59.24 /src/gzread.c:21:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.24 local int gz_load(state, buf, len, have)
+#35 59.24           ^
+#35 59.25 /src/gzread.c:56:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.25 local int gz_avail(state)
+#35 59.25           ^
+#35 59.26 /src/gzread.c:91:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.26 local int gz_look(state)
+#35 59.26           ^
+#35 59.27 /src/gzread.c:175:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.27 local int gz_decomp(state)
+#35 59.27           ^
+#35 59.27 /src/gzread.c:229:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.27 local int gz_fetch(state)
+#35 59.27           ^
+#35 59.27 /src/gzread.c:259:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.27 local int gz_skip(state, len)
+#35 59.27           ^
+#35 59.27 /src/gzread.c:294:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.27 local z_size_t gz_read(state, buf, len)
+#35 59.27                ^
+#35 59.27 /src/gzread.c:375:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.27 int ZEXPORT gzread(file, buf, len)
+#35 59.27             ^
+#35 59.33 /src/gzread.c:411:18: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.33 z_size_t ZEXPORT gzfread(buf, size, nitems, file)
+#35 59.33                  ^
+#35 59.33 /src/gzread.c:447:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.33 int ZEXPORT gzgetc(file)
+#35 59.33             ^
+#35 59.34 /src/gzread.c:476:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.34 int ZEXPORT gzgetc_(file)
+#35 59.34             ^
+#35 59.34 /src/gzread.c:483:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.34 int ZEXPORT gzungetc(c, file)
+#35 59.34             ^
+#35 59.35 /src/gzread.c:543:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.35 char * ZEXPORT gzgets(file, buf, len)
+#35 59.35                ^
+#35 59.36 /src/gzread.c:607:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.36 int ZEXPORT gzdirect(file)
+#35 59.36             ^
+#35 59.36 /src/gzread.c:627:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 59.36 int ZEXPORT gzclose_r(file)
+#35 59.36             ^
+#35 60.01 15 warnings generated.
+#35 60.09 [ 20%] Building C object CMakeFiles/zlib.dir/gzwrite.o
+#35 60.61 /src/gzwrite.c:17:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.62 local int gz_init(state)
+#35 60.62           ^
+#35 60.63 /src/gzwrite.c:73:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.63 local int gz_comp(state, flush)
+#35 60.63           ^
+#35 60.64 /src/gzwrite.c:145:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.64 local int gz_zero(state, len)
+#35 60.64           ^
+#35 60.64 /src/gzwrite.c:178:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.64 local z_size_t gz_write(state, buf, len)
+#35 60.64                ^
+#35 60.64 /src/gzwrite.c:246:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.64 int ZEXPORT gzwrite(file, buf, len)
+#35 60.64             ^
+#35 60.67 /src/gzwrite.c:274:18: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.67 z_size_t ZEXPORT gzfwrite(buf, size, nitems, file)
+#35 60.67                  ^
+#35 60.68 /src/gzwrite.c:304:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.68 int ZEXPORT gzputc(file, c)
+#35 60.68             ^
+#35 60.68 /src/gzwrite.c:352:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.68 int ZEXPORT gzputs(file, str)
+#35 60.68             ^
+#35 60.69 /src/gzwrite.c:553:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.69 int ZEXPORT gzflush(file, flush)
+#35 60.69             ^
+#35 60.69 /src/gzwrite.c:585:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.69 int ZEXPORT gzsetparams(file, level, strategy)
+#35 60.69             ^
+#35 60.69 /src/gzwrite.c:627:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 60.69 int ZEXPORT gzclose_w(file)
+#35 60.69             ^
+#35 61.23 11 warnings generated.
+#35 61.33 [ 22%] Building C object CMakeFiles/zlib.dir/inflate.o
+#35 61.86 /src/inflate.c:105:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.86 local int inflateStateCheck(strm)
+#35 61.86           ^
+#35 61.88 /src/inflate.c:119:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.88 int ZEXPORT inflateResetKeep(strm)
+#35 61.88             ^
+#35 61.91 /src/inflate.c:144:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.91 int ZEXPORT inflateReset(strm)
+#35 61.91             ^
+#35 61.91 /src/inflate.c:157:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.91 int ZEXPORT inflateReset2(strm, windowBits)
+#35 61.91             ^
+#35 61.91 /src/inflate.c:195:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.91 int ZEXPORT inflateInit2_(strm, windowBits, version, stream_size)
+#35 61.91             ^
+#35 61.92 /src/inflate.c:239:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.92 int ZEXPORT inflateInit_(strm, version, stream_size)
+#35 61.92             ^
+#35 61.92 /src/inflate.c:247:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.92 int ZEXPORT inflatePrime(strm, bits, value)
+#35 61.92             ^
+#35 61.92 /src/inflate.c:278:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.92 local void fixedtables(state)
+#35 61.92            ^
+#35 61.92 /src/inflate.c:396:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.92 local int updatewindow(strm, end, copy)
+#35 61.92           ^
+#35 61.92 /src/inflate.c:622:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.92 int ZEXPORT inflate(strm, flush)
+#35 61.92             ^
+#35 61.95 /src/inflate.c:1277:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateEnd(strm)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1291:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateGetDictionary(strm, dictionary, dictLength)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1314:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateSetDictionary(strm, dictionary, dictLength)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1349:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateGetHeader(strm, head)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1377:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 local unsigned syncsearch(have, buf, len)
+#35 61.95                ^
+#35 61.95 /src/inflate.c:1400:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateSync(strm)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1451:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateSyncPoint(strm)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1461:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateCopy(dest, source)
+#35 61.95             ^
+#35 61.95 /src/inflate.c:1508:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.95 int ZEXPORT inflateUndermine(strm, subvert)
+#35 61.95             ^
+#35 61.96 /src/inflate.c:1526:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.96 int ZEXPORT inflateValidate(strm, check)
+#35 61.96             ^
+#35 61.96 /src/inflate.c:1541:14: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.96 long ZEXPORT inflateMark(strm)
+#35 61.96              ^
+#35 61.96 /src/inflate.c:1554:23: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 61.96 unsigned long ZEXPORT inflateCodesUsed(strm)
+#35 61.96                       ^
+#35 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 52.04 checking for strings.h... yes
+#29 52.72 checking for inttypes.h... yes
+#29 53.39 checking for stdint.h... yes
+#29 54.13 checking for unistd.h... yes
+#29 54.80 checking minix/config.h usability... no
+#29 55.43 checking minix/config.h presence... no
+#29 55.96 checking for minix/config.h... no
+#29 55.96 checking whether it is safe to define __EXTENSIONS__... yes
+#29 56.74 checking for library containing strerror... none required
+#29 60.83 checking how to print strings... printf
+#29 60.84 checking for a sed that does not truncate output... /usr/bin/sed
+#29 60.89 checking for fgrep... /usr/bin/grep -F
+#29 60.91 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#29 61.20 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#29 61.51 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#29 61.51 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#29 62.16 checking whether ln -s works... yes
+#29 62.16 checking the maximum length of command line arguments... 1572864
+#29 62.47 checking how to convert x86_64-unknown-linux-gnu file names to i686-pc-linux-gnu format... func_convert_file_noop
+#29 62.47 checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+#29 62.47 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#29 62.47 checking for i686-linux-objdump... no
+#29 62.47 checking for objdump... objdump
+#29 62.47 checking how to recognize dependent libraries... pass_all
+#29 62.47 checking for i686-linux-dlltool... no
+#29 62.47 checking for dlltool... no
+#29 62.47 checking how to associate runtime and link libraries... printf %s\n
+#29 62.47 checking for i686-linux-ar... /emsdk/upstream/emscripten/emar
+#29 62.47 checking for archiver @FILE support... 
+#29 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 52.26 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#28 52.86 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#28 54.00 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#28 55.09 checking dependency style of /emsdk/upstream/emscripten/emcc... none
+#28 55.09 checking for x86_64-linux-ar... /emsdk/upstream/emscripten/emar
+#28 55.09 checking the archiver (/emsdk/upstream/emscripten/emar) interface... ar
+#28 55.91 checking build system type... x86_64-pc-linux-gnu
+#28 56.48 checking host system type... x86_64-pc-linux-gnu
+#28 56.58 checking how to print strings... printf
+#28 56.59 checking for a sed that does not truncate output... /usr/bin/sed
+#28 56.65 checking for grep that handles long lines and -e... /usr/bin/grep
+#28 56.67 checking for egrep... /usr/bin/grep -E
+#28 56.69 checking for fgrep... /usr/bin/grep -F
+#28 56.71 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#28 57.02 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#28 57.37 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#28 57.37 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#28 58.03 checking whether ln -s works... yes
+#28 58.03 checking the maximum length of command line arguments... 1572864
+#28 58.10 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#28 58.10 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#28 58.10 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#28 58.10 checking for x86_64-linux-objdump... no
+#28 58.10 checking for objdump... objdump
+#28 58.10 checking how to recognize dependent libraries... pass_all
+#28 58.10 checking for x86_64-linux-dlltool... no
+#28 58.10 checking for dlltool... no
+#28 58.10 checking how to associate runtime and link libraries... printf %s\n
+#28 58.10 checking for x86_64-linux-ar... (cached) /emsdk/upstream/emscripten/emar
+#28 58.10 checking for archiver @FILE support... @
+#28 59.29 checking for x86_64-linux-strip... strip
+#28 59.29 checking for x86_64-linux-ranlib... /emsdk/upstream/emscripten/emranlib
+#28 59.29 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... 
+#28 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 63.02 22 warnings generated.
+#35 63.13 [ 25%] Building C object CMakeFiles/zlib.dir/infback.o
+#35 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 52.10 checking for archiver @FILE support... @
+#36 53.16 checking for x86_64-gnu-strip... no
+#36 53.16 checking for strip... strip
+#36 53.16 checking for x86_64-gnu-ranlib... /emsdk/upstream/emscripten/emranlib
+#36 53.16 checking for gawk... no
+#36 53.16 checking for mawk... mawk
+#36 53.16 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#36 57.73 checking for sysroot... no
+#36 57.73 checking for a working dd... /usr/bin/dd
+#36 57.79 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#36 57.86 checking for x86_64-gnu-mt... no
+#36 57.86 checking for mt... no
+#36 57.86 checking if : is a manifest tool... no
+#36 57.91 checking for stdio.h... yes
+#36 58.51 checking for stdlib.h... yes
+#36 59.14 checking for string.h... yes
+#36 59.74 checking for inttypes.h... yes
+#36 60.40 checking for stdint.h... yes
+#36 61.00 checking for strings.h... yes
+#36 61.57 checking for sys/stat.h... yes
+#36 62.15 checking for sys/types.h... yes
+#36 63.21 checking for unistd.h... 
+#36 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 53.72 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#33 54.83 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#33 56.00 checking for a sed that does not truncate output... /usr/bin/sed
+#33 56.05 checking for grep that handles long lines and -e... /usr/bin/grep
+#33 56.08 checking for egrep... /usr/bin/grep -E
+#33 56.10 checking for fgrep... /usr/bin/grep -F
+#33 56.12 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#33 56.39 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#33 56.67 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#33 56.67 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#33 57.28 checking whether ln -s works... yes
+#33 57.28 checking the maximum length of command line arguments... 1572864
+#33 57.35 checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... func_convert_file_noop
+#33 57.35 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#33 57.35 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#33 57.35 checking for i686-linux-objdump... no
+#33 57.35 checking for objdump... objdump
+#33 57.35 checking how to recognize dependent libraries... pass_all
+#33 57.35 checking for i686-linux-dlltool... no
+#33 57.35 checking for dlltool... no
+#33 57.35 checking how to associate runtime and link libraries... printf %s\n
+#33 57.35 checking for i686-linux-ar... /emsdk/upstream/emscripten/emar
+#33 57.35 checking for archiver @FILE support... @
+#33 58.55 checking for i686-linux-strip... no
+#33 58.55 checking for strip... strip
+#33 58.55 checking for i686-linux-ranlib... /emsdk/upstream/emscripten/emranlib
+#33 58.55 checking for gawk... no
+#33 58.55 checking for mawk... mawk
+#33 58.55 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#33 63.27 checking for sysroot... no
+#33 63.27 checking for a working dd... /usr/bin/dd
+#33 63.33 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#33 63.39 checking for i686-linux-mt... no
+#33 63.39 checking for mt... no
+#33 63.39 checking if : is a manifest tool... no
+#33 63.44 checking for stdio.h... yes
+#33 64.36 checking for stdlib.h... 
+#33 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 56.94 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#37 58.04 checking dependency style of /emsdk/upstream/emscripten/emcc... gcc3
+#37 58.86 checking for a sed that does not truncate output... /usr/bin/sed
+#37 58.91 checking for grep that handles long lines and -e... /usr/bin/grep
+#37 58.94 checking for egrep... /usr/bin/grep -E
+#37 58.96 checking for fgrep... /usr/bin/grep -F
+#37 58.98 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#37 59.35 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#37 59.65 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#37 59.65 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#37 60.32 checking whether ln -s works... yes
+#37 60.32 checking the maximum length of command line arguments... 1572864
+#37 60.39 checking how to convert x86_64-pc-linux-gnu file names to i686-pc-none format... func_convert_file_noop
+#37 60.39 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#37 60.39 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#37 60.39 checking for i686-none-objdump... no
+#37 60.40 checking for objdump... objdump
+#37 60.40 checking how to recognize dependent libraries... unknown
+#37 60.40 checking for i686-none-dlltool... no
+#37 60.40 checking for dlltool... no
+#37 60.40 checking how to associate runtime and link libraries... printf %s\n
+#37 60.40 checking for i686-none-ar... /emsdk/upstream/emscripten/emar
+#37 60.40 checking for archiver @FILE support... @
+#37 61.52 checking for i686-none-strip... strip
+#37 61.52 checking for i686-none-ranlib... /emsdk/upstream/emscripten/emranlib
+#37 61.52 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... 
+#37 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 63.86 /src/infback.c:28:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 63.87 int ZEXPORT inflateBackInit_(strm, windowBits, window, version, stream_size)
+#35 63.87             ^
+#35 63.93 /src/infback.c:82:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 63.93 local void fixedtables(state)
+#35 63.93            ^
+#35 63.94 /src/infback.c:250:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 63.94 int ZEXPORT inflateBack(strm, in, in_desc, out, out_desc)
+#35 63.94             ^
+#35 63.98 /src/infback.c:631:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 63.98 int ZEXPORT inflateBackEnd(strm)
+#35 63.98             ^
+#35 65.03 4 warnings generated.
+#35 65.33 [ 27%] Building C object CMakeFiles/zlib.dir/inftrees.o
+#35 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 55.99 -- Performing Test CC_HAS_FNO_EXCEPTIONS_FLAG - Success
+#23 56.20 CMake Warning (dev) at /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+#23 56.20   The package name passed to `find_package_handle_standard_args` (nasm) does
+#23 56.20   not match the name of the calling package (Nasm).  This can lead to
+#23 56.20   problems in calling code that expects `find_package` result variables
+#23 56.20   (e.g., `_FOUND`) to follow a certain pattern.
+#23 56.20 Call Stack (most recent call first):
+#23 56.20   cmake/FindNasm.cmake:23 (find_package_handle_standard_args)
+#23 56.20   CMakeLists.txt:352 (find_package)
+#23 56.20 This warning is for project developers.  Use -Wno-dev to suppress it.
+#23 56.20 
+#23 56.20 -- Could NOT find nasm (missing: NASM_EXECUTABLE) 
+#23 56.22 -- x265 version 0.0
+#23 56.23 -- Looking for strtok_r
+#23 61.86 -- Looking for strtok_r - found
+#23 61.87 -- Configuring done
+#23 61.89 -- Generating done
+#23 61.90 -- Build files have been written to: /src/source/build/12bit
+#23 61.92 + emmake make -j
+#23 62.08 make: make -j
+#23 62.50 [  2%] Building CXX object encoder/CMakeFiles/encoder.dir/level.cpp.o
+#23 62.50 [  4%] Building CXX object common/CMakeFiles/common.dir/intrapred.cpp.o
+#23 62.53 [ 10%] Building CXX object encoder/CMakeFiles/encoder.dir/reference.cpp.o
+#23 62.53 [ 10%] Building CXX object encoder/CMakeFiles/encoder.dir/frameencoder.cpp.o
+#23 62.53 [ 10%] Building CXX object encoder/CMakeFiles/encoder.dir/sei.cpp.o
+#23 62.53 [ 12%] Building CXX object encoder/CMakeFiles/encoder.dir/analysis.cpp.o
+#23 62.53 [ 16%] Building CXX object common/CMakeFiles/common.dir/pixel.cpp.o
+#23 62.54 [ 16%] Building CXX object encoder/CMakeFiles/encoder.dir/nal.cpp.o
+#23 62.54 [ 18%] Building CXX object common/CMakeFiles/common.dir/lowpassdct.cpp.o
+#23 62.54 [ 22%] Building CXX object encoder/CMakeFiles/encoder.dir/entropy.cpp.o
+#23 62.55 [ 20%] Building CXX object encoder/CMakeFiles/encoder.dir/motion.cpp.o
+#23 62.57 [ 26%] Building CXX object encoder/CMakeFiles/encoder.dir/sao.cpp.o
+#23 62.57 [ 26%] Building CXX object encoder/CMakeFiles/encoder.dir/ratecontrol.cpp.o
+#23 62.58 [ 28%] Building CXX object common/CMakeFiles/common.dir/constants.cpp.o
+#23 62.60 [ 32%] Building CXX object encoder/CMakeFiles/encoder.dir/search.cpp.o
+#23 62.60 [ 32%] Building CXX object encoder/CMakeFiles/encoder.dir/slicetype.cpp.o
+#23 62.64 [ 36%] Building CXX object common/CMakeFiles/common.dir/ipfilter.cpp.o
+#23 62.65 [ 40%] Building CXX object common/CMakeFiles/common.dir/threading.cpp.o
+#23 62.65 [ 34%] Building CXX object encoder/CMakeFiles/encoder.dir/bitcost.cpp.o
+#23 62.65 [ 42%] Building CXX object common/CMakeFiles/common.dir/threadpool.cpp.o
+#23 62.66 [ 38%] Building CXX object common/CMakeFiles/common.dir/version.cpp.o
+#23 62.67 [ 44%] Building CXX object common/CMakeFiles/common.dir/yuv.cpp.o
+#23 62.71 [ 46%] Building CXX object common/CMakeFiles/common.dir/picyuv.cpp.o
+#23 62.74 [ 50%] Building CXX object common/CMakeFiles/common.dir/md5.cpp.o
+#23 62.77 [ 48%] Building CXX object encoder/CMakeFiles/encoder.dir/framefilter.cpp.o
+#23 62.79 [ 52%] Building CXX object common/CMakeFiles/common.dir/frame.cpp.o
+#23 62.81 [ 54%] Building CXX object encoder/CMakeFiles/encoder.dir/weightPrediction.cpp.o
+#23 62.84 [ 56%] Building CXX object common/CMakeFiles/common.dir/param.cpp.o
+#23 62.94 [ 58%] Building CXX object common/CMakeFiles/common.dir/cudata.cpp.o
+#23 63.00 [ 66%] Building CXX object common/CMakeFiles/common.dir/deblock.cpp.o
+#23 63.01 [ 60%] Building CXX object common/CMakeFiles/common.dir/cpu.cpp.o
+#23 63.03 [ 70%] Building CXX object common/CMakeFiles/common.dir/slice.cpp.o
+#23 63.03 [ 68%] Building CXX object common/CMakeFiles/common.dir/quant.cpp.o
+#23 63.04 [ 62%] Building CXX object common/CMakeFiles/common.dir/shortyuv.cpp.o
+#23 63.04 [ 64%] Building CXX object encoder/CMakeFiles/encoder.dir/encoder.cpp.o
+#23 63.06 [ 74%] Building CXX object encoder/CMakeFiles/encoder.dir/dpb.cpp.o
+#23 63.06 [ 78%] Building CXX object common/CMakeFiles/common.dir/framedata.cpp.o
+#23 63.07 [ 72%] Building CXX object common/CMakeFiles/common.dir/dct.cpp.o
+#23 63.08 [ 76%] Building CXX object common/CMakeFiles/common.dir/primitives.cpp.o
+#23 63.09 [ 82%] Building CXX object common/CMakeFiles/common.dir/scalinglist.cpp.o
+#23 63.10 [ 82%] Building CXX object common/CMakeFiles/common.dir/predict.cpp.o
+#23 63.12 [ 84%] Building CXX object common/CMakeFiles/common.dir/common.cpp.o
+#23 63.18 [ 88%] Building CXX object common/CMakeFiles/common.dir/scaler.cpp.o
+#23 63.19 [ 86%] Building CXX object common/CMakeFiles/common.dir/wavefront.cpp.o
+#23 63.24 [ 94%] Building CXX object encoder/CMakeFiles/encoder.dir/api.cpp.o
+#23 63.24 [ 92%] Building CXX object common/CMakeFiles/common.dir/loopfilter.cpp.o
+#23 63.25 [ 94%] Building CXX object common/CMakeFiles/common.dir/bitstream.cpp.o
+#23 63.39 [ 96%] Building CXX object common/CMakeFiles/common.dir/lowres.cpp.o
+#23 63.42 [ 98%] Building CXX object common/CMakeFiles/common.dir/piclist.cpp.o
+#23 64.30 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 64.59 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 64.69 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 64.92 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 64.96 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 64.96 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.09 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.15 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.19 
+#23 65.22 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.28 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.35 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.37 clang++clang++: warning: : warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.39 argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.55 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.59 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.60 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.62 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 65.81 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.01 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.05 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.12 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.16 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.19 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.22 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.24 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.25 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.25 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 66.20 /src/inftrees.c:32:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 66.22 int ZLIB_INTERNAL inflate_table(type, lens, codes, table, bits, work)
+#35 66.22                   ^
+#35 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 54.55 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#32 55.71 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#32 56.83 checking dependency style of /emsdk/upstream/emscripten/emcc... gcc3
+#32 57.63 checking for i686-gnu-ar... /emsdk/upstream/emscripten/emar
+#32 57.63 checking the archiver (/emsdk/upstream/emscripten/emar) interface... ar
+#32 58.52 checking build system type... x86_64-pc-linux-gnu
+#32 59.15 checking host system type... i686-pc-gnu
+#32 59.26 checking how to print strings... printf
+#32 59.27 checking for a sed that does not truncate output... (cached) /usr/bin/sed
+#32 59.29 checking for grep that handles long lines and -e... /usr/bin/grep
+#32 59.30 checking for egrep... /usr/bin/grep -E
+#32 59.33 checking for fgrep... /usr/bin/grep -F
+#32 59.35 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#32 59.65 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#32 59.92 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#32 59.93 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#32 60.57 checking whether ln -s works... yes
+#32 60.57 checking the maximum length of command line arguments... 1572864
+#32 60.66 checking how to convert x86_64-pc-linux-gnu file names to i686-pc-gnu format... func_convert_file_noop
+#32 60.66 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#32 60.66 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#32 60.66 checking for i686-gnu-objdump... no
+#32 60.66 checking for objdump... objdump
+#32 60.66 checking how to recognize dependent libraries... pass_all
+#32 60.66 checking for i686-gnu-dlltool... no
+#32 60.66 checking for dlltool... no
+#32 60.66 checking how to associate runtime and link libraries... printf %s\n
+#32 60.66 checking for i686-gnu-ar... (cached) /emsdk/upstream/emscripten/emar
+#32 60.66 checking for archiver @FILE support... @
+#32 61.91 checking for i686-gnu-strip... strip
+#32 61.91 checking for i686-gnu-ranlib... /emsdk/upstream/emscripten/emranlib
+#32 61.91 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... 
+#32 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 66.33 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.56 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.62 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.71 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 66.78 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.02 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.05 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.41 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.49 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.51 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.70 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.78 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.89 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 67.98 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 68.18 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 68.51 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 68.56 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 68.74 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 69.12 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 69.25 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 41.81 checking whether we are cross compiling... no
+#41 47.74 checking for suffix of object files... o
+#41 48.46 checking whether the compiler supports GNU C... yes
+#41 49.14 checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+#41 49.95 checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+#41 51.55 checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+#41 53.58 checking dependency style of /emsdk/upstream/emscripten/emcc... none
+#41 53.58 checking for a sed that does not truncate output... /usr/bin/sed
+#41 53.65 checking for grep that handles long lines and -e... /usr/bin/grep
+#41 53.68 checking for egrep... /usr/bin/grep -E
+#41 53.75 checking for fgrep... /usr/bin/grep -F
+#41 53.79 checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+#41 54.47 checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+#41 55.17 checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+#41 55.17 checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+#41 56.80 checking whether ln -s works... yes
+#41 56.80 checking the maximum length of command line arguments... 1572864
+#41 56.96 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#41 56.96 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#41 56.96 checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+#41 56.96 checking for x86_64-linux-gnu-objdump... x86_64-linux-gnu-objdump
+#41 56.96 checking how to recognize dependent libraries... pass_all
+#41 56.96 checking for x86_64-linux-gnu-dlltool... no
+#41 56.96 checking for dlltool... no
+#41 56.96 checking how to associate runtime and link libraries... printf %s\n
+#41 56.96 checking for x86_64-linux-gnu-ar... /emsdk/upstream/emscripten/emar
+#41 56.96 checking for archiver @FILE support... 
+#41 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 67.21 1 warning generated.
+#35 67.33 [ 30%] Building C object CMakeFiles/zlib.dir/inffast.o
+#35 68.39 /src/inffast.c:50:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 68.39 void ZLIB_INTERNAL inflate_fast(strm, start)
+#35 68.39                    ^
+#35 69.36 1 warning generated.
+#35 69.48 [ 32%] Building C object CMakeFiles/zlib.dir/trees.o
+#35 70.13 /src/trees.c:379:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.13 void ZLIB_INTERNAL _tr_init(s)
+#35 70.13                    ^
+#35 70.18 /src/trees.c:407:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.18 local void init_block(s)
+#35 70.18            ^
+#35 70.19 /src/trees.c:451:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.20 local void pqdownheap(s, tree, k)
+#35 70.20            ^
+#35 70.20 /src/trees.c:486:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.20 local void gen_bitlen(s, desc)
+#35 70.20            ^
+#35 70.21 /src/trees.c:572:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.21 local void gen_codes (tree, max_code, bl_count)
+#35 70.21            ^
+#35 70.21 /src/trees.c:615:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.21 local void build_tree(s, desc)
+#35 70.21            ^
+#35 70.22 /src/trees.c:703:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.22 local void scan_tree (s, tree, max_code)
+#35 70.22            ^
+#35 70.22 /src/trees.c:748:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.22 local void send_tree (s, tree, max_code)
+#35 70.22            ^
+#35 70.22 /src/trees.c:799:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.22 local int build_bl_tree(s)
+#35 70.22           ^
+#35 70.24 /src/trees.c:834:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.24 local void send_all_trees(s, lcodes, dcodes, blcodes)
+#35 70.24            ^
+#35 70.24 /src/trees.c:863:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.24 void ZLIB_INTERNAL _tr_stored_block(s, buf, stored_len, last)
+#35 70.24                    ^
+#35 70.46 /src/trees.c:886:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.46 void ZLIB_INTERNAL _tr_flush_bits(s)
+#35 70.46                    ^
+#35 70.46 /src/trees.c:896:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.46 void ZLIB_INTERNAL _tr_align(s)
+#35 70.46                    ^
+#35 70.46 /src/trees.c:911:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.46 void ZLIB_INTERNAL _tr_flush_block(s, buf, stored_len, last)
+#35 70.46                    ^
+#35 70.46 /src/trees.c:1014:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.46 int ZLIB_INTERNAL _tr_tally (s, dist, lc)
+#35 70.46                   ^
+#35 70.47 /src/trees.c:1064:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.47 local void compress_block(s, ltree, dtree)
+#35 70.47            ^
+#35 70.47 /src/trees.c:1124:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.47 local int detect_data_type(s)
+#35 70.47           ^
+#35 70.47 /src/trees.c:1158:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.47 local unsigned bi_reverse(code, len)
+#35 70.47                ^
+#35 70.47 /src/trees.c:1173:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.47 local void bi_flush(s)
+#35 70.47            ^
+#35 70.47 /src/trees.c:1190:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 70.47 local void bi_windup(s)
+#35 70.47            ^
+#35 72.40 20 warnings generated.
+#35 73.15 [ 35%] Building C object CMakeFiles/zlib.dir/uncompr.o
+#35 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 71.60 clang++: warning: argument unused during compilation: '-march=i686' [-Wunused-command-line-argument]
+#23 71.62 In file included from /src/source/encoder/frameencoder.cpp:32:
+#23 71.62 In file included from /src/source/encoder/encoder.h:30:
+#23 71.62 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 71.63     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 71.63            ^
+#23 71.63 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 71.63     NUM_SIZES
+#23 71.63     ^
+#23 71.88 In file included from /src/source/encoder/framefilter.cpp:28:
+#23 71.88 In file included from /src/source/encoder/encoder.h:30:
+#23 71.88 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 71.97     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 71.97            ^
+#23 71.97 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 71.97     NUM_SIZES
+#23 71.97     ^
+#23 72.55 In file included from /src/source/encoder/entropy.cpp:27:
+#23 72.55 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 72.55     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 72.56            ^
+#23 72.60 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 72.62     NUM_SIZES
+#23 72.62     ^
+#23 73.01 In file included from /src/source/encoder/encoder.cpp:36:
+#23 73.16 In file included from /src/source/encoder/encoder.h:30:
+#23 73.16 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 73.16     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 73.16            ^
+#23 73.16 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 73.16     NUM_SIZES
+#23 73.16     ^
+#23 74.08 /src/source/common/scaler.cpp:514:9: warning: variable 'dst_stride' set but not used [-Wunused-but-set-variable]
+#23 74.08     int dst_stride = SCALER_ALIGN(dstW * sizeof(int16_t) + 66, 16);
+#23 74.08         ^
+#23 74.23 /src/source/encoder/entropy.cpp:1361:21: warning: variable 'totalSignalledWeightFlags' set but not used [-Wunused-but-set-variable]
+#23 74.23     uint32_t        totalSignalledWeightFlags = 0;
+#23 74.23                     ^
+#23 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 64.36 checking for stdlib.h... yes
+#33 65.29 checking for string.h... yes
+#33 66.25 checking for inttypes.h... yes
+#33 67.65 checking for stdint.h... yes
+#33 68.67 checking for strings.h... yes
+#33 69.67 checking for sys/stat.h... yes
+#33 71.22 checking for sys/types.h... yes
+#33 72.53 checking for unistd.h... 
+#33 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 66.19 Creating makefiles for generic-gnu libs
+#38 67.16 + emmake make install -j
+#38 67.35 make: make install -j
+#38 68.31     [CREATE] vpx_scale_rtcd.h
+#38 68.70     [CREATE] vp8_rtcd.h
+#38 68.71     [CREATE] vp9_rtcd.h
+#38 68.75     [CREATE] vpx.pc
+#38 68.76     [INSTALL] /opt/include/vpx/vp8.h
+#38 68.76     [INSTALL] /opt/include/vpx/vp8cx.h
+#38 68.77     [INSTALL] /opt/include/vpx/vp8dx.h
+#38 68.77     [CREATE] vpx_dsp_rtcd.h
+#38 68.77     [INSTALL] /opt/include/vpx/vpx_ext_ratectrl.h
+#38 68.78     [INSTALL] /opt/include/vpx/vpx_frame_buffer.h
+#38 68.78     [INSTALL] /opt/include/vpx/vpx_integer.h
+#38 68.78     [INSTALL] /opt/include/vpx/vpx_image.h
+#38 68.78     [INSTALL] /opt/include/vpx/vpx_codec.h
+#38 68.79     [INSTALL] /opt/include/vpx/vpx_decoder.h
+#38 68.84     [INSTALL] /opt/include/vpx/vpx_encoder.h
+#38 69.31     [CC] vpx/src/vpx_image.c.o
+#38 69.31     [CC] vpx/src/vpx_encoder.c.o
+#38 69.33     [CC] vpx/src/vpx_codec.c.o
+#38 69.35     [CC] vpx_scale/generic/vpx_scale.c.o
+#38 69.36     [CC] vpx_scale/generic/yv12extend.c.o
+#38 69.36     [CC] vpx_dsp/prob.c.o
+#38 69.37     [CC] vpx_scale/generic/gen_scalers.c.o
+#38 69.37     [CC] vpx_scale/generic/yv12config.c.o
+#38 69.39     [CC] vpx_scale/vpx_scale_rtcd.c.o
+#38 69.39     [CC] vpx/src/vpx_decoder.c.o
+#38 69.42     [CC] vpx_mem/vpx_mem.c.o
+#38 69.57     [CC] vpx_dsp/bitwriter.c.o
+#38 69.64     [CC] vpx_dsp/psnr.c.o
+#38 69.65     [CC] vpx_dsp/bitreader.c.o
+#38 69.66     [CC] vpx_dsp/bitwriter_buffer.c.o
+#38 69.70     [CC] vpx_dsp/bitreader_buffer.c.o
+#38 69.71     [CC] vpx_dsp/intrapred.c.o
+#38 69.71     [CC] vpx_dsp/vpx_convolve.c.o
+#38 70.16     [CC] vpx_dsp/avg.c.o
+#38 70.16     [CC] vpx_dsp/quantize.c.o
+#38 70.18     [CC] vpx_dsp/sad.c.o
+#38 70.20     [CC] vpx_dsp/sum_squares.c.o
+#38 70.24     [CC] vpx_dsp/fwd_txfm.c.o
+#38 70.24     [CC] vpx_dsp/inv_txfm.c.o
+#38 70.25     [CC] vpx_dsp/loopfilter.c.o
+#38 70.28     [CC] vpx_dsp/skin_detection.c.o
+#38 70.33     [CC] vpx_dsp/vpx_dsp_rtcd.c.o
+#38 70.41     [CC] vpx_dsp/subtract.c.o
+#38 70.47     [CC] vpx_util/vpx_thread.c.o
+#38 70.53     [CC] vpx_dsp/variance.c.o
+#38 71.20     [CC] vpx_util/vpx_write_yuv_frame.c.o
+#38 71.24     [CC] vp8/common/blockd.c.o
+#38 71.42     [CC] vp8/common/entropy.c.o
+#38 71.52     [CC] vp8/common/dequantize.c.o
+#38 71.58     [CC] vp8/common/entropymode.c.o
+#38 71.92     [CC] vp8/common/alloccommon.c.o
+#38 72.00     [CC] vp8/common/entropymv.c.o
+#38 72.30     [CC] vp8/common/loopfilter_filters.c.o
+#38 72.43     [CC] vp8/common/generic/systemdependent.c.o
+#38 72.46     [CC] vp8/common/idctllm.c.o
+#38 72.54     [CC] vp8/common/rtcd.c.o
+#38 72.60     [CC] vp8/common/quant_common.c.o
+#38 72.66     [CC] vp8/common/filter.c.o
+#38 72.73     [CC] vp8/common/findnearmv.c.o
+#38 72.83     [CC] vp8/common/idct_blk.c.o
+#38 72.85     [CC] vp8/common/reconinter.c.o
+#38 72.90     [CC] vp8/common/extend.c.o
+#38 72.92     [CC] vp8/common/vp8_loopfilter.c.o
+#38 72.95     [CC] vp8/common/modecont.c.o
+#38 73.41     [CC] vp8/common/reconintra.c.o
+#38 73.75     [CC] vp8/common/mbpitch.c.o
+#38 73.87     [CC] vp8/common/reconintra4x4.c.o
+#38 73.89     [CC] vp8/encoder/boolhuff.c.o
+#38 73.90     [CC] vp8/encoder/dct.c.o
+#38 73.91     [CC] vp8/encoder/encodemv.c.o
+#38 73.93     [CC] vp8/common/swapyv12buffer.c.o
+#38 73.93     [CC] vp8/encoder/copy_c.c.o
+#38 73.93     [CC] vp8/vp8_cx_iface.c.o
+#38 73.98     [CC] vp8/common/setupintrarecon.c.o
+#38 74.00     [CC] vp8/encoder/pickinter.c.o
+#38 74.01     [CC] vp8/encoder/bitstream.c.o
+#38 74.02     [CC] vp8/encoder/modecosts.c.o
+#38 74.03     [CC] vp8/encoder/vp8_quantize.c.o
+#38 74.03     [CC] vp8/encoder/segmentation.c.o
+#38 74.05     [CC] vp8/encoder/lookahead.c.o
+#38 74.05     [CC] vp8/encoder/picklpf.c.o
+#38 74.05     [CC] vp8/encoder/rdopt.c.o
+#38 74.06     [CC] vp8/encoder/denoising.c.o
+#38 74.06     [CC] vp8/encoder/treewriter.c.o
+#38 74.08     [CC] vp8/encoder/temporal_filter.c.o
+#38 74.08     [CC] vp8/decoder/dboolhuff.c.o
+#38 74.09     [CC] vp8/encoder/ratectrl.c.o
+#38 74.10     [CC] vp8/common/vp8_skin_detection.c.o
+#38 74.11     [CC] vp8/encoder/encodeframe.c.o
+#38 74.12     [CC] vp8/encoder/encodeintra.c.o
+#38 74.15     [CC] vp8/vp8_dx_iface.c.o
+#38 74.19     [CC] vp9/vp9_iface_common.c.o
+#38 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 63.21 checking for unistd.h... yes
+#36 64.42 checking for sys/param.h... yes
+#36 65.49 checking for dlfcn.h... yes
+#36 66.49 checking for objdir... .libs
+#36 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 62.47 checking for archiver @FILE support... @
+#29 64.67 checking for i686-linux-strip... strip
+#29 64.67 checking for i686-linux-ranlib... /emsdk/upstream/emscripten/emranlib
+#29 64.67 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... 
+#29 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 74.19     [CC] vp8/decoder/decodemv.c.o
+#38 74.19     [CC] vp8/decoder/decodeframe.c.o
+#38 74.20     [CC] vp9/common/vp9_alloccommon.c.o
+#38 74.20     [CC] vp8/decoder/detokenize.c.o
+#38 74.20     [CC] vp8/decoder/onyxd_if.c.o
+#38 74.20     [CC] vp9/common/vp9_blockd.c.o
+#38 74.21     [CC] vp9/common/vp9_entropy.c.o
+#38 74.26     [CC] vp8/common/treecoder.c.o
+#38 74.26     [CC] vp8/encoder/encodemb.c.o
+#38 74.31     [CC] vp9/common/vp9_entropymode.c.o
+#38 74.31     [CC] vp9/common/vp9_entropymv.c.o
+#38 74.34     [CC] vp9/common/vp9_frame_buffers.c.o
+#38 74.34     [CC] vp9/common/vp9_seg_common.c.o
+#38 74.34     [CC] vp9/common/vp9_pred_common.c.o
+#38 74.35     [CC] vp8/encoder/tokenize.c.o
+#38 74.35     [CC] vp8/encoder/firstpass.c.o
+#38 74.36     [CC] vp9/common/vp9_filter.c.o
+#38 74.36     [CC] vp9/common/vp9_tile_common.c.o
+#38 74.37     [CC] vp9/common/vp9_idct.c.o
+#38 74.38     [CC] vp9/common/vp9_scale.c.o
+#38 74.42     [CC] vp9/common/vp9_loopfilter.c.o
+#38 74.43     [CC] vp8/encoder/onyx_if.c.o
+#38 74.73     [CC] vp8/encoder/mcomp.c.o
+#38 74.79     [CC] vp9/common/vp9_rtcd.c.o
+#38 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 59.29 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#28 65.27 checking for sysroot... no
+#28 65.27 checking for a working dd... /usr/bin/dd
+#28 65.37 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#28 66.61 checking for x86_64-linux-mt... no
+#28 66.61 checking for mt... no
+#28 66.62 checking if : is a manifest tool... no
+#28 66.69 checking for stdio.h... yes
+#28 67.55 checking for stdlib.h... yes
+#28 68.87 checking for string.h... yes
+#28 69.77 checking for inttypes.h... yes
+#28 70.99 checking for stdint.h... yes
+#28 73.63 checking for strings.h... 
+#28 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 61.52 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#37 69.24 checking for sysroot... no
+#37 69.24 checking for a working dd... /usr/bin/dd
+#37 69.36 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#37 69.46 checking for i686-none-mt... no
+#37 69.46 checking for mt... no
+#37 69.46 checking if : is a manifest tool... no
+#37 69.58 checking for stdio.h... yes
+#37 70.76 checking for stdlib.h... yes
+#37 73.61 checking for string.h... 
+#37 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 75.86     [CC] vp9/common/vp9_scan.c.o
+#38 75.88     [CC] vp9/encoder/vp9_bitstream.c.o
+#38 75.89     [CC] vp9/common/vp9_mvref_common.c.o
+#38 75.89     [CC] vp9/common/vp9_reconinter.c.o
+#38 75.90     [CC] vp9/common/vp9_quant_common.c.o
+#38 75.90     [CC] vp9/common/vp9_thread_common.c.o
+#38 75.91     [CC] vp9/common/vp9_reconintra.c.o
+#38 75.93     [CC] vp9/common/vp9_common_data.c.o
+#38 75.94     [CC] vp9/vp9_cx_iface.c.o
+#38 75.94     [CC] vp9/encoder/vp9_cost.c.o
+#38 75.95     [CC] vp9/encoder/vp9_encodemb.c.o
+#38 75.96     [CC] vp9/encoder/vp9_context_tree.c.o
+#38 75.96     [CC] vp9/encoder/vp9_dct.c.o
+#38 75.97     [CC] vp9/encoder/vp9_encodeframe.c.o
+#38 76.01     [CC] vp9/encoder/vp9_extend.c.o
+#38 76.01     [CC] vp9/encoder/vp9_ethread.c.o
+#38 76.01     [CC] vp9/encoder/vp9_encodemv.c.o
+#38 76.03     [CC] vp9/encoder/vp9_firstpass.c.o
+#38 76.03     [CC] vp9/encoder/vp9_lookahead.c.o
+#38 76.03     [CC] vp9/encoder/vp9_frame_scale.c.o
+#38 76.08     [CC] vp9/encoder/vp9_encoder.c.o
+#38 76.08     [CC] vp9/encoder/vp9_mcomp.c.o
+#38 76.15     [CC] vp9/encoder/vp9_rd.c.o
+#38 76.16     [CC] vp9/encoder/vp9_ratectrl.c.o
+#38 76.16     [CC] vp9/encoder/vp9_quantize.c.o
+#38 76.19     [CC] vp9/encoder/vp9_multi_thread.c.o
+#38 76.20     [CC] vp9/encoder/vp9_rdopt.c.o
+#38 76.20     [CC] vp9/encoder/vp9_picklpf.c.o
+#38 76.23     [CC] vp9/encoder/vp9_pickmode.c.o
+#38 76.26     [CC] vp9/encoder/vp9_speed_features.c.o
+#38 76.26     [CC] vp9/encoder/vp9_segmentation.c.o
+#38 76.27     [CC] vp9/encoder/vp9_resize.c.o
+#38 76.28     [CC] vp9/encoder/vp9_subexp.c.o
+#38 76.28     [CC] vp9/encoder/vp9_tokenize.c.o
+#38 76.29     [CC] vp9/encoder/vp9_svc_layercontext.c.o
+#38 76.29     [CC] vp9/encoder/vp9_treewriter.c.o
+#38 76.31     [CC] vp9/encoder/vp9_aq_360.c.o
+#38 76.33     [CC] vp9/encoder/vp9_alt_ref_aq.c.o
+#38 76.33     [CC] vp9/encoder/vp9_noise_estimate.c.o
+#38 76.33     [CC] vp9/encoder/vp9_temporal_filter.c.o
+#38 76.33     [CC] vp9/encoder/vp9_aq_cyclicrefresh.c.o
+#38 76.35     [CC] vp9/encoder/vp9_aq_variance.c.o
+#38 76.35     [CC] vp9/encoder/vp9_mbgraph.c.o
+#38 76.36     [CC] vp9/vp9_dx_iface.c.o
+#38 76.36     [CC] vp9/decoder/vp9_decodeframe.c.o
+#38 76.36     [CC] vp9/decoder/vp9_detokenize.c.o
+#38 76.36     [CC] vp9/decoder/vp9_decodemv.c.o
+#38 76.37     [CC] vp9/decoder/vp9_decoder.c.o
+#38 76.37     [CC] vp9/encoder/vp9_ext_ratectrl.c.o
+#38 76.39     [CC] vp9/encoder/vp9_aq_complexity.c.o
+#38 76.49     [CC] vp9/encoder/vp9_skin_detection.c.o
+#38 76.50     [CC] vp9/decoder/vp9_dsubexp.c.o
+#38 77.05     [CC] vpx_config.c.o
+#38 77.06     [CC] vp9/decoder/vp9_job_queue.c.o
+#38 77.40     [CXX] vp9/ratectrl_rtc.cc.o
+#38 77.55     [CXX] vp8/vp8_ratectrl_rtc.cc.o
+#38 77.57     [INSTALL] /opt/lib/pkgconfig/vpx.pc
+#38 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 61.91 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#32 70.80 checking for sysroot... no
+#32 70.80 checking for a working dd... /usr/bin/dd
+#32 70.97 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#32 71.33 checking for i686-gnu-mt... no
+#32 71.33 checking for mt... no
+#32 71.33 checking if : is a manifest tool... no
+#32 71.62 checking for stdio.h... yes
+#32 76.49 checking for stdlib.h... 
+#32 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 76.52 In file included from /src/source/encoder/analysis.cpp:33:
+#23 76.52 In file included from /src/source/encoder/analysis.h:30:
+#23 76.52 In file included from /src/source/common/predict.h:30:
+#23 76.52 In file included from /src/source/common/quant.h:29:
+#23 76.52 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 76.52     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 76.52            ^
+#23 76.52 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 76.52     NUM_SIZES
+#23 76.52     ^
+#23 77.44 1 warning generated.
+#23 77.50 1 warning generated.
+#23 78.69 In file included from /src/source/common/predict.cpp:29:
+#23 78.70 In file included from /src/source/common/predict.h:30:
+#23 78.70 In file included from /src/source/common/quant.h:29:
+#23 78.70 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 78.70     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 78.70            ^
+#23 78.70 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 78.70     NUM_SIZES
+#23 78.71     ^
+#23 79.36 /src/source/encoder/sao.cpp:742:18: warning: variable 'fenc' set but not used [-Wunused-but-set-variable]
+#23 79.43     const pixel* fenc;
+#23 79.43                  ^
+#23 81.28 1 warning generated.
+#23 81.37 2 warnings generated.
+#23 82.98 In file included from /src/source/encoder/search.cpp:30:
+#23 82.98 In file included from /src/source/encoder/search.h:29:
+#23 82.98 In file included from /src/source/common/predict.h:30:
+#23 82.98 In file included from /src/source/common/quant.h:29:
+#23 82.98 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 83.00     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 83.00            ^
+#23 83.08 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 83.08     NUM_SIZES
+#23 83.08     ^
+#23 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 73.61 checking for string.h... yes
+#37 86.04 checking for inttypes.h... 
+#37 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 72.53 checking for unistd.h... yes
+#33 78.11 checking for dlfcn.h... 
+#33 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 64.67 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#29 77.75 checking for sysroot... no
+#29 77.75 checking for a working dd... /usr/bin/dd
+#29 77.82 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#29 77.90 checking for i686-linux-mt... no
+#29 77.90 checking for mt... no
+#29 77.90 checking if : is a manifest tool... no
+#29 78.23 checking for dlfcn.h... 
+#29 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 73.63 checking for strings.h... yes
+#28 87.39 checking for sys/stat.h... 
+#28 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 56.96 checking for archiver @FILE support... @
+#41 64.27 checking for x86_64-linux-gnu-strip... (cached) x86_64-linux-gnu-strip
+#41 64.27 checking for x86_64-linux-gnu-ranlib... /emsdk/upstream/emscripten/emranlib
+#41 64.27 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... 
+#41 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 87.56 /src/uncompr.c:27:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 87.56 int ZEXPORT uncompress2 (dest, destLen, source, sourceLen)
+#35 87.56             ^
+#35 87.66 /src/uncompr.c:86:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 87.67 int ZEXPORT uncompress (dest, destLen, source, sourceLen)
+#35 87.67             ^
+#35 88.82 2 warnings generated.
+#35 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 81.01 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... 
+#36 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 87.88 /src/source/encoder/search.cpp:271:14: warning: variable 'tuDepthC' set but not used [-Wunused-but-set-variable]
+#23 87.88     uint32_t tuDepthC = tuDepth;
+#23 87.88              ^
+#23 88.09 /src/source/encoder/search.cpp:3905:14: warning: variable 'tuDepthC' set but not used [-Wunused-but-set-variable]
+#23 88.09     uint32_t tuDepthC = tuDepth;
+#23 88.09              ^
+#23 88.09 1 warning generated.
+#23 88.85 1 warning generated.
+#23 89.02 1 warning generated.
+#23 89.04 1 warning generated.
+#23 89.56 /src/source/common/cudata.cpp:76:12: warning: use of bitwise '|' with boolean operands [-Wbitwise-instead-of-logical]
+#23 89.57     return isEqualCol(addrA, addrB) | isEqualRow(addrA, addrB);
+#23 89.57            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#23 89.57                                     ||
+#23 89.57 /src/source/common/cudata.cpp:76:12: note: cast one or both operands to int to silence this warning
+#23 89.64 /src/source/common/param.cpp:785:16: warning: variable 'count' set but not used [-Wunused-but-set-variable]
+#23 89.64     static int count;
+#23 89.64                ^
+#23 89.71 In file included from /src/source/encoder/ratecontrol.cpp:36:
+#23 89.71 In file included from /src/source/encoder/encoder.h:30:
+#23 89.71 /src/source/common/scalinglist.h:36:12: warning: declaration shadows a variable in namespace 'x265_12bit' [-Wshadow]
+#23 89.71     enum { NUM_SIZES = 4 };            // 4x4, 8x8, 16x16, 32x32
+#23 89.71            ^
+#23 89.71 /src/source/common/cudata.h:51:5: note: previous declaration is here
+#23 89.71     NUM_SIZES
+#23 89.71     ^
+#23 90.20 /src/source/encoder/ratecontrol.cpp:580:20: warning: variable 'totalQpAq' set but not used [-Wunused-but-set-variable]
+#23 90.21             double totalQpAq = 0;
+#23 90.21                    ^
+#23 90.25 /src/source/encoder/ratecontrol.cpp:996:32: warning: variable 'allCodedBits' set but not used [-Wunused-but-set-variable]
+#23 90.25     uint64_t allConstBits = 0, allCodedBits = 0;
+#23 90.25                                ^
+#23 90.25 /src/source/encoder/ratecontrol.cpp:1135:9: warning: variable 'iterations' set but not used [-Wunused-but-set-variable]
+#23 90.26     int iterations = 0 , adjMin, adjMax;
+#23 90.26         ^
+#23 92.69 1 warning generated.
+#23 92.83 1 warning generated.
+#23 93.65 3 warnings generated.
+#23 93.95 4 warnings generated.
+#23 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 86.04 checking for inttypes.h... yes
+#37 93.89 checking for stdint.h... 
+#37 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 76.49 checking for stdlib.h... yes
+#32 87.35 checking for string.h... yes
+#32 93.06 checking for inttypes.h... yes
+#32 96.52 checking for stdint.h... 
+#32 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 95.60 vp9/common/vp9_thread_common.c:393:7: warning: variable 'cur_row' set but not used [-Wunused-but-set-variable]
+#38 95.62   int cur_row;
+#38 95.62       ^
+#38 95.87 vp9/encoder/vp9_encodeframe.c:3698:7: warning: variable 'count' set but not used [-Wunused-but-set-variable]
+#38 95.88   int count = 0;
+#38 95.88       ^
+#38 96.29 vp9/encoder/vp9_encodeframe.c:6169:7: warning: variable 'map_index' set but not used [-Wunused-but-set-variable]
+#38 96.32   int map_index = 0;
+#38 96.32       ^
+#38 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 78.23 checking for dlfcn.h... yes
+#29 88.81 checking for objdir... .libs
+#29 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 78.11 checking for dlfcn.h... yes
+#33 90.39 checking for objdir... .libs
+#33 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 93.89 checking for stdint.h... yes
+#37 98.56 checking for strings.h... 
+#37 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 81.01 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... yes
+#36 92.41 checking for /emsdk/upstream/emscripten/emcc option to produce PIC... -fPIC -DPIC
+#36 92.41 checking if /emsdk/upstream/emscripten/emcc PIC flag -fPIC -DPIC works... yes
+#36 100.7 checking if /emsdk/upstream/emscripten/emcc static flag -static works... 
+#36 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 92.53 [ 37%] Building C object CMakeFiles/zlib.dir/zutil.o
+#35 98.29 /src/zutil.c:133:22: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 98.29 const char * ZEXPORT zError(err)
+#35 98.30                      ^
+#35 98.31 /src/zutil.c:305:22: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 98.31 voidpf ZLIB_INTERNAL zcalloc (opaque, items, size)
+#35 98.31                      ^
+#35 98.32 /src/zutil.c:315:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 98.32 void ZLIB_INTERNAL zcfree (opaque, ptr)
+#35 98.32                    ^
+#35 99.14 3 warnings generated.
+#35 100.9 [ 40%] Linking C static library libz.a
+#35 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 87.39 checking for sys/stat.h... yes
+#28 93.82 checking for sys/types.h... yes
+#28 99.39 checking for unistd.h... 
+#28 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 95.05 [ 98%] Built target encoder
+#23 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 98.56 checking for strings.h... yes
+#37 106.6 checking for sys/stat.h... yes
+#37 109.0 checking for sys/types.h... yes
+#37 110.9 checking for unistd.h... 
+#37 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 64.27 checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+#41 99.21 checking for sysroot... no
+#41 99.21 checking for a working dd... /usr/bin/dd
+#41 99.52 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#41 101.4 checking for x86_64-linux-gnu-mt... no
+#41 101.4 checking for mt... no
+#41 101.4 checking if : is a manifest tool... no
+#41 101.7 checking for stdio.h... 
+#41 ...
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 99.39 checking for unistd.h... yes
+#28 106.7 checking for dlfcn.h... yes
+#28 109.4 checking for objdir... .libs
+#28 ...
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 101.7 checking for stdio.h... yes
+#41 103.6 checking for stdlib.h... 
+#41 ...
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 96.52 checking for stdint.h... yes
+#32 107.1 checking for strings.h... yes
+#32 108.9 checking for sys/stat.h... yes
+#32 110.4 checking for sys/types.h... yes
+#32 112.2 checking for unistd.h... yes
+#32 114.4 checking for dlfcn.h... yes
+#32 115.9 checking for objdir... .libs
+#32 ...
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 108.0 [ 98%] Built target common
+#23 108.4 [100%] Linking CXX static library libx265.a
+#23 110.7 [100%] Built target x265-static
+#23 111.0 + cd ../10bit
+#23 111.0 + emmake cmake ../.. '-DCMAKE_CXX_FLAGS=-I/opt/include  -O3 -msimd128' -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DENABLE_LIBNUMA=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
+#23 111.4 make: cmake ../.. -DCMAKE_CXX_FLAGS=-I/opt/include  -O3 -msimd128 -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DENABLE_LIBNUMA=OFF -DENABLE_SHARED=OFF -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=ON -DEXPORT_C_API=OFF
+#23 111.6 CMake Deprecation Warning at CMakeLists.txt:10 (cmake_policy):
+#23 111.6   The OLD behavior for policy CMP0025 will be removed from a future version
+#23 111.6   of CMake.
+#23 111.6 
+#23 111.6   The cmake-policies(7) manual explains that the OLD behaviors of all
+#23 111.6   policies are deprecated and that a policy should be set to OLD only under
+#23 111.6   specific short-term circumstances.  Projects should be ported to the NEW
+#23 111.6   behavior and not rely on setting a policy to OLD.
+#23 111.6 
+#23 111.6 
+#23 111.6 -- cmake version 3.22.1
+#23 111.6 CMake Deprecation Warning at CMakeLists.txt:16 (cmake_policy):
+#23 111.6   The OLD behavior for policy CMP0054 will be removed from a future version
+#23 111.6   of CMake.
+#23 111.6 
+#23 111.6   The cmake-policies(7) manual explains that the OLD behaviors of all
+#23 111.6   policies are deprecated and that a policy should be set to OLD only under
+#23 111.6   specific short-term circumstances.  Projects should be ported to the NEW
+#23 111.6   behavior and not rely on setting a policy to OLD.
+#23 111.6 
+#23 111.6 
+#23 116.4 CMake Deprecation Warning at CMakeLists.txt:20 (cmake_minimum_required):
+#23 116.4   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#23 116.4   CMake.
+#23 116.4 
+#23 116.4   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#23 116.4   CMake that the project does not need compatibility with older versions.
+#23 116.4 
+#23 116.4 
+#23 116.4 -- Looking for include file inttypes.h
+#23 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 108.0 [ 40%] Built target zlib
+#35 109.0 [ 42%] Building C object CMakeFiles/zlibstatic.dir/adler32.o
+#35 110.8 /src/adler32.c:63:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 110.8 uLong ZEXPORT adler32_z(adler, buf, len)
+#35 110.8               ^
+#35 110.9 /src/adler32.c:134:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 110.9 uLong ZEXPORT adler32(adler, buf, len)
+#35 110.9               ^
+#35 110.9 /src/adler32.c:143:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 110.9 local uLong adler32_combine_(adler1, adler2, len2)
+#35 110.9             ^
+#35 110.9 /src/adler32.c:172:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 110.9 uLong ZEXPORT adler32_combine(adler1, adler2, len2)
+#35 110.9               ^
+#35 110.9 /src/adler32.c:180:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 110.9 uLong ZEXPORT adler32_combine64(adler1, adler2, len2)
+#35 110.9               ^
+#35 112.0 5 warnings generated.
+#35 112.2 [ 45%] Building C object CMakeFiles/zlibstatic.dir/compress.o
+#35 113.5 /src/compress.c:22:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 113.5 int ZEXPORT compress2 (dest, destLen, source, sourceLen, level)
+#35 113.5             ^
+#35 113.7 /src/compress.c:68:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 113.7 int ZEXPORT compress (dest, destLen, source, sourceLen)
+#35 113.7             ^
+#35 113.7 /src/compress.c:81:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 113.7 uLong ZEXPORT compressBound (sourceLen)
+#35 113.7               ^
+#35 114.6 3 warnings generated.
+#35 115.0 [ 47%] Building C object CMakeFiles/zlibstatic.dir/crc32.o
+#35 116.7 /src/crc32.c:202:23: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 unsigned long ZEXPORT crc32_z(crc, buf, len)
+#35 116.7                       ^
+#35 116.7 /src/crc32.c:237:23: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 unsigned long ZEXPORT crc32(crc, buf, len)
+#35 116.7                       ^
+#35 116.7 /src/crc32.c:266:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 local unsigned long crc32_little(crc, buf, len)
+#35 116.7                     ^
+#35 116.7 /src/crc32.c:306:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 local unsigned long crc32_big(crc, buf, len)
+#35 116.7                     ^
+#35 116.7 /src/crc32.c:344:21: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 local unsigned long gf2_matrix_times(mat, vec)
+#35 116.7                     ^
+#35 116.7 /src/crc32.c:361:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 local void gf2_matrix_square(square, mat)
+#35 116.7            ^
+#35 116.7 /src/crc32.c:372:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 local uLong crc32_combine_(crc1, crc2, len2)
+#35 116.7             ^
+#35 116.7 /src/crc32.c:428:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 uLong ZEXPORT crc32_combine(crc1, crc2, len2)
+#35 116.7               ^
+#35 116.7 /src/crc32.c:436:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 116.7 uLong ZEXPORT crc32_combine64(crc1, crc2, len2)
+#35 116.7               ^
+#35 117.8 9 warnings generated.
+#35 118.2 [ 50%] Building C object CMakeFiles/zlibstatic.dir/deflate.o
+#35 ...
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 107.4 1 warning generated.
+#38 112.5 vp8/encoder/onyx_if.c:3209:7: warning: variable 'loop_count' set but not used [-Wunused-but-set-variable]
+#38 112.5   int loop_count;
+#38 112.5       ^
+#38 116.5 vp9/encoder/vp9_ratectrl.c:3272:11: warning: variable 'tot' set but not used [-Wunused-but-set-variable]
+#38 116.5       int tot = 0;
+#38 116.5           ^
+#38 ...
+
+#34 [x264-builder 3/3] RUN bash -x /src/build.sh
+#34 119.7 platform:       X86
+#34 119.7 byte order:     little-endian
+#34 119.7 system:         HURD
+#34 119.7 cli:            no
+#34 119.7 libx264:        internal
+#34 119.7 shared:         no
+#34 119.7 static:         yes
+#34 119.7 bashcompletion: no
+#34 119.7 asm:            no
+#34 119.7 interlaced:     yes
+#34 119.7 avs:            no
+#34 119.7 lavf:           no
+#34 119.7 ffms:           no
+#34 119.7 mp4:            no
+#34 119.7 gpl:            yes
+#34 119.7 thread:         no
+#34 119.7 opencl:         no
+#34 119.7 filters:        crop select_every
+#34 119.7 lto:            no
+#34 119.7 debug:          no
+#34 119.7 gprof:          no
+#34 119.7 strip:          no
+#34 119.7 PIC:            no
+#34 119.7 bit depth:      all
+#34 119.7 chroma format:  all
+#34 119.8 
+#34 119.8 You can run 'make' or 'make fprofiled' now.
+#34 120.0 + emmake make install-lib-static -j
+#34 120.2 make: make install-lib-static -j
+#34 120.5 install -d /opt/include
+#34 120.5 install -d /opt/lib/pkgconfig
+#34 120.6 dependency file generation...
+#34 120.6 install -m 644 ./x264.h x264_config.h /opt/include
+#34 120.7 install -m 644 x264.pc /opt/lib/pkgconfig
+#34 ...
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 110.9 checking for unistd.h... yes
+#37 112.9 checking for dlfcn.h... yes
+#37 114.5 checking for objdir... .libs
+#37 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 119.4 /src/deflate.c:201:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.5 local void slide_hash(s)
+#35 119.5            ^
+#35 119.5 /src/deflate.c:228:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.5 int ZEXPORT deflateInit_(strm, level, version, stream_size)
+#35 119.5             ^
+#35 119.6 /src/deflate.c:240:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateInit2_(strm, level, method, windowBits, memLevel, strategy,
+#35 119.6             ^
+#35 119.6 /src/deflate.c:353:11: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 local int deflateStateCheck (strm)
+#35 119.6           ^
+#35 119.6 /src/deflate.c:376:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateSetDictionary (strm, dictionary, dictLength)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:445:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateGetDictionary (strm, dictionary, dictLength)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:467:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateResetKeep (strm)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:505:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateReset (strm)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:517:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateSetHeader (strm, head)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:528:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflatePending (strm, pending, bits)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:542:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflatePrime (strm, bits, value)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:568:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateParams(strm, level, strategy)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:617:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 int ZEXPORT deflateTune(strm, good_length, max_lazy, nice_length, max_chain)
+#35 119.6             ^
+#35 119.6 /src/deflate.c:652:15: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.6 uLong ZEXPORT deflateBound(strm, sourceLen)
+#35 119.6               ^
+#35 119.7 /src/deflate.c:716:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local void putShortMSB (s, b)
+#35 119.7            ^
+#35 119.7 /src/deflate.c:730:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local void flush_pending(strm)
+#35 119.7            ^
+#35 119.7 /src/deflate.c:763:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 int ZEXPORT deflate (strm, flush)
+#35 119.7             ^
+#35 119.7 /src/deflate.c:1076:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 int ZEXPORT deflateEnd (strm)
+#35 119.7             ^
+#35 119.7 /src/deflate.c:1102:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 int ZEXPORT deflateCopy (dest, source)
+#35 119.7             ^
+#35 119.7 /src/deflate.c:1164:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local unsigned read_buf(strm, buf, size)
+#35 119.7                ^
+#35 119.7 /src/deflate.c:1194:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local void lm_init (s)
+#35 119.7            ^
+#35 119.7 /src/deflate.c:1236:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local uInt longest_match(s, cur_match)
+#35 119.7            ^
+#35 119.7 /src/deflate.c:1482:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local void fill_window(s)
+#35 119.7            ^
+#35 119.7 /src/deflate.c:1643:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local block_state deflate_stored(s, flush)
+#35 119.7                   ^
+#35 119.7 /src/deflate.c:1824:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local block_state deflate_fast(s, flush)
+#35 119.7                   ^
+#35 119.7 /src/deflate.c:1926:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local block_state deflate_slow(s, flush)
+#35 119.7                   ^
+#35 119.7 /src/deflate.c:2057:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local block_state deflate_rle(s, flush)
+#35 119.7                   ^
+#35 119.7 /src/deflate.c:2130:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 119.7 local block_state deflate_huff(s, flush)
+#35 119.7                   ^
+#35 121.4 28 warnings generated.
+#35 121.6 [ 52%] Building C object CMakeFiles/zlibstatic.dir/gzclose.o
+#35 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 114.5 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... yes
+#33 116.7 checking for /emsdk/upstream/emscripten/emcc option to produce PIC... -fPIC -DPIC
+#33 116.7 checking if /emsdk/upstream/emscripten/emcc PIC flag -fPIC -DPIC works... yes
+#33 118.1 checking if /emsdk/upstream/emscripten/emcc static flag -static works... 
+#33 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 123.4 /src/gzclose.c:11:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 123.4 int ZEXPORT gzclose(file)
+#35 123.4             ^
+#35 124.2 1 warning generated.
+#35 124.3 [ 55%] Building C object CMakeFiles/zlibstatic.dir/gzlib.o
+#35 ...
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 114.5 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... yes
+#29 116.2 checking for /emsdk/upstream/emscripten/emcc option to produce PIC... -fPIC -DPIC
+#29 116.2 checking if /emsdk/upstream/emscripten/emcc PIC flag -fPIC -DPIC works... yes
+#29 117.7 checking if /emsdk/upstream/emscripten/emcc static flag -static works... 
+#29 ...
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 100.7 checking if /emsdk/upstream/emscripten/emcc static flag -static works... yes
+#36 116.4 checking if /emsdk/upstream/emscripten/emcc supports -c -o file.o... yes
+#36 118.6 checking if /emsdk/upstream/emscripten/emcc supports -c -o file.o... (cached) yes
+#36 118.6 checking whether the /emsdk/upstream/emscripten/emcc linker (/emsdk/upstream/emscripten/emcc) supports shared libraries... emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.40 (5c27e79dd0a9c4e27ef2326841698cdd4f6b5784)
+#36 119.7 clang version 17.0.0 (https://github.com/llvm/llvm-project 2922e7cd9334797c24a317d41275f1258ef9ddd3)
+#36 119.7 Target: wasm32-unknown-emscripten
+#36 119.7 Thread model: posix
+#36 119.7 InstalledDir: /emsdk/upstream/bin
+#36 121.1 yes
+#36 121.1 checking dynamic linker characteristics... 
+#36 ...
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 125.5 /src/gzlib.c:75:12: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.5 local void gz_reset(state)
+#35 125.5            ^
+#35 125.5 /src/gzlib.c:91:14: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.5 local gzFile gz_open(path, fd, mode)
+#35 125.5              ^
+#35 125.5 /src/gzlib.c:270:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.5 gzFile ZEXPORT gzopen(path, mode)
+#35 125.5                ^
+#35 125.6 /src/gzlib.c:278:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 gzFile ZEXPORT gzopen64(path, mode)
+#35 125.6                ^
+#35 125.6 /src/gzlib.c:286:16: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 gzFile ZEXPORT gzdopen(fd, mode)
+#35 125.6                ^
+#35 125.6 /src/gzlib.c:316:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 int ZEXPORT gzbuffer(file, size)
+#35 125.6             ^
+#35 125.6 /src/gzlib.c:343:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 int ZEXPORT gzrewind(file)
+#35 125.6             ^
+#35 125.6 /src/gzlib.c:366:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off64_t ZEXPORT gzseek64(file, offset, whence)
+#35 125.6                   ^
+#35 125.6 /src/gzlib.c:443:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off_t ZEXPORT gzseek(file, offset, whence)
+#35 125.6                 ^
+#35 125.6 /src/gzlib.c:455:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off64_t ZEXPORT gztell64(file)
+#35 125.6                   ^
+#35 125.6 /src/gzlib.c:472:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off_t ZEXPORT gztell(file)
+#35 125.6                 ^
+#35 125.6 /src/gzlib.c:482:19: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off64_t ZEXPORT gzoffset64(file)
+#35 125.6                   ^
+#35 125.6 /src/gzlib.c:505:17: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 z_off_t ZEXPORT gzoffset(file)
+#35 125.6                 ^
+#35 125.6 /src/gzlib.c:515:13: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 int ZEXPORT gzeof(file)
+#35 125.6             ^
+#35 125.6 /src/gzlib.c:532:22: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 const char * ZEXPORT gzerror(file, errnum)
+#35 125.6                      ^
+#35 125.6 /src/gzlib.c:553:14: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 void ZEXPORT gzclearerr(file)
+#35 125.6              ^
+#35 125.6 /src/gzlib.c:579:20: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C2x [-Wdeprecated-non-prototype]
+#35 125.6 void ZLIB_INTERNAL gz_error(state, err, msg)
+#35 125.6                    ^
+#35 126.5 17 warnings generated.
+#35 126.7 [ 57%] Building C object CMakeFiles/zlibstatic.dir/gzread.o
+#35 ...
+
+#33 [ogg-builder 3/3] RUN bash -x /src/build.sh
+#33 118.1 checking if /emsdk/upstream/emscripten/emcc static flag -static works... yes
+#33 127.6 checking if /emsdk/upstream/emscripten/emcc supports -c -o file.o... 
+#33 CANCELED
+
+#23 [x265-builder 3/3] RUN bash -x /src/build.sh
+#23 CANCELED
+
+#38 [libvpx-builder 3/3] RUN bash -x /src/build.sh
+#38 CANCELED
+
+#29 [lame-builder 3/3] RUN bash -x /src/build.sh
+#29 117.7 checking if /emsdk/upstream/emscripten/emcc static flag -static works... 
+#29 CANCELED
+
+#41 [zimg-builder 4/4] RUN bash -x /src/build.sh
+#41 103.6 checking for stdlib.h... yes
+#41 105.5 checking for string.h... yes
+#41 106.9 checking for inttypes.h... yes
+#41 108.3 checking for stdint.h... yes
+#41 109.7 checking for strings.h... yes
+#41 111.2 checking for sys/stat.h... yes
+#41 112.9 checking for sys/types.h... 
+#41 CANCELED
+
+#37 [opus-builder 3/3] RUN bash -x /src/build.sh
+#37 126.3 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... 
+#37 CANCELED
+
+#28 [fribidi-builder 3/3] RUN bash -x /src/build.sh
+#28 120.4 checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... yes
+#28 122.1 checking for /emsdk/upstream/emscripten/emcc option to produce PIC... -fPIC -DPIC
+#28 122.1 checking if /emsdk/upstream/emscripten/emcc PIC flag -fPIC -DPIC works... yes
+#28 123.6 checking if /emsdk/upstream/emscripten/emcc static flag -static works... 
+#28 CANCELED
+
+#35 [zlib-builder 3/3] RUN bash -x /src/build.sh
+#35 CANCELED
+
+#34 [x264-builder 3/3] RUN bash -x /src/build.sh
+#34 CANCELED
+
+#32 [harfbuzz-builder 3/3] RUN bash -x /src/build.sh
+#32 CANCELED
+
+#36 [freetype2-builder 3/3] RUN bash -x /src/build.sh
+#36 121.1 checking dynamic linker characteristics... 
+#36 CANCELED
+
+ [33m5 warnings found (use docker --debug to expand):
+[0m - UndefinedVar: Usage of undefined variable '$CFLAGS' (line 11)
+ - UndefinedVar: Usage of undefined variable '$LDFLAGS' (did you mean $CFLAGS?) (line 13)
+ - UndefinedVar: Usage of undefined variable '$EM_PKG_CONFIG_PATH' (line 14)
+ - UndefinedVar: Usage of undefined variable '$PKG_CONFIG_PATH' (line 16)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 174)
+ERROR: failed to build: failed to solve: Canceled: context canceled

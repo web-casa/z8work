@@ -1,0 +1,18 @@
+{
+	"schema": 1,
+	"emscripten": {
+		"repository": "emscripten-core/emscripten",
+		"commit": "5c27e79dd0a9c4e27ef2326841698cdd4f6b5784"
+	},
+	"ports": [
+		{
+			"name": "sdl2",
+			"repository": "libsdl-org/SDL",
+			"commit": "55b03c7493a7abed33cf803d1380a40fa8af903f",
+			"upstreamArchive": "https://github.com/libsdl-org/SDL/archive/release-2.24.2.zip",
+			"sha512": "b178bdc8f7c40271e09a72f639649d1d61953dda4dc12b77437259667b63b961fd3b2c67b0de6fdc5f9f9c80c49bfafd164e4c13715bc1056e550acc8bad5a3c",
+			"hashSource": "tools/ports/sdl2.py",
+			"hashSourceSha256": "2dff6dd2928476c78e54e20faed89cc3b688215dff54058e464ef7a0f4f9763c"
+		}
+	]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "status": "configure-passed",
+  "files": [
+    {
+      "containerPath": "/src/config.h",
+      "file": ".desktop-local/store-source-phase4/ffmpeg-config.h",
+      "sha256": "e482303c5fbe93b1dc0d2bd735ebc81ffdb97496fbb752d009380db154d47d68"
+    },
+    {
+      "containerPath": "/src/config_components.h",
+      "file": ".desktop-local/store-source-phase4/ffmpeg-config_components.h",
+      "sha256": "12e18284c466c660c135e48d94359d13e3c4aa061c3970ba87ad587a3489f6c0"
+    },
+    {
+      "containerPath": "/src/ffbuild/config.mak",
+      "file": ".desktop-local/store-source-phase4/ffmpeg-ffbuild-config.mak",
+      "sha256": "744ec8c06cc992e6794fecff6c13bea7a6606dd8012c12b7554bb42269d1b210"
+    },
+    {
+      "containerPath": "/src/ffbuild/config.log",
+      "file": ".desktop-local/store-source-phase4/ffmpeg-ffbuild-config.log",
+      "sha256": "565d05cdc8a4d3e1b3781964adff6c0ea41712e32720fdc6a2d397bfced58e35"
+    }
+  ],
+  "requiredFeatures": {
+    "GPL": true,
+    "LIBX264": true,
+    "LIBX265": true,
+    "LIBVPX": true,
+    "LIBMP3LAME": true,
+    "LIBTHEORA": true,
+    "LIBVORBIS": true,
+    "LIBOPUS": true,
+    "ZLIB": true,
+    "LIBWEBP": true,
+    "LIBFREETYPE": true,
+    "LIBFRIBIDI": true,
+    "LIBASS": true,
+    "LIBZIMG": true
+  },
+  "pthreadsEnabled": false
+}

@@ -1,12 +1,47 @@
 import { createServer } from "node:http";
 import { existsSync } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
-import { resolve, extname, sep } from "node:path";
+import { resolve, extname, sep, basename } from "node:path";
+import { createHash } from "node:crypto";
+import { parseArgs } from "node:util";
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
 import { unzipSync } from "fflate";
 import { pdfFixture } from "../tests/helpers-pdf-fixture.mjs";
 
+const { values } = parseArgs({
+	options: {
+		stress: { type: "boolean" },
+		"ffmpeg-core-dir": { type: "string" },
+		"video-fixture": { type: "string" },
+		"mupdf-wasm": { type: "string" },
+		"pandoc-wasm": { type: "string" },
+	},
+});
+const candidate = new Map();
+const candidateRequests = { js: 0, wasm: 0 };
+const mupdfCandidate = values["mupdf-wasm"]
+	? await readFile(values["mupdf-wasm"])
+	: null;
+let mupdfRequests = 0;
+if (mupdfCandidate)
+	assert.equal(mupdfCandidate.subarray(0, 4).toString("hex"), "0061736d");
+const pandocCandidate = values["pandoc-wasm"]
+	? await readFile(values["pandoc-wasm"])
+	: null;
+let pandocRequests = 0;
+if (pandocCandidate)
+	assert.equal(pandocCandidate.subarray(0, 4).toString("hex"), "0061736d");
+if (values["ffmpeg-core-dir"]) {
+	for (const extension of ["js", "wasm"]) {
+		const bytes = await readFile(
+			resolve(values["ffmpeg-core-dir"], `ffmpeg-core.${extension}`),
+		);
+		if (extension === "wasm")
+			assert.equal(bytes.subarray(0, 4).toString("hex"), "0061736d");
+		candidate.set(extension, bytes);
+	}
+}
 const root = resolve("desktop/dist");
 const server = createServer(async (req, res) => {
 	try {
@@ -33,7 +68,22 @@ const server = createServer(async (req, res) => {
 				".json": "application/json",
 			}[extname(path)] || "application/octet-stream";
 		res.writeHead(200, { "Content-Type": type });
-		res.end(await readFile(path));
+		const asset = /^ffmpeg-core[.-][^.]+\.(js|wasm)$/.exec(basename(path));
+		if (pandocCandidate && basename(path) === "pandoc.wasm") {
+			pandocRequests += 1;
+			res.end(pandocCandidate);
+		} else if (
+			mupdfCandidate &&
+			/^mupdf-wasm[.-][^.]+\.wasm$/.test(basename(path))
+		) {
+			mupdfRequests += 1;
+			res.end(mupdfCandidate);
+		} else if (candidate.size && asset) {
+			candidateRequests[asset[1]] += 1;
+			res.end(candidate.get(asset[1]));
+		} else {
+			res.end(await readFile(path));
+		}
 	} catch {
 		res.writeHead(404).end();
 	}
@@ -117,6 +167,148 @@ try {
 			(b) => assert.equal(b.subarray(1, 4).toString(), "PNG"),
 		],
 	];
+	if (mupdfCandidate) {
+		const pixels = async (bytes, width, height, expectedColor) => {
+			const result = await page.evaluate(
+				async ({ data, color }) => {
+					const image = await createImageBitmap(
+						new Blob([new Uint8Array(data)]),
+					);
+					const canvas = new OffscreenCanvas(
+						image.width,
+						image.height,
+					);
+					const ctx = canvas.getContext("2d");
+					ctx.drawImage(image, 0, 0);
+					const pixel = Array.from(
+						ctx.getImageData(24, 60, 1, 1).data,
+					);
+					const result = {
+						width: image.width,
+						height: image.height,
+						pixel,
+						color,
+					};
+					image.close();
+					return result;
+				},
+				{ data: [...bytes], color: expectedColor },
+			);
+			assert.equal(result.width, width);
+			assert.equal(result.height, height);
+			if (expectedColor) assert.deepEqual(result.pixel, expectedColor);
+		};
+		fixtures.push(
+			[
+				"彩色页面.pdf",
+				"application/pdf",
+				Buffer.from(pdfFixture()),
+				".png",
+				(bytes) => pixels(bytes, 144, 96, [255, 0, 0, 255]),
+			],
+			[
+				"旋转裁剪.pdf",
+				"application/pdf",
+				Buffer.from(pdfFixture({ rotate: 90, crop: true })),
+				".jpeg",
+				(bytes) => pixels(bytes, 80, 128),
+			],
+			[
+				"多页文档.pdf",
+				"application/pdf",
+				Buffer.from(pdfFixture({ pages: 2 })),
+				".png",
+				async (bytes) => {
+					const entries = unzipSync(bytes);
+					assert.deepEqual(Object.keys(entries), [
+						"page-001.png",
+						"page-002.png",
+					]);
+					await pixels(
+						entries["page-001.png"],
+						144,
+						96,
+						[255, 0, 0, 255],
+					);
+					await pixels(
+						entries["page-002.png"],
+						144,
+						96,
+						[0, 0, 255, 255],
+					);
+				},
+			],
+		);
+	}
+	if (values["video-fixture"]) {
+		fixtures.push([
+			"视频.mp4",
+			"video/mp4",
+			await readFile(values["video-fixture"]),
+			".flac",
+			async (bytes) => {
+				assert.equal(bytes.subarray(0, 4).toString(), "fLaC");
+				const decoded = await page.evaluate(
+					async (data) => {
+						const audio = new OfflineAudioContext(1, 1, 8000);
+						const buffer = await audio.decodeAudioData(
+							new Uint8Array(data).buffer,
+						);
+						return {
+							duration: buffer.duration,
+							nonSilent: buffer
+								.getChannelData(0)
+								.some((sample) => Math.abs(sample) > 0.005),
+						};
+					},
+					[...bytes],
+				);
+				assert.ok(decoded.duration > 0.2 && decoded.duration < 1);
+				assert.equal(
+					decoded.nonSilent,
+					true,
+					"extracted video audio must contain the generated tone",
+				);
+			},
+		]);
+	}
+	if (candidate.size) {
+		fixtures.push(
+			[
+				"candidate.mp3-input.wav",
+				"audio/wav",
+				wave,
+				".mp3",
+				(bytes) => assert.equal(bytes.subarray(0, 3).toString(), "ID3"),
+			],
+			[
+				"candidate.ogg-input.wav",
+				"audio/wav",
+				wave,
+				".ogg",
+				(bytes) =>
+					assert.equal(bytes.subarray(0, 4).toString(), "OggS"),
+			],
+		);
+	}
+	if (pandocCandidate) {
+		fixtures.push([
+			"candidate-pandoc.md",
+			"text/markdown",
+			Buffer.from("# Candidate Pandoc\n\nUnicode: 文档转换。"),
+			".docx",
+			(bytes) => {
+				const entries = unzipSync(bytes);
+				assert.ok(entries["[Content_Types].xml"]);
+				assert.ok(entries["word/document.xml"]);
+				const documentXml = Buffer.from(
+					entries["word/document.xml"],
+				).toString();
+				assert.match(documentXml, /Candidate Pandoc/);
+				assert.match(documentXml, /文档转换。/);
+			},
+		]);
+	}
 	if (process.argv.includes("--stress"))
 		fixtures.push([
 			"large-4096.svg",
@@ -159,7 +351,7 @@ try {
 		await row.locator(".pixel-square").click();
 		const download = await downloaded;
 		const bytes = await readFile(await download.path());
-		check(bytes);
+		await check(bytes);
 		console.log(`${name} -> ${format}: ${bytes.length} bytes, validated`);
 	}
 
@@ -297,7 +489,10 @@ try {
 				currentWindow: { label: "main" },
 				currentWebview: { label: "main" },
 			},
-			invoke: async () => 1,
+			invoke: async (command) =>
+				command === "distribution_channel"
+					? (window.__Z8_TEST_CHANNEL ?? "direct")
+					: 1,
 			transformCallback: () => 1,
 		};
 	});
@@ -328,11 +523,69 @@ try {
 			.getAttribute("href"),
 		"https://github.com/web-casa/z8work/releases",
 	);
+	await notices.addInitScript(() => {
+		window.__Z8_TEST_CHANNEL = "store";
+	});
+	await notices.reload();
+	await notices
+		.getByText("Open-source licenses (available offline)", { exact: true })
+		.waitFor();
+	assert.equal(
+		await notices
+			.getByRole("link", { name: "Releases and downloads" })
+			.count(),
+		0,
+	);
 	await noticeContext.close();
 	console.log(
 		"Offline licenses and manual release link: passed (shell stub)",
 	);
+	if (candidate.size) {
+		assert.ok(
+			candidateRequests.js > 0 && candidateRequests.wasm > 0,
+			"Candidate JS and WASM must both be requested",
+		);
+		console.log(
+			JSON.stringify({
+				candidateFfmpeg: "passed",
+				requests: candidateRequests,
+				hashes: Object.fromEntries(
+					[...candidate].map(([extension, bytes]) => [
+						extension,
+						createHash("sha256").update(bytes).digest("hex"),
+					]),
+				),
+			}),
+		);
+	}
 	assert.deepEqual(external, [], "All resources must be bundled");
+	if (mupdfCandidate) {
+		assert.ok(mupdfRequests > 0, "Candidate MuPDF WASM must be requested");
+		console.log(
+			JSON.stringify({
+				candidateMupdf: "passed",
+				requests: mupdfRequests,
+				sha256: createHash("sha256")
+					.update(mupdfCandidate)
+					.digest("hex"),
+			}),
+		);
+	}
+	if (pandocCandidate) {
+		assert.ok(
+			pandocRequests > 0,
+			"Candidate Pandoc WASM must be requested",
+		);
+		console.log(
+			JSON.stringify({
+				candidatePandoc: "passed",
+				requests: pandocRequests,
+				sha256: createHash("sha256")
+					.update(pandocCandidate)
+					.digest("hex"),
+			}),
+		);
+	}
 	assert.deepEqual(errors, []);
 	console.log(
 		"Four web engines passed from desktop/dist without external network access.",

@@ -1,0 +1,39 @@
+{
+  "status": "passed-with-documented-packaging-differences",
+  "checkedFiles": 4077,
+  "identicalFiles": 4051,
+  "omittedMaintenanceAndFormattingFiles": [
+    "tools/maint/README.md",
+    "tools/maint/add_license.py",
+    "tools/maint/check_emcc_help_text.py",
+    "tools/maint/check_for_closed_issues.py",
+    "tools/maint/check_for_unused_test_files.py",
+    "tools/maint/check_struct_info.py",
+    "tools/maint/create_dom_pk_codes.py",
+    "tools/maint/create_entry_points.py",
+    "tools/maint/create_release.py",
+    "tools/maint/find_unused_test_files.py",
+    "tools/maint/gen_sig_info.py",
+    "tools/maint/npm_update.py",
+    "tools/maint/post-checkout",
+    "tools/maint/rebaseline_tests.py",
+    "tools/maint/run_python.bat",
+    "tools/maint/run_python.ps1",
+    "tools/maint/run_python.sh",
+    "tools/maint/run_python_compiler.bat",
+    "tools/maint/run_python_compiler.ps1",
+    "tools/maint/run_python_compiler.sh",
+    "tools/maint/simde_update.py",
+    "tools/maint/update_docs.py",
+    "tools/maint/update_settings_docs.py",
+    "system/lib/libunwind/.clang-format",
+    "system/lib/libcxxabi/src/demangle/.clang-format"
+  ],
+  "versionFile": {
+    "source": "4.0.8-git",
+    "sdk": "\"4.0.8\""
+  },
+  "compilerReportedCommit": "70404efec4458b60b953bc8f1529f2fa112cdfd1",
+  "rawComparison": "sdk-source-check.json",
+  "scope": "Emscripten source directories only; precompiled SDK and LLVM binaries pinned by immutable Docker image"
+}

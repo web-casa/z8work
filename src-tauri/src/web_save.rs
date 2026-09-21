@@ -62,6 +62,9 @@ impl PendingSave {
 }
 fn save_error(error: std::io::Error) -> String {
     let guidance = match error.kind() {
+        std::io::ErrorKind::AlreadyExists => {
+            "A file with this name exists. Choose another folder or rename the existing file and retry / 已有同名文件，请选择其他目录或重命名已有文件后重试"
+        }
         std::io::ErrorKind::StorageFull => {
             "Disk full. Free space or choose another disk / 磁盘空间不足，请清理空间或选择其他磁盘"
         }

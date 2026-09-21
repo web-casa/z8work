@@ -3,6 +3,17 @@ export function isDesktop(): boolean {
 	return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
 }
 
+/** Native compile-time channel is authoritative; unknown shells fail closed. */
+export async function allowsDesktopDownloads(): Promise<boolean> {
+	if (!isDesktop()) return false;
+	try {
+		const { invoke } = await import("@tauri-apps/api/core");
+		return (await invoke<string>("distribution_channel")) === "direct";
+	} catch {
+		return false;
+	}
+}
+
 export const DESKTOP_SAVE_LIMIT = 2 * 1024 * 1024 * 1024;
 let saving = false;
 export const isSavingDesktop = () => saving;

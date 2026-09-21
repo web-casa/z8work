@@ -1,0 +1,10 @@
+{
+	"name": "z8-mupdf-rebuild-tools",
+	"private": true,
+	"version": "1.0.0",
+	"dependencies": {
+		"@types/node": "22.20.1",
+		"terser": "5.51.2",
+		"typescript": "5.9.3"
+	}
+}

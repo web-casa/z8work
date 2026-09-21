@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import * as mupdf from "mupdf";
+import { mupdf } from "./helpers-mupdf.mjs";
 import {
 	initializeImageMagick,
 	MagickImage,

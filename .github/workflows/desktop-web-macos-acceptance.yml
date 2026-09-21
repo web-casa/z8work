@@ -37,7 +37,9 @@ jobs:
               with:
                   node-version: "22.22.2"
             - id: candidate
-              run: node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
+              run: |
+                  # shellcheck disable=SC2016
+                  node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
             - uses: actions/download-artifact@v4
               with:
                   github-token: ${{ github.token }}
@@ -73,7 +75,9 @@ jobs:
                   bun-version: "1.4.0"
             - run: bun install --frozen-lockfile
             - id: candidate
-              run: node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
+              run: |
+                  # shellcheck disable=SC2016
+                  node -e 'const p=require("./packaging/desktop-web/macos-candidate.json"); require("fs").appendFileSync(process.env.GITHUB_OUTPUT, `run=${p.runId}\nname=${p.artifactName}\n`);'
             - uses: actions/download-artifact@v4
               with:
                   github-token: ${{ github.token }}

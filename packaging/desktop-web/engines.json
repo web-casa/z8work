@@ -1,16 +1,28 @@
 {
-	"schema": 1,
+	"schema": 2,
 	"engines": [
 		{
 			"name": "pandoc",
-			"version": "3.5 (binary marker)",
+			"version": "3.5",
 			"file": "static/pandoc.wasm",
-			"sha256": "48d9ceed3ef805f6acc28e6f58c2439cdeb1f71864244fffcc155e2c045aa7fc",
+			"sha256": "e12460b4b7ae74829da41b77b97531ca2eeebbcaf2362d0e1912948b59c21e09",
 			"license": "GPL-2.0-or-later",
 			"repository": "https://github.com/haskell-wasm/pandoc-wasm",
-			"sourceCommit": null,
-			"sourceStatus": "pending",
-			"pending": "Exact WASM build revision, patched dependencies and build inputs are not recoverable from the version marker. Imported at a84837cff4177d0fe2bb13da7c2488ce33ca5726."
+			"sourceCommit": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+			"sourceStatus": "verified-rebuilt-replacement",
+			"pending": "Source delivered (desktop-source-1) and distribution review approved by the owner. Catalog-level items complete; platform candidate acceptance and store materials remain.",
+			"sourceCandidate": "packaging/desktop-web/pandoc-source-candidate.json",
+			"sourceEvidence": "docs/desktop/evidence/pandoc-rebuild-20260921/source-binding.json",
+			"sourceDelivery": {
+				"status": "published",
+				"url": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-pandoc-3.5-corresponding-source.tar.gz"
+			},
+			"distributionReview": {
+				"status": "approved",
+				"approvedBy": "owner (AlanM / yeagoo)",
+				"approvedAt": "2026-09-21",
+				"basis": "docs/desktop/DISTRIBUTION_LICENSE_REVIEW.md sections 2-5, owner decision 2026-09-21"
+			}
 		},
 		{
 			"name": "@ffmpeg/core",
@@ -20,8 +32,20 @@
 			"license": "GPL-2.0-or-later",
 			"repository": "https://github.com/ffmpegwasm/ffmpeg.wasm",
 			"sourceCommit": "71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
-			"sourceStatus": "pending",
-			"pending": "Release commit identified. Dockerfile contains floating dependency branches; exact embedded dependency revisions and complete corresponding source archive still need verification."
+			"sourceStatus": "verified-rebuilt",
+			"pending": "Source delivered (desktop-source-1) and distribution review approved by the owner. HEVC encoding probes remain recorded as timing out; platform candidate acceptance and store materials remain.",
+			"sourceCandidate": "packaging/desktop-web/ffmpeg-source-dependencies.json",
+			"sourceEvidence": "docs/desktop/evidence/ffmpeg-rebuild-20260920/source-binding.json",
+			"sourceDelivery": {
+				"status": "published",
+				"url": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-ffmpeg-core-0.12.10-corresponding-source.tar.gz"
+			},
+			"distributionReview": {
+				"status": "approved",
+				"approvedBy": "owner (AlanM / yeagoo)",
+				"approvedAt": "2026-09-21",
+				"basis": "docs/desktop/DISTRIBUTION_LICENSE_REVIEW.md sections 2-5, owner decision 2026-09-21"
+			}
 		},
 		{
 			"name": "@imagemagick/magick-wasm",
@@ -31,8 +55,20 @@
 			"license": "Apache-2.0 AND embedded library licenses",
 			"repository": "https://github.com/dlemstra/magick-wasm",
 			"sourceCommit": "85008a8006a0283ebf7e3cfba67e27e430693254",
-			"sourceStatus": "pending",
-			"pending": "Packaged LICENSE and NOTICE include embedded libraries. Review full embedded library license/source obligations."
+			"sourceStatus": "verified-upstream",
+			"pending": "Source delivered (desktop-source-1) and distribution review approved by the owner. Catalog-level items complete; platform candidate acceptance and store materials remain.",
+			"sourceCandidate": "packaging/desktop-web/magick-source-dependencies.json",
+			"sourceEvidence": "docs/desktop/evidence/imagemagick-upstream-20260921/source-binding.json",
+			"sourceDelivery": {
+				"status": "published",
+				"url": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-magick-wasm-0.0.43-corresponding-source.tar.gz"
+			},
+			"distributionReview": {
+				"status": "approved",
+				"approvedBy": "owner (AlanM / yeagoo)",
+				"approvedAt": "2026-09-21",
+				"basis": "docs/desktop/DISTRIBUTION_LICENSE_REVIEW.md sections 2-5, owner decision 2026-09-21"
+			}
 		},
 		{
 			"name": "mupdf",
@@ -42,8 +78,20 @@
 			"license": "AGPL-3.0-or-later",
 			"repository": "https://cgit.ghostscript.com/mupdf.git/",
 			"sourceCommit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
-			"sourceStatus": "pending",
-			"pending": "npm gitHead identified; archive complete corresponding sources, build inputs and dependencies for distribution."
+			"sourceStatus": "verified-rebuilt",
+			"pending": "Source delivered (desktop-source-1) and distribution review approved by the owner. Catalog-level items complete; platform candidate acceptance and store materials remain.",
+			"sourceEvidence": "docs/desktop/evidence/mupdf-rebuild-20260921/source-binding.json",
+			"sourceCandidate": "packaging/desktop-web/mupdf-source-build.json",
+			"sourceDelivery": {
+				"status": "published",
+				"url": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-mupdf-1.28.1-corresponding-source.tar.gz"
+			},
+			"distributionReview": {
+				"status": "approved",
+				"approvedBy": "owner (AlanM / yeagoo)",
+				"approvedAt": "2026-09-21",
+				"basis": "docs/desktop/DISTRIBUTION_LICENSE_REVIEW.md sections 2-5, owner decision 2026-09-21"
+			}
 		},
 		{
 			"name": "vert-wasm",
@@ -53,8 +101,19 @@
 			"license": "AGPL-3.0",
 			"repository": "https://github.com/VERT-sh/vert-wasm",
 			"sourceCommit": "4f99ef9abad355a390f1e1dfab4769ef815f54f3",
-			"sourceStatus": "pending",
-			"pending": "npm gitHead identified; archive complete corresponding sources and build inputs for distribution."
+			"sourceStatus": "verified-rebuilt",
+			"pending": "Source delivered (desktop-source-1) and distribution review approved by the owner. Catalog-level items complete; platform candidate acceptance and store materials remain.",
+			"sourceEvidence": "docs/desktop/evidence/store-source-closure-20260920/vert-source-binding.json",
+			"sourceDelivery": {
+				"status": "published",
+				"url": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-vert-wasm-0.0.2-corresponding-source.tar.gz"
+			},
+			"distributionReview": {
+				"status": "approved",
+				"approvedBy": "owner (AlanM / yeagoo)",
+				"approvedAt": "2026-09-21",
+				"basis": "docs/desktop/DISTRIBUTION_LICENSE_REVIEW.md sections 2-5, owner decision 2026-09-21"
+			}
 		}
 	]
 }

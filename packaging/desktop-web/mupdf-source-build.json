@@ -1,0 +1,13 @@
+{
+	"schema": 1,
+	"repository": "ArtifexSoftware/mupdf",
+	"commit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
+	"emsdkVersion": "4.0.8",
+	"emscripten": {
+		"repository": "emscripten-core/emscripten",
+		"commit": "70404efec4458b60b953bc8f1529f2fa112cdfd1"
+	},
+	"emsdkImage": "emscripten/emsdk@sha256:92c97951b9a6835cb5da9592e9d95226f67e09ecd01a541d817a5b4801f235a4",
+	"buildScriptSha256": "31f7c6a93f75938cb0f0a4dd781c1c87f33e71302bb69f5cdfaba1242c24d1a6",
+	"expectedWasmSha256": "5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7"
+}

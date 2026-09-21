@@ -1,0 +1,106 @@
+{
+  "emscripten-version.txt": {
+    "exists": true,
+    "value": "\"4.0.8\"\n"
+  },
+  "tools/maint/README.md": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/add_license.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/check_emcc_help_text.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/check_for_closed_issues.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/check_for_unused_test_files.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/check_struct_info.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/create_dom_pk_codes.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/create_entry_points.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/create_release.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/find_unused_test_files.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/gen_sig_info.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/npm_update.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/post-checkout": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/rebaseline_tests.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python.bat": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python.ps1": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python.sh": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python_compiler.bat": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python_compiler.ps1": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/run_python_compiler.sh": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/simde_update.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/update_docs.py": {
+    "exists": false,
+    "value": null
+  },
+  "tools/maint/update_settings_docs.py": {
+    "exists": false,
+    "value": null
+  },
+  "system/lib/libunwind/.clang-format": {
+    "exists": false,
+    "value": null
+  },
+  "system/lib/libcxxabi/src/demangle/.clang-format": {
+    "exists": false,
+    "value": null
+  }
+}

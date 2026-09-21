@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "extraction": "GNU tar; preserves original symlink target spelling",
+  "checkedBlobs": 24085,
+  "collections": {
+    "mupdf": {
+      "schema": 1,
+      "status": "passed",
+      "checkedBlobs": 11368,
+      "restored": [],
+      "issues": []
+    },
+    "emscripten": {
+      "schema": 1,
+      "status": "passed",
+      "checkedBlobs": 12717,
+      "restored": [],
+      "issues": []
+    }
+  }
+}

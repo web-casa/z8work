@@ -10,6 +10,7 @@
 		"allow-abort-save",
 		"allow-confirm-close",
 		"allow-finish-close",
+		"allow-distribution-channel",
 		"core:event:allow-listen",
 		"core:event:allow-unlisten"
 	]

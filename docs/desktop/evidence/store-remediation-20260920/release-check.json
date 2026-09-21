@@ -1,0 +1,12 @@
+{
+  "ready": false,
+  "version": "0.2.0",
+  "product": "Z8.Work",
+  "issues": [
+    "pandoc: Exact WASM build revision, patched dependencies and build inputs are not recoverable from the version marker. Imported at a84837cff4177d0fe2bb13da7c2488ce33ca5726.",
+    "@ffmpeg/core: Release commit identified. Dockerfile contains floating dependency branches; exact embedded dependency revisions and complete corresponding source archive still need verification.",
+    "@imagemagick/magick-wasm: Packaged LICENSE and NOTICE include embedded libraries. Review full embedded library license/source obligations.",
+    "mupdf: npm gitHead identified; archive complete corresponding sources, build inputs and dependencies for distribution.",
+    "vert-wasm: npm gitHead identified; archive complete corresponding sources and build inputs for distribution."
+  ]
+}

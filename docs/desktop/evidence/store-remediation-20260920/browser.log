@@ -1,0 +1,10 @@
+
+> z8-work@0.0.1 desktop:test:browser
+> node scripts/desktop-web-browser.mjs
+
+图片.svg -> .png: 123 bytes, validated
+音频.wav -> .flac: 8442 bytes, validated
+文档.md -> .html: 85 bytes, validated
+页面.pdf -> .png: 1189 bytes, validated
+Offline licenses and manual release link: passed (shell stub)
+Four web engines passed from desktop/dist without external network access.

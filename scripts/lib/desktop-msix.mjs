@@ -84,6 +84,70 @@ export function validateMsixConfig(config) {
 }
 export function msixManifest(c) {
 	validateMsixConfig(c);
+	return renderMsixManifest(c);
+}
+
+// Separate entry preserves the legacy development-only identity guard.
+export function validateStoreMsixConfig(c) {
+	if (c?.schema !== 1 || c.channel !== "microsoft-store")
+		throw new Error("Expected Microsoft Store configuration");
+	if (
+		typeof c.identity !== "string" ||
+		!/^[A-Za-z0-9.-]{3,50}$/.test(c.identity) ||
+		c.identity === "Z8Work.Desktop.Dev"
+	)
+		throw new Error("Missing or invalid Partner Center identity");
+	if (
+		typeof c.publisher !== "string" ||
+		!/^CN=\S[^\r\n<>]*$/.test(c.publisher) ||
+		c.publisher === "CN=Z8.Work Development"
+	)
+		throw new Error("Missing or invalid Partner Center publisher");
+	if (!["x64", "arm64"].includes(c.architecture))
+		throw new Error("Explicit MSIX architecture required");
+	validateMsixConfig({
+		...c,
+		channel: "local-development",
+		storeSubmissionAllowed: false,
+		identity: "Z8Work.Desktop.Dev",
+		publisher: "CN=Z8.Work Development",
+	});
+	const parts = c.version.split(".").map(Number);
+	if (parts[0] === 0 || parts[3] !== 0)
+		throw new Error("Store version must start above zero and end in zero");
+	if (c.firstSubmission === true) {
+		if (c.highestPackageVersion !== null)
+			throw new Error(
+				"First submission must not declare an uploaded version",
+			);
+	} else {
+		if (
+			c.firstSubmission !== false ||
+			typeof c.highestPackageVersion !== "string" ||
+			!/^[1-9]\d*\.(0|[1-9]\d*)\.(0|[1-9]\d*)\.0$/.test(
+				c.highestPackageVersion,
+			)
+		)
+			throw new Error(
+				"Confirm firstSubmission or provide highestPackageVersion from Partner Center",
+			);
+		const old = c.highestPackageVersion.split(".").map(Number);
+		if (old.some((n) => n > 65535))
+			throw new Error("Invalid highestPackageVersion");
+		const different = parts.findIndex((n, i) => n !== old[i]);
+		if (different < 0 || parts[different] < old[different])
+			throw new Error(
+				"Store version must increase over the uploaded version",
+			);
+	}
+}
+
+export function storeMsixManifest(c) {
+	validateStoreMsixConfig(c);
+	return renderMsixManifest(c);
+}
+
+function renderMsixManifest(c) {
 	return `<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap rescap">
   <Identity Name="${xml(c.identity)}" Publisher="${xml(c.publisher)}" Version="${xml(c.version)}" ProcessorArchitecture="${c.architecture ?? "x64"}" />

@@ -1,6 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { mkdtemp, writeFile, readFile, rm, symlink } from "node:fs/promises";
+import {
+	mkdtemp,
+	mkdir,
+	writeFile,
+	readFile,
+	rm,
+	symlink,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -25,6 +32,15 @@ async function fixture(t, packageBytes) {
 	const root = await mkdtemp(join(tmpdir(), "z8-store-"));
 	t.after(() => rm(root, { recursive: true, force: true }));
 	const data = await loadStore();
+	// Public page evidence is verified against the deployed pages source.
+	const pageContent = JSON.parse(
+		await readFile("packaging/desktop-web/content.json", "utf8"),
+	);
+	await mkdir(join(root, "packaging", "desktop-web"), { recursive: true });
+	await writeFile(
+		join(root, "packaging", "desktop-web", "content.json"),
+		JSON.stringify(pageContent),
+	);
 	const save = async (file, bytes) => {
 		if (!Buffer.isBuffer(bytes)) bytes = Buffer.from(JSON.stringify(bytes));
 		await writeFile(join(root, file), bytes);
@@ -126,17 +142,17 @@ async function fixture(t, packageBytes) {
 		evidence: await save("pages.json", {
 			pages: data.matrix.languages.flatMap((locale) =>
 				["privacy", "support"].map((kind) => ({
-					url: new URL(pagePath(locale, kind), data.content.website)
+					url: new URL(pagePath(locale, kind), pageContent.website)
 						.href,
 					status: 200,
 					sha256: sha256(
-						Buffer.from(renderPage(data.content, locale, kind)),
+						Buffer.from(renderPage(pageContent, locale, kind)),
 					),
 				})),
 			),
 		}),
 	};
-	return { root, ...data, save, evidence };
+	return { root, ...data, pageContent, save, evidence };
 }
 const assess = (f) =>
 	assessChannel(f.root, f.content, f.submission, f.matrix, "snap");
@@ -172,7 +188,12 @@ test("listing languages, supported text and store field limits are checked", asy
 	assert.throws(() => validateContent(copy, matrix));
 });
 test("privacy/support pages escape text, work without scripts and match checked-in output", async () => {
-	const { content, matrix } = await loadStore();
+	const { content: legacyContent, matrix } = await loadStore();
+	// Public pages now describe the web-engine desktop app. Keep the legacy
+	// renderer safety check, but compare published files to their actual source.
+	const content = JSON.parse(
+		await readFile("packaging/desktop-web/content.json", "utf8"),
+	);
 	for (const locale of matrix.languages)
 		for (const kind of ["privacy", "support"]) {
 			const html = renderPage(content, locale, kind);
@@ -191,6 +212,9 @@ test("privacy/support pages escape text, work without scripts and match checked-
 	copy.locales.en.privacy[0].body = '<img src=x onerror="bad()">';
 	assert.ok(renderPage(copy, "en", "privacy").includes("&lt;img"));
 	assert.throws(() => renderPage(content, "other", "privacy"));
+	const legacyCopy = structuredClone(legacyContent);
+	legacyCopy.locales.en.privacy[0].body = '<img src=x onerror="bad()">';
+	assert.ok(renderPage(legacyCopy, "en", "privacy").includes("&lt;img"));
 });
 test("PNG validation rejects truncation, forged dimensions and corrupt image bytes", () => {
 	assert.deepEqual(pngDimensions(shot), { width: 1100, height: 800 });
@@ -238,10 +262,33 @@ test("a passed string without a hashed check report cannot release a candidate",
 test("another platform's screenshot and a stale public policy stay blocked", async (t) => {
 	const f = await fixture(t);
 	f.submission.channels.snap.screenshots[0].arch = "aarch64";
-	f.content.locales.en.privacy[0].body += " Updated policy.";
+	f.pageContent.locales.en.privacy[0].body += " Updated policy.";
+	await writeFile(
+		join(f.root, "packaging", "desktop-web", "content.json"),
+		JSON.stringify(f.pageContent),
+	);
 	const report = await assess(f);
 	assert.ok(report.blockers.some((b) => b.includes("Screenshot")));
 	assert.ok(report.blockers.some((b) => b.includes("stale")));
+});
+test("public page evidence computed from the legacy store listing stays blocked", async (t) => {
+	const f = await fixture(t);
+	f.submission.publicPages = {
+		status: "verified",
+		evidence: await f.save("pages-legacy.json", {
+			pages: f.matrix.languages.flatMap((locale) =>
+				["privacy", "support"].map((kind) => ({
+					url: new URL(pagePath(locale, kind), f.content.website)
+						.href,
+					status: 200,
+					sha256: sha256(
+						Buffer.from(renderPage(f.content, locale, kind)),
+					),
+				})),
+			),
+		}),
+	};
+	assert.ok((await assess(f)).blockers.some((b) => b.includes("stale")));
 });
 test("candidate swap invalidates every previous acceptance report", async (t) => {
 	const f = await fixture(t);

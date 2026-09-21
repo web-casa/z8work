@@ -1,0 +1,102 @@
+{
+	"schema": 1,
+	"originRepository": "ImageMagick/Dependencies",
+	"originCommit": "6d4b77cebb890ddd48a6ddf65d46aa612effe694",
+	"originFile": "clone-dependencies.sh",
+	"originFileSha256": "c4e7d55654b0ff12e621010a9170c514451335508d542aff94862c01599c1482",
+	"platform": "wasm",
+	"sources": [
+		{
+			"repository": "ImageMagick/aom",
+			"commit": "f74a4670353c01c194379a7ef922858c530acbd2"
+		},
+		{
+			"repository": "ImageMagick/brotli",
+			"commit": "6225e7a93b6bcc1f3e3b267e9523a8eaea49eb5e"
+		},
+		{
+			"repository": "ImageMagick/bzip2",
+			"commit": "abffe764f875f71d051efb19d4c83139375f82d7"
+		},
+		{
+			"repository": "ImageMagick/de265",
+			"commit": "80e57d4a56dd9bd725e1d937be8060fbffc36ca1"
+		},
+		{
+			"repository": "ImageMagick/exr",
+			"commit": "ea3c2d85f739f30bce36a1e56c4b83373bf3481f"
+		},
+		{
+			"repository": "ImageMagick/ffi",
+			"commit": "91982d4ac97b179dd1fb878caef2ed2847bc38b6"
+		},
+		{
+			"repository": "ImageMagick/freetype",
+			"commit": "6cf8b1a08bdec1d41246f51bcd12e5a62c9845e2"
+		},
+		{
+			"repository": "ImageMagick/glib",
+			"commit": "ea0118ca0d408473d320b21262a1cdc6ce3e5f40"
+		},
+		{
+			"repository": "ImageMagick/heif",
+			"commit": "5def4181577ada890da9b8cb0b913f93f24c715e"
+		},
+		{
+			"repository": "ImageMagick/highway",
+			"commit": "e1a586af5be6358bb983ff608f9678a622209ca3"
+		},
+		{
+			"repository": "ImageMagick/imath",
+			"commit": "692409f6868d9371aae7ce17bb94f634e24fa201"
+		},
+		{
+			"repository": "ImageMagick/jpeg-turbo",
+			"commit": "b91492930ceb23c0b5282e8b9fc21de54182d92e"
+		},
+		{
+			"repository": "ImageMagick/jpeg-xl",
+			"commit": "8503118ff13ab8b11680296900da3361d6703dc1"
+		},
+		{
+			"repository": "ImageMagick/lcms",
+			"commit": "d261ab6fda30fd7578a2ce7ace5c0b2c7d3fc0b8"
+		},
+		{
+			"repository": "ImageMagick/lqr",
+			"commit": "a2e9e8b5b41bf0569f51482707a12d354a086f3a"
+		},
+		{
+			"repository": "ImageMagick/openjpeg",
+			"commit": "5a52e8e0690da686ddb6e98310e7bb5190a9a7c5"
+		},
+		{
+			"repository": "ImageMagick/openjph",
+			"commit": "a8d14ac14a3ea23067ef140dced2e53691a697fa"
+		},
+		{
+			"repository": "ImageMagick/png",
+			"commit": "88ee938ef91b0289339be463b29003f65d486210"
+		},
+		{
+			"repository": "ImageMagick/raw",
+			"commit": "9f7613ef48877180225b9377c87b0f3a65a2ca8e"
+		},
+		{
+			"repository": "ImageMagick/tiff",
+			"commit": "a00846bca0212faca9306ae7bdd1c89e3e46bf82"
+		},
+		{
+			"repository": "ImageMagick/webp",
+			"commit": "b981ef267195cb12f2cb97e4dd23e12a1323a4ce"
+		},
+		{
+			"repository": "ImageMagick/xml",
+			"commit": "4509bf0d7b7a501b682da8635527cd77525b0ec9"
+		},
+		{
+			"repository": "ImageMagick/zlib",
+			"commit": "e42706934e4e7564d960031ae62ff29d918ee06d"
+		}
+	]
+}

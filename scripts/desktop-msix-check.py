@@ -36,9 +36,12 @@ def zip_part_name(name):
     return safe_name(unquote_to_bytes(name).decode('utf-8', errors='strict'))
 
 
-def check(package, prepared, signed=False):
-    if prepared.get('schema') != 1 or prepared.get('scope') != 'development-msix-layout' or prepared.get('redistributionApproved') is not False:
+def check(package, prepared, signed=False, web_store=False):
+    scope = 'web-store-msix-layout' if web_store else 'development-msix-layout'
+    if prepared.get('schema') != 1 or prepared.get('scope') != scope or prepared.get('redistributionApproved') is not False:
         raise ValueError('Expected development preparation receipt')
+    if web_store and prepared.get('storeSubmissionAllowed') is not False:
+        raise ValueError('Layout cannot authorize store submission')
     expected = prepared['files']
     if not 1 <= len(expected) <= 2000:
         raise ValueError('Invalid inventory size')
@@ -130,12 +133,20 @@ def check(package, prepared, signed=False):
             raise ValueError('Unsupported package architecture')
         if identity is None or identity.attrib != {'Name': c['identity'], 'Publisher': c['publisher'], 'Version': c['version'], 'ProcessorArchitecture': c.get('architecture', 'x64')}:
             raise ValueError('Package identity mismatch')
-        if (c.get('storeSubmissionAllowed') is not False or c.get('channel') != 'local-development'
+        if web_store:
+            version = c.get('version', '')
+            if (c.get('channel') != 'microsoft-store' or not re.fullmatch(r'[A-Za-z0-9.-]{3,50}', c.get('identity', ''))
+                or c.get('identity') == 'Z8Work.Desktop.Dev' or not c.get('publisher', '').startswith('CN=')
+                or c.get('publisher') == 'CN=Z8.Work Development'
+                or not re.fullmatch(r'[1-9]\d*\.(0|[1-9]\d*)\.(0|[1-9]\d*)\.0', version)
+                or any(int(n) > 65535 for n in version.split('.'))):
+                raise ValueError('Invalid Store package identity or version')
+        elif (c.get('storeSubmissionAllowed') is not False or c.get('channel') != 'local-development'
             or c.get('identity') != 'Z8Work.Desktop.Dev' or c.get('publisher') != 'CN=Z8.Work Development'):
             raise ValueError('Not a development package')
     with Path(package).open('rb') as stream:
         digest = hashlib.file_digest(stream, 'sha256').hexdigest()
-    return {'schema': 1, 'status': 'passed', 'scope': 'signed-development-msix-content' if signed else 'unsigned-development-msix', 'sha256': digest, 'bytes': Path(package).stat().st_size, 'payloadFiles': len(expected), 'verifiedBlocks': count, 'verifiedFileHashes': len(file_hashes), 'signature': 'present-not-verified' if signed else 'not-present', 'codeIntegrity': catalog, 'installation': 'not-run', 'redistributionApproved': False}
+    return {'schema': 1, 'status': 'passed', 'scope': 'web-store-msix-content' if web_store else ('signed-development-msix-content' if signed else 'unsigned-development-msix'), 'sha256': digest, 'bytes': Path(package).stat().st_size, 'payloadFiles': len(expected), 'verifiedBlocks': count, 'verifiedFileHashes': len(file_hashes), 'signature': 'present-not-verified' if signed else 'not-present', 'codeIntegrity': catalog, 'installation': 'not-run', 'redistributionApproved': False, 'storeSubmissionAllowed': False}
 
 
 def main():
@@ -144,6 +155,7 @@ def main():
     parser.add_argument('--prepared', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--signed', action='store_true', help='Require signature footprint; does NOT verify signature or trust')
+    parser.add_argument('--web-store', action='store_true', help='Explicitly verify a web Store candidate, not the legacy development package')
     args = parser.parse_args()
     if Path(args.output).exists():
         raise ValueError('Output report already exists')
@@ -157,7 +169,7 @@ def main():
         metadata_path = Path(args.output).with_suffix('.blockmap.xml')
         with metadata_path.open('xb') as stream:
             stream.write(archive.read(info))
-    result = check(args.package, json.loads(prepared_path.read_text()), signed=args.signed)
+    result = check(args.package, json.loads(prepared_path.read_text()), signed=args.signed, web_store=args.web_store)
     with Path(args.output).open('x') as stream:
         json.dump(result, stream, indent=2)
         stream.write('\n')

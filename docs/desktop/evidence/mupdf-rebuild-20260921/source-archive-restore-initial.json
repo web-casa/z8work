@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "checkedBlobs": 24084,
+  "collections": {
+    "mupdf": {
+      "schema": 1,
+      "status": "failed",
+      "checkedBlobs": 11367,
+      "restored": [],
+      "issues": [
+        "source/thirdparty/zxing-cpp/wrappers/rust/core"
+      ]
+    },
+    "emscripten": {
+      "schema": 1,
+      "status": "passed",
+      "checkedBlobs": 12717,
+      "restored": [],
+      "issues": []
+    }
+  }
+}

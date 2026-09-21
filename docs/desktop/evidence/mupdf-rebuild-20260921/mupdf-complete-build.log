@@ -1,0 +1,21 @@
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 4.0.8 (70404efec4458b60b953bc8f1529f2fa112cdfd1)
+COMPILING (small)
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+/bin/sh: 1: pkg-config: not found
+make: Nothing to be done for 'libs'.
+LINKING
+TYPESCRIPT

@@ -1,0 +1,265 @@
+{
+  "note": "Binary strings are diagnostic hints, not complete dependency or source proof",
+  "unitIds": [
+    {
+      "packageVersion": "Glob-0.10.2",
+      "unitHash": "f661fc706b5acf47e2ef3e205aecccbd2b04a1d9a510c8824e25acd6e640995d"
+    },
+    {
+      "packageVersion": "JuicyPixels-3.3.9",
+      "unitHash": "a78a073598daa75dffd93438e3a5da7bbc474466f58c761947c99acb33e3001a"
+    },
+    {
+      "packageVersion": "aeson-2.2.3.0",
+      "unitHash": "42ea1eebc174f82a1fde45403b35ffc3f4b10993e88119f0cea8163e56ecb248"
+    },
+    {
+      "packageVersion": "aeson-pretty-0.8.10",
+      "unitHash": "da70c3c63f33b6ffe3e6f8d2d1e5f1fc62a3ca4aa17527febdbae1fcc812fcac"
+    },
+    {
+      "packageVersion": "ansi-terminal-types-1.1",
+      "unitHash": "c40bcc7c69e3a6a6cec2e06fdc4f9c69c921373f7c2937ead38f2b26ee8e5d5c"
+    },
+    {
+      "packageVersion": "attoparsec-0.14.4",
+      "unitHash": "228ee82667071f05493a1d05757eb1a47710d325e8d45e32bfc36f27de8aeb1d"
+    },
+    {
+      "packageVersion": "base64-bytestring-1.2.1.0",
+      "unitHash": "ceed8f0a1087a121b82081ebeecd2a72d673551ffbe290ccd190de81a4356d7b"
+    },
+    {
+      "packageVersion": "basement-0.0.16",
+      "unitHash": "e0bc19cdeae7092bd2f4c29721b1b3a4001007efd8cd7d9c22e8c5fe95fd49aa"
+    },
+    {
+      "packageVersion": "blaze-markup-0.8.3.0",
+      "unitHash": "a1bcb76165d7a6a4a45c2a1b950c7e25a1bc8f1bb7fffab73ea01ff3f9d0a12b"
+    },
+    {
+      "packageVersion": "case-insensitive-1.2.1.0",
+      "unitHash": "20fb6b9513eb09c9ea597fce6b39c27bd7a28cf671b7f3709e02b0e1350ad809"
+    },
+    {
+      "packageVersion": "citeproc-0.8.1.1",
+      "unitHash": "717ceeab6329ff13cb1047cc8062db52ba15b41d619aa084df3acc7533779247"
+    },
+    {
+      "packageVersion": "colour-2.3.6",
+      "unitHash": "caa89ba87c4fdaf7e9054cf8ab7ca9bf631801a3fb52dccc06f09af9807ce9be"
+    },
+    {
+      "packageVersion": "commonmark-0.2.6.1",
+      "unitHash": "9bb6208aefe8ed27ed5456cd72ed69e5b3d59d08a3ba4d27c96103d5a0ea41e7"
+    },
+    {
+      "packageVersion": "commonmark-extensions-0.2.5.5",
+      "unitHash": "cc0e8869905aa6968624aa909415d663cc06b516ad55bfc79c1e2824a7acbd8e"
+    },
+    {
+      "packageVersion": "commonmark-pandoc-0.2.2.2",
+      "unitHash": "60ee3bb23582e673a2ae22d23c083120a3dd475466a307c1f95ae15769f54d2b"
+    },
+    {
+      "packageVersion": "conduit-1.3.6",
+      "unitHash": "d05e6d3647b4929d3f36857084735f8cdda1adb91a0a17beb2039336dde745b2"
+    },
+    {
+      "packageVersion": "conduit-extra-1.3.6",
+      "unitHash": "23cd491bbcec6d45f28193cd477cb18bf90cfa0e07d87a4bdc301cd547fd49f4"
+    },
+    {
+      "packageVersion": "crypton-1.0.1",
+      "unitHash": "e1f37704fdf6a292cf3e61c76d85154933401a230bf5382f625aa423764ceb90"
+    },
+    {
+      "packageVersion": "djot-0.1.2.2",
+      "unitHash": "8f78b57d0112e867fcf7de8d9e189a6a973670d08f019a22dee3ba38f5f96792"
+    },
+    {
+      "packageVersion": "dlist-1.0",
+      "unitHash": "3c4808b3485971d54310204593fe2e16bb7f23de3819a3b141373460b9cd4a26"
+    },
+    {
+      "packageVersion": "doclayout-0.5",
+      "unitHash": "3ce358487cd84edc5c4d16664b024bfbd90a9fc889f27421e2792d3c041951a9"
+    },
+    {
+      "packageVersion": "doctemplates-0.11.0.1",
+      "unitHash": "78109c4584e50bd542a8fad8385238e406544a6b93ba1c03cfd8b50729120c0b"
+    },
+    {
+      "packageVersion": "emojis-0.1.4.1",
+      "unitHash": "40815948ed01d04fc3f6039670e483530ddfb1f96e4c1aa8103842c631dd8a52"
+    },
+    {
+      "packageVersion": "gridtables-0.1.0.0",
+      "unitHash": "fdf99a4b689f2ff5a1cb6a64bbb5da1cf51340371f1944011a6cb77d86ac7a71"
+    },
+    {
+      "packageVersion": "haskell-lexer-1.1.2",
+      "unitHash": "baa64d0e5f0c2ab24572d2ec94037ca5b6d8fcf3226cd9761837b6d279aaa54c"
+    },
+    {
+      "packageVersion": "integer-conversion-0.1.1",
+      "unitHash": "13cf00cfff21cf43d34f281996a2f9ae602e329809f5138fdaadea59344ac587"
+    },
+    {
+      "packageVersion": "ipynb-0.2",
+      "unitHash": "f859aea389b0a7e5cf9630fbc688e29dfbe55191992497adf2840379a6dbb8d9"
+    },
+    {
+      "packageVersion": "jira-wiki-markup-1.5.1",
+      "unitHash": "14ef8b97f210a97ca42b08f6b7d5f427440d34005c714f3c82c5666029e49393"
+    },
+    {
+      "packageVersion": "libyaml-0.1.4",
+      "unitHash": "d59f45a28e8b55b235fd7db54cb6b4c610b6b60a3d75a4a06dc1a34a5be54ab5"
+    },
+    {
+      "packageVersion": "memory-0.18.0",
+      "unitHash": "169c07c0f3fe6de4bb3e64d1e743f31554365732493bfb8eb5fb081fe2121b3b"
+    },
+    {
+      "packageVersion": "network-uri-2.6.4.2",
+      "unitHash": "c2596b19ddeb907a59dabe370d8b4eaae7c97e3c1a2f633c7d080eda064be4e1"
+    },
+    {
+      "packageVersion": "ordered-containers-0.2.4",
+      "unitHash": "4dd0511e69cc123cb85669c12cbd7f0766b452848b25e5733e6520ea2c80da7a"
+    },
+    {
+      "packageVersion": "pandoc-types-1.23.1",
+      "unitHash": "fe155ad3810eacf8eb996de044debf8fd7ce5e941646ec78929cfdf15187ceff"
+    },
+    {
+      "packageVersion": "pretty-show-1.10",
+      "unitHash": "74923e00aba01e6d1cb62ca422ac49202947a6efff8740e2f4faf484e172cefd"
+    },
+    {
+      "packageVersion": "prettyprinter-1.7.1",
+      "unitHash": "8501ec40aa681605d46a38b30de108c07384cb08235b5998248893c028d5645e"
+    },
+    {
+      "packageVersion": "primitive-0.9.0.0",
+      "unitHash": "c04ab7388f3a54bf3a6b08ba102a59dcab5acad5cdd7c39cc7568adb293f7934"
+    },
+    {
+      "packageVersion": "regex-base-0.94.0.2",
+      "unitHash": "73e87b40752a0535c5989b98c91de3a2d7cc5a0971da73ba1b0620987b717d60"
+    },
+    {
+      "packageVersion": "regex-tdfa-1.3.2.2",
+      "unitHash": "37a24f5853bc65bf6f05e7520d4e47ddf5e496fe81a69158c33f6f25b8733fb6"
+    },
+    {
+      "packageVersion": "resourcet-1.3.0",
+      "unitHash": "d87639cfe2386db033e0d64ad3b54123b6e76a6e4ad5fd05dabf0fa738d54590"
+    },
+    {
+      "packageVersion": "safe-0.3.21",
+      "unitHash": "ea3ee88497725a2ceb838e57762b4a0db775c70f573831720becae412eb7232e"
+    },
+    {
+      "packageVersion": "scientific-0.3.8.0",
+      "unitHash": "4243861e21c12006d10326002de8f84b44f05a51c89e9412cf8aae37a3389b06"
+    },
+    {
+      "packageVersion": "skylighting-core-0.14.3",
+      "unitHash": "67f79d8ab0220e69afff2d9de3e43a7453d704cd03645dd712ede410ec3c1f75"
+    },
+    {
+      "packageVersion": "skylighting-format-blaze-html-0.1.1.2",
+      "unitHash": "5828edb84d11e31063fb785c74b939f26a7015883a96f9c476693556d88f9866"
+    },
+    {
+      "packageVersion": "skylighting-format-context-0.1.0.2",
+      "unitHash": "de79159e7fae6fb12ea9d0e8c1b3bb9ac0481bd0755d5d287133c70062f4987d"
+    },
+    {
+      "packageVersion": "split-0.2.5",
+      "unitHash": "9159505f89e01774e6bbf059f28f7a37db9a9d8b38bdaade2a9f7c8206dbc748"
+    },
+    {
+      "packageVersion": "splitmix-0.1.1",
+      "unitHash": "53dde207b32f4c50beb9d25a2a365572198feeb2476c81d0beb3db6c3a442294"
+    },
+    {
+      "packageVersion": "streaming-commons-0.2.2.6",
+      "unitHash": "295718e06f3c818a503107beb96bb80cff81223ed95163bb907bb76ed7aa716d"
+    },
+    {
+      "packageVersion": "tagsoup-0.14.8",
+      "unitHash": "d1daf9a279f639ec9cd978659a0e4cfdba8177e2728f830c99b69c9f6d3f88c7"
+    },
+    {
+      "packageVersion": "temporary-1.3",
+      "unitHash": "2060de04b82a441260a0ac2d4ad99b01398bfa266f45877309b4a2a2220924b1"
+    },
+    {
+      "packageVersion": "texmath-0.12.8.11",
+      "unitHash": "3677bac847bb17aa40f88511c137aa941569e909bb26ca71495dd6894324bfd1"
+    },
+    {
+      "packageVersion": "toml-parser-2.0.1.0",
+      "unitHash": "ad3216c8b9935e8f90fbb0976aba090370a35beaea9ecaf62b7f83fcaacf2203"
+    },
+    {
+      "packageVersion": "typst-0.6",
+      "unitHash": "599e446fe9414ab512ad8efdcd20ae48909b5f0830aad68a770de666e1539570"
+    },
+    {
+      "packageVersion": "unicode-collation-0.1.3.6",
+      "unitHash": "87eff0184a6ecbf38889380df1eebcf5455d543fd7c750973ba70c5a57cea308"
+    },
+    {
+      "packageVersion": "unicode-transforms-0.4.0.1",
+      "unitHash": "c983624d234fa4ba5e35e943b7c4166bbccd2f67b221ce2ebb8f6237e5884889"
+    },
+    {
+      "packageVersion": "uniplate-1.6.13",
+      "unitHash": "ad07f2d4f1746eed81a9b64b92585ca26b7d5a42b3ba57a5ed9ecb865997db9e"
+    },
+    {
+      "packageVersion": "unliftio-core-0.2.1.0",
+      "unitHash": "5aea8f1aaf40cec18e1633d236e857d0f5fed6e8c7ba6b57567f2cdcf6f95bc9"
+    },
+    {
+      "packageVersion": "unordered-containers-0.2.20",
+      "unitHash": "2bd6aa164059d46870e483e8bbeea3558bb03c7deee8d0b7edb5f7a9dfa3c69f"
+    },
+    {
+      "packageVersion": "vector-0.13.2.0",
+      "unitHash": "d4a84bdae182c91a1ee24c3faff1aed589865bd9488ff734e22f0e03f202c947"
+    },
+    {
+      "packageVersion": "vector-stream-0.1.0.1",
+      "unitHash": "47d281d367f8a192375669124b1fc609c4f66d950d518257b78f052e6f7694e2"
+    },
+    {
+      "packageVersion": "xml-1.3.14",
+      "unitHash": "be9ff2e73314cdabdd4fe57652f84491121a7c2cb8912bb6b7e7c047af7a16dd"
+    },
+    {
+      "packageVersion": "xml-conduit-1.9.1.4",
+      "unitHash": "151634b6755fc3b7c6461926a447d2c91553fd01b98729c2f18858fe6678ca66"
+    },
+    {
+      "packageVersion": "xml-types-0.3.8",
+      "unitHash": "0492228e58ee3c6902157ef8b742f588fffa838854c47a4fb54c9a8d623441c9"
+    },
+    {
+      "packageVersion": "yaml-0.11.11.2",
+      "unitHash": "cabb06f648f4c8bba65262a522e834a140081b48718cf5ad35ad4a1cee0479fd"
+    },
+    {
+      "packageVersion": "zip-archive-0.4.3.2",
+      "unitHash": "28864302facaadb6e40241453dd326de66bd8218a9b9e388032bf2fd91aab760"
+    },
+    {
+      "packageVersion": "zlib-0.7.1.0",
+      "unitHash": "148702b20521ad03267f1c79024d237a1cbd77d5c9e94e3593dbbf053d5d3b36"
+    }
+  ]
+}

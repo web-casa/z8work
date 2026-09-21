@@ -1,0 +1,101 @@
+{
+  "archiveSha256": "17546c1c151ef8e16578f213f9ae0c96381a19445819a213b47d2bd3fc93e663",
+  "status": "passed",
+  "collections": [
+    {
+      "collection": "FFmpeg__FFmpeg",
+      "checkedBlobs": 7814,
+      "status": "passed"
+    },
+    {
+      "collection": "emscripten-core__emscripten",
+      "checkedBlobs": 12097,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__Ogg",
+      "checkedBlobs": 128,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__ffmpeg.wasm",
+      "checkedBlobs": 311,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__freetype2",
+      "checkedBlobs": 699,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__lame",
+      "checkedBlobs": 326,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__libvpx",
+      "checkedBlobs": 1203,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__libwebp",
+      "checkedBlobs": 329,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__opus",
+      "checkedBlobs": 397,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__theora",
+      "checkedBlobs": 232,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__vorbis",
+      "checkedBlobs": 441,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__x264",
+      "checkedBlobs": 242,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__x265",
+      "checkedBlobs": 313,
+      "status": "passed"
+    },
+    {
+      "collection": "ffmpegwasm__zlib",
+      "checkedBlobs": 254,
+      "status": "passed"
+    },
+    {
+      "collection": "fribidi__fribidi",
+      "checkedBlobs": 130,
+      "status": "passed"
+    },
+    {
+      "collection": "harfbuzz__harfbuzz",
+      "checkedBlobs": 3244,
+      "status": "passed"
+    },
+    {
+      "collection": "libass__libass",
+      "checkedBlobs": 83,
+      "status": "passed"
+    },
+    {
+      "collection": "libsdl-org__SDL",
+      "checkedBlobs": 1666,
+      "status": "passed"
+    },
+    {
+      "collection": "sekrit-twc__zimg",
+      "checkedBlobs": 537,
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+图片.svg -> .png: 123 bytes, validated
+音频.wav -> .flac: 8442 bytes, validated
+文档.md -> .html: 85 bytes, validated
+页面.pdf -> .png: 1189 bytes, validated
+彩色页面.pdf -> .png: 1189 bytes, validated
+旋转裁剪.pdf -> .jpeg: 1200 bytes, validated
+多页文档.pdf -> .png: 2749 bytes, validated
+Offline licenses and manual release link: passed (shell stub)
+{"candidateMupdf":"passed","requests":4,"sha256":"5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7"}
+Four web engines passed from desktop/dist without external network access.

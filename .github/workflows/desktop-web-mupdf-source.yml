@@ -1,0 +1,82 @@
+name: Desktop MuPDF source reconstruction
+on:
+    workflow_dispatch:
+permissions:
+    contents: read
+jobs:
+    reconstruct:
+        runs-on: ubuntu-24.04
+        timeout-minutes: 60
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - name: Install application and test source verification
+              run: |
+                  bun install --frozen-lockfile
+                  npm run desktop:test:sources
+                  npm ci --ignore-scripts --no-audit --no-fund --prefix packaging/desktop-web/mupdf-tools
+            - name: Collect and verify fixed sources
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  python3 - <<'PY'
+                  import json, subprocess
+                  from pathlib import Path
+                  lock = json.loads(Path('packaging/desktop-web/mupdf-source-build.json').read_text())
+                  for name, entry in [('mupdf', lock), ('emscripten', lock['emscripten'])]:
+                      directory = '.desktop-local/mupdf-sources/' + name
+                      subprocess.run(['python3', 'scripts/desktop-web-git-sources.py', '--repository', entry['repository'], '--commit', entry['commit'], '--output', directory], check=True)
+                      subprocess.run(['python3', 'scripts/desktop-web-git-sources.py', '--audit', directory, '--repair'], check=True)
+                  PY
+                  python3 scripts/desktop-web-mupdf-context.py --collection .desktop-local/mupdf-sources/mupdf --output .desktop-local/mupdf-context
+                  tar --no-wildcards-match-slash --exclude='.desktop-local/mupdf-sources/*/archives' --exclude='.desktop-local/mupdf-sources/*/staging' -czf .desktop-local/mupdf-source-candidate.tar.gz .desktop-local/mupdf-sources packaging/desktop-web/mupdf-source-build.json packaging/desktop-web/mupdf-tools/package.json packaging/desktop-web/mupdf-tools/package-lock.json scripts/desktop-web-mupdf-context.py scripts/desktop-web-mupdf-js.mjs scripts/desktop-web-git-sources.py
+            - name: Rebuild WASM without network
+              timeout-minutes: 40
+              run: |
+                  set -o pipefail
+                  MUPDF_IMAGE=$(node -p 'require("./packaging/desktop-web/mupdf-source-build.json").emsdkImage')
+                  docker pull --platform linux/amd64 "$MUPDF_IMAGE"
+                  docker run --rm --platform linux/amd64 --network none --memory 6g --memory-swap 6g --cpus 4 \
+                    --mount "type=bind,src=$PWD/.desktop-local/mupdf-context,dst=/work" \
+                    -w /work/source/platform/wasm -e EMSDK=/emsdk "$MUPDF_IMAGE" \
+                    bash /work/build-wasm.sh 2>&1 | tee .desktop-local/mupdf-build.log
+                  sudo chown -R "$(id -u):$(id -g)" .desktop-local/mupdf-context
+            - name: Verify exact bytes and PDF conversion behavior
+              run: |
+                  node scripts/desktop-web-mupdf-js.mjs \
+                    --source .desktop-local/mupdf-context/source/platform/wasm \
+                    --tools packaging/desktop-web/mupdf-tools --output .desktop-local/mupdf-rebuilt
+                  node scripts/desktop-web-mupdf-compare.mjs \
+                    --wasm .desktop-local/mupdf-rebuilt/mupdf-wasm.wasm --wrapper-dir .desktop-local/mupdf-rebuilt \
+                    --output .desktop-local/mupdf-comparison
+            - name: Verify rebuilt WASM in offline application
+              run: |
+                  set -o pipefail
+                  npm run desktop:build
+                  npx playwright install --with-deps chromium
+                  node scripts/desktop-web-browser.mjs \
+                    --mupdf-wasm .desktop-local/mupdf-context/source/platform/wasm/dist/mupdf-wasm.wasm \
+                    2>&1 | tee .desktop-local/mupdf-browser.log
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: mupdf-source-reconstruction
+                  include-hidden-files: true
+                  path: |
+                      .desktop-local/mupdf-source-candidate.tar.gz
+                      .desktop-local/mupdf-context/source-lock.json
+                      .desktop-local/mupdf-context/report.json
+                      .desktop-local/mupdf-context/build-wasm.sh
+                      .desktop-local/mupdf-context/source/platform/wasm/dist/
+                      .desktop-local/mupdf-comparison/
+                      .desktop-local/mupdf-rebuilt/
+                      .desktop-local/mupdf-build.log
+                      .desktop-local/mupdf-browser.log

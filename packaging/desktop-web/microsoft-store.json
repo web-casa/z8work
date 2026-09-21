@@ -1,0 +1,19 @@
+{
+	"schema": 1,
+	"channel": "microsoft-store",
+	"identity": "53660AlanM.Z8Work",
+	"publisher": "CN=84AC3716-04E0-4D67-8951-0D3E51674CA0",
+	"publisherDisplayName": "AlanM.",
+	"packageFamilyName": "53660AlanM.Z8Work_909n0052ampem",
+	"storeId": "9N0S7TK9K4L0",
+	"identitySource": "Partner Center fields supplied by owner on 2026-09-20",
+	"version": "1.0.0.0",
+	"firstSubmission": true,
+	"highestPackageVersion": null,
+	"displayName": "Z8.Work",
+	"description": "Local file conversion with bundled web engines",
+	"minimumWindowsVersion": "10.0.19041.0",
+	"maxVersionTested": "10.0.19041.0",
+	"languages": ["en-US", "zh-CN"],
+	"webview2": "external-evergreen-required"
+}

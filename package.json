@@ -28,6 +28,10 @@
 		"desktop:test:native": "node scripts/desktop-web-native.mjs",
 		"desktop:test:stress": "node scripts/desktop-web-browser.mjs --stress",
 		"desktop:release:check": "node scripts/desktop-web-release.mjs check",
+		"desktop:store:msix": "node scripts/desktop-web-msix.mjs",
+		"desktop:test:sources": "python3 tests/desktop-web-git-sources.test.py && python3 tests/desktop-web-ffmpeg-context.test.py && python3 tests/desktop-web-mupdf-context.test.py && python3 tests/desktop-web-pandoc-context.test.py && python3 tests/desktop-web-pandoc-hackage.test.py",
+		"desktop:store:sources": "node scripts/desktop-web-source-candidates.mjs",
+		"desktop:store:source-release": "node scripts/desktop-web-source-release.mjs check",
 		"desktop:package:release": "tauri build --config packaging/desktop-web/tauri.release.json"
 	},
 	"devDependencies": {

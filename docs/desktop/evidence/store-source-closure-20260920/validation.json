@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "applicationTests": 198,
+  "sourceToolTests": 7,
+  "vertDifferentialCases": 9,
+  "vertByteIdentical": true,
+  "gitBlobsVerified": 29596,
+  "releaseReady": false,
+  "nativeStoreAcceptance": "not-run"
+}

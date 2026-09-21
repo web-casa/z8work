@@ -1,0 +1,13 @@
+{
+  "applicationTests": 198,
+  "sourceToolTests": 15,
+  "releaseGateRegressionTests": 1,
+  "originalFfmpegSmokeCases": 6,
+  "rebuiltFfmpegSmoke": "not-run; build incomplete",
+  "sourceCollections": 25,
+  "gitBlobs": 19759,
+  "archiveRestore": "passed",
+  "actionlint": "passed",
+  "eslint": "passed",
+  "releaseReady": false
+}

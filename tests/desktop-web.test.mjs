@@ -29,11 +29,35 @@ const {
 	isDesktop,
 	guardDesktopClose,
 	desktopConversionError,
+	allowsDesktopDownloads,
 } = await import(
 	"data:text/javascript;base64," + Buffer.from(js).toString("base64")
 );
 
 test("web environment is not desktop", () => assert.equal(isDesktop(), false));
+test("download entry follows native channel and fails closed for unknown shells", async () => {
+	assert.equal(await allowsDesktopDownloads(), false);
+	globalThis.window = { __TAURI_INTERNALS__: {} };
+	try {
+		for (const [channel, allowed] of [
+			["direct", true],
+			["store", false],
+			[undefined, false],
+		]) {
+			globalThis.__desktopInvoke = async (command) => {
+				assert.equal(command, "distribution_channel");
+				return channel;
+			};
+			assert.equal(await allowsDesktopDownloads(), allowed);
+		}
+		globalThis.__desktopInvoke = async () => {
+			throw Error("old shell");
+		};
+		assert.equal(await allowsDesktopDownloads(), false);
+	} finally {
+		delete globalThis.window;
+	}
+});
 test("save sends bounded binary chunks and commits only at the end", async () => {
 	const calls = [];
 	globalThis.__desktopInvoke = async (...args) => {

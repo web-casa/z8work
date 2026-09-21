@@ -23,7 +23,7 @@
 				},
 				{
 					"title": "Saving and temporary files",
-					"body": "You select the destination through a system save dialog. Output is written to a temporary file in that directory and published only when complete. Cancelled and failed saves normally remove the temporary file; a process crash can leave one behind. Clearing the file list does not delete source files or saved outputs."
+					"body": "You select a destination file through a system save dialog. Output is written to a temporary file beside the selected destination and published only when complete. Cancelled and failed saves normally remove the temporary file; a process crash can leave one behind. Clearing the file list does not delete source files or saved outputs."
 				},
 				{
 					"title": "External links and support",
@@ -33,7 +33,7 @@
 			"support": [
 				{
 					"title": "Preview version",
-					"body": "This branch uses the same conversion code and workspace as the web app. Linux ARM64 WebView conversion and system saving have been tested. Windows and macOS installation acceptance, signing and store releases are pending."
+					"body": "This branch uses the same conversion code and workspace as the web app. Linux ARM64 WebView conversion and system saving have been tested. A previous macOS ARM64 preview passed signed installation tests; final packages containing the latest changes and store releases are still pending."
 				},
 				{
 					"title": "Conversion capabilities",
@@ -46,6 +46,10 @@
 				{
 					"title": "Resource limits",
 					"body": "WASM conversion is limited by WebView capabilities and available memory. Desktop batch jobs run sequentially; large inputs or ZIP outputs may still exceed available memory. Save operations accept at most 2 GiB. Restart recovery and partial PDF-page retry from the old native version are not available."
+				},
+				{
+					"title": "Updates",
+					"body": "Store builds receive updates through their store. Direct-download builds link to the project's release page. The app does not download or install updates by itself."
 				},
 				{
 					"title": "Reporting issues",
@@ -71,7 +75,7 @@
 				},
 				{
 					"title": "保存与临时文件",
-					"body": "您通过系统保存对话框选择目标。应用先在目标目录写入临时文件，完整写入后才发布结果。取消和失败通常会清理临时文件；进程崩溃可能遗留临时文件。清空列表不会删除原文件或已保存结果。"
+					"body": "您通过系统保存对话框选择目标文件。应用先在目标文件旁写入临时文件，完整写入后才发布结果。取消和失败通常会清理临时文件；进程崩溃可能遗留临时文件。清空列表不会删除原文件或已保存结果。"
 				},
 				{
 					"title": "外链与支持",
@@ -81,7 +85,7 @@
 			"support": [
 				{
 					"title": "预览版本",
-					"body": "本分支复用网页版的转换代码和工作区。Linux ARM64 已验证真实 WebView 转换和系统保存。Windows、macOS 安装验收、签名与商店发行仍待完成。"
+					"body": "本分支复用网页版的转换代码和工作区。Linux ARM64 已验证真实 WebView 转换和系统保存；此前的 macOS ARM64 预览包已通过签名安装测试。包含最新修改的最终安装件及商店发行仍待完成。"
 				},
 				{
 					"title": "转换范围",
@@ -94,6 +98,10 @@
 				{
 					"title": "资源限制",
 					"body": "WASM 转换受 WebView 与可用内存限制。桌面批量任务顺序执行，大文件和 ZIP 结果仍可能超出内存。保存操作上限为 2 GiB。不提供旧原生版的重启队列恢复和 PDF 部分页重试。"
+				},
+				{
+					"title": "软件更新",
+					"body": "商店构建通过对应商店更新；直接下载的构建提供项目发行页面链接。应用自身不会下载或安装更新。"
 				},
 				{
 					"title": "反馈问题",

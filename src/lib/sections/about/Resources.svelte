@@ -1,11 +1,18 @@
 <script lang="ts">
-	import { isDesktop } from "$lib/util/desktop";
+	import { isDesktop, allowsDesktopDownloads } from "$lib/util/desktop";
+	import { onMount } from "svelte";
 	import { getLocale } from "$lib/paraglide/runtime";
 	import DesktopNotices from "./DesktopNotices.svelte";
 	import Panel from "$lib/components/visual/Panel.svelte";
 	import { CONTACT_EMAIL, GITHUB_URL_PROJECT } from "$lib/util/consts";
 	import PixelIcon from "$lib/components/pixel/PixelIcon.svelte";
 	import { m } from "$lib/paraglide/messages";
+	let downloadsAllowed = $state(false);
+	onMount(() => {
+		void allowsDesktopDownloads().then((allowed) => {
+			downloadsAllowed = allowed;
+		});
+	});
 </script>
 
 <Panel class="flex flex-col gap-4 p-6">
@@ -40,17 +47,35 @@
 				<span class="text-sm break-all">{CONTACT_EMAIL}</span>
 			</span>
 		</a>
+		<a
+			href="https://z8.work/desktop-source/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="btn min-w-0 gap-3 p-4 bg-button flex items-center"
+		>
+			<PixelIcon name="link" size={24} />
+			<span class="min-w-0 flex flex-col gap-1">
+				<span>
+					{getLocale().startsWith("zh")
+						? "对应源码下载"
+						: "Corresponding source"}
+				</span>
+				<span class="text-sm break-all">z8.work/desktop-source</span>
+			</span>
+		</a>
 		{#if isDesktop()}
-			<a
-				href="https://github.com/web-casa/z8work/releases"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="btn min-w-0 p-4 bg-button"
-			>
-				{getLocale().startsWith("zh")
-					? "查看发行版本与下载"
-					: "Releases and downloads"}
-			</a>
+			{#if downloadsAllowed}
+				<a
+					href="https://github.com/web-casa/z8work/releases"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn min-w-0 p-4 bg-button"
+				>
+					{getLocale().startsWith("zh")
+						? "查看发行版本与下载"
+						: "Releases and downloads"}
+				</a>
+			{/if}
 			<DesktopNotices />
 		{/if}
 	</div>

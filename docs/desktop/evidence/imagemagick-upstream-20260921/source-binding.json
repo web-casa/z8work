@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scope": "ImageMagick WASM official-release binding and dependency source review; not independent rebuild, public source delivery or distribution/license approval",
+  "verificationMethod": "upstream-release",
+  "sourceCommit": "566ae32c14fe7ea7fc139670cefee669a035d335",
+  "embeddedSourceCommit": "344e9056f43764bfdf82456faf3bc2feee98a6fe",
+  "wasmSha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7",
+  "reviewedBy": "Codex official asset comparison, fixed-source collection and Git blob verification",
+  "upstreamAsset": {
+    "repository": "dlemstra/Magick.Native",
+    "release": "2026.824.1923",
+    "url": "https://github.com/dlemstra/Magick.Native/releases/download/2026.824.1923/wasm-Q8-x86.zip",
+    "archiveSha256": "0d8178eb7e5bd92ac1dc713afefae3f6251b75f6ab14d0157ff8088d10c2ea1f",
+    "wasmSha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7"
+  },
+  "dependenciesReviewed": true,
+  "dependencyCount": 23,
+  "dependencyLock": "packaging/desktop-web/magick-source-dependencies.json",
+  "licenseInventory": "docs/desktop/evidence/imagemagick-upstream-20260921/license-inventory.json",
+  "archive": ".desktop-local/store-source-closure-20260920/archives/magick-sources.tar.gz",
+  "archiveSha256": "f4e6e2dd716404916d01f4fc1eb54c35d1d4bdcd80993e94c582efc4535fc339",
+  "buildInputs": [
+    {
+      "file": "packaging/desktop-web/magick-source-dependencies.json",
+      "sha256": "e80060e3bf751b80396f97de6035283617f4bdbc69c8c516c9c7ead5ee3087da"
+    },
+    {
+      "file": "docs/desktop/evidence/store-source-closure-20260920/magick-binary-binding.json",
+      "sha256": "ec1b4528e28c027f2a1266e5a80133625d2a1abac1da4281400d4da6707ec957"
+    },
+    {
+      "file": ".desktop-local/store-source-closure-20260920/magick-native/source/build/wasm-x86/settings.sh",
+      "sha256": "cd9894f937d4e8b5120a8b83bf2024710aa5058cf13a28d8da6980afbf312610"
+    },
+    {
+      "file": ".desktop-local/store-source-closure-20260920/magick-dependencies/source/clone-dependencies.sh",
+      "sha256": "c4e7d55654b0ff12e621010a9170c514451335508d542aff94862c01599c1482"
+    }
+  ],
+  "sourceDistribution": "local archive only",
+  "licenseReview": "inventory complete; compatibility and obligations approval pending",
+  "releaseReady": false
+}

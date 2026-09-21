@@ -11,6 +11,28 @@ use web_save::{PendingSave, Saves};
 struct ExitApproved(AtomicBool);
 
 #[tauri::command]
+fn distribution_channel() -> &'static str {
+    if cfg!(feature = "store") {
+        "store"
+    } else {
+        "direct"
+    }
+}
+
+fn external_link_allowed(url: &tauri::Url, store: bool) -> bool {
+    if !matches!(url.scheme(), "https" | "http" | "mailto") || local_navigation(url) {
+        return false;
+    }
+    // Store builds retain support/source links, but cannot open our direct updater/download route.
+    !(store
+        && url.host_str() == Some("github.com")
+        && url
+            .path()
+            .to_ascii_lowercase()
+            .starts_with("/web-casa/z8work/releases"))
+}
+
+#[tauri::command]
 fn finish_close(app: tauri::AppHandle, approved: State<'_, ExitApproved>) {
     approved.0.store(true, Ordering::SeqCst);
     if let Ok(mut saves) = app.state::<Saves>().0.lock() {
@@ -133,7 +155,7 @@ fn local_navigation(url: &tauri::Url) -> bool {
 }
 
 fn open_external(url: &tauri::Url) {
-    if matches!(url.scheme(), "https" | "http" | "mailto") && !local_navigation(url) {
+    if external_link_allowed(url, cfg!(feature = "store")) {
         if let Err(error) = tauri_plugin_opener::open_url(url.as_str(), None::<&str>) {
             eprintln!("Could not open external link: {error}");
         }
@@ -176,13 +198,14 @@ fn install_macos_menu(app: &tauri::AppHandle) -> tauri::Result<()> {
 }
 
 fn main() {
-    tauri::Builder::default()
-        .plugin(tauri_plugin_single_instance::init(|app, _, _| {
+    let builder =
+        tauri::Builder::default().plugin(tauri_plugin_single_instance::init(|app, _, _| {
             if let Some(window) = app.get_webview_window("main") {
                 let _ = window.show();
                 let _ = window.set_focus();
             }
-        }))
+        }));
+    builder
         .plugin(tauri_plugin_dialog::init())
         .manage(Saves::default())
         .manage(ExitApproved::default())
@@ -219,7 +242,8 @@ fn main() {
             finish_save,
             abort_save,
             confirm_close,
-            finish_close
+            finish_close,
+            distribution_channel
         ])
         .build(tauri::generate_context!())
         .expect("Desktop application failed")
@@ -241,6 +265,30 @@ fn main() {
 #[cfg(test)]
 mod navigation_tests {
     use super::*;
+    #[test]
+    fn store_blocks_direct_downloads_but_keeps_source_and_support() {
+        for path in [
+            "/web-casa/z8work/releases",
+            "/web-casa/z8work/releases/latest",
+            "/web-casa/z8work/releases/download/v1/app.dmg",
+        ] {
+            let url = format!("https://github.com{path}").parse().unwrap();
+            assert!(!external_link_allowed(&url, true));
+            assert!(external_link_allowed(&url, false));
+        }
+        assert!(external_link_allowed(
+            &"https://github.com/web-casa/z8work".parse().unwrap(),
+            true
+        ));
+        assert!(external_link_allowed(
+            &"mailto:support@z8.work".parse().unwrap(),
+            true
+        ));
+        assert!(!external_link_allowed(
+            &"file:///tmp/app".parse().unwrap(),
+            false
+        ));
+    }
     #[test]
     fn only_bundled_origins_can_replace_the_workspace() {
         for url in [

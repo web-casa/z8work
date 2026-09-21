@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scope": "vert-wasm technical source correspondence; not public source delivery or distribution/license approval",
+  "verificationMethod": "rebuilt",
+  "sourceCommit": "4f99ef9abad355a390f1e1dfab4769ef815f54f3",
+  "wasmSha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+  "wasmByteIdentical": true,
+  "reviewedBy": "Codex offline rebuild and byte comparison",
+  "archive": ".desktop-local/store-source-closure-20260920/archives/vert-wasm-sources.tar.gz",
+  "archiveSha256": "dca770d88cd72ab606a5be9a875c21eebd019d769ac5ee5a601f53bd5eb9ce78",
+  "buildInputs": [
+    {
+      "file": "scripts/desktop-web-vert-rebuild.py",
+      "sha256": "22f658a28bbc1d0b780bab56433f78d342e5888ce2ca4906504d052412922a97"
+    },
+    {
+      "file": ".desktop-local/store-source-closure-20260920/vert-vendor-config.toml",
+      "sha256": "f981d952a6141259937e93a6101e19072c054c960b623a8aaa1a384fb9734f74"
+    },
+    {
+      "file": "docs/desktop/evidence/store-source-closure-20260920/vert-reproduction.json",
+      "sha256": "13b35711f7bc3523a59b6dded4a16830d99afe637f83f44cafcc3386e918d0d6"
+    }
+  ],
+  "toolchain": {
+    "rust": "1.85.1",
+    "wasmBindgenCommit": "2405ec2b4bcd1cc4e3bd1562c373e9d5f0cbdcb5",
+    "binaryen": "117",
+    "optimization": "-O"
+  },
+  "sourceDistribution": "local archive only",
+  "licenseReview": "pending",
+  "releaseReady": false
+}

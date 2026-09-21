@@ -15,6 +15,7 @@ fn main() {
             "abort_save",
             "confirm_close",
             "finish_close",
+            "distribution_channel",
         ]),
     ))
     .expect("Tauri build failed");

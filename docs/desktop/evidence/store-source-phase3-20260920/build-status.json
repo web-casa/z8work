@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "host": "linux/arm64",
+  "target": "linux/amd64",
+  "attempts": [
+    {
+      "log": ".desktop-local/store-source-phase3/ffmpeg-build.log",
+      "sha256": "2a770b26c8cb46bd176e8dd3454e550fc11a22ce2c17f60004aea2a0f68c8b5b",
+      "exitCode": 130,
+      "result": "failed",
+      "reason": "Interrupted after unbounded upstream parallelism caused resource pressure"
+    },
+    {
+      "log": ".desktop-local/store-source-phase3/ffmpeg-build-bounded.log",
+      "sha256": "fe28b6310a5190d43f8d330d69eed0e60822069957e314f4bb239192823cf5e0",
+      "exitCode": 124,
+      "result": "failed",
+      "reason": "900-second local ARM64 to AMD64 emulated build deadline reached before final artifact"
+    }
+  ],
+  "finalWasmProduced": false,
+  "builder": "z8-source-phase3",
+  "builderState": "stopped; cache retained",
+  "remoteWorkflow": "prepared locally; not pushed or dispatched",
+  "applicationWasmReplaced": false,
+  "releaseReady": false
+}

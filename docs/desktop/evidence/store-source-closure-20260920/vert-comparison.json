@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "ICNS parser differential samples only",
+  "originalWasmSha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+  "rebuiltWasmSha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+  "byteIdentical": true,
+  "checks": [
+    {
+      "name": "application icon",
+      "inputSha256": "1a645e78bc7d65b1526068a2a4e695edf117908b596eed7488eb8b945fa15beb",
+      "result": {
+        "ok": true,
+        "elements": [
+          {
+            "bytes": 19351,
+            "sha256": "96d495f362c23cad524a5c03c1e53e729be04fda31cd448608d24ba4f4dd992f"
+          },
+          {
+            "bytes": 1040,
+            "sha256": "9fd9e53fdea90a51ffd00a225e67fc4d5311bfb3142c3b4d7b5d4f64d2be44f2"
+          },
+          {
+            "bytes": 5655,
+            "sha256": "34c577e85007086647eff2288b20125b904dc73c716e46b1f8108be9f7d5d10f"
+          },
+          {
+            "bytes": 19351,
+            "sha256": "96d495f362c23cad524a5c03c1e53e729be04fda31cd448608d24ba4f4dd992f"
+          },
+          {
+            "bytes": 52709,
+            "sha256": "c189c092fc49753bc71f5e948266b12202af98847a68f6d7bec15b29ae11a1dd"
+          },
+          {
+            "bytes": 1201,
+            "sha256": "c4dd9186f069131e9baa3eae532a11cdd0472fbf3878b25978e7472f2e0c4d30"
+          },
+          {
+            "bytes": 1024,
+            "sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2"
+          },
+          {
+            "bytes": 5655,
+            "sha256": "34c577e85007086647eff2288b20125b904dc73c716e46b1f8108be9f7d5d10f"
+          },
+          {
+            "bytes": 1714,
+            "sha256": "b5f6eaaee5f8c9c50fc7815169ae6bb70efada344de53acff5239eb6106e208a"
+          },
+          {
+            "bytes": 490,
+            "sha256": "1dea0a0b535c29f533a2cd94fde362f972c6a2f0fd44fdf5b5b888f47a9b448b"
+          },
+          {
+            "bytes": 256,
+            "sha256": "3d6876a0146de8576eb2395a858de1213d1b92c65b779df3a331cfd5a4584546"
+          },
+          {
+            "bytes": 2546,
+            "sha256": "bcc02420df7e80bfe023a507879f7b3e966e91977e27b557344ccca37a02eda5"
+          }
+        ]
+      }
+    },
+    {
+      "name": "empty family",
+      "inputSha256": "29a556a340ad1950fc1be278e43eab18a92a72e98d405086f835a39d43d835ac",
+      "result": {
+        "ok": true,
+        "elements": []
+      }
+    },
+    {
+      "name": "one element",
+      "inputSha256": "0c2f9e3d0276de47da7a3381b54f5d91948238f46772bf34abcdfc9c6482af2b",
+      "result": {
+        "ok": true,
+        "elements": [
+          {
+            "bytes": 4,
+            "sha256": "9f64a747e1b97f131fabb6b447296c9b6f0201e79fb3c5356e6c77e89b6a806a"
+          }
+        ]
+      }
+    },
+    {
+      "name": "multiple elements",
+      "inputSha256": "df623116c94f86f0bf106dc3091a8771e5d5428c6c9c802e847a7c64423fd6b7",
+      "result": {
+        "ok": true,
+        "elements": [
+          {
+            "bytes": 32,
+            "sha256": "544e62cee8033709e389e5b2755343d0d0fa8c4850215cfb6331717e80d1aea3"
+          },
+          {
+            "bytes": 128,
+            "sha256": "4c1398e54d53e925cff04da532f4bbaf15f75b5981fc76c2072dfdc6491a9fb1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "large element",
+      "inputSha256": "412ea79a833b0ac8751d0516f39430834fe733f28f7948f08f67fee388a73ca1",
+      "result": {
+        "ok": true,
+        "elements": [
+          {
+            "bytes": 1048576,
+            "sha256": "bc56a8800998369cdaaa7ebf45562be47370bdf936fffc907ffdd3ba8aeaf89f"
+          }
+        ]
+      }
+    },
+    {
+      "name": "empty bytes",
+      "inputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": {
+        "ok": false,
+        "error": "Io(Error { kind: UnexpectedEof, message: \"failed to fill whole buffer\" })"
+      }
+    },
+    {
+      "name": "truncated header",
+      "inputSha256": "8ef43431bbe59e51c967a0a0de6ac820cde9cab8d2c74fdb9d196f8b9b501fef",
+      "result": {
+        "ok": false,
+        "error": "Io(Error { kind: UnexpectedEof, message: \"failed to fill whole buffer\" })"
+      }
+    },
+    {
+      "name": "truncated payload",
+      "inputSha256": "2bdf9931778b0c2989544b7b7a1b7c2bfa65d438b7b658c282ec0de06c5bc738",
+      "result": {
+        "ok": false,
+        "error": "Io(Error { kind: UnexpectedEof, message: \"failed to fill whole buffer\" })"
+      }
+    },
+    {
+      "name": "wrong signature",
+      "inputSha256": "9ff0e42baa2347ca1745fa04c88c3f17d7d94ae2f635324ad487c1dd5424f787",
+      "result": {
+        "ok": false,
+        "error": "Io(Custom { kind: InvalidData, error: \"not an icns file (wrong magic literal)\" })"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "engine": "vert-wasm",
+    "archive": ".desktop-local/store-source-closure-20260920/archives/vert-wasm-sources.tar.gz",
+    "sha256": "dca770d88cd72ab606a5be9a875c21eebd019d769ac5ee5a601f53bd5eb9ce78",
+    "bytes": 1281196,
+    "distributionStatus": "local-only"
+  },
+  {
+    "engine": "mupdf",
+    "archive": ".desktop-local/store-source-closure-20260920/archives/mupdf-sources.tar.gz",
+    "sha256": "8a2d958deddcba2569a12b2f4c4a9635d8cfa8f00e977d381e188ab550d55091",
+    "bytes": 187716343,
+    "distributionStatus": "local-only"
+  },
+  {
+    "engine": "magick",
+    "archive": ".desktop-local/store-source-closure-20260920/archives/magick-sources.tar.gz",
+    "sha256": "f4e6e2dd716404916d01f4fc1eb54c35d1d4bdcd80993e94c582efc4535fc339",
+    "bytes": 192143363,
+    "distributionStatus": "local-only"
+  }
+]

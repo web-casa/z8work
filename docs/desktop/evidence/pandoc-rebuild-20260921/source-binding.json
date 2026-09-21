@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "scope": "Pandoc WASM replacement source correspondence and application runtime validation; not distribution/license approval",
+  "verificationMethod": "replacement-rebuild",
+  "replacementArtifact": true,
+  "sourceCommit": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+  "wasmSha256": "e12460b4b7ae74829da41b77b97531ca2eeebbcaf2362d0e1912948b59c21e09",
+  "wasmByteIdentical": false,
+  "independentBuilds": 2,
+  "reviewedBy": "Codex automated source audit, two network-isolated rebuilds and browser conversion validation",
+  "archive": ".desktop-local/pandoc-rebuild-20260921/pandoc-corresponding-source-final.tar.gz",
+  "archiveSha256": "0d71a58d3440e62227ef5212f4b5ad484e735014fd4117a9fd638e8ee95b101e",
+  "buildInputs": [
+    { "file": "packaging/desktop-web/pandoc-source-build.json", "sha256": "922374bbc16e66cb94dc468c53d2e095cb6bbeed78bea2c0028b0a9f0fee3c47" },
+    { "file": "packaging/desktop-web/pandoc-source-candidate.json", "sha256": "04be864e3d8416e7daa83bd342117b46c5c5db2d065f07cfd06df294d4dc412b" },
+    { "file": "packaging/desktop-web/pandoc-hackage-lock.json", "sha256": "c124686a920aa64ed75b3da495566fdd91dc2ec8131ef0451b24cb5097b00f90" },
+    { "file": "packaging/desktop-web/pandoc.Dockerfile", "sha256": "7dc01d6bb1a8e9d4d6bedf27be78d7387b2d6af8f13c0c18398b4cdb7647bdbc" },
+    { "file": "scripts/desktop-web-pandoc-context.py", "sha256": "cc91f16118adcba757ac9169ea28c051823a7a2a1b7f45d5a6bfc4f88c6bf1e1" },
+    { "file": "scripts/desktop-web-pandoc-hackage.py", "sha256": "b90fe4f16b6804abae8865d0a4dffa9e5e8f8f1df1c087421d2c124ec04f6d13" },
+    { "file": "scripts/desktop-web-pandoc-toolchain.sh", "sha256": "9966a13eb0a8e505bed13a8d047f806e1c45775e9abcdc02a7a1f0b654d95765" },
+    { "file": "scripts/desktop-web-pandoc-build.sh", "sha256": "b78886471ac63dbe02785644211879fd46ad9139f9325abf9e792f802f0f1cab" },
+    { "file": ".desktop-local/pandoc-rebuild-20260921/context-final-5/source-lock.json", "sha256": "42d73ff6d72102e07c0200e9ca216f2c80618d12d8a1443fb8f05511b8f28b14" },
+    { "file": ".desktop-local/pandoc-rebuild-20260921/build-deterministic-1/cache/plan.json", "sha256": "2a339131dc7296af1b80d8697cdb883fb8192b8123036b87a4988d37b0969947" },
+    { "file": ".desktop-local/pandoc-rebuild-20260921/corresponding-source-final/metadata/build-comparison.json", "sha256": "48a8109ce57b2dd8e98f8f91f9df3e96d8b80f48305276a7fbedc9e03fed6869" }
+  ],
+  "sourceTrees": 8,
+  "gitBlobs": 3076,
+  "hackagePackages": 127,
+  "host": "linux/arm64",
+  "toolchainPlatform": "linux/amd64",
+  "artifactTarget": "wasm32-wasi",
+  "ghcVersion": "9.12.0.20241115",
+  "binaryenVersion": "119",
+  "buildNetwork": "none",
+  "runtimeValidation": {
+    "status": "passed",
+    "scenario": "Markdown to DOCX through the application worker",
+    "checks": ["DOCX content types", "word/document.xml", "English text", "Chinese text"]
+  },
+  "nondeterminismReview": {
+    "status": "documented",
+    "finding": "Fixed inputs, SOURCE_DATE_EPOCH and GHC -fobject-determinism did not make independent GHC WASM outputs byte-identical; both outputs passed the same runtime validation.",
+    "builds": [
+      { "name": "deterministic-1", "rawSha256": "6d4b696317fa7c0ab4ff6612d9e3c5d31cdda06509eae2d9a5f17f1b55e1649e", "optimizedSha256": "e12460b4b7ae74829da41b77b97531ca2eeebbcaf2362d0e1912948b59c21e09" },
+      { "name": "deterministic-2", "rawSha256": "d41a2a72755339e4a61bd8a79e76ee4beafb91a1d2fc49f66a889fec5f949048", "optimizedSha256": "9024b00fba0eb82375837f22e75d2640b4889537acb35736a1aed915c44916d1" }
+    ]
+  },
+  "sourceDistribution": "local archive only",
+  "licenseReview": "pending",
+  "nativeStoreAcceptance": "not-run",
+  "releaseReady": false
+}

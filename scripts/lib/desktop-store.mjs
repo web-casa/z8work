@@ -255,6 +255,17 @@ export function pngDimensions(bytes) {
 			throw new Error("Invalid PNG filter");
 	return { width, height };
 }
+// Deployed privacy/support pages are generated from packaging/desktop-web/content.json;
+// evidence must match those bytes, not the legacy store listing content.
+export const deployedPagesSource = "packaging/desktop-web/content.json";
+export async function loadDeployedPageContent(root) {
+	return JSON.parse(
+		await readFile(
+			resolve(await realpath(root), deployedPagesSource),
+			"utf8",
+		),
+	);
+}
 export async function assessChannel(
 	root,
 	content,
@@ -398,10 +409,13 @@ export async function assessChannel(
 					await readReference(root, submission.publicPages.evidence)
 				).toString(),
 			);
+			const pagesContent = await loadDeployedPageContent(root);
 			for (const locale of matrix.languages)
 				for (const kind of ["privacy", "support"]) {
-					const url = new URL(pagePath(locale, kind), content.website)
-						.href;
+					const url = new URL(
+						pagePath(locale, kind),
+						pagesContent.website,
+					).href;
 					if (
 						!report.pages?.some(
 							(p) =>
@@ -410,7 +424,11 @@ export async function assessChannel(
 								p.sha256 ===
 									sha256(
 										Buffer.from(
-											renderPage(content, locale, kind),
+											renderPage(
+												pagesContent,
+												locale,
+												kind,
+											),
 										),
 									),
 						)

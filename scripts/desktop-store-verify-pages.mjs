@@ -1,11 +1,17 @@
 // Read-only verification of this project's public documentation after an authorized deployment.
 import { parseArgs } from "node:util";
 import { writeFile } from "node:fs/promises";
-import { loadStore, pagePath, renderPage } from "./lib/desktop-store.mjs";
+import {
+	loadStore,
+	loadDeployedPageContent,
+	pagePath,
+	renderPage,
+} from "./lib/desktop-store.mjs";
 import { sha256 } from "./lib/desktop-artifacts.mjs";
 const { values } = parseArgs({ options: { output: { type: "string" } } });
 if (!values.output) throw new Error("--output is required");
-const { content, matrix } = await loadStore();
+const { matrix } = await loadStore();
+const content = await loadDeployedPageContent(process.cwd());
 const pages = await Promise.all(
 	matrix.languages.flatMap((locale) =>
 		["privacy", "support"].map(async (kind) => {

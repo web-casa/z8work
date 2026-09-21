@@ -1,0 +1,10 @@
+{
+	"productName": "Z8.Work",
+	"identifier": "work.z8.desktop.m0",
+	"build": {
+		"features": ["store"]
+	},
+	"bundle": {
+		"createUpdaterArtifacts": false
+	}
+}

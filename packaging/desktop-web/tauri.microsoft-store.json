@@ -1,0 +1,9 @@
+{
+	"productName": "Z8.Work",
+	"identifier": "work.z8.desktop.m0",
+	"build": {
+		"features": ["store"],
+		"beforeBuildCommand": "node scripts/desktop-web-release.mjs prepare"
+	},
+	"bundle": { "createUpdaterArtifacts": false }
+}
