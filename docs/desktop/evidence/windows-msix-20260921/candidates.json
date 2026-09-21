@@ -1,0 +1,27 @@
+{
+	"run": "https://github.com/web-casa/z8work/actions/runs/35619046492",
+	"workflow": "desktop-web-store-msix.yml",
+	"dispatchedOn": "2026-09-21",
+	"sourceCommit": "5f95d65",
+	"note": "Unsigned store MSIX candidates from CI. Identity/version/archive-check verified in-run and re-verified locally with scripts/desktop-msix-check.py. Signing, sideload installation, WebView2 scenarios and WACK remain real-machine acceptance (checklist section 3).",
+	"candidates": [
+		{
+			"arch": "x64",
+			"artifact": "store-msix-x64-unsigned",
+			"file": ".desktop-local/ci-store-msix-20260921/store-msix-x64-unsigned/z8-work-store-candidate.msix",
+			"sha256": "e207562501f8fd4e6028015e246c8da93f18501d877e7de2de8b92217b864cc6",
+			"identity": "53660AlanM.Z8Work",
+			"version": "1.0.0.0",
+			"archiveCheck": "passed"
+		},
+		{
+			"arch": "arm64",
+			"artifact": "store-msix-arm64-unsigned",
+			"file": ".desktop-local/ci-store-msix-20260921/store-msix-arm64-unsigned/z8-work-store-candidate.msix",
+			"sha256": "7b732d3e4775dc0584663476e7a83d7c4a4a5fa3f57ef98140145b613452945f",
+			"identity": "53660AlanM.Z8Work",
+			"version": "1.0.0.0",
+			"archiveCheck": "passed"
+		}
+	]
+}
