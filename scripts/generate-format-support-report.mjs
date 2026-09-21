@@ -131,7 +131,12 @@ function namedPills(values) {
 }
 
 function sourceLink(path, label = path) {
-	return `<a href="${escape(relative(dirname(reportPath), resolve(root, path)))}">${escape(label)}</a>`;
+	// Forward slashes keep the public report byte-stable across platforms.
+	const link = relative(dirname(reportPath), resolve(root, path)).replaceAll(
+		"\\",
+		"/",
+	);
+	return `<a href="${escape(link)}">${escape(label)}</a>`;
 }
 
 function engineLink(url, label) {
