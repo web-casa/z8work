@@ -1,5 +1,7 @@
 # 调查记录
 
+2026-09-21 第十五批发现：desktop-web-macos-preview.mjs 的验证面（架构单一性、Info.plist 三项一致、codesign --deep --strict、依赖路径白名单、zip 重解压复验、hdiutil verify）可直接作为 Developer ID 正式候选验收的脚本基础，缺的只是真实身份签名与公证环节。macOS 作业在 macos-15 成功跑通 npm test + desktop:build，使 vite receipt 修复获得三平台（Linux/Windows/macOS）实证。
+
 2026-09-21 第十四批发现：tauri 2.11.4 CLI 既不接受 `--bundles none` 也不接受 config `bundle.targets: "none"`（schema 仅 all/列表/单值），跳过打包的正解是 `--no-bundle` 旗标。actions/checkout 在 Windows runner 上的 EOL smudge 会破坏一切"仓库字节 == 工作区字节"的检查（drift、摘要绑定），`* -text` 的 .gitattributes 是字节精确项目的必备件。vite 模块 ID 在 Windows 用正斜杠而 process.cwd() 带反斜杠，任何 `id.startsWith(cwd)` 式过滤都必须先归一化两侧——这类 bug 在 Linux 上永不暴露。GitHub 的 workflow_dispatch 只对默认分支上存在的 workflow 开放：功能分支新增 dispatch workflow 需先以最小提交把文件注册到 main，再以 `--ref` 指定功能分支运行。
 
 2026-09-21 第十三批发现：release gate 的摘要绑定是"发行编排环境"的绑定——`.desktop-local/` 内 12 个 buildInputs（pandoc 3、ffmpeg 2、magick 2、mupdf 4、vert 1）加五套归档都不在 Git 内，任何干净 checkout（含 CI）都必然 5+12 项 unavailable；CI 上的正确姿势是"普通构建 + 门禁 check + 断言仅本地不可得"，而不是绕过 check 或把绑定材料搬进 Git。tauri 构建二进制名由 Cargo 包名（z8-desktop）决定，与 MSIX 布局工具的强制要求一致；--bundles none 可只出 exe。tauri build --config 不支持的额外字段可能被 CLI 拒绝，CI 配置只保留与既有 store 配置相同的字段集。

@@ -4,7 +4,7 @@
 > 当前入口：[网页引擎迁移说明](WEB_CONVERSION_MIGRATION.md)、[Mac ARM64 验收与签名](WEB_MACOS_ACCEPTANCE.md)、[Microsoft Store 与 macOS 直发修复方案](WEB_STORE_REMEDIATION.md)。
 > 最新引擎来源验收：[FFmpeg](FFMPEG_REBUILD_VALIDATION.md)、[ImageMagick](IMAGEMAGICK_UPSTREAM_VALIDATION.md)、[MuPDF](MUPDF_REBUILD_VALIDATION.md)、[Pandoc](PANDOC_REBUILD_VALIDATION.md)。
 > 当前完整交接入口：[项目开发交接](PROJECT_HANDOFF_20260921.md)。
-> 公开源码交付与许可：[源码发布计划与下载页草案](SOURCE_RELEASE_PLAN.md)、[候选级许可审阅决策表](DISTRIBUTION_LICENSE_REVIEW.md)、[隐私/支持页部署证据清单](PUBLIC_PAGES_DEPLOYMENT_CHECKLIST.md)、[Windows MSIX 真机验收清单](WINDOWS_MSIX_ACCEPTANCE_CHECKLIST.md)。
+> 公开源码交付与许可：[源码发布计划与下载页草案](SOURCE_RELEASE_PLAN.md)、[候选级许可审阅决策表](DISTRIBUTION_LICENSE_REVIEW.md)、[隐私/支持页部署证据清单](PUBLIC_PAGES_DEPLOYMENT_CHECKLIST.md)、[Windows MSIX 真机验收清单](WINDOWS_MSIX_ACCEPTANCE_CHECKLIST.md)、[商店文案草案](STORE_LISTING_DRAFT.md)。
 > 下文为已归档原生方案的历史记录，不代表本分支的实现或验收状态。
 
 整理日期：2026-09-08。本文汇总此前的本地项目检查、官方资料核查、同类开源项目源码研究和 M0 原型验证，作为桌面开发资料的统一入口。各项来源、固定 commit 和核查边界保留在分项文档中。

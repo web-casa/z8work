@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "identifier": "work.z8.desktop.m0",
+  "source": "b01db4c530efa9095df0c9f6894ddc0ac2effd82",
+  "runUrl": "https://github.com/web-casa/z8work/actions/runs/35622039167",
+  "arch": "arm64",
+  "os": "15.7.9",
+  "signing": "ad-hoc",
+  "notarization": "not performed",
+  "guiConversion": "not performed; user testing requested",
+  "dependencies": "\t/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 2575.60.5)\n\t/System/Library/Frameworks/WebKit.framework/Versions/A/WebKit (compatibility version 1.0.0, current version 621.2.5)\n\t/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices (compatibility version 1.0.0, current version 65.0.0)\n\t/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics (compatibility version 64.0.0, current version 1889.5.3)\n\t/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon (compatibility version 2.0.0, current version 170.0.0)\n\t/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo (compatibility version 1.2.0, current version 1.5.0)\n\t/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 3502.1.255)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)\n\t/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 3502.1.255)\n\t/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)\n\t/usr/lib/libiconv.2.dylib (compatibility version 7.0.0, current version 7.0.0)\n\t/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync (compatibility version 1.0.0, current version 3777.4.1)\n\t/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices (compatibility version 1.0.0, current version 1226.0.0)",
+  "files": [
+    {
+      "name": "Z8.Work-0.2.0-macos-arm64-preview.app.zip",
+      "bytes": 35708414,
+      "sha256": "dc41b904ffc0d92e7e9af638cf084f1ad60051330148acaa94c474e037571b95"
+    },
+    {
+      "name": "Z8.Work-0.2.0-macos-arm64-preview.dmg",
+      "bytes": 35916265,
+      "sha256": "aa6c2df26287ec7d8948625e6d026d16bcb4550f9185af51f83c9922944be55f"
+    }
+  ]
+}
