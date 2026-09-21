@@ -1,5 +1,7 @@
 # 实施记录
 
+2026-09-22 第十九批（矩阵全绿）：第四次矩阵运行（35631580846）六平台全部成功——Windows x64/ARM64（cargo test --features store 含修复的 web_save 测试在 Windows 通过 + NSIS 打包）、macOS x64/ARM64（app）、Linux x64/ARM64（deb）。加上 quality.yml（分支 dispatch）通过，PR #1 的分支已获得完整六平台 + 质量门验证，处于可合并状态（合并是所有者动作；合并后生产站点由 Git 构建自带 desktop 静态页，不再被直传覆盖）。逐层验证最终账：三层真实缺陷（JS 分隔符×2、EOL smudge、vite receipt、Rust 保存文案平台差异）全部修复并在多平台实证。
+
 2026-09-22 第十八批（矩阵第三层）：修复后的矩阵（35629270129）JS/MSIX 侧全绿（201+22，分隔符修复生效），揭出第三层——Rust web_save 测试在 Windows 失败：rename 覆盖目录报 Access Denied → PermissionDenied 文案缺 retry 引导。按产品语义修复（权限拒绝统一含"重试"引导，Unix rust 测试仍过），推送后重新 dispatch 矩阵（第四次，等结果）。gh run rerun --failed 不带新提交的事实已记录。
 
 2026-09-22 第十七批（评审面 + 矩阵验证）：创建 PR #1（feat → main，含全部发行说明）。发现仓库历史上从未有过 pull_request 事件运行（尽管 quality.yml 在 main 上带该触发器）——PR checks 仅 Cloudflare Pages 预览；GitHub 侧验证改用等价方式：dispatch quality.yml（分支 ref，通过）并发现 desktop-web.yml 同样不存在于 main，照 MSIX 先例以 `[skip ci]` 最小提交注册到 main 后从分支 ref dispatch 六平台矩阵（run 35626699546，结果见后续记录）。生产站点此前因推 main 被 Git 集成构建覆盖（main 无 desktop 静态页），已重部署 feature 内容恢复；Email Obfuscation 探针修正——SPA 页无邮箱、计数恒 0 不能作探针，实测 desktop-info 页改写仍在，公开页字节证据继续等所有者关闭设置。

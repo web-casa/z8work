@@ -1,5 +1,7 @@
 # 调查记录
 
+2026-09-22 第十九批结论：六平台矩阵全绿后回看，desktop-web 矩阵在 Windows 上首跑连揭三层（JS 分隔符×2、Rust 保存文案平台语义），全部是真实跨平台缺陷而非 CI 噪声；此前该矩阵只存在于 feature 分支、从未在 Windows 跑过 npm test 与 cargo test，功能分支注册到 main 后才获得这一验证面。web_save 的修复方式（权限拒绝统一含重试引导）属于产品文案改进而非测试迁就。
+
 2026-09-22 第十八批发现：web_save 的错误分类在 Windows 上把"rename 覆盖已有目录"归为 PermissionDenied（Unix 落入兜底分支），两个分支文案的引导语义不一致——兜底含 retry 而权限分支不含，Windows-only 测试失败实为产品文案缺陷：权限拒绝同样可恢复，应统一引导重试。矩阵 CI 的价值在此体现：每揭一层平台差异都是真实产品改进。另：gh run rerun --failed 永远在原提交上重跑，推修复后必须重新 dispatch。
 
 2026-09-21 第十七批发现：本仓库 pull_request 触发器历史上从未生效（无任何该事件运行），PR 的 GitHub Actions 验证需以 workflow_dispatch 于分支 ref 手动触发替代；desktop-web.yml 与 store-msix workflow 均不在 main 上，dispatch 类触发要求 workflow 存在于默认分支，故功能分支新建的 dispatch workflow 都需要一次 `[skip ci]` 最小提交注册到 main。Cloudflare Email Obfuscation 的探针必须用含 mailto 的页面，SPA 不含邮箱恒显示 0。
