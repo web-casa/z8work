@@ -69,7 +69,7 @@ fn save_error(error: std::io::Error) -> String {
             "Disk full. Free space or choose another disk / 磁盘空间不足，请清理空间或选择其他磁盘"
         }
         std::io::ErrorKind::PermissionDenied => {
-            "No write permission. Choose another folder / 没有写入权限，请选择其他文件夹"
+            "No write permission. Choose another folder and retry / 没有写入权限，请选择其他文件夹后重试"
         }
         _ => "Could not save. Choose another location and retry / 无法保存，请选择其他位置后重试",
     };
