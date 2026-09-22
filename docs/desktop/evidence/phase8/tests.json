@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "date": "2026-09-08",
+  "desktopNode24": {
+    "status": "passed",
+    "tests": 68,
+    "report": "desktop-tests-node24.txt"
+  },
+  "desktopNode22": {
+    "status": "passed",
+    "tests": 68,
+    "report": "desktop-tests-node22.txt"
+  },
+  "nativeCore": {
+    "status": "passed",
+    "tests": 47,
+    "ignored": 1,
+    "report": "native-tests.txt"
+  },
+  "web": {
+    "status": "passed",
+    "tests": 180,
+    "report": "web-tests.txt"
+  },
+  "desktopTypes": {
+    "status": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "report": "typecheck.txt"
+  },
+  "portalGui": {
+    "status": "passed",
+    "platform": "linux/aarch64",
+    "strictSnap": false,
+    "report": "portal-gui-arm64.json"
+  },
+  "windowsApplicationCrosscheck": {
+    "status": "failed",
+    "reason": "Windows icon fixed; current Linux environment lacks llvm-rc. No native Windows build or execution.",
+    "report": "windows-crosscheck.txt"
+  },
+  "macosApplicationCrosscheck": {
+    "status": "failed",
+    "reason": "Apple SDK/compiler unavailable on Linux; no native macOS build or execution.",
+    "report": "macos-crosscheck.txt"
+  },
+  "remoteCI": {
+    "status": "not-run"
+  },
+  "strictSnapInstallation": {
+    "status": "not-run",
+    "reason": "Host snap confinement is partial; AMD64 execution is emulated."
+  },
+  "redistributionApproved": false,
+  "finalSnapConversions": {
+    "status": "passed",
+    "routes": 76,
+    "report": "isolated.json",
+    "nativeHardware": false
+  }
+}

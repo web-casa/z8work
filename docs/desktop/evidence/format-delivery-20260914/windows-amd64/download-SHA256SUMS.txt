@@ -1,0 +1,2 @@
+310c1ffa37cec3ab23d5716955f0fac559fefc4ecaf7c6ec061d128d7cdc366d  z8-work-development.msix
+ba4f624732737a8ed61806769109e879f77b307224cc687f21db764e987dc4aa  Z8.Work-windows-x64-preview.zip

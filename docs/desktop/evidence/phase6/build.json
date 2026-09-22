@@ -1,0 +1,74 @@
+{
+	"schema": 1,
+	"scope": "Phase6 source audit tools and materials; no new native binary built",
+	"baseCommit": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+	"uncommitted": true,
+	"toolchain": {
+		"node": "v24.18.0",
+		"python": "Python 3.13.5",
+		"dpkgDeb": "Debian 'dpkg-deb' package archive backend version 1.22.22 (arm64)."
+	},
+	"sourceSha256": {
+		"scripts/desktop-sources.mjs": "6eac12c4d112fd570d3b0dad1796a303ad80aa0b2a4eeda517142b4450be86be",
+		"scripts/desktop-source-fetch.mjs": "4e219e16a30f268b57ae0124c0f3e6a3b12021d6fa50139d824536b6646416b5",
+		"scripts/desktop-deb-catalog.py": "f49e41eb11e415310dce732c4932db4f30cb24b4b76a86af35188ed5d1709931",
+		"scripts/lib/desktop-sources.mjs": "b9e81bad50aad14081c6727a2bf28b2a7b0acc67165543f71b59d42bca8c564f",
+		"desktop/tests/sources.test.mjs": "b68275a5503ced5b74cf830be5e0f1e368d90e7a8d1a1c6ff5a71339d4caa05c",
+		"package.json": "40c64a90fe9b30fc99c6e91b24583c4d209f742c0d683980f6fc47defc5da566",
+		".github/workflows/desktop.yml": "95db819fe3e802614c5b500a4c883148e100e3804f3823a7a3819ce4d6afb764",
+		"README.md": "4988861dc1c549d262a82f2813c6fe7ac5b72ad786ed099f9e3dede4b2aba63a",
+		"docs/desktop/README.md": "b3a44ca610d678363adfbe9414e7c882f49510ea9be44ff64442b5b5305f191f",
+		"docs/desktop/PHASE6_IMPLEMENTATION.md": "a5ee7154a78e8a4694c350502b796756f8851ef43ab062a737382b73a25e6cf5"
+	},
+	"evidence": {
+		"audit.json": {
+			"file": "docs/desktop/evidence/phase6/audit.json",
+			"sha256": "4af6eac54982bf91b5eafc2354bce9295dcda37befee75b15fb429fda02e40f4"
+		},
+		"source-requests.json": {
+			"file": "docs/desktop/evidence/phase6/source-requests.json",
+			"sha256": "a28aacfbe7f8fbb811b0caa931ed449dd6785109b59a3e8bd33017ca4142d77e"
+		},
+		"downloads.json": {
+			"file": "docs/desktop/evidence/phase6/downloads.json",
+			"sha256": "20c6d3dae260fb502534174bc0a0cbd1015b19612010e412b72ecccb9980205c"
+		},
+		"engine-buildinfo.json": {
+			"file": "docs/desktop/evidence/phase6/engine-buildinfo.json",
+			"sha256": "ee06473b7260f58b153c6b8d9a6a4069747c0a09e7f6e0fe7518af979e77638a"
+		},
+		"tests.json": {
+			"file": "docs/desktop/evidence/phase6/tests.json",
+			"sha256": "6a962ab19e1cb842ff2b0c810071440bccbd40e8a664eb950775019ce6c11ea4"
+		}
+	},
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"previousCandidate": {
+		"file": ".desktop-local/phase5-candidate/z8-work-0.1.0-linux-arm64-validation.tar.gz",
+		"sha256": "3a6fb4001b306a810a769fc0880a6d6912c836130f0c3f3dd584a912b3a18798",
+		"bytes": 189868302,
+		"changed": false
+	},
+	"result": {
+		"runtimeMapping": "passed",
+		"notices": "passed",
+		"sourceMaterials": "incomplete",
+		"sourceVersions": 170,
+		"verifiedSourceVersions": 154,
+		"unavailableExactVersions": 13,
+		"timedOutLargeSourcePackages": 3,
+		"signatureVerification": "not-performed",
+		"redistributionApproved": false
+	},
+	"checks": {
+		"desktopTests": 40,
+		"webTests": 180,
+		"eslint": "passed",
+		"prettier": "passed",
+		"pythonAst": "passed",
+		"strictAuditExitCode": 1
+	},
+	"external": { "pushed": false, "deployed": false, "storeSubmitted": false },
+	"materials": ".desktop-local/phase6-final",
+	"sourceArchives": ".desktop-local/phase6-sources"
+}

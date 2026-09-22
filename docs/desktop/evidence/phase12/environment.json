@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "date": "2026-09-09",
+  "host": {
+    "os": "Debian 13 Linux",
+    "arch": "aarch64"
+  },
+  "wine": {
+    "version": "9.0 (Ubuntu 9.0~repack-4build3)",
+    "image": "z8-phase11-wine:local",
+    "imageId": "sha256:261b4b425a1f94e72cfc69f465fe7942b96e8727dbbddf0f1b944ab9013abeb8",
+    "containerArch": "amd64",
+    "execution": "Rosetta on ARM64",
+    "network": "none",
+    "uid": 501,
+    "gid": 501,
+    "memory": "4g",
+    "cpus": 4,
+    "finalCandidateMount": "read-only",
+    "coreDumpLimit": 0
+  },
+  "handoff": {
+    "path": ".desktop-local/phase12/delivery",
+    "sha256": "9955d2e7f33e79c4adb2e9fd019a332158783c94b6d16676e3a821e78ce0397a",
+    "files": 42,
+    "totalBytes": 534103749
+  },
+  "acceptance": "incomplete",
+  "nativeWindows": "not-run",
+  "redistributionApproved": false,
+  "knownFailure": "drains_both_pipes_with_bounded_memory: Rosetta invalid gdt selector index 5; no successful test summary",
+  "engineEvidence": "Phase 11; unchanged engine manifest; Phase 12 whole pipeline did not reach conversions",
+  "remainingTests": "Three individual tests used handoff-ready; native-tests.exe and validation-run.exe hashes match delivery exactly"
+}

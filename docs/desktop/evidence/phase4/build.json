@@ -1,0 +1,38 @@
+{
+	"schema": 1,
+	"scope": "M4 local preparation, not store submission or completed M3",
+	"baseCommit": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+	"uncommitted": true,
+	"sourceSha256": {
+		".github/workflows/desktop.yml": "e9b13eb34259a83b6fe9494cd0ab49f6a22a6ba5ec324fb5eed0abb9a9fdd10a",
+		".prettierignore": "df4cab095ac7142de33b8772255cc0908eb3f299f12b1fe5fa44e224841a21f2",
+		"desktop/tests/store.test.mjs": "87347fd5eb724a82d4e69f76d083efa3dd70ddd88ed5ccdc67f3b340892f3317",
+		"package.json": "9185922a0768600ddb0c3fa754845ba207f010ea0957fd5ab184ad04acbe3270",
+		"packaging/desktop/store/content.json": "5d60674ec4682289248829e832205828c915667d858f226034027bc838a00b7f",
+		"packaging/desktop/store/submission.json": "ecfadd3dbd5559084a4ada5e7629a5fde9d37298c88103307736d967db1c2987",
+		"scripts/desktop-store-browser.mjs": "ccdeb0c33d5eb725a01d24ba9a0f4cdbf0832e682e2e9263bcdc5211b13a8b51",
+		"scripts/desktop-store-verify-pages.mjs": "ce3b92aa0656fb9ad04c35a0c9ea083f3a49ced95883587fb5f06990be1d314e",
+		"scripts/desktop-store.mjs": "4f4317a1917099430150e3dacad336c2b8bd6931564413d71bac7cc3e603aa34",
+		"scripts/lib/desktop-artifacts.mjs": "fa88574ec675f8b5eabe961a2d3ddce6bd5736863caeecfb3c436f09eec28212",
+		"scripts/lib/desktop-store.mjs": "0747fded66e26e45d9204dd41e094ccd18437c65dfbc2cf034139a1b63cc93d4",
+		"src-tauri/native/src/convert.rs": "9fef932ea0ee8fabe2e2af3da52658c463c696e4709b2dab67c11acba7df5725",
+		"static/desktop-info/en/privacy/index.html": "dfb8605209f14e5f56d6d30e3f1080db737e67ffc30db5cb355fcdd2cfecc10a",
+		"static/desktop-info/en/support/index.html": "e5d5ba1b10f8a422e2d6bdf24441eb2ac869be2c2d3cfbad90a17583ee3399c9",
+		"static/desktop-info/zh-Hans/privacy/index.html": "d3cd4f695c555976e01b88b6ba4df5dac45e62c9c40e5f71e093d1fffde21a06",
+		"static/desktop-info/zh-Hans/support/index.html": "60107526ae3deffe10dd1f6502ac66843ff95715192ef27373b996ac207b40a6"
+	},
+	"tests": {
+		"native": 39,
+		"desktop_and_materials": 24,
+		"web": 180,
+		"documentation_browser": 8
+	},
+	"publicPages": "404 at checked time; not deployed",
+	"stores": "not submitted",
+	"missing": [
+		"Native target candidates and M3 acceptance",
+		"Store account identity and distribution settings",
+		"Native target screenshots",
+		"Deployment of privacy/support pages"
+	]
+}

@@ -24,3 +24,10 @@ vite.config.ts.timestamp-*
 
 # IDE
 .idea
+
+# Desktop prototype
+/src-tauri/target/
+/src-tauri/gen/
+/desktop/dist/
+/.desktop-local/
+__pycache__/

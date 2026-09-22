@@ -1,3 +1,4 @@
+import { isDesktop } from "./desktop";
 import { browser } from "$app/environment";
 
 export interface CacheInfo {
@@ -15,7 +16,12 @@ class ServiceWorkerManager {
 	private initialized = false;
 
 	async init(): Promise<void> {
-		if (!browser || !("serviceWorker" in navigator) || this.initialized) {
+		if (
+			!browser ||
+			isDesktop() ||
+			!("serviceWorker" in navigator) ||
+			this.initialized
+		) {
 			return;
 		}
 

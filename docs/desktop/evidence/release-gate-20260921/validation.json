@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "date": "2026-09-21",
+  "scope": "MAS withdrawal, provenance gate schema 2 and ImageMagick official-upstream validation",
+  "results": {
+    "javascriptTests": { "passed": 197, "failed": 0 },
+    "sourceToolTests": { "passed": 21, "failed": 0 },
+    "legacyMsixTests": { "passed": 5, "failed": 0 },
+    "rustDefaultTests": { "passed": 8, "failed": 0 },
+    "rustStoreTests": { "passed": 8, "failed": 0 },
+    "svelte": { "errors": 0, "warnings": 0 },
+    "offlineBrowserFlows": { "passed": 4, "failed": 0 },
+    "imageMagickLicenseInventory": {
+      "dependencies": 23,
+      "matchedPrimaryLicenseDigests": 22,
+      "manualReview": ["xml top-level notice identification"]
+    }
+  },
+  "releaseGate": {
+    "ready": false,
+    "expected": true,
+    "technicalSource": {
+      "verifiedRebuilt": ["@ffmpeg/core", "mupdf", "vert-wasm"],
+      "verifiedUpstream": ["@imagemagick/magick-wasm"],
+      "blocked": ["pandoc"]
+    },
+    "remaining": [
+      "Pandoc reproducible replacement",
+      "public corresponding-source delivery",
+      "distribution license approval",
+      "final Windows and macOS native package acceptance"
+    ]
+  },
+  "externalActions": {
+    "signed": false,
+    "uploaded": false,
+    "published": false
+  }
+}

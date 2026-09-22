@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scope": "phase14-local-verification",
+  "system": "Linux-7.0.14-orbstack-00380-ga7e0a2dc9535-aarch64-with-glibc2.41",
+  "head": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+  "nodeVersions": [
+    "22.22.2",
+    "24.18.0"
+  ],
+  "python": "3.13.5",
+  "powershellParser": {
+    "version": "7.6.6",
+    "platform": "linux-arm64",
+    "archiveSha256": "924829e54c983648f6f1419a2dc7f9433c861b2fb5bd57736ff096c24f133729",
+    "source": "https://github.com/PowerShell/PowerShell/releases/tag/v7.6.6"
+  },
+  "nativeWindows": "not-run",
+  "signedPackage": "not-created",
+  "certificateChanges": "not-performed",
+  "sourceBinaryPhase": 13,
+  "appRebuilt": false
+}

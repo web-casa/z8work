@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scope": "clean-Ubuntu-24.04-container-deb-install-nonroot-PDF-and-uninstall",
+  "host": "Debian 13 ARM64",
+  "architectures": {
+    "arm64": "native",
+    "amd64": "QEMU emulated"
+  },
+  "gui": "separate ARM64 extracted-deb report only",
+  "upgrade": "not-run",
+  "strictSnapInstall": "not-run"
+}

@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned AVIF encoder",
+  "beforeRemoval": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21341542,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "4ae12102-3e77-4d82-a022-a0a80bf55995"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "d0e710dc-423b-4710-8919-d36af35ed7c7"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 127,
+    "epoch": "41749376-6519-433c-bcd6-f4916760b8f7",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "a88985f3-9676-438b-bdab-52e6cc206822",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterCompletion": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+              "path": "/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/results/queued-z8-4.webp",
+              "bytes": 82
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/results/queued-z8-4.webp",
+          "bytes": 82
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "d0e710dc-423b-4710-8919-d36af35ed7c7"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 133,
+    "epoch": "41749376-6519-433c-bcd6-f4916760b8f7",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "a88985f3-9676-438b-bdab-52e6cc206822",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "observedEncoders": [
+    {
+      "pid": 3616485,
+      "state": "R",
+      "parent": 3614842,
+      "start": "85803770",
+      "command": [
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-i0FArd/job-XdiiPB/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-i0FArd/job-XdiiPB/output.avif"
+      ],
+      "cwd": "/home/ivmm/VERT/.desktop-local/packaged-remove-current-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-i0FArd/job-XdiiPB"
+    }
+  ],
+  "appRemainedOpen": true,
+  "observedEncodersExited": true,
+  "decoded": [
+    32,
+    32
+  ],
+  "output": {
+    "file": "queued-z8-4.webp",
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

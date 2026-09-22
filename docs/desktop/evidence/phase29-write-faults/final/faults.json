@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "failure": "output_permission",
+      "id": "readonly-mount",
+      "status": "passed"
+    },
+    {
+      "createdFiles": 63,
+      "failure": "storage",
+      "id": "inode-exhaustion",
+      "status": "passed"
+    },
+    {
+      "existingFilesPreserved": true,
+      "failure": "storage",
+      "fileSizeLimit": 0,
+      "id": "disk-full",
+      "injectedBytes": 33488896,
+      "partialFiles": 0,
+      "saveRetryWithoutSource": true,
+      "savedBytes": 611,
+      "savedSha256": "bc45345d269c5297097226aab3fa573eb4903163f880a409b5149288ffccf4a0",
+      "status": "passed"
+    },
+    {
+      "existingFilesPreserved": true,
+      "failure": "output_permission",
+      "fileSizeLimit": 0,
+      "id": "permission-revoked",
+      "injectedBytes": 0,
+      "partialFiles": 0,
+      "saveRetryWithoutSource": true,
+      "savedBytes": 611,
+      "savedSha256": "b3ebd7f61154ca5d95fb487dc525ebaba4895d74386cab1747647c9b6e59e435",
+      "status": "passed"
+    },
+    {
+      "existingFilesPreserved": true,
+      "failure": "storage",
+      "fileSizeLimit": 256,
+      "id": "file-size-limit",
+      "injectedBytes": 0,
+      "partialFiles": 0,
+      "saveRetryWithoutSource": true,
+      "savedBytes": 611,
+      "savedSha256": "34a5fb4a0d116685d2d61abcf9fe2a40682623e7711936bbde3c70aa35fbfbf5",
+      "status": "passed"
+    },
+    {
+      "id": "workspace-cleanup",
+      "status": "passed"
+    }
+  ],
+  "elapsedMs": 5270,
+  "phase": 29,
+  "platform": "linux-aarch64",
+  "schema": 2,
+  "scope": "native conversion/publisher fault checks; not installed GUI acceptance",
+  "status": "passed"
+}

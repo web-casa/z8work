@@ -1,0 +1,12 @@
+{
+  "ready": false,
+  "version": "0.2.0",
+  "product": "Z8.Work",
+  "issues": [
+    "pandoc: Candidate source, six patched repositories and matching-version GHC archive collected. Exact WASI SDK/optimizer inputs, resolved Cabal plan and historical binary binding or replacement rebuild remain unverified.",
+    "@ffmpeg/core: Pinned wrapper, codec dependencies and Emscripten/SDL runtime sources reproduce the installed WASM and JS byte-for-byte. Core/browser checks passed for current app flows. Source delivery and distribution license review remain incomplete; supplemental HEVC encoding probes time out in both original and rebuilt cores.",
+    "@imagemagick/magick-wasm: Installed WASM matches the official native release asset; fixed dependency sources are collected and Git-verified. Independent rebuild and embedded-library license/source distribution review remain incomplete.",
+    "mupdf: Fixed source and recursive submodules are collected and Git-verified. Independent rebuild, complete toolchain inputs and source distribution review remain incomplete.",
+    "vert-wasm: Fixed source plus 25 vendored crates reproduce the installed WASM byte-for-byte. Source archive remains local; public source delivery and distribution license review are incomplete."
+  ]
+}

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import * as mupdf from "mupdf";
+import { mupdf } from "./helpers-mupdf.mjs";
 import { unzipSync } from "fflate";
 import { moduleUrl } from "./helpers-load-ts.mjs";
 import { pdfFixture } from "./helpers-pdf-fixture.mjs";

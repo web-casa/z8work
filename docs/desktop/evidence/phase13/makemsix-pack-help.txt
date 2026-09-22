@@ -1,0 +1,21 @@
+Microsoft (R) makemsix version 1.7.243
+Copyright (C) 2017 Microsoft.  All rights reserved.
+
+Usage:
+---------------
+    .desktop-local/phase13/sdk-build/bin/makemsix pack -d <directory> -p <package> [options]
+
+Description:
+---------------
+    Creates an app package at <package> by adding all the files from the
+    specified input <directory>. You must include a valid package manifest
+    file named AppxManifest.xml in the directory provided.
+
+Options:
+---------------
+    -d <directory> {Required}
+        Input directory path.
+    -p <package> {Required}
+        Output package file path.
+    -? [Flag]
+        Displays this help text.

@@ -1,0 +1,38 @@
+    Checking windows-link v0.2.1
+    Checking typenum v1.20.1
+    Checking cfg-if v1.0.4
+    Checking once_cell v1.21.4
+   Compiling getrandom v0.4.3
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+    Checking hashbrown v0.17.1
+    Checking pin-project-lite v0.2.17
+    Checking equivalent v1.0.2
+   Compiling generic-array v0.14.7
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+    Checking fastrand v2.5.0
+    Checking itoa v1.0.18
+error[E0463]: can't find crate for `core`
+  |
+  = note: the `x86_64-pc-windows-gnu` target may not be installed
+  = help: consider downloading the target with `rustup target add x86_64-pc-windows-gnu`
+
+    Checking cpufeatures v0.2.17
+For more information about this error, try `rustc --explain E0463`.
+error: could not compile `cfg-if` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `windows-link` (lib) due to 1 previous error
+error: could not compile `pin-project-lite` (lib) due to 1 previous error
+error: could not compile `fastrand` (lib) due to 1 previous error
+error: could not compile `equivalent` (lib) due to 1 previous error
+error: could not compile `hashbrown` (lib) due to 1 previous error
+error: could not compile `typenum` (lib) due to 1 previous error
+error: could not compile `itoa` (lib) due to 1 previous error
+error: could not compile `cpufeatures` (lib) due to 1 previous error
+error[E0463]: can't find crate for `std`
+  |
+  = note: the `x86_64-pc-windows-gnu` target may not be installed
+  = help: consider downloading the target with `rustup target add x86_64-pc-windows-gnu`
+
+error: could not compile `once_cell` (lib) due to 1 previous error

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-begin-save"
+description = "Enables the begin_save command without any pre-configured scope."
+commands.allow = ["begin_save"]
+
+[[permission]]
+identifier = "deny-begin-save"
+description = "Denies the begin_save command without any pre-configured scope."
+commands.deny = ["begin_save"]

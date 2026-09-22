@@ -1,0 +1,152 @@
+[
+  {
+    "collection": "FFmpeg__FFmpeg",
+    "status": "passed",
+    "checkedBlobs": 7814,
+    "issues": []
+  },
+  {
+    "collection": "amesgen__splitmix",
+    "status": "passed",
+    "checkedBlobs": 42,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__Ogg",
+    "status": "passed",
+    "checkedBlobs": 128,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__ffmpeg.wasm",
+    "status": "passed",
+    "checkedBlobs": 311,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__freetype2",
+    "status": "passed",
+    "checkedBlobs": 699,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__lame",
+    "status": "passed",
+    "checkedBlobs": 326,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__libvpx",
+    "status": "passed",
+    "checkedBlobs": 1203,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__libwebp",
+    "status": "passed",
+    "checkedBlobs": 329,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__opus",
+    "status": "passed",
+    "checkedBlobs": 397,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__theora",
+    "status": "passed",
+    "checkedBlobs": 232,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__vorbis",
+    "status": "passed",
+    "checkedBlobs": 441,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__x264",
+    "status": "passed",
+    "checkedBlobs": 242,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__x265",
+    "status": "passed",
+    "checkedBlobs": 313,
+    "issues": []
+  },
+  {
+    "collection": "ffmpegwasm__zlib",
+    "status": "passed",
+    "checkedBlobs": 254,
+    "issues": []
+  },
+  {
+    "collection": "fribidi__fribidi",
+    "status": "passed",
+    "checkedBlobs": 130,
+    "issues": []
+  },
+  {
+    "collection": "harfbuzz__harfbuzz",
+    "status": "passed",
+    "checkedBlobs": 3244,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__conduit",
+    "status": "passed",
+    "checkedBlobs": 114,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__foundation",
+    "status": "passed",
+    "checkedBlobs": 300,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__ghc-wasm-meta",
+    "status": "passed",
+    "checkedBlobs": 36,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__hs-memory",
+    "status": "passed",
+    "checkedBlobs": 44,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__pandoc",
+    "status": "passed",
+    "checkedBlobs": 2458,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__streaming-commons",
+    "status": "passed",
+    "checkedBlobs": 39,
+    "issues": []
+  },
+  {
+    "collection": "haskell-wasm__xml",
+    "status": "passed",
+    "checkedBlobs": 43,
+    "issues": []
+  },
+  {
+    "collection": "libass__libass",
+    "status": "passed",
+    "checkedBlobs": 83,
+    "issues": []
+  },
+  {
+    "collection": "sekrit-twc__zimg",
+    "status": "passed",
+    "checkedBlobs": 537,
+    "issues": []
+  }
+]

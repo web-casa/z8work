@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned ImageMagick process",
+  "observedEncoders": [
+    {
+      "pid": 5507,
+      "state": "R",
+      "parent": 5096,
+      "start": "213566",
+      "command": [
+        "/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-rVSHZ8/job-x1kswX/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-rVSHZ8/job-x1kswX/output.avif"
+      ],
+      "cwd": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/cache/work.z8.desktop.m0/native-work-v1/session-rVSHZ8/job-x1kswX"
+    }
+  ],
+  "encoderExecutable": "/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+  "elapsedMs": 205.84208000000217,
+  "appExited": true,
+  "observedEncodersExited": true,
+  "outputFiles": 0,
+  "restoredPhase": "cancelled",
+  "original": {
+    "bytes": 21739522,
+    "sha256": "063dee122b9128b2d7caf3486372eff22ef34cd3d64e3e2bf15002dedee09898"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "status": "context-prepared",
+  "sourceTrees": 20,
+  "checkedBlobs": 11368,
+  "buildScriptSha256": "4cad15676ad63d85b24e0bea71070a4ce5754bbc49beff9a659bfda40e5cc145",
+  "patches": [
+    "fail on command/pipeline errors",
+    "use preinstalled locked SDK",
+    "limit make to two jobs",
+    "run TypeScript/minifier separately with pinned tools"
+  ],
+  "build": "not-run",
+  "binaryBinding": "unverified",
+  "followup": "Added upstream type declaration generation after successful WASM-only build; same source and compile/link flags, cached objects reused"
+}

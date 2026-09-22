@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "buildSourceCommit": "0150c5d23f33de56938014043b82b0923c91ca44",
+  "file": "LICENSE",
+  "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+  "bytes": 34523,
+  "verified": "isolated build Git object matches current core24 and root LICENSE; earlier explicit input allowlist omitted LICENSE"
+}

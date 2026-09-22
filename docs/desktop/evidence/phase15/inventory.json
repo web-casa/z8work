@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "scope": "phase15-local-evidence",
+  "files": {
+    "actionlint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "app-build.txt": {
+      "sha256": "2c64102c751af54867f1d70f4334fb7cd500d25a02f099ebaae3b7b57b325791",
+      "bytes": 131
+    },
+    "app-tests.txt": {
+      "sha256": "3ae578ad035aa2dde6ac171b87851cf38686e4355b1aa768dcd01691b712ea7f",
+      "bytes": 574
+    },
+    "clippy.txt": {
+      "sha256": "8941500e6e5ab0fc4c83c758fdcfe4708d2e888fc362ed50af71ceff6459ea59",
+      "bytes": 196
+    },
+    "conversion-gui-run.txt": {
+      "sha256": "ec352bc5ef98e45c0e5d7b2fb97156b1bcd1fc68cf12c982886bf9bbce424806",
+      "bytes": 6467
+    },
+    "conversion-gui.json": {
+      "sha256": "e3e80c5ab3adea531cbbd5d4c4132f6b03f305b0f88afeb67b69a0bcd5cc0e26",
+      "bytes": 679
+    },
+    "conversion.png": {
+      "sha256": "d59d2b3d77387545f0ab0bfcae341fcd4b74c421af7954e8eacd594b88bb28a0",
+      "bytes": 95912
+    },
+    "environment.json": {
+      "sha256": "7f9cfe5b297ac283c728049b6526e05c125754459353af6903476d323df472fc",
+      "bytes": 733
+    },
+    "eslint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "frontend-build.txt": {
+      "sha256": "c2f2458680c4ab856a45ef6e3cd7fcbe09efabea2081e4e3c6b577da73e738b2",
+      "bytes": 1207
+    },
+    "initial-proxy-failure.txt": {
+      "sha256": "6ec767805db9f1f10ecd8855d274c54508b33da2b28034a8f070bb305de2ecf1",
+      "bytes": 6020
+    },
+    "inputs-verified.txt": {
+      "sha256": "8f86b58970d274e8aaf065f2ac809297a81761d62b4a69f41295805913323109",
+      "bytes": 34
+    },
+    "inputs.json": {
+      "sha256": "b267ec43b19375f1e868794e477cd55843cbfe623b003b1c4b25c833194b1b1f",
+      "bytes": 43969
+    },
+    "native-development-tests.txt": {
+      "sha256": "850a700d610355ee0ef3db56c51ac07d25b4c0471c74ba3ca733e6d8c6f165b8",
+      "bytes": 4991
+    },
+    "native-no-default-tests.txt": {
+      "sha256": "69d8b91b0112875f2465f4169f6ff8dc79247930fb40ec92469082b83491fae1",
+      "bytes": 4869
+    },
+    "node22-tests.txt": {
+      "sha256": "f2b0255ffc59893f4622379f8458c6f6a78553ac718f2ce25b1c49c386cef172",
+      "bytes": 29035
+    },
+    "node24-tests.txt": {
+      "sha256": "760992fa44f97d641216e9ce966358ab2168d203f82d2d0582623f3d104576c6",
+      "bytes": 12145
+    },
+    "preferences-gui-run.txt": {
+      "sha256": "9a6462855079ed04b4b573c70e18f1cc453d7366d73383053ae733157902b56f",
+      "bytes": 5548
+    },
+    "preferences-gui.json": {
+      "sha256": "62afc64fd8a6363f4cac7e882fef1ac656f772d5adf056e0adf7770a2c7b3f8e",
+      "bytes": 343
+    },
+    "preferences-record.json": {
+      "sha256": "1eb213fd23915b5414e1f02e4e2d04441b08bdfcb2ad5ffdf09fce9b5425d5d0",
+      "bytes": 154
+    },
+    "preferences-tests.txt": {
+      "sha256": "67645797e412a2d825f393a00e988030a1f96f794c1e0b6ff3a4f7cb7117c7e9",
+      "bytes": 942
+    },
+    "preferences.png": {
+      "sha256": "f392018e0b238f2653685d09b034dbe863fa976088062d59faf80f9743a120dd",
+      "bytes": 91304
+    },
+    "prettier.txt": {
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "bytes": 66
+    },
+    "rustfmt.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "svelte-check.txt": {
+      "sha256": "47657d63a99fb0c8e4a6e9fbd75b33406bfa7c1e96d54e0978b00acc9ed175e1",
+      "bytes": 193
+    }
+  }
+}

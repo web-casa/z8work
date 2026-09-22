@@ -1,0 +1,14 @@
+# BEFORE
+
+INTRO
+
+- ITEM_ONE
+- ITEM_TWO
+
+| KEY | VALUE |
+|---|---|
+| CELL | DATA |
+
+# AFTER
+
+END

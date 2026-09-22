@@ -1,0 +1,49 @@
+✔ PDF → .png: single image and every page of a ZIP decode correctly (48.59511ms)
+✔ PDF → .jpeg: single image and every page of a ZIP decode correctly (12.485316ms)
+✔ PDF → .jpg: single image and every page of a ZIP decode correctly (6.930736ms)
+✔ PDF → .webp: single image and every page of a ZIP decode correctly (18.09673ms)
+✔ PDF → .avif: single image and every page of a ZIP decode correctly (86.617388ms)
+✔ PDF → .jxl: single image and every page of a ZIP decode correctly (99.898114ms)
+✔ PDF → .gif: single image and every page of a ZIP decode correctly (24.323597ms)
+✔ PDF → .bmp: single image and every page of a ZIP decode correctly (6.182951ms)
+✔ PDF → .tiff: single image and every page of a ZIP decode correctly (12.660523ms)
+✔ PDF → .tif: single image and every page of a ZIP decode correctly (7.33915ms)
+✔ PDF → .ico: single image and every page of a ZIP decode correctly (6.99386ms)
+✔ PDF → .jp2: single image and every page of a ZIP decode correctly (20.845916ms)
+✔ PDF → .psd: single image and every page of a ZIP decode correctly (9.226593ms)
+✔ PDF → .qoi: single image and every page of a ZIP decode correctly (5.399749ms)
+✔ PDF → .tga: single image and every page of a ZIP decode correctly (5.778537ms)
+✔ PDF → .ppm: single image and every page of a ZIP decode correctly (5.504123ms)
+✔ PDF → .pgm: single image and every page of a ZIP decode correctly (3.34189ms)
+✔ PDF → .pbm: single image and every page of a ZIP decode correctly (12.516149ms)
+✔ PDF → .pnm: single image and every page of a ZIP decode correctly (4.455673ms)
+✔ PDF → .pcx: single image and every page of a ZIP decode correctly (4.95096ms)
+✔ PDF → .dds: single image and every page of a ZIP decode correctly (6.188492ms)
+✔ PDF → .exr: single image and every page of a ZIP decode correctly (12.05907ms)
+✔ PDF → .hdr: single image and every page of a ZIP decode correctly (6.43499ms)
+✔ PDF → .avif quality 100 preserves rendered RGB pixels (16.360785ms)
+✔ PDF → .webp quality 100 preserves rendered RGB pixels (6.241367ms)
+✔ PDF → ICO scales large pages proportionally to the 256 px icon limit (47.890574ms)
+✔ single-page PDF → .png produces a real image at 144 DPI (22.832775ms)
+✔ single-page PDF → .jpeg produces a real image at 144 DPI (6.263991ms)
+✔ single-page PDF → .jpg produces a real image at 144 DPI (3.596804ms)
+format error: cannot find version marker
+warning: trying to repair broken xref
+warning: repairing PDF document
+✔ all PDF pages appear in ordered ZIP entries, with different rendered pixels (26.700494ms)
+✔ rotation and CropBox are reflected in image dimensions (2.096816ms)
+✔ encrypted PDF fails explicitly and a subsequent valid PDF still converts (25.430962ms)
+✔ empty PDF fails explicitly and a subsequent valid PDF still converts (1.353489ms)
+✔ damaged PDF fails explicitly and a subsequent valid PDF still converts (3.82772ms)
+✔ too many pages PDF fails explicitly and a subsequent valid PDF still converts (7.961728ms)
+✔ oversized page PDF fails explicitly and a subsequent valid PDF still converts (1.304615ms)
+✔ unsupported WebP export cannot silently download PNG with a WebP suffix (1.180657ms)
+✔ PDF extension and extensionless PDF MIME are recognized without overriding other suffixes (0.11429ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 796.318023

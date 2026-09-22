@@ -1,0 +1,17 @@
+{
+  "run": "34769218259",
+  "artifact": "windows-arm64-complete-preview",
+  "artifactId": 10321658238,
+  "download": "https://github.com/web-casa/z8work/actions/runs/34769218259/artifacts/10321658238",
+  "commit": "39e660c8a9514cfb973be8284d4581f54321e4aa",
+  "files": {
+    "Z8.Work-windows-arm64-development.msix": {
+      "sha256": "597e977b290108e61272a7a35112b0dd52c8168d933f22c0cf1d8906204baf6d",
+      "bytes": 172064717
+    },
+    "Z8.Work-windows-arm64-preview.zip": {
+      "sha256": "f76f311272e1bce9322434b718f7f64c4eb3e9f32ad1750aaeccfe940c2a219c",
+      "bytes": 170056435
+    }
+  }
+}

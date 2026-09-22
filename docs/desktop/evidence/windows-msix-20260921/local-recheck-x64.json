@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "web-store-msix-content",
+  "sha256": "e207562501f8fd4e6028015e246c8da93f18501d877e7de2de8b92217b864cc6",
+  "bytes": 35212328,
+  "payloadFiles": 5,
+  "verifiedBlocks": 645,
+  "verifiedFileHashes": 1,
+  "signature": "not-present",
+  "codeIntegrity": null,
+  "installation": "not-run",
+  "redistributionApproved": false,
+  "storeSubmissionAllowed": false
+}

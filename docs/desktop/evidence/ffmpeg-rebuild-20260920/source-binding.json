@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "scope": "technical source correspondence and selected runtime validation; not distribution/license approval",
+  "verificationMethod": "rebuilt",
+  "wasmSha256": "9f57947a5bd530d8f00c5b3f2cb2a3492faa7e5d823315342d6a8656d0a6b7b7",
+  "jsSha256": "67a48f11645f85439f3fde4f2119042c16b374b910206b7a7a24f342e28dcae3",
+  "wasmByteIdentical": true,
+  "jsByteIdentical": true,
+  "reviewedBy": "Codex automated rebuild, byte comparison and Git blob verification",
+  "archive": ".desktop-local/store-source-phase4/ffmpeg-corresponding-source-candidate.tar.gz",
+  "archiveSha256": "17546c1c151ef8e16578f213f9ae0c96381a19445819a213b47d2bd3fc93e663",
+  "buildInputs": [
+    {
+      "file": ".desktop-local/store-source-phase3/ffmpeg-context-bounded/Dockerfile",
+      "sha256": "e6e54120982cb844983435d997f954ff32baaf2c77dea0f15918e97a2c735b00"
+    },
+    {
+      "file": ".desktop-local/store-source-phase3/ffmpeg-context-bounded/source-lock.json",
+      "sha256": "543813a68fae54a71aab3afb48d9a080ea0a5628addc05441fc6cb7a7a0912bf"
+    },
+    {
+      "file": "packaging/desktop-web/ffmpeg-runtime-sources.json",
+      "sha256": "8c256fbd19af8f3ce7b1ef5b45d295a0d2b7c3d0a7904d1c60718c9904a16c31"
+    },
+    {
+      "file": "packaging/desktop-web/buildkitd.toml",
+      "sha256": "31495bd798e985931450e249b3839782833b1b21776ff49b7dec6afc1b0da733"
+    }
+  ],
+  "sourceCommit": "71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
+  "host": "linux/arm64",
+  "toolchainPlatform": "linux/amd64",
+  "artifactTarget": "wasm32-unknown-emscripten",
+  "buildArguments": {
+    "FFMPEG_ST": "yes",
+    "EXTRA_CFLAGS": "-O3 -msimd128"
+  },
+  "collections": 19,
+  "gitBlobs": 30446,
+  "coreSmokeCases": 6,
+  "browserConversions": 7,
+  "capabilityCounts": {
+    "encoders": 184,
+    "decoders": 479,
+    "filters": 465,
+    "formats": 386
+  },
+  "sourceDistribution": "local archive only",
+  "licenseReview": "pending",
+  "nativeStoreAcceptance": "not-run",
+  "releaseReady": false
+}

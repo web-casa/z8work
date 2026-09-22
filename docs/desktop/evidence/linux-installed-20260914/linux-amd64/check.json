@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "machine": "x86_64",
+  "ordinaryUserUid": 1001,
+  "installedFilesChecked": 1343,
+  "installedApplicationHash": "a19d11cb98488a10cc1641956369975a9d7fdad5c7ca86a320c683379cf55ad3",
+  "installation": "passed",
+  "networkInterfaces": [
+    "lo"
+  ],
+  "containerDocumentationFilter": "include-z8-work-only",
+  "removal": "passed",
+  "unownedFileRetained": true,
+  "gui": "not-run",
+  "upgrade": "not-run"
+}

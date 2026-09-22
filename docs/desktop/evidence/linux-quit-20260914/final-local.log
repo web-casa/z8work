@@ -1,0 +1,14 @@
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.0' (uid=501 pid=3364965 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.0' (uid=501 pid=3364965 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.0' (uid=501 pid=3364965 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.3' (uid=501 pid=3364964 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[3365004]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=501 pid=3364964 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3365004]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.5' (uid=501 pid=3364964 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[3364960]: [session uid=501 pid=3364960 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+/home/ivmm/VERT/.desktop-local/packaged-quit-20260914/final-gui

@@ -1,0 +1,55 @@
+name: macOS ARM64 web preview
+on:
+    workflow_dispatch:
+permissions:
+    contents: read
+concurrency:
+    group: macos-arm64-web-preview-${{ github.ref }}
+    cancel-in-progress: false
+jobs:
+    build:
+        runs-on: macos-15
+        timeout-minutes: 45
+        env:
+            APPLE_SIGNING_IDENTITY: "-"
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@stable
+              with:
+                  targets: aarch64-apple-darwin
+            - run: bun install --frozen-lockfile
+            - run: npm run desktop:check
+            - run: npm test
+            - run: npm run desktop:build
+            - run: cargo test --locked --release --manifest-path src-tauri/Cargo.toml --target aarch64-apple-darwin --features custom-protocol
+            - run: npm run desktop:package -- --target aarch64-apple-darwin --bundles app,dmg
+            - name: Verify ARM64 app and preserve bundle metadata
+              run: node scripts/desktop-web-macos-preview.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: z8-work-web-macos-arm64-preview
+                  path: .desktop-local/macos-web-preview/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - name: Preserve candidate for troubleshooting if verification fails
+              if: failure()
+              run: |
+                  if [ -d src-tauri/target/aarch64-apple-darwin/release/bundle ]; then
+                    mkdir -p .desktop-local/macos-web-failed
+                    ditto -c -k --keepParent src-tauri/target/aarch64-apple-darwin/release/bundle .desktop-local/macos-web-failed/unverified-bundle.zip
+                  fi
+            - uses: actions/upload-artifact@v4
+              if: failure()
+              with:
+                  name: macos-arm64-unverified-troubleshooting
+                  path: .desktop-local/macos-web-failed/*
+                  include-hidden-files: true
+                  if-no-files-found: ignore
+                  retention-days: 7

@@ -24,3 +24,16 @@ ffmpeg -f lavfi -i color=c=red:s=32x32 -frames:v 1 -update 1 cover.png
 ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -i cover.png -map 0:a -map 1:v -c:a libmp3lame -c:v copy -t 1 -id3v2_version 3 -metadata:s:v title=Cover -metadata:s:v comment='Cover (front)' cover.mp3
 ffmpeg -f lavfi -i color=c=blue:s=32x32:d=0.4 -c:v libvpx -an thumbnail.webm
 ```
+
+The desktop verifier also generates a one-page ICCBased PDF in
+`src-tauri/native/src/pdf_color_checks.rs`, using the same Display P3 profile.
+Six 48 × 48 point swatches are painted with relative colorimetric intent. At
+72 DPI the page is 288 × 48 pixels. Their independent sRGB reference values
+come from Display P3 linearization, the P3 → XYZ D65 → sRGB matrices, clipping
+and 8-bit sRGB encoding in [W3C CSS Color 4 sample math](https://raw.githubusercontent.com/w3c/csswg-drafts/main/css-color-4/conversions.js).
+Each central 16 × 16 region must remain opaque. The maximum channel error is
+limited to 8/255 for every output, allowing MuPDF's approximate LCMS transform
+and the lossy encoders. A second render with `mutool draw -N` must differ by at
+least 30/255, ensuring the unchanged fixture detects disabled ICC. This checks
+rendered color, not just the presence of a profile. It is not a print-proofing,
+CMYK, HDR or arbitrary-profile conformance suite.

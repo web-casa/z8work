@@ -1,0 +1,58 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.lcms
+#1 transferring dockerfile: 174B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/z8-core24-builder:phase8-amd64
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/z8-core24-builder:phase8-amd64@sha256:b024a987052967755ed076d49592b4b1a6aa8aefbdfe6251517f25a59c3910f6
+#4 resolve docker.io/library/z8-core24-builder:phase8-amd64@sha256:b024a987052967755ed076d49592b4b1a6aa8aefbdfe6251517f25a59c3910f6 0.0s done
+#4 DONE 0.1s
+
+#5 [2/2] RUN apt-get update && apt-get install -y --no-install-recommends liblcms2-dev=2.14-2ubuntu0.1
+#5 1.396 Hit:1 http://archive.ubuntu.com/ubuntu noble InRelease
+#5 1.541 Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#5 1.628 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#5 2.584 Get:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#5 2.921 Get:5 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1791 kB]
+#5 3.170 Get:6 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1562 kB]
+#5 4.496 Get:7 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1240 kB]
+#5 5.784 Get:8 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2151 kB]
+#5 7.862 Fetched 7121 kB in 7s (957 kB/s)
+#5 7.862 Reading package lists...
+#5 8.645 Reading package lists...
+#5 9.283 Building dependency tree...
+#5 9.427 Reading state information...
+#5 9.859 The following NEW packages will be installed:
+#5 9.860   liblcms2-dev
+#5 10.47 0 upgraded, 1 newly installed, 0 to remove and 13 not upgraded.
+#5 10.47 Need to get 1809 kB of archives.
+#5 10.47 After this operation, 1945 kB of additional disk space will be used.
+#5 10.47 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 liblcms2-dev amd64 2.14-2ubuntu0.1 [1809 kB]
+#5 12.00 debconf: delaying package configuration, since apt-utils is not installed
+#5 12.05 Fetched 1809 kB in 2s (972 kB/s)
+#5 12.14 Selecting previously unselected package liblcms2-dev:amd64.
+#5 12.14 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 36318 files and directories currently installed.)
+#5 12.36 Preparing to unpack .../liblcms2-dev_2.14-2ubuntu0.1_amd64.deb ...
+#5 12.45 Unpacking liblcms2-dev:amd64 (2.14-2ubuntu0.1) ...
+#5 12.68 Setting up liblcms2-dev:amd64 (2.14-2ubuntu0.1) ...
+#5 DONE 12.9s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 0.5s done
+#6 exporting manifest sha256:9c5c44d33d151bc09d6335f9f3c7a9587c01e3021f2b4f0d37feceaddc1f702e
+#6 exporting manifest sha256:9c5c44d33d151bc09d6335f9f3c7a9587c01e3021f2b4f0d37feceaddc1f702e 0.0s done
+#6 exporting config sha256:bef019fa0b7f935145e7cea996b4a0d43e64b1b18db0994f328d6c48fcb0936b 0.0s done
+#6 exporting attestation manifest sha256:eb7f4c5031c754b638750b39031c6b647f85fcc89a1b613fbead90715db1358d 0.0s done
+#6 exporting manifest list sha256:6722e45e00bf5525071dd4b98e4ba74e1c24612319f343f8495886d7b07b042e 0.0s done
+#6 naming to docker.io/library/z8-phase28-core24-lcms:local
+#6 naming to docker.io/library/z8-phase28-core24-lcms:local done
+#6 DONE 0.6s

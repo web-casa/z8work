@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "artifacts": [
+    {
+      "path": "app-tests.txt",
+      "bytes": 891,
+      "sha256": "e4097e20891097c720d48583e7c216d494102d960739f0e143e295bf344b96e9"
+    },
+    {
+      "path": "build.txt",
+      "bytes": 196,
+      "sha256": "1b3219e368d351ed59c957125285474591de0b1d8b17623e174967062faa087b"
+    },
+    {
+      "path": "clippy.txt",
+      "bytes": 131,
+      "sha256": "828519d8e6c346ff4deb03bf9d3a166fe07b230ca21f3c816c4c83e7caeda854"
+    },
+    {
+      "path": "diagnostics-gui-run.txt",
+      "bytes": 5807,
+      "sha256": "d4bf72b6d3531e86be9fbf4512f152af6bb312d4450cbd61ce2f8205fcb87ebc"
+    },
+    {
+      "path": "diagnostics-gui.json",
+      "bytes": 6067,
+      "sha256": "b587f38ac3af7209b07b00185dbc82fb8d45d77d5ef51388e740cb968d701ccf"
+    },
+    {
+      "path": "diagnostics-zh.png",
+      "bytes": 94188,
+      "sha256": "9a852bb14cd1969465bbd7942a6a939d725a07ea028aa5471142517c5e2fa147"
+    },
+    {
+      "path": "docs-format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "environment.json",
+      "bytes": 749,
+      "sha256": "ae48aa9070e0273ae85f34f68258911cb2ebc10fb3a05215689633ef1dec7758"
+    },
+    {
+      "path": "eslint.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "format.txt",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "frontend-build.txt",
+      "bytes": 1207,
+      "sha256": "32b16ed43c6abbf24aff2444227402cfe48d92298d35951f0ef70718931eb5bd"
+    },
+    {
+      "path": "gui-driver.txt",
+      "bytes": 4092,
+      "sha256": "a1dfa07f6f146a0a7a7ad9eacd62faff4ce1c64e6eb0ed6fd4bffb2d1ca3466a"
+    },
+    {
+      "path": "inputs-verified.txt",
+      "bytes": 34,
+      "sha256": "bc458eab2a1cfd9849d550af1cd2b76cd3f36723d859d46d8329326149357c92"
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 48760,
+      "sha256": "0adb5c60b315043296e197e5a4afb3964633f8251e26634606611607565c3a36"
+    },
+    {
+      "path": "links.txt",
+      "bytes": 72,
+      "sha256": "ce43975cf3e2c7417206390081c2830493781cb74778358126e9bd76244bc70d"
+    },
+    {
+      "path": "macos-core-check.txt",
+      "bytes": 137,
+      "sha256": "a2428b2fc64680bdd6b0811b30135e316cfb5059e427c29775476f2fb86ee129"
+    },
+    {
+      "path": "native-dev-tests.txt",
+      "bytes": 8263,
+      "sha256": "2b0a4dfe82c9f9994211ff88560dfbb5370eba6047fa2e3f4b26513561dca2f6"
+    },
+    {
+      "path": "native-tests.txt",
+      "bytes": 8141,
+      "sha256": "d9184c7cdd861439d80c8bf306f5b6601b7e28c39d3d581e29466be6a805a693"
+    },
+    {
+      "path": "node22-tests.txt",
+      "bytes": 31753,
+      "sha256": "a1d0c5df4c2bc102ec66333099b64c7044cee037096415c3f40b6eb6953feab1"
+    },
+    {
+      "path": "node24-tests.txt",
+      "bytes": 13299,
+      "sha256": "d9205444485ee5450181adca04b15aa721cf866f8c0540db6d723609751048ce"
+    },
+    {
+      "path": "phase-changes.json",
+      "bytes": 4248,
+      "sha256": "112e2eb615cc39e3846d8a245ae416dd25c8fb973df337ff52e8dfd0518cfa6e"
+    },
+    {
+      "path": "portal-compile.txt",
+      "bytes": 196,
+      "sha256": "f868c8bc2b98a5648f029f7735d87f2ac3fcf7defc1b01e8469523e25e7a8378"
+    },
+    {
+      "path": "preview-readiness-failure.txt",
+      "bytes": 6211,
+      "sha256": "357e41451599ebe78cccb59277b216acd805c562b72ed4700f4ccf7d32dbba45"
+    },
+    {
+      "path": "rustfmt.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sample-diagnostics.json",
+      "bytes": 941,
+      "sha256": "28c7b953c0af04a4fd851b58abaae4a562a438cb17d89f722f67b216f09b7252"
+    },
+    {
+      "path": "svelte-check.txt",
+      "bytes": 553,
+      "sha256": "149f38e34af118162cb8084b7fe7bef06bb7fb38fb4eedc593f38548a6359ecd"
+    },
+    {
+      "path": "windows-core-check.txt",
+      "bytes": 137,
+      "sha256": "757aeee8012bb01133bf18e92689ca685852504311217b5d5a69cb078f824602"
+    },
+    {
+      "path": "xvfb.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

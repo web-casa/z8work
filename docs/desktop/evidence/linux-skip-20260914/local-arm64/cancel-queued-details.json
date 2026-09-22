@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP then SIGCONT on observed app-owned AVIF encoder",
+  "beforeCancel": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21036042,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "f4906512-5cc8-4990-8311-16c156f00f6d"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "af7b7612-e99f-4224-8a73-a6c52199dee4"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 59,
+    "epoch": "8c04b260-542c-4164-8fc3-53f2ec9915ab",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "16e7ed66-ae06-4e6c-b63b-aca24576fbc2",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterQueuedCancel": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21036042,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "f4906512-5cc8-4990-8311-16c156f00f6d"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "af7b7612-e99f-4224-8a73-a6c52199dee4"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 60,
+    "epoch": "8c04b260-542c-4164-8fc3-53f2ec9915ab",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "16e7ed66-ae06-4e6c-b63b-aca24576fbc2",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterCompletion": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21036042,
+        "attempt": 1,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "a26d61fb71509cf358327ef388bddbd0081293896342d538964523f91178626e",
+              "path": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/results/active-z8-1.avif",
+              "bytes": 96938
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/results/active-z8-1.avif",
+          "bytes": 96938
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "f4906512-5cc8-4990-8311-16c156f00f6d"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "af7b7612-e99f-4224-8a73-a6c52199dee4"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 62,
+    "epoch": "8c04b260-542c-4164-8fc3-53f2ec9915ab",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "16e7ed66-ae06-4e6c-b63b-aca24576fbc2",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "observedEncoders": [
+    {
+      "pid": 3511933,
+      "state": "R",
+      "parent": 3509535,
+      "start": "84992912",
+      "command": [
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib/ld-linux-aarch64.so.1",
+        "--inhibit-cache",
+        "--library-path",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/lib",
+        "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+        "PNG:/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-POOyan/job-XUbp2m/input.png[0]",
+        "-auto-orient",
+        "+profile",
+        "exif,xmp,iptc",
+        "-define",
+        "heic:speed=6",
+        "-define",
+        "heic:chroma=420",
+        "-quality",
+        "60",
+        "AVIF:/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-POOyan/job-XUbp2m/output.avif"
+      ],
+      "cwd": "/home/ivmm/VERT/.desktop-local/packaged-skip-20260914/gui/cache/work.z8.desktop.m0/native-work-v1/session-POOyan/job-XUbp2m"
+    }
+  ],
+  "appRemainedOpen": true,
+  "decoded": [
+    2048,
+    2048
+  ],
+  "decoder": "bundled ImageMagick",
+  "output": {
+    "file": "active-z8-1.avif",
+    "bytes": 96938,
+    "sha256": "a26d61fb71509cf358327ef388bddbd0081293896342d538964523f91178626e"
+  }
+}

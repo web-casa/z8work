@@ -1,0 +1,19 @@
+
+> z8-work@0.0.1 desktop:test:sources
+> python3 tests/desktop-web-git-sources.test.py && python3 tests/desktop-web-ffmpeg-context.test.py && python3 tests/desktop-web-mupdf-context.test.py
+
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.009s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK

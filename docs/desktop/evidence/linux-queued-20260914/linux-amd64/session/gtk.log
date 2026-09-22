@@ -1,0 +1,35 @@
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:25:08.778: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:25:14.646: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:25:14.653: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+** (xdg-desktop-portal-gtk:4783): WARNING **: 03:25:28.862: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:25:30.911: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): GLib-GObject-CRITICAL **: 03:25:34.783: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): GLib-GObject-CRITICAL **: 03:25:34.783: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): Atk-CRITICAL **: 03:25:34.783: atk_state_set_contains_state: assertion 'ATK_IS_STATE_SET (set)' failed
+
+(xdg-desktop-portal-gtk:4783): GLib-GObject-CRITICAL **: 03:25:34.783: g_object_unref: assertion 'G_IS_OBJECT (object)' failed

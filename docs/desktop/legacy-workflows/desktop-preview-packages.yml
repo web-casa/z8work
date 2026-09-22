@@ -1,0 +1,198 @@
+name: Complete desktop preview packages
+on:
+    workflow_call:
+        inputs:
+            target:
+                type: string
+                default: macos
+    workflow_dispatch:
+        inputs:
+            target:
+                type: choice
+                description: Complete package target
+                default: macos
+                options:
+                    [
+                        macos,
+                        macos-arm64,
+                        macos-amd64,
+                        linux,
+                        linux-arm64,
+                        linux-amd64,
+                        windows-arm64,
+                    ]
+permissions:
+    contents: read
+    actions: read
+concurrency:
+    group: complete-previews-${{ github.ref }}-${{ inputs.target }}
+    cancel-in-progress: false
+jobs:
+    matrix:
+        runs-on: ubuntu-24.04
+        outputs:
+            entries: ${{ steps.matrix.outputs.entries }}
+        steps:
+            - uses: actions/checkout@v4
+            - id: matrix
+              env:
+                  TARGET: ${{ inputs.target }}
+              run: |
+                  entries=$(jq -c --arg target "$TARGET" '[.[] | select(.os == $target or .id == $target)]' packaging/desktop/ci-matrix.json)
+                  test "$(printf '%s' "$entries" | jq length)" -gt 0
+                  echo "entries=$entries" >> "$GITHUB_OUTPUT"
+    windows-runtime:
+        if: inputs.target == 'windows-arm64'
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - run: sudo apt-get update && sudo apt-get install -y cabextract p7zip-full
+            - run: node scripts/desktop-ci-arm-runtime.mjs
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: windows-arm64-engine-resources
+                  path: |
+                      .desktop-local/arm-runtime/vcomp140.dll
+                      .desktop-local/arm-runtime/runtime.json
+                      .desktop-local/arm-runtime/engines/
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 7
+    package:
+        needs: [matrix, windows-runtime]
+        if: ${{ !cancelled() && needs.matrix.result == 'success' && (needs.windows-runtime.result == 'success' || needs.windows-runtime.result == 'skipped') }}
+        strategy:
+            fail-fast: false
+            matrix:
+                include: ${{ fromJSON(needs.matrix.outputs.entries) }}
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 120
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - uses: dtolnay/rust-toolchain@1.96.0
+              with:
+                  targets: ${{ matrix.target }}
+            - run: bun install --frozen-lockfile
+            - run: bun run desktop:check
+            - run: bun run desktop:build
+            - if: runner.os != 'Linux'
+              run: node scripts/desktop-ci-app.mjs ${{ matrix.id }}
+            - name: Prepare native engine toolchain
+              if: runner.os == 'macOS'
+              run: brew install imagemagick ffmpeg-full mupdf-tools
+            - name: Relocate engines, validate conversions and package DMG
+              if: runner.os == 'macOS'
+              run: node scripts/desktop-ci-macos-engines.mjs
+            - if: runner.os == 'macOS'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview
+                  path: .desktop-local/mac-preview/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always() && runner.os == 'macOS'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview-reports
+                  path: |
+                      .desktop-local/ci/build-info.json
+                      .desktop-local/ci/build-inputs.json
+                      .desktop-local/mac-preview/*.json
+                      .desktop-local/mac-preview/candidate/*.json
+                  include-hidden-files: true
+                  retention-days: 14
+
+            - name: Install native Linux build dependencies
+              if: runner.os == 'Linux'
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y build-essential pkg-config patchelf cmake ninja-build libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev python3 libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev libmujs-dev libopenjp2-7-dev zlib1g-dev libpng-dev libjpeg-dev libwebp-dev liblcms2-dev libhwy-dev libbrotli-dev libtiff-dev libopenexr-dev libheif-dev libheif-plugin-aomenc libheif-plugin-aomdec libheif-plugin-libde265 libheif-plugin-x265 ffmpeg pandoc pandoc-data squashfs-tools desktop-file-utils xvfb xauth dbus-x11 xdg-desktop-portal-gtk autoconf automake libtool libltdl-dev libxml2-dev patch dpkg-dev
+                  sudo install -d -o "$(id -u)" -g "$(id -g)" /opt/z8-im
+            - if: matrix.id == 'linux-amd64'
+              run: sudo snap install snapcraft --classic
+            - name: Build native Linux engines, validate and package
+              if: runner.os == 'Linux'
+              run: bash scripts/desktop-ci-linux-packages.sh
+            - if: runner.os == 'Linux'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview
+                  path: .desktop-local/linux-preview/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always() && runner.os == 'Linux'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ matrix.id }}-complete-preview-reports
+                  path: |
+                      .desktop-local/linux-preview/*.log
+                      .desktop-local/linux-preview/*.json
+                      .desktop-local/linux-preview/build/*.log
+                      .desktop-local/linux-preview/build/*.json
+                      .desktop-local/linux-preview/candidate/*.json
+                      .desktop-local/linux-preview/deb/*.json
+                      .desktop-local/linux-preview/snap/*.json
+                      .desktop-local/linux-preview/snap-prepared/prepared.json
+                  include-hidden-files: true
+                  retention-days: 14
+
+            - if: runner.os == 'Windows'
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - if: runner.os == 'Windows'
+              uses: actions/download-artifact@v4
+              with:
+                  name: windows-arm64-engine-resources
+                  path: .desktop-local/arm-source
+            - if: runner.os == 'Windows'
+              name: Build ARM64 preview and verify native-host conversions
+              run: node scripts/desktop-ci-windows-arm64.mjs
+            - if: runner.os == 'Windows'
+              name: Package ARM64 ZIP and development MSIX
+              shell: pwsh
+              run: |
+                  $sdk = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Directory | Where-Object { $_.Name -match '^10\.0\.\d+\.0$' } | Sort-Object { [version]$_.Name } -Descending
+                  $makeappx = $sdk | ForEach-Object { Join-Path $_.FullName 'x64\makeappx.exe' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+                  if (!$makeappx) { throw 'Windows SDK MakeAppx not found' }
+                  $root = '.desktop-local/windows-arm-preview'
+                  node scripts/desktop-msix-pack.mjs --prepared "$root/msix-prepared" --tool "$makeappx" --kind makeappx --python python --output "$root/msix"
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  New-Item -ItemType Directory "$root/downloads" | Out-Null
+                  Copy-Item "$root/msix/z8-work-development.msix" "$root/downloads/Z8.Work-windows-arm64-development.msix"
+                  Compress-Archive -Path "$root/candidate/*" -DestinationPath "$root/downloads/Z8.Work-windows-arm64-preview.zip"
+                  python scripts/desktop-ci-zip-check.py --root "$root/candidate" --zip "$root/downloads/Z8.Work-windows-arm64-preview.zip"
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  Get-ChildItem "$root/downloads" -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content "$root/downloads/SHA256SUMS" -Encoding ascii
+            - if: runner.os == 'Windows'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: windows-arm64-complete-preview
+                  path: .desktop-local/windows-arm-preview/downloads/*
+                  include-hidden-files: true
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always() && runner.os == 'Windows'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: windows-arm64-complete-preview-reports
+                  path: |
+                      .desktop-local/ci/build-info.json
+                      .desktop-local/ci/build-inputs.json
+                      .desktop-local/windows-arm-preview/*.json
+                      .desktop-local/windows-arm-preview/msix/*.json
+                      .desktop-local/windows-arm-preview/msix/*.log
+                      .desktop-local/windows-arm-preview/msix/*.xml
+                  include-hidden-files: true
+                  retention-days: 14

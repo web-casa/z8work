@@ -1,0 +1,392 @@
+[1/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/regx/RangeToken.cpp.o
+[2/306] Building C object lib/CMakeFiles/crypto.dir/openssl/crypto/cversion.c.o
+[3/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/PlatformUtils.cpp.o
+[4/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/regx/XMLUniCharacter.cpp.o
+[5/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/StringPool.cpp.o
+[6/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMemory.cpp.o
+[7/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/SynchronizedStringPool.cpp.o
+[8/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/TransService.cpp.o
+[9/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XML256TableTranscoder.cpp.o
+[10/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XML88591Transcoder.cpp.o
+[11/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLAbstractDoubleFloat.cpp.o
+[12/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLASCIITranscoder.cpp.o
+[13/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLBigInteger.cpp.o
+[14/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLBigDecimal.cpp.o
+[15/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLChTranscoder.cpp.o
+[16/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLDouble.cpp.o
+[17/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLEBCDICTranscoder.cpp.o
+[18/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLDateTime.cpp.o
+[19/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLException.cpp.o
+[20/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLIBM1047Transcoder.cpp.o
+[21/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLChar.cpp.o
+[22/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLIBM1140Transcoder.cpp.o
+[23/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLInitializer.cpp.o
+[24/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLFloat.cpp.o
+[25/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLMsgLoader.cpp.o
+[26/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLNumber.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/util/XMLNumber.cpp:63:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+   63 |     switch((XMLNumber::NumberType) numType)
+      |     ^
+1 warning generated.
+[27/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLStringTokenizer.cpp.o
+[28/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLUni.cpp.o
+[29/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLUCS4Transcoder.cpp.o
+[30/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLString.cpp.o
+[31/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLUTF16Transcoder.cpp.o
+[32/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLUri.cpp.o
+[33/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLURL.cpp.o
+[34/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLUTF8Transcoder.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/util/XMLUTF8Transcoder.cpp:519:9: warning: 'switch' missing 'default' label [-Wswitch-default]
+  519 |         switch(encodedBytes)
+      |         ^
+1 warning generated.
+[35/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/DOMLSException.cpp.o
+[36/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/DOMException.cpp.o
+[37/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/XMLWin1252Transcoder.cpp.o
+[38/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/DOMRangeException.cpp.o
+[39/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/DOMXPathException.cpp.o
+[40/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMAttrImpl.cpp.o
+[41/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMAttrNSImpl.cpp.o
+[42/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMAttrMapImpl.cpp.o
+[43/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMCDATASectionImpl.cpp.o
+[44/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMChildNode.cpp.o
+[45/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMCharacterDataImpl.cpp.o
+[46/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMCommentImpl.cpp.o
+[47/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMConfigurationImpl.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/dom/impl/DOMConfigurationImpl.cpp:150:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+  150 |     switch (whichFlag) {
+      |     ^
+1 warning generated.
+[48/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMDeepNodeListImpl.cpp.o
+[49/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMDocumentFragmentImpl.cpp.o
+[50/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMDocumentTypeImpl.cpp.o
+[51/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMElementImpl.cpp.o
+[52/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMDocumentImpl.cpp.o
+[53/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMElementNSImpl.cpp.o
+[54/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMEntityImpl.cpp.o
+[55/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMErrorImpl.cpp.o
+[56/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMImplementationListImpl.cpp.o
+[57/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMEntityReferenceImpl.cpp.o
+[58/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMLocatorImpl.cpp.o
+[59/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMImplementationRegistry.cpp.o
+[60/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMImplementationImpl.cpp.o
+[61/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNamedNodeMapImpl.cpp.o
+[62/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNodeIDMap.cpp.o
+[63/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNodeListImpl.cpp.o
+[64/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNodeImpl.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/dom/impl/DOMNodeImpl.cpp:619:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+  619 |     switch(nodeType)
+      |     ^
+1 warning generated.
+[65/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNodeIteratorImpl.cpp.o
+[66/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNodeVector.cpp.o
+[67/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNotationImpl.cpp.o
+[68/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMNormalizer.cpp.o
+[69/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMParentNode.cpp.o
+[70/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMProcessingInstructionImpl.cpp.o
+[71/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMStringListImpl.cpp.o
+[72/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMStringPool.cpp.o
+[73/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMRangeImpl.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/dom/impl/DOMRangeImpl.cpp:1621:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1621 |     switch( how )
+      |     ^
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/dom/impl/DOMRangeImpl.cpp:1645:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1645 |     switch( how )
+      |     ^
+2 warnings generated.
+[74/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMTreeWalkerImpl.cpp.o
+[75/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMTextImpl.cpp.o
+[76/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMTypeInfoImpl.cpp.o
+[77/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMLSInputImpl.cpp.o
+[78/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMLSOutputImpl.cpp.o
+[79/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMLSSerializerImpl.cpp.o
+[80/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMXPathExpressionImpl.cpp.o
+[81/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMXPathNSResolverImpl.cpp.o
+[82/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/DOMXPathResultImpl.cpp.o
+[83/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/BinOutputStream.cpp.o
+[84/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/LocalFileFormatTarget.cpp.o
+[85/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/LocalFileInputSource.cpp.o
+[86/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/dom/impl/XSDElementNSImpl.cpp.o
+[87/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/MemBufFormatTarget.cpp.o
+[88/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/MemBufInputSource.cpp.o
+[89/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/PSVIAttribute.cpp.o
+[90/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/PSVIElement.cpp.o
+[91/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/PSVIAttributeList.cpp.o
+[92/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/PSVIItem.cpp.o
+[93/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSAttributeUse.cpp.o
+[94/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSAnnotation.cpp.o
+[95/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSAttributeGroupDefinition.cpp.o
+[96/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSAttributeDeclaration.cpp.o
+[97/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSFacet.cpp.o
+[98/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSComplexTypeDefinition.cpp.o
+[99/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSElementDeclaration.cpp.o
+[100/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSModelGroup.cpp.o
+[101/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSIDCDefinition.cpp.o
+[102/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSMultiValueFacet.cpp.o
+[103/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSModelGroupDefinition.cpp.o
+[104/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSModel.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/framework/psvi/XSModel.cpp:231:13: warning: 'switch' missing 'default' label [-Wswitch-default]
+  231 |             switch (i+1)
+      |             ^
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/framework/psvi/XSModel.cpp:321:9: warning: 'switch' missing 'default' label [-Wswitch-default]
+  321 |         switch (i+1)
+      |         ^
+2 warnings generated.
+[105/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSNamespaceItem.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/framework/psvi/XSNamespaceItem.cpp:143:9: warning: 'switch' missing 'default' label [-Wswitch-default]
+  143 |         switch (i+1)
+      |         ^
+1 warning generated.
+[106/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSNotationDeclaration.cpp.o
+[107/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSObject.cpp.o
+[108/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSParticle.cpp.o
+[109/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSSimpleTypeDefinition.cpp.o
+[110/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSTypeDefinition.cpp.o
+[111/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/StdInInputSource.cpp.o
+[112/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSWildcard.cpp.o
+[113/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/StdOutFormatTarget.cpp.o
+[114/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/URLInputSource.cpp.o
+[115/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/psvi/XSValue.cpp.o
+[116/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/Wrapper4DOMLSInput.cpp.o
+[117/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/Wrapper4InputSource.cpp.o
+[118/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLAttDef.cpp.o
+[119/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLAttDefList.cpp.o
+[120/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLBuffer.cpp.o
+[121/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLAttr.cpp.o
+[122/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLBufferMgr.cpp.o
+[123/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLContentModel.cpp.o
+[124/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLDTDDescription.cpp.o
+[125/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLEntityDecl.cpp.o
+[126/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLFormatter.cpp.o
+[127/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLElementDecl.cpp.o
+[128/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLGrammarDescription.cpp.o
+[129/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLNotationDecl.cpp.o
+[130/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLRecognizer.cpp.o
+[131/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLRefInfo.cpp.o
+[132/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLSchemaDescription.cpp.o
+[133/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLGrammarPoolImpl.cpp.o
+[134/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/BinFileOutputStream.cpp.o
+[135/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/BinMemOutputStream.cpp.o
+[136/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/framework/XMLValidator.cpp.o
+[137/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/ElemStack.cpp.o
+[138/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/MemoryManagerImpl.cpp.o
+[139/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/DGXMLScanner.cpp.o
+[140/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/ReaderMgr.cpp.o
+[141/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/IGXMLScanner.cpp.o
+[142/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/IGXMLScanner2.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/internal/IGXMLScanner2.cpp:1004:13: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1004 |             switch(nextCh)
+      |             ^
+1 warning generated.
+[143/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/ValidationContextImpl.cpp.o
+[144/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/VecAttributesImpl.cpp.o
+[145/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/VecAttrListImpl.cpp.o
+[146/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XMLReader.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/internal/XMLReader.cpp:228:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+  228 |     switch(fEncoding)
+      |     ^
+1 warning generated.
+[147/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/SGXMLScanner.cpp.o
+[148/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/WFXMLScanner.cpp.o
+[149/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XProtoType.cpp.o
+[150/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XMLScanner.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/internal/XMLScanner.cpp:1920:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1920 |     switch(fReaderMgr.peekNextChar())
+      |     ^
+1 warning generated.
+[151/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XMLScannerResolver.cpp.o
+[152/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XSerializeEngine.cpp.o
+[153/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XSAXMLScanner.cpp.o
+[154/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XSObjectFactory.cpp.o
+[155/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/SAX2XMLFilterImpl.cpp.o
+[156/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/AbstractDOMParser.cpp.o
+[157/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/internal/XTemplateSerializer.cpp.o
+[158/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/DOMLSParserImpl.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/parsers/DOMLSParserImpl.cpp:925:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+  925 |     switch(action)
+      |     ^
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/parsers/DOMLSParserImpl.cpp:1172:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1172 |     switch(action)
+      |     ^
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/parsers/DOMLSParserImpl.cpp:1307:13: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1307 |             switch(action)
+      |             ^
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/parsers/DOMLSParserImpl.cpp:1362:13: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1362 |             switch(action)
+      |             ^
+4 warnings generated.
+[159/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/sax/Dummy.cpp.o
+[160/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/sax/InputSource.cpp.o
+[161/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/XercesDOMParser.cpp.o
+[162/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/SAXParser.cpp.o
+[163/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/sax/SAXException.cpp.o
+[164/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/parsers/SAX2XMLReaderImpl.cpp.o
+[165/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/sax/SAXParseException.cpp.o
+[166/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/sax2/sax2Dummy.cpp.o
+[167/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/CMAny.cpp.o
+[168/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/AllContentModel.cpp.o
+[169/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/CMBinaryOp.cpp.o
+[170/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/CMUnaryOp.cpp.o
+[171/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/ContentLeafNameTypeVector.cpp.o
+[172/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/ContentSpecNode.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/validators/common/ContentSpecNode.cpp:161:3: warning: 'switch' missing 'default' label [-Wswitch-default]
+  161 |                 switch(curType & 0x0f)
+      |                 ^
+1 warning generated.
+[173/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/Grammar.cpp.o
+[174/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/GrammarResolver.cpp.o
+[175/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/DFAContentModel.cpp.o
+[176/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/MixedContentModel.cpp.o
+[177/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/AbstractNumericValidator.cpp.o
+[178/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/common/SimpleContentModel.cpp.o
+[179/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/AnySimpleTypeDatatypeValidator.cpp.o
+[180/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/AbstractNumericFacetValidator.cpp.o
+[181/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/AnyURIDatatypeValidator.cpp.o
+[182/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/AbstractStringValidator.cpp.o
+[183/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/Base64BinaryDatatypeValidator.cpp.o
+[184/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/BooleanDatatypeValidator.cpp.o
+[185/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DateDatatypeValidator.cpp.o
+[186/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DatatypeValidator.cpp.o
+[187/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DateTimeDatatypeValidator.cpp.o
+[188/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DatatypeValidatorFactory.cpp.o
+[189/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DateTimeValidator.cpp.o
+[190/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DayDatatypeValidator.cpp.o
+[191/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DecimalDatatypeValidator.cpp.o
+[192/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DoubleDatatypeValidator.cpp.o
+[193/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/DurationDatatypeValidator.cpp.o
+[194/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/ENTITYDatatypeValidator.cpp.o
+[195/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/FloatDatatypeValidator.cpp.o
+[196/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/HexBinaryDatatypeValidator.cpp.o
+[197/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/IDDatatypeValidator.cpp.o
+[198/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/IDREFDatatypeValidator.cpp.o
+[199/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/ListDatatypeValidator.cpp.o
+[200/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/MonthDatatypeValidator.cpp.o
+[201/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/MonthDayDatatypeValidator.cpp.o
+[202/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/NameDatatypeValidator.cpp.o
+[203/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/NCNameDatatypeValidator.cpp.o
+[204/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/QNameDatatypeValidator.cpp.o
+[205/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/NOTATIONDatatypeValidator.cpp.o
+[206/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/StringDatatypeValidator.cpp.o
+[207/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/XMLCanRepGroup.cpp.o
+[208/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/TimeDatatypeValidator.cpp.o
+[209/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/YearDatatypeValidator.cpp.o
+[210/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/YearMonthDatatypeValidator.cpp.o
+[211/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/datatype/UnionDatatypeValidator.cpp.o
+[212/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDAttDef.cpp.o
+[213/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDEntityDecl.cpp.o
+[214/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDAttDefList.cpp.o
+[215/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDElementDecl.cpp.o
+[216/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDGrammar.cpp.o
+[217/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/XMLDTDDescriptionImpl.cpp.o
+[218/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDValidator.cpp.o
+[219/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/DTD/DTDScanner.cpp.o
+[220/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/ComplexTypeInfo.cpp.o
+[221/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/FieldValueMap.cpp.o
+[222/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/GeneralAttributeCheck.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/validators/schema/GeneralAttributeCheck.cpp:305:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+  305 |     switch (dvIndex) {
+      |     ^
+1 warning generated.
+[223/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/FieldActivator.cpp.o
+[224/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IC_KeyRef.cpp.o
+[225/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IC_Key.cpp.o
+[226/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IC_Field.cpp.o
+[227/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IC_Selector.cpp.o
+[228/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IC_Unique.cpp.o
+[229/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IdentityConstraintHandler.cpp.o
+[230/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/IdentityConstraint.cpp.o
+[231/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/ValueStoreCache.cpp.o
+[232/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/ValueStore.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/validators/schema/identity/ValueStore.cpp:330:9: warning: 'switch' missing 'default' label [-Wswitch-default]
+  330 |         switch (fIdentityConstraint->getType()) {
+      |         ^
+1 warning generated.
+[233/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/XPathSymbols.cpp.o
+[234/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/XPathMatcherStack.cpp.o
+[235/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/XPathMatcher.cpp.o
+[236/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/NamespaceScope.cpp.o
+[237/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/identity/XercesXPath.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/validators/schema/identity/XercesXPath.cpp:470:17: warning: 'switch' missing 'default' label [-Wswitch-default]
+  470 |                 switch (aToken) {
+      |                 ^
+1 warning generated.
+[238/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaAttDef.cpp.o
+[239/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaAttDefList.cpp.o
+[240/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaSymbols.cpp.o
+[241/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaElementDecl.cpp.o
+[242/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaGrammar.cpp.o
+[243/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaInfo.cpp.o
+[244/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SubstitutionGroupComparator.cpp.o
+[245/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XercesAttGroupInfo.cpp.o
+[246/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XercesElementWildcard.cpp.o
+[247/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/SchemaValidator.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/validators/schema/SchemaValidator.cpp:1188:5: warning: 'switch' missing 'default' label [-Wswitch-default]
+ 1188 |     switch (curNodeType & 0x0f) {
+      |     ^
+1 warning generated.
+[248/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XercesGroupInfo.cpp.o
+[249/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XSDErrorReporter.cpp.o
+[250/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XMLSchemaDescriptionImpl.cpp.o
+[251/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XSDLocator.cpp.o
+[252/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XSDDOMParser.cpp.o
+[253/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/XUtil.cpp.o
+[254/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/xinclude/XIncludeDOMDocumentProcessor.cpp.o
+[255/306] Building C object lib/xerces/src/CMakeFiles/xerces-c.dir/stricmp.c.o
+[256/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/xinclude/XIncludeLocation.cpp.o
+[257/306] Building C object lib/xerces/src/CMakeFiles/xerces-c.dir/strnicmp.c.o
+[258/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/xinclude/XIncludeUtils.cpp.o
+[259/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/Transcoders/Iconv/IconvTransService.cpp.o
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/util/Transcoders/Iconv/IconvTransService.cpp:242:15: warning: comparison of integers of different signs: 'int' and 'const size_t' (aka 'const unsigned long') [-Wsign-compare]
+  242 |         if( l == TRANSCODING_ERROR )
+      |             ~ ^  ~~~~~~~~~~~~~~~~~
+/home/ivmm/VERT/.desktop-local/phase13/msix-sdk/lib/xerces/src/xercesc/util/Transcoders/Iconv/IconvTransService.cpp:281:16: warning: comparison of integers of different signs: 'const XMLSize_t' (aka 'const unsigned long') and 'int' [-Wsign-compare]
+  281 |     if (retVal == ~0)
+      |         ~~~~~~ ^  ~~
+2 warnings generated.
+[260/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/validators/schema/TraverseSchema.cpp.o
+[261/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/MutexManagers/PosixMutexMgr.cpp.o
+[262/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/MsgLoaders/InMemory/InMemMsgLoader.cpp.o
+[263/306] Building CXX object lib/xerces/src/CMakeFiles/xerces-c.dir/xercesc/util/FileManagers/PosixFileMgr.cpp.o
+[264/306] Linking C static library lib/libz.a
+[265/306] Linking C static library lib/libcrypto.a
+[266/306] Linking CXX static library lib/libxerces-c-3.2.a
+[267/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/Log.cpp.o
+[268/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/MSIXResource.cpp.o
+[269/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/UnicodeConversion.cpp.o
+[270/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/Exceptions.cpp.o
+[271/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/Encoding.cpp.o
+[272/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/AppxFactory.cpp.o
+[273/306] Building CXX object src/msix/CMakeFiles/msix.dir/msix.cpp.o
+[274/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/FileNameValidation.cpp.o
+[275/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/AppxPackageInfo.cpp.o
+[276/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/ZipObject.cpp.o
+[277/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/TimeHelpers.cpp.o
+[278/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/AppxManifestValidation.cpp.o
+[279/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/IXml.cpp.o
+[280/306] Building CXX object src/msix/CMakeFiles/msix.dir/common/AppxManifestObject.cpp.o
+[281/306] Building CXX object src/msix/CMakeFiles/msix.dir/unpack/AppxSignature.cpp.o
+[282/306] Building CXX object src/msix/CMakeFiles/msix.dir/unpack/InflateStream.cpp.o
+[283/306] Building CXX object src/msix/CMakeFiles/msix.dir/unpack/AppxBlockMapObject.cpp.o
+[284/306] Building CXX object src/msix/CMakeFiles/msix.dir/unpack/AppxPackageObject.cpp.o
+[285/306] Building CXX object src/msix/CMakeFiles/msix.dir/unpack/ZipObjectReader.cpp.o
+[286/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/XmlWriter.cpp.o
+[287/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/AppxBlockMapWriter.cpp.o
+[288/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/ContentTypeWriter.cpp.o
+[289/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/AppxPackageWriter.cpp.o
+[290/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/ContentType.cpp.o
+[291/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/DeflateStream.cpp.o
+[292/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/BundleManifestWriter.cpp.o
+[293/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/VersionHelpers.cpp.o
+[294/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/ZipObjectWriter.cpp.o
+[295/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/BundleWriterHelper.cpp.o
+[296/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/AppxBundleWriter.cpp.o
+[297/306] Building CXX object src/msix/CMakeFiles/msix.dir/PAL/DataCompression/Zlib/CompressionObject.cpp.o
+[298/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/MappingFileParser.cpp.o
+[299/306] Building CXX object src/msix/CMakeFiles/msix.dir/pack/BundleValidationHelper.cpp.o
+[300/306] Building CXX object src/msix/CMakeFiles/msix.dir/PAL/Crypto/OpenSSL/Crypto.cpp.o
+[301/306] Building CXX object src/msix/CMakeFiles/msix.dir/PAL/FileSystem/POSIX/DirectoryObject.cpp.o
+[302/306] Building CXX object src/makemsix/CMakeFiles/makemsix.dir/main.cpp.o
+[303/306] Building CXX object src/msix/CMakeFiles/msix.dir/PAL/XML/xerces-c/XmlObject.cpp.o
+[304/306] Building CXX object src/msix/CMakeFiles/msix.dir/PAL/Signature/OpenSSL/SignatureValidator.cpp.o
+[305/306] Linking CXX shared library lib/libmsix.so
+[306/306] Linking CXX executable bin/makemsix

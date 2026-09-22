@@ -1,0 +1,1360 @@
+{
+	"schema": 1,
+	"status": "incomplete",
+	"scope": "Exact requested versions; downloaded is not signature or reproducible-build acceptance",
+	"sources": [
+		{
+			"package": "alsa-lib",
+			"version": "1.2.14-1",
+			"selector": "alsa-lib=1.2.14-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'alsa-lib' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/alsa-team/alsa-lib.git\nPlease use:\ngit clone https://salsa.debian.org/alsa-team/alsa-lib.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1153 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main alsa-lib 1.2.14-1 (dsc) [2919 B]\nGet:2 https://deb.debian.org/debian trixie/main alsa-lib 1.2.14-1 (tar) [1116 kB]\nGet:3 https://deb.debian.org/debian trixie/main alsa-lib 1.2.14-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main alsa-lib 1.2.14-1 (diff) [33.7 kB]\nFetched 1153 kB in 3s (430 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "aom",
+			"version": "3.12.1-1",
+			"selector": "aom=3.12.1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'aom' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/aom.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/aom.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 5527 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main aom 3.12.1-1 (dsc) [2552 B]\nGet:2 https://deb.debian.org/debian trixie/main aom 3.12.1-1 (tar) [5504 kB]\nGet:3 https://deb.debian.org/debian trixie/main aom 3.12.1-1 (diff) [20.5 kB]\nFetched 5527 kB in 3s (1739 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "brotli",
+			"version": "1.1.0-2",
+			"selector": "brotli=1.1.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'brotli' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/brotli.git\nPlease use:\ngit clone https://salsa.debian.org/debian/brotli.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 520 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main brotli 1.1.0-2 (dsc) [2261 B]\nGet:2 https://deb.debian.org/debian trixie/main brotli 1.1.0-2 (tar) [512 kB]\nGet:3 https://deb.debian.org/debian trixie/main brotli 1.1.0-2 (diff) [5480 B]\nFetched 520 kB in 2s (262 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "bzip2",
+			"version": "1.0.8-6",
+			"selector": "bzip2=1.0.8-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'bzip2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/bzip2.git\nPlease use:\ngit clone https://salsa.debian.org/debian/bzip2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 839 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main bzip2 1.0.8-6 (dsc) [1604 B]\nGet:2 https://deb.debian.org/debian trixie/main bzip2 1.0.8-6 (tar) [810 kB]\nGet:3 https://deb.debian.org/debian trixie/main bzip2 1.0.8-6 (diff) [27.0 kB]\nFetched 839 kB in 2s (368 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "cairo",
+			"version": "1.18.4-1",
+			"selector": "cairo=1.18.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'cairo' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnome-team/cairo.git\nPlease use:\ngit clone https://salsa.debian.org/gnome-team/cairo.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 32.6 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main cairo 1.18.4-1 (dsc) [2763 B]\nGet:2 https://deb.debian.org/debian trixie/main cairo 1.18.4-1 (tar) [32.6 MB]\nGet:3 https://deb.debian.org/debian trixie/main cairo 1.18.4-1 (diff) [29.9 kB]\nFetched 32.6 MB in 8s (3857 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "chromaprint",
+			"version": "1.5.1-7",
+			"selector": "chromaprint=1.5.1-7",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'chromaprint' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/chromaprint.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/chromaprint.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1595 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main chromaprint 1.5.1-7 (dsc) [1651 B]\nGet:2 https://deb.debian.org/debian trixie/main chromaprint 1.5.1-7 (tar) [1581 kB]\nGet:3 https://deb.debian.org/debian trixie/main chromaprint 1.5.1-7 (diff) [11.7 kB]\nFetched 1595 kB in 3s (518 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "cjson",
+			"version": "1.7.18-3.1+deb13u1",
+			"selector": "cjson=1.7.18-3.1+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'cjson' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/cjson.git\nPlease use:\ngit clone https://salsa.debian.org/debian/cjson.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 364 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main cjson 1.7.18-3.1+deb13u1 (dsc) [1974 B]\nGet:2 https://deb.debian.org/debian trixie/main cjson 1.7.18-3.1+deb13u1 (tar) [355 kB]\nGet:3 https://deb.debian.org/debian trixie/main cjson 1.7.18-3.1+deb13u1 (diff) [7032 B]\nFetched 364 kB in 4s (93.2 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "codec2",
+			"version": "1.2.0-3",
+			"selector": "codec2=1.2.0-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'codec2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/bottoms/pkg-codec2.git\nPlease use:\ngit clone https://salsa.debian.org/bottoms/pkg-codec2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 31.9 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (dsc) [2887 B]\nGet:2 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (tar) [5233 kB]\nGet:3 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (tar) [570 kB]\nGet:4 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (tar) [18.4 MB]\nGet:5 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (tar) [7689 kB]\nGet:6 https://deb.debian.org/debian trixie/main codec2 1.2.0-3 (diff) [48.5 kB]\nFetched 31.9 MB in 10s (3263 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "dav1d",
+			"version": "1.5.1-1",
+			"selector": "dav1d=1.5.1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'dav1d' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/dav1d.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/dav1d.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1032 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main dav1d 1.5.1-1 (dsc) [2290 B]\nGet:2 https://deb.debian.org/debian trixie/main dav1d 1.5.1-1 (tar) [1021 kB]\nGet:3 https://deb.debian.org/debian trixie/main dav1d 1.5.1-1 (asc) [195 B]\nGet:4 https://deb.debian.org/debian trixie/main dav1d 1.5.1-1 (diff) [8468 B]\nFetched 1032 kB in 2s (470 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "db5.3",
+			"version": "5.3.28+dfsg2-9",
+			"selector": "db5.3=5.3.28+dfsg2-9",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'db5.3' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/db5.3.git\nPlease use:\ngit clone https://salsa.debian.org/debian/db5.3.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 21.3 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main db5.3 5.3.28+dfsg2-9 (dsc) [2373 B]\nGet:2 https://deb.debian.org/debian trixie/main db5.3 5.3.28+dfsg2-9 (tar) [21.3 MB]\nGet:3 https://deb.debian.org/debian trixie/main db5.3 5.3.28+dfsg2-9 (diff) [36.4 kB]\nFetched 21.3 MB in 6s (3653 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "dbus",
+			"version": "1.16.2-2",
+			"selector": "dbus=1.16.2-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'dbus' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/utopia-team/dbus.git\nPlease use:\ngit clone https://salsa.debian.org/utopia-team/dbus.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1187 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main dbus 1.16.2-2 (dsc) [3712 B]\nGet:2 https://deb.debian.org/debian trixie/main dbus 1.16.2-2 (tar) [1116 kB]\nGet:3 https://deb.debian.org/debian trixie/main dbus 1.16.2-2 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main dbus 1.16.2-2 (diff) [66.4 kB]\nFetched 1187 kB in 2s (603 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "e2fsprogs",
+			"version": "1.47.2-3",
+			"selector": "e2fsprogs=1.47.2-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'e2fsprogs' packaging is maintained in the 'Git' version control system at:\nhttps://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git -b debian/master\nPlease use:\ngit clone https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git -b debian/master\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 10.1 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main e2fsprogs 1.47.2-3 (dsc) [3035 B]\nGet:2 https://deb.debian.org/debian trixie/main e2fsprogs 1.47.2-3 (tar) [9997 kB]\nGet:3 https://deb.debian.org/debian trixie/main e2fsprogs 1.47.2-3 (asc) [488 B]\nGet:4 https://deb.debian.org/debian trixie/main e2fsprogs 1.47.2-3 (diff) [104 kB]\nFetched 10.1 MB in 11s (914 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "expat",
+			"version": "2.7.1-2",
+			"selector": "expat=2.7.1-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 8449 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main expat 2.7.1-2 (dsc) [1964 B]\nGet:2 https://deb.debian.org/debian trixie/main expat 2.7.1-2 (tar) [8434 kB]\nGet:3 https://deb.debian.org/debian trixie/main expat 2.7.1-2 (diff) [13.3 kB]\nFetched 8449 kB in 4s (1879 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "ffmpeg",
+			"version": "7:7.1.5-0+deb13u1",
+			"selector": "ffmpeg=7:7.1.5-0+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'ffmpeg' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/ffmpeg.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/ffmpeg.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 11.1 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main ffmpeg 7:7.1.5-0+deb13u1 (dsc) [5950 B]\nGet:2 https://deb.debian.org/debian trixie/main ffmpeg 7:7.1.5-0+deb13u1 (tar) [11.1 MB]\nGet:3 https://deb.debian.org/debian trixie/main ffmpeg 7:7.1.5-0+deb13u1 (asc) [520 B]\nGet:4 https://deb.debian.org/debian trixie/main ffmpeg 7:7.1.5-0+deb13u1 (diff) [54.2 kB]\nFetched 11.1 MB in 11s (1057 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fftw3",
+			"version": "3.3.10-2",
+			"selector": "fftw3=3.3.10-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fftw3' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/science-team/fftw3.git\nPlease use:\ngit clone https://salsa.debian.org/science-team/fftw3.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 4161 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fftw3 3.3.10-2 (dsc) [2754 B]\nGet:2 https://deb.debian.org/debian trixie/main fftw3 3.3.10-2 (tar) [4144 kB]\nGet:3 https://deb.debian.org/debian trixie/main fftw3 3.3.10-2 (diff) [14.6 kB]\nFetched 4161 kB in 3s (1542 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "flac",
+			"version": "1.5.0+ds-2",
+			"selector": "flac=1.5.0+ds-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'flac' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/flac.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/flac.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 831 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main flac 1.5.0+ds-2 (dsc) [2366 B]\nGet:2 https://deb.debian.org/debian trixie/main flac 1.5.0+ds-2 (tar) [811 kB]\nGet:3 https://deb.debian.org/debian trixie/main flac 1.5.0+ds-2 (diff) [17.6 kB]\nFetched 831 kB in 2s (467 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "flite",
+			"version": "2.2-7",
+			"selector": "flite=2.2-7",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'flite' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/a11y-team/flite.git\nPlease use:\ngit clone https://salsa.debian.org/a11y-team/flite.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 20.3 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main flite 2.2-7 (dsc) [2130 B]\nGet:2 https://deb.debian.org/debian trixie/main flite 2.2-7 (tar) [20.2 MB]\nGet:3 https://deb.debian.org/debian trixie/main flite 2.2-7 (diff) [49.2 kB]\nFetched 20.3 MB in 26s (783 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fontconfig",
+			"version": "2.15.0-2.3",
+			"selector": "fontconfig=2.15.0-2.3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fontconfig' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/freedesktop-team/fontconfig.git\nPlease use:\ngit clone https://salsa.debian.org/freedesktop-team/fontconfig.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1510 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fontconfig 2.15.0-2.3 (dsc) [2673 B]\nGet:2 https://deb.debian.org/debian trixie/main fontconfig 2.15.0-2.3 (tar) [1448 kB]\nGet:3 https://deb.debian.org/debian trixie/main fontconfig 2.15.0-2.3 (diff) [59.5 kB]\nFetched 1510 kB in 2s (808 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fonts-android",
+			"version": "1:8.1.0r7-1~1.gbp36536b",
+			"selector": "fonts-android=1:8.1.0r7-1~1.gbp36536b",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fonts-android' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/fonts-team/fonts-android.git\nPlease use:\ngit clone https://salsa.debian.org/fonts-team/fonts-android.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 3904 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fonts-android 1:8.1.0r7-1~1.gbp36536b (dsc) [2224 B]\nGet:2 https://deb.debian.org/debian trixie/main fonts-android 1:8.1.0r7-1~1.gbp36536b (tar) [3894 kB]\nGet:3 https://deb.debian.org/debian trixie/main fonts-android 1:8.1.0r7-1~1.gbp36536b (diff) [7360 B]\nFetched 3904 kB in 5s (801 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fonts-noto-cjk",
+			"version": "1:20240730+repack1-1",
+			"selector": "fonts-noto-cjk=1:20240730+repack1-1",
+			"status": "timeout"
+		},
+		{
+			"package": "fonts-noto",
+			"version": "20201225-2",
+			"selector": "fonts-noto=20201225-2",
+			"status": "timeout"
+		},
+		{
+			"package": "fonts-sil-charis",
+			"version": "6.200-1",
+			"selector": "fonts-sil-charis=6.200-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fonts-sil-charis' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/fonts-team/fonts-sil-charis.git\nPlease use:\ngit clone https://salsa.debian.org/fonts-team/fonts-sil-charis.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 4055 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fonts-sil-charis 6.200-1 (dsc) [2066 B]\nGet:2 https://deb.debian.org/debian trixie/main fonts-sil-charis 6.200-1 (tar) [4043 kB]\nGet:3 https://deb.debian.org/debian trixie/main fonts-sil-charis 6.200-1 (diff) [9500 B]\nFetched 4055 kB in 6s (674 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fonts-urw-base35",
+			"version": "20200910-8",
+			"selector": "fonts-urw-base35=20200910-8",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fonts-urw-base35' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/fonts-team/fonts-urw-base35.git\nPlease use:\ngit clone https://salsa.debian.org/fonts-team/fonts-urw-base35.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 11.2 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fonts-urw-base35 20200910-8 (dsc) [2265 B]\nGet:2 https://deb.debian.org/debian trixie/main fonts-urw-base35 20200910-8 (tar) [11.2 MB]\nGet:3 https://deb.debian.org/debian trixie/main fonts-urw-base35 20200910-8 (diff) [24.5 kB]\nFetched 11.2 MB in 4s (2578 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "freetype",
+			"version": "2.13.3+dfsg-1+deb13u1",
+			"selector": "freetype=2.13.3+dfsg-1+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'freetype' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/freetype.git\nPlease use:\ngit clone https://salsa.debian.org/debian/freetype.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 4768 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (dsc) [3691 B]\nGet:2 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (tar) [342 kB]\nGet:3 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (tar) [2174 kB]\nGet:5 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (asc) [833 B]\nGet:6 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (tar) [2201 kB]\nGet:7 https://deb.debian.org/debian trixie/main freetype 2.13.3+dfsg-1+deb13u1 (diff) [44.5 kB]\nFetched 4768 kB in 7s (725 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "fribidi",
+			"version": "1.0.16-1",
+			"selector": "fribidi=1.0.16-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'fribidi' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/fribidi.git\nPlease use:\ngit clone https://salsa.debian.org/debian/fribidi.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1109 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main fribidi 1.0.16-1 (dsc) [2004 B]\nGet:2 https://deb.debian.org/debian trixie/main fribidi 1.0.16-1 (tar) [1098 kB]\nGet:3 https://deb.debian.org/debian trixie/main fribidi 1.0.16-1 (diff) [8928 B]\nFetched 1109 kB in 2s (556 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "game-music-emu",
+			"version": "0.6.3-7",
+			"selector": "game-music-emu=0.6.3-7",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'game-music-emu' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/game-music-emu.git\nPlease use:\ngit clone https://salsa.debian.org/debian/game-music-emu.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 322 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main game-music-emu 0.6.3-7 (dsc) [1996 B]\nGet:2 https://deb.debian.org/debian trixie/main game-music-emu 0.6.3-7 (tar) [315 kB]\nGet:3 https://deb.debian.org/debian trixie/main game-music-emu 0.6.3-7 (diff) [5016 B]\nFetched 322 kB in 2s (192 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "gcc-14",
+			"version": "14.2.0-19",
+			"selector": "gcc-14=14.2.0-19",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'gcc-14' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/toolchain-team/gcc.git -b gcc-14-debian\nPlease use:\ngit clone https://salsa.debian.org/toolchain-team/gcc.git -b gcc-14-debian\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 96.9 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main gcc-14 14.2.0-19 (dsc) [47.3 kB]\nGet:2 https://deb.debian.org/debian trixie/main gcc-14 14.2.0-19 (tar) [94.3 MB]\nGet:3 https://deb.debian.org/debian trixie/main gcc-14 14.2.0-19 (diff) [2577 kB]\nFetched 96.9 MB in 1min 22s (1186 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "gdk-pixbuf",
+			"version": "2.42.12+dfsg-4+deb13u1",
+			"selector": "gdk-pixbuf=2.42.12+dfsg-4+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'gdk-pixbuf' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnome-team/gdk-pixbuf.git\nPlease use:\ngit clone https://salsa.debian.org/gnome-team/gdk-pixbuf.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 6471 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main gdk-pixbuf 2.42.12+dfsg-4+deb13u1 (dsc) [3334 B]\nGet:2 https://deb.debian.org/debian trixie/main gdk-pixbuf 2.42.12+dfsg-4+deb13u1 (tar) [6444 kB]\nGet:3 https://deb.debian.org/debian trixie/main gdk-pixbuf 2.42.12+dfsg-4+deb13u1 (diff) [23.5 kB]\nFetched 6471 kB in 5s (1348 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "glib2.0",
+			"version": "2.84.4-3~deb13u3",
+			"selector": "glib2.0=2.84.4-3~deb13u3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'glib2.0' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnome-team/glib.git -b debian/trixie\nPlease use:\ngit clone https://salsa.debian.org/gnome-team/glib.git -b debian/trixie\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 6437 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main glib2.0 2.84.4-3~deb13u3 (dsc) [4883 B]\nGet:2 https://deb.debian.org/debian trixie/main glib2.0 2.84.4-3~deb13u3 (tar) [661 kB]\nGet:3 https://deb.debian.org/debian trixie/main glib2.0 2.84.4-3~deb13u3 (tar) [5618 kB]\nGet:4 https://deb.debian.org/debian trixie/main glib2.0 2.84.4-3~deb13u3 (diff) [153 kB]\nFetched 6437 kB in 5s (1193 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "glibc",
+			"version": "2.41-12+deb13u3",
+			"selector": "glibc=2.41-12+deb13u3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'glibc' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/glibc-team/glibc.git\nPlease use:\ngit clone https://salsa.debian.org/glibc-team/glibc.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 20.8 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main glibc 2.41-12+deb13u3 (dsc) [7576 B]\nGet:2 https://deb.debian.org/debian trixie/main glibc 2.41-12+deb13u3 (tar) [20.3 MB]\nGet:3 https://deb.debian.org/debian trixie/main glibc 2.41-12+deb13u3 (diff) [495 kB]\nFetched 20.8 MB in 4s (4788 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "gmp",
+			"version": "2:6.3.0+dfsg-3",
+			"selector": "gmp=2:6.3.0+dfsg-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'gmp' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/science-team/gmp.git\nPlease use:\ngit clone https://salsa.debian.org/science-team/gmp.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1893 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main gmp 2:6.3.0+dfsg-3 (dsc) [2251 B]\nGet:2 https://deb.debian.org/debian trixie/main gmp 2:6.3.0+dfsg-3 (tar) [1871 kB]\nGet:3 https://deb.debian.org/debian trixie/main gmp 2:6.3.0+dfsg-3 (diff) [19.9 kB]\nFetched 1893 kB in 3s (619 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "gnutls28",
+			"version": "3.8.9-3+deb13u4",
+			"selector": "gnutls28=3.8.9-3+deb13u4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'gnutls28' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnutls-team/gnutls.git\nPlease use:\ngit clone https://salsa.debian.org/gnutls-team/gnutls.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 6992 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main gnutls28 3.8.9-3+deb13u4 (dsc) [3271 B]\nGet:2 https://deb.debian.org/debian trixie/main gnutls28 3.8.9-3+deb13u4 (tar) [6847 kB]\nGet:3 https://deb.debian.org/debian trixie/main gnutls28 3.8.9-3+deb13u4 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main gnutls28 3.8.9-3+deb13u4 (diff) [141 kB]\nFetched 6992 kB in 4s (1712 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "graphite2",
+			"version": "1.3.14-2",
+			"selector": "graphite2=1.3.14-2",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1.3.14-2' of package 'graphite2'\nE: Unable to find a source package for graphite2\n"
+		},
+		{
+			"package": "gumbo-parser",
+			"version": "0.13.0+dfsg-2",
+			"selector": "gumbo-parser=0.13.0+dfsg-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'gumbo-parser' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/gumbo-parser.git\nPlease use:\ngit clone https://salsa.debian.org/debian/gumbo-parser.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 207 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main gumbo-parser 0.13.0+dfsg-2 (dsc) [2265 B]\nGet:2 https://deb.debian.org/debian trixie/main gumbo-parser 0.13.0+dfsg-2 (tar) [198 kB]\nGet:3 https://deb.debian.org/debian trixie/main gumbo-parser 0.13.0+dfsg-2 (diff) [7072 B]\nFetched 207 kB in 2s (125 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "harfbuzz",
+			"version": "10.2.0-1+deb13u1",
+			"selector": "harfbuzz=10.2.0-1+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'harfbuzz' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/freedesktop-team/harfbuzz.git\nPlease use:\ngit clone https://salsa.debian.org/freedesktop-team/harfbuzz.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 18.0 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main harfbuzz 10.2.0-1+deb13u1 (dsc) [2896 B]\nGet:2 https://deb.debian.org/debian trixie/main harfbuzz 10.2.0-1+deb13u1 (tar) [18.0 MB]\nGet:3 https://deb.debian.org/debian trixie/main harfbuzz 10.2.0-1+deb13u1 (diff) [20.7 kB]\nFetched 18.0 MB in 5s (3414 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "haskell-pandoc",
+			"version": "3.1.11.1-3",
+			"selector": "haskell-pandoc=3.1.11.1-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'haskell-pandoc' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/haskell-team/DHG_packages.git [p/haskell-pandoc]\nPlease use:\ngit clone https://salsa.debian.org/haskell-team/DHG_packages.git [p/haskell-pandoc]\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 7354 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main haskell-pandoc 3.1.11.1-3 (dsc) [8698 B]\nGet:2 https://deb.debian.org/debian trixie/main haskell-pandoc 3.1.11.1-3 (tar) [7336 kB]\nGet:3 https://deb.debian.org/debian trixie/main haskell-pandoc 3.1.11.1-3 (diff) [9652 B]\nFetched 7354 kB in 8s (896 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "highway",
+			"version": "1.2.0-2",
+			"selector": "highway=1.2.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'highway' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian-phototools-team/highway.git\nPlease use:\ngit clone https://salsa.debian.org/debian-phototools-team/highway.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2246 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main highway 1.2.0-2 (dsc) [2160 B]\nGet:2 https://deb.debian.org/debian trixie/main highway 1.2.0-2 (tar) [2235 kB]\nGet:3 https://deb.debian.org/debian trixie/main highway 1.2.0-2 (diff) [9560 B]\nFetched 2246 kB in 2s (997 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "imagemagick",
+			"version": "8:7.1.1.43+dfsg1-1+deb13u7",
+			"selector": "imagemagick=8:7.1.1.43+dfsg1-1+deb13u7",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '8:7.1.1.43+dfsg1-1+deb13u7' of package 'imagemagick'\nE: Unable to find a source package for imagemagick\n"
+		},
+		{
+			"package": "jackd2",
+			"version": "1.9.22~dfsg-4",
+			"selector": "jackd2=1.9.22~dfsg-4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'jackd2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/jackd2.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/jackd2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1023 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main jackd2 1.9.22~dfsg-4 (dsc) [1802 B]\nGet:2 https://deb.debian.org/debian trixie/main jackd2 1.9.22~dfsg-4 (tar) [955 kB]\nGet:3 https://deb.debian.org/debian trixie/main jackd2 1.9.22~dfsg-4 (diff) [66.0 kB]\nFetched 1023 kB in 2s (449 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "jbig2dec",
+			"version": "0.20-1",
+			"selector": "jbig2dec=0.20-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'jbig2dec' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/printing-team/jbig2dec.git\nPlease use:\ngit clone https://salsa.debian.org/printing-team/jbig2dec.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 174 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main jbig2dec 0.20-1 (dsc) [2075 B]\nGet:2 https://deb.debian.org/debian trixie/main jbig2dec 0.20-1 (tar) [150 kB]\nGet:3 https://deb.debian.org/debian trixie/main jbig2dec 0.20-1 (diff) [21.8 kB]\nFetched 174 kB in 3s (66.4 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "jpeg-xl",
+			"version": "0.11.1-4",
+			"selector": "jpeg-xl=0.11.1-4",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '0.11.1-4' of package 'jpeg-xl'\nE: Unable to find a source package for jpeg-xl\n"
+		},
+		{
+			"package": "keyutils",
+			"version": "1.6.3-6",
+			"selector": "keyutils=1.6.3-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'keyutils' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/keyutils.git\nPlease use:\ngit clone https://salsa.debian.org/debian/keyutils.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 156 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main keyutils 1.6.3-6 (dsc) [2100 B]\nGet:2 https://deb.debian.org/debian trixie/main keyutils 1.6.3-6 (tar) [137 kB]\nGet:3 https://deb.debian.org/debian trixie/main keyutils 1.6.3-6 (diff) [16.6 kB]\nFetched 156 kB in 1s (119 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "krb5",
+			"version": "1.21.3-5+deb13u1",
+			"selector": "krb5=1.21.3-5+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'krb5' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/krb5\nPlease use:\ngit clone https://salsa.debian.org/debian/krb5\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 9246 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main krb5 1.21.3-5+deb13u1 (dsc) [4189 B]\nGet:2 https://deb.debian.org/debian trixie/main krb5 1.21.3-5+deb13u1 (tar) [9136 kB]\nGet:3 https://deb.debian.org/debian trixie/main krb5 1.21.3-5+deb13u1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main krb5 1.21.3-5+deb13u1 (diff) [105 kB]\nFetched 9246 kB in 4s (2328 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "lame",
+			"version": "3.100-6",
+			"selector": "lame=3.100-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'lame' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/lame.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/lame.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1540 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main lame 3.100-6 (dsc) [2168 B]\nGet:2 https://deb.debian.org/debian trixie/main lame 3.100-6 (tar) [1524 kB]\nGet:3 https://deb.debian.org/debian trixie/main lame 3.100-6 (diff) [13.3 kB]\nFetched 1540 kB in 3s (561 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "lapack",
+			"version": "3.12.1-6",
+			"selector": "lapack=3.12.1-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'lapack' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/science-team/lapack.git\nPlease use:\ngit clone https://salsa.debian.org/science-team/lapack.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 8099 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main lapack 3.12.1-6 (dsc) [3414 B]\nGet:2 https://deb.debian.org/debian trixie/main lapack 3.12.1-6 (tar) [8067 kB]\nGet:3 https://deb.debian.org/debian trixie/main lapack 3.12.1-6 (diff) [28.6 kB]\nFetched 8099 kB in 6s (1428 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "lcms2",
+			"version": "2.16-2+deb13u2",
+			"selector": "lcms2=2.16-2+deb13u2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'lcms2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/lcms2.git\nPlease use:\ngit clone https://salsa.debian.org/debian/lcms2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 7648 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main lcms2 2.16-2+deb13u2 (dsc) [2004 B]\nGet:2 https://deb.debian.org/debian trixie/main lcms2 2.16-2+deb13u2 (tar) [7633 kB]\nGet:3 https://deb.debian.org/debian trixie/main lcms2 2.16-2+deb13u2 (diff) [12.7 kB]\nFetched 7648 kB in 4s (1720 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libass",
+			"version": "1:0.17.3-1",
+			"selector": "libass=1:0.17.3-1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1:0.17.3-1' of package 'libass'\nE: Unable to find a source package for libass\n"
+		},
+		{
+			"package": "libasyncns",
+			"version": "0.8-6",
+			"selector": "libasyncns=0.8-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libasyncns' packaging is maintained in the 'Git' version control system at:\nhttps://git.ortolo.eu/git/pkg-libasyncns.git\nPlease use:\ngit clone https://git.ortolo.eu/git/pkg-libasyncns.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 348 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libasyncns 0.8-6 (dsc) [1921 B]\nGet:2 https://deb.debian.org/debian trixie/main libasyncns 0.8-6 (tar) [342 kB]\nGet:3 https://deb.debian.org/debian trixie/main libasyncns 0.8-6 (diff) [4564 B]\nFetched 348 kB in 2s (211 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libavc1394",
+			"version": "0.5.4-5",
+			"selector": "libavc1394=0.5.4-5",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libavc1394' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libavc1394.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libavc1394.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 350 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libavc1394 0.5.4-5 (dsc) [2122 B]\nGet:2 https://deb.debian.org/debian trixie/main libavc1394 0.5.4-5 (tar) [342 kB]\nGet:3 https://deb.debian.org/debian trixie/main libavc1394 0.5.4-5 (diff) [6600 B]\nFetched 350 kB in 2s (195 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libbluray",
+			"version": "1:1.3.4-1",
+			"selector": "libbluray=1:1.3.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libbluray' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libbluray.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libbluray.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 776 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libbluray 1:1.3.4-1 (dsc) [2425 B]\nGet:2 https://deb.debian.org/debian trixie/main libbluray 1:1.3.4-1 (tar) [756 kB]\nGet:3 https://deb.debian.org/debian trixie/main libbluray 1:1.3.4-1 (diff) [17.6 kB]\nFetched 776 kB in 2s (357 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libbs2b",
+			"version": "3.1.0+dfsg-8",
+			"selector": "libbs2b=3.1.0+dfsg-8",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libbs2b' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libbs2b.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libbs2b.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 338 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libbs2b 3.1.0+dfsg-8 (dsc) [1989 B]\nGet:2 https://deb.debian.org/debian trixie/main libbs2b 3.1.0+dfsg-8 (tar) [331 kB]\nGet:3 https://deb.debian.org/debian trixie/main libbs2b 3.1.0+dfsg-8 (diff) [5828 B]\nFetched 338 kB in 2s (157 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libbsd",
+			"version": "0.12.2-2",
+			"selector": "libbsd=0.12.2-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libbsd' packaging is maintained in the 'Git' version control system at:\nhttps://git.hadrons.org/git/debian/pkgs/libbsd.git\nPlease use:\ngit clone https://git.hadrons.org/git/debian/pkgs/libbsd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 468 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libbsd 0.12.2-2 (dsc) [2446 B]\nGet:2 https://deb.debian.org/debian trixie/main libbsd 0.12.2-2 (tar) [446 kB]\nGet:3 https://deb.debian.org/debian trixie/main libbsd 0.12.2-2 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libbsd 0.12.2-2 (diff) [18.7 kB]\nFetched 468 kB in 2s (303 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libcaca",
+			"version": "0.99.beta20-5",
+			"selector": "libcaca=0.99.beta20-5",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '0.99.beta20-5' of package 'libcaca'\nE: Unable to find a source package for libcaca\n"
+		},
+		{
+			"package": "libcap2",
+			"version": "1:2.75-10+deb13u1",
+			"selector": "libcap2=1:2.75-10+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libcap2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libcap2.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libcap2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 226 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libcap2 1:2.75-10+deb13u1 (dsc) [2714 B]\nGet:2 https://deb.debian.org/debian trixie/main libcap2 1:2.75-10+deb13u1 (tar) [198 kB]\nGet:3 https://deb.debian.org/debian trixie/main libcap2 1:2.75-10+deb13u1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libcap2 1:2.75-10+deb13u1 (diff) [24.6 kB]\nFetched 226 kB in 2s (139 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libcdio-paranoia",
+			"version": "10.2+2.0.2-1",
+			"selector": "libcdio-paranoia=10.2+2.0.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libcdio-paranoia' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libcdio-paranoia.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libcdio-paranoia.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2311 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libcdio-paranoia 10.2+2.0.2-1 (dsc) [2386 B]\nGet:2 https://deb.debian.org/debian trixie/main libcdio-paranoia 10.2+2.0.2-1 (tar) [2296 kB]\nGet:3 https://deb.debian.org/debian trixie/main libcdio-paranoia 10.2+2.0.2-1 (diff) [12.4 kB]\nFetched 2311 kB in 2s (1046 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libcdio",
+			"version": "2.2.0-4.1~deb13u1",
+			"selector": "libcdio=2.2.0-4.1~deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libcdio' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libcdio.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libcdio.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1951 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libcdio 2.2.0-4.1~deb13u1 (dsc) [2750 B]\nGet:2 https://deb.debian.org/debian trixie/main libcdio 2.2.0-4.1~deb13u1 (tar) [1935 kB]\nGet:3 https://deb.debian.org/debian trixie/main libcdio 2.2.0-4.1~deb13u1 (diff) [13.3 kB]\nFetched 1951 kB in 2s (838 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdatrie",
+			"version": "0.2.13-3",
+			"selector": "libdatrie=0.2.13-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdatrie' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libdatrie.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libdatrie.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 326 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdatrie 0.2.13-3 (dsc) [2236 B]\nGet:2 https://deb.debian.org/debian trixie/main libdatrie 0.2.13-3 (tar) [314 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdatrie 0.2.13-3 (diff) [9668 B]\nFetched 326 kB in 1s (219 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdc1394",
+			"version": "2.2.6-5",
+			"selector": "libdc1394=2.2.6-5",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdc1394' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libdc1394.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libdc1394.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 623 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdc1394 2.2.6-5 (dsc) [2269 B]\nGet:2 https://deb.debian.org/debian trixie/main libdc1394 2.2.6-5 (tar) [612 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdc1394 2.2.6-5 (diff) [8212 B]\nFetched 623 kB in 2s (307 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libde265",
+			"version": "1.0.15-1",
+			"selector": "libde265=1.0.15-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libde265' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libde265.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libde265.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 984 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libde265 1.0.15-1 (dsc) [1872 B]\nGet:2 https://deb.debian.org/debian trixie/main libde265 1.0.15-1 (tar) [846 kB]\nGet:3 https://deb.debian.org/debian trixie/main libde265 1.0.15-1 (diff) [137 kB]\nFetched 984 kB in 2s (598 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdecor-0",
+			"version": "0.2.2-2",
+			"selector": "libdecor-0=0.2.2-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdecor-0' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/sdl-team/libdecor-0.git\nPlease use:\ngit clone https://salsa.debian.org/sdl-team/libdecor-0.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 72.9 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdecor-0 0.2.2-2 (dsc) [2776 B]\nGet:2 https://deb.debian.org/debian trixie/main libdecor-0 0.2.2-2 (tar) [63.7 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdecor-0 0.2.2-2 (diff) [6416 B]\nFetched 72.9 kB in 2s (47.2 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdrm",
+			"version": "2.4.124-2",
+			"selector": "libdrm=2.4.124-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdrm' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libdrm\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libdrm\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 562 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdrm 2.4.124-2 (dsc) [3173 B]\nGet:2 https://deb.debian.org/debian trixie/main libdrm 2.4.124-2 (tar) [481 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdrm 2.4.124-2 (asc) [358 B]\nGet:4 https://deb.debian.org/debian trixie/main libdrm 2.4.124-2 (diff) [77.0 kB]\nFetched 562 kB in 2s (269 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdvdnav",
+			"version": "6.1.1-3",
+			"selector": "libdvdnav=6.1.1-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdvdnav' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libdvdnav.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libdvdnav.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 379 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdvdnav 6.1.1-3 (dsc) [2220 B]\nGet:2 https://deb.debian.org/debian trixie/main libdvdnav 6.1.1-3 (tar) [368 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdvdnav 6.1.1-3 (diff) [9000 B]\nFetched 379 kB in 2s (219 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libdvdread",
+			"version": "6.1.3-2",
+			"selector": "libdvdread=6.1.3-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libdvdread' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libdvdread.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libdvdread.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 410 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libdvdread 6.1.3-2 (dsc) [2360 B]\nGet:2 https://deb.debian.org/debian trixie/main libdvdread 6.1.3-2 (tar) [395 kB]\nGet:3 https://deb.debian.org/debian trixie/main libdvdread 6.1.3-2 (asc) [195 B]\nGet:4 https://deb.debian.org/debian trixie/main libdvdread 6.1.3-2 (diff) [11.9 kB]\nFetched 410 kB in 2s (268 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libffi",
+			"version": "3.4.8-2",
+			"selector": "libffi=3.4.8-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 608 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libffi 3.4.8-2 (dsc) [1948 B]\nGet:2 https://deb.debian.org/debian trixie/main libffi 3.4.8-2 (tar) [595 kB]\nGet:3 https://deb.debian.org/debian trixie/main libffi 3.4.8-2 (diff) [11.2 kB]\nFetched 608 kB in 1s (449 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libglvnd",
+			"version": "1.7.0-1",
+			"selector": "libglvnd=1.7.0-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libglvnd' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libglvnd.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libglvnd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 865 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libglvnd 1.7.0-1 (dsc) [2687 B]\nGet:2 https://deb.debian.org/debian trixie/main libglvnd 1.7.0-1 (tar) [840 kB]\nGet:3 https://deb.debian.org/debian trixie/main libglvnd 1.7.0-1 (diff) [22.4 kB]\nFetched 865 kB in 2s (487 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libgsm",
+			"version": "1.0.22-1",
+			"selector": "libgsm=1.0.22-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libgsm' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian-mobcom-team/libgsm.git\nPlease use:\ngit clone https://salsa.debian.org/debian-mobcom-team/libgsm.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 79.3 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libgsm 1.0.22-1 (dsc) [2188 B]\nGet:2 https://deb.debian.org/debian trixie/main libgsm 1.0.22-1 (tar) [66.6 kB]\nGet:3 https://deb.debian.org/debian trixie/main libgsm 1.0.22-1 (diff) [10.5 kB]\nFetched 79.3 kB in 2s (50.2 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libheif",
+			"version": "1.19.8-1",
+			"selector": "libheif=1.19.8-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libheif' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libheif.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libheif.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1734 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libheif 1.19.8-1 (dsc) [3631 B]\nGet:2 https://deb.debian.org/debian trixie/main libheif 1.19.8-1 (tar) [1718 kB]\nGet:3 https://deb.debian.org/debian trixie/main libheif 1.19.8-1 (diff) [12.3 kB]\nFetched 1734 kB in 3s (601 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libidn2",
+			"version": "2.3.8-2",
+			"selector": "libidn2=2.3.8-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libidn2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libidn2.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libidn2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 740 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libidn2 2.3.8-2 (dsc) [2961 B]\nGet:2 https://deb.debian.org/debian trixie/main libidn2 2.3.8-2 (tar) [719 kB]\nGet:3 https://deb.debian.org/debian trixie/main libidn2 2.3.8-2 (asc) [1223 B]\nGet:4 https://deb.debian.org/debian trixie/main libidn2 2.3.8-2 (diff) [17.5 kB]\nFetched 740 kB in 6s (133 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libiec61883",
+			"version": "1.2.0-7",
+			"selector": "libiec61883=1.2.0-7",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libiec61883' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libiec61883.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libiec61883.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 349 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libiec61883 1.2.0-7 (dsc) [1830 B]\nGet:2 https://deb.debian.org/debian trixie/main libiec61883 1.2.0-7 (tar) [339 kB]\nGet:3 https://deb.debian.org/debian trixie/main libiec61883 1.2.0-7 (diff) [7968 B]\nFetched 349 kB in 2s (196 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libjpeg-turbo",
+			"version": "1:2.1.5-4",
+			"selector": "libjpeg-turbo=1:2.1.5-4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libjpeg-turbo' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libjpeg-turbo.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libjpeg-turbo.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2375 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libjpeg-turbo 1:2.1.5-4 (dsc) [2508 B]\nGet:2 https://deb.debian.org/debian trixie/main libjpeg-turbo 1:2.1.5-4 (tar) [2264 kB]\nGet:3 https://deb.debian.org/debian trixie/main libjpeg-turbo 1:2.1.5-4 (diff) [108 kB]\nFetched 2375 kB in 4s (585 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "liblqr",
+			"version": "0.4.2-2.1",
+			"selector": "liblqr=0.4.2-2.1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'liblqr' packaging is maintained in the 'Git' version control system at:\ngit://git.recluse.de/debian/pkg-liblqr.git\nPlease use:\ngit clone git://git.recluse.de/debian/pkg-liblqr.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 447 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main liblqr 0.4.2-2.1 (dsc) [2095 B]\nGet:2 https://deb.debian.org/debian trixie/main liblqr 0.4.2-2.1 (tar) [440 kB]\nGet:3 https://deb.debian.org/debian trixie/main liblqr 0.4.2-2.1 (diff) [5300 B]\nFetched 447 kB in 2s (198 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libmd",
+			"version": "1.1.0-2",
+			"selector": "libmd=1.1.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libmd' packaging is maintained in the 'Git' version control system at:\nhttps://git.hadrons.org/git/debian/pkgs/libmd.git\nPlease use:\ngit clone https://git.hadrons.org/git/debian/pkgs/libmd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 283 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libmd 1.1.0-2 (dsc) [2280 B]\nGet:2 https://deb.debian.org/debian trixie/main libmd 1.1.0-2 (tar) [271 kB]\nGet:3 https://deb.debian.org/debian trixie/main libmd 1.1.0-2 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libmd 1.1.0-2 (diff) [8244 B]\nFetched 283 kB in 2s (167 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libmysofa",
+			"version": "1.3.3+dfsg-1",
+			"selector": "libmysofa=1.3.3+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libmysofa' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libmysofa.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libmysofa.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 81.1 MB of source archives.\nIgn:1 https://deb.debian.org/debian trixie/main libmysofa 1.3.3+dfsg-1 (dsc)\nGet:2 https://deb.debian.org/debian trixie/main libmysofa 1.3.3+dfsg-1 (tar) [81.1 MB]\nGet:3 https://deb.debian.org/debian trixie/main libmysofa 1.3.3+dfsg-1 (diff) [17.8 kB]\nGet:1 https://deb.debian.org/debian trixie/main libmysofa 1.3.3+dfsg-1 (dsc) [2386 B]\nFetched 81.1 MB in 10s (7946 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libogg",
+			"version": "1.3.5-3",
+			"selector": "libogg=1.3.5-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libogg' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libogg.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libogg.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 449 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libogg 1.3.5-3 (dsc) [2206 B]\nGet:2 https://deb.debian.org/debian trixie/main libogg 1.3.5-3 (tar) [429 kB]\nGet:3 https://deb.debian.org/debian trixie/main libogg 1.3.5-3 (diff) [18.0 kB]\nFetched 449 kB in 2s (198 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libopenmpt",
+			"version": "0.7.13-1",
+			"selector": "libopenmpt=0.7.13-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libopenmpt' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libopenmpt.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libopenmpt.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1170 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libopenmpt 0.7.13-1 (dsc) [1859 B]\nGet:2 https://deb.debian.org/debian trixie/main libopenmpt 0.7.13-1 (tar) [1156 kB]\nGet:3 https://deb.debian.org/debian trixie/main libopenmpt 0.7.13-1 (diff) [11.8 kB]\nFetched 1170 kB in 3s (404 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libpgm",
+			"version": "5.3.128~dfsg-2.1",
+			"selector": "libpgm=5.3.128~dfsg-2.1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 402 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libpgm 5.3.128~dfsg-2.1 (dsc) [1864 B]\nGet:2 https://deb.debian.org/debian trixie/main libpgm 5.3.128~dfsg-2.1 (tar) [393 kB]\nGet:3 https://deb.debian.org/debian trixie/main libpgm 5.3.128~dfsg-2.1 (diff) [6392 B]\nFetched 402 kB in 4s (100 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libplacebo",
+			"version": "7.349.0-3",
+			"selector": "libplacebo=7.349.0-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libplacebo' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libplacebo.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libplacebo.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 859 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libplacebo 7.349.0-3 (dsc) [1713 B]\nGet:2 https://deb.debian.org/debian trixie/main libplacebo 7.349.0-3 (tar) [846 kB]\nGet:3 https://deb.debian.org/debian trixie/main libplacebo 7.349.0-3 (diff) [10.7 kB]\nFetched 859 kB in 2s (449 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libpng1.6",
+			"version": "1.6.48-1+deb13u5",
+			"selector": "libpng1.6=1.6.48-1+deb13u5",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libpng1.6' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libpng1.6.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libpng1.6.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1628 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libpng1.6 1.6.48-1+deb13u5 (dsc) [2305 B]\nGet:2 https://deb.debian.org/debian trixie/main libpng1.6 1.6.48-1+deb13u5 (tar) [1573 kB]\nGet:3 https://deb.debian.org/debian trixie/main libpng1.6 1.6.48-1+deb13u5 (diff) [52.5 kB]\nFetched 1628 kB in 2s (677 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "librabbitmq",
+			"version": "0.15.0-1",
+			"selector": "librabbitmq=0.15.0-1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '0.15.0-1' of package 'librabbitmq'\nE: Unable to find a source package for librabbitmq\n"
+		},
+		{
+			"package": "libraw1394",
+			"version": "2.1.2-2",
+			"selector": "libraw1394=2.1.2-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 467 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libraw1394 2.1.2-2 (dsc) [1994 B]\nGet:2 https://deb.debian.org/debian trixie/main libraw1394 2.1.2-2 (tar) [458 kB]\nGet:3 https://deb.debian.org/debian trixie/main libraw1394 2.1.2-2 (diff) [6740 B]\nFetched 467 kB in 2s (291 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "librist",
+			"version": "0.2.11+dfsg-1",
+			"selector": "librist=0.2.11+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'librist' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/librist.git\nPlease use:\ngit clone https://salsa.debian.org/debian/librist.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 171 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main librist 0.2.11+dfsg-1 (dsc) [2165 B]\nGet:2 https://deb.debian.org/debian trixie/main librist 0.2.11+dfsg-1 (tar) [159 kB]\nGet:3 https://deb.debian.org/debian trixie/main librist 0.2.11+dfsg-1 (diff) [9160 B]\nFetched 171 kB in 2s (84.2 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "librsvg",
+			"version": "2.60.0+dfsg-1",
+			"selector": "librsvg=2.60.0+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'librsvg' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnome-team/librsvg.git\nPlease use:\ngit clone https://salsa.debian.org/gnome-team/librsvg.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 17.6 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main librsvg 2.60.0+dfsg-1 (dsc) [3057 B]\nGet:2 https://deb.debian.org/debian trixie/main librsvg 2.60.0+dfsg-1 (tar) [6735 kB]\nGet:3 https://deb.debian.org/debian trixie/main librsvg 2.60.0+dfsg-1 (diff) [10.8 MB]\nFetched 17.6 MB in 11s (1647 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libsamplerate",
+			"version": "0.2.2-4",
+			"selector": "libsamplerate=0.2.2-4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libsamplerate' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libsamplerate.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libsamplerate.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 3964 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libsamplerate 0.2.2-4 (dsc) [2274 B]\nGet:2 https://deb.debian.org/debian trixie/main libsamplerate 0.2.2-4 (tar) [3955 kB]\nGet:3 https://deb.debian.org/debian trixie/main libsamplerate 0.2.2-4 (diff) [7360 B]\nFetched 3964 kB in 3s (1285 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libsdl2",
+			"version": "2.32.4+dfsg-1",
+			"selector": "libsdl2=2.32.4+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libsdl2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/sdl-team/libsdl2.git\nPlease use:\ngit clone https://salsa.debian.org/sdl-team/libsdl2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 5278 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libsdl2 2.32.4+dfsg-1 (dsc) [3238 B]\nGet:2 https://deb.debian.org/debian trixie/main libsdl2 2.32.4+dfsg-1 (tar) [5231 kB]\nGet:3 https://deb.debian.org/debian trixie/main libsdl2 2.32.4+dfsg-1 (diff) [44.1 kB]\nFetched 5278 kB in 6s (814 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libselinux",
+			"version": "3.8.1-1",
+			"selector": "libselinux=3.8.1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libselinux' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/selinux-team/libselinux.git\nPlease use:\ngit clone https://salsa.debian.org/selinux-team/libselinux.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 246 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libselinux 3.8.1-1 (dsc) [3013 B]\nGet:2 https://deb.debian.org/debian trixie/main libselinux 3.8.1-1 (tar) [204 kB]\nGet:3 https://deb.debian.org/debian trixie/main libselinux 3.8.1-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libselinux 3.8.1-1 (diff) [37.8 kB]\nFetched 246 kB in 2s (141 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libsndfile",
+			"version": "1.2.2-2",
+			"selector": "libsndfile=1.2.2-2",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1.2.2-2' of package 'libsndfile'\nE: Unable to find a source package for libsndfile\n"
+		},
+		{
+			"package": "libsodium",
+			"version": "1.0.18-1",
+			"selector": "libsodium=1.0.18-1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1.0.18-1' of package 'libsodium'\nE: Unable to find a source package for libsodium\n"
+		},
+		{
+			"package": "libsoxr",
+			"version": "0.1.3-4",
+			"selector": "libsoxr=0.1.3-4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libsoxr' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libsoxr.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libsoxr.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 102 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libsoxr 0.1.3-4 (dsc) [2146 B]\nGet:2 https://deb.debian.org/debian trixie/main libsoxr 0.1.3-4 (tar) [94.4 kB]\nGet:3 https://deb.debian.org/debian trixie/main libsoxr 0.1.3-4 (diff) [5040 B]\nFetched 102 kB in 1s (71.1 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libssh",
+			"version": "0.11.2-1+deb13u1",
+			"selector": "libssh=0.11.2-1+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libssh' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libssh.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libssh.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 656 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libssh 0.11.2-1+deb13u1 (dsc) [2615 B]\nGet:2 https://deb.debian.org/debian trixie/main libssh 0.11.2-1+deb13u1 (tar) [619 kB]\nGet:3 https://deb.debian.org/debian trixie/main libssh 0.11.2-1+deb13u1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libssh 0.11.2-1+deb13u1 (diff) [33.1 kB]\nFetched 656 kB in 2s (322 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libtasn1-6",
+			"version": "4.20.0-2",
+			"selector": "libtasn1-6=4.20.0-2",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '4.20.0-2' of package 'libtasn1-6'\nE: Unable to find a source package for libtasn1-6\n"
+		},
+		{
+			"package": "libthai",
+			"version": "0.1.29-2",
+			"selector": "libthai=0.1.29-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libthai' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libthai.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libthai.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 433 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libthai 0.1.29-2 (dsc) [2319 B]\nGet:2 https://deb.debian.org/debian trixie/main libthai 0.1.29-2 (tar) [418 kB]\nGet:3 https://deb.debian.org/debian trixie/main libthai 0.1.29-2 (diff) [12.6 kB]\nFetched 433 kB in 2s (205 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libtheora",
+			"version": "1.2.0~alpha1+dfsg-6",
+			"selector": "libtheora=1.2.0~alpha1+dfsg-6",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libtheora' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libtheora.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libtheora.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1407 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libtheora 1.2.0~alpha1+dfsg-6 (dsc) [2726 B]\nGet:2 https://deb.debian.org/debian trixie/main libtheora 1.2.0~alpha1+dfsg-6 (tar) [1391 kB]\nGet:3 https://deb.debian.org/debian trixie/main libtheora 1.2.0~alpha1+dfsg-6 (diff) [13.4 kB]\nFetched 1407 kB in 2s (648 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libtool",
+			"version": "2.5.4-4",
+			"selector": "libtool=2.5.4-4",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libtool' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/mckinstry/libtool.git -b debian/latest\nPlease use:\ngit clone https://salsa.debian.org/mckinstry/libtool.git -b debian/latest\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1109 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libtool 2.5.4-4 (dsc) [2232 B]\nGet:2 https://deb.debian.org/debian trixie/main libtool 2.5.4-4 (tar) [1070 kB]\nGet:3 https://deb.debian.org/debian trixie/main libtool 2.5.4-4 (diff) [37.5 kB]\nFetched 1109 kB in 2s (590 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libudfread",
+			"version": "1.1.2-1",
+			"selector": "libudfread=1.1.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libudfread' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libudfread.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libudfread.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 38.7 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libudfread 1.1.2-1 (dsc) [2020 B]\nGet:2 https://deb.debian.org/debian trixie/main libudfread 1.1.2-1 (tar) [33.7 kB]\nGet:3 https://deb.debian.org/debian trixie/main libudfread 1.1.2-1 (diff) [2920 B]\nFetched 38.7 kB in 1s (28.0 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libunibreak",
+			"version": "6.1-3",
+			"selector": "libunibreak=6.1-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libunibreak' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/qt-kde-team/3rdparty/libunibreak.git\nPlease use:\ngit clone https://salsa.debian.org/qt-kde-team/3rdparty/libunibreak.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 179 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libunibreak 6.1-3 (dsc) [2179 B]\nGet:2 https://deb.debian.org/debian trixie/main libunibreak 6.1-3 (tar) [170 kB]\nGet:3 https://deb.debian.org/debian trixie/main libunibreak 6.1-3 (diff) [7356 B]\nFetched 179 kB in 1s (132 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libunistring",
+			"version": "1.3-2",
+			"selector": "libunistring=1.3-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libunistring' packaging is maintained in the 'Git' version control system at:\nhttps://git.jff.email/cgit/libunistring.git\nPlease use:\ngit clone https://git.jff.email/cgit/libunistring.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2785 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libunistring 1.3-2 (dsc) [2215 B]\nGet:2 https://deb.debian.org/debian trixie/main libunistring 1.3-2 (tar) [2753 kB]\nGet:3 https://deb.debian.org/debian trixie/main libunistring 1.3-2 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libunistring 1.3-2 (diff) [28.5 kB]\nFetched 2785 kB in 3s (900 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libusb-1.0",
+			"version": "2:1.0.28-1",
+			"selector": "libusb-1.0=2:1.0.28-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libusb-1.0' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/aurel32/libusb-1.0.git\nPlease use:\ngit clone https://salsa.debian.org/aurel32/libusb-1.0.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 680 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libusb-1.0 2:1.0.28-1 (dsc) [2643 B]\nGet:2 https://deb.debian.org/debian trixie/main libusb-1.0 2:1.0.28-1 (tar) [658 kB]\nGet:3 https://deb.debian.org/debian trixie/main libusb-1.0 2:1.0.28-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libusb-1.0 2:1.0.28-1 (diff) [18.1 kB]\nFetched 680 kB in 2s (430 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libva",
+			"version": "2.22.0-3",
+			"selector": "libva=2.22.0-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libva' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libva.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libva.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 241 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libva 2.22.0-3 (dsc) [2448 B]\nGet:2 https://deb.debian.org/debian trixie/main libva 2.22.0-3 (tar) [226 kB]\nGet:3 https://deb.debian.org/debian trixie/main libva 2.22.0-3 (diff) [12.3 kB]\nFetched 241 kB in 1s (165 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libvdpau",
+			"version": "1.5-3",
+			"selector": "libvdpau=1.5-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libvdpau' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/nvidia-team/libvdpau.git\nPlease use:\ngit clone https://salsa.debian.org/nvidia-team/libvdpau.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 155 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libvdpau 1.5-3 (dsc) [2318 B]\nGet:2 https://deb.debian.org/debian trixie/main libvdpau 1.5-3 (tar) [143 kB]\nGet:3 https://deb.debian.org/debian trixie/main libvdpau 1.5-3 (diff) [9440 B]\nFetched 155 kB in 1s (112 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libvidstab",
+			"version": "1.1.0-2",
+			"selector": "libvidstab=1.1.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 83.4 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libvidstab 1.1.0-2 (dsc) [1826 B]\nGet:2 https://deb.debian.org/debian trixie/main libvidstab 1.1.0-2 (tar) [77.7 kB]\nGet:3 https://deb.debian.org/debian trixie/main libvidstab 1.1.0-2 (diff) [3876 B]\nFetched 83.4 kB in 1s (61.3 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libvorbis",
+			"version": "1.3.7-3",
+			"selector": "libvorbis=1.3.7-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libvorbis' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/libvorbis.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/libvorbis.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1673 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libvorbis 1.3.7-3 (dsc) [2356 B]\nGet:2 https://deb.debian.org/debian trixie/main libvorbis 1.3.7-3 (tar) [1659 kB]\nGet:3 https://deb.debian.org/debian trixie/main libvorbis 1.3.7-3 (diff) [11.8 kB]\nFetched 1673 kB in 2s (898 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libvpx",
+			"version": "1.15.0-2.1",
+			"selector": "libvpx=1.15.0-2.1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1.15.0-2.1' of package 'libvpx'\nE: Unable to find a source package for libvpx\n"
+		},
+		{
+			"package": "libwebp",
+			"version": "1.5.0-0.1",
+			"selector": "libwebp=1.5.0-0.1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libwebp' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libwebp.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libwebp.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 4282 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libwebp 1.5.0-0.1 (dsc) [2865 B]\nGet:2 https://deb.debian.org/debian trixie/main libwebp 1.5.0-0.1 (tar) [4267 kB]\nGet:3 https://deb.debian.org/debian trixie/main libwebp 1.5.0-0.1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libwebp 1.5.0-0.1 (diff) [11.3 kB]\nFetched 4282 kB in 3s (1462 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libx11",
+			"version": "2:1.8.12-1",
+			"selector": "libx11=2:1.8.12-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libx11' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libx11.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libx11.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 3293 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libx11 2:1.8.12-1 (dsc) [2490 B]\nGet:2 https://deb.debian.org/debian trixie/main libx11 2:1.8.12-1 (tar) [3215 kB]\nGet:3 https://deb.debian.org/debian trixie/main libx11 2:1.8.12-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libx11 2:1.8.12-1 (diff) [74.5 kB]\nFetched 3293 kB in 2s (1338 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxau",
+			"version": "1:1.0.11-1",
+			"selector": "libxau=1:1.0.11-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxau' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxau.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxau.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 430 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxau 1:1.0.11-1 (dsc) [2213 B]\nGet:2 https://deb.debian.org/debian trixie/main libxau 1:1.0.11-1 (tar) [405 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxau 1:1.0.11-1 (asc) [358 B]\nGet:4 https://deb.debian.org/debian trixie/main libxau 1:1.0.11-1 (diff) [22.7 kB]\nFetched 430 kB in 1s (297 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxcb",
+			"version": "1.17.0-2",
+			"selector": "libxcb=1.17.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxcb' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxcb.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxcb.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 695 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxcb 1.17.0-2 (dsc) [5318 B]\nGet:2 https://deb.debian.org/debian trixie/main libxcb 1.17.0-2 (tar) [662 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxcb 1.17.0-2 (diff) [28.1 kB]\nFetched 695 kB in 2s (338 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxcursor",
+			"version": "1:1.2.3-1",
+			"selector": "libxcursor=1:1.2.3-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxcursor' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxcursor.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxcursor.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 444 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxcursor 1:1.2.3-1 (dsc) [2148 B]\nGet:2 https://deb.debian.org/debian trixie/main libxcursor 1:1.2.3-1 (tar) [433 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxcursor 1:1.2.3-1 (diff) [9168 B]\nFetched 444 kB in 2s (258 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxdmcp",
+			"version": "1:1.1.5-1",
+			"selector": "libxdmcp=1:1.1.5-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxdmcp' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxdmcp.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxdmcp.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 456 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxdmcp 1:1.1.5-1 (dsc) [2331 B]\nGet:2 https://deb.debian.org/debian trixie/main libxdmcp 1:1.1.5-1 (tar) [443 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxdmcp 1:1.1.5-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libxdmcp 1:1.1.5-1 (diff) [9764 B]\nFetched 456 kB in 2s (249 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxext",
+			"version": "2:1.3.4-1",
+			"selector": "libxext=2:1.3.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxext' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxext.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxext.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 509 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxext 2:1.3.4-1 (dsc) [2118 B]\nGet:2 https://deb.debian.org/debian trixie/main libxext 2:1.3.4-1 (tar) [494 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxext 2:1.3.4-1 (diff) [12.5 kB]\nFetched 509 kB in 2s (320 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxfixes",
+			"version": "1:6.0.0-2",
+			"selector": "libxfixes=1:6.0.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxfixes' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxfixes.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxfixes.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 408 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxfixes 1:6.0.0-2 (dsc) [2240 B]\nGet:2 https://deb.debian.org/debian trixie/main libxfixes 1:6.0.0-2 (tar) [388 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxfixes 1:6.0.0-2 (asc) [195 B]\nGet:4 https://deb.debian.org/debian trixie/main libxfixes 1:6.0.0-2 (diff) [17.3 kB]\nFetched 408 kB in 4s (114 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxi",
+			"version": "2:1.8.2-1",
+			"selector": "libxi=2:1.8.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxi' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxi.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxi.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 641 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxi 2:1.8.2-1 (dsc) [2286 B]\nGet:2 https://deb.debian.org/debian trixie/main libxi 2:1.8.2-1 (tar) [611 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxi 2:1.8.2-1 (asc) [195 B]\nGet:4 https://deb.debian.org/debian trixie/main libxi 2:1.8.2-1 (diff) [27.7 kB]\nFetched 641 kB in 10s (66.0 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxkbcommon",
+			"version": "1.7.0-2",
+			"selector": "libxkbcommon=1.7.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxkbcommon' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxkbcommon.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxkbcommon.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 546 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxkbcommon 1.7.0-2 (dsc) [2802 B]\nGet:2 https://deb.debian.org/debian trixie/main libxkbcommon 1.7.0-2 (tar) [534 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxkbcommon 1.7.0-2 (diff) [8464 B]\nFetched 546 kB in 2s (224 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxml2",
+			"version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+			"selector": "libxml2=2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxml2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xml-sgml-team/libxml2.git\nPlease use:\ngit clone https://salsa.debian.org/xml-sgml-team/libxml2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2412 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxml2 2.12.7+dfsg+really2.9.14-2.1+deb13u3 (dsc) [3085 B]\nGet:2 https://deb.debian.org/debian trixie/main libxml2 2.12.7+dfsg+really2.9.14-2.1+deb13u3 (tar) [2351 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxml2 2.12.7+dfsg+really2.9.14-2.1+deb13u3 (diff) [58.0 kB]\nFetched 2412 kB in 19s (126 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxrandr",
+			"version": "2:1.5.4-1",
+			"selector": "libxrandr=2:1.5.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxrandr' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxrandr.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxrandr.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 446 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxrandr 2:1.5.4-1 (dsc) [2322 B]\nGet:2 https://deb.debian.org/debian trixie/main libxrandr 2:1.5.4-1 (tar) [422 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxrandr 2:1.5.4-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libxrandr 2:1.5.4-1 (diff) [21.4 kB]\nFetched 446 kB in 8s (56.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxrender",
+			"version": "1:0.9.12-1",
+			"selector": "libxrender=1:0.9.12-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxrender' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxrender.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxrender.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 475 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxrender 1:0.9.12-1 (dsc) [2258 B]\nGet:2 https://deb.debian.org/debian trixie/main libxrender 1:0.9.12-1 (tar) [450 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxrender 1:0.9.12-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main libxrender 1:0.9.12-1 (diff) [21.5 kB]\nFetched 475 kB in 6s (85.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxss",
+			"version": "1:1.2.3-1",
+			"selector": "libxss=1:1.2.3-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxss' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/libxss.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/libxss.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 395 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxss 1:1.2.3-1 (dsc) [2203 B]\nGet:2 https://deb.debian.org/debian trixie/main libxss 1:1.2.3-1 (tar) [385 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxss 1:1.2.3-1 (asc) [705 B]\nGet:4 https://deb.debian.org/debian trixie/main libxss 1:1.2.3-1 (diff) [7145 B]\nFetched 395 kB in 5s (80.2 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libxv",
+			"version": "2:1.0.11-1.1",
+			"selector": "libxv=2:1.0.11-1.1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libxv' packaging is maintained in the 'Git' version control system at:\nhttps://anonscm.debian.org/git/pkg-xorg/lib/libxv.git\nPlease use:\ngit clone https://anonscm.debian.org/git/pkg-xorg/lib/libxv.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 397 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libxv 2:1.0.11-1.1 (dsc) [1967 B]\nGet:2 https://deb.debian.org/debian trixie/main libxv 2:1.0.11-1.1 (tar) [387 kB]\nGet:3 https://deb.debian.org/debian trixie/main libxv 2:1.0.11-1.1 (diff) [7899 B]\nFetched 397 kB in 8s (49.0 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libyaml",
+			"version": "0.2.5-2",
+			"selector": "libyaml=0.2.5-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libyaml' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libyaml.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libyaml.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 92.8 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libyaml 0.2.5-2 (dsc) [2040 B]\nGet:2 https://deb.debian.org/debian trixie/main libyaml 0.2.5-2 (tar) [85.1 kB]\nGet:3 https://deb.debian.org/debian trixie/main libyaml 0.2.5-2 (diff) [5656 B]\nFetched 92.8 kB in 2s (43.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "libzstd",
+			"version": "1.5.7+dfsg-1",
+			"selector": "libzstd=1.5.7+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'libzstd' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/pkg-rpm-team/libzstd.git\nPlease use:\ngit clone https://salsa.debian.org/pkg-rpm-team/libzstd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1860 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main libzstd 1.5.7+dfsg-1 (dsc) [2371 B]\nGet:2 https://deb.debian.org/debian trixie/main libzstd 1.5.7+dfsg-1 (tar) [1835 kB]\nGet:3 https://deb.debian.org/debian trixie/main libzstd 1.5.7+dfsg-1 (diff) [23.0 kB]\nFetched 1860 kB in 21s (86.9 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "lilv",
+			"version": "0.24.26-1",
+			"selector": "lilv=0.24.26-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'lilv' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/lilv.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/lilv.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 123 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main lilv 0.24.26-1 (dsc) [2680 B]\nGet:2 https://deb.debian.org/debian trixie/main lilv 0.24.26-1 (tar) [106 kB]\nGet:3 https://deb.debian.org/debian trixie/main lilv 0.24.26-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main lilv 0.24.26-1 (diff) [13.4 kB]\nFetched 123 kB in 5s (24.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "lua5.4",
+			"version": "5.4.7-1",
+			"selector": "lua5.4=5.4.7-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'lua5.4' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/lua-team/lua5.4.git\nPlease use:\ngit clone https://salsa.debian.org/lua-team/lua5.4.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 389 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main lua5.4 5.4.7-1 (dsc) [2051 B]\nGet:2 https://deb.debian.org/debian trixie/main lua5.4 5.4.7-1 (tar) [374 kB]\nGet:3 https://deb.debian.org/debian trixie/main lua5.4 5.4.7-1 (diff) [13.1 kB]\nFetched 389 kB in 4s (104 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "mbedtls",
+			"version": "3.6.5-0.1~deb13u1",
+			"selector": "mbedtls=3.6.5-0.1~deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'mbedtls' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian-iot-team/mbedtls.git\nPlease use:\ngit clone https://salsa.debian.org/debian-iot-team/mbedtls.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 5389 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main mbedtls 3.6.5-0.1~deb13u1 (dsc) [2490 B]\nGet:2 https://deb.debian.org/debian trixie/main mbedtls 3.6.5-0.1~deb13u1 (tar) [5367 kB]\nGet:3 https://deb.debian.org/debian trixie/main mbedtls 3.6.5-0.1~deb13u1 (diff) [18.9 kB]\nFetched 5389 kB in 34s (158 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "mesa",
+			"version": "25.0.7-2+deb13u1",
+			"selector": "mesa=25.0.7-2+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'mesa' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/mesa.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/mesa.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 47.0 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main mesa 25.0.7-2+deb13u1 (dsc) [6755 B]\nGet:2 https://deb.debian.org/debian trixie/main mesa 25.0.7-2+deb13u1 (tar) [46.8 MB]\nGet:3 https://deb.debian.org/debian trixie/main mesa 25.0.7-2+deb13u1 (asc) [488 B]\nGet:4 https://deb.debian.org/debian trixie/main mesa 25.0.7-2+deb13u1 (diff) [113 kB]\nFetched 47.0 MB in 1min 28s (536 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "mpg123",
+			"version": "1.32.10-1",
+			"selector": "mpg123=1.32.10-1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '1.32.10-1' of package 'mpg123'\nE: Unable to find a source package for mpg123\n"
+		},
+		{
+			"package": "mujs",
+			"version": "1.3.6-1",
+			"selector": "mujs=1.3.6-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'mujs' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/mujs.git\nPlease use:\ngit clone https://salsa.debian.org/debian/mujs.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 110 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main mujs 1.3.6-1 (dsc) [1920 B]\nGet:2 https://deb.debian.org/debian trixie/main mujs 1.3.6-1 (tar) [101 kB]\nGet:3 https://deb.debian.org/debian trixie/main mujs 1.3.6-1 (diff) [6524 B]\nFetched 110 kB in 7s (16.7 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "mupdf",
+			"version": "1.25.1+ds1-6+deb13u1",
+			"selector": "mupdf=1.25.1+ds1-6+deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'mupdf' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/mupdf.git\nPlease use:\ngit clone https://salsa.debian.org/debian/mupdf.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 4210 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main mupdf 1.25.1+ds1-6+deb13u1 (dsc) [2819 B]\nGet:2 https://deb.debian.org/debian trixie/main mupdf 1.25.1+ds1-6+deb13u1 (tar) [4113 kB]\nGet:3 https://deb.debian.org/debian trixie/main mupdf 1.25.1+ds1-6+deb13u1 (diff) [94.8 kB]\nFetched 4210 kB in 43s (97.3 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "ncurses",
+			"version": "6.5+20250216-2",
+			"selector": "ncurses=6.5+20250216-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'ncurses' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/ncurses.git\nPlease use:\ngit clone https://salsa.debian.org/debian/ncurses.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 3830 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main ncurses 6.5+20250216-2 (dsc) [3890 B]\nGet:2 https://deb.debian.org/debian trixie/main ncurses 6.5+20250216-2 (tar) [3775 kB]\nGet:3 https://deb.debian.org/debian trixie/main ncurses 6.5+20250216-2 (asc) [729 B]\nGet:4 https://deb.debian.org/debian trixie/main ncurses 6.5+20250216-2 (diff) [50.4 kB]\nFetched 3830 kB in 29s (132 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "nettle",
+			"version": "3.10.1-1",
+			"selector": "nettle=3.10.1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'nettle' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/holmgren/nettle.git\nPlease use:\ngit clone https://salsa.debian.org/holmgren/nettle.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2670 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main nettle 3.10.1-1 (dsc) [2053 B]\nGet:2 https://deb.debian.org/debian trixie/main nettle 3.10.1-1 (tar) [2643 kB]\nGet:3 https://deb.debian.org/debian trixie/main nettle 3.10.1-1 (diff) [25.0 kB]\nFetched 2670 kB in 20s (134 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "norm",
+			"version": "1.5.9+dfsg-3.1",
+			"selector": "norm=1.5.9+dfsg-3.1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'norm' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/norm.git\nPlease use:\ngit clone https://salsa.debian.org/debian/norm.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1538 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main norm 1.5.9+dfsg-3.1 (dsc) [2039 B]\nGet:2 https://deb.debian.org/debian trixie/main norm 1.5.9+dfsg-3.1 (tar) [1526 kB]\nGet:3 https://deb.debian.org/debian trixie/main norm 1.5.9+dfsg-3.1 (diff) [9276 B]\nFetched 1538 kB in 16s (97.4 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "numactl",
+			"version": "2.0.19-1",
+			"selector": "numactl=2.0.19-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'numactl' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/numactl.git\nPlease use:\ngit clone https://salsa.debian.org/debian/numactl.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 228 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main numactl 2.0.19-1 (dsc) [1967 B]\nGet:2 https://deb.debian.org/debian trixie/main numactl 2.0.19-1 (tar) [218 kB]\nGet:3 https://deb.debian.org/debian trixie/main numactl 2.0.19-1 (diff) [7340 B]\nFetched 228 kB in 4s (52.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "ocl-icd",
+			"version": "2.3.3-1",
+			"selector": "ocl-icd=2.3.3-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'ocl-icd' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/opencl-team/ocl-icd.git\nPlease use:\ngit clone https://salsa.debian.org/opencl-team/ocl-icd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 125 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main ocl-icd 2.3.3-1 (dsc) [2196 B]\nGet:2 https://deb.debian.org/debian trixie/main ocl-icd 2.3.3-1 (tar) [110 kB]\nGet:3 https://deb.debian.org/debian trixie/main ocl-icd 2.3.3-1 (diff) [12.5 kB]\nFetched 125 kB in 6s (20.6 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "openal-soft",
+			"version": "1:1.24.2-1",
+			"selector": "openal-soft=1:1.24.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'openal-soft' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/games-team/openal-soft.git\nPlease use:\ngit clone https://salsa.debian.org/games-team/openal-soft.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1261 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main openal-soft 1:1.24.2-1 (dsc) [2389 B]\nGet:2 https://deb.debian.org/debian trixie/main openal-soft 1:1.24.2-1 (tar) [1247 kB]\nGet:3 https://deb.debian.org/debian trixie/main openal-soft 1:1.24.2-1 (diff) [12.1 kB]\nFetched 1261 kB in 9s (134 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "openjpeg2",
+			"version": "2.5.3-2.1~deb13u2",
+			"selector": "openjpeg2=2.5.3-2.1~deb13u2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'openjpeg2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian-phototools-team/openjpeg2.git\nPlease use:\ngit clone https://salsa.debian.org/debian-phototools-team/openjpeg2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1412 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main openjpeg2 2.5.3-2.1~deb13u2 (dsc) [2603 B]\nGet:2 https://deb.debian.org/debian trixie/main openjpeg2 2.5.3-2.1~deb13u2 (tar) [1394 kB]\nGet:3 https://deb.debian.org/debian trixie/main openjpeg2 2.5.3-2.1~deb13u2 (diff) [16.1 kB]\nFetched 1412 kB in 14s (100 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "openssl",
+			"version": "3.5.5-1~deb13u1",
+			"selector": "openssl=3.5.5-1~deb13u1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '3.5.5-1~deb13u1' of package 'openssl'\nE: Unable to find a source package for openssl\n"
+		},
+		{
+			"package": "opus",
+			"version": "1.5.2-2",
+			"selector": "opus=1.5.2-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'opus' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/opus.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/opus.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 7952 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main opus 1.5.2-2 (dsc) [2262 B]\nGet:2 https://deb.debian.org/debian trixie/main opus 1.5.2-2 (tar) [7839 kB]\nGet:3 https://deb.debian.org/debian trixie/main opus 1.5.2-2 (diff) [110 kB]\nFetched 7952 kB in 42s (192 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "p11-kit",
+			"version": "0.25.5-3",
+			"selector": "p11-kit=0.25.5-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'p11-kit' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnutls-team/p11-kit.git\nPlease use:\ngit clone https://salsa.debian.org/gnutls-team/p11-kit.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1029 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main p11-kit 0.25.5-3 (dsc) [2538 B]\nGet:2 https://deb.debian.org/debian trixie/main p11-kit 0.25.5-3 (tar) [1002 kB]\nGet:3 https://deb.debian.org/debian trixie/main p11-kit 0.25.5-3 (asc) [228 B]\nGet:4 https://deb.debian.org/debian trixie/main p11-kit 0.25.5-3 (diff) [24.2 kB]\nFetched 1029 kB in 27s (38.4 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pandoc",
+			"version": "3.1.11.1+ds-2",
+			"selector": "pandoc=3.1.11.1+ds-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pandoc' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/haskell-team/pandoc.git\nPlease use:\ngit clone https://salsa.debian.org/haskell-team/pandoc.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 162 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pandoc 3.1.11.1+ds-2 (dsc) [2378 B]\nGet:2 https://deb.debian.org/debian trixie/main pandoc 3.1.11.1+ds-2 (tar) [120 kB]\nGet:3 https://deb.debian.org/debian trixie/main pandoc 3.1.11.1+ds-2 (diff) [40.1 kB]\nFetched 162 kB in 6s (25.7 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pango1.0",
+			"version": "1.56.3-1",
+			"selector": "pango1.0=1.56.3-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pango1.0' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/gnome-team/pango.git\nPlease use:\ngit clone https://salsa.debian.org/gnome-team/pango.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1931 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pango1.0 1.56.3-1 (dsc) [3690 B]\nGet:2 https://deb.debian.org/debian trixie/main pango1.0 1.56.3-1 (tar) [1884 kB]\nGet:3 https://deb.debian.org/debian trixie/main pango1.0 1.56.3-1 (diff) [43.8 kB]\nFetched 1931 kB in 23s (83.9 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pcre2",
+			"version": "10.46-1~deb13u1",
+			"selector": "pcre2=10.46-1~deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pcre2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/pcre2.git\nPlease use:\ngit clone https://salsa.debian.org/debian/pcre2.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2730 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pcre2 10.46-1~deb13u1 (dsc) [2377 B]\nGet:2 https://deb.debian.org/debian trixie/main pcre2 10.46-1~deb13u1 (tar) [2719 kB]\nGet:3 https://deb.debian.org/debian trixie/main pcre2 10.46-1~deb13u1 (diff) [8729 B]\nFetched 2730 kB in 20s (137 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pixman",
+			"version": "0.44.0-3",
+			"selector": "pixman=0.44.0-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pixman' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/lib/pixman.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/lib/pixman.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 824 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pixman 0.44.0-3 (dsc) [2019 B]\nGet:2 https://deb.debian.org/debian trixie/main pixman 0.44.0-3 (tar) [813 kB]\nGet:3 https://deb.debian.org/debian trixie/main pixman 0.44.0-3 (diff) [9417 B]\nFetched 824 kB in 14s (59.9 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pocketsphinx",
+			"version": "0.8+5prealpha+1-15",
+			"selector": "pocketsphinx=0.8+5prealpha+1-15",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pocketsphinx' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/a11y-team/pocketsphinx.git\nPlease use:\ngit clone https://salsa.debian.org/a11y-team/pocketsphinx.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 31.4 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pocketsphinx 0.8+5prealpha+1-15 (dsc) [2624 B]\nGet:2 https://deb.debian.org/debian trixie/main pocketsphinx 0.8+5prealpha+1-15 (tar) [31.4 MB]\nGet:3 https://deb.debian.org/debian trixie/main pocketsphinx 0.8+5prealpha+1-15 (diff) [8972 B]\nFetched 31.4 MB in 31s (1011 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "pulseaudio",
+			"version": "17.0+dfsg1-2",
+			"selector": "pulseaudio=17.0+dfsg1-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'pulseaudio' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/pulseaudio-team/pulseaudio.git\nPlease use:\ngit clone https://salsa.debian.org/pulseaudio-team/pulseaudio.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1504 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main pulseaudio 17.0+dfsg1-2 (dsc) [3774 B]\nGet:2 https://deb.debian.org/debian trixie/main pulseaudio 17.0+dfsg1-2 (tar) [1459 kB]\nGet:3 https://deb.debian.org/debian trixie/main pulseaudio 17.0+dfsg1-2 (diff) [41.2 kB]\nFetched 1504 kB in 5s (318 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "rubberband",
+			"version": "3.3.0+dfsg-2",
+			"selector": "rubberband=3.3.0+dfsg-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'rubberband' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/rubberband.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/rubberband.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 220 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main rubberband 3.3.0+dfsg-2 (dsc) [2610 B]\nGet:2 https://deb.debian.org/debian trixie/main rubberband 3.3.0+dfsg-2 (tar) [205 kB]\nGet:3 https://deb.debian.org/debian trixie/main rubberband 3.3.0+dfsg-2 (diff) [12.3 kB]\nFetched 220 kB in 8s (29.0 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "rust-rav1e",
+			"version": "0.7.1-9",
+			"selector": "rust-rav1e=0.7.1-9",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'rust-rav1e' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/rust-team/debcargo-conf.git [src/rav1e]\nPlease use:\ngit clone https://salsa.debian.org/rust-team/debcargo-conf.git [src/rav1e]\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1495 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main rust-rav1e 0.7.1-9 (dsc) [3714 B]\nGet:2 https://deb.debian.org/debian trixie/main rust-rav1e 0.7.1-9 (tar) [1473 kB]\nGet:3 https://deb.debian.org/debian trixie/main rust-rav1e 0.7.1-9 (diff) [18.6 kB]\nFetched 1495 kB in 6s (238 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "serd",
+			"version": "0.32.4-1",
+			"selector": "serd=0.32.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'serd' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/serd.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/serd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 199 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main serd 0.32.4-1 (dsc) [2486 B]\nGet:2 https://deb.debian.org/debian trixie/main serd 0.32.4-1 (tar) [174 kB]\nGet:3 https://deb.debian.org/debian trixie/main serd 0.32.4-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main serd 0.32.4-1 (diff) [20.8 kB]\nFetched 199 kB in 16s (12.1 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "shine",
+			"version": "3.1.1-2",
+			"selector": "shine=3.1.1-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'shine' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/shine.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/shine.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 946 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main shine 3.1.1-2 (dsc) [1999 B]\nGet:2 https://deb.debian.org/debian trixie/main shine 3.1.1-2 (tar) [940 kB]\nGet:3 https://deb.debian.org/debian trixie/main shine 3.1.1-2 (diff) [3624 B]\nFetched 946 kB in 4s (242 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "slang2",
+			"version": "2.3.3-5",
+			"selector": "slang2=2.3.3-5",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'slang2' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/slang2.git -b debian/latest\nPlease use:\ngit clone https://salsa.debian.org/debian/slang2.git -b debian/latest\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1410 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main slang2 2.3.3-5 (dsc) [2266 B]\nGet:2 https://deb.debian.org/debian trixie/main slang2 2.3.3-5 (tar) [1347 kB]\nGet:3 https://deb.debian.org/debian trixie/main slang2 2.3.3-5 (diff) [60.4 kB]\nFetched 1410 kB in 9s (161 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "snappy",
+			"version": "1.2.2-1",
+			"selector": "snappy=1.2.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 1127 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main snappy 1.2.2-1 (dsc) [1842 B]\nGet:2 https://deb.debian.org/debian trixie/main snappy 1.2.2-1 (tar) [1109 kB]\nGet:3 https://deb.debian.org/debian trixie/main snappy 1.2.2-1 (diff) [16.2 kB]\nFetched 1127 kB in 6s (199 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "sord",
+			"version": "0.16.18-1",
+			"selector": "sord=0.16.18-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'sord' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/sord.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/sord.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 117 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main sord 0.16.18-1 (dsc) [2510 B]\nGet:2 https://deb.debian.org/debian trixie/main sord 0.16.18-1 (tar) [102 kB]\nGet:3 https://deb.debian.org/debian trixie/main sord 0.16.18-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main sord 0.16.18-1 (diff) [11.0 kB]\nFetched 117 kB in 2s (71.1 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "speex",
+			"version": "1.2.1-3",
+			"selector": "speex=1.2.1-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'speex' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/speex.git\nPlease use:\ngit clone https://salsa.debian.org/debian/speex.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1057 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main speex 1.2.1-3 (dsc) [2621 B]\nGet:2 https://deb.debian.org/debian trixie/main speex 1.2.1-3 (tar) [1043 kB]\nGet:3 https://deb.debian.org/debian trixie/main speex 1.2.1-3 (asc) [488 B]\nGet:4 https://deb.debian.org/debian trixie/main speex 1.2.1-3 (diff) [10.3 kB]\nFetched 1057 kB in 2s (486 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "sphinxbase",
+			"version": "0.8+5prealpha+1-21",
+			"selector": "sphinxbase=0.8+5prealpha+1-21",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'sphinxbase' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/a11y-team/sphinxbase.git\nPlease use:\ngit clone https://salsa.debian.org/a11y-team/sphinxbase.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 3420 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main sphinxbase 0.8+5prealpha+1-21 (dsc) [2671 B]\nGet:2 https://deb.debian.org/debian trixie/main sphinxbase 0.8+5prealpha+1-21 (tar) [3401 kB]\nGet:3 https://deb.debian.org/debian trixie/main sphinxbase 0.8+5prealpha+1-21 (diff) [15.8 kB]\nFetched 3420 kB in 11s (302 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "sratom",
+			"version": "0.6.18-1",
+			"selector": "sratom=0.6.18-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'sratom' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/sratom.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/sratom.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 32.9 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main sratom 0.6.18-1 (dsc) [2420 B]\nGet:2 https://deb.debian.org/debian trixie/main sratom 0.6.18-1 (tar) [19.6 kB]\nGet:3 https://deb.debian.org/debian trixie/main sratom 0.6.18-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main sratom 0.6.18-1 (diff) [10.0 kB]\nFetched 32.9 kB in 2s (20.1 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "srt",
+			"version": "1.5.4-1",
+			"selector": "srt=1.5.4-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'srt' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/libsrt.git\nPlease use:\ngit clone https://salsa.debian.org/debian/libsrt.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1762 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main srt 1.5.4-1 (dsc) [2317 B]\nGet:2 https://deb.debian.org/debian trixie/main srt 1.5.4-1 (tar) [1743 kB]\nGet:3 https://deb.debian.org/debian trixie/main srt 1.5.4-1 (diff) [16.2 kB]\nFetched 1762 kB in 2s (709 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "svt-av1",
+			"version": "2.3.0+dfsg-1",
+			"selector": "svt-av1=2.3.0+dfsg-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'svt-av1' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/svt-av1.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/svt-av1.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 9027 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main svt-av1 2.3.0+dfsg-1 (dsc) [2093 B]\nGet:2 https://deb.debian.org/debian trixie/main svt-av1 2.3.0+dfsg-1 (tar) [9018 kB]\nGet:3 https://deb.debian.org/debian trixie/main svt-av1 2.3.0+dfsg-1 (diff) [7424 B]\nFetched 9027 kB in 17s (531 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "systemd",
+			"version": "257.13-1~deb13u1",
+			"selector": "systemd=257.13-1~deb13u1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'systemd' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/systemd-team/systemd.git\nPlease use:\ngit clone https://salsa.debian.org/systemd-team/systemd.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 16.7 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main systemd 257.13-1~deb13u1 (dsc) [8696 B]\nGet:2 https://deb.debian.org/debian trixie/main systemd 257.13-1~deb13u1 (tar) [16.5 MB]\nGet:3 https://deb.debian.org/debian trixie/main systemd 257.13-1~deb13u1 (diff) [183 kB]\nFetched 16.7 MB in 32s (530 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "texlive-extra",
+			"version": "2024.20250309-2",
+			"selector": "texlive-extra=2024.20250309-2",
+			"status": "timeout"
+		},
+		{
+			"package": "twolame",
+			"version": "0.4.0-2",
+			"selector": "twolame=0.4.0-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'twolame' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/twolame.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/twolame.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 898 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main twolame 0.4.0-2 (dsc) [2048 B]\nGet:2 https://deb.debian.org/debian trixie/main twolame 0.4.0-2 (tar) [891 kB]\nGet:3 https://deb.debian.org/debian trixie/main twolame 0.4.0-2 (diff) [4740 B]\nFetched 898 kB in 11s (78.4 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "util-linux",
+			"version": "2.41-5",
+			"selector": "util-linux=2.41-5",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'util-linux' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/util-linux.git\nPlease use:\ngit clone https://salsa.debian.org/debian/util-linux.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 9661 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main util-linux 2.41-5 (dsc) [4942 B]\nGet:2 https://deb.debian.org/debian trixie/main util-linux 2.41-5 (tar) [9536 kB]\nGet:3 https://deb.debian.org/debian trixie/main util-linux 2.41-5 (diff) [120 kB]\nFetched 9661 kB in 22s (449 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "vulkan-loader",
+			"version": "1.4.309.0-1",
+			"selector": "vulkan-loader=1.4.309.0-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'vulkan-loader' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/vulkan/vulkan-loader.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/vulkan/vulkan-loader.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 2942 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main vulkan-loader 1.4.309.0-1 (dsc) [2243 B]\nGet:2 https://deb.debian.org/debian trixie/main vulkan-loader 1.4.309.0-1 (tar) [2930 kB]\nGet:3 https://deb.debian.org/debian trixie/main vulkan-loader 1.4.309.0-1 (diff) [9536 B]\nFetched 2942 kB in 11s (259 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "wayland",
+			"version": "1.23.1-3",
+			"selector": "wayland=1.23.1-3",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'wayland' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/xorg-team/wayland/wayland.git\nPlease use:\ngit clone https://salsa.debian.org/xorg-team/wayland/wayland.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 389 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main wayland 1.23.1-3 (dsc) [2650 B]\nGet:2 https://deb.debian.org/debian trixie/main wayland 1.23.1-3 (tar) [370 kB]\nGet:3 https://deb.debian.org/debian trixie/main wayland 1.23.1-3 (diff) [16.4 kB]\nFetched 389 kB in 2s (215 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "x264",
+			"version": "2:0.164.3108+git31e19f9-2",
+			"selector": "x264=2:0.164.3108+git31e19f9-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'x264' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/x264.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/x264.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 981 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main x264 2:0.164.3108+git31e19f9-2 (dsc) [1758 B]\nGet:2 https://deb.debian.org/debian trixie/main x264 2:0.164.3108+git31e19f9-2 (tar) [955 kB]\nGet:3 https://deb.debian.org/debian trixie/main x264 2:0.164.3108+git31e19f9-2 (diff) [24.6 kB]\nFetched 981 kB in 2s (569 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "x265",
+			"version": "4.1-2",
+			"selector": "x265=4.1-2",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'x265' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/x265.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/x265.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 1129 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main x265 4.1-2 (dsc) [1695 B]\nGet:2 https://deb.debian.org/debian trixie/main x265 4.1-2 (tar) [1114 kB]\nGet:3 https://deb.debian.org/debian trixie/main x265 4.1-2 (diff) [13.9 kB]\nFetched 1129 kB in 2s (578 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "xvidcore",
+			"version": "2:1.3.7-1",
+			"selector": "xvidcore=2:1.3.7-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'xvidcore' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/xvidcore.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/xvidcore.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 707 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main xvidcore 2:1.3.7-1 (dsc) [2129 B]\nGet:2 https://deb.debian.org/debian trixie/main xvidcore 2:1.3.7-1 (tar) [699 kB]\nGet:3 https://deb.debian.org/debian trixie/main xvidcore 2:1.3.7-1 (diff) [6464 B]\nFetched 707 kB in 2s (295 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "xz-utils",
+			"version": "5.8.1-1",
+			"selector": "xz-utils=5.8.1-1",
+			"status": "unavailable",
+			"exitCode": 100,
+			"log": "Reading package lists...\nE: Can not find version '5.8.1-1' of package 'xz-utils'\nE: Unable to find a source package for xz-utils\n"
+		},
+		{
+			"package": "zeromq3",
+			"version": "4.3.5-1",
+			"selector": "zeromq3=4.3.5-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 888 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main zeromq3 4.3.5-1 (dsc) [1870 B]\nGet:2 https://deb.debian.org/debian trixie/main zeromq3 4.3.5-1 (tar) [876 kB]\nGet:3 https://deb.debian.org/debian trixie/main zeromq3 4.3.5-1 (diff) [10.9 kB]\nFetched 888 kB in 2s (519 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "zimg",
+			"version": "3.0.5+ds1-1",
+			"selector": "zimg=3.0.5+ds1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'zimg' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/zimg.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/zimg.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 200 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main zimg 3.0.5+ds1-1 (dsc) [1369 B]\nGet:2 https://deb.debian.org/debian trixie/main zimg 3.0.5+ds1-1 (tar) [196 kB]\nGet:3 https://deb.debian.org/debian trixie/main zimg 3.0.5+ds1-1 (diff) [3148 B]\nFetched 200 kB in 2s (118 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "zix",
+			"version": "0.6.2-1",
+			"selector": "zix=0.6.2-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'zix' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/multimedia-team/zix.git\nPlease use:\ngit clone https://salsa.debian.org/multimedia-team/zix.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 93.5 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main zix 0.6.2-1 (dsc) [2216 B]\nGet:2 https://deb.debian.org/debian trixie/main zix 0.6.2-1 (tar) [81.3 kB]\nGet:3 https://deb.debian.org/debian trixie/main zix 0.6.2-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main zix 0.6.2-1 (diff) [9108 B]\nFetched 93.5 kB in 2s (45.5 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "zlib",
+			"version": "1:1.3.dfsg+really1.3.1-1",
+			"selector": "zlib=1:1.3.dfsg+really1.3.1-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNeed to get 1345 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main zlib 1:1.3.dfsg+really1.3.1-1 (dsc) [2637 B]\nGet:2 https://deb.debian.org/debian trixie/main zlib 1:1.3.dfsg+really1.3.1-1 (tar) [1326 kB]\nGet:3 https://deb.debian.org/debian trixie/main zlib 1:1.3.dfsg+really1.3.1-1 (diff) [16.6 kB]\nFetched 1345 kB in 3s (487 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "zvbi",
+			"version": "0.2.44-1",
+			"selector": "zvbi=0.2.44-1",
+			"status": "downloaded",
+			"exitCode": 0,
+			"log": "Reading package lists...\nNOTICE: 'zvbi' packaging is maintained in the 'Git' version control system at:\nhttps://salsa.debian.org/debian/zvbi.git\nPlease use:\ngit clone https://salsa.debian.org/debian/zvbi.git\nto retrieve the latest (possibly unreleased) updates to the package.\nNeed to get 966 kB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main zvbi 0.2.44-1 (dsc) [2392 B]\nGet:2 https://deb.debian.org/debian trixie/main zvbi 0.2.44-1 (tar) [942 kB]\nGet:3 https://deb.debian.org/debian trixie/main zvbi 0.2.44-1 (asc) [833 B]\nGet:4 https://deb.debian.org/debian trixie/main zvbi 0.2.44-1 (diff) [20.3 kB]\nFetched 966 kB in 3s (374 kB/s)\nDownload complete and in download only mode\n"
+		},
+		{
+			"package": "unicode-data",
+			"version": "15.1.0-1",
+			"selector": "unicode-data=15.1.0-1",
+			"status": "downloaded",
+			"output": "Reading package lists...\nNeed to get 15.8 MB of source archives.\nGet:1 https://deb.debian.org/debian trixie/main unicode-data 15.1.0-1 (dsc) [1794 B]\nGet:2 https://deb.debian.org/debian trixie/main unicode-data 15.1.0-1 (tar) [15.8 MB]\nGet:3 https://deb.debian.org/debian trixie/main unicode-data 15.1.0-1 (diff) [3944 B]\nFetched 15.8 MB in 4s (4171 kB/s)\nDownload complete and in download only mode\n"
+		}
+	]
+}

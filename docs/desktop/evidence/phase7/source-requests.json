@@ -1,0 +1,852 @@
+[
+	{
+		"package": "alsa-lib",
+		"version": "1.2.14-1",
+		"selector": "alsa-lib=1.2.14-1"
+	},
+	{
+		"package": "aom",
+		"version": "3.12.1-1",
+		"selector": "aom=3.12.1-1"
+	},
+	{
+		"package": "brotli",
+		"version": "1.1.0-2",
+		"selector": "brotli=1.1.0-2"
+	},
+	{
+		"package": "bzip2",
+		"version": "1.0.8-6",
+		"selector": "bzip2=1.0.8-6"
+	},
+	{
+		"package": "cairo",
+		"version": "1.18.4-1",
+		"selector": "cairo=1.18.4-1"
+	},
+	{
+		"package": "chromaprint",
+		"version": "1.5.1-7",
+		"selector": "chromaprint=1.5.1-7"
+	},
+	{
+		"package": "cjson",
+		"version": "1.7.18-3.1+deb13u1",
+		"selector": "cjson=1.7.18-3.1+deb13u1"
+	},
+	{
+		"package": "codec2",
+		"version": "1.2.0-3",
+		"selector": "codec2=1.2.0-3"
+	},
+	{
+		"package": "dav1d",
+		"version": "1.5.1-1",
+		"selector": "dav1d=1.5.1-1"
+	},
+	{
+		"package": "db5.3",
+		"version": "5.3.28+dfsg2-9",
+		"selector": "db5.3=5.3.28+dfsg2-9"
+	},
+	{
+		"package": "dbus",
+		"version": "1.16.2-2",
+		"selector": "dbus=1.16.2-2"
+	},
+	{
+		"package": "e2fsprogs",
+		"version": "1.47.2-3",
+		"selector": "e2fsprogs=1.47.2-3"
+	},
+	{
+		"package": "expat",
+		"version": "2.7.1-2",
+		"selector": "expat=2.7.1-2"
+	},
+	{
+		"package": "ffmpeg",
+		"version": "7:7.1.5-0+deb13u1",
+		"selector": "ffmpeg=7:7.1.5-0+deb13u1"
+	},
+	{
+		"package": "fftw3",
+		"version": "3.3.10-2",
+		"selector": "fftw3=3.3.10-2"
+	},
+	{
+		"package": "flac",
+		"version": "1.5.0+ds-2",
+		"selector": "flac=1.5.0+ds-2"
+	},
+	{
+		"package": "flite",
+		"version": "2.2-7",
+		"selector": "flite=2.2-7"
+	},
+	{
+		"package": "fontconfig",
+		"version": "2.15.0-2.3",
+		"selector": "fontconfig=2.15.0-2.3"
+	},
+	{
+		"package": "fonts-android",
+		"version": "1:8.1.0r7-1~1.gbp36536b",
+		"selector": "fonts-android=1:8.1.0r7-1~1.gbp36536b"
+	},
+	{
+		"package": "fonts-noto-cjk",
+		"version": "1:20240730+repack1-1",
+		"selector": "fonts-noto-cjk=1:20240730+repack1-1"
+	},
+	{
+		"package": "fonts-noto",
+		"version": "20201225-2",
+		"selector": "fonts-noto=20201225-2"
+	},
+	{
+		"package": "fonts-sil-charis",
+		"version": "6.200-1",
+		"selector": "fonts-sil-charis=6.200-1"
+	},
+	{
+		"package": "fonts-urw-base35",
+		"version": "20200910-8",
+		"selector": "fonts-urw-base35=20200910-8"
+	},
+	{
+		"package": "freetype",
+		"version": "2.13.3+dfsg-1+deb13u1",
+		"selector": "freetype=2.13.3+dfsg-1+deb13u1"
+	},
+	{
+		"package": "fribidi",
+		"version": "1.0.16-1",
+		"selector": "fribidi=1.0.16-1"
+	},
+	{
+		"package": "game-music-emu",
+		"version": "0.6.3-7",
+		"selector": "game-music-emu=0.6.3-7"
+	},
+	{
+		"package": "gcc-14",
+		"version": "14.2.0-19",
+		"selector": "gcc-14=14.2.0-19"
+	},
+	{
+		"package": "gdk-pixbuf",
+		"version": "2.42.12+dfsg-4+deb13u1",
+		"selector": "gdk-pixbuf=2.42.12+dfsg-4+deb13u1"
+	},
+	{
+		"package": "glib2.0",
+		"version": "2.84.4-3~deb13u3",
+		"selector": "glib2.0=2.84.4-3~deb13u3"
+	},
+	{
+		"package": "glibc",
+		"version": "2.41-12+deb13u3",
+		"selector": "glibc=2.41-12+deb13u3"
+	},
+	{
+		"package": "gmp",
+		"version": "2:6.3.0+dfsg-3",
+		"selector": "gmp=2:6.3.0+dfsg-3"
+	},
+	{
+		"package": "gnutls28",
+		"version": "3.8.9-3+deb13u4",
+		"selector": "gnutls28=3.8.9-3+deb13u4"
+	},
+	{
+		"package": "graphite2",
+		"version": "1.3.14-2",
+		"selector": "graphite2=1.3.14-2"
+	},
+	{
+		"package": "gumbo-parser",
+		"version": "0.13.0+dfsg-2",
+		"selector": "gumbo-parser=0.13.0+dfsg-2"
+	},
+	{
+		"package": "harfbuzz",
+		"version": "10.2.0-1+deb13u1",
+		"selector": "harfbuzz=10.2.0-1+deb13u1"
+	},
+	{
+		"package": "haskell-pandoc",
+		"version": "3.1.11.1-3",
+		"selector": "haskell-pandoc=3.1.11.1-3"
+	},
+	{
+		"package": "highway",
+		"version": "1.2.0-2",
+		"selector": "highway=1.2.0-2"
+	},
+	{
+		"package": "imagemagick",
+		"version": "8:7.1.1.43+dfsg1-1+deb13u7",
+		"selector": "imagemagick=8:7.1.1.43+dfsg1-1+deb13u7"
+	},
+	{
+		"package": "jackd2",
+		"version": "1.9.22~dfsg-4",
+		"selector": "jackd2=1.9.22~dfsg-4"
+	},
+	{
+		"package": "jbig2dec",
+		"version": "0.20-1",
+		"selector": "jbig2dec=0.20-1"
+	},
+	{
+		"package": "jpeg-xl",
+		"version": "0.11.1-4",
+		"selector": "jpeg-xl=0.11.1-4"
+	},
+	{
+		"package": "keyutils",
+		"version": "1.6.3-6",
+		"selector": "keyutils=1.6.3-6"
+	},
+	{
+		"package": "krb5",
+		"version": "1.21.3-5+deb13u1",
+		"selector": "krb5=1.21.3-5+deb13u1"
+	},
+	{
+		"package": "lame",
+		"version": "3.100-6",
+		"selector": "lame=3.100-6"
+	},
+	{
+		"package": "lapack",
+		"version": "3.12.1-6",
+		"selector": "lapack=3.12.1-6"
+	},
+	{
+		"package": "lcms2",
+		"version": "2.16-2+deb13u2",
+		"selector": "lcms2=2.16-2+deb13u2"
+	},
+	{
+		"package": "libass",
+		"version": "1:0.17.3-1",
+		"selector": "libass=1:0.17.3-1"
+	},
+	{
+		"package": "libasyncns",
+		"version": "0.8-6",
+		"selector": "libasyncns=0.8-6"
+	},
+	{
+		"package": "libavc1394",
+		"version": "0.5.4-5",
+		"selector": "libavc1394=0.5.4-5"
+	},
+	{
+		"package": "libbluray",
+		"version": "1:1.3.4-1",
+		"selector": "libbluray=1:1.3.4-1"
+	},
+	{
+		"package": "libbs2b",
+		"version": "3.1.0+dfsg-8",
+		"selector": "libbs2b=3.1.0+dfsg-8"
+	},
+	{
+		"package": "libbsd",
+		"version": "0.12.2-2",
+		"selector": "libbsd=0.12.2-2"
+	},
+	{
+		"package": "libcaca",
+		"version": "0.99.beta20-5",
+		"selector": "libcaca=0.99.beta20-5"
+	},
+	{
+		"package": "libcap2",
+		"version": "1:2.75-10+deb13u1",
+		"selector": "libcap2=1:2.75-10+deb13u1"
+	},
+	{
+		"package": "libcdio-paranoia",
+		"version": "10.2+2.0.2-1",
+		"selector": "libcdio-paranoia=10.2+2.0.2-1"
+	},
+	{
+		"package": "libcdio",
+		"version": "2.2.0-4.1~deb13u1",
+		"selector": "libcdio=2.2.0-4.1~deb13u1"
+	},
+	{
+		"package": "libdatrie",
+		"version": "0.2.13-3",
+		"selector": "libdatrie=0.2.13-3"
+	},
+	{
+		"package": "libdc1394",
+		"version": "2.2.6-5",
+		"selector": "libdc1394=2.2.6-5"
+	},
+	{
+		"package": "libde265",
+		"version": "1.0.15-1",
+		"selector": "libde265=1.0.15-1"
+	},
+	{
+		"package": "libdecor-0",
+		"version": "0.2.2-2",
+		"selector": "libdecor-0=0.2.2-2"
+	},
+	{
+		"package": "libdrm",
+		"version": "2.4.124-2",
+		"selector": "libdrm=2.4.124-2"
+	},
+	{
+		"package": "libdvdnav",
+		"version": "6.1.1-3",
+		"selector": "libdvdnav=6.1.1-3"
+	},
+	{
+		"package": "libdvdread",
+		"version": "6.1.3-2",
+		"selector": "libdvdread=6.1.3-2"
+	},
+	{
+		"package": "libffi",
+		"version": "3.4.8-2",
+		"selector": "libffi=3.4.8-2"
+	},
+	{
+		"package": "libglvnd",
+		"version": "1.7.0-1",
+		"selector": "libglvnd=1.7.0-1"
+	},
+	{
+		"package": "libgsm",
+		"version": "1.0.22-1",
+		"selector": "libgsm=1.0.22-1"
+	},
+	{
+		"package": "libheif",
+		"version": "1.19.8-1",
+		"selector": "libheif=1.19.8-1"
+	},
+	{
+		"package": "libidn2",
+		"version": "2.3.8-2",
+		"selector": "libidn2=2.3.8-2"
+	},
+	{
+		"package": "libiec61883",
+		"version": "1.2.0-7",
+		"selector": "libiec61883=1.2.0-7"
+	},
+	{
+		"package": "libjpeg-turbo",
+		"version": "1:2.1.5-4",
+		"selector": "libjpeg-turbo=1:2.1.5-4"
+	},
+	{
+		"package": "liblqr",
+		"version": "0.4.2-2.1",
+		"selector": "liblqr=0.4.2-2.1"
+	},
+	{
+		"package": "libmd",
+		"version": "1.1.0-2",
+		"selector": "libmd=1.1.0-2"
+	},
+	{
+		"package": "libmysofa",
+		"version": "1.3.3+dfsg-1",
+		"selector": "libmysofa=1.3.3+dfsg-1"
+	},
+	{
+		"package": "libogg",
+		"version": "1.3.5-3",
+		"selector": "libogg=1.3.5-3"
+	},
+	{
+		"package": "libopenmpt",
+		"version": "0.7.13-1",
+		"selector": "libopenmpt=0.7.13-1"
+	},
+	{
+		"package": "libpgm",
+		"version": "5.3.128~dfsg-2.1",
+		"selector": "libpgm=5.3.128~dfsg-2.1"
+	},
+	{
+		"package": "libplacebo",
+		"version": "7.349.0-3",
+		"selector": "libplacebo=7.349.0-3"
+	},
+	{
+		"package": "libpng1.6",
+		"version": "1.6.48-1+deb13u5",
+		"selector": "libpng1.6=1.6.48-1+deb13u5"
+	},
+	{
+		"package": "librabbitmq",
+		"version": "0.15.0-1",
+		"selector": "librabbitmq=0.15.0-1"
+	},
+	{
+		"package": "libraw1394",
+		"version": "2.1.2-2",
+		"selector": "libraw1394=2.1.2-2"
+	},
+	{
+		"package": "librist",
+		"version": "0.2.11+dfsg-1",
+		"selector": "librist=0.2.11+dfsg-1"
+	},
+	{
+		"package": "librsvg",
+		"version": "2.60.0+dfsg-1",
+		"selector": "librsvg=2.60.0+dfsg-1"
+	},
+	{
+		"package": "libsamplerate",
+		"version": "0.2.2-4",
+		"selector": "libsamplerate=0.2.2-4"
+	},
+	{
+		"package": "libsdl2",
+		"version": "2.32.4+dfsg-1",
+		"selector": "libsdl2=2.32.4+dfsg-1"
+	},
+	{
+		"package": "libselinux",
+		"version": "3.8.1-1",
+		"selector": "libselinux=3.8.1-1"
+	},
+	{
+		"package": "libsndfile",
+		"version": "1.2.2-2",
+		"selector": "libsndfile=1.2.2-2"
+	},
+	{
+		"package": "libsodium",
+		"version": "1.0.18-1",
+		"selector": "libsodium=1.0.18-1"
+	},
+	{
+		"package": "libsoxr",
+		"version": "0.1.3-4",
+		"selector": "libsoxr=0.1.3-4"
+	},
+	{
+		"package": "libssh",
+		"version": "0.11.2-1+deb13u1",
+		"selector": "libssh=0.11.2-1+deb13u1"
+	},
+	{
+		"package": "libtasn1-6",
+		"version": "4.20.0-2",
+		"selector": "libtasn1-6=4.20.0-2"
+	},
+	{
+		"package": "libthai",
+		"version": "0.1.29-2",
+		"selector": "libthai=0.1.29-2"
+	},
+	{
+		"package": "libtheora",
+		"version": "1.2.0~alpha1+dfsg-6",
+		"selector": "libtheora=1.2.0~alpha1+dfsg-6"
+	},
+	{
+		"package": "libtool",
+		"version": "2.5.4-4",
+		"selector": "libtool=2.5.4-4"
+	},
+	{
+		"package": "libudfread",
+		"version": "1.1.2-1",
+		"selector": "libudfread=1.1.2-1"
+	},
+	{
+		"package": "libunibreak",
+		"version": "6.1-3",
+		"selector": "libunibreak=6.1-3"
+	},
+	{
+		"package": "libunistring",
+		"version": "1.3-2",
+		"selector": "libunistring=1.3-2"
+	},
+	{
+		"package": "libusb-1.0",
+		"version": "2:1.0.28-1",
+		"selector": "libusb-1.0=2:1.0.28-1"
+	},
+	{
+		"package": "libva",
+		"version": "2.22.0-3",
+		"selector": "libva=2.22.0-3"
+	},
+	{
+		"package": "libvdpau",
+		"version": "1.5-3",
+		"selector": "libvdpau=1.5-3"
+	},
+	{
+		"package": "libvidstab",
+		"version": "1.1.0-2",
+		"selector": "libvidstab=1.1.0-2"
+	},
+	{
+		"package": "libvorbis",
+		"version": "1.3.7-3",
+		"selector": "libvorbis=1.3.7-3"
+	},
+	{
+		"package": "libvpx",
+		"version": "1.15.0-2.1",
+		"selector": "libvpx=1.15.0-2.1"
+	},
+	{
+		"package": "libwebp",
+		"version": "1.5.0-0.1",
+		"selector": "libwebp=1.5.0-0.1"
+	},
+	{
+		"package": "libx11",
+		"version": "2:1.8.12-1",
+		"selector": "libx11=2:1.8.12-1"
+	},
+	{
+		"package": "libxau",
+		"version": "1:1.0.11-1",
+		"selector": "libxau=1:1.0.11-1"
+	},
+	{
+		"package": "libxcb",
+		"version": "1.17.0-2",
+		"selector": "libxcb=1.17.0-2"
+	},
+	{
+		"package": "libxcursor",
+		"version": "1:1.2.3-1",
+		"selector": "libxcursor=1:1.2.3-1"
+	},
+	{
+		"package": "libxdmcp",
+		"version": "1:1.1.5-1",
+		"selector": "libxdmcp=1:1.1.5-1"
+	},
+	{
+		"package": "libxext",
+		"version": "2:1.3.4-1",
+		"selector": "libxext=2:1.3.4-1"
+	},
+	{
+		"package": "libxfixes",
+		"version": "1:6.0.0-2",
+		"selector": "libxfixes=1:6.0.0-2"
+	},
+	{
+		"package": "libxi",
+		"version": "2:1.8.2-1",
+		"selector": "libxi=2:1.8.2-1"
+	},
+	{
+		"package": "libxkbcommon",
+		"version": "1.7.0-2",
+		"selector": "libxkbcommon=1.7.0-2"
+	},
+	{
+		"package": "libxml2",
+		"version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+		"selector": "libxml2=2.12.7+dfsg+really2.9.14-2.1+deb13u3"
+	},
+	{
+		"package": "libxrandr",
+		"version": "2:1.5.4-1",
+		"selector": "libxrandr=2:1.5.4-1"
+	},
+	{
+		"package": "libxrender",
+		"version": "1:0.9.12-1",
+		"selector": "libxrender=1:0.9.12-1"
+	},
+	{
+		"package": "libxss",
+		"version": "1:1.2.3-1",
+		"selector": "libxss=1:1.2.3-1"
+	},
+	{
+		"package": "libxv",
+		"version": "2:1.0.11-1.1",
+		"selector": "libxv=2:1.0.11-1.1"
+	},
+	{
+		"package": "libyaml",
+		"version": "0.2.5-2",
+		"selector": "libyaml=0.2.5-2"
+	},
+	{
+		"package": "libzstd",
+		"version": "1.5.7+dfsg-1",
+		"selector": "libzstd=1.5.7+dfsg-1"
+	},
+	{
+		"package": "lilv",
+		"version": "0.24.26-1",
+		"selector": "lilv=0.24.26-1"
+	},
+	{
+		"package": "lua5.4",
+		"version": "5.4.7-1",
+		"selector": "lua5.4=5.4.7-1"
+	},
+	{
+		"package": "mbedtls",
+		"version": "3.6.5-0.1~deb13u1",
+		"selector": "mbedtls=3.6.5-0.1~deb13u1"
+	},
+	{
+		"package": "mesa",
+		"version": "25.0.7-2+deb13u1",
+		"selector": "mesa=25.0.7-2+deb13u1"
+	},
+	{
+		"package": "mpg123",
+		"version": "1.32.10-1",
+		"selector": "mpg123=1.32.10-1"
+	},
+	{
+		"package": "mujs",
+		"version": "1.3.6-1",
+		"selector": "mujs=1.3.6-1"
+	},
+	{
+		"package": "mupdf",
+		"version": "1.25.1+ds1-6+deb13u1",
+		"selector": "mupdf=1.25.1+ds1-6+deb13u1"
+	},
+	{
+		"package": "ncurses",
+		"version": "6.5+20250216-2",
+		"selector": "ncurses=6.5+20250216-2"
+	},
+	{
+		"package": "nettle",
+		"version": "3.10.1-1",
+		"selector": "nettle=3.10.1-1"
+	},
+	{
+		"package": "norm",
+		"version": "1.5.9+dfsg-3.1",
+		"selector": "norm=1.5.9+dfsg-3.1"
+	},
+	{
+		"package": "numactl",
+		"version": "2.0.19-1",
+		"selector": "numactl=2.0.19-1"
+	},
+	{
+		"package": "ocl-icd",
+		"version": "2.3.3-1",
+		"selector": "ocl-icd=2.3.3-1"
+	},
+	{
+		"package": "openal-soft",
+		"version": "1:1.24.2-1",
+		"selector": "openal-soft=1:1.24.2-1"
+	},
+	{
+		"package": "openjpeg2",
+		"version": "2.5.3-2.1~deb13u2",
+		"selector": "openjpeg2=2.5.3-2.1~deb13u2"
+	},
+	{
+		"package": "openssl",
+		"version": "3.5.5-1~deb13u1",
+		"selector": "openssl=3.5.5-1~deb13u1"
+	},
+	{
+		"package": "opus",
+		"version": "1.5.2-2",
+		"selector": "opus=1.5.2-2"
+	},
+	{
+		"package": "p11-kit",
+		"version": "0.25.5-3",
+		"selector": "p11-kit=0.25.5-3"
+	},
+	{
+		"package": "pandoc",
+		"version": "3.1.11.1+ds-2",
+		"selector": "pandoc=3.1.11.1+ds-2"
+	},
+	{
+		"package": "pango1.0",
+		"version": "1.56.3-1",
+		"selector": "pango1.0=1.56.3-1"
+	},
+	{
+		"package": "pcre2",
+		"version": "10.46-1~deb13u1",
+		"selector": "pcre2=10.46-1~deb13u1"
+	},
+	{
+		"package": "pixman",
+		"version": "0.44.0-3",
+		"selector": "pixman=0.44.0-3"
+	},
+	{
+		"package": "pocketsphinx",
+		"version": "0.8+5prealpha+1-15",
+		"selector": "pocketsphinx=0.8+5prealpha+1-15"
+	},
+	{
+		"package": "pulseaudio",
+		"version": "17.0+dfsg1-2",
+		"selector": "pulseaudio=17.0+dfsg1-2"
+	},
+	{
+		"package": "rubberband",
+		"version": "3.3.0+dfsg-2",
+		"selector": "rubberband=3.3.0+dfsg-2"
+	},
+	{
+		"package": "rust-rav1e",
+		"version": "0.7.1-9",
+		"selector": "rust-rav1e=0.7.1-9"
+	},
+	{
+		"package": "serd",
+		"version": "0.32.4-1",
+		"selector": "serd=0.32.4-1"
+	},
+	{
+		"package": "shine",
+		"version": "3.1.1-2",
+		"selector": "shine=3.1.1-2"
+	},
+	{
+		"package": "slang2",
+		"version": "2.3.3-5",
+		"selector": "slang2=2.3.3-5"
+	},
+	{
+		"package": "snappy",
+		"version": "1.2.2-1",
+		"selector": "snappy=1.2.2-1"
+	},
+	{
+		"package": "sord",
+		"version": "0.16.18-1",
+		"selector": "sord=0.16.18-1"
+	},
+	{
+		"package": "speex",
+		"version": "1.2.1-3",
+		"selector": "speex=1.2.1-3"
+	},
+	{
+		"package": "sphinxbase",
+		"version": "0.8+5prealpha+1-21",
+		"selector": "sphinxbase=0.8+5prealpha+1-21"
+	},
+	{
+		"package": "sratom",
+		"version": "0.6.18-1",
+		"selector": "sratom=0.6.18-1"
+	},
+	{
+		"package": "srt",
+		"version": "1.5.4-1",
+		"selector": "srt=1.5.4-1"
+	},
+	{
+		"package": "svt-av1",
+		"version": "2.3.0+dfsg-1",
+		"selector": "svt-av1=2.3.0+dfsg-1"
+	},
+	{
+		"package": "systemd",
+		"version": "257.13-1~deb13u1",
+		"selector": "systemd=257.13-1~deb13u1"
+	},
+	{
+		"package": "texlive-extra",
+		"version": "2024.20250309-2",
+		"selector": "texlive-extra=2024.20250309-2"
+	},
+	{
+		"package": "twolame",
+		"version": "0.4.0-2",
+		"selector": "twolame=0.4.0-2"
+	},
+	{
+		"package": "unicode-data",
+		"version": "15.1.0-1",
+		"selector": "unicode-data=15.1.0-1"
+	},
+	{
+		"package": "util-linux",
+		"version": "2.41-5",
+		"selector": "util-linux=2.41-5"
+	},
+	{
+		"package": "vulkan-loader",
+		"version": "1.4.309.0-1",
+		"selector": "vulkan-loader=1.4.309.0-1"
+	},
+	{
+		"package": "wayland",
+		"version": "1.23.1-3",
+		"selector": "wayland=1.23.1-3"
+	},
+	{
+		"package": "x264",
+		"version": "2:0.164.3108+git31e19f9-2",
+		"selector": "x264=2:0.164.3108+git31e19f9-2"
+	},
+	{
+		"package": "x265",
+		"version": "4.1-2",
+		"selector": "x265=4.1-2"
+	},
+	{
+		"package": "xvidcore",
+		"version": "2:1.3.7-1",
+		"selector": "xvidcore=2:1.3.7-1"
+	},
+	{
+		"package": "xz-utils",
+		"version": "5.8.1-1",
+		"selector": "xz-utils=5.8.1-1"
+	},
+	{
+		"package": "zeromq3",
+		"version": "4.3.5-1",
+		"selector": "zeromq3=4.3.5-1"
+	},
+	{
+		"package": "zimg",
+		"version": "3.0.5+ds1-1",
+		"selector": "zimg=3.0.5+ds1-1"
+	},
+	{
+		"package": "zix",
+		"version": "0.6.2-1",
+		"selector": "zix=0.6.2-1"
+	},
+	{
+		"package": "zlib",
+		"version": "1:1.3.dfsg+really1.3.1-1",
+		"selector": "zlib=1:1.3.dfsg+really1.3.1-1"
+	},
+	{
+		"package": "zvbi",
+		"version": "0.2.44-1",
+		"selector": "zvbi=0.2.44-1"
+	}
+]

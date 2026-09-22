@@ -1,0 +1,38 @@
+[
+  {
+    "engine": "original",
+    "format": "yuv420p10le",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  },
+  {
+    "engine": "original",
+    "format": "yuv420p12le",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  },
+  {
+    "engine": "rebuilt",
+    "format": "yuv420p10le",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  },
+  {
+    "engine": "rebuilt",
+    "format": "yuv420p12le",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  },
+  {
+    "engine": "original",
+    "format": "yuv420p",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  },
+  {
+    "engine": "rebuilt",
+    "format": "yuv420p",
+    "status": "failed",
+    "reason": "20-second process timeout"
+  }
+]

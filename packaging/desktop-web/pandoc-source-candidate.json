@@ -1,0 +1,51 @@
+{
+	"schema": 1,
+	"sourceCommitCandidate": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+	"historicalBinaryBinding": "superseded by source-built replacement",
+	"replacementWasmSha256": "e12460b4b7ae74829da41b77b97531ca2eeebbcaf2362d0e1912948b59c21e09",
+	"indexState": "2024-11-15T08:25:42Z",
+	"projectSha256": "f0bde0111e1e58b51384a264fb54dbab9900452e95157c99c396cec27c144e05",
+	"gitDependencies": [
+		{
+			"repository": "haskell-wasm/conduit",
+			"commit": "ff33329247f2ef321dcab836e98c1bcfaff2bd13"
+		},
+		{
+			"repository": "haskell-wasm/foundation",
+			"commit": "8e6dd48527fb429c1922083a5030ef88e3d58dd3"
+		},
+		{
+			"repository": "haskell-wasm/hs-memory",
+			"commit": "a198a76c584dc2cfdcde6b431968de92a5fed65e"
+		},
+		{
+			"repository": "haskell-wasm/streaming-commons",
+			"commit": "7e9c38b2fd55ce50d3f74fe708ca47db8c9bb315"
+		},
+		{
+			"repository": "haskell-wasm/xml",
+			"commit": "bc793dc9bc29c92245d3482a54d326abd3ae1403"
+		},
+		{
+			"repository": "amesgen/splitmix",
+			"commit": "5f5b766d97dc735ac228215d240a3bb90bc2ff75"
+		}
+	],
+	"missing": [
+		"public corresponding-source delivery",
+		"distribution license approval"
+	],
+	"historicalWorkflowRunsReturned": 0,
+	"binaryProducers": {
+		"ghc": "9.12.0.20241115",
+		"clang": "19.1.4-wasi-sdk",
+		"llvmCommit": "8c5ffcf8026738cb945e1f9af8b5c3b8a13d65ad"
+	},
+	"toolchainCandidate": {
+		"repository": "haskell-wasm/ghc-wasm-meta",
+		"commit": "e6d85703b27578012c4db2282d631e1cae3166a4",
+		"ghcArchive": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241115T133246/wasm32-wasi-ghc-9.12.tar.xz",
+		"ghcArchiveSha256": "6974dd8aee3b03520a86ddf5847936e03bbf77499efd681313a0a06c7a9fc066",
+		"status": "archive SHA-256 and 9.12.0.20241115 version header verified; used by the selected replacement build"
+	}
+}

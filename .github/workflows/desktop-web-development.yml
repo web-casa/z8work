@@ -1,0 +1,26 @@
+name: Desktop development checks (no release packages)
+on:
+    workflow_dispatch:
+    push:
+        branches: [feat/desktop-web-conversion]
+        paths:
+            - .github/workflows/desktop-web-development.yml
+            - src-tauri/src/**
+            - src-tauri/build.rs
+            - src-tauri/Cargo.*
+            - tests/native/**
+permissions:
+    contents: read
+jobs:
+    macos:
+        runs-on: macos-15
+        timeout-minutes: 25
+        steps:
+            - uses: actions/checkout@v4
+            - uses: dtolnay/rust-toolchain@stable
+            - name: Compile and test development code
+              run: cargo test --locked --manifest-path src-tauri/Cargo.toml
+            - name: Exercise AppKit termination delegate without logging out the runner
+              run: |
+                  xcrun clang -fobjc-arc -Wall -Wextra -Werror -framework AppKit tests/native/macos-termination.m -o "$RUNNER_TEMP/z8-termination-test"
+                  "$RUNNER_TEMP/z8-termination-test"

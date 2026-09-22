@@ -1,0 +1,1109 @@
+TAP version 13
+# Subtest: diagnostic preview preserves exact reviewed bytes
+ok 1 - diagnostic preview preserves exact reviewed bytes
+  ---
+  duration_ms: 1.801738
+  type: 'test'
+  ...
+# Subtest: diagnostic preview rejects malformed ids schemas and oversized UTF-8
+ok 2 - diagnostic preview rejects malformed ids schemas and oversized UTF-8
+  ---
+  duration_ms: 0.514538
+  type: 'test'
+  ...
+# Subtest: diagnostic action advice is bilingual and does not expose raw errors
+ok 3 - diagnostic action advice is bilingual and does not expose raw errors
+  ---
+  duration_ms: 0.201415
+  type: 'test'
+  ...
+# Subtest: native fault evidence requires actual bounded injection, recovery, cleanup and platform
+ok 4 - native fault evidence requires actual bounded injection, recovery, cleanup and platform
+  ---
+  duration_ms: 0.90091
+  type: 'test'
+  ...
+# Subtest: impact uses saved image snapshots, offsets growth and resets on clear
+ok 5 - impact uses saved image snapshots, offsets growth and resets on clear
+  ---
+  duration_ms: 1.346116
+  type: 'test'
+  ...
+# Subtest: duplicate delivery, retries and stale saved results never accumulate
+ok 6 - duplicate delivery, retries and stale saved results never accumulate
+  ---
+  duration_ms: 6.335955
+  type: 'test'
+  ...
+# Subtest: zero upload capability fails closed for missing backend or unknown routes
+ok 7 - zero upload capability fails closed for missing backend or unknown routes
+  ---
+  duration_ms: 0.173082
+  type: 'test'
+  ...
+# Subtest: desktop scenario reuses the web model and source allowlist matches
+ok 8 - desktop scenario reuses the web model and source allowlist matches
+  ---
+  duration_ms: 42.755865
+  type: 'test'
+  ...
+# Subtest: result notes translate application copy without echoing unknown logs
+ok 9 - result notes translate application copy without echoing unknown logs
+  ---
+  duration_ms: 0.589204
+  type: 'test'
+  ...
+# Subtest: source receipt detects fixture/config/addition/deletion drift and excludes ignored secrets
+ok 10 - source receipt detects fixture/config/addition/deletion drift and excludes ignored secrets
+  ---
+  duration_ms: 724.045761
+  type: 'test'
+  ...
+# Subtest: macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands
+ok 11 - macOS deployment gate rejects iOS, missing metadata, incompatible minimum OS and malformed commands
+  ---
+  duration_ms: 1.334116
+  type: 'test'
+  ...
+# Subtest: Mach-O embedded loader environment is rejected
+ok 12 - Mach-O embedded loader environment is rejected
+  ---
+  duration_ms: 0.164165
+  type: 'test'
+  ...
+# Subtest: macOS assembler creates a checked inventory without executing foreign code and refuses overwrite
+ok 13 - macOS assembler creates a checked inventory without executing foreign code and refuses overwrite
+  ---
+  duration_ms: 246.271386
+  type: 'test'
+  ...
+# Subtest: Mach-O parser rejects x64, fat, truncated and malformed load commands
+ok 14 - Mach-O parser rejects x64, fat, truncated and malformed load commands
+  ---
+  duration_ms: 0.659245
+  type: 'test'
+  ...
+# Subtest: dyld closure rejects builder paths, rpath ambiguity and escaping loader paths
+ok 15 - dyld closure rejects builder paths, rpath ambiguity and escaping loader paths
+  ---
+  duration_ms: 0.254998
+  type: 'test'
+  ...
+# Subtest: macOS bundle checks every code resource and refuses missing, changed and linked dependencies
+ok 16 - macOS bundle checks every code resource and refuses missing, changed and linked dependencies
+  ---
+  duration_ms: 56.011896
+  type: 'test'
+  ...
+# Subtest: MSIX native execution refuses Wine, Linux and Windows ARM emulation
+ok 17 - MSIX native execution refuses Wine, Linux and Windows ARM emulation
+  ---
+  duration_ms: 0.867619
+  type: 'test'
+  ...
+# Subtest: Windows registration must match identity, version, architecture and actual install folder
+ok 18 - Windows registration must match identity, version, architecture and actual install folder
+  ---
+  duration_ms: 15.967887
+  type: 'test'
+  ...
+# Subtest: MSIX receipt rejects null fingerprints, alias paths and missing executable
+ok 19 - MSIX receipt rejects null fingerprints, alias paths and missing executable
+  ---
+  duration_ms: 2.201817
+  type: 'test'
+  ...
+# Subtest: MSIX default preflight never signs, installs or claims runtime acceptance
+ok 20 - MSIX default preflight never signs, installs or claims runtime acceptance
+  ---
+  duration_ms: 2.280733
+  type: 'test'
+  ...
+# Subtest: successful installed workflow rechecks payload then removes its owned registration
+ok 21 - successful installed workflow rechecks payload then removes its owned registration
+  ---
+  duration_ms: 0.396664
+  type: 'test'
+  ...
+# Subtest: MSIX verifyInput failure remains observable and respects cleanup ownership
+ok 22 - MSIX verifyInput failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.169207
+  type: 'test'
+  ...
+# Subtest: MSIX preflight failure remains observable and respects cleanup ownership
+ok 23 - MSIX preflight failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.078083
+  type: 'test'
+  ...
+# Subtest: MSIX sign failure remains observable and respects cleanup ownership
+ok 24 - MSIX sign failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.092166
+  type: 'test'
+  ...
+# Subtest: MSIX checkSigned failure remains observable and respects cleanup ownership
+ok 25 - MSIX checkSigned failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.29204
+  type: 'test'
+  ...
+# Subtest: MSIX install failure remains observable and respects cleanup ownership
+ok 26 - MSIX install failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 1.576572
+  type: 'test'
+  ...
+# Subtest: MSIX checkInstalled failure remains observable and respects cleanup ownership
+ok 27 - MSIX checkInstalled failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.169124
+  type: 'test'
+  ...
+# Subtest: MSIX runtime failure remains observable and respects cleanup ownership
+ok 28 - MSIX runtime failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.313456
+  type: 'test'
+  ...
+# Subtest: MSIX uninstall failure remains observable and respects cleanup ownership
+ok 29 - MSIX uninstall failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.127291
+  type: 'test'
+  ...
+# Subtest: MSIX verifyOriginal failure remains observable and respects cleanup ownership
+ok 30 - MSIX verifyOriginal failure remains observable and respects cleanup ownership
+  ---
+  duration_ms: 0.119749
+  type: 'test'
+  ...
+# Subtest: runtime and cleanup failures are both preserved
+ok 31 - runtime and cleanup failures are both preserved
+  ---
+  duration_ms: 0.153166
+  type: 'test'
+  ...
+# Subtest: an incomplete runtime report cannot pass even when the subprocess adapter resolves
+ok 32 - an incomplete runtime report cannot pass even when the subprocess adapter resolves
+  ---
+  duration_ms: 0.097583
+  type: 'test'
+  ...
+# Subtest: missing WebView2 keeps native acceptance blocked after conversions and cleanup
+ok 33 - missing WebView2 keeps native acceptance blocked after conversions and cleanup
+  ---
+  duration_ms: 0.103082
+  type: 'test'
+  ...
+# Subtest: non-Windows execute request stops before any signing or installation
+ok 34 - non-Windows execute request stops before any signing or installation
+  ---
+  duration_ms: 2.273401
+  type: 'test'
+  ...
+# Subtest: MSIX development configuration cannot silently become a store package
+ok 35 - MSIX development configuration cannot silently become a store package
+  ---
+  duration_ms: 12.434996
+  type: 'test'
+  ...
+# Subtest: MSIX manifest escapes display text and uses the explicit full-trust desktop entry
+ok 36 - MSIX manifest escapes display text and uses the explicit full-trust desktop entry
+  ---
+  duration_ms: 5.909083
+  type: 'test'
+  ...
+# Subtest: MSIX icons contain real PNG headers at each required base size
+ok 37 - MSIX icons contain real PNG headers at each required base size
+  ---
+  duration_ms: 6.309956
+  type: 'test'
+  ...
+# Subtest: independent MSIX archive verification rejects corruption and unsafe archives
+ok 38 - independent MSIX archive verification rejects corruption and unsafe archives
+  ---
+  duration_ms: 68.263268
+  type: 'test'
+  ...
+# Subtest: supplementary notices preserve exact upstream bytes and immutable source revisions
+ok 39 - supplementary notices preserve exact upstream bytes and immutable source revisions
+  ---
+  duration_ms: 38.20998
+  type: 'test'
+  ...
+# Subtest: artifact matrix keeps store targets separate from local ARM evidence
+ok 40 - artifact matrix keeps store targets separate from local ARM evidence
+  ---
+  duration_ms: 9.87768
+  type: 'test'
+  ...
+# Subtest: package validator rejects another architecture and malformed ELF
+ok 41 - package validator rejects another architecture and malformed ELF
+  ---
+  duration_ms: 0.414081
+  type: 'test'
+  ...
+# Subtest: acceptance cannot borrow an older candidate or count not-run checks as passed
+ok 42 - acceptance cannot borrow an older candidate or count not-run checks as passed
+  ---
+  duration_ms: 2.856563
+  type: 'test'
+  ...
+# Subtest: candidate build gate rejects development, debug, updater and mismatched version
+ok 43 - candidate build gate rejects development, debug, updater and mismatched version
+  ---
+  duration_ms: 1.277866
+  type: 'test'
+  ...
+# Subtest: Windows candidate requires the compiled job-close strategy
+ok 44 - Windows candidate requires the compiled job-close strategy
+  ---
+  duration_ms: 2.257526
+  type: 'test'
+  ...
+# Subtest: desktop preferences reject file grants, future schemas and invalid options
+ok 45 - desktop preferences reject file grants, future schemas and invalid options
+  ---
+  duration_ms: 6.780119
+  type: 'test'
+  ...
+# Subtest: system language uses primary preference, explicit selection wins
+ok 46 - system language uses primary preference, explicit selection wins
+  ---
+  duration_ms: 0.153124
+  type: 'test'
+  ...
+# Subtest: initialization never writes defaults or overwrites a slow read
+ok 47 - initialization never writes defaults or overwrites a slow read
+  ---
+  duration_ms: 0.270248
+  type: 'test'
+  ...
+# Subtest: failed save retains unsaved choice, revision and explicit retry
+ok 48 - failed save retains unsaved choice, revision and explicit retry
+  ---
+  duration_ms: 0.305414
+  type: 'test'
+  ...
+# Subtest: ambiguous saved reply requires reload before stale retry can overwrite
+ok 49 - ambiguous saved reply requires reload before stale retry can overwrite
+  ---
+  duration_ms: 0.285248
+  type: 'test'
+  ...
+# Subtest: unreadable preferences never enable writes, can recover on explicit reload
+ok 50 - unreadable preferences never enable writes, can recover on explicit reload
+  ---
+  duration_ms: 7.288407
+  type: 'test'
+  ...
+# Subtest: dispose suppresses late load responses and concurrent calls are ignored
+ok 51 - dispose suppresses late load responses and concurrent calls are ignored
+  ---
+  duration_ms: 9.3836
+  type: 'test'
+  ...
+# Subtest: reactive proxy preferences are normalized into detached IPC data
+ok 52 - reactive proxy preferences are normalized into detached IPC data
+  ---
+  duration_ms: 0.118332
+  type: 'test'
+  ...
+# Subtest: preview contract bounds payload, dimensions and explicit preview routes
+ok 53 - preview contract bounds payload, dimensions and explicit preview routes
+  ---
+  duration_ms: 1.242533
+  type: 'test'
+  ...
+# Subtest: only one preview URL is retained and every switch or dispose releases it
+ok 54 - only one preview URL is retained and every switch or dispose releases it
+  ---
+  duration_ms: 1.295741
+  type: 'test'
+  ...
+# Subtest: removal and disposal suppress late responses without creating a blob URL
+ok 55 - removal and disposal suppress late responses without creating a blob URL
+  ---
+  duration_ms: 0.316039
+  type: 'test'
+  ...
+# Subtest: duplicate preview starts do not allocate parallel native work; failure can retry
+ok 56 - duplicate preview starts do not allocate parallel native work; failure can retry
+  ---
+  duration_ms: 0.271332
+  type: 'test'
+  ...
+# Subtest: PDF first-page previews share the image byte budget
+ok 57 - PDF first-page previews share the image byte budget
+  ---
+  duration_ms: 0.103375
+  type: 'test'
+  ...
+# Subtest: media previews classify frames and covers without admitting playlists or invalid sizes
+ok 58 - media previews classify frames and covers without admitting playlists or invalid sizes
+  ---
+  duration_ms: 0.127541
+  type: 'test'
+  ...
+# Subtest: candidate quality gate rejects old scope, omitted checks, duplicates and bad pixels
+ok 59 - candidate quality gate rejects old scope, omitted checks, duplicates and bad pixels
+  ---
+  duration_ms: 34.946295
+  type: 'test'
+  ...
+# Subtest: PDF color gate checks pixels, fixed limits, all formats and negative control
+ok 60 - PDF color gate checks pixels, fixed limits, all formats and negative control
+  ---
+  duration_ms: 5.128381
+  type: 'test'
+  ...
+# Subtest: subscribes before snapshot and catches a completion during the first read
+ok 61 - subscribes before snapshot and catches a completion during the first read
+  ---
+  duration_ms: 8.702563
+  type: 'test'
+  ...
+# Subtest: late subscription is released after unmount
+ok 62 - late subscription is released after unmount
+  ---
+  duration_ms: 0.195916
+  type: 'test'
+  ...
+# Subtest: old snapshots cannot replace a newer task state
+ok 63 - old snapshots cannot replace a newer task state
+  ---
+  duration_ms: 0.17779
+  type: 'test'
+  ...
+# Subtest: unmount while reading does not update the UI
+ok 64 - unmount while reading does not update the UI
+  ---
+  duration_ms: 1.588488
+  type: 'test'
+  ...
+# Subtest: a failed request can recover on the next refresh
+ok 65 - a failed request can recover on the next refresh
+  ---
+  duration_ms: 0.461247
+  type: 'test'
+  ...
+# Subtest: contract rejects incompatible schema, duplicate tasks and malformed results
+ok 66 - contract rejects incompatible schema, duplicate tasks and malformed results
+  ---
+  duration_ms: 1.179117
+  type: 'test'
+  ...
+# Subtest: reads the same contract fixture as Rust
+ok 67 - reads the same contract fixture as Rust
+  ---
+  duration_ms: 6.459371
+  type: 'test'
+  ...
+# Subtest: conversion settings reject unsupported DPI and unknown quality
+ok 68 - conversion settings reject unsupported DPI and unknown quality
+  ---
+  duration_ms: 0.284457
+  type: 'test'
+  ...
+# Subtest: partial page contract rejects duplicate and out-of-range pages
+ok 69 - partial page contract rejects duplicate and out-of-range pages
+  ---
+  duration_ms: 5.574711
+  type: 'test'
+  ...
+# Subtest: import reports are bounded and optional for older queue snapshots
+ok 70 - import reports are bounded and optional for older queue snapshots
+  ---
+  duration_ms: 0.638121
+  type: 'test'
+  ...
+# Subtest: readiness isolates slow and failed engines while saving needs none
+ok 71 - readiness isolates slow and failed engines while saving needs none
+  ---
+  duration_ms: 0.47958
+  type: 'test'
+  ...
+# Subtest: public failure copy is bilingual and never echoes raw engine logs
+ok 72 - public failure copy is bilingual and never echoes raw engine logs
+  ---
+  duration_ms: 0.302497
+  type: 'test'
+  ...
+# Subtest: progress snapshot rejects stale attempts, completion percentages and log payloads
+ok 73 - progress snapshot rejects stale attempts, completion percentages and log payloads
+  ---
+  duration_ms: 10.39201
+  type: 'test'
+  ...
+# Subtest: failure vocabulary matches the shared Rust fixture
+ok 74 - failure vocabulary matches the shared Rust fixture
+  ---
+  duration_ms: 4.133638
+  type: 'test'
+  ...
+# Subtest: queue schema 3 supports saving without granting input permission or claiming saved output
+ok 75 - queue schema 3 supports saving without granting input permission or claiming saved output
+  ---
+  duration_ms: 11.82025
+  type: 'test'
+  ...
+# Subtest: save retry requests bind attempt and settings while normal retry stays a conversion
+ok 76 - save retry requests bind attempt and settings while normal retry stays a conversion
+  ---
+  duration_ms: 2.126235
+  type: 'test'
+  ...
+# Subtest: frozen desktop scope matches UI formats, languages and artifact identities
+ok 77 - frozen desktop scope matches UI formats, languages and artifact identities
+  ---
+  duration_ms: 9.580766
+  type: 'test'
+  ...
+# Subtest: desktop CI covers every receipt input and uses the pinned Rust toolchain
+ok 78 - desktop CI covers every receipt input and uses the pinned Rust toolchain
+  ---
+  duration_ms: 36.155578
+  type: 'test'
+  ...
+# Subtest: final Snap byte inspection stays distinct from runtime and installation acceptance
+ok 79 - final Snap byte inspection stays distinct from runtime and installation acceptance
+  ---
+  duration_ms: 249.065699
+  type: 'test'
+  ...
+# Subtest: final Snap inspection rejects changed engines, missing helpers and non-executable applications
+ok 80 - final Snap inspection rejects changed engines, missing helpers and non-executable applications
+  ---
+  duration_ms: 342.847953
+  type: 'test'
+  ...
+# Subtest: strict preflight rejects the real ARM/partial class of host, root and mismatched kernel
+ok 81 - strict preflight rejects the real ARM/partial class of host, root and mismatched kernel
+  ---
+  duration_ms: 1.03266
+  type: 'test'
+  ...
+# Subtest: installed revision must be active strict, never devmode, try or an unsafe path
+ok 82 - installed revision must be active strict, never devmode, try or an unsafe path
+  ---
+  duration_ms: 0.437455
+  type: 'test'
+  ...
+# Subtest: connections require exact GNOME, GPU, theme providers and home/display access
+ok 83 - connections require exact GNOME, GPU, theme providers and home/display access
+  ---
+  duration_ms: 0.50983
+  type: 'test'
+  ...
+# Subtest: installed mount rejects extracted directories, writable and duplicate mounts
+ok 84 - installed mount rejects extracted directories, writable and duplicate mounts
+  ---
+  duration_ms: 0.234623
+  type: 'test'
+  ...
+# Subtest: probe receipts require enforced app profile, seccomp and exact per-run nonce
+ok 85 - probe receipts require enforced app profile, seccomp and exact per-run nonce
+  ---
+  duration_ms: 0.197457
+  type: 'test'
+  ...
+# Subtest: probe script quotes hostile-looking filenames without executing substitutions
+ok 86 - probe script quotes hostile-looking filenames without executing substitutions
+  ---
+  duration_ms: 12.412413
+  type: 'test'
+  ...
+# Subtest: snapd uses bounded read-only Unix HTTP and validates the response envelope
+ok 87 - snapd uses bounded read-only Unix HTTP and validates the response envelope
+  ---
+  duration_ms: 13.81111
+  type: 'test'
+  ...
+# Subtest: snapd rejects HTTP errors, malformed JSON, oversized and continuously trickling responses
+    # Subtest: status
+    ok 1 - status
+      ---
+      duration_ms: 3.004104
+      type: 'test'
+      ...
+    # Subtest: json
+    ok 2 - json
+      ---
+      duration_ms: 1.911153
+      type: 'test'
+      ...
+    # Subtest: size
+    ok 3 - size
+      ---
+      duration_ms: 1.424823
+      type: 'test'
+      ...
+    # Subtest: timeout
+    ok 4 - timeout
+      ---
+      duration_ms: 102.136487
+      type: 'test'
+      ...
+    1..4
+ok 88 - snapd rejects HTTP errors, malformed JSON, oversized and continuously trickling responses
+  ---
+  duration_ms: 109.324228
+  type: 'test'
+  ...
+# Subtest: finite runner preserves split UTF-8 and rejects errors, missing commands and output overflow
+ok 89 - finite runner preserves split UTF-8 and rejects errors, missing commands and output overflow
+  ---
+  duration_ms: 123.993625
+  type: 'test'
+  ...
+# Subtest: deadline kills detached command descendants, not just the parent
+ok 90 - deadline kills detached command descendants, not just the parent
+  ---
+  duration_ms: 511.212848
+  type: 'test'
+  ...
+# Subtest: installed conversion validation rejects borrowed architecture, duplicate routes and unchecked results
+ok 91 - installed conversion validation rejects borrowed architecture, duplicate routes and unchecked results
+  ---
+  duration_ms: 9.99793
+  type: 'test'
+  ...
+# Subtest: SIGTERM stops an active finite process and releases signal listeners
+ok 92 - SIGTERM stops an active finite process and releases signal listeners
+  ---
+  duration_ms: 84.54482
+  type: 'test'
+  ...
+# Subtest: privileged cache digest can only read the fixed z8-work revision path
+ok 93 - privileged cache digest can only read the fixed z8-work revision path
+  ---
+  duration_ms: 0.67112
+  type: 'test'
+  ...
+# Subtest: Snap recipe targets core24 amd64 with explicit local file permissions
+ok 94 - Snap recipe targets core24 amd64 with explicit local file permissions
+  ---
+  duration_ms: 13.355489
+  type: 'test'
+  ...
+# Subtest: Snap metadata rejects aliases, duplicate fields and oversized documents
+ok 95 - Snap metadata rejects aliases, duplicate fields and oversized documents
+  ---
+  duration_ms: 1.692363
+  type: 'test'
+  ...
+# Subtest: Snap metadata refuses widened permissions, services, wrong base and version
+ok 96 - Snap metadata refuses widened permissions, services, wrong base and version
+  ---
+  duration_ms: 43.202611
+  type: 'test'
+  ...
+# Subtest: Snap payload rejects Debian bundles and GTK dialogs even when architecture matches
+ok 97 - Snap payload rejects Debian bundles and GTK dialogs even when architecture matches
+  ---
+  duration_ms: 1.590447
+  type: 'test'
+  ...
+# Subtest: expanded Snap permits only the reviewed GNOME command chain and font hook
+ok 98 - expanded Snap permits only the reviewed GNOME command chain and font hook
+  ---
+  duration_ms: 3.667057
+  type: 'test'
+  ...
+# Subtest: assembly combines exact verified cache and supplement without changing originals
+ok 99 - assembly combines exact verified cache and supplement without changing originals
+  ---
+  duration_ms: 232.321192
+  type: 'test'
+  ...
+# Subtest: assembly rejects a corrupt source rather than trusting a verified report
+ok 100 - assembly rejects a corrupt source rather than trusting a verified report
+  ---
+  duration_ms: 78.609737
+  type: 'test'
+  ...
+# Subtest: assembly rejects foreign manifests and outputs inside immutable source caches
+ok 101 - assembly rejects foreign manifests and outputs inside immutable source caches
+  ---
+  duration_ms: 163.9273
+  type: 'test'
+  ...
+# Subtest: snapshot metadata binds the precise source/epoch and official archive
+ok 102 - snapshot metadata binds the precise source/epoch and official archive
+  ---
+  duration_ms: 1.58278
+  type: 'test'
+  ...
+# Subtest: snapshot metadata rejects unsafe paths, ambiguous identities and oversized files
+ok 103 - snapshot metadata rejects unsafe paths, ambiguous identities and oversized files
+  ---
+  duration_ms: 0.496496
+  type: 'test'
+  ...
+# Subtest: download verifies both hashes and reuses a complete file without network
+ok 104 - download verifies both hashes and reuses a complete file without network
+  ---
+  duration_ms: 22.705881
+  type: 'test'
+  ...
+# Subtest: real HTTP range response resumes retained prefix
+ok 105 - real HTTP range response resumes retained prefix
+  ---
+  duration_ms: 18.194121
+  type: 'test'
+  ...
+# Subtest: server ignoring Range restarts rather than appending a whole response
+ok 106 - server ignoring Range restarts rather than appending a whole response
+  ---
+  duration_ms: 3.80889
+  type: 'test'
+  ...
+# Subtest: wrong ranges, encoding and length never publish a final file
+ok 107 - wrong ranges, encoding and length never publish a final file
+  ---
+  duration_ms: 72.390655
+  type: 'test'
+  ...
+# Subtest: truncated response is retained and a subsequent run resumes it
+ok 108 - truncated response is retained and a subsequent run resumes it
+  ---
+  duration_ms: 7.072825
+  type: 'test'
+  ...
+# Subtest: corrupt cached prefix fails full checksum and can be downloaded cleanly next time
+ok 109 - corrupt cached prefix fails full checksum and can be downloaded cleanly next time
+  ---
+  duration_ms: 10.956214
+  type: 'test'
+  ...
+# Subtest: SHA-1 alone cannot override descriptor SHA-256 and existing files are not replaced
+ok 110 - SHA-1 alone cannot override descriptor SHA-256 and existing files are not replaced
+  ---
+  duration_ms: 5.638876
+  type: 'test'
+  ...
+# Subtest: failure falls back to official historical URL; arbitrary URLs are rejected
+ok 111 - failure falls back to official historical URL; arbitrary URLs are rejected
+  ---
+  duration_ms: 3.795515
+  type: 'test'
+  ...
+# Subtest: symlinks and deadline cancellation do not modify outside files or publish completion
+ok 112 - symlinks and deadline cancellation do not modify outside files or publish completion
+  ---
+  duration_ms: 1.375365
+  type: 'test'
+  ...
+# Subtest: CLI rejects stale resume binding and releases the workspace lock
+ok 113 - CLI rejects stale resume binding and releases the workspace lock
+  ---
+  duration_ms: 50.381978
+  type: 'test'
+  ...
+# Subtest: historical aliases use the exact filename named by the source descriptor
+ok 114 - historical aliases use the exact filename named by the source descriptor
+  ---
+  duration_ms: 6.985492
+  type: 'test'
+  ...
+# Subtest: hard-linked partial files cannot be truncated by a resume
+ok 115 - hard-linked partial files cannot be truncated by a resume
+  ---
+  duration_ms: 0.913785
+  type: 'test'
+  ...
+# Subtest: a stalled HTTP response is aborted by the overall deadline
+ok 116 - a stalled HTTP response is aborted by the overall deadline
+  ---
+  duration_ms: 106.010751
+  type: 'test'
+  ...
+# Subtest: metadata retries network failures once and does not retry a missing version
+ok 117 - metadata retries network failures once and does not retry a missing version
+  ---
+  duration_ms: 0.740954
+  type: 'test'
+  ...
+# Subtest: CLI refuses a workspace held by another collector
+ok 118 - CLI refuses a workspace held by another collector
+  ---
+  duration_ms: 63.949465
+  type: 'test'
+  ...
+# Subtest: SIGTERM produces a failed checkpoint and releases the collector lock
+ok 119 - SIGTERM produces a failed checkpoint and releases the collector lock
+  ---
+  duration_ms: 99.607088
+  type: 'test'
+  ...
+# Subtest: Debian source identity preserves epoch and binNMU distinction
+ok 120 - Debian source identity preserves epoch and binNMU distinction
+  ---
+  duration_ms: 1.408949
+  type: 'test'
+  ...
+# Subtest: control parser handles signed CRLF and rejects duplicate fields
+ok 121 - control parser handles signed CRLF and rejects duplicate fields
+  ---
+  duration_ms: 0.206082
+  type: 'test'
+  ...
+# Subtest: both static source declaration fields require exact versions
+ok 122 - both static source declaration fields require exact versions
+  ---
+  duration_ms: 0.23254
+  type: 'test'
+  ...
+# Subtest: bundle audit checks every byte and rejects unlisted or changed files
+ok 123 - bundle audit checks every byte and rejects unlisted or changed files
+  ---
+  duration_ms: 35.737956
+  type: 'test'
+  ...
+# Subtest: package-relative files reject traversal and symbolic links
+ok 124 - package-relative files reject traversal and symbolic links
+  ---
+  duration_ms: 7.319573
+  type: 'test'
+  ...
+# Subtest: exact Debian content resolves extracted resources and preserves static source requirements
+ok 125 - exact Debian content resolves extracted resources and preserves static source requirements
+  ---
+  duration_ms: 34.388757
+  type: 'test'
+  ...
+# Subtest: wrong or ambiguous Debian content cannot certify package ownership
+ok 126 - wrong or ambiguous Debian content cannot certify package ownership
+  ---
+  duration_ms: 17.238461
+  type: 'test'
+  ...
+# Subtest: source descriptor requires exact hashes, lengths and the Debian patch archive
+ok 127 - source descriptor requires exact hashes, lengths and the Debian patch archive
+  ---
+  duration_ms: 7.016659
+  type: 'test'
+  ...
+# Subtest: another source version cannot satisfy a matching package name
+ok 128 - another source version cannot satisfy a matching package name
+  ---
+  duration_ms: 14.93077
+  type: 'test'
+  ...
+# Subtest: source descriptor refuses path escapes and missing declared files
+ok 129 - source descriptor refuses path escapes and missing declared files
+  ---
+  duration_ms: 2.314483
+  type: 'test'
+  ...
+# Subtest: Debian catalog reads real archive content without installing or extracting it
+ok 130 - Debian catalog reads real archive content without installing or extracting it
+  ---
+  duration_ms: 75.329885
+  type: 'test'
+  ...
+# Subtest: installed metadata must match the recorded binary and source versions
+ok 131 - installed metadata must match the recorded binary and source versions
+  ---
+  duration_ms: 13.541321
+  type: 'test'
+  ...
+# Subtest: missing notices are distinguished from unmapped runtime files
+ok 132 - missing notices are distinguished from unmapped runtime files
+  ---
+  duration_ms: 3.901306
+  type: 'test'
+  ...
+# Subtest: an arbitrary transformation cannot bypass origin integrity
+ok 133 - an arbitrary transformation cannot bypass origin integrity
+  ---
+  duration_ms: 5.394378
+  type: 'test'
+  ...
+# Subtest: audit refuses output inside the original engine bundle
+ok 134 - audit refuses output inside the original engine bundle
+  ---
+  duration_ms: 75.249802
+  type: 'test'
+  ...
+# Subtest: storage diagnostics distinguish locations and round capacity conservatively
+ok 135 - storage diagnostics distinguish locations and round capacity conservatively
+  ---
+  duration_ms: 15.003602
+  type: 'test'
+  ...
+# Subtest: u64 storage diagnostics are handled without unsafe number coercion
+ok 136 - u64 storage diagnostics are handled without unsafe number coercion
+  ---
+  duration_ms: 0.185957
+  type: 'test'
+  ...
+# Subtest: file-entry exhaustion and permission errors offer actionable localized recovery
+ok 137 - file-entry exhaustion and permission errors offer actionable localized recovery
+  ---
+  duration_ms: 0.289415
+  type: 'test'
+  ...
+# Subtest: unrelated or malformed errors pass through as text
+ok 138 - unrelated or malformed errors pass through as text
+  ---
+  duration_ms: 0.119165
+  type: 'test'
+  ...
+# Subtest: current store drafts retain all unresolved acceptance and account gates
+ok 139 - current store drafts retain all unresolved acceptance and account gates
+  ---
+  duration_ms: 10.435093
+  type: 'test'
+  ...
+# Subtest: listing languages, supported text and store field limits are checked
+ok 140 - listing languages, supported text and store field limits are checked
+  ---
+  duration_ms: 1.151992
+  type: 'test'
+  ...
+# Subtest: privacy/support pages escape text, work without scripts and match checked-in output
+ok 141 - privacy/support pages escape text, work without scripts and match checked-in output
+  ---
+  duration_ms: 7.078534
+  type: 'test'
+  ...
+# Subtest: PNG validation rejects truncation, forged dimensions and corrupt image bytes
+ok 142 - PNG validation rejects truncation, forged dimensions and corrupt image bytes
+  ---
+  duration_ms: 14.67773
+  type: 'test'
+  ...
+# Subtest: hashed references reject stale files and paths outside the dossier workspace
+ok 143 - hashed references reject stale files and paths outside the dossier workspace
+  ---
+  duration_ms: 20.635396
+  type: 'test'
+  ...
+# Subtest: synthetic complete metadata reaches human review, not store approval
+ok 144 - synthetic complete metadata reaches human review, not store approval
+  ---
+  duration_ms: 70.481336
+  type: 'test'
+  ...
+# Subtest: a passed string without a hashed check report cannot release a candidate
+ok 145 - a passed string without a hashed check report cannot release a candidate
+  ---
+  duration_ms: 52.620295
+  type: 'test'
+  ...
+# Subtest: another platform's screenshot and a stale public policy stay blocked
+ok 146 - another platform's screenshot and a stale public policy stay blocked
+  ---
+  duration_ms: 25.667194
+  type: 'test'
+  ...
+# Subtest: candidate swap invalidates every previous acceptance report
+ok 147 - candidate swap invalidates every previous acceptance report
+  ---
+  duration_ms: 4.132387
+  type: 'test'
+  ...
+# Subtest: an explicit incomplete redistribution review blocks even passing check reports
+ok 148 - an explicit incomplete redistribution review blocks even passing check reports
+  ---
+  duration_ms: 12.269205
+  type: 'test'
+  ...
+# Subtest: package validation streams candidates larger than the JSON evidence limit
+ok 149 - package validation streams candidates larger than the JSON evidence limit
+  ---
+  duration_ms: 40.606421
+  type: 'test'
+  ...
+# Subtest: one acceptance report cannot stand in for a different check
+ok 150 - one acceptance report cannot stand in for a different check
+  ---
+  duration_ms: 15.055852
+  type: 'test'
+  ...
+# Subtest: foreign, emulated, stale-source and unsupported check reports remain blocked
+ok 151 - foreign, emulated, stale-source and unsupported check reports remain blocked
+  ---
+  duration_ms: 114.185318
+  type: 'test'
+  ...
+# Subtest: missing fault or performance acceptance blocks an otherwise complete dossier
+ok 152 - missing fault or performance acceptance blocks an otherwise complete dossier
+  ---
+  duration_ms: 61.077235
+  type: 'test'
+  ...
+# Subtest: raw evidence must exist and retain its reviewed bytes
+ok 153 - raw evidence must exist and retain its reviewed bytes
+  ---
+  duration_ms: 95.566658
+  type: 'test'
+  ...
+# Subtest: standalone candidate gate also verifies concrete report references
+ok 154 - standalone candidate gate also verifies concrete report references
+  ---
+  duration_ms: 128.897673
+  type: 'test'
+  ...
+# Subtest: desktop app, channels and synthetic upgrade versions agree
+ok 155 - desktop app, channels and synthetic upgrade versions agree
+  ---
+  duration_ms: 24.483077
+  type: 'test'
+  ...
+# Subtest: version mappings reject downgrade, overflow, ambiguous numbers and guessed Store versions
+ok 156 - version mappings reject downgrade, overflow, ambiguous numbers and guessed Store versions
+  ---
+  duration_ms: 0.437997
+  type: 'test'
+  ...
+# Subtest: lifecycle validation requires exactly one real successful test
+ok 157 - lifecycle validation requires exactly one real successful test
+  ---
+  duration_ms: 0.744995
+  type: 'test'
+  ...
+# Subtest: runtime readiness distinguishes stable, prerelease and absent WebView2
+ok 158 - runtime readiness distinguishes stable, prerelease and absent WebView2
+  ---
+  duration_ms: 0.209165
+  type: 'test'
+  ...
+# Subtest: handoff verification rejects changed, missing and unlisted files
+ok 159 - handoff verification rejects changed, missing and unlisted files
+  ---
+  duration_ms: 59.054291
+  type: 'test'
+  ...
+# Subtest: handoff rejects case aliases and unsafe manifest paths before reading them
+ok 160 - handoff rejects case aliases and unsafe manifest paths before reading them
+  ---
+  duration_ms: 13.580987
+  type: 'test'
+  ...
+# Subtest: reports cannot mutate input directories through direct or symlink paths
+ok 161 - reports cannot mutate input directories through direct or symlink paths
+  ---
+  duration_ms: 4.784466
+  type: 'test'
+  ...
+# Subtest: Windows source lock is pinned and rejects unsafe paths, collisions and incomplete inputs
+ok 162 - Windows source lock is pinned and rejects unsafe paths, collisions and incomplete inputs
+  ---
+  duration_ms: 11.57721
+  type: 'test'
+  ...
+# Subtest: assembler creates a schema 2 bundle with exact copied hashes and no host fallback
+ok 163 - assembler creates a schema 2 bundle with exact copied hashes and no host fallback
+  ---
+  duration_ms: 47.076043
+  type: 'test'
+  ...
+# Subtest: assembler rejects corrupted archives before extraction
+ok 164 - assembler rejects corrupted archives before extraction
+  ---
+  duration_ms: 11.099047
+  type: 'test'
+  ...
+# Subtest: assembler rejects tampered extracted resources even with a valid archive receipt
+ok 165 - assembler rejects tampered extracted resources even with a valid archive receipt
+  ---
+  duration_ms: 4.821133
+  type: 'test'
+  ...
+# Subtest: assembler detects wrong PE architecture independently of file hashes
+ok 166 - assembler detects wrong PE architecture independently of file hashes
+  ---
+  duration_ms: 15.909388
+  type: 'test'
+  ...
+# Subtest: Windows matrix validation keeps Linux default and requires all decoded routes
+ok 167 - Windows matrix validation keeps Linux default and requires all decoded routes
+  ---
+  duration_ms: 1.898986
+  type: 'test'
+  ...
+# Subtest: engine CLI records static checks and blocks execution on the wrong host
+ok 168 - engine CLI records static checks and blocks execution on the wrong host
+  ---
+  duration_ms: 248.734577
+  type: 'test'
+  ...
+# Subtest: PE parser extracts normal and delay DLL imports, kind and resources
+ok 169 - PE parser extracts normal and delay DLL imports, kind and resources
+  ---
+  duration_ms: 1.461865
+  type: 'test'
+  ...
+# Subtest: PE parser rejects truncation, wrong architecture and malformed tables
+ok 170 - PE parser rejects truncation, wrong architecture and malformed tables
+  ---
+  duration_ms: 0.628079
+  type: 'test'
+  ...
+# Subtest: PE import descriptors require bounded terminators and safe module names
+ok 171 - PE import descriptors require bounded terminators and safe module names
+  ---
+  duration_ms: 0.383039
+  type: 'test'
+  ...
+# Subtest: PE rejects ambiguous sections and invalid certificate file offsets
+ok 172 - PE rejects ambiguous sections and invalid certificate file offsets
+  ---
+  duration_ms: 0.260873
+  type: 'test'
+  ...
+# Subtest: VC runtime and WebView2 loader are private dependencies
+ok 173 - VC runtime and WebView2 loader are private dependencies
+  ---
+  duration_ms: 0.156957
+  type: 'test'
+  ...
+# Subtest: tree resolves private DLLs recursively and exposes missing delay imports
+ok 174 - tree resolves private DLLs recursively and exposes missing delay imports
+  ---
+  duration_ms: 16.220469
+  type: 'test'
+  ...
+# Subtest: tree refuses engine DLL lookup through unrelated directories
+ok 175 - tree refuses engine DLL lookup through unrelated directories
+  ---
+  duration_ms: 3.443934
+  type: 'test'
+  ...
+# Subtest: tree refuses DLL shadowing, wrong kind and symlinks
+ok 176 - tree refuses DLL shadowing, wrong kind and symlinks
+  ---
+  duration_ms: 3.355268
+  type: 'test'
+  ...
+# Subtest: tree rejects case-colliding package names on case-sensitive hosts
+ok 177 - tree rejects case-colliding package names on case-sensitive hosts
+  ---
+  duration_ms: 5.105297
+  type: 'test'
+  ...
+# Subtest: CLI records static-only success, blocks foreign runtime and never overwrites
+ok 178 - CLI records static-only success, blocks foreign runtime and never overwrites
+  ---
+  duration_ms: 213.117703
+  type: 'test'
+  ...
+# Subtest: source receipts cover working-tree files and reject changed or overwritten evidence
+ok 179 - source receipts cover working-tree files and reject changed or overwritten evidence
+  ---
+  duration_ms: 316.866387
+  type: 'test'
+  ...
+1..179
+# tests 183
+# suites 0
+# pass 183
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1125.780757

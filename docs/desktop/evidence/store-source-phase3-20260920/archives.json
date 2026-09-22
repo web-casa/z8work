@@ -1,0 +1,18 @@
+[
+  {
+    "group": "ffmpeg",
+    "archive": ".desktop-local/store-source-phase3/ffmpeg-source-candidates.tar.gz",
+    "sha256": "6a38a7e75445426f0310a0196c1e8d3b22ee10bed685f00598c5ea8e15870d71",
+    "bytes": 75829266,
+    "collections": 17,
+    "status": "local-source-candidates; historical binary binding unverified"
+  },
+  {
+    "group": "pandoc",
+    "archive": ".desktop-local/store-source-phase3/pandoc-source-candidates-v2.tar.gz",
+    "sha256": "42ee620cb2a84e70c305d9d5e1ebf51079099614e753fb52561433b630913446",
+    "bytes": 8596608,
+    "collections": 8,
+    "status": "local-source-candidates; historical binary binding unverified"
+  }
+]

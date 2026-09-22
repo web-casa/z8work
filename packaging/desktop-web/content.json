@@ -1,0 +1,113 @@
+{
+	"product": "Z8.Work",
+	"contact": "contact@web.casa",
+	"website": "https://z8.work/",
+	"source": "https://github.com/web-casa/z8work",
+	"updated": "2026-09-20",
+	"locales": {
+		"en": {
+			"draftNotice": "Desktop preview documentation. Store releases and cross-platform installation acceptance are still pending.",
+			"privacyTitle": "Desktop privacy",
+			"supportTitle": "Desktop support",
+			"homeLabel": "Website",
+			"sourceLabel": "Source code",
+			"updatedLabel": "Updated",
+			"privacy": [
+				{
+					"title": "Local web engines",
+					"body": "The desktop app bundles its interface and WebAssembly conversion engines. Files are processed on your device, without a conversion server or file uploads. It does not install or launch native FFmpeg, ImageMagick, Pandoc or MuPDF programs. There is no account or analytics service."
+				},
+				{
+					"title": "Session data and preferences",
+					"body": "Selected files and converted results are held in the current session. Closing the app loses the queue and unsaved results. Language, theme and conversion preferences may persist in local WebView storage. The app does not import or delete history from the previous native-engine version."
+				},
+				{
+					"title": "Saving and temporary files",
+					"body": "You select a destination file through a system save dialog. Output is written to a temporary file beside the selected destination and published only when complete. Cancelled and failed saves normally remove the temporary file; a process crash can leave one behind. Clearing the file list does not delete source files or saved outputs."
+				},
+				{
+					"title": "External links and support",
+					"body": "Opening a website or support email uses your system browser or mail application. Installing and updating software can use the network. Information you voluntarily send to support is handled by the recipient and its provider; no diagnostic report is automatically uploaded."
+				}
+			],
+			"support": [
+				{
+					"title": "Preview version",
+					"body": "This branch uses the same conversion code and workspace as the web app. Linux ARM64 WebView conversion and system saving have been tested. A previous macOS ARM64 preview passed signed installation tests; final packages containing the latest changes and store releases are still pending."
+				},
+				{
+					"title": "Conversion capabilities",
+					"body": "Image, audio, document and PDF conversion use bundled WASM engines. Supported formats and settings are shown in the app. Native-only format extensions from older desktop versions are not promised. Remote video conversion is not enabled."
+				},
+				{
+					"title": "Save or retry",
+					"body": "Use the download action to choose a destination. Cancelling the dialog keeps the converted result. After a write failure, use the action again to choose another writable location without converting again. Save results before closing the app."
+				},
+				{
+					"title": "Resource limits",
+					"body": "WASM conversion is limited by WebView capabilities and available memory. Desktop batch jobs run sequentially; large inputs or ZIP outputs may still exceed available memory. Save operations accept at most 2 GiB. Restart recovery and partial PDF-page retry from the old native version are not available."
+				},
+				{
+					"title": "Updates",
+					"body": "Store builds receive updates through their store. Direct-download builds link to the project's release page. The app does not download or install updates by itself."
+				},
+				{
+					"title": "Reporting issues",
+					"body": "Include the operating system, architecture, app version, input and output formats, settings and error message. Prefer a small synthetic sample; remove personal paths and confidential contents before sharing."
+				}
+			]
+		},
+		"zh-Hans": {
+			"draftNotice": "桌面预览版说明。商店发行与跨平台安装验收仍未完成。",
+			"privacyTitle": "桌面版隐私说明",
+			"supportTitle": "桌面版使用与支持",
+			"homeLabel": "网站",
+			"sourceLabel": "源代码",
+			"updatedLabel": "更新日期",
+			"privacy": [
+				{
+					"title": "本机网页引擎转换",
+					"body": "桌面应用内置界面和 WebAssembly 转换引擎，文件在本机处理，不连接转换服务器，不上传文件内容，也不安装或启动原生 FFmpeg、ImageMagick、Pandoc、MuPDF 程序。应用没有账号或分析统计服务。"
+				},
+				{
+					"title": "会话与偏好",
+					"body": "所选文件和转换结果保存在当前会话中，关闭应用会丢失队列与未保存的结果。语言、主题与转换偏好可能保存在本地 WebView 存储中。应用不导入或删除旧原生引擎版本的历史记录。"
+				},
+				{
+					"title": "保存与临时文件",
+					"body": "您通过系统保存对话框选择目标文件。应用先在目标文件旁写入临时文件，完整写入后才发布结果。取消和失败通常会清理临时文件；进程崩溃可能遗留临时文件。清空列表不会删除原文件或已保存结果。"
+				},
+				{
+					"title": "外链与支持",
+					"body": "打开外部网站或支持邮箱会使用系统浏览器或邮件应用。安装和更新软件可能使用网络。您主动发送的支持信息由接收方及其服务提供商处理，应用不会自动上传诊断报告。"
+				}
+			],
+			"support": [
+				{
+					"title": "预览版本",
+					"body": "本分支复用网页版的转换代码和工作区。Linux ARM64 已验证真实 WebView 转换和系统保存；此前的 macOS ARM64 预览包已通过签名安装测试。包含最新修改的最终安装件及商店发行仍待完成。"
+				},
+				{
+					"title": "转换范围",
+					"body": "图片、音频、文档和 PDF 使用内置 WASM 引擎转换，以应用展示的格式与设置为准。不承诺保留旧桌面版仅原生引擎支持的扩展格式。远程视频转换未启用。"
+				},
+				{
+					"title": "保存与重试",
+					"body": "点击下载操作后选择保存目标，取消对话框会保留转换结果。写入失败后可再次点击并选择其他可写位置，无需重新转换。请在退出前保存结果。"
+				},
+				{
+					"title": "资源限制",
+					"body": "WASM 转换受 WebView 与可用内存限制。桌面批量任务顺序执行，大文件和 ZIP 结果仍可能超出内存。保存操作上限为 2 GiB。不提供旧原生版的重启队列恢复和 PDF 部分页重试。"
+				},
+				{
+					"title": "软件更新",
+					"body": "商店构建通过对应商店更新；直接下载的构建提供项目发行页面链接。应用自身不会下载或安装更新。"
+				},
+				{
+					"title": "反馈问题",
+					"body": "请提供操作系统、架构、应用版本、输入输出格式、设置与错误信息。优先使用最小人工样本，并在分享前移除私人路径与敏感文件内容。"
+				}
+			]
+		}
+	}
+}

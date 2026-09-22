@@ -1,0 +1,32 @@
+{
+  "build": {
+    "status": "passed",
+    "exitCode": 0,
+    "finalWasmProduced": true,
+    "applicationAssetsReplaced": false,
+    "builder": "stopped; cache retained"
+  },
+  "byteComparison": {
+    "wasm": true,
+    "js": true
+  },
+  "applicationTests": 198,
+  "sourceToolTests": 15,
+  "coreSmoke": {
+    "status": "passed",
+    "cases": 6
+  },
+  "offlineBrowser": {
+    "status": "passed",
+    "conversions": 7,
+    "includesHevcAudioExtraction": true
+  },
+  "capabilityComparison": "identical",
+  "hevcEncodingProbe": {
+    "status": "failed",
+    "scope": "Node core harness, original and rebuilt; 8/10/12-bit, each 20-second timeout",
+    "applicationHevcEncodingOutput": "not exposed",
+    "cause": "not established"
+  },
+  "releaseReady": false
+}

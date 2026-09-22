@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "scope": "single-thread core conversion smoke; browser and native packaging not covered",
+  "wasmSha256": "9f57947a5bd530d8f00c5b3f2cb2a3492faa7e5d823315342d6a8656d0a6b7b7",
+  "checks": [
+    {
+      "name": "PCM WAV",
+      "bytes": 3278,
+      "sha256": "c465ad5186f9973d2a24aff8e9a1e9a8daf0dd40197b5a5255262f306eaa4e48",
+      "decodedBytes": 3200
+    },
+    {
+      "name": "MP3",
+      "bytes": 621,
+      "sha256": "2c96c496af49bc176c875abeca72f9cb6b24af892e7f070c38fdeb999e04abd2",
+      "decodedBytes": 3200
+    },
+    {
+      "name": "Ogg Vorbis",
+      "bytes": 2855,
+      "sha256": "a9d48222966b8f58ba6f2f8defe117093f640822e95aafb58cce617949e2637a",
+      "decodedBytes": 3584
+    },
+    {
+      "name": "FLAC",
+      "bytes": 9075,
+      "sha256": "41728b2b53e5737ad9b03ee0c96a35e5842083058f96a808f96330e715951956",
+      "decodedBytes": 3200
+    },
+    {
+      "name": "H.264 MP4",
+      "bytes": 1543,
+      "sha256": "b9bf8b4f09055d7cff16fd117927a8bc7d5e903cf0ea06c052631be1e5973c35"
+    },
+    {
+      "name": "missing input rejected",
+      "status": "passed"
+    }
+  ],
+  "releaseReady": false
+}

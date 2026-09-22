@@ -1,0 +1,2 @@
+$ node scripts/desktop-snap-check.mjs --artifact ".desktop-local/phase8-snap/z8-work_0.1.0_amd64.snap" --prepared ".desktop-local/phase8-input/snap-prepared/prepared.json" --output ".desktop-local/phase8-snap/candidate.json"
+{"artifact":"linux-amd64-snap","sha256":"ecca28eb011ab6121ec24281416ae195165f0bd70c2da3e757020f05f58484fa","integrity":"passed","acceptance":"incomplete"}

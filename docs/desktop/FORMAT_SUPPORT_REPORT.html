@@ -1,0 +1,3994 @@
+<!doctype html>
+<html lang="zh-Hans">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Z8.Work 格式能力对照报告</title>
+		<style>
+			:root {
+				color-scheme: light dark;
+				--bg: #f7f5ef;
+				--surface: #fffdf8;
+				--ink: #1d2930;
+				--muted: #5d6c73;
+				--line: #d9d6cd;
+				--accent: #05668d;
+				--green: #0d7a54;
+				--amber: #a85f00;
+				--red: #a33b35;
+				--code: #edf4f6;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--ink);
+				font-family:
+					Inter,
+					ui-sans-serif,
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont,
+					"Segoe UI",
+					sans-serif;
+				line-height: 1.55;
+			}
+			main {
+				max-width: 1500px;
+				margin: 0 auto;
+				padding: 36px clamp(16px, 4vw, 56px) 72px;
+			}
+			header {
+				border-bottom: 4px solid var(--ink);
+				padding-bottom: 24px;
+				margin-bottom: 28px;
+			}
+			.eyebrow {
+				margin: 0 0 8px;
+				color: var(--accent);
+				font-weight: 800;
+				font-size: 0.78rem;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+			}
+			h1 {
+				font-size: clamp(2rem, 5vw, 4.25rem);
+				line-height: 0.96;
+				letter-spacing: -0.055em;
+				max-width: 15ch;
+				margin: 0;
+			}
+			h2 {
+				font-size: clamp(1.45rem, 2.8vw, 2.25rem);
+				letter-spacing: -0.035em;
+				line-height: 1.1;
+				margin: 0 0 12px;
+			}
+			h3 {
+				font-size: 1.05rem;
+				margin: 0 0 8px;
+			}
+			p {
+				max-width: 100ch;
+			}
+			a {
+				color: var(--accent);
+				text-decoration-thickness: 1.5px;
+				text-underline-offset: 3px;
+			}
+			.meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px 18px;
+				margin-top: 20px;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			.meta strong {
+				color: var(--ink);
+			}
+			.callout {
+				border-left: 5px solid var(--accent);
+				background: color-mix(
+					in srgb,
+					var(--accent) 8%,
+					var(--surface)
+				);
+				padding: 16px 18px;
+				margin: 22px 0;
+			}
+			.callout strong {
+				display: block;
+				margin-bottom: 4px;
+			}
+			.warning {
+				border-left-color: var(--amber);
+				background: color-mix(in srgb, var(--amber) 9%, var(--surface));
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+				gap: 12px;
+				margin: 18px 0 32px;
+			}
+			.card {
+				background: var(--surface);
+				border: 1px solid var(--line);
+				padding: 16px;
+				border-radius: 10px;
+			}
+			.card .number {
+				display: block;
+				font-size: 2rem;
+				line-height: 1;
+				letter-spacing: -0.06em;
+				font-weight: 800;
+				color: var(--accent);
+				margin: 5px 0 8px;
+			}
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			section {
+				margin-top: 46px;
+				scroll-margin-top: 20px;
+			}
+			.legend {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				padding: 0;
+				list-style: none;
+			}
+			.legend li {
+				border: 1px solid var(--line);
+				border-radius: 999px;
+				padding: 4px 9px;
+				font-size: 0.84rem;
+				background: var(--surface);
+			}
+			.legend .product {
+				border-color: var(--green);
+				color: var(--green);
+			}
+			.legend .component {
+				border-color: var(--accent);
+				color: var(--accent);
+			}
+			.legend .missing {
+				border-color: var(--amber);
+				color: var(--amber);
+			}
+			.search {
+				width: min(100%, 640px);
+				padding: 11px 13px;
+				border-radius: 8px;
+				border: 1px solid var(--line);
+				background: var(--surface);
+				color: var(--ink);
+				font: inherit;
+				margin: 10px 0 14px;
+			}
+			.table-wrap {
+				overflow: auto;
+				border: 1px solid var(--line);
+				border-radius: 10px;
+				background: var(--surface);
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				min-width: 850px;
+				font-size: 0.9rem;
+			}
+			th,
+			td {
+				padding: 12px;
+				text-align: left;
+				vertical-align: top;
+				border-bottom: 1px solid var(--line);
+			}
+			thead th {
+				position: sticky;
+				top: 0;
+				background: var(--ink);
+				color: #fff;
+				z-index: 1;
+				font-size: 0.8rem;
+				letter-spacing: 0.03em;
+			}
+			tbody tr:last-child > * {
+				border-bottom: 0;
+			}
+			tbody tr:hover {
+				background: color-mix(
+					in srgb,
+					var(--accent) 5%,
+					var(--surface)
+				);
+			}
+			th[scope="row"] {
+				min-width: 135px;
+				font-weight: 750;
+			}
+			code {
+				background: var(--code);
+				border: 1px solid
+					color-mix(in srgb, var(--accent) 15%, var(--line));
+				border-radius: 4px;
+				color: inherit;
+				padding: 1px 4px;
+				font:
+					0.82em ui-monospace,
+					SFMono-Regular,
+					Menlo,
+					Monaco,
+					Consolas,
+					monospace;
+				white-space: nowrap;
+			}
+			.pills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px;
+				margin-top: 7px;
+				min-width: 210px;
+			}
+			.pills code {
+				font-size: 0.74rem;
+			}
+			.muted,
+			.small {
+				color: var(--muted);
+			}
+			.small {
+				font-size: 0.86rem;
+			}
+			details {
+				border: 1px solid var(--line);
+				background: var(--surface);
+				border-radius: 10px;
+				padding: 0 14px;
+				margin: 16px 0;
+			}
+			summary {
+				cursor: pointer;
+				padding: 13px 2px;
+				font-weight: 750;
+			}
+			details[open] summary {
+				border-bottom: 1px solid var(--line);
+				margin-bottom: 13px;
+			}
+			.details-content {
+				padding-bottom: 14px;
+			}
+			.catalog-packs {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+				gap: 12px;
+				margin: 18px 0;
+			}
+			.catalog-pack {
+				border: 1px solid var(--line);
+				border-top: 4px solid var(--accent);
+				border-radius: 10px;
+				background: var(--surface);
+				padding: 14px;
+			}
+			.catalog-pack h3 {
+				margin: 0;
+				color: var(--accent);
+			}
+			.catalog-pack p {
+				margin: 8px 0 0;
+				color: var(--muted);
+				font-size: 0.88rem;
+			}
+			.catalog-pack p + p {
+				color: var(--ink);
+			}
+			.catalog-tier {
+				margin: 12px 0;
+			}
+			.catalog-tier summary {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+			.tier-badge {
+				display: inline-block;
+				border: 1px solid currentColor;
+				border-radius: 999px;
+				padding: 2px 8px;
+				font-size: 0.78rem;
+				line-height: 1.2;
+				white-space: nowrap;
+			}
+			.tier-ultra-low {
+				color: var(--muted);
+			}
+			.tier-low {
+				color: var(--green);
+			}
+			.tier-medium {
+				color: var(--accent);
+			}
+			.tier-high {
+				color: var(--amber);
+			}
+			.tier-ultra-high {
+				color: var(--red);
+			}
+			.catalog-title {
+				display: inline-block;
+				margin-top: 6px;
+				min-width: 135px;
+			}
+			.catalog-table table {
+				min-width: 1180px;
+			}
+			.catalog-table td p {
+				margin: 7px 0 0;
+			}
+			.comparison {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 12px;
+			}
+			.comparison article {
+				border: 1px solid var(--line);
+				background: var(--surface);
+				border-radius: 10px;
+				padding: 15px;
+			}
+			.comparison h3 {
+				color: var(--accent);
+			}
+			.comparison p {
+				font-size: 0.88rem;
+				color: var(--muted);
+			}
+			.difference {
+				columns: 2 16rem;
+				column-gap: 22px;
+			}
+			.difference code {
+				display: inline-block;
+				margin: 2px;
+			}
+			footer {
+				margin-top: 54px;
+				border-top: 1px solid var(--line);
+				padding-top: 18px;
+				color: var(--muted);
+				font-size: 0.86rem;
+			}
+			@media (max-width: 780px) {
+				main {
+					padding-top: 24px;
+				}
+				.comparison {
+					grid-template-columns: 1fr;
+				}
+				h1 {
+					max-width: none;
+				}
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: #13191d;
+					--surface: #1b252b;
+					--ink: #edf3f3;
+					--muted: #b3c0c4;
+					--line: #344249;
+					--accent: #75c8e8;
+					--green: #6fdaac;
+					--amber: #f1b665;
+					--red: #f08a82;
+					--code: #26343a;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<p class="eyebrow">Z8.Work · 格式能力对照</p>
+				<h1>组件能做什么，产品实际开放什么</h1>
+				<p>
+					这份报告把三个层级分开：上游转换组件的能力、当前网页端公开路线、桌面源码范围与各安装包已验收路线。它回答“为什么桌面版比网页少”，同时避免把某个引擎的格式清单误写成
+					Z8.Work 已经支持的功能。
+				</p>
+				<div class="meta">
+					<span>核对日期：<strong>2026-09-15</strong></span
+					><span>路线来源摘要：<strong>b9fcce5d3bf8</strong></span
+					><span
+						>桌面源码路线：<strong
+							>70 个输入扩展 / 31 个输出格式 / 863
+							条声明路线</strong
+						></span
+					>
+				</div>
+			</header>
+
+			<div class="callout">
+				<strong>结论</strong>
+				桌面版不是“原生引擎只能处理少数格式”。它故意只公开已接入、已定义语义、可在目标平台包中验证的路线。引擎能够列出一个
+				coder、decoder 或
+				writer，只说明可能具备入口；它不自动解决容器/codec
+				组合、图层或多帧取舍、颜色与元数据、依赖封装、跨平台签名和真实文件验收。
+			</div>
+			<ul class="legend">
+				<li class="component">组件能力：引擎/官方文档或本地清单</li>
+				<li class="product">产品路线：当前源码明确允许</li>
+				<li class="missing">
+					未开放：可能是产品范围、打包依赖或缺少专用引擎
+				</li>
+			</ul>
+
+			<div class="grid">
+				<article class="card">
+					<strong>网页图片</strong
+					><span class="number">123 → 152</span>
+					<p>静态源码白名单中的输入 / 输出名称。</p>
+				</article>
+				<article class="card">
+					<strong>网页 PDF</strong><span class="number">1 → 23</span>
+					<p>.pdf 输入可导出 23 个栅格扩展名；包含别名。</p>
+				</article>
+				<article class="card">
+					<strong>网页媒体</strong><span class="number">50 → 20</span>
+					<p>视频只作为音频提取输入，不代表网页视频输出。</p>
+				</article>
+				<article class="card">
+					<strong>桌面源码范围</strong
+					><span class="number">70 → 31</span>
+					<p>863 条声明路线，来自统一范围文件。</p>
+				</article>
+			</div>
+
+			<section id="matrix">
+				<h2>一览：三个层级</h2>
+				<div class="comparison">
+					<article>
+						<h3>上游组件</h3>
+						<p>
+							ImageMagick、FFmpeg、Pandoc、MuPDF
+							的能力会随编译选项和操作系统变化。组件可以有很多格式入口，但不等于应用安全、完整地提供此转换。
+						</p>
+					</article>
+					<article>
+						<h3>网页版本</h3>
+						<p>
+							由 Svelte/WASM 转换器的
+							<code>FormatInfo</code>
+							白名单决定；输入与输出方向分开声明，具体组合还需经过网页转换器的方向判断。
+						</p>
+					</article>
+					<article>
+						<h3>桌面版本</h3>
+						<p>
+							由 <code>v1-scope.json</code> 驱动 Rust
+							路由和前端契约。未知扩展会被拒绝，而不是尝试让引擎猜测。
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section id="desktop">
+				<h2>桌面源码范围当前定义的格式</h2>
+				<p>
+					下表是当前桌面源码合同，不是计划，也不是原生命令行工具的完整能力。<code
+						>jpeg</code
+					>
+					的实际文件扩展名为 <code>.jpg</code>。
+				</p>
+				<p class="small">
+					当前源码范围的 863
+					条路线必须逐一经过最终包验收；历史下载包不会自动升级。实际用户可见路线以安装包随附的已签署
+					acceptance list 为准，并按版本、平台与架构分别核对。<a
+						href="FORMAT_EXPANSION_PHASE3B.md"
+						>查看历史音频扩展验收记录</a
+					>
+				</p>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">类别</th>
+								<th scope="col">可导入扩展名</th>
+								<th scope="col">可输出扩展名</th>
+								<th scope="col">所用原生引擎</th>
+								<th scope="col">验证语义</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="png jpg jpeg jpe jfif webp avif heic heif bmp tga qoi pbm pgm ppm pnm pam gif tif tiff ico pcx xbm xpm svg jxl exr hdr dpx png jpeg webp avif bmp tga qoi pbm pgm ppm pnm pam gif tiff ico pcx xbm xpm heic heif jxl magick"
+							>
+								<th scope="row">images</th>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.jpeg</code><code>.jpe</code
+										><code>.jfif</code><code>.webp</code
+										><code>.avif</code><code>.heic</code
+										><code>.heif</code><code>.bmp</code
+										><code>.tga</code><code>.qoi</code
+										><code>.pbm</code><code>.pgm</code
+										><code>.ppm</code><code>.pnm</code
+										><code>.pam</code><code>.gif</code
+										><code>.tif</code><code>.tiff</code
+										><code>.ico</code><code>.pcx</code
+										><code>.xbm</code><code>.xpm</code
+										><code>.svg</code><code>.jxl</code
+										><code>.exr</code><code>.hdr</code
+										><code>.dpx</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.webp</code><code>.avif</code
+										><code>.bmp</code><code>.tga</code
+										><code>.qoi</code><code>.pbm</code
+										><code>.pgm</code><code>.ppm</code
+										><code>.pnm</code><code>.pam</code
+										><code>.gif</code><code>.tiff</code
+										><code>.ico</code><code>.pcx</code
+										><code>.xbm</code><code>.xpm</code
+										><code>.heic</code><code>.heif</code
+										><code>.jxl</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills"><code>magick</code></div>
+								</td>
+								<td>
+									图片/PDF
+									路线有独立的像素、文件头和重新解码校验
+								</td>
+							</tr>
+							<tr
+								data-search="pdf png jpeg webp avif bmp tga qoi pbm pgm ppm pnm pam gif tiff ico pcx xbm xpm heic heif jxl txt mutool magick"
+							>
+								<th scope="row">pdf</th>
+								<td>
+									<div class="pills"><code>.pdf</code></div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.png</code><code>.jpg</code
+										><code>.webp</code><code>.avif</code
+										><code>.bmp</code><code>.tga</code
+										><code>.qoi</code><code>.pbm</code
+										><code>.pgm</code><code>.ppm</code
+										><code>.pnm</code><code>.pam</code
+										><code>.gif</code><code>.tiff</code
+										><code>.ico</code><code>.pcx</code
+										><code>.xbm</code><code>.xpm</code
+										><code>.heic</code><code>.heif</code
+										><code>.jxl</code><code>.txt</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>mutool</code><code>magick</code>
+									</div>
+								</td>
+								<td>
+									图片/PDF
+									路线有独立的像素、文件头和重新解码校验
+								</td>
+							</tr>
+							<tr
+								data-search="mp3 wav flac ogg m4a opus mp4 mov mkv webm aiff aif oga mka weba aac ac3 amr au caf wma mp2 voc wv wav mp3 flac opus m4a ogg aiff aac alac ffmpeg ffprobe"
+							>
+								<th scope="row">media</th>
+								<td>
+									<div class="pills">
+										<code>.mp3</code><code>.wav</code
+										><code>.flac</code><code>.ogg</code
+										><code>.m4a</code><code>.opus</code
+										><code>.mp4</code><code>.mov</code
+										><code>.mkv</code><code>.webm</code
+										><code>.aiff</code><code>.aif</code
+										><code>.oga</code><code>.mka</code
+										><code>.weba</code><code>.aac</code
+										><code>.ac3</code><code>.amr</code
+										><code>.au</code><code>.caf</code
+										><code>.wma</code><code>.mp2</code
+										><code>.voc</code><code>.wv</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>.wav</code><code>.mp3</code
+										><code>.flac</code><code>.opus</code
+										><code>.m4a</code><code>.ogg</code
+										><code>.aiff</code><code>.aac</code
+										><code>.alac</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills">
+										<code>ffmpeg</code><code>ffprobe</code>
+									</div>
+								</td>
+								<td>音频路线校验容器、编解码器、时长和声道</td>
+							</tr>
+							<tr data-search="txt text txt">
+								<th scope="row">plain-text</th>
+								<td>
+									<div class="pills">
+										<code>.txt</code><code>.text</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills"><code>.txt</code></div>
+								</td>
+								<td><span class="muted">无</span></td>
+								<td>文档仅验证 UTF-8 纯文本；不承诺排版保真</td>
+							</tr>
+							<tr
+								data-search="md markdown mdown mkdn rst docx html htm odt epub csv tsv docbook org txt pandoc"
+							>
+								<th scope="row">documents</th>
+								<td>
+									<div class="pills">
+										<code>.md</code><code>.markdown</code
+										><code>.mdown</code><code>.mkdn</code
+										><code>.rst</code><code>.docx</code
+										><code>.html</code><code>.htm</code
+										><code>.odt</code><code>.epub</code
+										><code>.csv</code><code>.tsv</code
+										><code>.docbook</code><code>.org</code>
+									</div>
+								</td>
+								<td>
+									<div class="pills"><code>.txt</code></div>
+								</td>
+								<td>
+									<div class="pills"><code>pandoc</code></div>
+								</td>
+								<td>文档仅验证 UTF-8 纯文本；不承诺排版保真</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="callout warning">
+					<strong>桌面包的边界</strong>PDF 最多 200
+					页；普通图片只处理首帧。文档输出是纯文本，视频输入只提取第一条音轨。JPEG/BMP
+					透明区域会填白；BMP/TGA/QOI 为 8 位 sRGB，且不保留元数据或
+					ICC 配置。格式名称相同不代表结果一定无损或一定更小。
+				</div>
+			</section>
+
+			<section id="catalog">
+				<h2>扩展格式选择目录</h2>
+				<p>
+					以下 38
+					项按照<strong>接入当前桌面架构的难度</strong>分组。难度不是工期承诺，也不是上游组件格式数量：它综合了现有代码路径、包内依赖、安全策略、用户可见语义和六个平台最终包验收。这是桌面版原生路线的候选目录。网页端已有的同名格式不代表桌面端自动可用；每项仍需按
+					Linux、Windows、macOS 的 AMD64 与 ARM64 最终包验收。
+				</p>
+				<p class="small">
+					组件资料：<a
+						href="https://imagemagick.org/formats/"
+						rel="noopener noreferrer"
+						>ImageMagick</a
+					>
+					·
+					<a
+						href="https://ffmpeg.org/general.html"
+						rel="noopener noreferrer"
+						>FFmpeg</a
+					>
+					·
+					<a
+						href="https://pandoc.org/MANUAL.html"
+						rel="noopener noreferrer"
+						>Pandoc</a
+					>
+					·
+					<a
+						href="https://github.com/linebender/resvg"
+						rel="noopener noreferrer"
+						>resvg</a
+					>
+					·
+					<a
+						href="https://www.libraw.org/docs"
+						rel="noopener noreferrer"
+						>LibRaw</a
+					>
+					·
+					<a
+						href="https://tesseract-ocr.github.io/tessdoc/Installation.html"
+						rel="noopener noreferrer"
+						>Tesseract</a
+					>
+					·
+					<a
+						href="https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html"
+						rel="noopener noreferrer"
+						>LibreOffice</a
+					>
+				</p>
+				<div class="callout">
+					<strong>选择方式</strong>回复编号即可，例如
+					<code>M-01 M-02 M-06</code
+					>；也可以直接选择一个组合包。每个编号都写明首版会保留什么、会舍弃什么，避免把“能生成同名文件”当成格式支持。
+				</div>
+				<h3>建议组合包</h3>
+				<div class="catalog-packs">
+					<article class="catalog-pack">
+						<h3>图片兼容基础包</h3>
+						<p>
+							<code title="PNM 静态图片家族">M-01</code>
+							<code title="静态 GIF">M-02</code>
+							<code title="基线 TIFF 单页模式">M-03</code>
+						</p>
+						<p>
+							覆盖 PNM、静态 GIF 与受限
+							TIFF；先把“静态单图”作为共同合同，动画、多页和高位深另行处理。
+						</p>
+					</article>
+					<article class="catalog-pack">
+						<h3>音频兼容基础包</h3>
+						<p>
+							<code title="Ogg、Matroska 与 WebM 音频文件名兼容"
+								>L-02</code
+							>
+							<code title="常见额外音频输入">M-06</code>
+							<code title="AAC 与 ALAC 音频输出">M-07</code>
+						</p>
+						<p>
+							先扩大可读来源和两种常用输出，不开放视频编码、不默认保留多音轨或元数据。
+						</p>
+					</article>
+					<article class="catalog-pack">
+						<h3>本地文本提取包</h3>
+						<p>
+							<code title="纯文本与 Markdown 文件名扩展"
+								>L-01</code
+							>
+							<code title="reStructuredText 文本提取">L-03</code>
+							<code title="结构化文档的纯文本提取">M-08</code>
+							<code title="PDF 已有文本层提取">M-09</code>
+						</p>
+						<p>
+							复用 Pandoc 和
+							MuPDF，仅输出纯文本；不承诺布局、公式、图像或扫描件文字。
+						</p>
+					</article>
+					<article class="catalog-pack">
+						<h3>现代图片专业包</h3>
+						<p>
+							<code title="JPEG XL">H-04</code>
+							<code title="JPEG 2000">H-05</code>
+							<code title="HEIC / HEIF 输出">H-06</code>
+							<code title="静态 SVG 栅格化">H-07</code>
+						</p>
+						<p>
+							JPEG XL、JPEG 2000、HEIF 输出与静态 SVG
+							都有明确价值，但应分别固定依赖、质量参数与跨平台包。
+						</p>
+					</article>
+				</div>
+				<input
+					class="search"
+					type="search"
+					placeholder="筛选候选，例如 tiff、ocr、视频、M-06"
+					data-catalog-search
+				/>
+				<p class="small">
+					超低项仅是扩展名兼容，不计为新增格式。每一个低及以上的候选都需要显式路线、真实输入样本、输出读回，以及
+					Linux、Windows、macOS 的 AMD64/ARM64 最终包验证。
+				</p>
+				<details class="catalog-tier" data-catalog-tier>
+					<summary>
+						<span class="tier-badge tier-ultra-low">超低</span>
+						只增加已支持格式的文件名别名；没有新增编码器、输出类型或内容语义。它不应被计入“新增格式数量”。
+						<span class="muted">（1 项）</span>
+					</summary>
+					<div class="details-content">
+						<div class="table-wrap catalog-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">编号 / 能力</th>
+										<th scope="col">格式</th>
+										<th scope="col">首版路线与边界</th>
+										<th scope="col">已有基础</th>
+										<th scope="col">主要工作</th>
+										<th scope="col">建议</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										data-search="UL-01 JPEG 文件名兼容别名 jpe jfif 输入别名 → 现有图片输出 现有 ImageMagick JPEG coder 只是在导入时把文件名映射到 JPEG；仍以实际 JPEG 解码成功为准，不新增 JPEG 输出选项。 在共享范围、输入 coder 映射、文件选择提示和重命名样本中加入别名。 可随任何图片批次带上；不值得单独排期。"
+									>
+										<th scope="row">
+											<code>UL-01</code><br /><span
+												class="catalog-title"
+												>JPEG 文件名兼容别名</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>jpe</code
+												><code>jfif</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>输入别名 → 现有图片输出</strong
+											>
+											<p class="small">
+												只是在导入时把文件名映射到
+												JPEG；仍以实际 JPEG
+												解码成功为准，不新增 JPEG
+												输出选项。
+											</p>
+										</td>
+										<td>现有 ImageMagick JPEG coder</td>
+										<td>
+											在共享范围、输入 coder
+											映射、文件选择提示和重命名样本中加入别名。
+										</td>
+										<td>
+											可随任何图片批次带上；不值得单独排期。
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details class="catalog-tier" data-catalog-tier>
+					<summary>
+						<span class="tier-badge tier-low">低</span>
+						复用已打包引擎和已有转换类型，只增加明确 reader/demuxer
+						白名单、前后端合同和真实样本。仍需要六个平台回归。
+						<span class="muted">（3 项）</span>
+					</summary>
+					<div class="details-content">
+						<div class="table-wrap catalog-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">编号 / 能力</th>
+										<th scope="col">格式</th>
+										<th scope="col">首版路线与边界</th>
+										<th scope="col">已有基础</th>
+										<th scope="col">主要工作</th>
+										<th scope="col">建议</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										data-search="L-01 纯文本与 Markdown 文件名扩展 txt text markdown mdown mkdn 输入 → TXT 现有 Pandoc 的 plain / markdown reader 只做本地纯文本归一化；Markdown 不下载资源，图片、布局和样式不会进入输出。 为 plain 和 markdown 写显式 reader 映射，维持 --sandbox，并验证编码、取消和伪装输入拒绝。 低风险兼容性补齐；适合与文本提取包一起做。"
+									>
+										<th scope="row">
+											<code>L-01</code><br /><span
+												class="catalog-title"
+												>纯文本与 Markdown
+												文件名扩展</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>txt</code><code>text</code
+												><code>markdown</code
+												><code>mdown</code
+												><code>mkdn</code>
+											</div>
+										</td>
+										<td>
+											<strong>输入 → TXT</strong>
+											<p class="small">
+												只做本地纯文本归一化；Markdown
+												不下载资源，图片、布局和样式不会进入输出。
+											</p>
+										</td>
+										<td>
+											现有 Pandoc 的 plain / markdown
+											reader
+										</td>
+										<td>
+											为 plain 和 markdown 写显式 reader
+											映射，维持
+											--sandbox，并验证编码、取消和伪装输入拒绝。
+										</td>
+										<td>
+											低风险兼容性补齐；适合与文本提取包一起做。
+										</td>
+									</tr>
+									<tr
+										data-search="L-02 Ogg、Matroska 与 WebM 音频文件名兼容 oga mka weba 输入 → 现有 WAV / MP3 / FLAC / Opus / M4A / OGG / AIFF 输出 现有 FFmpeg 与已使用的 ogg / matroska demuxer 只提取第一条音轨，仍强制指定容器且禁止网络协议；扩展名不能绕过实际解码检查。 增加明确 extension→demuxer 映射，并对每种容器做真实音频、无音轨视频和播放列表伪装样本。 适合与音频兼容基础包一起做。"
+									>
+										<th scope="row">
+											<code>L-02</code><br /><span
+												class="catalog-title"
+												>Ogg、Matroska 与 WebM
+												音频文件名兼容</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>oga</code><code>mka</code
+												><code>weba</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>输入 → 现有 WAV / MP3 / FLAC /
+												Opus / M4A / OGG / AIFF
+												输出</strong
+											>
+											<p class="small">
+												只提取第一条音轨，仍强制指定容器且禁止网络协议；扩展名不能绕过实际解码检查。
+											</p>
+										</td>
+										<td>
+											现有 FFmpeg 与已使用的 ogg /
+											matroska demuxer
+										</td>
+										<td>
+											增加明确 extension→demuxer
+											映射，并对每种容器做真实音频、无音轨视频和播放列表伪装样本。
+										</td>
+										<td>适合与音频兼容基础包一起做。</td>
+									</tr>
+									<tr
+										data-search="L-03 reStructuredText 文本提取 rst 输入 → TXT 现有 Pandoc RST reader 只输出正文文本；include、图片和外部资源不作为可读取能力承诺。RTF 不在本项内。 固定 rst reader 与 --sandbox，添加 include/resource 负例和中文、表格、列表顺序样本。 可以做，但必须和已知 RTF reader 缺陷分开验收。"
+									>
+										<th scope="row">
+											<code>L-03</code><br /><span
+												class="catalog-title"
+												>reStructuredText 文本提取</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>rst</code>
+											</div>
+										</td>
+										<td>
+											<strong>输入 → TXT</strong>
+											<p class="small">
+												只输出正文文本；include、图片和外部资源不作为可读取能力承诺。RTF
+												不在本项内。
+											</p>
+										</td>
+										<td>现有 Pandoc RST reader</td>
+										<td>
+											固定 rst reader 与 --sandbox，添加
+											include/resource
+											负例和中文、表格、列表顺序样本。
+										</td>
+										<td>
+											可以做，但必须和已知 RTF reader
+											缺陷分开验收。
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details class="catalog-tier" data-catalog-tier open>
+					<summary>
+						<span class="tier-badge tier-medium">中</span>
+						已有原生引擎可作为基础，但需要补齐模块或策略、固定一种受限语义，并新增编码/解码、保存失败和平台包验收。
+						<span class="muted">（9 项）</span>
+					</summary>
+					<div class="details-content">
+						<div class="table-wrap catalog-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">编号 / 能力</th>
+										<th scope="col">格式</th>
+										<th scope="col">首版路线与边界</th>
+										<th scope="col">已有基础</th>
+										<th scope="col">主要工作</th>
+										<th scope="col">建议</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										data-search="M-01 PNM 静态图片家族 pbm pgm ppm pnm pam 静态图片输入/输出；PDF 页面可导出同类格式 ImageMagick PNM coder；Linux 当前打包脚本已复制 pnm 模块 只处理单帧/单页，先固定受支持的位深、灰度/alpha 和颜色转换；不把裸 raw pixel 数据当作自动可识别文件。 开放 POLICY 与产品路由，确认六个平台最终包的 PNM coder，逐种重新解码并校验 PDF 页序。 建议优先：模块边界清楚，适合建立更多静态图片格式的验收模板。"
+									>
+										<th scope="row">
+											<code>M-01</code><br /><span
+												class="catalog-title"
+												>PNM 静态图片家族</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>pbm</code><code>pgm</code
+												><code>ppm</code><code>pnm</code
+												><code>pam</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>静态图片输入/输出；PDF
+												页面可导出同类格式</strong
+											>
+											<p class="small">
+												只处理单帧/单页，先固定受支持的位深、灰度/alpha
+												和颜色转换；不把裸 raw pixel
+												数据当作自动可识别文件。
+											</p>
+										</td>
+										<td>
+											ImageMagick PNM coder；Linux
+											当前打包脚本已复制 pnm 模块
+										</td>
+										<td>
+											开放 POLICY
+											与产品路由，确认六个平台最终包的 PNM
+											coder，逐种重新解码并校验 PDF 页序。
+										</td>
+										<td>
+											建议优先：模块边界清楚，适合建立更多静态图片格式的验收模板。
+										</td>
+									</tr>
+									<tr
+										data-search="M-02 静态 GIF gif 输入首帧/输出单帧 GIF；PDF 页面可导出 GIF ImageMagick GIF coder，需要确认 Linux 模块和策略 首版明确不是动画 GIF：不保留帧时长、循环、处置方式或多帧内容；调色板和透明色需要专门测试。 补齐 coder 打包与 POLICY，增加透明、调色板、首帧选择、伪扩展名和 PDF 页面样本。 建议优先，但 UI 必须显示“静态 GIF”，避免用户误以为动画被保留。"
+									>
+										<th scope="row">
+											<code>M-02</code><br /><span
+												class="catalog-title"
+												>静态 GIF</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>gif</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>输入首帧/输出单帧 GIF；PDF
+												页面可导出 GIF</strong
+											>
+											<p class="small">
+												首版明确不是动画
+												GIF：不保留帧时长、循环、处置方式或多帧内容；调色板和透明色需要专门测试。
+											</p>
+										</td>
+										<td>
+											ImageMagick GIF coder，需要确认
+											Linux 模块和策略
+										</td>
+										<td>
+											补齐 coder 打包与
+											POLICY，增加透明、调色板、首帧选择、伪扩展名和
+											PDF 页面样本。
+										</td>
+										<td>
+											建议优先，但 UI 必须显示“静态
+											GIF”，避免用户误以为动画被保留。
+										</td>
+									</tr>
+									<tr
+										data-search="M-03 基线 TIFF 单页模式 tif tiff 单页图片输入/输出；PDF 页面可导出 TIFF ImageMagick + libtiff；Linux 构建当前显式 --without-tiff 首版仅单页、受限 RGB/RGBA；不承诺 CMYK、BigTIFF、16 位、ICC 或多页 TIFF 的完整保真。 引入并固定 libtiff，重打 Linux 原生包，开放策略，验证透明、压缩、页尺寸和跨平台读回。 图片兼容价值高；先做受限单页合同，再决定是否进入完整 TIFF。"
+									>
+										<th scope="row">
+											<code>M-03</code><br /><span
+												class="catalog-title"
+												>基线 TIFF 单页模式</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>tif</code
+												><code>tiff</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>单页图片输入/输出；PDF
+												页面可导出 TIFF</strong
+											>
+											<p class="small">
+												首版仅单页、受限
+												RGB/RGBA；不承诺
+												CMYK、BigTIFF、16 位、ICC 或多页
+												TIFF 的完整保真。
+											</p>
+										</td>
+										<td>
+											ImageMagick + libtiff；Linux
+											构建当前显式 --without-tiff
+										</td>
+										<td>
+											引入并固定 libtiff，重打 Linux
+											原生包，开放策略，验证透明、压缩、页尺寸和跨平台读回。
+										</td>
+										<td>
+											图片兼容价值高；先做受限单页合同，再决定是否进入完整
+											TIFF。
+										</td>
+									</tr>
+									<tr
+										data-search="M-04 基础 ICO 单图模式 ico 输入一张选定图像 / 输出一个固定尺寸 ICO ImageMagick ICO coder，需要确认 Linux 模块和策略 只处理一个明确尺寸的位图；不把 ICO 内多个尺寸/位深当作完整保留或自动挑选。 定义固定尺寸、透明度和 PNG/BMP payload 策略，验证 Windows/macOS/Linux 的实际图标读取。 仅当用户常做单尺寸图标时选择；产品价值低于完整多尺寸 ICO。"
+									>
+										<th scope="row">
+											<code>M-04</code><br /><span
+												class="catalog-title"
+												>基础 ICO 单图模式</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>ico</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>输入一张选定图像 /
+												输出一个固定尺寸 ICO</strong
+											>
+											<p class="small">
+												只处理一个明确尺寸的位图；不把
+												ICO
+												内多个尺寸/位深当作完整保留或自动挑选。
+											</p>
+										</td>
+										<td>
+											ImageMagick ICO coder，需要确认
+											Linux 模块和策略
+										</td>
+										<td>
+											定义固定尺寸、透明度和 PNG/BMP
+											payload 策略，验证
+											Windows/macOS/Linux 的实际图标读取。
+										</td>
+										<td>
+											仅当用户常做单尺寸图标时选择；产品价值低于完整多尺寸
+											ICO。
+										</td>
+									</tr>
+									<tr
+										data-search="M-05 传统静态位图兼容包 pcx xbm xpm 静态图片输入/输出 ImageMagick coder；每种格式须独立确认包内模块 只转像素平面；调色板、热点、注释和应用专用扩展不会作为保真承诺。DDS 不包含在本项。 逐个安装/封装 coder、打开策略、识别输出文件头并用真实旧文件回归。 面向旧素材兼容；没有明确用户需求时可后置。"
+									>
+										<th scope="row">
+											<code>M-05</code><br /><span
+												class="catalog-title"
+												>传统静态位图兼容包</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>pcx</code><code>xbm</code
+												><code>xpm</code>
+											</div>
+										</td>
+										<td>
+											<strong>静态图片输入/输出</strong>
+											<p class="small">
+												只转像素平面；调色板、热点、注释和应用专用扩展不会作为保真承诺。DDS
+												不包含在本项。
+											</p>
+										</td>
+										<td>
+											ImageMagick
+											coder；每种格式须独立确认包内模块
+										</td>
+										<td>
+											逐个安装/封装
+											coder、打开策略、识别输出文件头并用真实旧文件回归。
+										</td>
+										<td>
+											面向旧素材兼容；没有明确用户需求时可后置。
+										</td>
+									</tr>
+									<tr
+										data-search="M-06 常见额外音频输入 aac ac3 amr au caf wma mp2 voc wv 输入 → 现有七种音频输出 已打包 FFmpeg；每个输入都需指定 demuxer、验证 decoder 与样本 扩展名不等于 codec；仅第一条音轨，去除标签/封面，不接受播放列表、网络 URL 或未知裸 PCM。 逐格式添加白名单而非自动探测，记录容器/decoder，验证时长、声道、实际解码与攻击性输入拒绝。 建议优先，按真实用户文件拆小批次；不要一次性承诺所有 FFmpeg 容器。"
+									>
+										<th scope="row">
+											<code>M-06</code><br /><span
+												class="catalog-title"
+												>常见额外音频输入</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>aac</code><code>ac3</code
+												><code>amr</code><code>au</code
+												><code>caf</code><code>wma</code
+												><code>mp2</code><code>voc</code
+												><code>wv</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>输入 → 现有七种音频输出</strong
+											>
+											<p class="small">
+												扩展名不等于
+												codec；仅第一条音轨，去除标签/封面，不接受播放列表、网络
+												URL 或未知裸 PCM。
+											</p>
+										</td>
+										<td>
+											已打包 FFmpeg；每个输入都需指定
+											demuxer、验证 decoder 与样本
+										</td>
+										<td>
+											逐格式添加白名单而非自动探测，记录容器/decoder，验证时长、声道、实际解码与攻击性输入拒绝。
+										</td>
+										<td>
+											建议优先，按真实用户文件拆小批次；不要一次性承诺所有
+											FFmpeg 容器。
+										</td>
+									</tr>
+									<tr
+										data-search="M-07 AAC 与 ALAC 音频输出 aac alac / m4a 现有音频输入 → ADTS AAC 或 ALAC 封装的 M4A 当前六平台能力盘点均列出 aac 与 alac encoder；仍需测试具体 muxer AAC 是有损；ALAC 的文件扩展通常仍是 .m4a，必须在 UI 中显示 codec，不能只靠扩展名区分。 新增输出枚举、码率/无损说明、容器与 codec 双重验证，以及跨平台实际解码。 建议与 M-06 一起做；ALAC 对本地归档有实际价值。"
+									>
+										<th scope="row">
+											<code>M-07</code><br /><span
+												class="catalog-title"
+												>AAC 与 ALAC 音频输出</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>aac</code
+												><code>alac / m4a</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>现有音频输入 → ADTS AAC 或 ALAC
+												封装的 M4A</strong
+											>
+											<p class="small">
+												AAC 是有损；ALAC
+												的文件扩展通常仍是 .m4a，必须在
+												UI 中显示
+												codec，不能只靠扩展名区分。
+											</p>
+										</td>
+										<td>
+											当前六平台能力盘点均列出 aac 与 alac
+											encoder；仍需测试具体 muxer
+										</td>
+										<td>
+											新增输出枚举、码率/无损说明、容器与
+											codec 双重验证，以及跨平台实际解码。
+										</td>
+										<td>
+											建议与 M-06 一起做；ALAC
+											对本地归档有实际价值。
+										</td>
+									</tr>
+									<tr
+										data-search="M-08 结构化文档的纯文本提取 csv tsv docbook org 输入 → TXT 现有 Pandoc readers + 当前 sandboxed TXT pipeline CSV/TSV 不保留公式、单元格样式、多工作表或图表；DocBook/Org 不读取外部资源，也不保留页面布局。Org 的下划线可表示下标；需保留原样标识符时使用字面/代码标记或 #+OPTIONS: ^:{}。 为每种 reader 建立明确映射和恶意资源负例，检查 Unicode、表格阅读顺序、Org 下划线/字面标记、空文件、取消和 UTF-8 输出。 建议作为文本提取包的第二批；不应把它宣传为表格转换。"
+									>
+										<th scope="row">
+											<code>M-08</code><br /><span
+												class="catalog-title"
+												>结构化文档的纯文本提取</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>csv</code><code>tsv</code
+												><code>docbook</code
+												><code>org</code>
+											</div>
+										</td>
+										<td>
+											<strong>输入 → TXT</strong>
+											<p class="small">
+												CSV/TSV
+												不保留公式、单元格样式、多工作表或图表；DocBook/Org
+												不读取外部资源，也不保留页面布局。Org
+												的下划线可表示下标；需保留原样标识符时使用字面/代码标记或
+												#+OPTIONS: ^:{}。
+											</p>
+										</td>
+										<td>
+											现有 Pandoc readers + 当前 sandboxed
+											TXT pipeline
+										</td>
+										<td>
+											为每种 reader
+											建立明确映射和恶意资源负例，检查
+											Unicode、表格阅读顺序、Org
+											下划线/字面标记、空文件、取消和
+											UTF-8 输出。
+										</td>
+										<td>
+											建议作为文本提取包的第二批；不应把它宣传为表格转换。
+										</td>
+									</tr>
+									<tr
+										data-search="M-09 PDF 已有文本层提取 pdf PDF 输入 → TXT 现有 MuPDF；需要新增文本提取路线 只提取 PDF 内已有的文字对象；扫描件、照片页和缺失文字层的 PDF 不会变成可搜索文本，也不属于 OCR。 固定 MuPDF 文本输出方式，定义页序、空页、加密/损坏文件失败行为，并复用 PDF 页数与文件大小预算。 建议优先，用户价值高且不需要新增 OCR 模型。"
+									>
+										<th scope="row">
+											<code>M-09</code><br /><span
+												class="catalog-title"
+												>PDF 已有文本层提取</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>pdf</code>
+											</div>
+										</td>
+										<td>
+											<strong>PDF 输入 → TXT</strong>
+											<p class="small">
+												只提取 PDF
+												内已有的文字对象；扫描件、照片页和缺失文字层的
+												PDF 不会变成可搜索文本，也不属于
+												OCR。
+											</p>
+										</td>
+										<td>
+											现有 MuPDF；需要新增文本提取路线
+										</td>
+										<td>
+											固定 MuPDF
+											文本输出方式，定义页序、空页、加密/损坏文件失败行为，并复用
+											PDF 页数与文件大小预算。
+										</td>
+										<td>
+											建议优先，用户价值高且不需要新增 OCR
+											模型。
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details class="catalog-tier" data-catalog-tier>
+					<summary>
+						<span class="tier-badge tier-high">高</span>
+						需要新依赖、重打多平台引擎包，或要处理动画、多页、多轨、色彩、资源和质量预设等新的产品语义。
+						<span class="muted">（18 项）</span>
+					</summary>
+					<div class="details-content">
+						<div class="table-wrap catalog-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">编号 / 能力</th>
+										<th scope="col">格式</th>
+										<th scope="col">首版路线与边界</th>
+										<th scope="col">已有基础</th>
+										<th scope="col">主要工作</th>
+										<th scope="col">建议</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										data-search="H-01 完整 TIFF tif tiff bigtiff 多页、高位深、CMYK/ICC TIFF 输入/输出 ImageMagick + libtiff，需完整跨平台依赖与质量合同 需要定义页选择/全部页、压缩、CMYK↔RGB、16 位、ICC 和超大文件的取舍；不能沿用单页首帧行为。 在 M-03 之上新增多页任务、页序保存、颜色/位深样本、BigTIFF 限制和磁盘预算。 等基线 TIFF 稳定后再决定；适合专业扫描/印刷需求。"
+									>
+										<th scope="row">
+											<code>H-01</code><br /><span
+												class="catalog-title"
+												>完整 TIFF</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>tif</code><code>tiff</code
+												><code>bigtiff</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>多页、高位深、CMYK/ICC TIFF
+												输入/输出</strong
+											>
+											<p class="small">
+												需要定义页选择/全部页、压缩、CMYK↔RGB、16
+												位、ICC
+												和超大文件的取舍；不能沿用单页首帧行为。
+											</p>
+										</td>
+										<td>
+											ImageMagick +
+											libtiff，需完整跨平台依赖与质量合同
+										</td>
+										<td>
+											在 M-03
+											之上新增多页任务、页序保存、颜色/位深样本、BigTIFF
+											限制和磁盘预算。
+										</td>
+										<td>
+											等基线 TIFF
+											稳定后再决定；适合专业扫描/印刷需求。
+										</td>
+									</tr>
+									<tr
+										data-search="H-02 真实动画图像 gif apng animated webp 动画输入/输出并保留帧时间、循环和处置方式 ImageMagick / FFmpeg 组合，取决于最终包组件 必须保留或明确转换动画帧、延时、循环次数和透明度，并限制总帧数、像素数和临时磁盘。 新建多帧任务合同、预览与进度模型，按动画语义验收；不能从静态 GIF 路线直接放开。 有明确动画需求再选；不建议为了格式数量提前做。"
+									>
+										<th scope="row">
+											<code>H-02</code><br /><span
+												class="catalog-title"
+												>真实动画图像</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>gif</code><code>apng</code
+												><code>animated webp</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>动画输入/输出并保留帧时间、循环和处置方式</strong
+											>
+											<p class="small">
+												必须保留或明确转换动画帧、延时、循环次数和透明度，并限制总帧数、像素数和临时磁盘。
+											</p>
+										</td>
+										<td>
+											ImageMagick / FFmpeg
+											组合，取决于最终包组件
+										</td>
+										<td>
+											新建多帧任务合同、预览与进度模型，按动画语义验收；不能从静态
+											GIF 路线直接放开。
+										</td>
+										<td>
+											有明确动画需求再选；不建议为了格式数量提前做。
+										</td>
+									</tr>
+									<tr
+										data-search="H-03 多尺寸图标包 ico cur icns 多源图像 → 多尺寸图标；图标包导入/导出 ImageMagick 或专用图标编码；需平台样本验证 要定义尺寸集、热点、PNG/BMP payload、透明和逐层选择；单图 ICO 不能替代此能力。 新增尺寸配置 UI、批量输入规则、Windows/macOS 实机读取和结果清单。 面向应用图标工作流时选择；否则 M-04 足够。"
+									>
+										<th scope="row">
+											<code>H-03</code><br /><span
+												class="catalog-title"
+												>多尺寸图标包</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>ico</code><code>cur</code
+												><code>icns</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>多源图像 →
+												多尺寸图标；图标包导入/导出</strong
+											>
+											<p class="small">
+												要定义尺寸集、热点、PNG/BMP
+												payload、透明和逐层选择；单图
+												ICO 不能替代此能力。
+											</p>
+										</td>
+										<td>
+											ImageMagick
+											或专用图标编码；需平台样本验证
+										</td>
+										<td>
+											新增尺寸配置
+											UI、批量输入规则、Windows/macOS
+											实机读取和结果清单。
+										</td>
+										<td>
+											面向应用图标工作流时选择；否则 M-04
+											足够。
+										</td>
+									</tr>
+									<tr
+										data-search="H-04 JPEG XL jxl 静态图片输入/输出；PDF 页面可选输出 ImageMagick JXL coder + libjxl；Linux 构建当前显式 --without-jxl，历史 macOS 包未列出 JXL 需要明确有损/无损、质量/距离参数、ICC、动画与高位深的支持范围；首版不应借此承诺动画 JXL。 锁定 libjxl 版本与许可证材料，六平台打包，设置专有编码参数，验证像素、alpha、ICC、文件头和重新解码。 现代图片优先候选，但应独立批次，不能和通用格式混在一次回归里。"
+									>
+										<th scope="row">
+											<code>H-04</code><br /><span
+												class="catalog-title"
+												>JPEG XL</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>jxl</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>静态图片输入/输出；PDF
+												页面可选输出</strong
+											>
+											<p class="small">
+												需要明确有损/无损、质量/距离参数、ICC、动画与高位深的支持范围；首版不应借此承诺动画
+												JXL。
+											</p>
+										</td>
+										<td>
+											ImageMagick JXL coder +
+											libjxl；Linux 构建当前显式
+											--without-jxl，历史 macOS 包未列出
+											JXL
+										</td>
+										<td>
+											锁定 libjxl
+											版本与许可证材料，六平台打包，设置专有编码参数，验证像素、alpha、ICC、文件头和重新解码。
+										</td>
+										<td>
+											现代图片优先候选，但应独立批次，不能和通用格式混在一次回归里。
+										</td>
+									</tr>
+									<tr
+										data-search="H-05 JPEG 2000 jp2 j2k j2c 静态图片输入/输出 ImageMagick + OpenJPEG；当前各平台包能力不一致 需确定输出容器、质量、alpha、色彩和高位深；只读不能推导可安全写入。 为 OpenJPEG 做依赖锁定与跨平台包验证，逐容器确认文件头、编码和读回。 在档案/出版用户明确需要时选择；通常排在 JXL 之后。"
+									>
+										<th scope="row">
+											<code>H-05</code><br /><span
+												class="catalog-title"
+												>JPEG 2000</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>jp2</code><code>j2k</code
+												><code>j2c</code>
+											</div>
+										</td>
+										<td>
+											<strong>静态图片输入/输出</strong>
+											<p class="small">
+												需确定输出容器、质量、alpha、色彩和高位深；只读不能推导可安全写入。
+											</p>
+										</td>
+										<td>
+											ImageMagick +
+											OpenJPEG；当前各平台包能力不一致
+										</td>
+										<td>
+											为 OpenJPEG
+											做依赖锁定与跨平台包验证，逐容器确认文件头、编码和读回。
+										</td>
+										<td>
+											在档案/出版用户明确需要时选择；通常排在
+											JXL 之后。
+										</td>
+									</tr>
+									<tr
+										data-search="H-06 HEIC / HEIF 输出 heic heif 静态图片输入 → HEIC / HEIF 输出 ImageMagick HEIC coder + libheif 及实际编码插件；Windows 历史包只声明读取 要固定 AV1/HEVC 编码器、质量/无损选项、alpha、色彩和方向处理；不能将现有 HEIC 导入能力视为输出已具备。 选择跨平台编码插件和许可路径，设置输出验证，测试 iOS/macOS/Windows 的真实读回。 有 Apple 生态导出需求时选；建议在 JXL/JP2 之外独立审查。"
+									>
+										<th scope="row">
+											<code>H-06</code><br /><span
+												class="catalog-title"
+												>HEIC / HEIF 输出</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>heic</code
+												><code>heif</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>静态图片输入 → HEIC / HEIF
+												输出</strong
+											>
+											<p class="small">
+												要固定 AV1/HEVC
+												编码器、质量/无损选项、alpha、色彩和方向处理；不能将现有
+												HEIC 导入能力视为输出已具备。
+											</p>
+										</td>
+										<td>
+											ImageMagick HEIC coder + libheif
+											及实际编码插件；Windows
+											历史包只声明读取
+										</td>
+										<td>
+											选择跨平台编码插件和许可路径，设置输出验证，测试
+											iOS/macOS/Windows 的真实读回。
+										</td>
+										<td>
+											有 Apple 生态导出需求时选；建议在
+											JXL/JP2 之外独立审查。
+										</td>
+									</tr>
+									<tr
+										data-search="H-07 静态 SVG 栅格化 svg SVG 输入 → PNG / JPEG / WebP / AVIF 等位图 建议新增 resvg/usvg，而不是让 ImageMagick 执行任意 delegate 只承诺静态 SVG 子集；脚本、事件、动画和不受控外部资源不执行，字体回退和输出尺寸需明确。 引入可复现 Rust 渲染器，固定字体/资源策略，增加尺寸、viewBox、文本、恶意 XML 和跨平台像素回归。 建议优先于完整 SVG 编辑/动画；适合常见矢量导出需求。"
+									>
+										<th scope="row">
+											<code>H-07</code><br /><span
+												class="catalog-title"
+												>静态 SVG 栅格化</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>svg</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>SVG 输入 → PNG / JPEG / WebP /
+												AVIF 等位图</strong
+											>
+											<p class="small">
+												只承诺静态 SVG
+												子集；脚本、事件、动画和不受控外部资源不执行，字体回退和输出尺寸需明确。
+											</p>
+										</td>
+										<td>
+											建议新增 resvg/usvg，而不是让
+											ImageMagick 执行任意 delegate
+										</td>
+										<td>
+											引入可复现 Rust
+											渲染器，固定字体/资源策略，增加尺寸、viewBox、文本、恶意
+											XML 和跨平台像素回归。
+										</td>
+										<td>
+											建议优先于完整 SVG
+											编辑/动画；适合常见矢量导出需求。
+										</td>
+									</tr>
+									<tr
+										data-search="H-08 高动态范围与专业图像 exr hdr dpx 候选包已接入：专业图像输入 → 受限 SDR 位图输出 ImageMagick + 随包 OpenEXR；Linux ARM64 候选已验证实际引擎闭包与 DPX/EXR/HDR 像素读回 EXR/HDR 使用固定曝光降至 8-bit sRGB SDR；DPX 按解码后的解释降至 8-bit sRGB SDR。Log/相机专用 LUT、自定义参考黑白点、多元素、制作元数据和高位深保真不保留。 维护有效 10-bit DPX、EXR/HDR 高亮与 Log/YCbCr 负向样本；分别在 Linux、Windows、macOS 的 AMD64/ARM64 最终包做读回和显示边界验收。 适合需要影视、渲染或摄影静态导入的用户；首版不替代调色软件或专业 DPX 往返工作流。"
+									>
+										<th scope="row">
+											<code>H-08</code><br /><span
+												class="catalog-title"
+												>高动态范围与专业图像</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>exr</code><code>hdr</code
+												><code>dpx</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>候选包已接入：专业图像输入 →
+												受限 SDR 位图输出</strong
+											>
+											<p class="small">
+												EXR/HDR 使用固定曝光降至 8-bit
+												sRGB SDR；DPX 按解码后的解释降至
+												8-bit sRGB SDR。Log/相机专用
+												LUT、自定义参考黑白点、多元素、制作元数据和高位深保真不保留。
+											</p>
+										</td>
+										<td>
+											ImageMagick + 随包 OpenEXR；Linux
+											ARM64 候选已验证实际引擎闭包与
+											DPX/EXR/HDR 像素读回
+										</td>
+										<td>
+											维护有效 10-bit DPX、EXR/HDR 高亮与
+											Log/YCbCr 负向样本；分别在
+											Linux、Windows、macOS 的 AMD64/ARM64
+											最终包做读回和显示边界验收。
+										</td>
+										<td>
+											适合需要影视、渲染或摄影静态导入的用户；首版不替代调色软件或专业
+											DPX 往返工作流。
+										</td>
+									</tr>
+									<tr
+										data-search="H-09 扁平化设计图导入 psd xcf ora 输入 → 普通位图输出 ImageMagick 可作为 PSD 起点；XCF/ORA 需要逐格式确认或专用 reader 仅导出合成后的可见像素；图层、蒙版、文字、混合模式、智能对象和可编辑性均不保留。 按格式选择安全 reader，拒绝损坏/压缩炸弹，验证合成图、alpha、ICC 和明确的“已扁平化”提示。 适合快速预览/导出，不应称为 PSD/XCF 编辑或无损转换。"
+									>
+										<th scope="row">
+											<code>H-09</code><br /><span
+												class="catalog-title"
+												>扁平化设计图导入</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>psd</code><code>xcf</code
+												><code>ora</code>
+											</div>
+										</td>
+										<td>
+											<strong>输入 → 普通位图输出</strong>
+											<p class="small">
+												仅导出合成后的可见像素；图层、蒙版、文字、混合模式、智能对象和可编辑性均不保留。
+											</p>
+										</td>
+										<td>
+											ImageMagick 可作为 PSD 起点；XCF/ORA
+											需要逐格式确认或专用 reader
+										</td>
+										<td>
+											按格式选择安全
+											reader，拒绝损坏/压缩炸弹，验证合成图、alpha、ICC
+											和明确的“已扁平化”提示。
+										</td>
+										<td>
+											适合快速预览/导出，不应称为 PSD/XCF
+											编辑或无损转换。
+										</td>
+									</tr>
+									<tr
+										data-search="H-10 相机 RAW 显影导入 dng cr2 cr3 nef arw raf rw2 orf pef RAW 输入 → PNG / JPEG / TIFF 等位图 建议 LibRaw；ImageMagick/系统 delegate 的可用性不能作为产品合同 必须选择白平衡、去马赛克、曝光、颜色配置和嵌入预览策略；不承诺原始相机编辑参数或每个新机型立即支持。 打包 LibRaw 与许可资料，维护相机样本矩阵和显影预设，测试不同厂商、方向、ICC 和失败提示。 专业照片需求明确时选择；先以 DNG + 少量相机品牌试点。"
+									>
+										<th scope="row">
+											<code>H-10</code><br /><span
+												class="catalog-title"
+												>相机 RAW 显影导入</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>dng</code><code>cr2</code
+												><code>cr3</code><code>nef</code
+												><code>arw</code><code>raf</code
+												><code>rw2</code><code>orf</code
+												><code>pef</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>RAW 输入 → PNG / JPEG / TIFF
+												等位图</strong
+											>
+											<p class="small">
+												必须选择白平衡、去马赛克、曝光、颜色配置和嵌入预览策略；不承诺原始相机编辑参数或每个新机型立即支持。
+											</p>
+										</td>
+										<td>
+											建议 LibRaw；ImageMagick/系统
+											delegate 的可用性不能作为产品合同
+										</td>
+										<td>
+											打包 LibRaw
+											与许可资料，维护相机样本矩阵和显影预设，测试不同厂商、方向、ICC
+											和失败提示。
+										</td>
+										<td>
+											专业照片需求明确时选择；先以 DNG +
+											少量相机品牌试点。
+										</td>
+									</tr>
+									<tr
+										data-search="H-11 通用 CPU 视频输出 mp4 / h264+aac webm / vp9+opus mkv 视频输入 → 视频输出 已打包 FFmpeg 的部分编码器；当前产品只做第一条音轨提取 首版需固定 CPU 预设、视频/音频流选择、旋转、奇数尺寸、字幕和 HDR 降级行为；硬件编码不作为默认保证。 创建视频任务类型、时长/磁盘预算、预设 UI、容器/codec 双验收和实际播放器兼容回归。 高价值但独立于音频转换；先做一到两个兼容预设。"
+									>
+										<th scope="row">
+											<code>H-11</code><br /><span
+												class="catalog-title"
+												>通用 CPU 视频输出</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>mp4 / h264+aac</code
+												><code>webm / vp9+opus</code
+												><code>mkv</code>
+											</div>
+										</td>
+										<td>
+											<strong>视频输入 → 视频输出</strong>
+											<p class="small">
+												首版需固定 CPU
+												预设、视频/音频流选择、旋转、奇数尺寸、字幕和
+												HDR
+												降级行为；硬件编码不作为默认保证。
+											</p>
+										</td>
+										<td>
+											已打包 FFmpeg
+											的部分编码器；当前产品只做第一条音轨提取
+										</td>
+										<td>
+											创建视频任务类型、时长/磁盘预算、预设
+											UI、容器/codec
+											双验收和实际播放器兼容回归。
+										</td>
+										<td>
+											高价值但独立于音频转换；先做一到两个兼容预设。
+										</td>
+									</tr>
+									<tr
+										data-search="H-12 无损重封装与流提取 mp4 mov mkv webm m4a 兼容容器间 stream copy / 选定音轨、字幕或章节提取 现有 FFmpeg，但需要新的“无重编码”任务模式 只有 codec 与目标容器兼容时才可无损；关键帧裁切、字幕、章节、多轨和封面都需明确是否保留。 先建立兼容矩阵和失败解释，验证源流哈希/packet 语义与不重编码标识，禁止自动悄悄回退为重编码。 桌面端差异化能力强，适合在 H-11 后实施。"
+									>
+										<th scope="row">
+											<code>H-12</code><br /><span
+												class="catalog-title"
+												>无损重封装与流提取</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>mp4</code><code>mov</code
+												><code>mkv</code
+												><code>webm</code
+												><code>m4a</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>兼容容器间 stream copy /
+												选定音轨、字幕或章节提取</strong
+											>
+											<p class="small">
+												只有 codec
+												与目标容器兼容时才可无损；关键帧裁切、字幕、章节、多轨和封面都需明确是否保留。
+											</p>
+										</td>
+										<td>
+											现有
+											FFmpeg，但需要新的“无重编码”任务模式
+										</td>
+										<td>
+											先建立兼容矩阵和失败解释，验证源流哈希/packet
+											语义与不重编码标识，禁止自动悄悄回退为重编码。
+										</td>
+										<td>
+											桌面端差异化能力强，适合在 H-11
+											后实施。
+										</td>
+									</tr>
+									<tr
+										data-search="H-13 结构化文档互转 md html rst docx odt epub docbook 受支持文档输入 ↔ 结构化文档输出 现有 Pandoc writer；输出资源、模板和归档文件需要产品层处理 保留的是可表达的文档结构，不是 Word/LibreOffice 的分页、字体、复杂表格或嵌入对象的视觉等价。 决定每种输出的资源策略与模板，限制本地/网络资源，验证 Unicode、图片、表格和损坏 ZIP 的处理。 文本用户价值高；先从 Markdown / HTML / RST 三个透明目标开始。"
+									>
+										<th scope="row">
+											<code>H-13</code><br /><span
+												class="catalog-title"
+												>结构化文档互转</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>md</code><code>html</code
+												><code>rst</code
+												><code>docx</code
+												><code>odt</code
+												><code>epub</code
+												><code>docbook</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>受支持文档输入 ↔
+												结构化文档输出</strong
+											>
+											<p class="small">
+												保留的是可表达的文档结构，不是
+												Word/LibreOffice
+												的分页、字体、复杂表格或嵌入对象的视觉等价。
+											</p>
+										</td>
+										<td>
+											现有 Pandoc
+											writer；输出资源、模板和归档文件需要产品层处理
+										</td>
+										<td>
+											决定每种输出的资源策略与模板，限制本地/网络资源，验证
+											Unicode、图片、表格和损坏 ZIP
+											的处理。
+										</td>
+										<td>
+											文本用户价值高；先从 Markdown / HTML
+											/ RST 三个透明目标开始。
+										</td>
+									</tr>
+									<tr
+										data-search="H-14 文档生成 PDF pdf 文档输入 → PDF Pandoc 需要额外 PDF 排版引擎；当前 Pandoc writer 列表不证明该引擎已打包 要选择 TeX、Typst、HTML PDF 等后端并限制资源访问；排版、字体、可访问性和 PDF/A 不是自动保证。 选择可分发的排版引擎，隔离执行，固定字体/模板，验证中文、图片、表格、可访问性与异常资源。 需求常见但不应与纯文本互转混为一个小改动。"
+									>
+										<th scope="row">
+											<code>H-14</code><br /><span
+												class="catalog-title"
+												>文档生成 PDF</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>pdf</code>
+											</div>
+										</td>
+										<td>
+											<strong>文档输入 → PDF</strong>
+											<p class="small">
+												要选择 TeX、Typst、HTML PDF
+												等后端并限制资源访问；排版、字体、可访问性和
+												PDF/A 不是自动保证。
+											</p>
+										</td>
+										<td>
+											Pandoc 需要额外 PDF 排版引擎；当前
+											Pandoc writer 列表不证明该引擎已打包
+										</td>
+										<td>
+											选择可分发的排版引擎，隔离执行，固定字体/模板，验证中文、图片、表格、可访问性与异常资源。
+										</td>
+										<td>
+											需求常见但不应与纯文本互转混为一个小改动。
+										</td>
+									</tr>
+									<tr
+										data-search="H-15 图片合成 PDF png jpeg webp avif tiff pdf 单张/多张图片 → 多页 PDF 需要安全 PDF writer 或受控文档/PDF 组合；当前产品只有 PDF→图片 要定义页面尺寸、排序、DPI、透明底、ICC、压缩、元数据和多文件导入顺序。 新增多输入任务模型与 PDF 生成器，建立页序、重复保存、取消恢复、超大图片和读回 PDF 的回归。 用户需求可能很高；作为单独产品功能评审，而不是只增加一个输出扩展名。"
+									>
+										<th scope="row">
+											<code>H-15</code><br /><span
+												class="catalog-title"
+												>图片合成 PDF</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>png</code><code>jpeg</code
+												><code>webp</code
+												><code>avif</code
+												><code>tiff</code
+												><code>pdf</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>单张/多张图片 → 多页
+												PDF</strong
+											>
+											<p class="small">
+												要定义页面尺寸、排序、DPI、透明底、ICC、压缩、元数据和多文件导入顺序。
+											</p>
+										</td>
+										<td>
+											需要安全 PDF writer 或受控文档/PDF
+											组合；当前产品只有 PDF→图片
+										</td>
+										<td>
+											新增多输入任务模型与 PDF
+											生成器，建立页序、重复保存、取消恢复、超大图片和读回
+											PDF 的回归。
+										</td>
+										<td>
+											用户需求可能很高；作为单独产品功能评审，而不是只增加一个输出扩展名。
+										</td>
+									</tr>
+									<tr
+										data-search="H-16 EPS / PostScript 图形导入 eps ps 向位图/PDF 的受限渲染 通常需要 Ghostscript；当前 Linux ImageMagick 构建禁用相关 delegate PostScript 是可执行描述语言，必须使用受控解释器、严格资源/进程限制，不能让 ImageMagick 自动调用任意 delegate。 审查 Ghostscript 版本、许可与沙箱，固定输入/输出策略，针对恶意脚本、字体、页面和超时做隔离测试。 出版/印刷用户明确需要时才选；安全成本高。"
+									>
+										<th scope="row">
+											<code>H-16</code><br /><span
+												class="catalog-title"
+												>EPS / PostScript 图形导入</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>eps</code><code>ps</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>向位图/PDF 的受限渲染</strong
+											>
+											<p class="small">
+												PostScript
+												是可执行描述语言，必须使用受控解释器、严格资源/进程限制，不能让
+												ImageMagick 自动调用任意
+												delegate。
+											</p>
+										</td>
+										<td>
+											通常需要 Ghostscript；当前 Linux
+											ImageMagick 构建禁用相关 delegate
+										</td>
+										<td>
+											审查 Ghostscript
+											版本、许可与沙箱，固定输入/输出策略，针对恶意脚本、字体、页面和超时做隔离测试。
+										</td>
+										<td>
+											出版/印刷用户明确需要时才选；安全成本高。
+										</td>
+									</tr>
+									<tr
+										data-search="H-17 电子书、漫画与 XPS 页面渲染 epub cbz xps 页面型文档输入 → 图片或受限文本 MuPDF 可作为候选，但当前桌面产品只把它用于 PDF 需定义章节/页码、内嵌字体、受 DRM 文件拒绝、书签和文本顺序；EPUB→TXT 与 EPUB 页面渲染不是同一能力。 增加类型识别、页枚举、进度/恢复模型与样本库；不把 MuPDF 官网格式列表直接变成开放路线。 有电子书或漫画需求再选；先保持当前 EPUB→TXT 的受限边界。"
+									>
+										<th scope="row">
+											<code>H-17</code><br /><span
+												class="catalog-title"
+												>电子书、漫画与 XPS
+												页面渲染</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>epub</code><code>cbz</code
+												><code>xps</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>页面型文档输入 →
+												图片或受限文本</strong
+											>
+											<p class="small">
+												需定义章节/页码、内嵌字体、受
+												DRM
+												文件拒绝、书签和文本顺序；EPUB→TXT
+												与 EPUB 页面渲染不是同一能力。
+											</p>
+										</td>
+										<td>
+											MuPDF
+											可作为候选，但当前桌面产品只把它用于
+											PDF
+										</td>
+										<td>
+											增加类型识别、页枚举、进度/恢复模型与样本库；不把
+											MuPDF 官网格式列表直接变成开放路线。
+										</td>
+										<td>
+											有电子书或漫画需求再选；先保持当前
+											EPUB→TXT 的受限边界。
+										</td>
+									</tr>
+									<tr
+										data-search="H-18 DDS 游戏纹理 dds DDS 输入/输出 ImageMagick 可提供像素入口，但需要确认压缩与 mipmap 支持 必须说明是否保留 mipmap、块压缩、法线贴图和颜色空间；扁平单层位图导出不能称为纹理保真。 选择支持的 DDS 子集，验证块压缩/alpha/mipmap，增加游戏引擎读回和跨平台包测试。 游戏素材用户明确需要时选择；否则后置。"
+									>
+										<th scope="row">
+											<code>H-18</code><br /><span
+												class="catalog-title"
+												>DDS 游戏纹理</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>dds</code>
+											</div>
+										</td>
+										<td>
+											<strong>DDS 输入/输出</strong>
+											<p class="small">
+												必须说明是否保留
+												mipmap、块压缩、法线贴图和颜色空间；扁平单层位图导出不能称为纹理保真。
+											</p>
+										</td>
+										<td>
+											ImageMagick
+											可提供像素入口，但需要确认压缩与
+											mipmap 支持
+										</td>
+										<td>
+											选择支持的 DDS
+											子集，验证块压缩/alpha/mipmap，增加游戏引擎读回和跨平台包测试。
+										</td>
+										<td>
+											游戏素材用户明确需要时选择；否则后置。
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details class="catalog-tier" data-catalog-tier>
+					<summary>
+						<span class="tier-badge tier-ultra-high">超高</span>
+						需要一个新的转换子系统、模型或重量级办公/专业引擎，并要设计分发、沙箱、包体积、商店与保真边界。
+						<span class="muted">（7 项）</span>
+					</summary>
+					<div class="details-content">
+						<div class="table-wrap catalog-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">编号 / 能力</th>
+										<th scope="col">格式</th>
+										<th scope="col">首版路线与边界</th>
+										<th scope="col">已有基础</th>
+										<th scope="col">主要工作</th>
+										<th scope="col">建议</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										data-search="UH-01 电子表格转换 xls xlsx ods csv tsv 工作簿 → PDF / 图片 / CSV 等 需要 LibreOffice Calc 或专用表格引擎；Pandoc 不能替代工作簿转换 工作表、公式、图表、筛选、宏、打印区域和外部链接均需逐项定义；CSV 不等于保真 XLSX。 打包或可靠探测 Office 引擎，隔离用户配置/宏，设计工作表和打印选项，处理大型文件与商店包体积。 有明确办公用户群后再投入；不能作为“补个 xlsx 白名单”。"
+									>
+										<th scope="row">
+											<code>UH-01</code><br /><span
+												class="catalog-title"
+												>电子表格转换</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>xls</code><code>xlsx</code
+												><code>ods</code><code>csv</code
+												><code>tsv</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>工作簿 → PDF / 图片 / CSV
+												等</strong
+											>
+											<p class="small">
+												工作表、公式、图表、筛选、宏、打印区域和外部链接均需逐项定义；CSV
+												不等于保真 XLSX。
+											</p>
+										</td>
+										<td>
+											需要 LibreOffice Calc
+											或专用表格引擎；Pandoc
+											不能替代工作簿转换
+										</td>
+										<td>
+											打包或可靠探测 Office
+											引擎，隔离用户配置/宏，设计工作表和打印选项，处理大型文件与商店包体积。
+										</td>
+										<td>
+											有明确办公用户群后再投入；不能作为“补个
+											xlsx 白名单”。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-02 演示文稿转换 ppt pptx odp 演示文稿 → PDF / 幻灯片图片 需要 LibreOffice Impress 或同类排版引擎 主题、动画、嵌入媒体、字体、图表、讲稿和幻灯片尺寸会影响结果；静态图片导出不保留演示行为。 隔离 Office 进程，管理字体/媒体/分页样本，增加每页输出和多文件恢复，完成跨平台发行审查。 与 UH-01 共享 Office 基础设施，但应独立验收。"
+									>
+										<th scope="row">
+											<code>UH-02</code><br /><span
+												class="catalog-title"
+												>演示文稿转换</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>ppt</code><code>pptx</code
+												><code>odp</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>演示文稿 → PDF /
+												幻灯片图片</strong
+											>
+											<p class="small">
+												主题、动画、嵌入媒体、字体、图表、讲稿和幻灯片尺寸会影响结果；静态图片导出不保留演示行为。
+											</p>
+										</td>
+										<td>
+											需要 LibreOffice Impress
+											或同类排版引擎
+										</td>
+										<td>
+											隔离 Office
+											进程，管理字体/媒体/分页样本，增加每页输出和多文件恢复，完成跨平台发行审查。
+										</td>
+										<td>
+											与 UH-01 共享 Office
+											基础设施，但应独立验收。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-03 视觉保真 Office / 旧 Word 文档 doc docx odt rtf pdf 文档 → 排版 PDF / 图片 需要 LibreOffice/Word 类排版引擎；现有 Pandoc 只适合结构化转换 不能承诺跨系统字体、分页、宏、嵌入对象、修订和复杂表格的完全相同外观；当前 RTF reader 已有已复现的正文顺序缺陷。 建立复杂文档质量库、字体许可与隔离策略，选择引擎并定义可接受的视觉差异。 不要用 Pandoc 的“能读/写”清单替代这项能力。"
+									>
+										<th scope="row">
+											<code>UH-03</code><br /><span
+												class="catalog-title"
+												>视觉保真 Office / 旧 Word
+												文档</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>doc</code><code>docx</code
+												><code>odt</code><code>rtf</code
+												><code>pdf</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>文档 → 排版 PDF / 图片</strong
+											>
+											<p class="small">
+												不能承诺跨系统字体、分页、宏、嵌入对象、修订和复杂表格的完全相同外观；当前
+												RTF reader
+												已有已复现的正文顺序缺陷。
+											</p>
+										</td>
+										<td>
+											需要 LibreOffice/Word
+											类排版引擎；现有 Pandoc
+											只适合结构化转换
+										</td>
+										<td>
+											建立复杂文档质量库、字体许可与隔离策略，选择引擎并定义可接受的视觉差异。
+										</td>
+										<td>
+											不要用 Pandoc
+											的“能读/写”清单替代这项能力。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-04 本地 OCR 与可搜索 PDF png jpeg tiff pdf txt hocr searchable pdf 图片/扫描 PDF → 文字、hOCR 或可搜索 PDF Tesseract + 语言 traineddata，PDF 还需页面渲染与结果合成 识别准确率取决于语言、版面和图片质量；需要用户选择语言、披露本地模型包和不确定结果，不能把 OCR 当作无损转换。 按语言分发模型、管理大包与版本，隔离处理，构建中英等真实扫描评测和可搜索 PDF 合成验收。 价值高但必须作为独立产品线；建议先做中英离线 TXT 试点。"
+									>
+										<th scope="row">
+											<code>UH-04</code><br /><span
+												class="catalog-title"
+												>本地 OCR 与可搜索 PDF</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>png</code><code>jpeg</code
+												><code>tiff</code
+												><code>pdf</code><code>txt</code
+												><code>hocr</code
+												><code>searchable pdf</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>图片/扫描 PDF → 文字、hOCR
+												或可搜索 PDF</strong
+											>
+											<p class="small">
+												识别准确率取决于语言、版面和图片质量；需要用户选择语言、披露本地模型包和不确定结果，不能把
+												OCR 当作无损转换。
+											</p>
+										</td>
+										<td>
+											Tesseract + 语言 traineddata，PDF
+											还需页面渲染与结果合成
+										</td>
+										<td>
+											按语言分发模型、管理大包与版本，隔离处理，构建中英等真实扫描评测和可搜索
+											PDF 合成验收。
+										</td>
+										<td>
+											价值高但必须作为独立产品线；建议先做中英离线
+											TXT 试点。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-05 可编辑图层与设计文件保真 psd xcf ora ai 设计源文件之间的可编辑转换 没有一个现有引擎可作为通用保真路线；通常要格式专用解析/写入或原应用自动化 图层、文字、智能对象、矢量路径、滤镜、混合模式、色彩配置和应用私有数据都不能靠扁平图片恢复。 单格式研究、许可和兼容性策略，定义编辑能力等级并长期维护大量真实素材。 不建议作为通用转换器近期目标；H-09 的扁平化导出是实际可交付边界。"
+									>
+										<th scope="row">
+											<code>UH-05</code><br /><span
+												class="catalog-title"
+												>可编辑图层与设计文件保真</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>psd</code><code>xcf</code
+												><code>ora</code><code>ai</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>设计源文件之间的可编辑转换</strong
+											>
+											<p class="small">
+												图层、文字、智能对象、矢量路径、滤镜、混合模式、色彩配置和应用私有数据都不能靠扁平图片恢复。
+											</p>
+										</td>
+										<td>
+											没有一个现有引擎可作为通用保真路线；通常要格式专用解析/写入或原应用自动化
+										</td>
+										<td>
+											单格式研究、许可和兼容性策略，定义编辑能力等级并长期维护大量真实素材。
+										</td>
+										<td>
+											不建议作为通用转换器近期目标；H-09
+											的扁平化导出是实际可交付边界。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-06 专业视频完整保真与硬件编码 h264 hevc av1 prores dnxhr mxf hdr video 多轨视频转码、无损处理与硬件加速 FFmpeg + 平台 GPU 运行时/驱动；现有编译器枚举不证明设备可用 多音轨、字幕、章节、HDR、色彩、10-bit、码率控制和 GPU 回退都必须显式；不同硬件输出不能承诺同样体积或画质。 建立 CPU/GPU 能力探测与失败回退、专业媒体测试资产、编码许可审查和长任务资源模型。 先完成 H-11/H-12，再根据专业用户需求决定。"
+									>
+										<th scope="row">
+											<code>UH-06</code><br /><span
+												class="catalog-title"
+												>专业视频完整保真与硬件编码</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>h264</code
+												><code>hevc</code
+												><code>av1</code
+												><code>prores</code
+												><code>dnxhr</code
+												><code>mxf</code
+												><code>hdr video</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>多轨视频转码、无损处理与硬件加速</strong
+											>
+											<p class="small">
+												多音轨、字幕、章节、HDR、色彩、10-bit、码率控制和
+												GPU
+												回退都必须显式；不同硬件输出不能承诺同样体积或画质。
+											</p>
+										</td>
+										<td>
+											FFmpeg + 平台 GPU
+											运行时/驱动；现有编译器枚举不证明设备可用
+										</td>
+										<td>
+											建立 CPU/GPU
+											能力探测与失败回退、专业媒体测试资产、编码许可审查和长任务资源模型。
+										</td>
+										<td>
+											先完成
+											H-11/H-12，再根据专业用户需求决定。
+										</td>
+									</tr>
+									<tr
+										data-search="UH-07 医疗、科学与工程图像工作流 dcm fits dicom series 专业图像导入、窗口化、序列/元数据处理 需要格式专用库和领域逻辑；ImageMagick 的单帧 coder 不构成完整工作流 医学窗口、空间坐标、病人信息、序列、科学数据单位和隐私要求不能被普通位图转换替代。 选择行业库、定义隐私与元数据清理、处理序列、建立专业验收与支持边界。 除非明确面向该行业，否则不要为了格式数量纳入产品范围。"
+									>
+										<th scope="row">
+											<code>UH-07</code><br /><span
+												class="catalog-title"
+												>医疗、科学与工程图像工作流</span
+											>
+										</th>
+										<td>
+											<div class="pills">
+												<code>dcm</code><code>fits</code
+												><code>dicom series</code>
+											</div>
+										</td>
+										<td>
+											<strong
+												>专业图像导入、窗口化、序列/元数据处理</strong
+											>
+											<p class="small">
+												医学窗口、空间坐标、病人信息、序列、科学数据单位和隐私要求不能被普通位图转换替代。
+											</p>
+										</td>
+										<td>
+											需要格式专用库和领域逻辑；ImageMagick
+											的单帧 coder 不构成完整工作流
+										</td>
+										<td>
+											选择行业库、定义隐私与元数据清理、处理序列、建立专业验收与支持边界。
+										</td>
+										<td>
+											除非明确面向该行业，否则不要为了格式数量纳入产品范围。
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<p class="small">
+					可阅读版本：<a href="FORMAT_EXPANSION_CATALOG.md"
+						>Markdown 选择目录</a
+					>；可维护源：<a href="format-expansion-catalog.json"
+						>JSON 目录数据</a
+					>。
+				</p>
+			</section>
+
+			<section id="web">
+				<h2>网页版本当前公开的格式白名单</h2>
+				<p>
+					输入和输出是独立方向。这里展示的是代码声明，不把“某个 WASM
+					组件理论可用”加进列表。PDF 的 23 个输出也单独列出。
+				</p>
+				<input
+					class="search"
+					type="search"
+					placeholder="筛选网页格式，例如 avif、xlsx、video"
+					data-filter=".web-format-table"
+				/>
+				<div class="table-wrap web-format-table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">网页转换器</th>
+								<th scope="col">输入</th>
+								<th scope="col">输出</th>
+								<th scope="col">边界</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="图片（ImageMagick WASM） 3fr aai ani arw avif avs bmp bmp2 bmp3 cin cr2 cr3 crw cur dcr dcx dds dng dpx dxt1 dxt5 erf exr farbfeld fax ff fit fits fl32 fts g3 gif gif87 hdr heic heif hrz icb icns ico icon ipl j2c j2k jfif jng jp2 jpc jpe jpeg jpg jpm jps jxl mat mef miff mng mos mrw mtv nef nrw orf otb palm pam pbm pcd pcds pct pcx pdb pef pfm pgm pgx phm picon pict pjpeg png png00 png24 png32 png48 png64 png8 pnm ppm psb psd ptif qoi raf ras raw rgf rw2 sgi six sixel sr2 srf srw sun svg tga tif tiff tiff64 vda vicar viff vips vst wbmp webp wpg xbm xcf xpm xv a aai ai art avif avs b bgr bgra bgro bmp bmp2 bmp3 brf cal cals cin cip cmyk cmyka cur dcx dds dpx dxt1 dxt5 epdf epi eps eps2 eps3 epsf epsi ept ept2 ept3 exr farbfeld fax ff fit fits fl32 fts ftxt g g3 g4 gif gif87 gray graya group4 hdr hrz icb ico icon info ipl isobrl isobrl6 j2c j2k jfif jng jp2 jpc jpe jpeg jpg jpm jps jxl map mat miff mng mono mtv o otb pal palm pam pbm pcd pcds pcl pct pcx pdb pfm pgm pgx phm picon pict pjpeg png png00 png24 png32 png48 png64 png8 pnm ppm ps ps1 ps2 ps3 psb psd ptif qoi r ras rgb rgba rgbo rgf sgi six sixel sparse-color strimg sun svg svgz tga tif tiff tiff64 ubrl ubrl6 uil uyvy vda vicar viff vips vst wbmp webp wpg xbm xpm xv ycbcr ycbcra yuv"
+							>
+								<th scope="row">图片（ImageMagick WASM）</th>
+								<td>
+									<strong>123</strong>
+									<div class="pills">
+										<code>.3fr</code><code>.aai</code
+										><code>.ani</code><code>.arw</code
+										><code>.avif</code><code>.avs</code
+										><code>.bmp</code><code>.bmp2</code
+										><code>.bmp3</code><code>.cin</code
+										><code>.cr2</code><code>.cr3</code
+										><code>.crw</code><code>.cur</code
+										><code>.dcr</code><code>.dcx</code
+										><code>.dds</code><code>.dng</code
+										><code>.dpx</code><code>.dxt1</code
+										><code>.dxt5</code><code>.erf</code
+										><code>.exr</code><code>.farbfeld</code
+										><code>.fax</code><code>.ff</code
+										><code>.fit</code><code>.fits</code
+										><code>.fl32</code><code>.fts</code
+										><code>.g3</code><code>.gif</code
+										><code>.gif87</code><code>.hdr</code
+										><code>.heic</code><code>.heif</code
+										><code>.hrz</code><code>.icb</code
+										><code>.icns</code><code>.ico</code
+										><code>.icon</code><code>.ipl</code
+										><code>.j2c</code><code>.j2k</code
+										><code>.jfif</code><code>.jng</code
+										><code>.jp2</code><code>.jpc</code
+										><code>.jpe</code><code>.jpeg</code
+										><code>.jpg</code><code>.jpm</code
+										><code>.jps</code><code>.jxl</code
+										><code>.mat</code><code>.mef</code
+										><code>.miff</code><code>.mng</code
+										><code>.mos</code><code>.mrw</code
+										><code>.mtv</code><code>.nef</code
+										><code>.nrw</code><code>.orf</code
+										><code>.otb</code><code>.palm</code
+										><code>.pam</code><code>.pbm</code
+										><code>.pcd</code><code>.pcds</code
+										><code>.pct</code><code>.pcx</code
+										><code>.pdb</code><code>.pef</code
+										><code>.pfm</code><code>.pgm</code
+										><code>.pgx</code><code>.phm</code
+										><code>.picon</code><code>.pict</code
+										><code>.pjpeg</code><code>.png</code
+										><code>.png00</code><code>.png24</code
+										><code>.png32</code><code>.png48</code
+										><code>.png64</code><code>.png8</code
+										><code>.pnm</code><code>.ppm</code
+										><code>.psb</code><code>.psd</code
+										><code>.ptif</code><code>.qoi</code
+										><code>.raf</code><code>.ras</code
+										><code>.raw</code><code>.rgf</code
+										><code>.rw2</code><code>.sgi</code
+										><code>.six</code><code>.sixel</code
+										><code>.sr2</code><code>.srf</code
+										><code>.srw</code><code>.sun</code
+										><code>.svg</code><code>.tga</code
+										><code>.tif</code><code>.tiff</code
+										><code>.tiff64</code><code>.vda</code
+										><code>.vicar</code><code>.viff</code
+										><code>.vips</code><code>.vst</code
+										><code>.wbmp</code><code>.webp</code
+										><code>.wpg</code><code>.xbm</code
+										><code>.xcf</code><code>.xpm</code
+										><code>.xv</code>
+									</div>
+								</td>
+								<td>
+									<strong>152</strong>
+									<div class="pills">
+										<code>.a</code><code>.aai</code
+										><code>.ai</code><code>.art</code
+										><code>.avif</code><code>.avs</code
+										><code>.b</code><code>.bgr</code
+										><code>.bgra</code><code>.bgro</code
+										><code>.bmp</code><code>.bmp2</code
+										><code>.bmp3</code><code>.brf</code
+										><code>.cal</code><code>.cals</code
+										><code>.cin</code><code>.cip</code
+										><code>.cmyk</code><code>.cmyka</code
+										><code>.cur</code><code>.dcx</code
+										><code>.dds</code><code>.dpx</code
+										><code>.dxt1</code><code>.dxt5</code
+										><code>.epdf</code><code>.epi</code
+										><code>.eps</code><code>.eps2</code
+										><code>.eps3</code><code>.epsf</code
+										><code>.epsi</code><code>.ept</code
+										><code>.ept2</code><code>.ept3</code
+										><code>.exr</code><code>.farbfeld</code
+										><code>.fax</code><code>.ff</code
+										><code>.fit</code><code>.fits</code
+										><code>.fl32</code><code>.fts</code
+										><code>.ftxt</code><code>.g</code
+										><code>.g3</code><code>.g4</code
+										><code>.gif</code><code>.gif87</code
+										><code>.gray</code><code>.graya</code
+										><code>.group4</code><code>.hdr</code
+										><code>.hrz</code><code>.icb</code
+										><code>.ico</code><code>.icon</code
+										><code>.info</code><code>.ipl</code
+										><code>.isobrl</code
+										><code>.isobrl6</code><code>.j2c</code
+										><code>.j2k</code><code>.jfif</code
+										><code>.jng</code><code>.jp2</code
+										><code>.jpc</code><code>.jpe</code
+										><code>.jpeg</code><code>.jpg</code
+										><code>.jpm</code><code>.jps</code
+										><code>.jxl</code><code>.map</code
+										><code>.mat</code><code>.miff</code
+										><code>.mng</code><code>.mono</code
+										><code>.mtv</code><code>.o</code
+										><code>.otb</code><code>.pal</code
+										><code>.palm</code><code>.pam</code
+										><code>.pbm</code><code>.pcd</code
+										><code>.pcds</code><code>.pcl</code
+										><code>.pct</code><code>.pcx</code
+										><code>.pdb</code><code>.pfm</code
+										><code>.pgm</code><code>.pgx</code
+										><code>.phm</code><code>.picon</code
+										><code>.pict</code><code>.pjpeg</code
+										><code>.png</code><code>.png00</code
+										><code>.png24</code><code>.png32</code
+										><code>.png48</code><code>.png64</code
+										><code>.png8</code><code>.pnm</code
+										><code>.ppm</code><code>.ps</code
+										><code>.ps1</code><code>.ps2</code
+										><code>.ps3</code><code>.psb</code
+										><code>.psd</code><code>.ptif</code
+										><code>.qoi</code><code>.r</code
+										><code>.ras</code><code>.rgb</code
+										><code>.rgba</code><code>.rgbo</code
+										><code>.rgf</code><code>.sgi</code
+										><code>.six</code><code>.sixel</code
+										><code>.sparse-color</code
+										><code>.strimg</code><code>.sun</code
+										><code>.svg</code><code>.svgz</code
+										><code>.tga</code><code>.tif</code
+										><code>.tiff</code><code>.tiff64</code
+										><code>.ubrl</code><code>.ubrl6</code
+										><code>.uil</code><code>.uyvy</code
+										><code>.vda</code><code>.vicar</code
+										><code>.viff</code><code>.vips</code
+										><code>.vst</code><code>.wbmp</code
+										><code>.webp</code><code>.wpg</code
+										><code>.xbm</code><code>.xpm</code
+										><code>.xv</code><code>.ycbcr</code
+										><code>.ycbcra</code><code>.yuv</code>
+									</div>
+								</td>
+								<td>
+									静态声明；SVG
+									会先走专用栅格化路径。每个输入/输出组合仍由转换器方向与运行时编码器决定。
+								</td>
+							</tr>
+							<tr
+								data-search="PDF → 栅格图片（MuPDF WASM + 图像编码器） pdf png jpeg jpg webp avif jxl gif bmp tiff tif ico jp2 psd qoi tga ppm pgm pbm pnm pcx dds exr hdr"
+							>
+								<th scope="row">
+									PDF → 栅格图片（MuPDF WASM + 图像编码器）
+								</th>
+								<td>
+									<strong>1</strong>
+									<div class="pills"><code>.pdf</code></div>
+								</td>
+								<td>
+									<strong>23</strong>
+									<div class="pills">
+										<code>.png</code><code>.jpeg</code
+										><code>.jpg</code><code>.webp</code
+										><code>.avif</code><code>.jxl</code
+										><code>.gif</code><code>.bmp</code
+										><code>.tiff</code><code>.tif</code
+										><code>.ico</code><code>.jp2</code
+										><code>.psd</code><code>.qoi</code
+										><code>.tga</code><code>.ppm</code
+										><code>.pgm</code><code>.pbm</code
+										><code>.pnm</code><code>.pcx</code
+										><code>.dds</code><code>.exr</code
+										><code>.hdr</code>
+									</div>
+								</td>
+								<td>
+									PDF 输入只有 .pdf；23 个输出扩展含 JPG/JPEG
+									和 TIF/TIFF 两组别名。
+								</td>
+							</tr>
+							<tr
+								data-search="音频/视频 → 音频（FFmpeg WASM） 3g2 3gp aac ac3 aif aifc aiff alac amr au avi caf dff divx dsd dsf f4v flac flv m2ts m4a m4b m4v mkv mogg mov mp1 mp2 mp3 mp4 mpc mpeg mpg mqa mts mxf oga ogg ogv opus rm rmvb ts vob voc wav weba webm wma wmv aac ac3 aif aifc aiff alac amr au flac m4a m4b mp2 mp3 oga ogg opus voc wav weba wma"
+							>
+								<th scope="row">
+									音频/视频 → 音频（FFmpeg WASM）
+								</th>
+								<td>
+									<strong>50</strong>
+									<div class="pills">
+										<code>.3g2</code><code>.3gp</code
+										><code>.aac</code><code>.ac3</code
+										><code>.aif</code><code>.aifc</code
+										><code>.aiff</code><code>.alac</code
+										><code>.amr</code><code>.au</code
+										><code>.avi</code><code>.caf</code
+										><code>.dff</code><code>.divx</code
+										><code>.dsd</code><code>.dsf</code
+										><code>.f4v</code><code>.flac</code
+										><code>.flv</code><code>.m2ts</code
+										><code>.m4a</code><code>.m4b</code
+										><code>.m4v</code><code>.mkv</code
+										><code>.mogg</code><code>.mov</code
+										><code>.mp1</code><code>.mp2</code
+										><code>.mp3</code><code>.mp4</code
+										><code>.mpc</code><code>.mpeg</code
+										><code>.mpg</code><code>.mqa</code
+										><code>.mts</code><code>.mxf</code
+										><code>.oga</code><code>.ogg</code
+										><code>.ogv</code><code>.opus</code
+										><code>.rm</code><code>.rmvb</code
+										><code>.ts</code><code>.vob</code
+										><code>.voc</code><code>.wav</code
+										><code>.weba</code><code>.webm</code
+										><code>.wma</code><code>.wmv</code>
+									</div>
+								</td>
+								<td>
+									<strong>20</strong>
+									<div class="pills">
+										<code>.aac</code><code>.ac3</code
+										><code>.aif</code><code>.aifc</code
+										><code>.aiff</code><code>.alac</code
+										><code>.amr</code><code>.au</code
+										><code>.flac</code><code>.m4a</code
+										><code>.m4b</code><code>.mp2</code
+										><code>.mp3</code><code>.oga</code
+										><code>.ogg</code><code>.opus</code
+										><code>.voc</code><code>.wav</code
+										><code>.weba</code><code>.wma</code>
+									</div>
+								</td>
+								<td>
+									视频格式在此版本只作为音频提取输入，不构成网页视频输出能力。
+								</td>
+							</tr>
+							<tr
+								data-search="文档（Pandoc WASM） csv doc docbook docx epub html json md odt rst rtf tsv csv doc docbook docx epub html json md odt rst rtf tsv"
+							>
+								<th scope="row">文档（Pandoc WASM）</th>
+								<td>
+									<strong>12</strong>
+									<div class="pills">
+										<code>.csv</code><code>.doc</code
+										><code>.docbook</code><code>.docx</code
+										><code>.epub</code><code>.html</code
+										><code>.json</code><code>.md</code
+										><code>.odt</code><code>.rst</code
+										><code>.rtf</code><code>.tsv</code>
+									</div>
+								</td>
+								<td>
+									<strong>12</strong>
+									<div class="pills">
+										<code>.csv</code><code>.doc</code
+										><code>.docbook</code><code>.docx</code
+										><code>.epub</code><code>.html</code
+										><code>.json</code><code>.md</code
+										><code>.odt</code><code>.rst</code
+										><code>.rtf</code><code>.tsv</code>
+									</div>
+								</td>
+								<td>
+									声明的是网页转换器白名单；其中 JSON 必须是
+									Pandoc JSON。
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<details>
+					<summary>查看网页图片的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（123）</h3>
+						<div class="pills">
+							<code>.3fr</code><code>.aai</code><code>.ani</code
+							><code>.arw</code><code>.avif</code><code>.avs</code
+							><code>.bmp</code><code>.bmp2</code
+							><code>.bmp3</code><code>.cin</code><code>.cr2</code
+							><code>.cr3</code><code>.crw</code><code>.cur</code
+							><code>.dcr</code><code>.dcx</code><code>.dds</code
+							><code>.dng</code><code>.dpx</code><code>.dxt1</code
+							><code>.dxt5</code><code>.erf</code><code>.exr</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code><code>.g3</code
+							><code>.gif</code><code>.gif87</code
+							><code>.hdr</code><code>.heic</code
+							><code>.heif</code><code>.hrz</code><code>.icb</code
+							><code>.icns</code><code>.ico</code
+							><code>.icon</code><code>.ipl</code><code>.j2c</code
+							><code>.j2k</code><code>.jfif</code><code>.jng</code
+							><code>.jp2</code><code>.jpc</code><code>.jpe</code
+							><code>.jpeg</code><code>.jpg</code><code>.jpm</code
+							><code>.jps</code><code>.jxl</code><code>.mat</code
+							><code>.mef</code><code>.miff</code><code>.mng</code
+							><code>.mos</code><code>.mrw</code><code>.mtv</code
+							><code>.nef</code><code>.nrw</code><code>.orf</code
+							><code>.otb</code><code>.palm</code><code>.pam</code
+							><code>.pbm</code><code>.pcd</code><code>.pcds</code
+							><code>.pct</code><code>.pcx</code><code>.pdb</code
+							><code>.pef</code><code>.pfm</code><code>.pgm</code
+							><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png</code
+							><code>.png00</code><code>.png24</code
+							><code>.png32</code><code>.png48</code
+							><code>.png64</code><code>.png8</code
+							><code>.pnm</code><code>.ppm</code><code>.psb</code
+							><code>.psd</code><code>.ptif</code><code>.qoi</code
+							><code>.raf</code><code>.ras</code><code>.raw</code
+							><code>.rgf</code><code>.rw2</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sr2</code><code>.srf</code><code>.srw</code
+							><code>.sun</code><code>.svg</code><code>.tga</code
+							><code>.tif</code><code>.tiff</code
+							><code>.tiff64</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.webp</code
+							><code>.wpg</code><code>.xbm</code><code>.xcf</code
+							><code>.xpm</code><code>.xv</code>
+						</div>
+						<h3>输出（152）</h3>
+						<div class="pills">
+							<code>.a</code><code>.aai</code><code>.ai</code
+							><code>.art</code><code>.avif</code><code>.avs</code
+							><code>.b</code><code>.bgr</code><code>.bgra</code
+							><code>.bgro</code><code>.bmp</code
+							><code>.bmp2</code><code>.bmp3</code
+							><code>.brf</code><code>.cal</code><code>.cals</code
+							><code>.cin</code><code>.cip</code><code>.cmyk</code
+							><code>.cmyka</code><code>.cur</code
+							><code>.dcx</code><code>.dds</code><code>.dpx</code
+							><code>.dxt1</code><code>.dxt5</code
+							><code>.epdf</code><code>.epi</code><code>.eps</code
+							><code>.eps2</code><code>.eps3</code
+							><code>.epsf</code><code>.epsi</code
+							><code>.ept</code><code>.ept2</code
+							><code>.ept3</code><code>.exr</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code
+							><code>.ftxt</code><code>.g</code><code>.g3</code
+							><code>.g4</code><code>.gif</code><code>.gif87</code
+							><code>.gray</code><code>.graya</code
+							><code>.group4</code><code>.hdr</code
+							><code>.hrz</code><code>.icb</code><code>.ico</code
+							><code>.icon</code><code>.info</code
+							><code>.ipl</code><code>.isobrl</code
+							><code>.isobrl6</code><code>.j2c</code
+							><code>.j2k</code><code>.jfif</code><code>.jng</code
+							><code>.jp2</code><code>.jpc</code><code>.jpe</code
+							><code>.jpeg</code><code>.jpg</code><code>.jpm</code
+							><code>.jps</code><code>.jxl</code><code>.map</code
+							><code>.mat</code><code>.miff</code><code>.mng</code
+							><code>.mono</code><code>.mtv</code><code>.o</code
+							><code>.otb</code><code>.pal</code><code>.palm</code
+							><code>.pam</code><code>.pbm</code><code>.pcd</code
+							><code>.pcds</code><code>.pcl</code><code>.pct</code
+							><code>.pcx</code><code>.pdb</code><code>.pfm</code
+							><code>.pgm</code><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png</code
+							><code>.png00</code><code>.png24</code
+							><code>.png32</code><code>.png48</code
+							><code>.png64</code><code>.png8</code
+							><code>.pnm</code><code>.ppm</code><code>.ps</code
+							><code>.ps1</code><code>.ps2</code><code>.ps3</code
+							><code>.psb</code><code>.psd</code><code>.ptif</code
+							><code>.qoi</code><code>.r</code><code>.ras</code
+							><code>.rgb</code><code>.rgba</code
+							><code>.rgbo</code><code>.rgf</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sparse-color</code><code>.strimg</code
+							><code>.sun</code><code>.svg</code><code>.svgz</code
+							><code>.tga</code><code>.tif</code><code>.tiff</code
+							><code>.tiff64</code><code>.ubrl</code
+							><code>.ubrl6</code><code>.uil</code
+							><code>.uyvy</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.webp</code
+							><code>.wpg</code><code>.xbm</code><code>.xpm</code
+							><code>.xv</code><code>.ycbcr</code
+							><code>.ycbcra</code><code>.yuv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页媒体的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（50）</h3>
+						<div class="pills">
+							<code>.3g2</code><code>.3gp</code><code>.aac</code
+							><code>.ac3</code><code>.aif</code><code>.aifc</code
+							><code>.aiff</code><code>.alac</code
+							><code>.amr</code><code>.au</code><code>.avi</code
+							><code>.caf</code><code>.dff</code><code>.divx</code
+							><code>.dsd</code><code>.dsf</code><code>.f4v</code
+							><code>.flac</code><code>.flv</code
+							><code>.m2ts</code><code>.m4a</code><code>.m4b</code
+							><code>.m4v</code><code>.mkv</code><code>.mogg</code
+							><code>.mov</code><code>.mp1</code><code>.mp2</code
+							><code>.mp3</code><code>.mp4</code><code>.mpc</code
+							><code>.mpeg</code><code>.mpg</code><code>.mqa</code
+							><code>.mts</code><code>.mxf</code><code>.oga</code
+							><code>.ogg</code><code>.ogv</code><code>.opus</code
+							><code>.rm</code><code>.rmvb</code><code>.ts</code
+							><code>.vob</code><code>.voc</code><code>.wav</code
+							><code>.weba</code><code>.webm</code
+							><code>.wma</code><code>.wmv</code>
+						</div>
+						<h3>输出（20）</h3>
+						<div class="pills">
+							<code>.aac</code><code>.ac3</code><code>.aif</code
+							><code>.aifc</code><code>.aiff</code
+							><code>.alac</code><code>.amr</code><code>.au</code
+							><code>.flac</code><code>.m4a</code><code>.m4b</code
+							><code>.mp2</code><code>.mp3</code><code>.oga</code
+							><code>.ogg</code><code>.opus</code><code>.voc</code
+							><code>.wav</code><code>.weba</code
+							><code>.wma</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页文档的完整输入 / 输出列表</summary>
+					<div class="details-content">
+						<h3>输入（12）</h3>
+						<div class="pills">
+							<code>.csv</code><code>.doc</code
+							><code>.docbook</code><code>.docx</code
+							><code>.epub</code><code>.html</code
+							><code>.json</code><code>.md</code><code>.odt</code
+							><code>.rst</code><code>.rtf</code><code>.tsv</code>
+						</div>
+						<h3>输出（12）</h3>
+						<div class="pills">
+							<code>.csv</code><code>.doc</code
+							><code>.docbook</code><code>.docx</code
+							><code>.epub</code><code>.html</code
+							><code>.json</code><code>.md</code><code>.odt</code
+							><code>.rst</code><code>.rtf</code><code>.tsv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>查看网页 PDF 的全部 23 个图片输出</summary>
+					<div class="details-content">
+						<div class="pills">
+							<code>.png</code><code>.jpeg</code><code>.jpg</code
+							><code>.webp</code><code>.avif</code
+							><code>.jxl</code><code>.gif</code><code>.bmp</code
+							><code>.tiff</code><code>.tif</code><code>.ico</code
+							><code>.jp2</code><code>.psd</code><code>.qoi</code
+							><code>.tga</code><code>.ppm</code><code>.pgm</code
+							><code>.pbm</code><code>.pnm</code><code>.pcx</code
+							><code>.dds</code><code>.exr</code><code>.hdr</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="why">
+				<h2>为什么这些格式尚未对全部桌面包开放</h2>
+				<p>
+					“尚未开放”表示当前桌面源码或某个最终安装包没有授权该路线。原因分为：尚未接入并验收、包内依赖/模块没有跨平台保证，或现有组件根本不负责这一类任务。
+				</p>
+				<input
+					class="search"
+					type="search"
+					placeholder="筛选限制原因，例如 TIFF、XLSX、OCR、视频"
+					data-filter=".why-table"
+				/>
+				<div class="table-wrap why-table">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">格式族</th>
+								<th scope="col">典型格式</th>
+								<th scope="col">组件层面</th>
+								<th scope="col">网页现状</th>
+								<th scope="col">桌面现状</th>
+								<th scope="col">为何不开放</th>
+								<th scope="col">下一步</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								data-search="网页已开放、桌面仍未开放的图片输出 JP2/J2K、PSD、DDS 等；完整差集见下方。 ImageMagick 官方可支持的范围很广，但实际可读写项目取决于编译 delegate、coder 模块和包内库。 网页图片和/或 PDF 输出白名单中存在许多这些格式。 桌面源码范围已包含 GIF、JXL、TIFF/TIF、ICO、PCX、PNM/PBM/PGM/PPM、HEIC/HEIF 等；JP2/J2K、PSD、DDS 尚未纳入。 产品范围不会因为原生引擎列出了 coder 就自动扩大。新增路线仍要在各目标最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。 仍可逐格式扩展；先补齐模块、固定编码参数和逐平台验收。"
+							>
+								<th scope="row">
+									网页已开放、桌面仍未开放的图片输出
+								</th>
+								<td>JP2/J2K、PSD、DDS 等；完整差集见下方。</td>
+								<td>
+									ImageMagick
+									官方可支持的范围很广，但实际可读写项目取决于编译
+									delegate、coder 模块和包内库。
+								</td>
+								<td>
+									网页图片和/或 PDF
+									输出白名单中存在许多这些格式。
+								</td>
+								<td>
+									桌面源码范围已包含
+									GIF、JXL、TIFF/TIF、ICO、PCX、PNM/PBM/PGM/PPM、HEIC/HEIF
+									等；JP2/J2K、PSD、DDS 尚未纳入。
+								</td>
+								<td>
+									产品范围不会因为原生引擎列出了 coder
+									就自动扩大。新增路线仍要在各目标最终包中验证编码、重新解码、颜色/alpha、元数据、多页或多帧语义和保存失败处理。
+								</td>
+								<td>
+									仍可逐格式扩展；先补齐模块、固定编码参数和逐平台验收。
+								</td>
+							</tr>
+							<tr
+								data-search="HEIC/HEIF 输出 HEIC、HEIF ImageMagick 的 HEIC delegate 可以是读写能力，且具体编码插件、版本与参数会影响结果。 网页白名单把 HEIC/HEIF 标为输入，不标为输出。 桌面源码范围已定义 HEIC/HEIF 输出为 HEVC、有损、8-bit SDR 的同一兼容档位；具体安装包仍须通过随包编码器与读回验收后才显示。 可解码 HEIC 不等于每个平台都具备可发布的编码器。路线固定了色彩、位深和 alpha 的降级语义，仍需分别验证真实文件与包内插件闭包。 在每个目标包通过 HEIF 编码/读回和许可证复核前，不扩展其公开 profile。"
+							>
+								<th scope="row">HEIC/HEIF 输出</th>
+								<td>HEIC、HEIF</td>
+								<td>
+									ImageMagick 的 HEIC delegate
+									可以是读写能力，且具体编码插件、版本与参数会影响结果。
+								</td>
+								<td>
+									网页白名单把 HEIC/HEIF
+									标为输入，不标为输出。
+								</td>
+								<td>
+									桌面源码范围已定义 HEIC/HEIF 输出为
+									HEVC、有损、8-bit SDR
+									的同一兼容档位；具体安装包仍须通过随包编码器与读回验收后才显示。
+								</td>
+								<td>
+									可解码 HEIC
+									不等于每个平台都具备可发布的编码器。路线固定了色彩、位深和
+									alpha
+									的降级语义，仍需分别验证真实文件与包内插件闭包。
+								</td>
+								<td>
+									在每个目标包通过 HEIF
+									编码/读回和许可证复核前，不扩展其公开
+									profile。
+								</td>
+							</tr>
+							<tr
+								data-search="SVG、EPS/PS 与相机 RAW SVG、EPS、PS、ARW、CR2、DNG、NEF、RAF、ORF、RW2 等 需要 SVG 渲染器、字体/外部资源策略，或 LibRaw/相机 vendor delegate；ImageMagick 的格式表不是对所有包的承诺。 网页声明部分 SVG、EPS/PS 或 RAW 为输入/输出，但其中多项只读或有专用前处理。 桌面源码范围支持受限的静态 SVG 输入；EPS/PS 与相机 RAW 仍没有产品路线。 它们不是简单的像素重编码：静态 SVG 仍须限制字体、脚本和外部资源，RAW 则涉及相机型号、显影和色彩配置。EPS/PS、RAW 没有对应的产品路线与质量合同。 需要专用引擎和独立安全/保真验收。"
+							>
+								<th scope="row">SVG、EPS/PS 与相机 RAW</th>
+								<td>
+									SVG、EPS、PS、ARW、CR2、DNG、NEF、RAF、ORF、RW2
+									等
+								</td>
+								<td>
+									需要 SVG 渲染器、字体/外部资源策略，或
+									LibRaw/相机 vendor delegate；ImageMagick
+									的格式表不是对所有包的承诺。
+								</td>
+								<td>
+									网页声明部分 SVG、EPS/PS 或 RAW
+									为输入/输出，但其中多项只读或有专用前处理。
+								</td>
+								<td>
+									桌面源码范围支持受限的静态 SVG 输入；EPS/PS
+									与相机 RAW 仍没有产品路线。
+								</td>
+								<td>
+									它们不是简单的像素重编码：静态 SVG
+									仍须限制字体、脚本和外部资源，RAW
+									则涉及相机型号、显影和色彩配置。EPS/PS、RAW
+									没有对应的产品路线与质量合同。
+								</td>
+								<td>需要专用引擎和独立安全/保真验收。</td>
+							</tr>
+							<tr
+								data-search="动画、多页和多尺寸图像 GIF/APNG/动画 WebP、TIFF 多页、ICO 多尺寸、PSD 图层等 图像库能列出读写，不表示保留帧时长、循环、页序、图层或图标尺寸。 网页某些扩展可选，但产品仍需按具体转换器处理。 桌面普通图片按首帧处理；PDF 是唯一具有逐页恢复语义的多页路线。 若默认只取第一帧/第一页却称为完整格式转换，会造成数据语义丢失。需要定义帧/页/图层策略和资源上限，并做专门回归。 产品设计与验收后再开放。"
+							>
+								<th scope="row">动画、多页和多尺寸图像</th>
+								<td>
+									GIF/APNG/动画 WebP、TIFF 多页、ICO
+									多尺寸、PSD 图层等
+								</td>
+								<td>
+									图像库能列出读写，不表示保留帧时长、循环、页序、图层或图标尺寸。
+								</td>
+								<td>
+									网页某些扩展可选，但产品仍需按具体转换器处理。
+								</td>
+								<td>
+									桌面普通图片按首帧处理；PDF
+									是唯一具有逐页恢复语义的多页路线。
+								</td>
+								<td>
+									若默认只取第一帧/第一页却称为完整格式转换，会造成数据语义丢失。需要定义帧/页/图层策略和资源上限，并做专门回归。
+								</td>
+								<td>产品设计与验收后再开放。</td>
+							</tr>
+							<tr
+								data-search="更多音频/视频容器，以及视频输出 AAC、WMA、AMR、AU、CAF、AVI、TS/MTS、MPEG、FLV、3GP、MXF 等；MP4/WebM/MKV → 视频输出亦在此列。 FFmpeg 的 demuxer/muxer 与 encoder 列表远大于产品路线；容器、codec、字幕、多音轨、HDR 和硬件加速是不同维度。 网页列出更多媒体输入，但当前只把它们转/提取为音频，不提供视频输出。 桌面源码范围接收 24 个媒体扩展、输出 9 个音频格式；MP4/MOV/MKV/WebM 仅取第一条音轨。 扩展名不够判断可转换性。当前实现明确限定 demuxer、只映射第一条音轨，并验证指定 codec/容器；视频输出会新增预设、流选择、字幕/旋转/色彩、磁盘预算与硬件回退责任。 更多音频容器可逐项扩展；视频输出是独立功能阶段。"
+							>
+								<th scope="row">
+									更多音频/视频容器，以及视频输出
+								</th>
+								<td>
+									AAC、WMA、AMR、AU、CAF、AVI、TS/MTS、MPEG、FLV、3GP、MXF
+									等；MP4/WebM/MKV → 视频输出亦在此列。
+								</td>
+								<td>
+									FFmpeg 的 demuxer/muxer 与 encoder
+									列表远大于产品路线；容器、codec、字幕、多音轨、HDR
+									和硬件加速是不同维度。
+								</td>
+								<td>
+									网页列出更多媒体输入，但当前只把它们转/提取为音频，不提供视频输出。
+								</td>
+								<td>
+									桌面源码范围接收 24 个媒体扩展、输出 9
+									个音频格式；MP4/MOV/MKV/WebM
+									仅取第一条音轨。
+								</td>
+								<td>
+									扩展名不够判断可转换性。当前实现明确限定
+									demuxer、只映射第一条音轨，并验证指定
+									codec/容器；视频输出会新增预设、流选择、字幕/旋转/色彩、磁盘预算与硬件回退责任。
+								</td>
+								<td>
+									更多音频容器可逐项扩展；视频输出是独立功能阶段。
+								</td>
+							</tr>
+							<tr
+								data-search="富文本文档输出与额外文档输入 DOC、RTF、CSV、TSV、Pandoc JSON、RST、DocBook，以及 DOCX/ODT/EPUB/HTML → DOCX/HTML/EPUB/PDF 等 Pandoc 有大量 reader/writer；PDF writer 还需要实际 PDF 排版引擎，不能只看 writer 列表。 网页 Pandoc 白名单开放 12 个输入/输出名称。 桌面源码范围接收 TXT/TEXT、Markdown 别名、RST、DOCX、HTML/HTM、ODT、EPUB、CSV/TSV、DocBook、Org，并且只输出 UTF-8 TXT。 桌面合同明确选择文本提取，不保留图片、字体、分页、布局或复杂表格。RTF 曾在验收中出现正文顺序问题，因此被明确移出桌面路线；这类路线不能因能生成文件就算支持。 结构化文档可逐路线扩展；排版保真与 PDF 输出需单独引擎/测试。"
+							>
+								<th scope="row">
+									富文本文档输出与额外文档输入
+								</th>
+								<td>
+									DOC、RTF、CSV、TSV、Pandoc
+									JSON、RST、DocBook，以及 DOCX/ODT/EPUB/HTML
+									→ DOCX/HTML/EPUB/PDF 等
+								</td>
+								<td>
+									Pandoc 有大量 reader/writer；PDF writer
+									还需要实际 PDF 排版引擎，不能只看 writer
+									列表。
+								</td>
+								<td>
+									网页 Pandoc 白名单开放 12 个输入/输出名称。
+								</td>
+								<td>
+									桌面源码范围接收 TXT/TEXT、Markdown
+									别名、RST、DOCX、HTML/HTM、ODT、EPUB、CSV/TSV、DocBook、Org，并且只输出
+									UTF-8 TXT。
+								</td>
+								<td>
+									桌面合同明确选择文本提取，不保留图片、字体、分页、布局或复杂表格。RTF
+									曾在验收中出现正文顺序问题，因此被明确移出桌面路线；这类路线不能因能生成文件就算支持。
+								</td>
+								<td>
+									结构化文档可逐路线扩展；排版保真与 PDF
+									输出需单独引擎/测试。
+								</td>
+							</tr>
+							<tr
+								data-search="电子表格、演示文稿与 OCR XLS、XLSX、ODS、PPT、PPTX；扫描 PDF/图片 → 可搜索文本 现有 Pandoc/MuPDF/ImageMagick/FFmpeg 组合不是完整 Office 或 OCR 引擎。 当前网页没有 XLS/XLSX/ODS/PPT/PPTX 或 OCR 路线。 当前桌面也没有；Rust 测试明确断言 XLSX 没有输出路线。 工作簿包含多工作表、公式、图表和打印区域，不能把 XLSX → CSV 当成保真转换。OCR 还需要语言模型、识别准确度、隐私/包体积和平台分发策略。 需要新增 LibreOffice/专门表格引擎或 Tesseract 等专用组件，并单独做发行审核。"
+							>
+								<th scope="row">电子表格、演示文稿与 OCR</th>
+								<td>
+									XLS、XLSX、ODS、PPT、PPTX；扫描 PDF/图片 →
+									可搜索文本
+								</td>
+								<td>
+									现有 Pandoc/MuPDF/ImageMagick/FFmpeg
+									组合不是完整 Office 或 OCR 引擎。
+								</td>
+								<td>
+									当前网页没有 XLS/XLSX/ODS/PPT/PPTX 或 OCR
+									路线。
+								</td>
+								<td>
+									当前桌面也没有；Rust 测试明确断言 XLSX
+									没有输出路线。
+								</td>
+								<td>
+									工作簿包含多工作表、公式、图表和打印区域，不能把
+									XLSX → CSV 当成保真转换。OCR
+									还需要语言模型、识别准确度、隐私/包体积和平台分发策略。
+								</td>
+								<td>
+									需要新增 LibreOffice/专门表格引擎或
+									Tesseract 等专用组件，并单独做发行审核。
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<details>
+					<summary>
+						网页图片输出中、桌面图片输出中没有的全部名称（130）
+					</summary>
+					<div class="details-content">
+						<p class="small">
+							其中有编码器别名、伪格式和专业格式。它们不应以“名称数量”替代产品支持数量。
+						</p>
+						<div class="difference">
+							<code>.a</code><code>.aai</code><code>.ai</code
+							><code>.art</code><code>.avs</code><code>.b</code
+							><code>.bgr</code><code>.bgra</code
+							><code>.bgro</code><code>.bmp2</code
+							><code>.bmp3</code><code>.brf</code><code>.cal</code
+							><code>.cals</code><code>.cin</code><code>.cip</code
+							><code>.cmyk</code><code>.cmyka</code
+							><code>.cur</code><code>.dcx</code><code>.dds</code
+							><code>.dpx</code><code>.dxt1</code
+							><code>.dxt5</code><code>.epdf</code
+							><code>.epi</code><code>.eps</code><code>.eps2</code
+							><code>.eps3</code><code>.epsf</code
+							><code>.epsi</code><code>.ept</code
+							><code>.ept2</code><code>.ept3</code
+							><code>.exr</code><code>.farbfeld</code
+							><code>.fax</code><code>.ff</code><code>.fit</code
+							><code>.fits</code><code>.fl32</code
+							><code>.fts</code><code>.ftxt</code><code>.g</code
+							><code>.g3</code><code>.g4</code><code>.gif87</code
+							><code>.gray</code><code>.graya</code
+							><code>.group4</code><code>.hdr</code
+							><code>.hrz</code><code>.icb</code><code>.icon</code
+							><code>.info</code><code>.ipl</code
+							><code>.isobrl</code><code>.isobrl6</code
+							><code>.j2c</code><code>.j2k</code><code>.jfif</code
+							><code>.jng</code><code>.jp2</code><code>.jpc</code
+							><code>.jpm</code><code>.jps</code><code>.map</code
+							><code>.mat</code><code>.miff</code><code>.mng</code
+							><code>.mono</code><code>.mtv</code><code>.o</code
+							><code>.otb</code><code>.pal</code><code>.palm</code
+							><code>.pcd</code><code>.pcds</code><code>.pcl</code
+							><code>.pct</code><code>.pdb</code><code>.pfm</code
+							><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png00</code
+							><code>.png24</code><code>.png32</code
+							><code>.png48</code><code>.png64</code
+							><code>.png8</code><code>.ps</code><code>.ps1</code
+							><code>.ps2</code><code>.ps3</code><code>.psb</code
+							><code>.psd</code><code>.ptif</code><code>.r</code
+							><code>.ras</code><code>.rgb</code><code>.rgba</code
+							><code>.rgbo</code><code>.rgf</code><code>.sgi</code
+							><code>.six</code><code>.sixel</code
+							><code>.sparse-color</code><code>.strimg</code
+							><code>.sun</code><code>.svg</code><code>.svgz</code
+							><code>.tiff64</code><code>.ubrl</code
+							><code>.ubrl6</code><code>.uil</code
+							><code>.uyvy</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.wpg</code><code>.xv</code
+							><code>.ycbcr</code><code>.ycbcra</code
+							><code>.yuv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面图片输入中没有的全部名称（94）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.3fr</code><code>.aai</code><code>.ani</code
+							><code>.arw</code><code>.avs</code><code>.bmp2</code
+							><code>.bmp3</code><code>.cin</code><code>.cr2</code
+							><code>.cr3</code><code>.crw</code><code>.cur</code
+							><code>.dcr</code><code>.dcx</code><code>.dds</code
+							><code>.dng</code><code>.dxt1</code
+							><code>.dxt5</code><code>.erf</code
+							><code>.farbfeld</code><code>.fax</code
+							><code>.ff</code><code>.fit</code><code>.fits</code
+							><code>.fl32</code><code>.fts</code><code>.g3</code
+							><code>.gif87</code><code>.hrz</code
+							><code>.icb</code><code>.icns</code
+							><code>.icon</code><code>.ipl</code><code>.j2c</code
+							><code>.j2k</code><code>.jng</code><code>.jp2</code
+							><code>.jpc</code><code>.jpm</code><code>.jps</code
+							><code>.mat</code><code>.mef</code><code>.miff</code
+							><code>.mng</code><code>.mos</code><code>.mrw</code
+							><code>.mtv</code><code>.nef</code><code>.nrw</code
+							><code>.orf</code><code>.otb</code><code>.palm</code
+							><code>.pcd</code><code>.pcds</code><code>.pct</code
+							><code>.pdb</code><code>.pef</code><code>.pfm</code
+							><code>.pgx</code><code>.phm</code
+							><code>.picon</code><code>.pict</code
+							><code>.pjpeg</code><code>.png00</code
+							><code>.png24</code><code>.png32</code
+							><code>.png48</code><code>.png64</code
+							><code>.png8</code><code>.psb</code><code>.psd</code
+							><code>.ptif</code><code>.raf</code><code>.ras</code
+							><code>.raw</code><code>.rgf</code><code>.rw2</code
+							><code>.sgi</code><code>.six</code
+							><code>.sixel</code><code>.sr2</code
+							><code>.srf</code><code>.srw</code><code>.sun</code
+							><code>.tiff64</code><code>.vda</code
+							><code>.vicar</code><code>.viff</code
+							><code>.vips</code><code>.vst</code
+							><code>.wbmp</code><code>.wpg</code><code>.xcf</code
+							><code>.xv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面媒体输入中没有的全部名称（28）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.3g2</code><code>.3gp</code><code>.aifc</code
+							><code>.alac</code><code>.avi</code><code>.dff</code
+							><code>.divx</code><code>.dsd</code><code>.dsf</code
+							><code>.f4v</code><code>.flv</code><code>.m2ts</code
+							><code>.m4b</code><code>.m4v</code><code>.mogg</code
+							><code>.mp1</code><code>.mpc</code><code>.mpeg</code
+							><code>.mpg</code><code>.mqa</code><code>.mts</code
+							><code>.mxf</code><code>.ogv</code><code>.rm</code
+							><code>.rmvb</code><code>.ts</code><code>.vob</code
+							><code>.wmv</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>
+						网页可读、桌面文档输入中没有的全部名称（3）
+					</summary>
+					<div class="details-content">
+						<div class="difference">
+							<code>.doc</code><code>.json</code><code>.rtf</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="components">
+				<h2>上游组件的证据与完整清单</h2>
+				<p>
+					下列“组件能力”不等于产品支持。ImageMagick 和 FFmpeg
+					都是按构建配置加载可选模块；Pandoc 的 PDF writer
+					也不代表打包了 PDF
+					排版引擎。官网清单用于了解上限，本项目归档清单用于追溯一次受控
+					Linux ARM64 引擎探测。
+				</p>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">组件</th>
+								<th scope="col">本项目可追溯证据</th>
+								<th scope="col">正确解释</th>
+								<th scope="col">来源</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">ImageMagick</th>
+								<td>
+									Version: ImageMagick 7.1.1-43 Q16-HDRI
+									aarch64 22550 https://imagemagick.org
+								</td>
+								<td>
+									图片 coder 的读写模式取决于模块/委托库。
+								</td>
+								<td>
+									<a
+										href="https://imagemagick.org/formats/"
+										rel="noopener noreferrer"
+										>官方格式表</a
+									>；<a
+										href="evidence/format-research-20260913/magick-formats.json"
+										>归档 Linux ARM64 清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">FFmpeg</th>
+								<td>归档清单列出 220 个 encoder 名称。</td>
+								<td>
+									容器（muxer/demuxer）、codec（encoder/decoder）和硬件能力必须分别判断。
+								</td>
+								<td>
+									<a
+										href="https://ffmpeg.org/general.html"
+										rel="noopener noreferrer"
+										>官方格式/codec 说明</a
+									>；<a
+										href="evidence/format-research-20260913/ffmpeg-encoders.json"
+										>归档 encoder 清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">Pandoc</th>
+								<td>归档清单：43 个 reader，64 个 writer。</td>
+								<td>
+									结构化转换并不保证页面布局、复杂表格或字体完全保留。
+								</td>
+								<td>
+									<a
+										href="https://pandoc.org/MANUAL.html"
+										rel="noopener noreferrer"
+										>Pandoc 手册</a
+									>；<a
+										href="evidence/format-research-20260913/pandoc-inputs.json"
+										>归档输入清单</a
+									>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">MuPDF</th>
+								<td>桌面产品只把它用于 PDF 渲染。</td>
+								<td>
+									官方列出的输入包括
+									PDF、EPUB、常见图片、SVG、CBZ、XPS；输出包括
+									PDF、文本、HTML、PostScript、PNG、SVG、PNM/PAM。
+								</td>
+								<td>
+									<a
+										href="https://mupdf.com/"
+										rel="noopener noreferrer"
+										>MuPDF 官方文档</a
+									>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<details>
+					<summary>
+						ImageMagick 归档构建的格式清单（39 条 coder 行）
+					</summary>
+					<div class="details-content">
+						<p class="small">
+							这是 2026-09-13 归档的 Linux ARM64
+							引擎发现结果，非所有平台发布包的保证。<code>r</code>
+							表示可读，<code>w</code> 表示可写，<code>+</code>
+							表示多图像支持。
+						</p>
+						<div class="table-wrap engine-table">
+							<table>
+								<thead>
+									<tr>
+										<th scope="col">Tag</th>
+										<th scope="col">模块</th>
+										<th scope="col">模式</th>
+										<th scope="col">描述</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><code>AVCI</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>---</code></td>
+										<td>AVC Image File Format (1.17.6)</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>AVIF</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>AV1 Image File Format (1.17.6)</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>CANVAS*</code>
+										</th>
+										<td><code>XC</code></td>
+										<td><code>r--</code></td>
+										<td>Constant image uniform color</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>FRACTAL*</code>
+										</th>
+										<td><code>PLASMA</code></td>
+										<td><code>r--</code></td>
+										<td>Plasma fractal image</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>GRADIENT*</code>
+										</th>
+										<td><code>GRADIENT</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Gradual linear passing from one
+											shade to another
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>HEIC</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											High Efficiency Image Format
+											(1.17.6)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>HEIF</code></th>
+										<td><code>HEIC</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											High Efficiency Image Format
+											(1.17.6)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>INFO</code></th>
+										<td><code>INFO</code></td>
+										<td><code>-w+</code></td>
+										<td>
+											The image format and characteristics
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>JPEG Network Graphics</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPE*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPEG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>JPS*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>MNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Multiple-image Network Graphics
+											(libpng 1.6.43)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>MPO*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>NULL*</code></th>
+										<td><code>NULL</code></td>
+										<td><code>rw-</code></td>
+										<td>Constant image of uniform color</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PAM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Common 2-dimensional bitmap format
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PBM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Portable bitmap format (black and
+											white)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PFM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable float format</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PGM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Portable graymap format (gray scale)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PHM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable half float format</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PJPEG*</code></th>
+										<td><code>JPEG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Joint Photographic Experts Group
+											JFIF format (libjpeg-turbo 2.1.5)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>PLASMA*</code>
+										</th>
+										<td><code>PLASMA</code></td>
+										<td><code>r--</code></td>
+										<td>Plasma fractal image</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											Portable Network Graphics (libpng
+											1.6.43)
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG00*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											PNG inheriting bit-depth, color-type
+											from original, if possible
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG24*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or binary transparent 24-bit
+											RGB
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG32*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or transparent 32-bit RGBA
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG48*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or binary transparent 48-bit
+											RGB
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG64*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											opaque or transparent 64-bit RGBA
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNG8*</code></th>
+										<td><code>PNG</code></td>
+										<td><code>rw-</code></td>
+										<td>
+											8-bit indexed with optional binary
+											transparency
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PNM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable anymap</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>PPM*</code></th>
+										<td><code>PNM</code></td>
+										<td><code>rw+</code></td>
+										<td>Portable pixmap format (color)</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>RADIAL-GRADIENT*</code>
+										</th>
+										<td><code>GRADIENT</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Gradual radial passing from one
+											shade to another
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGB*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, and blue samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<code>RGB565*</code>
+										</th>
+										<td><code>RGB</code></td>
+										<td><code>r--</code></td>
+										<td>
+											Raw red, green, blue samples in 565
+											format
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGBA*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, blue, and alpha
+											samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>RGBO*</code></th>
+										<td><code>RGB</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											Raw red, green, blue, and opacity
+											samples
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>WEBP*</code></th>
+										<td><code>WEBP</code></td>
+										<td><code>rw+</code></td>
+										<td>
+											WebP Image Format (libwebp 1.3.2
+											[020F])
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><code>XC*</code></th>
+										<td><code>XC</code></td>
+										<td><code>r--</code></td>
+										<td>Constant image uniform color</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>FFmpeg 归档构建的 encoder 名称（220）</summary>
+					<div class="details-content">
+						<p class="small">
+							这是
+							encoder，不是“文件扩展名列表”，也不是所有可输入容器。实际产品仍需决定
+							muxer、codec、流选择与参数。
+						</p>
+						<div class="pills">
+							<code>=</code><code>=</code><code>=</code
+							><code>a64multi</code><code>a64multi5</code
+							><code>alias_pix</code><code>amv</code
+							><code>apng</code><code>asv1</code><code>asv2</code
+							><code>libaom-av1</code><code>librav1e</code
+							><code>libsvtav1</code><code>av1_nvenc</code
+							><code>av1_vaapi</code><code>avrp</code
+							><code>avui</code><code>ayuv</code
+							><code>bitpacked</code><code>bmp</code
+							><code>cfhd</code><code>cinepak</code
+							><code>cljr</code><code>vc2</code><code>dnxhd</code
+							><code>dpx</code><code>dvvideo</code><code>exr</code
+							><code>ffv1</code><code>ffvhuff</code
+							><code>fits</code><code>flashsv</code
+							><code>flashsv2</code><code>flv</code
+							><code>gif</code><code>h261</code><code>h263</code
+							><code>h263_v4l2m2m</code><code>h263p</code
+							><code>libx264</code><code>libx264rgb</code
+							><code>h264_nvenc</code><code>h264_v4l2m2m</code
+							><code>h264_vaapi</code><code>hap</code
+							><code>hdr</code><code>libx265</code
+							><code>hevc_nvenc</code><code>hevc_v4l2m2m</code
+							><code>hevc_vaapi</code><code>huffyuv</code
+							><code>jpeg2000</code><code>libopenjpeg</code
+							><code>jpegls</code><code>libjxl</code
+							><code>ljpeg</code><code>magicyuv</code
+							><code>mjpeg</code><code>mjpeg_vaapi</code
+							><code>mpeg1video</code><code>mpeg2video</code
+							><code>mpeg2_vaapi</code><code>mpeg4</code
+							><code>libxvid</code><code>mpeg4_v4l2m2m</code
+							><code>msmpeg4v2</code><code>msmpeg4</code
+							><code>msrle</code><code>msvideo1</code
+							><code>pam</code><code>pbm</code><code>pcx</code
+							><code>pfm</code><code>pgm</code><code>pgmyuv</code
+							><code>phm</code><code>png</code><code>ppm</code
+							><code>prores</code><code>prores_aw</code
+							><code>prores_ks</code><code>qoi</code
+							><code>qtrle</code><code>r10k</code><code>r210</code
+							><code>rawvideo</code><code>roqvideo</code
+							><code>rpza</code><code>rv10</code><code>rv20</code
+							><code>sgi</code><code>smc</code><code>snow</code
+							><code>speedhq</code><code>sunrast</code
+							><code>svq1</code><code>targa</code
+							><code>libtheora</code><code>tiff</code
+							><code>utvideo</code><code>v210</code
+							><code>v308</code><code>v408</code><code>v410</code
+							><code>vbn</code><code>vnull</code
+							><code>libvpx</code><code>vp8_v4l2m2m</code
+							><code>vp8_vaapi</code><code>libvpx-vp9</code
+							><code>vp9_vaapi</code><code>wbmp</code
+							><code>libwebp_anim</code><code>libwebp</code
+							><code>wmv1</code><code>wmv2</code
+							><code>wrapped_avframe</code><code>xbm</code
+							><code>xface</code><code>xwd</code><code>y41p</code
+							><code>yuv4</code><code>zlib</code><code>zmbv</code
+							><code>aac</code><code>ac3</code
+							><code>ac3_fixed</code><code>adpcm_adx</code
+							><code>adpcm_argo</code><code>g722</code
+							><code>g726</code><code>g726le</code
+							><code>adpcm_ima_alp</code><code>adpcm_ima_amv</code
+							><code>adpcm_ima_apm</code><code>adpcm_ima_qt</code
+							><code>adpcm_ima_ssi</code><code>adpcm_ima_wav</code
+							><code>adpcm_ima_ws</code><code>adpcm_ms</code
+							><code>adpcm_swf</code><code>adpcm_yamaha</code
+							><code>alac</code><code>anull</code><code>aptx</code
+							><code>aptx_hd</code><code>libcodec2</code
+							><code>comfortnoise</code><code>dfpwm</code
+							><code>dca</code><code>eac3</code><code>flac</code
+							><code>g723_1</code><code>libgsm</code
+							><code>libgsm_ms</code><code>mlp</code
+							><code>mp2</code><code>mp2fixed</code
+							><code>libtwolame</code><code>libmp3lame</code
+							><code>libshine</code><code>nellymoser</code
+							><code>opus</code><code>libopus</code
+							><code>pcm_alaw</code><code>pcm_bluray</code
+							><code>pcm_dvd</code><code>pcm_f32be</code
+							><code>pcm_f32le</code><code>pcm_f64be</code
+							><code>pcm_f64le</code><code>pcm_mulaw</code
+							><code>pcm_s16be</code><code>pcm_s16be_planar</code
+							><code>pcm_s16le</code><code>pcm_s16le_planar</code
+							><code>pcm_s24be</code><code>pcm_s24daud</code
+							><code>pcm_s24le</code><code>pcm_s24le_planar</code
+							><code>pcm_s32be</code><code>pcm_s32le</code
+							><code>pcm_s32le_planar</code><code>pcm_s64be</code
+							><code>pcm_s64le</code><code>pcm_s8</code
+							><code>pcm_s8_planar</code><code>pcm_u16be</code
+							><code>pcm_u16le</code><code>pcm_u24be</code
+							><code>pcm_u24le</code><code>pcm_u32be</code
+							><code>pcm_u32le</code><code>pcm_u8</code
+							><code>pcm_vidc</code><code>real_144</code
+							><code>roq_dpcm</code><code>s302m</code
+							><code>sbc</code><code>sonic</code
+							><code>sonicls</code><code>libspeex</code
+							><code>truehd</code><code>tta</code
+							><code>vorbis</code><code>libvorbis</code
+							><code>wavpack</code><code>wmav1</code
+							><code>wmav2</code><code>ssa</code><code>ass</code
+							><code>dvbsub</code><code>dvdsub</code
+							><code>mov_text</code><code>srt</code
+							><code>subrip</code><code>text</code
+							><code>ttml</code><code>webvtt</code
+							><code>xsub</code>
+						</div>
+					</div>
+				</details>
+				<details>
+					<summary>Pandoc 归档 reader / writer 名称</summary>
+					<div class="details-content">
+						<h3>Reader（43）</h3>
+						<div class="pills">
+							<code>biblatex</code><code>bibtex</code
+							><code>commonmark</code><code>commonmark_x</code
+							><code>creole</code><code>csljson</code
+							><code>csv</code><code>docbook</code
+							><code>docx</code><code>dokuwiki</code
+							><code>endnotexml</code><code>epub</code
+							><code>fb2</code><code>gfm</code><code>haddock</code
+							><code>html</code><code>ipynb</code><code>jats</code
+							><code>jira</code><code>json</code><code>latex</code
+							><code>man</code><code>markdown</code
+							><code>markdown_github</code
+							><code>markdown_mmd</code
+							><code>markdown_phpextra</code
+							><code>markdown_strict</code><code>mediawiki</code
+							><code>muse</code><code>native</code><code>odt</code
+							><code>opml</code><code>org</code><code>ris</code
+							><code>rst</code><code>rtf</code><code>t2t</code
+							><code>textile</code><code>tikiwiki</code
+							><code>tsv</code><code>twiki</code><code>typst</code
+							><code>vimwiki</code>
+						</div>
+						<h3>Writer（64）</h3>
+						<div class="pills">
+							<code>asciidoc</code><code>asciidoctor</code
+							><code>beamer</code><code>biblatex</code
+							><code>bibtex</code><code>chunkedhtml</code
+							><code>commonmark</code><code>commonmark_x</code
+							><code>context</code><code>csljson</code
+							><code>docbook</code><code>docbook4</code
+							><code>docbook5</code><code>docx</code
+							><code>dokuwiki</code><code>dzslides</code
+							><code>epub</code><code>epub2</code
+							><code>epub3</code><code>fb2</code><code>gfm</code
+							><code>haddock</code><code>html</code
+							><code>html4</code><code>html5</code
+							><code>icml</code><code>ipynb</code><code>jats</code
+							><code>jats_archiving</code
+							><code>jats_articleauthoring</code
+							><code>jats_publishing</code><code>jira</code
+							><code>json</code><code>latex</code><code>man</code
+							><code>markdown</code><code>markdown_github</code
+							><code>markdown_mmd</code
+							><code>markdown_phpextra</code
+							><code>markdown_strict</code><code>markua</code
+							><code>mediawiki</code><code>ms</code
+							><code>muse</code><code>native</code><code>odt</code
+							><code>opendocument</code><code>opml</code
+							><code>org</code><code>pdf</code><code>plain</code
+							><code>pptx</code><code>revealjs</code
+							><code>rst</code><code>rtf</code><code>s5</code
+							><code>slideous</code><code>slidy</code
+							><code>tei</code><code>texinfo</code
+							><code>textile</code><code>typst</code
+							><code>xwiki</code><code>zimwiki</code>
+						</div>
+					</div>
+				</details>
+			</section>
+
+			<section id="method">
+				<h2>判定方法和报告限制</h2>
+				<ol>
+					<li>
+						<strong>先看产品路线。</strong
+						>桌面以统一范围文件为准；网页以各个转换器的
+						<code>FormatInfo</code>
+						为准。两者都不是“按照扩展名盲猜引擎”。
+					</li>
+					<li>
+						<strong>再看引擎可用性。</strong>ImageMagick 的
+						coder、FFmpeg 的 muxer/demuxer/codec、Pandoc 的
+						reader/writer 以及附属动态库都可能按平台不同。
+					</li>
+					<li>
+						<strong>最后看真实验收。</strong
+						>新增路线至少应验证真实文件头/容器、重新解码、像素或音频语义、取消、磁盘不足、保存失败与各系统/架构的最终包。退出码为零或生成同名文件不够。
+					</li>
+				</ol>
+				<div class="callout warning">
+					<strong>不要把“格式数”当成能力指标</strong
+					>JPG/JPEG、TIF/TIFF、AIF/AIFF 是别名；ImageMagick
+					的伪格式也不是用户可上传文件；FFmpeg 的一个容器可装多种
+					codec。报告把这些列出来是为了可追溯，不把它们夸大成独立用户功能。
+				</div>
+			</section>
+
+			<footer>
+				<p>
+					源码依据：<a href="../../packaging/desktop/v1-scope.json"
+						>桌面产品范围</a
+					>
+					·
+					<a href="../../src-tauri/native/src/formats.rs"
+						>Rust 路由读取范围</a
+					>
+					·
+					<a href="../../src-tauri/native/src/convert.rs"
+						>桌面转换实现与输出枚举</a
+					>
+					·
+					<a href="../../desktop/src/platform/queue-contract.ts"
+						>桌面前端契约</a
+					>
+					·
+					<a href="../../src/lib/converters/magick.svelte.ts"
+						>网页图像转换器</a
+					>
+					·
+					<a href="../../src/lib/converters/ffmpeg.svelte.ts"
+						>网页媒体转换器</a
+					>
+					·
+					<a href="../../src/lib/converters/pandoc.svelte.ts"
+						>网页文档转换器</a
+					>
+					·
+					<a href="../../src/lib/util/pdf-options.ts"
+						>网页 PDF 23 输出</a
+					>
+					·
+					<a href="format-expansion-catalog.json"
+						>格式扩展选择目录源数据</a
+					>
+					·
+					<a href="FORMAT_EXPANSION_CATALOG.md">格式扩展选择目录</a> ·
+					<a href="FORMAT_EXPANSION_RESEARCH.md">已有原生格式调研</a>
+					· <a href="FORMAT_EXPANSION_PHASE3B.md">桌面音频扩展验收</a>
+				</p>
+				<p>
+					生成命令：<code
+						>node scripts/generate-format-support-report.mjs</code
+					>。该报告为离线
+					HTML，不会读取用户文件或发起网络请求；外部链接只在用户主动打开时访问。
+				</p>
+			</footer>
+		</main>
+		<script>
+			for (const input of document.querySelectorAll("[data-filter]")) {
+				const table = document.querySelector(input.dataset.filter);
+				if (!table) continue;
+				input.addEventListener("input", () => {
+					const query = input.value.trim().toLowerCase();
+					for (const row of table.querySelectorAll("tbody tr")) {
+						row.hidden =
+							Boolean(query) &&
+							!row.textContent.toLowerCase().includes(query);
+					}
+				});
+			}
+			const catalogSearch = document.querySelector(
+				"[data-catalog-search]",
+			);
+			if (catalogSearch) {
+				const filterCatalog = () => {
+					const query = catalogSearch.value.trim().toLowerCase();
+					for (const tier of document.querySelectorAll(
+						"[data-catalog-tier]",
+					)) {
+						let visible = false;
+						for (const row of tier.querySelectorAll(
+							"tbody tr[data-search]",
+						)) {
+							const matches =
+								!query ||
+								row.textContent.toLowerCase().includes(query);
+							row.hidden = !matches;
+							visible ||= matches;
+						}
+						tier.hidden = Boolean(query) && !visible;
+						if (query && visible && !tier.open) {
+							tier.open = true;
+							tier.dataset.openedBySearch = "true";
+						}
+						if (!query && tier.dataset.openedBySearch === "true") {
+							tier.open = false;
+							delete tier.dataset.openedBySearch;
+						}
+					}
+				};
+				catalogSearch.addEventListener("input", filterCatalog);
+			}
+		</script>
+	</body>
+</html>

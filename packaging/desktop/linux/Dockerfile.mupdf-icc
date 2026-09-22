@@ -1,0 +1,7 @@
+# Local engine builder; output is validation-only until candidate/source review.
+FROM debian:13@sha256:f324c7ff54321e8d9c588493a20244965938ce0aa50bbd1022d38010e9ffc4b1
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential pkg-config python3 patch xz-utils \
+    libfreetype-dev libgumbo-dev libharfbuzz-dev libjbig2dec0-dev \
+    libjpeg-dev libmujs-dev libopenjp2-7-dev zlib1g-dev
+WORKDIR /work

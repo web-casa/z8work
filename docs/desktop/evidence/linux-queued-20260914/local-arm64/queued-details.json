@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "runningTaskId": "015352e5-7efb-4482-887f-1f87c54cc44c",
+  "queuedTaskId": "d1c98cb8-75ce-4542-9cb1-2d49ec02b71f",
+  "beforeClose": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-queued-20260914/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21469742,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "015352e5-7efb-4482-887f-1f87c54cc44c"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "d1c98cb8-75ce-4542-9cb1-2d49ec02b71f"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 30,
+    "epoch": "185a3faf-514b-4f44-843f-9e98d1927e39",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "a0942fe7-184b-4c2c-9bb0-ad42b4f246b0",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterEscape": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-queued-20260914/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21469742,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "running",
+        "name": "active.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "015352e5-7efb-4482-887f-1f87c54cc44c"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "queued",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "d1c98cb8-75ce-4542-9cb1-2d49ec02b71f"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 30,
+    "epoch": "185a3faf-514b-4f44-843f-9e98d1927e39",
+    "processing": true,
+    "import_report": {
+      "accepted": 1,
+      "id": "a0942fe7-184b-4c2c-9bb0-ad42b4f246b0",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "afterRestartReady": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-queued-20260914/gui/active-output",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 21469742,
+        "attempt": 1,
+        "authorized": false,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "active.png",
+        "error": "Cancelled",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "avif",
+        "id": "015352e5-7efb-4482-887f-1f87c54cc44c"
+      },
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": false,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "cancelled",
+        "name": "queued.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "d1c98cb8-75ce-4542-9cb1-2d49ec02b71f"
+      }
+    ],
+    "output_authorized": false,
+    "revision": 33,
+    "epoch": "185a3faf-514b-4f44-843f-9e98d1927e39",
+    "processing": false,
+    "import_report": null,
+    "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+    "failures": {
+      "015352e5-7efb-4482-887f-1f87c54cc44c": "cancelled"
+    }
+  },
+  "outputFiles": 0,
+  "queuedOriginal": {
+    "bytes": 119,
+    "sha256": "0baaa94a444218fa87fce9270362c4d253b3680e648a9b2789c3b52e72a0bf35"
+  }
+}

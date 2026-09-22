@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "artifact": "linux-arm64-validation",
+  "filename": "z8-work-0.1.0-linux-arm64-validation.tar.gz",
+  "sha256": "77f70ee0fd8ad40528ce6120349e90d4a62ea3ee6d74fe2ab4990e0611290dbb",
+  "applicationSha256": "e970986cac25daf947a66a5bac031441a5736fc3ae93eb8759aa1b73458cb010",
+  "engineManifestSha256": "9bc5bcf84e4316819ac14001324d387d6616d85012c0b96bcf87aebdd1a5b4ce",
+  "redistributionApproved": false,
+  "buildInfo": {
+    "applicationId": "work.z8.desktop.m0",
+    "arch": "aarch64",
+    "customProtocol": true,
+    "debug": false,
+    "engines": "bundled",
+    "fileDialog": "gtk3",
+    "os": "linux",
+    "processLifetime": "watchdog-pipe-v1",
+    "resourceDirectoryName": "Z8.Work Desktop Dev",
+    "schema": 1,
+    "updater": false,
+    "version": "0.1.0"
+  },
+  "checks": {
+    "integrity": {
+      "status": "passed",
+      "report": "Final archive extracted; application hash and complete engine inventory checked"
+    },
+    "conversion": {
+      "status": "passed",
+      "report": "quality.json; executed against final extracted archive"
+    },
+    "gui": {
+      "status": "not-run"
+    },
+    "install": {
+      "status": "not-run"
+    },
+    "upgrade": {
+      "status": "not-run"
+    },
+    "uninstall": {
+      "status": "not-run"
+    },
+    "licenses": {
+      "status": "not-run",
+      "reason": "Source delivery and dependency review pending"
+    }
+  }
+}

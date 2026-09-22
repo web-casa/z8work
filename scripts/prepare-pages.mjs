@@ -13,10 +13,14 @@ export async function preparePages(
 ) {
 	const input = resolve(source);
 	const output = resolve(destination);
+	// Windows resolve() yields backslash separators; compare normalized so the
+	// nesting guard holds on every platform.
+	const inputPath = input.replaceAll("\\", "/");
+	const outputPath = output.replaceAll("\\", "/");
 	if (
-		input === output ||
-		input.startsWith(output + "/") ||
-		output.startsWith(input + "/")
+		inputPath === outputPath ||
+		inputPath.startsWith(outputPath + "/") ||
+		outputPath.startsWith(inputPath + "/")
 	)
 		throw new Error(
 			"Pages output must be separate from the original build",

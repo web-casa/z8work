@@ -1,0 +1,27 @@
+{
+  "build": "passed",
+  "buildExitCode": 0,
+  "wasmByteIdentical": true,
+  "javascriptRebuild": "passed; both files byte-identical",
+  "applicationTests": 198,
+  "sourceToolTests": 21,
+  "pdfTests": {
+    "original": 38,
+    "rebuilt": 38,
+    "status": "passed"
+  },
+  "offlineBrowser": {
+    "conversions": 7,
+    "status": "passed",
+    "nativeShell": "stub; not native installation acceptance"
+  },
+  "archiveRestore": {
+    "status": "passed",
+    "gitBlobs": 24085,
+    "sourceTrees": 24
+  },
+  "sdkSourceReview": "4051 identical files; 25 omitted maintenance/formatting files and normalized version file documented",
+  "applicationAssetsReplaced": false,
+  "nativeStoreAcceptance": "not-run",
+  "releaseReady": false
+}

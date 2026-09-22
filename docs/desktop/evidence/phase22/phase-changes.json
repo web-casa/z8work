@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "comparedWith": "Phase 21 verified inputs",
+  "files": [
+    {
+      "path": "desktop/src/App.svelte",
+      "before": {
+        "bytes": 26448,
+        "sha256": "a5f6b63c91fc947518d91cd630b10955905ccea75e064360e77757a0a5ce8df3"
+      },
+      "after": {
+        "bytes": 26610,
+        "sha256": "7affe8e04d0ec8df5ed96e86f29de22afc175619b8e8ac1f70288bf22c5b2a17"
+      }
+    },
+    {
+      "path": "desktop/src/platform/storage-message.ts",
+      "before": null,
+      "after": {
+        "bytes": 2641,
+        "sha256": "93fb2d20c483cfdef0942b62cf00c848687590def6df072480edc6d8b9c4524a"
+      }
+    },
+    {
+      "path": "desktop/tests/storage-message.test.mjs",
+      "before": null,
+      "after": {
+        "bytes": 1978,
+        "sha256": "8be14ee5c62c9368ebda4007a6986520a5dbd3ccb603d07036a073b0bc7483a4"
+      }
+    },
+    {
+      "path": "package.json",
+      "before": {
+        "bytes": 6455,
+        "sha256": "027f419736cf3d11fa09aacfd62c0304c095478d8a2cab7975595373c16bc209"
+      },
+      "after": {
+        "bytes": 6531,
+        "sha256": "c42ee76653313660d8bf3f48b81b5f2d1b85feccac2c353e6f122edff70602da"
+      }
+    },
+    {
+      "path": "scripts/desktop-preview-gui.mjs",
+      "before": {
+        "bytes": 15989,
+        "sha256": "eaaf25372d7633804c1ab5d2fcb600b446c4a196baf900c8451ac1a6827d094d"
+      },
+      "after": {
+        "bytes": 16320,
+        "sha256": "80055e55c22f902b64b9961251d3db57b29f7e41c868a0b3b7d81bdf69ac169e"
+      }
+    },
+    {
+      "path": "scripts/lib/desktop-storage-checks.mjs",
+      "before": null,
+      "after": {
+        "bytes": 3151,
+        "sha256": "3b83736ec6e7aba889cda18bbba6c91794146d011d22ff6aa33cafe6285b8e57"
+      }
+    },
+    {
+      "path": "src-tauri/native/Cargo.toml",
+      "before": {
+        "bytes": 862,
+        "sha256": "d66f9d7515265f2893f02cb3531adaa2a3ae45587381226d25cad51bf4c2afef"
+      },
+      "after": {
+        "bytes": 890,
+        "sha256": "dbf80a74f2aa88785a39d0733aac7e359700a7758e632eb50a01215cca46c3c1"
+      }
+    },
+    {
+      "path": "src-tauri/native/src/convert.rs",
+      "before": {
+        "bytes": 25656,
+        "sha256": "e68758b924b28e01d57cd0864bbc6991fef4b7b915db03001d35b382c46ec002"
+      },
+      "after": {
+        "bytes": 26180,
+        "sha256": "17092522462f07fe39d0efc5d78531717fb07ac51a3742de46b8c2026f3ede46"
+      }
+    },
+    {
+      "path": "src-tauri/native/src/convert/preview.rs",
+      "before": {
+        "bytes": 6086,
+        "sha256": "06b7d2d498258cbcd12afed6ddefe066355b7230a364eb9b9f2e8e7fda28edd3"
+      },
+      "after": {
+        "bytes": 6175,
+        "sha256": "c4850f0e2567418030eb5c3987f1417a2fa59d1095da0b41c14318705ce0d97e"
+      }
+    },
+    {
+      "path": "src-tauri/native/src/convert/storage_tests.rs",
+      "before": null,
+      "after": {
+        "bytes": 3918,
+        "sha256": "73ffc925ca7c0f76d22916ebf00706a0c08beffebe6f7904ec6abeaa2dd9e908"
+      }
+    },
+    {
+      "path": "src-tauri/native/src/lib.rs",
+      "before": {
+        "bytes": 616,
+        "sha256": "993edd3653f8e760d474d6f23bee87ff8aa1383eabccf2c54cf771a446b0dfb2"
+      },
+      "after": {
+        "bytes": 629,
+        "sha256": "92a1deb24db3eb3acb982e26d0d532e4c25dbe4a86edd07c7bba6d1e8a21c426"
+      }
+    },
+    {
+      "path": "src-tauri/native/src/storage.rs",
+      "before": null,
+      "after": {
+        "bytes": 7512,
+        "sha256": "9684203869dbc91c9ba37077ae27f8c65329fddb5e5b1c88add36a375d51c60d"
+      }
+    }
+  ]
+}

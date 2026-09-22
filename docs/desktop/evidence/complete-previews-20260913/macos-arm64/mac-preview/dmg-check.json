@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "files": 906,
+  "artifact": {
+    "sha256": "11c6aed579f39c2cbfd3a2122110e979272ae17f4d3e587c849bc44d6181941e",
+    "bytes": 117680827
+  },
+  "mountedReadOnly": true,
+  "gui": "not-run"
+}

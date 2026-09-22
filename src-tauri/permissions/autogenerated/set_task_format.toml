@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-set-task-format"
+description = "Enables the set_task_format command without any pre-configured scope."
+commands.allow = ["set_task_format"]
+
+[[permission]]
+identifier = "deny-set-task-format"
+description = "Denies the set_task_format command without any pre-configured scope."
+commands.deny = ["set_task_format"]

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "routes": [
+    {
+      "input": "png",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "jpg",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "webp",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "avif",
+      "width": 256,
+      "height": 192
+    },
+    {
+      "input": "heic",
+      "width": 256,
+      "height": 192
+    }
+  ],
+  "checks": [
+    "five-native-image-routes",
+    "preview-without-output-authorization",
+    "closing-preview-does-not-cancel-conversion",
+    "conversion-retains-original-dimensions",
+    "blob-urls-released-on-replace-close-remove",
+    "bad-preview-does-not-change-task-state",
+    "preview-budget-does-not-block-conversion",
+    "changed-file-refused",
+    "reload-does-not-reuse-preview",
+    "restart-requires-input-authorization"
+  ],
+  "installation": "not-run"
+}

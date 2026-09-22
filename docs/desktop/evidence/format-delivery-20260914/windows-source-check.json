@@ -1,0 +1,43 @@
+{
+  "run": "34769462749",
+  "head": "cb639ba3bf9c7cb623538963b9c47baed643e59c",
+  "status": "passed",
+  "scope": "five changed or newly required validation inputs; raw Git LF comparison differs, Windows CRLF checkout comparison matches",
+  "files": [
+    {
+      "name": "scripts/lib/desktop-audio-expansion.mjs",
+      "bytes": 3208,
+      "sha256": "86fa310838c1a807bda1c6530d4858dea28fe29d2c9289b21fa684fa7ad20758",
+      "gitBlobBytes": 3078,
+      "checkoutLineEndings": "CRLF"
+    },
+    {
+      "name": "scripts/lib/desktop-document-expansion.mjs",
+      "bytes": 1187,
+      "sha256": "14303aefa339f2f8e4ecf587f4630eb1b43de958a179536d0082ec0ba8ad397a",
+      "gitBlobBytes": 1155,
+      "checkoutLineEndings": "CRLF"
+    },
+    {
+      "name": "scripts/lib/desktop-image-expansion.mjs",
+      "bytes": 1778,
+      "sha256": "8e35bd01b89105c2a1f1705446175a6bf07796cc6022b6e94393fe01e3d04534",
+      "gitBlobBytes": 1708,
+      "checkoutLineEndings": "CRLF"
+    },
+    {
+      "name": "scripts/lib/desktop-windows-acceptance.mjs",
+      "bytes": 4597,
+      "sha256": "b042a41321192577b027c1c006f62f2b0faa1182bba8d08d2cb4403b66d8301a",
+      "gitBlobBytes": 4455,
+      "checkoutLineEndings": "CRLF"
+    },
+    {
+      "name": ".github/workflows/desktop-builds.yml",
+      "bytes": 11169,
+      "sha256": "0dfebb9b9bfa527ba1570379b8679918a725ac0c9f37dfed40cfeb4df43a1135",
+      "gitBlobBytes": 10933,
+      "checkoutLineEndings": "CRLF"
+    }
+  ]
+}

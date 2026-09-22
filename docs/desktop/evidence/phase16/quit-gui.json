@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "checks": [
+    "close-with-picker-preserves-app",
+    "repeated-close-one-dialog",
+    "escape-continues-conversion",
+    "stay-button-continues-conversion",
+    "default-enter-stays-in-app",
+    "dialog-window-dismissal-continues",
+    "batch-can-finish-while-confirmation-open",
+    "conversion-saves-after-dismissal",
+    "confirmed-quit-reaps-encoder",
+    "restart-cancelled-no-auto-resume",
+    "original-and-saved-files-preserved",
+    "temporary-output-cleaned",
+    "idle-close-without-confirmation"
+  ],
+  "installation": "not-run",
+  "menuQuit": "not-run-on-linux"
+}

@@ -1,0 +1,53 @@
+{
+  "host": "linux-arm64",
+  "build": "debug",
+  "cases": [
+    {
+      "args": [
+        "--build-info-file",
+        "/home/ivmm/VERT/.desktop-local/phase10-cli-execution/\u6784\u5efa report.json"
+      ],
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--build-info-file",
+        "/home/ivmm/VERT/.desktop-local/phase10-cli-execution/\u6784\u5efa report.json"
+      ],
+      "exit": 1,
+      "stderr": "Cannot create build report: File exists (os error 17)\n"
+    },
+    {
+      "args": [
+        "--build-info-file",
+        "relative.json"
+      ],
+      "exit": 1,
+      "stderr": "Build report requires an absolute output path\n"
+    },
+    {
+      "args": [
+        "--build-info-file"
+      ],
+      "exit": 2,
+      "stderr": "Usage: --build-info OR --build-info-file ABSOLUTE_NEW_FILE\n"
+    },
+    {
+      "args": [
+        "--build-info",
+        "extra"
+      ],
+      "exit": 2,
+      "stderr": "Usage: --build-info OR --build-info-file ABSOLUTE_NEW_FILE\n"
+    },
+    {
+      "args": [
+        "--build-info"
+      ],
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "stdoutMatchesFile": true
+}

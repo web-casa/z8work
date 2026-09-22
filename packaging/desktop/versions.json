@@ -1,0 +1,13 @@
+{
+	"schema": 1,
+	"application": "0.1.0",
+	"developmentMsix": "1.0.1.0",
+	"syntheticUpgrade": {
+		"application": "0.0.9",
+		"developmentMsix": "1.0.0.0",
+		"published": false,
+		"macosBundle": "1.0.0"
+	},
+	"storeVersion": null,
+	"macosBundle": "1.0.1"
+}

@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "beforeRemoval": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "save-probe.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "47d4b982-2eaf-4891-9676-c5e39d98107b"
+      },
+      {
+        "bytes": 147,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "remove-keep.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "9c45f55f-c641-4c94-afb3-7605febcd24a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 53,
+    "epoch": "f71e28e7-d930-4c52-b702-695ea724e2a9",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "0074ecfb-2222-4c46-a7d8-93d75094b6d1",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "47d4b982-2eaf-4891-9676-c5e39d98107b": "publish",
+      "9c45f55f-c641-4c94-afb3-7605febcd24a": "publish"
+    }
+  },
+  "afterRemoval": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 147,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "remove-keep.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "9c45f55f-c641-4c94-afb3-7605febcd24a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 55,
+    "epoch": "f71e28e7-d930-4c52-b702-695ea724e2a9",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "0074ecfb-2222-4c46-a7d8-93d75094b6d1",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "9c45f55f-c641-4c94-afb3-7605febcd24a": "publish"
+    }
+  },
+  "afterSave": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 147,
+        "attempt": 2,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04",
+              "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/remove-keep-z8-1.webp",
+              "bytes": 78
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/remove-keep-z8-1.webp",
+          "bytes": 78
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "remove-keep.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "9c45f55f-c641-4c94-afb3-7605febcd24a"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 59,
+    "epoch": "f71e28e7-d930-4c52-b702-695ea724e2a9",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "0074ecfb-2222-4c46-a7d8-93d75094b6d1",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "appRemainedOpen": true,
+  "sourceUnavailableDuringSave": true,
+  "collisionsPreserved": 2000,
+  "discardedPayload": {
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+    "decoded": [
+      32,
+      32
+    ]
+  },
+  "retainedPayload": {
+    "bytes": 78,
+    "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04",
+    "decoded": [
+      48,
+      24
+    ]
+  },
+  "decoded": [
+    48,
+    24
+  ],
+  "output": {
+    "file": "remove-keep-z8-1.webp",
+    "bytes": 78,
+    "sha256": "3bcddc0ee268ea1aa019ed07f90337433be75f94db158299055e2a56261abf04"
+  }
+}

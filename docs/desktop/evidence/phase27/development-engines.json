@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "kind": "development",
+  "engines": {
+    "magick": {
+      "path": "/usr/bin/magick-im7.q16",
+      "sha256": "a16990a12cbb08e0c8bf6eea74bb6d4c3bd81ebd34ac987038d15f231e404df6",
+      "version": "Version: ImageMagick 7.1.1-43 Q16 aarch64 22550 https://imagemagick.org"
+    },
+    "ffmpeg": {
+      "path": "/usr/bin/ffmpeg",
+      "sha256": "74f28ebfa9c5758614c9457e680bb13610ba6d11f22858c4e3259751b383294d",
+      "version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers"
+    },
+    "ffprobe": {
+      "path": "/usr/bin/ffprobe",
+      "sha256": "501fbdc51c0b8fa4ecc90d0562c678262eef62b0141806940d186f0b71f9f1c4",
+      "version": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    "pandoc": {
+      "path": "/tmp/z8-m0-deps/extracted/usr/bin/pandoc",
+      "sha256": "794220bcee16cd281cbc14d32b645ebfd51236918bbb61c5b4a1540b39565d50",
+      "version": "pandoc 3.1.11.1",
+      "data_dir": "/tmp/z8-m0-deps/extracted/usr/share/pandoc/data"
+    },
+    "mutool": {
+      "path": "/tmp/z8-m0-deps/extracted/usr/bin/mutool",
+      "sha256": "d10f870880737b514b6aad7e7139f9cb0832719301d5f900701bbc3acb19ad82",
+      "version": "mutool version 1.25.1",
+      "library_dir": "/tmp/z8-m0-deps/extracted/usr/lib/aarch64-linux-gnu"
+    }
+  }
+}

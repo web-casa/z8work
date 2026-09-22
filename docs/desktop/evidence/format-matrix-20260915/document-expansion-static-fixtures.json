@@ -1,0 +1,111 @@
+{
+  "arch": "aarch64",
+  "controls": [
+    {
+      "cancel": true,
+      "collision": true,
+      "input": "html"
+    },
+    {
+      "cancel": true,
+      "collision": true,
+      "input": "htm"
+    },
+    {
+      "cancel": true,
+      "collision": true,
+      "input": "odt"
+    },
+    {
+      "cancel": true,
+      "collision": true,
+      "input": "epub"
+    }
+  ],
+  "corruptArchivesRejected": [
+    "odt",
+    "epub"
+  ],
+  "engines": [
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "magick",
+      "version": "Version: ImageMagick 7.1.1-43 Q16-HDRI aarch64 22550 https://imagemagick.org"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffmpeg",
+      "version": "ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffprobe",
+      "version": "ffprobe version 9.0.1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "pandoc",
+      "version": "pandoc 3.1.3"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "mutool",
+      "version": "mutool version 1.25.1"
+    }
+  ],
+  "platform": "linux",
+  "resourceIsolation": {
+    "localFileOmitted": true,
+    "network": {
+      "httpRequests": 0,
+      "status": "passed"
+    },
+    "scriptOmitted": true
+  },
+  "routes": [
+    {
+      "bytes": 204,
+      "input": "html",
+      "orderedText": true,
+      "output": "txt",
+      "sourceUnchanged": true,
+      "utf8": true
+    },
+    {
+      "bytes": 204,
+      "input": "htm",
+      "orderedText": true,
+      "output": "txt",
+      "sourceUnchanged": true,
+      "utf8": true
+    },
+    {
+      "bytes": 212,
+      "input": "odt",
+      "orderedText": true,
+      "output": "txt",
+      "sourceUnchanged": true,
+      "utf8": true
+    },
+    {
+      "bytes": 174,
+      "input": "epub",
+      "orderedText": true,
+      "output": "txt",
+      "sourceUnchanged": true,
+      "utf8": true
+    }
+  ],
+  "schema": 1,
+  "scope": "document-input-expansion-3a"
+}

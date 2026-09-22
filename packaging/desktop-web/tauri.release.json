@@ -1,0 +1,7 @@
+{
+	"productName": "Z8.Work",
+	"identifier": "work.z8.desktop.m0",
+	"build": {
+		"beforeBuildCommand": "node scripts/desktop-web-release.mjs prepare"
+	}
+}

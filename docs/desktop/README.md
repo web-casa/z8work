@@ -1,0 +1,127 @@
+# Z8.Work 桌面版调研总览
+
+> **2026-09-20 路线变更：本分支已改用网页 WASM 转换能力。**
+> 当前入口：[网页引擎迁移说明](WEB_CONVERSION_MIGRATION.md)、[Mac ARM64 验收与签名](WEB_MACOS_ACCEPTANCE.md)、[Microsoft Store 与 macOS 直发修复方案](WEB_STORE_REMEDIATION.md)。
+> 最新引擎来源验收：[FFmpeg](FFMPEG_REBUILD_VALIDATION.md)、[ImageMagick](IMAGEMAGICK_UPSTREAM_VALIDATION.md)、[MuPDF](MUPDF_REBUILD_VALIDATION.md)、[Pandoc](PANDOC_REBUILD_VALIDATION.md)。
+> 当前完整交接入口：[项目开发交接](PROJECT_HANDOFF_20260921.md)。
+> 公开源码交付与许可：[源码发布计划与下载页草案](SOURCE_RELEASE_PLAN.md)、[候选级许可审阅决策表](DISTRIBUTION_LICENSE_REVIEW.md)、[隐私/支持页部署证据清单](PUBLIC_PAGES_DEPLOYMENT_CHECKLIST.md)、[Windows MSIX 真机验收清单](WINDOWS_MSIX_ACCEPTANCE_CHECKLIST.md)、[商店文案草案](STORE_LISTING_DRAFT.md)。
+> 下文为已归档原生方案的历史记录，不代表本分支的实现或验收状态。
+
+整理日期：2026-09-08。本文汇总此前的本地项目检查、官方资料核查、同类开源项目源码研究和 M0 原型验证，作为桌面开发资料的统一入口。各项来源、固定 commit 和核查边界保留在分项文档中。
+
+**结论：继续采用独立桌面入口 + Tauri 2 + Rust 管理原生转换程序的路线。** 六平台原生转换候选已构建并完成质量检查；跨平台实际安装使用、升级和正式发行仍需逐项验收。
+
+**当前剩余清单（2026-09-14）：[开发、原生验收与发行缺项](REMAINING_STATUS.md)**。核心功能和六平台候选已完成，macOS 双架构签名、公证已通过，Linux 双架构固定 deb 已完成三十项 GUI 回归。macOS 双架构已完成[十项基础安装与使用验收](MACOS_INSTALLED_ACCEPTANCE.md)，其完整权限/升级验收继续跟进；后续优先 Windows MSIX 与 Snap strict；升级、压力/性能、剩余故障、许可源码和最终发行交付尚未闭合。原 [R1–R7 / Phase 24–30 方案](REMAINING_V1_PLAN.md)保留验收要求，阶段旧记录不再作为当前候选清单。
+
+2026-09-13 格式扩展专题：[原生格式能力、同类项目与扩展优先级调研](FORMAT_EXPANSION_RESEARCH.md)，包含最终 Linux ARM64 引擎探测及对先前范围判断的修正。
+
+当前开发过程与后续执行顺序：[桌面开发记录与计划](DEVELOPMENT_RECORD.md)；本轮格式扩展的逐项修正与 ARM64 矩阵状态：[格式扩展开发记录](FORMAT_EXPANSION_DEVELOPMENT_LOG.md)。
+
+格式扩展实施：[第一步：统一路由、六平台能力盘点与输出编码校验](FORMAT_EXPANSION_PHASE1.md)；[第二步：BMP、TGA、QOI 输入输出与 PDF 扩展](FORMAT_EXPANSION_PHASE2.md)；[第三步 A：HTML/ODT/EPUB 文档输入](FORMAT_EXPANSION_PHASE3A.md)；[第三步 B：OGG/Vorbis 与 AIFF](FORMAT_EXPANSION_PHASE3B.md)；[格式扩展后的跨平台预览包交付](FORMAT_EXPANSION_DELIVERY.md)；[Linux 双架构安装后离线验收](LINUX_INSTALLED_ACCEPTANCE.md)；[Linux 已安装包原生界面验收](LINUX_GUI_ACCEPTANCE.md)；[Linux 未保存结果与原生退出验收](LINUX_QUIT_ACCEPTANCE.md)；[Linux 已安装包保存恢复验收](LINUX_SAVE_RECOVERY_ACCEPTANCE.md)；[Linux 活动编码进程退出验收](LINUX_ACTIVE_QUIT_ACCEPTANCE.md)；[Linux 排队任务退出验收](LINUX_QUEUED_QUIT_ACCEPTANCE.md)；[Linux 单项取消与队列继续验收](LINUX_CANCEL_CURRENT_ACCEPTANCE.md)；[Linux 全部取消与显式重试验收](LINUX_CANCEL_ALL_ACCEPTANCE.md)；[Linux 取消排队项与当前任务完成验收](LINUX_CANCEL_QUEUED_ACCEPTANCE.md)；[Linux 转换中清空列表验收](LINUX_CLEAR_ACTIVE_ACCEPTANCE.md)；[Linux 等待保存时清空列表验收](LINUX_CLEAR_UNSAVED_ACCEPTANCE.md)；[Linux 单项移除与暂存保存验收](LINUX_REMOVE_UNSAVED_ACCEPTANCE.md)；[Linux 活动任务移除与队列继续验收](LINUX_REMOVE_CURRENT_ACCEPTANCE.md)。
+
+## 文档导航
+
+| 文档                                                   | 内容                                                                     | 使用时机                                     |
+| ------------------------------------------------------ | ------------------------------------------------------------------------ | -------------------------------------------- |
+| [V1 开发方案](V1_PLAN.md)                              | 产品范围、架构、原生引擎、平台矩阵、MSIX/Snap、许可与里程碑              | 确定实现约束和验收条件                       |
+| [ImgConvert 经验](IMGCONVERT_LESSONS.md)               | 本地参照项目的打包、签名、文件授权、渠道开关和历史问题                   | 编写原生构建与发布脚本前                     |
+| [官方资料与方案 review](FINAL_REVIEW.md)               | Tauri 权限、WebView2、引擎配置、Pandoc sandbox、Snap 生命周期等补查      | 核对方案依据及仍需实测的假设                 |
+| [同类开源项目研究](PEER_PROJECT_REVIEW.md)             | Hoppscotch、Trilium、LosslessCut、ConvertX，以及 Stirling-PDF 的路线观察 | 设计共享接口、原生导入、预览、队列和保存语义 |
+| [M0 实施与验证](M0_IMPLEMENTATION.md)                  | 当前工程、启动命令、真实转换结果、修复记录和待完成项                     | 本地运行、复现验证、判断开发进度             |
+| [Phase 1 / M1 实施与 review](PHASE1_IMPLEMENTATION.md) | Rust 队列、快照/事件、历史恢复、原生授权与单实例                         | 查看当前实现、复现本机测试                   |
+| [Phase 2 / M2 实施与 review](PHASE2_IMPLEMENTATION.md) | 多页 PDF、压缩参数、音频输出、批量设置和结果操作                         | 查看最新开发与验证范围                       |
+
+研究文档记录当时的来源与分析；最新平台实现见 [Phase 8 Snap 与 portal](PHASE8_IMPLEMENTATION.md)，进程加固见 [Phase 5](PHASE5_IMPLEMENTATION.md)，Debian ARM64 来源与源码材料见 [Phase 7](PHASE7_IMPLEMENTATION.md)，基础打包见 [Phase 3 / M3](PHASE3_IMPLEMENTATION.md)；此前的 [Phase 1](PHASE1_IMPLEMENTATION.md) 和 [补充 review](PHASE1_FOLLOWUP_REVIEW.md) 保留为历史记录。文档中的“拟采用”“验收要求”不表示相应功能已经完成。
+
+基础打包：[Phase 3 / M3 实施与 review](PHASE3_IMPLEMENTATION.md)，记录包内引擎、隔离验证和候选验收；P0 跨平台安装验收尚未完成。
+
+商店材料见 [Phase 4 / M4 商店材料与 review](PHASE4_IMPLEMENTATION.md)：双语文案、桌面隐私/支持静态页、材料生成与提交检查；M3 安装验收及可提交候选仍未齐备。
+
+运行时加固记录：[Phase 5 发行前进程生命周期加固](PHASE5_IMPLEMENTATION.md)，补主程序异常退出时的转换进程清理；M3/M4 跨平台发行验收仍待完成。
+
+Debian ARM64 材料记录：[Phase 7 历史源码补齐与恢复下载](PHASE7_IMPLEMENTATION.md)。已列出的 170 组精确源码全部通过完整性核对，源码缺失 0；签名、完整源码闭包、许可与发行验收仍待完成。[Phase 6](PHASE6_IMPLEMENTATION.md) 保留原始缺项记录。
+
+最新平台记录：[Phase 8：core24 AMD64 Snap 与 portal 文件选择](PHASE8_IMPLEMENTATION.md)。新增 Ubuntu 构建环境、Snap 准备/打包/最终字节检查和 portal 编译门禁。原生 AMD64 strict 安装、权限和许可验收仍待完成。
+
+最新验收工具：[Phase 9：已安装 Snap 运行验收](PHASE9_IMPLEMENTATION.md)。新增真实环境预检、安装字节与沙箱运行核对、可复制的验收目录；本机预检受 ARM64/partial confinement 阻塞，未声称原生安装通过。
+
+最新本机候选与故障证据见 [R6 写入失败补测](PHASE29_WRITE_FAILURES.md)，基础记录见 [Phase 29](PHASE29_IMPLEMENTATION.md)。[Phase 28 候选交接](PHASE28_CANDIDATES.md)保留 Windows/Snap 历史产物；这两端应用尚未包含 Phase 29 的共享错误分类修复，需重建后进行原生安装验收。
+
+此前功能记录：[Phase 27：产品体验、隐私与格式质量](PHASE27_IMPLEMENTATION.md)。双语离线说明、键盘/缩放修复和 84 条真实格式路线已验证；见[格式矩阵](PHASE27_FORMAT_MATRIX.md)与[性能记录及剩余门槛](PHASE27_PERFORMANCE.md)。目标包原生验收及 PDF ICC 色彩管理仍未关闭。
+
+此前功能记录：[Phase 26：后台启动、导入、进度与错误](PHASE26_IMPLEMENTATION.md)。Linux ARM64 已验证阻塞引擎期间首屏/语言/文件选择可用、真实音频进度及取消退出；旧保存恢复和诊断路径继续回归。
+
+此前功能记录：[Phase 25：保存恢复与会话暂存](PHASE25_IMPLEMENTATION.md)。已验证结果保存失败后可更换目录直接重试，不再读取源文件或调用引擎；暂存仅在本次会话保留，受空闲有效期与容量预算限制。Linux ARM64 真实 GUI 已验证；其他平台原生验收仍待执行。
+
+此前功能记录：[Phase 23：可预览与保存的脱敏诊断报告](PHASE23_IMPLEMENTATION.md)。报告只导出有限运行摘要，先预览再由用户保存，保留原生对话框与禁止覆盖保护；[Phase 22 存储预检](PHASE22_IMPLEMENTATION.md)及既有导入、预览和临时目录清理继续保留。旧安装候选需重建才能包含新功能。
+
+最新 Windows 进展：[Phase 14：MSIX 安装后验收工具](PHASE14_IMPLEMENTATION.md)已补签名副本、安装载荷核对、原生转换与卸载流程，并对 Phase 13 原包完成本机预检；Windows 原生签名/安装/运行尚未执行，需要原生 x64 测试桌面。WebView2/GUI、许可与商店验收仍待完成，[Phase 12](PHASE12_IMPLEMENTATION.md) 的 Rosetta 未通过项继续保留。
+
+## 一、原生引擎路线
+
+Rust 负责文件登记、任务调度、子进程生命周期和安全保存，调用现有的原生程序。原生化不要求把引擎重写成 Rust 或 C；Pandoc 本身采用 Haskell，实现语言不会阻止通过子进程使用。
+
+| 能力               | 采用路线                                   | 调研发现的主要约束                                                        |
+| ------------------ | ------------------------------------------ | ------------------------------------------------------------------------- |
+| 图片               | ImageMagick 7 + 所需 codec/delegate        | 格式能力取决于实际构建；HEIC/AVIF、位深、色彩、元数据和输出大小需实测     |
+| 音频及后续媒体处理 | FFmpeg + ffprobe                           | 完整依赖、真实编译参数、取消与日志处理；根据实际构建核查许可              |
+| 文档               | Pandoc                                     | 程序之外可能需要数据文件；sandbox 会影响资源访问，不能默认所有文档保真    |
+| PDF 转图片         | MuPDF 渲染，再由 ImageMagick 编码          | 多页、密码、像素预算、字体和部分成功语义；不能把 Pandoc 当 PDF 栅格渲染器 |
+| 网页与桌面共享     | 共享交互和任务意图，分开平台 IO 与引擎执行 | 网页继续 WASM；桌面正文不通过 Base64、ArrayBuffer 等进入 WebView          |
+
+首版采用 CLI 子进程，后续仅在性能、画质或维护收益经过验证时评估专用原生库或 FFI。每个格式组合需要明确的转换路线，不能用输入、输出扩展名列表的任意组合代替验证。详细依据见 [V1 方案](V1_PLAN.md)。
+
+## 二、从 ImgConvert 吸收的经验
+
+参照位置：`/home/ivmm/tools/imgconvert`。此前核查 HEAD 为 `03b692ff3f61c6254689e1993f2810aad359aafb`，同时检查了当时未提交的工作区内容；历史发布记录与当前工作区证据分别对待。
+
+1. **验证最终安装件。** 构建成功后继续核对包内架构、资源、版本和依赖，并从实际安装位置运行有限转换任务。
+2. **保护正式候选。** 测试签名与侧载使用临时副本；核对原提交件的哈希，避免测试过程改变候选。
+3. **查询实际工具接口。** 曾有不存在的 `makeappx validate` 用法；改用受支持的打包/解包检查，再分别执行安装测试、WACK 和商店流程。
+4. **按渠道处理功能和更新。** 开关需要影响后端、依赖与权限注册，不能只隐藏界面；Store/Snap 的更新路线分别设计。
+5. **文件路径不等于授权。** Snap 的 home、portal、外接盘访问、输出目录和重启后访问应分别验收。
+6. **质量不能只看输出文件存在。** AVIF/HEIC、色彩与位深、体积回退、资源上限和坏文件都需真实样本。
+
+ImgConvert 的图片核心、包身份、签名材料及历史通过记录，不能直接替代 Z8.Work 四套引擎的验收。[来源文件、历史问题和适用边界](IMGCONVERT_LESSONS.md)
+
+## 三、同类项目能补充什么
+
+| 项目          | 研究价值                      | Z8.Work 吸收的要求                                       | 适用边界                                       |
+| ------------- | ----------------------------- | -------------------------------------------------------- | ---------------------------------------------- |
+| Hoppscotch    | Web/Tauri 平台服务分层        | 区分保存成功、取消和未知；设置独立初始化，迁移可重试     | 不照搬其大数据 IO 参数、认证或远程实例能力     |
+| Trilium Notes | 浏览器/桌面共享产品及原生导入 | 文件选择、拖放、转换和导出复用授权登记                   | 其服务端架构不是浏览器 WASM 转换的直接样板     |
+| LosslessCut   | Web 技术 UI 与原生 FFmpeg     | 预览能力独立于转换；单实例、启动就绪和打开文件事件需协调 | 不是同一产品同时提供网页版的案例               |
+| ConvertX      | 多引擎转换调度                | 显式定义输入→输出→引擎路线、优先级和保真限制             | 自托管服务端转换不能证明桌面离线或商店可行     |
+| Stirling-PDF  | Tauri 与本地后端的路线成本    | 注意后端启动、就绪、端口和模式切换的额外工作             | 所查桌面目录有受限许可，仅作观察，不复制其实现 |
+
+原始研究已记录固定 commit、源码链接和许可范围，见 [同类项目核查](PEER_PROJECT_REVIEW.md)。这些项目的接口设计用于启发本项目，不能作为它们或 Z8.Work 已通过商店审核的证据。
+
+## 四、跨平台与商店的主要阻力
+
+| 方面               | 已形成的开发要求                                                | 仍需实际验证                                                                     |
+| ------------------ | --------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Windows / MS Store | 按打包 Win32/MSIX 路线准备；区分 Store 签名、侧载信任和直发签名 | 包身份、WebView2 来源及可写数据目录、所有 exe/DLL 架构、安装转换、升级卸载、认证 |
+| Linux / Snap       | 按 strict confinement 设计文件访问，明确运行依赖和正式资源入口  | 原生 Linux amd64 安装、portal/home/外接盘与保存授权、安装后的引擎加载及更新中断  |
+| macOS              | 纳入 arm64 原型和兼容验证；公开分发准备对应签名/公证            | 原生引擎包、动态库、文件访问与真实转换；Mac App Store 不在当前目标范围           |
+| 引擎分发           | 固定引擎及依赖来源；正式版使用受控包内布局                      | 动态库、codec、字体、配置和数据完整性；干净环境离线首启与转换                    |
+| 权限与进程         | 自定义 IPC 需在 Rust 复核授权；总时限、双管道日志和进程树回收   | Windows Job Object、平台进程清理、恶意输入与系统资源隔离                         |
+| 许可与材料         | 按实际构建逐项保留许可、源码、补丁及编译说明                    | FFmpeg 组件组合、ImageMagick delegates、Pandoc/MuPDF 与全部依赖的候选级核对      |
+
+以上汇总此前查询所得的工程要求，具体官方来源保留在 [V1 方案](V1_PLAN.md) 和 [资料 review](FINAL_REVIEW.md)。正式提交时应按实际候选和当时规则重新核验。
+
+## 五、调研结论与实现进度对照
+
+以下保留早期调研与原型阶段的对照，不作为 Phase 23 之后的完整待办；当前范围、状态和后续安排见[剩余七阶段方案](REMAINING_V1_PLAN.md)。
+
+| 事项                                      | 当前状态                           | 后续工作                                   |
+| ----------------------------------------- | ---------------------------------- | ------------------------------------------ |
+| 独立桌面入口、原生文件登记与受限 IPC      | Linux ARM64 原型已实现并验证       | 补跨平台授权、单实例、拖放与会话恢复       |
+| 四类原生转换                              | 9 个真实样本通过，见 M0 证据       | 扩展格式与保真矩阵、原生引擎构建和随包依赖 |
+| 安全保存、日志、取消、退出状态            | 本机测试通过                       | 补 Windows/macOS 进程与异常中断验证        |
+| 完整 Rust 队列、快照/事件与恢复           | Linux ARM64 初版已验证             | 补各平台真实运行与异常中断验收             |
+| PDF 完整多页、更多输出与预览适配          | 多页导出、部分重试与首页预览已实现 | 跨平台原生验收仍待完成                     |
+| 自包含发行、MSIX、strict Snap、macOS 安装 | 未完成                             | 准备候选并做安装、权限、依赖与许可证验收   |
+
+原型实测还暴露了 Pandoc 数据目录缺失、MuPDF 动态库依赖以及退出时下一项任务启动的竞态，已经在第一轮开发中处理。详细修复、运行命令和输出证据见 [M0 实施记录](M0_IMPLEMENTATION.md)。
+
+当前优先顺序：按 R1 冻结基线并提前清点目标平台条件，R2–R4 完成保存恢复和产品功能收敛，R5–R7 完成当前候选、原生安装验收与发行交接。商店候选、上传、审核与公开发布分别记录，不能用原型成功替代。

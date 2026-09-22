@@ -1,0 +1,42 @@
+{
+	"schema": 1,
+	"status": "draft",
+	"sourcesChecked": "2026-09-08",
+	"sources": {
+		"msixListing": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/add-and-edit-store-listing-info",
+		"msixScreenshots": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/screenshots-and-images",
+		"msixSupport": "https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/support-info",
+		"snapListing": "https://snapcraft.io/blog/make-your-snap-store-page-pop"
+	},
+	"channels": {
+		"microsoft-store": {
+			"artifact": "windows-x64-msix",
+			"displayName": "Z8.Work",
+			"identity": "53660AlanM.Z8Work",
+			"publisher": "CN=84AC3716-04E0-4D67-8951-0D3E51674CA0",
+			"packageVersion": "1.0.0.0",
+			"pricing": "free",
+			"ageRating": "3+",
+			"candidate": null,
+			"screenshots": [],
+			"ageRatingNotes": "Partner Center questionnaire answers: no mature content, no user-generated content, no online data sharing beyond hosting; confirm in the real questionnaire at submission."
+		},
+		"snap": {
+			"artifact": "linux-amd64-snap",
+			"displayName": "Z8.Work",
+			"registeredName": null,
+			"pricing": null,
+			"candidate": null,
+			"screenshots": []
+		}
+	},
+	"publicPages": {
+		"status": "not-deployed",
+		"evidence": null
+	},
+	"encryptionDeclaration": {
+		"status": "draft-for-partner-center",
+		"answer": "not-eligible-for-exemption-filing-required-review",
+		"note": "App ships HTTPS-only traffic via system WebView2 and does not implement its own cryptography; answer the Microsoft export compliance question at submission time and record the result here."
+	}
+}

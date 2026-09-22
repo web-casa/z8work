@@ -1,0 +1,134 @@
+{
+  "run": 34765258166,
+  "commit": "e7ac7d3120e706dcb9ed1e4e9a6085c0f8875309",
+  "source": {
+    "id": "windows-amd64",
+    "runner": "windows-2025",
+    "os": "win32",
+    "arch": "x64",
+    "target": "x86_64-pc-windows-msvc",
+    "run": "34708127226",
+    "artifact": "windows-x64-repacked-preview-and-development-msix",
+    "file": "Z8.Work-windows-x64-preview.zip",
+    "sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd"
+  },
+  "artifact": {
+    "sha256": "10c3e21b1b675d7a0f4841f61c4c25513ac85a96113830b96e084d157171facd",
+    "bytes": 171584989
+  },
+  "tool": {
+    "sha256": "f941ef92133e18f43a353679537bcccce25b3c5c96858bb5bbc41f73a57cbfd6",
+    "bytes": 1510400
+  },
+  "documents": {
+    "arch": "x86_64",
+    "controls": [
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "html"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "htm"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "odt"
+      },
+      {
+        "cancel": true,
+        "collision": true,
+        "input": "epub"
+      }
+    ],
+    "corruptArchivesRejected": [
+      "odt",
+      "epub"
+    ],
+    "engines": [
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "magick",
+        "version": "7.1.2-31"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffmpeg",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffprobe",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "pandoc",
+        "version": "3.11"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "mutool",
+        "version": "1.28.0"
+      }
+    ],
+    "platform": "windows",
+    "resourceIsolation": {
+      "localFileOmitted": true,
+      "network": {
+        "httpRequests": 0,
+        "status": "passed"
+      },
+      "scriptOmitted": true
+    },
+    "routes": [
+      {
+        "bytes": 204,
+        "input": "html",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 204,
+        "input": "htm",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 204,
+        "input": "odt",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      },
+      {
+        "bytes": 184,
+        "input": "epub",
+        "orderedText": true,
+        "output": "txt",
+        "sourceUnchanged": true,
+        "utf8": true
+      }
+    ],
+    "schema": 1,
+    "scope": "document-input-expansion-3a"
+  }
+}

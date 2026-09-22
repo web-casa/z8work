@@ -1,0 +1,17 @@
+✔ 1 MB for one year uses decimal units and yields milligrams, not grams or kilograms (7.436739ms)
+✔ zero size and zero duration estimate no operational impact; invalid inputs are rejected (0.517663ms)
+✔ global daily savings accumulate with distinct retention periods over the first year (0.198457ms)
+✔ the SSD scenario changes only the published power coefficient (0.078333ms)
+✔ image savings use the actual output size and exclude archives and other converters (0.143499ms)
+✔ larger outputs offset savings; no positive carbon claim for a net increase (0.102ms)
+✔ reconversion replaces a result, while removal and cancellation remove its contribution (0.082374ms)
+✔ carbon labels retain tiny values and switch units without calling CO2 CO2e (0.129499ms)
+✔ the zero file-upload claim is available only for an explicit all-local registry (0.083166ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.208653

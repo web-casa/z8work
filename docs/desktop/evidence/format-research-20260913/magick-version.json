@@ -1,0 +1,5 @@
+{
+  "exit": 0,
+  "stdout": "Version: ImageMagick 7.1.1-43 Q16-HDRI aarch64 22550 https://imagemagick.org\nCopyright: (C) 1999 ImageMagick Studio LLC\nLicense: https://imagemagick.org/script/license.php\nFeatures: Cipher DPC HDRI Modules \nDelegates (built-in): bzlib heic jbig jng jp2 jpeg lcms ltdl lzma pangocairo png webp xml zlib zstd\nCompiler: gcc (13.3)\n",
+  "stderr": ""
+}

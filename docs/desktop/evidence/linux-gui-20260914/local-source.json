@@ -1,0 +1,8 @@
+{
+  "toolCommit": "e8c79d400ddd68b0634007d6053e163aff4546be",
+  "os": "Debian 13",
+  "architecture": "arm64",
+  "installation": "not-run",
+  "applicationSha256": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+  "scope": "extracted reviewed Ubuntu deb in original resource layout"
+}

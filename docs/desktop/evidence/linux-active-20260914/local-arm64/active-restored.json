@@ -1,0 +1,43 @@
+{
+  "clearing": false,
+  "closing": false,
+  "schema": 3,
+  "output": "/home/ivmm/VERT/.desktop-local/packaged-active-20260914/final-gui/active-output",
+  "persistence_error": null,
+  "tasks": [
+    {
+      "bytes": 21461991,
+      "attempt": 1,
+      "authorized": false,
+      "result": null,
+      "formats": [
+        "png",
+        "jpeg",
+        "webp",
+        "avif",
+        "bmp",
+        "tga",
+        "qoi"
+      ],
+      "phase": "cancelled",
+      "name": "active.png",
+      "error": "Cancelled",
+      "options": {
+        "pdf_dpi": 144,
+        "quality": "balanced",
+        "keep_metadata": false
+      },
+      "format": "avif",
+      "id": "3b90404a-63a3-4bc2-aeba-8de86ad33125"
+    }
+  ],
+  "output_authorized": false,
+  "revision": 31,
+  "epoch": "8f261ef7-3282-4c15-8e46-9c84aa834ccf",
+  "processing": false,
+  "import_report": null,
+  "recovery_notice": "History restored. Choose input files and an output folder again before retrying. Interrupted tasks are never resumed automatically.",
+  "failures": {
+    "3b90404a-63a3-4bc2-aeba-8de86ad33125": "cancelled"
+  }
+}

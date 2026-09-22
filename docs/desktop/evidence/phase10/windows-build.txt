@@ -1,0 +1,2 @@
+   Compiling z8-desktop v0.1.0 (/home/ivmm/VERT/src-tauri)
+    Finished `release` profile [optimized] target(s) in 11.55s

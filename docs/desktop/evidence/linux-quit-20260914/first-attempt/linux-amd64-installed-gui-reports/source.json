@@ -1,0 +1,23 @@
+{
+  "source": {
+    "id": "linux-amd64",
+    "runner": "ubuntu-24.04",
+    "os": "linux",
+    "arch": "x64",
+    "target": "x86_64-unknown-linux-gnu",
+    "run": "34769213214",
+    "artifact": "linux-amd64-complete-preview",
+    "file": "z8-work_0.1.0~preview1_amd64.deb",
+    "sha256": "44af02707a7cd427e2ee3e8b083ea405bac95ed9ad16713a3002a08c264ab71d"
+  },
+  "artifact": {
+    "sha256": "44af02707a7cd427e2ee3e8b083ea405bac95ed9ad16713a3002a08c264ab71d",
+    "bytes": 136001468
+  },
+  "application": {
+    "sha256": "a19d11cb98488a10cc1641956369975a9d7fdad5c7ca86a320c683379cf55ad3",
+    "bytes": 19978248
+  },
+  "toolCommit": "3b06f6666e57ef3f04a47d12d915e313eb3e0ba9",
+  "host": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n"
+}

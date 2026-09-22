@@ -32,7 +32,7 @@ export function estimateStorage(
 	if (
 		!nonnegative(bytes) ||
 		!nonnegative(days) ||
-		!(kind in IMPACT_MODEL.wattsPerTB)
+		!Object.hasOwn(IMPACT_MODEL.wattsPerTB, kind)
 	) {
 		throw new RangeError("Invalid storage scenario");
 	}

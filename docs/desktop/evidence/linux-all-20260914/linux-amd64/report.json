@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "gui": "passed",
+  "installation": "native-github-runner",
+  "source": {
+    "id": "linux-amd64",
+    "runner": "ubuntu-24.04",
+    "os": "linux",
+    "arch": "x64",
+    "target": "x86_64-unknown-linux-gnu",
+    "run": "34769213214",
+    "artifact": "linux-amd64-complete-preview",
+    "file": "z8-work_0.1.0~preview1_amd64.deb",
+    "sha256": "44af02707a7cd427e2ee3e8b083ea405bac95ed9ad16713a3002a08c264ab71d"
+  },
+  "application": {
+    "sha256": "a19d11cb98488a10cc1641956369975a9d7fdad5c7ca86a320c683379cf55ad3",
+    "bytes": 19978248
+  },
+  "resultsRetained": {
+    "queued-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "queued-z8-2.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "sample-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    },
+    "save-probe-z8-1.webp": {
+      "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+      "bytes": 82
+    }
+  },
+  "upgrade": "not-run",
+  "networkIsolation": "not-run"
+}

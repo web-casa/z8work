@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-open-impact-source"
+description = "Enables the open_impact_source command without any pre-configured scope."
+commands.allow = ["open_impact_source"]
+
+[[permission]]
+identifier = "deny-open-impact-source"
+description = "Denies the open_impact_source command without any pre-configured scope."
+commands.deny = ["open_impact_source"]

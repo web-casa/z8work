@@ -1,0 +1,107 @@
+   Compiling z8-native v0.1.0 (/home/ivmm/VERT/src-tauri/native)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.01s
+     Running unittests src/lib.rs (src-tauri/target/debug/deps/z8_native-ee7d48fed65d6cf7)
+
+running 93 tests
+test convert::preview::tests::output_gate_rejects_other_payloads_and_large_dimensions ... ok
+test convert::preview::media::tests::video_skips_album_art_and_audio_requires_attached_picture ... ok
+test convert::preview::media::tests::media_input_options_force_containers_and_disable_mov_references ... ok
+test convert::preview::media::tests::rejects_unbounded_or_invalid_frame_metadata ... ok
+test diagnostics::tests::refreshing_invalidates_old_ids_and_preserves_exact_reviewed_bytes ... ok
+test diagnostics::tests::report_never_serializes_sensitive_snapshot_fields ... ok
+test convert::tests::routes_are_explicit ... ok
+test engines::tests::development_manifest_cannot_enable_compiled_out_support ... ok
+test engines::tests::incompatible_schema_is_rejected ... ok
+test engines::tests::unverified_production_bundle_is_rejected ... ok
+test engine_bundle::tests::rejects_wrong_platform_traversal_missing_engine_and_missing_resource ... ok
+test engine_bundle::tests::rejects_symlink_even_when_bytes_match ... ok
+test preferences::tests::symlink_preferences_do_not_follow_or_replace_the_target ... ok
+test diagnostics::tests::numeric_versions_exclude_paths_urls_and_arbitrary_suffixes ... ok
+test process::tests::cancelled_or_expired_work_never_starts ... ok
+test convert::tests::store_materials_describe_only_native_conversion_routes ... ok
+test preferences::tests::invalid_or_future_records_are_never_overwritten ... ok
+test process::tests::fixture_child ... ignored, subprocess fixture, invoked by the supervisor tests
+test engine_bundle::tests::bundle_is_relocatable_and_detects_changed_or_extra_files ... ok
+test preferences::tests::stale_save_cannot_replace_a_newer_choice ... ok
+test preferences::tests::first_read_does_not_write_and_restart_restores_preferences ... ok
+test process::watchdog::tests::failed_watchdog_never_allows_engine_spawn ... ok
+test preferences::tests::unavailable_directory_can_be_retried_without_advancing_revision ... ok
+test diagnostics::tests::report_save_is_exact_and_never_overwrites_or_leaves_temporary_files ... ok
+test process::watchdog::tests::private_mode_refuses_the_callers_process_group ... ok
+test convert::storage_tests::publication_rechecks_permissions_and_preserves_previous_output ... ok
+test preferences::tests::invalid_dpi_and_revision_exhaustion_preserve_previous_bytes ... ok
+test preferences::tests::concurrent_same_revision_saves_have_one_winner ... ok
+test process::watchdog::tests::private_mode_refuses_nonpipe_input_even_in_its_own_group ... ok
+test convert::storage_tests::output_preflight_precedes_staging_and_engine_invocation ... ok
+test queue::tests::corrupt_history_is_preserved_and_not_silently_reset ... ok
+test process::tests::drains_both_pipes_with_bounded_memory ... ok
+test process::tests::failure_is_observable ... ok
+test queue::tests::active_exit_check_does_not_cancel_or_pause_the_batch ... ok
+test queue::tests::cancellation_before_source_check_prevents_executor_start ... ok
+test process::tests::output_wait_observes_cancellation_and_one_deadline ... ok
+test queue::tests::fifo_input_is_rejected_at_registration_and_after_replacement ... ok
+test queue::tests::batch_configuration_is_atomic_and_stale_settings_are_rejected ... ok
+test queue::tests::duplicate_request_and_stale_retry_never_run_twice ... ok
+test process::tests::cancellation_stops_a_running_process ... ok
+test process::watchdog::tests::readiness_timeout_is_bounded ... ok
+test queue::tests::idle_exit_fences_late_submissions_and_keeps_unstarted_tasks ... ok
+test queue::tests::clear_waits_for_cancellation_and_never_deletes_saved_files ... ok
+test queue::tests::import_notice_dismissal_cannot_erase_a_newer_report_and_cancel_preserves_it ... ok
+test queue::tests::deleted_input_requires_reselection_even_after_it_is_recreated ... ok
+test queue::tests::cancellation_prevents_queued_work_and_allows_explicit_retry ... ok
+test queue::tests::partial_import_accepts_valid_peers_and_reports_each_rejection ... ok
+test queue::tests::clear_is_available_when_history_is_too_large_or_unsaved ... ok
+test queue::tests::invalid_batch_is_atomic ... ok
+test queue::tests::partial_import_failure_to_persist_does_not_register_or_claim_success ... ok
+test queue::tests::legacy_history_is_backed_up_before_schema_migration ... ok
+test queue::tests::import_capacity_keeps_fitting_files_and_reports_overflow ... ok
+test queue::tests::interrupted_history_does_not_autorun ... ok
+test queue::tests::partial_import_does_not_relax_restore_validation_and_report_expires_on_restart ... ok
+test queue::tests::preview_is_authorized_input_only_and_does_not_change_task_state ... ok
+test queue::tests::queued_or_clearing_work_also_requires_exit_confirmation ... ok
+test queue::tests::panic_in_one_executor_does_not_abandon_the_batch ... ok
+test queue::tests::preview_grants_do_not_survive_restart ... ok
+test queue::tests::preview_errors_and_cancellation_leave_conversion_available ... ok
+test queue::tests::serialized_snapshot_matches_the_frontend_contract_fixture ... ok
+test queue::tests::persistence_failure_prevents_submission_and_can_be_retried ... ok
+test queue::tests::replaced_input_is_rejected_before_executor_runs ... ok
+test queue::tests::revealing_results_requires_current_directory_authority_and_unchanged_bytes ... ok
+test storage::tests::exact_lower_bound_and_insufficient_capacity ... ok
+test storage::tests::free_file_entries_checked_only_when_reported ... ok
+test storage::tests::missing_or_file_instead_of_directory_is_rejected ... ok
+test queue::tests::separate_instances_cannot_write_the_same_history ... ok
+test storage::tests::unwritable_directory_fails_before_conversion ... ok
+test storage::tests::real_filesystem_query_and_probe_leave_existing_files_untouched ... ok
+test queue::tests::removing_a_queued_task_does_not_wait_for_an_unrelated_running_task ... ok
+test workspaces::tests::crash_fixture ... ignored, subprocess fixture invoked by abrupt_exit_releases_lease
+test queue::tests::unsupported_engine_routes_are_not_advertised_at_registration ... ok
+test queue::tests::missing_output_revokes_permission_and_requires_a_new_selection ... ok
+test queue::tests::shutdown_drop_releases_lock_even_if_a_duplicate_handle_exists ... ok
+test workspaces::tests::abrupt_exit_releases_lease_and_cleanup_removes_only_owned_scratch ... ok
+test workspaces::tests::active_session_is_preserved_by_another_store ... ok
+test queue::tests::saved_pages_survive_cancellation_and_are_passed_to_an_explicit_retry ... ok
+test workspaces::tests::normal_drop_failure_also_retains_ownership_marker ... ok
+test workspaces::tests::unsafe_root_is_rejected_without_changing_permissions ... ok
+test queue::tests::shutdown_cancels_running_and_queued_work ... ok
+test workspaces::tests::partial_deletion_failure_retains_marker_for_retry ... ok
+test workspaces::tests::links_and_external_hardlinked_markers_are_preserved ... ok
+test workspaces::tests::workdir_retains_session_and_cleans_after_last_owner ... ok
+test workspaces::tests::scan_is_bounded ... ok
+test workspaces::tests::requires_two_observations_and_clock_rollback_delays_cleanup ... ok
+test queue::tests::restart_restores_history_but_never_restores_file_authority ... ok
+test queue::tests::saved_output_survives_history_failure_and_following_jobs_pause ... ok
+test queue::tests::scheduler_runs_a_whole_batch_without_frontend_calls ... ok
+test workspaces::tests::unknown_or_corrupt_markers_are_never_removed ... ok
+test queue::tests::remove_and_exit_wait_for_preview_cleanup ... ok
+test process::tests::abrupt_parent_exit_stops_descendants ... ok
+test process::tests::successful_parent_cannot_leave_pipe_holding_descendants ... ok
+test process::tests::deadline_is_total_and_kills_descendants ... ok
+
+test result: ok. 91 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 2.52s
+
+   Doc-tests z8_native
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

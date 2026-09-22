@@ -1,0 +1,34 @@
+{
+  "status": "draft",
+  "version": "0.1.0",
+  "language": "zh-Hans",
+  "productName": "Z8.Work",
+  "summary": "在本机批量转换图片、PDF 页面和音频",
+  "shortDescription": "本地多文件转换处理工具，支持批量转换、图片质量设置和 PDF 未完成页面重试。",
+  "description": "Z8.Work 使用本机原生引擎处理文件。选择输入文件和保存目录，设置输出格式与质量，由本地队列完成批量转换。无需账号，转换器不上传文件内容。\n\n图片可输出 PNG、JPEG、WebP 和 AVIF；PDF 可逐页导出图片；支持音频转换和从支持的视频文件中提取音轨；Markdown 与 DOCX 可提取纯文本。\n\n查看转换后的文件体积，取消队列任务，重试 PDF 未完成页面。编码成功但保存失败时，若单文件结果已暂存，可在本次会话中更换目录仅重试保存，无需重新编码。重启后可恢复任务记录，重试前需重新选择输入文件和保存目录。\n\n图片仅处理首帧，JPEG 将透明区域填为白色。PDF 最多 200 页，每页最多 4000 × 4000 像素。文档仅输出纯文本，不保留排版，也不提供 OCR。本桌面版尚不支持视频输出和电子表格转换。输出文件可能比原文件更大。",
+  "features": [
+    "原生引擎本地转换，不上传文件内容",
+    "批量设置输出格式与三档图片质量",
+    "支持 PNG、JPEG、WebP、AVIF 图片输出",
+    "PDF 多页导出与部分结果恢复",
+    "音频转换和从支持的视频中提取音轨",
+    "从 Markdown 和 DOCX 提取纯文本"
+  ],
+  "whatsNew": "",
+  "website": "https://z8.work/",
+  "supportUrl": "https://z8.work/desktop-info/zh-Hans/support/",
+  "privacyUrl": "https://z8.work/desktop-info/zh-Hans/privacy/",
+  "contact": "contact@web.casa",
+  "source": "https://github.com/web-casa/z8work",
+  "identity": {
+    "artifact": "windows-x64-msix",
+    "displayName": "Z8.Work",
+    "identity": null,
+    "publisher": null,
+    "packageVersion": null,
+    "pricing": null,
+    "ageRating": null,
+    "candidate": null,
+    "screenshots": []
+  }
+}

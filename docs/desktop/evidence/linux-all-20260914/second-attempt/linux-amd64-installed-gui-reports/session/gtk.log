@@ -1,0 +1,8 @@
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:56:39.198: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:56:45.181: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:56:54.977: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(xdg-desktop-portal-gtk:4783): Gtk-CRITICAL **: 03:57:01.914: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "scope": "MuPDF WASM and JavaScript technical source correspondence and application runtime validation; not distribution/license approval",
+  "verificationMethod": "rebuilt",
+  "sourceCommit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
+  "wasmSha256": "5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7",
+  "wasmByteIdentical": true,
+  "javascriptBinding": "Both main wrapper and minified loader independently rebuilt; byte-identical to installed npm files",
+  "reviewedBy": "Codex automated offline rebuild, byte comparison and Git blob verification",
+  "archive": ".desktop-local/store-source-phase5/mupdf-corresponding-source.tar.gz",
+  "archiveSha256": "22f86f6e11d2bff9f9ca5664db48c2e0e4e905fe08b37ae483ccb08310345106",
+  "buildInputs": [
+    {
+      "file": "packaging/desktop-web/mupdf-source-build.json",
+      "sha256": "a91c044eeb6d8c8b8e8898fd85e9a36963eacbf35d54f1e7642fa62bab61f909"
+    },
+    {
+      "file": "scripts/desktop-web-mupdf-context.py",
+      "sha256": "231ff19605ac615dfc5fe2a24f98500e96657386bda7d92978496c98cf0faa16"
+    },
+    {
+      "file": ".desktop-local/store-source-phase5/mupdf-context/build-wasm.sh",
+      "sha256": "4cad15676ad63d85b24e0bea71070a4ce5754bbc49beff9a659bfda40e5cc145"
+    },
+    {
+      "file": ".desktop-local/store-source-phase5/mupdf-context/source-lock.json",
+      "sha256": "a59d25813af2f169641ac3993121324e3ae604962a274d8a772585f6bce95e67"
+    },
+    {
+      "file": ".desktop-local/store-source-phase5/sdk-image.json",
+      "sha256": "969c9cdff5693e9828e5de1294c6a5103a7f1a1d9f52b5c3ff868b1f6c6b04c4"
+    },
+    {
+      "file": ".desktop-local/store-source-phase5/container-resources.json",
+      "sha256": "3d2e05238dace52ecf49cfbd845b28e6fd3e8447e577c8f4e4c52df17755290e"
+    },
+    {
+      "file": "packaging/desktop-web/mupdf-tools/package.json",
+      "sha256": "573e5c63e5fa52d7569b065dc7e6142bb872cbc40bf4373e78c913cc125d8101"
+    },
+    {
+      "file": "packaging/desktop-web/mupdf-tools/package-lock.json",
+      "sha256": "ea33b81656a5ff81b5655b10fad68e572616d3e1eb333b9812ee43f9be860250"
+    },
+    {
+      "file": "scripts/desktop-web-mupdf-js.mjs",
+      "sha256": "78e83b7d1c523588700a830f689210394d2fcd1b93350e0f8222bc1a8a51bb8d"
+    }
+  ],
+  "sourceTrees": 24,
+  "gitBlobs": 24085,
+  "host": "linux/arm64",
+  "toolchainPlatform": "linux/amd64",
+  "artifactTarget": "wasm32-unknown-emscripten",
+  "emsdkVersion": "4.0.8",
+  "emsdkImage": "emscripten/emsdk@sha256:92c97951b9a6835cb5da9592e9d95226f67e09ecd01a541d817a5b4801f235a4",
+  "buildNetwork": "none",
+  "buildExitCode": 0,
+  "coreTestsPerVariant": 38,
+  "browserConversions": 7,
+  "sourceDistribution": "local archive only",
+  "licenseReview": "pending",
+  "nativeStoreAcceptance": "not-run",
+  "releaseReady": false,
+  "jsByteIdentical": true,
+  "jsHashes": {
+    "mupdf.js": "5d237eadcb9640584e0050f6f958e547887b7a54d80a04043e12be9420931076",
+    "mupdf-wasm.js": "25382abbfbf5c52191e5ac59e1412a0da88647fecfab0c1d797bb5948443eea4"
+  },
+  "javascriptTools": {
+    "@types/node": "22.20.1",
+    "terser": "5.51.2",
+    "typescript": "5.9.3"
+  }
+}

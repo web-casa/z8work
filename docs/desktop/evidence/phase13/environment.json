@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "date": "2026-09-09",
+  "host": {
+    "os": "Debian 13 Linux",
+    "arch": "aarch64"
+  },
+  "sdk": {
+    "repository": "https://github.com/microsoft/msix-packaging",
+    "commit": "25a65f5c1690930813bcc10cdf1d59fa865f2bb1",
+    "describe": "MSIX-Core-1.2-release-29-g25a65f5c",
+    "toolVersion": "1.7.243",
+    "makemsix": {
+      "sha256": "4890d7d3e5257362f831695124665ff796eef83e1ea655390c910f1f2dae8710",
+      "bytes": 195376
+    },
+    "libmsix": {
+      "sha256": "ac69c780cffc76633b71d4a62114dcd06c36636d26dfbe827457c0c3ad59c02b",
+      "bytes": 6532376
+    },
+    "buildChanges": "D lib/zlib/zconf.h",
+    "cmakeOptions": {
+      "LINUX": "ON",
+      "MSIX_PACK": "ON",
+      "USE_VALIDATION_PARSER": "ON",
+      "MSIX_TESTS": "OFF",
+      "MSIX_SAMPLES": "OFF",
+      "SKIP_BUNDLES": "ON",
+      "CMAKE_BUILD_TYPE": "Release",
+      "CMAKE_C_COMPILER": "/usr/lib/llvm-19/bin/clang",
+      "CMAKE_CXX_COMPILER": "/usr/lib/llvm-19/bin/clang++",
+      "CMAKE_DISABLE_FIND_PACKAGE_ICU": "TRUE",
+      "transcoder": "iconv",
+      "message-loader": "inmemory"
+    }
+  },
+  "package": {
+    "path": ".desktop-local/phase13/package-final/z8-work-development.msix",
+    "sha256": "6116490e6a00735064d32cbef7358a33c1aa520d2b41dcfbf1df3d150fda288d",
+    "bytes": 171320297
+  },
+  "sourceHandoff": {
+    "sha256": "9955d2e7f33e79c4adb2e9fd019a332158783c94b6d16676e3a821e78ce0397a",
+    "bytes": 6669
+  },
+  "nativeWindows": "not-run",
+  "makeappx": "not-run",
+  "installation": "not-run",
+  "redistributionApproved": false,
+  "storeSubmissionAllowed": false
+}

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><meta name="description" content="桌面预览版说明。商店发行与跨平台安装验收仍未完成。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>桌面版隐私说明 — Z8.Work</title><link rel="canonical" href="https://z8.work/desktop-info/zh-Hans/privacy/">
+<style>body{margin:0;background:#fffdeb;color:#192126;font:18px/1.7 system-ui,sans-serif}header,main,footer{max-width:900px;margin:auto;padding:24px}header{border-bottom:3px solid;display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}a{color:#006c70;text-underline-offset:4px}a:focus-visible{outline:3px solid;outline-offset:4px}h1{font-size:clamp(28px,5vw,42px);line-height:1.2}h2{font-size:24px}section{border-top:1px solid #bbb9ad;padding:12px 0}nav{display:flex;gap:16px;flex-wrap:wrap}.notice{background:#ffc09a;border:2px solid;padding:16px}footer{border-top:3px solid;font-size:16px}p{overflow-wrap:anywhere}@media(max-width:500px){header,main,footer{padding:18px}}</style></head>
+<body><header><strong>Z8.Work</strong><nav aria-label="Language / 语言"><a href="/desktop-info/en/privacy/" lang="en">English</a> <a href="/desktop-info/zh-Hans/privacy/" lang="zh-Hans" aria-current="page">简体中文</a></nav></header>
+<main><h1>桌面版隐私说明</h1><p class="notice">桌面预览版说明。商店发行与跨平台安装验收仍未完成。</p><p>更新日期: 2026-09-20</p>
+<section><h2>本机网页引擎转换</h2><p>桌面应用内置界面和 WebAssembly 转换引擎，文件在本机处理，不连接转换服务器，不上传文件内容，也不安装或启动原生 FFmpeg、ImageMagick、Pandoc、MuPDF 程序。应用没有账号或分析统计服务。</p></section>
+<section><h2>会话与偏好</h2><p>所选文件和转换结果保存在当前会话中，关闭应用会丢失队列与未保存的结果。语言、主题与转换偏好可能保存在本地 WebView 存储中。应用不导入或删除旧原生引擎版本的历史记录。</p></section>
+<section><h2>保存与临时文件</h2><p>您通过系统保存对话框选择目标文件。应用先在目标文件旁写入临时文件，完整写入后才发布结果。取消和失败通常会清理临时文件；进程崩溃可能遗留临时文件。清空列表不会删除原文件或已保存结果。</p></section>
+<section><h2>外链与支持</h2><p>打开外部网站或支持邮箱会使用系统浏览器或邮件应用。安装和更新软件可能使用网络。您主动发送的支持信息由接收方及其服务提供商处理，应用不会自动上传诊断报告。</p></section>
+<p><a href="mailto:contact@web.casa">contact@web.casa</a> · <a href="https://github.com/web-casa/z8work" rel="noopener noreferrer">源代码</a></p></main>
+<footer><nav><a href="/desktop-info/zh-Hans/privacy/">桌面版隐私说明</a><a href="/desktop-info/zh-Hans/support/">桌面版使用与支持</a><a href="https://z8.work/">网站</a></nav></footer></body></html>

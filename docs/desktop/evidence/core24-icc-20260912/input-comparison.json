@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "hostHead": "a0d79e464646c11454aa21f73202dd01f31f641e",
+  "isolatedHead": "e15f231705a3205e7cf9c86a43e20d950c29d75d",
+  "hostFileCount": 455,
+  "isolatedFileCount": 454,
+  "differences": [
+    {
+      "file": ".github/workflows/desktop.yml",
+      "host": {
+        "bytes": 11633,
+        "sha256": "e7dd3125577992408fb60b05d2a2805e91066ed055d382f322068064e28bbc1d"
+      },
+      "isolated": null
+    },
+    {
+      "file": "static/desktop-info/en/privacy/index.html",
+      "host": {
+        "bytes": 4403,
+        "sha256": "bc3b01aef90bfbc63298f9224be8dbd8ca5f0807daf533345a8a793a88d43529"
+      },
+      "isolated": {
+        "bytes": 4281,
+        "sha256": "dfb8605209f14e5f56d6d30e3f1080db737e67ffc30db5cb355fcdd2cfecc10a"
+      }
+    },
+    {
+      "file": "static/desktop-info/en/support/index.html",
+      "host": {
+        "bytes": 4513,
+        "sha256": "91f204c53015b00e952fd22e8cbb771eb42445a56bbf3d200a12239b21adcd65"
+      },
+      "isolated": {
+        "bytes": 3520,
+        "sha256": "e5d5ba1b10f8a422e2d6bdf24441eb2ac869be2c2d3cfbad90a17583ee3399c9"
+      }
+    },
+    {
+      "file": "static/desktop-info/zh-Hans/privacy/index.html",
+      "host": {
+        "bytes": 4129,
+        "sha256": "cb867f750900e729d51fc2ed480b7ce85f024c223e417525831d335c5127c712"
+      },
+      "isolated": {
+        "bytes": 3997,
+        "sha256": "d3cd4f695c555976e01b88b6ba4df5dac45e62c9c40e5f71e093d1fffde21a06"
+      }
+    },
+    {
+      "file": "static/desktop-info/zh-Hans/support/index.html",
+      "host": {
+        "bytes": 4284,
+        "sha256": "7266fda756559357d18967d9b3580df91f950561d7e2dec3cd3559696ca296c1"
+      },
+      "isolated": {
+        "bytes": 3358,
+        "sha256": "60107526ae3deffe10dd1f6502ac66843ff95715192ef27373b996ac207b40a6"
+      }
+    }
+  ],
+  "applicationAndEngineBuildInputsMatch": true,
+  "notes": "Static public support/privacy pages and CI workflow were not synchronized; neither is read by the local desktop build. Isolated HEAD is historical; file digests identify actual inputs."
+}

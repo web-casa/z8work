@@ -1,0 +1,8 @@
+{
+  "release": "2026.824.1923",
+  "sourceCommit": "566ae32c14fe7ea7fc139670cefee669a035d335",
+  "releaseArchiveSha256": "0d8178eb7e5bd92ac1dc713afefae3f6251b75f6ab14d0157ff8088d10c2ea1f",
+  "asset": "magick.wasm",
+  "wasmSha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7",
+  "matchesInstalledWasm": true
+}

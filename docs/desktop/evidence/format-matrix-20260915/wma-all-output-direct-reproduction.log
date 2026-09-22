@@ -1,0 +1,153 @@
+
+== encode WMA to wav with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a pcm_s16le -f wav /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-wav.wav
+bitrate=1413.0kbits/s
+total_size=188494
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed= 860x
+progress=end
+exit=0 elapsed_ms=14
+
+== decode WMA to wav output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-wav.wav -map 0:a:0 -f null -
+exit=0 elapsed_ms=14
+
+== encode WMA to mp3 with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a libmp3lame -b:a 192k -f mp3 /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-mp3.mp3
+bitrate= 186.0kbits/s
+total_size=24812
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed= 148x
+progress=end
+exit=0 elapsed_ms=11
+
+== decode WMA to mp3 output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-mp3.mp3 -map 0:a:0 -f null -
+exit=0 elapsed_ms=5
+
+== encode WMA to flac with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a flac -f flac /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-flac.flac
+bitrate= 840.7kbits/s
+total_size=112147
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed= 370x
+progress=end
+exit=0 elapsed_ms=6
+
+== decode WMA to flac output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-flac.flac -map 0:a:0 -f null -
+exit=0 elapsed_ms=6
+
+== encode WMA to opus with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a libopus -b:a 128k -f opus /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-opus.opus
+bitrate= 158.1kbits/s
+total_size=21092
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed= 147x
+progress=end
+exit=0 elapsed_ms=11
+
+== decode WMA to opus output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-opus.opus -map 0:a:0 -f null -
+exit=0 elapsed_ms=6
+
+== encode WMA to m4a with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a aac -b:a 192k -f ipod /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-m4a.m4a
+bitrate= 182.4kbits/s
+total_size=24336
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed=65.6x
+progress=end
+exit=0 elapsed_ms=20
+
+== decode WMA to m4a output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-m4a.m4a -map 0:a:0 -f null -
+exit=0 elapsed_ms=6
+
+== encode WMA to ogg with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a libvorbis -q:a 5 -f ogg /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-ogg.ogg
+bitrate=  70.7kbits/s
+total_size=9430
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed=93.7x
+progress=end
+exit=0 elapsed_ms=15
+
+== decode WMA to ogg output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-ogg.ogg -map 0:a:0 -f null -
+exit=0 elapsed_ms=6
+
+== encode WMA to aiff with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a pcm_s16be -f aiff /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-aiff.aiff
+bitrate=1412.9kbits/s
+total_size=188470
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed=1.3e+03x
+progress=end
+exit=0 elapsed_ms=5
+
+== decode WMA to aiff output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-aiff.aiff -map 0:a:0 -f null -
+exit=0 elapsed_ms=5
+
+== encode WMA to aac with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a aac -b:a 192k -f adts /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-aac.aac
+bitrate= 177.3kbits/s
+total_size=23651
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed=  65x
+progress=end
+exit=0 elapsed_ms=20
+
+== decode WMA to aac output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-aac.aac -map 0:a:0 -f null -
+exit=0 elapsed_ms=6
+
+== encode WMA to alac with production FFmpeg arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -progress pipe:1 -nostats -stats_period 0.25 -nostdin -v error -xerror -n -protocol_whitelist file -f asf -i /tmp/z8-wma-opus-diagnosis.Uyjzya/audio-input.wma -map 0:a:0 -vn -map_metadata -1 -map_chapters -1 -fs 268435457 -threads 2 -c:a alac -f ipod /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-alac.alac
+bitrate=1060.1kbits/s
+total_size=141414
+out_time_us=1067167
+out_time_ms=1067167
+out_time=00:00:01.067167
+dup_frames=0
+drop_frames=0
+speed= 418x
+progress=end
+exit=0 elapsed_ms=6
+
+== decode WMA to alac output with final matrix readback arguments ==
+command: /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib/ld-linux-aarch64.so.1 --library-path /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/lib /home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines/bin/ffmpeg -nostdin -v error -xerror -i /tmp/z8-wma-opus-diagnosis.Uyjzya/wma-to-alac.alac -map 0:a:0 -f null -
+exit=0 elapsed_ms=7

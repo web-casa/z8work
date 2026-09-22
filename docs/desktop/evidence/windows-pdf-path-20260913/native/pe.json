@@ -1,0 +1,1366 @@
+{
+  "images": [
+    {
+      "path": "candidate/engines/bin/ffmpeg.exe",
+      "bytes": 102856192,
+      "sha256": "72a489eccd008c2ec2c0a5856c5c75bc3d8bbfa90166c4566865c246445e6aa3",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "avicap32.dll",
+        "avrt.dll",
+        "bcrypt.dll",
+        "crypt32.dll",
+        "gdi32.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "msimg32.dll",
+        "ncrypt.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "shell32.dll",
+        "shlwapi.dll",
+        "user32.dll",
+        "winmm.dll",
+        "ws2_32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "candidate/engines/bin/ffprobe.exe",
+      "bytes": 102652416,
+      "sha256": "19202b23c0043f15ad1b7bce2344f406fd52bd6efd8f995ce02e7392a1cec52f",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-multibyte-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "avicap32.dll",
+        "avrt.dll",
+        "bcrypt.dll",
+        "crypt32.dll",
+        "gdi32.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "msimg32.dll",
+        "ncrypt.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "shell32.dll",
+        "shlwapi.dll",
+        "user32.dll",
+        "winmm.dll",
+        "ws2_32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "candidate/engines/bin/magick.exe",
+      "bytes": 31478960,
+      "sha256": "6b6bd55206f23ed02738deda301c3c758738bb4d328c1c03c9a7ae778c3f960d",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcrypt.dll",
+        "dnsapi.dll",
+        "gdi32.dll",
+        "gdiplus.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "msimg32.dll",
+        "ole32.dll",
+        "shell32.dll",
+        "urlmon.dll",
+        "user32.dll",
+        "vcomp140.dll",
+        "ws2_32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/bin/msvcp140.dll",
+      "bytes": 643512,
+      "sha256": "7c26614e1d733892c2deac7e245ce115504b1d80592dd0a01b08e3e5a55f89ca",
+      "arch": "x86_64",
+      "kind": "dll",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "kernel32.dll",
+        "vcruntime140.dll",
+        "vcruntime140_1.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/bin/mutool.exe",
+      "bytes": 46447104,
+      "sha256": "5212a418819fbaa1843ce38cd7566227a19d30c2afec34d3c0b888c44ac81ba4",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "kernel32.dll",
+        "msvcp140.dll",
+        "vcruntime140.dll",
+        "vcruntime140_1.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "candidate/engines/bin/pandoc.exe",
+      "bytes": 233626888,
+      "sha256": "e0057eaf640d08ba028b70721d4f7b63a685c30430de9db89aea84de2d4a1912",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "crypt32.dll",
+        "dbghelp.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "ntdll.dll",
+        "ole32.dll",
+        "rpcrt4.dll",
+        "shell32.dll",
+        "user32.dll",
+        "winmm.dll",
+        "ws2_32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/bin/vcomp140.dll",
+      "bytes": 212920,
+      "sha256": "95d4ce4a6802d1e18b5e0e1722cc30ea72ca7e033f83828f05c0b7b993fe7cbf",
+      "arch": "x86_64",
+      "kind": "dll",
+      "subsystem": 2,
+      "imports": [
+        "kernel32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/bin/vcruntime140_1.dll",
+      "bytes": 50112,
+      "sha256": "a7146c08f89fe5b04541ab507cdb59ff7b44534d4ba3c668a426c6450a03434e",
+      "arch": "x86_64",
+      "kind": "dll",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll",
+        "vcruntime140.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/bin/vcruntime140.dll",
+      "bytes": 178616,
+      "sha256": "d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7",
+      "arch": "x86_64",
+      "kind": "dll",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "kernel32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": true
+    },
+    {
+      "path": "candidate/engines/validation/bundle-check.exe",
+      "bytes": 1373184,
+      "sha256": "c34a85968f225785677b80bfc7a65a024cb2e88d9636d3d123f469081a567c79",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcryptprimitives.dll",
+        "kernel32.dll",
+        "ntdll.dll",
+        "oleaut32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": false,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "candidate/z8-desktop.exe",
+      "bytes": 12858368,
+      "sha256": "a290ef5982657b3e24d3cf90ad3103d0e7ce7b84a308d4d441a79a263cbda433",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 2,
+      "imports": [
+        "advapi32.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcryptprimitives.dll",
+        "comctl32.dll",
+        "dwmapi.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "ntdll.dll",
+        "ole32.dll",
+        "oleaut32.dll",
+        "shell32.dll",
+        "shlwapi.dll",
+        "user32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": true,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "validation/native-tests.exe",
+      "bytes": 2657792,
+      "sha256": "c26ca659f4cb105df522ded218c4290cf80004b4085e6cbdd0c3c1306ea69df2",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcryptprimitives.dll",
+        "kernel32.dll",
+        "ntdll.dll",
+        "oleaut32.dll",
+        "userenv.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": false,
+      "certificateTablePresent": false
+    },
+    {
+      "path": "validation/validation-run.exe",
+      "bytes": 583168,
+      "sha256": "2db77aa8e333f76213a6d88054fed473e2d4aa7afee8ed5c9d3272501c22dcf8",
+      "arch": "x86_64",
+      "kind": "exe",
+      "subsystem": 3,
+      "imports": [
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcryptprimitives.dll",
+        "kernel32.dll",
+        "ntdll.dll",
+        "oleaut32.dll"
+      ],
+      "delayImports": [],
+      "resourcesPresent": false,
+      "certificateTablePresent": false
+    }
+  ],
+  "dependencies": [
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "advapi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-conio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-multibyte-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-private-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "avicap32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "avrt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "bcrypt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "crypt32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "gdi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "iphlpapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "msimg32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "ncrypt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "ole32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "shell32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "shlwapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "user32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "winmm.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffmpeg.exe",
+      "name": "ws2_32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "advapi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-multibyte-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-private-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "avicap32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "avrt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "bcrypt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "crypt32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "gdi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "iphlpapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "msimg32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "ncrypt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "ole32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "shell32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "shlwapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "user32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "winmm.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/ffprobe.exe",
+      "name": "ws2_32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "advapi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "bcrypt.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "dnsapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "gdi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "gdiplus.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "iphlpapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "msimg32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "ole32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "shell32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "urlmon.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "user32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "vcomp140.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/magick.exe",
+      "name": "ws2_32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "vcruntime140.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/msvcp140.dll",
+      "name": "vcruntime140_1.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "msvcp140.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "vcruntime140.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/mutool.exe",
+      "name": "vcruntime140_1.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "advapi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-private-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "crypt32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "dbghelp.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "gdi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "ntdll.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "ole32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "rpcrt4.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "shell32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "user32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "winmm.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/pandoc.exe",
+      "name": "ws2_32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcomp140.dll",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140.dll",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140_1.dll",
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140_1.dll",
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140_1.dll",
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140_1.dll",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/bin/vcruntime140_1.dll",
+      "name": "vcruntime140.dll",
+      "kind": "private",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/validation/bundle-check.exe",
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/validation/bundle-check.exe",
+      "name": "bcryptprimitives.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/validation/bundle-check.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/validation/bundle-check.exe",
+      "name": "ntdll.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/engines/validation/bundle-check.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "advapi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "bcryptprimitives.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "comctl32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "dwmapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "gdi32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "ntdll.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "ole32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "shell32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "shlwapi.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "candidate/z8-desktop.exe",
+      "name": "user32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "bcryptprimitives.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "ntdll.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/native-tests.exe",
+      "name": "userenv.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/validation-run.exe",
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/validation-run.exe",
+      "name": "bcryptprimitives.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/validation-run.exe",
+      "name": "kernel32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/validation-run.exe",
+      "name": "ntdll.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    },
+    {
+      "importer": "validation/validation-run.exe",
+      "name": "oleaut32.dll",
+      "kind": "windows-contract",
+      "status": "resolved-static"
+    }
+  ],
+  "missing": []
+}

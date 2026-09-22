@@ -1,0 +1,77 @@
+{
+  "scope": "first discovery pass: magick sample.ppm output.EXT; successful exit does not establish target encoding",
+  "results": [
+    {
+      "requestedExtension": "bmp",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "gif",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "ico",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "tga",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "qoi",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "ppm",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "tiff",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "jxl",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "exr",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "jp2",
+      "bytes": 23,
+      "prefixHex": "50360a3220320a3235350aff000000ff000000ffffffff",
+      "isPpm": true
+    },
+    {
+      "requestedExtension": "heic",
+      "bytes": 444,
+      "prefixHex": "0000001c6674797068656963000000006d69663168656963",
+      "isPpm": false
+    },
+    {
+      "requestedExtension": "avif",
+      "bytes": 304,
+      "prefixHex": "0000001c667479706176696600000000617669666d696631",
+      "isPpm": false
+    }
+  ]
+}

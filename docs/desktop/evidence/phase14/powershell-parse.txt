@@ -1,0 +1,1 @@
+PowerShell 7.6.6: adapter parsed with 0 errors

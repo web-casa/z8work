@@ -49,7 +49,7 @@ jobs:
               with:
                   targets: ${{ matrix.target }}
             - name: Build store-feature executable
-              run: npm run desktop:package -- --config packaging/desktop-web/tauri.microsoft-store-ci.json --target ${{ matrix.target }} --bundles none
+              run: npm run desktop:package -- --config packaging/desktop-web/tauri.microsoft-store-ci.json --target ${{ matrix.target }} --no-bundle
             - name: Release gate check (local-only files may be unavailable; digests must not drift)
               shell: pwsh
               run: |

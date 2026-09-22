@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "scope": "windows-x64-application",
+  "status": "passed",
+  "host": {
+    "platform": "linux",
+    "arch": "arm64",
+    "machine": "aarch64"
+  },
+  "checks": {
+    "pe": "passed",
+    "buildInfo": "not-run"
+  },
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "limitations": [
+    "Static imports do not cover LoadLibrary, exports, or minimum OS API availability.",
+    "Reported OS/CPU fields alone cannot certify native hardware or exclude a compatibility layer.",
+    "Engines, WebView2 GUI, MSIX identity/install/upgrade/uninstall, WACK and licenses are not validated here."
+  ],
+  "inspection": {
+    "images": [
+      {
+        "path": "z8-desktop.exe",
+        "bytes": 11610624,
+        "sha256": "a527f26ecfa649dcf0809c2910479003b4434d6f29d725377ba9daa17f69f9ae",
+        "arch": "x86_64",
+        "kind": "exe",
+        "subsystem": 2,
+        "imports": [
+          "advapi32.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "bcryptprimitives.dll",
+          "combase.dll",
+          "comctl32.dll",
+          "dwmapi.dll",
+          "gdi32.dll",
+          "kernel32.dll",
+          "ntdll.dll",
+          "ole32.dll",
+          "oleaut32.dll",
+          "shell32.dll",
+          "shlwapi.dll",
+          "user32.dll"
+        ],
+        "delayImports": [],
+        "resourcesPresent": true,
+        "certificateTablePresent": false
+      }
+    ],
+    "dependencies": [
+      {
+        "importer": "z8-desktop.exe",
+        "name": "advapi32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "api-ms-win-core-synch-l1-2-0.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "bcryptprimitives.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "combase.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "comctl32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "dwmapi.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "gdi32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "kernel32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "ntdll.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "ole32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "oleaut32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "shell32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "shlwapi.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      },
+      {
+        "importer": "z8-desktop.exe",
+        "name": "user32.dll",
+        "kind": "windows-contract",
+        "status": "resolved-static"
+      }
+    ],
+    "missing": []
+  }
+}

@@ -1,0 +1,2 @@
+[validation] magick ["-size", "64x48", "gradient:red-blue", "/tmp/.tmp3V08r2/source.png"]
+Error: "Wrong inode exhaustion category: Output folder has insufficient free file entries."

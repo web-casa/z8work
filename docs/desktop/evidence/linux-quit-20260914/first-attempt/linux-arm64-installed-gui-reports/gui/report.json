@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "mode": "packaged-product",
+  "binarySha256": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+  "routes": [],
+  "checks": [
+    "native-input-picker-cancel-keeps-queue-empty",
+    "convert-button-save-picker-cancel-does-not-start",
+    "visible-format-and-keyboard-convert-save-decodable-webp-original-unchanged",
+    "native-restart-restores-language-and-history-without-file-authorization",
+    "keyboard-clear-retains-original-and-saved-result",
+    "unsaved-close-single-confirmation-escape-retains-payload",
+    "unsaved-close-default-enter-stays-in-app",
+    "confirmed-native-quit-discards-cache-restart-requires-manual-conversion",
+    "idle-native-window-close-exits-without-confirmation"
+  ],
+  "installation": "not-run"
+}

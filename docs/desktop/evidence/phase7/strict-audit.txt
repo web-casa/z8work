@@ -1,0 +1,13 @@
+$ node scripts/desktop-sources.mjs --engines ".desktop-local/phase5-engines-final" --debs "/tmp/z8-m0-deps" --extracted-root "/tmp/z8-m0-deps/extracted" --installed-metadata --sources ".desktop-local/phase7-sources-final" --output ".desktop-local/phase7-final" --require-complete
+{
+  "output": "/home/ivmm/VERT/.desktop-local/phase7-final",
+  "status": "ready-for-source-review",
+  "inventoryFiles": 668,
+  "unverifiedSystemMetadata": 0,
+  "mappedRuntimeFiles": 434,
+  "unresolvedRuntimeFiles": 0,
+  "missingLicenseNotices": 0,
+  "sourceVersions": 170,
+  "missingSourceVersions": 0,
+  "redistributionApproved": false
+}

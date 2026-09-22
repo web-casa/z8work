@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "zipFiles": 535,
+  "source": "Independent MSIX prepared payload, excluding package-only assets/manifest",
+  "checksums": "passed"
+}

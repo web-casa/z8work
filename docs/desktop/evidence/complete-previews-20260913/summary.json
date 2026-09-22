@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "scope": "complete-development-preview-packages",
+  "packages": [
+    {
+      "platform": "linux-amd64",
+      "run": 34711315368,
+      "artifact": 10303438694,
+      "sourceCommit": "0a4e979",
+      "files": [
+        {
+          "name": "z8-work_0.1.0_amd64.snap",
+          "bytes": 203567104,
+          "sha256": "654b578d5081b7f5a59e58a984d9fcbacb80bdf3d43e6d01cfc8fd811cd47b58"
+        },
+        {
+          "name": "z8-work_0.1.0~preview1_amd64.deb",
+          "bytes": 135857252,
+          "sha256": "0e1c8d58fd0a0f67cb9ec06a13af6e0a45f2d76b8df56b6094470b089d30962b"
+        }
+      ],
+      "conversion": "passed",
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240,
+      "pdfColorChecks": 4,
+      "elapsedSeconds": 249.592481677,
+      "gui": "not-run",
+      "systemInstallation": "not-run",
+      "cleanContainerDebInstall": "passed-emulated",
+      "storeSubmission": "not-run"
+    },
+    {
+      "platform": "linux-arm64",
+      "run": 34711315368,
+      "artifact": 10303194648,
+      "sourceCommit": "0a4e979",
+      "files": [
+        {
+          "name": "z8-work_0.1.0~preview1_arm64.deb",
+          "bytes": 126734220,
+          "sha256": "803ec9939c3e7018840abfaab223862006c94a00b1b3ac5eed8b6be8a3c36e8e"
+        }
+      ],
+      "conversion": "passed",
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240,
+      "pdfColorChecks": 4,
+      "elapsedSeconds": 569.23686167,
+      "gui": "passed-extracted-deb-8-checks",
+      "systemInstallation": "not-run",
+      "cleanContainerDebInstall": "passed-native",
+      "storeSubmission": "not-run"
+    },
+    {
+      "platform": "macos-arm64",
+      "run": 34712238836,
+      "artifact": 10303289906,
+      "sourceCommit": "b1c0079",
+      "files": [
+        {
+          "name": "Z8.Work-macos-arm64-preview.dmg",
+          "bytes": 117680827,
+          "sha256": "11c6aed579f39c2cbfd3a2122110e979272ae17f4d3e587c849bc44d6181941e"
+        }
+      ],
+      "conversion": "passed",
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240,
+      "pdfColorChecks": 4,
+      "elapsedSeconds": 707.389369209,
+      "gui": "not-run",
+      "systemInstallation": "not-run",
+      "cleanContainerDebInstall": "not-applicable",
+      "storeSubmission": "not-run"
+    },
+    {
+      "platform": "macos-amd64",
+      "run": 34712242360,
+      "artifact": 10303664426,
+      "sourceCommit": "b1c0079",
+      "files": [
+        {
+          "name": "Z8.Work-macos-amd64-preview.dmg",
+          "bytes": 102805496,
+          "sha256": "216b32ea76757e45b40586552221232adaddc6eb9cf1f6d2bce86c24728df84d"
+        }
+      ],
+      "conversion": "passed",
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240,
+      "pdfColorChecks": 4,
+      "elapsedSeconds": 765.110755881,
+      "gui": "not-run",
+      "systemInstallation": "not-run",
+      "cleanContainerDebInstall": "not-applicable",
+      "storeSubmission": "not-run"
+    },
+    {
+      "platform": "windows-arm64",
+      "run": 34712677526,
+      "artifact": 10303858150,
+      "sourceCommit": "3449e66",
+      "files": [
+        {
+          "name": "Z8.Work-windows-arm64-development.msix",
+          "bytes": 171948420,
+          "sha256": "3c8f60e8617364481477937d932bc7c1b987e760eb6ec8bf21008299d18d1aab"
+        },
+        {
+          "name": "Z8.Work-windows-arm64-preview.zip",
+          "bytes": 169937208,
+          "sha256": "6efa8a02a3946e19fcf5334e7e1cb57894165f45d254fc6843292415f01ddcbf"
+        }
+      ],
+      "conversion": "passed",
+      "routes": 84,
+      "qualityChecks": 20,
+      "imageCalibration": 240,
+      "pdfColorChecks": 4,
+      "elapsedSeconds": 1059.6831378,
+      "gui": "not-run",
+      "systemInstallation": "not-run",
+      "storeSubmission": "not-run",
+      "architecture": "ARM64 application/ImageMagick; x64 FFmpeg/FFprobe/Pandoc/MuPDF via Windows 11 emulation"
+    }
+  ]
+}

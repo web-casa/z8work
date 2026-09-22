@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "scope": "phase14-local-evidence",
+  "files": {
+    "actionlint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "environment.json": {
+      "sha256": "269ee556fa82fe2abae46de4570bd18eff04672b269a9d064bea18c86a88e0eb",
+      "bytes": 674
+    },
+    "eslint.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "inputs-verified.txt": {
+      "sha256": "02269bb7357d5cec990f86d553e1abdf9c9ecf8fb49a46920eb45b820ad35e03",
+      "bytes": 34
+    },
+    "inputs.json": {
+      "sha256": "b9391838d8603c95d7333f5a3cc2b4844ecc1cf91a222288c9b9d5c13b59b31f",
+      "bytes": 42992
+    },
+    "native-guard-report.json": {
+      "sha256": "cc9a55d9bc0496436d6669e3d5957e764c9bbfe82c67642e8fee12e2311e12bd",
+      "bytes": 1098
+    },
+    "node22-tests.txt": {
+      "sha256": "18736904d1c0225c3d6337464170b390e9a0d89ce7c5b139f11709a587dece0d",
+      "bytes": 27378
+    },
+    "node24-tests.txt": {
+      "sha256": "dabc46fcf7f9230ea7dbb29d62e423da59319bdbf603c0a5fb75820fd0d9993c",
+      "bytes": 11464
+    },
+    "payload-check.json": {
+      "sha256": "9d921c9f38f3f8da9e4a634b6a114ba9716e1c11a36d0a9c5ee1bad31b4b0a85",
+      "bytes": 166
+    },
+    "powershell-parse.txt": {
+      "sha256": "0031d5469d056fdaafbd7d8c1ee137afa3d612ebc743d17bde9166ed9bb70703",
+      "bytes": 47
+    },
+    "preflight-report.json": {
+      "sha256": "8e0fe9f39684ce49ce35cdb3620847cd63e18be22f3593640a9e9a736eb83134",
+      "bytes": 1005
+    },
+    "prepared.json": {
+      "sha256": "03dce88d7306f040fca8e76caab4687745881ff4bad8771ea7a58311bc1a5b88",
+      "bytes": 5237
+    },
+    "prettier.txt": {
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
+      "bytes": 66
+    },
+    "python-tests.txt": {
+      "sha256": "a403b031ca53505b1068c5c1262f30475f8ef294ae83636c47835f0a12e632af",
+      "bytes": 110
+    },
+    "unsigned-content.json": {
+      "sha256": "fcda1aed51690f6d331327b02526f12690438f678b85a0f1056e2270fa305ad6",
+      "bytes": 349
+    },
+    "unsigned-content.txt": {
+      "sha256": "a819f068f2d0f40a262efd29830c18ada2288555325cdf8ee3e15f6feae43cd2",
+      "bytes": 325
+    }
+  }
+}

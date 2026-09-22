@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "phase": 30,
+  "scope": "Read-only original-byte inventory; not new native acceptance or candidate freeze",
+  "candidates": [
+    {
+      "platform": "linux-aarch64",
+      "file": ".desktop-local/phase29/linux-candidate/z8-work-0.1.0-linux-arm64-validation.tar.gz",
+      "sha256": "4439c4e722363dbe2c5407f5eba67c8a02ed66c2f1fcd66ff7ffa7f932d82bfa",
+      "bytes": 190689683,
+      "hashMatchesHistoricalRecord": true,
+      "status": "local-only-phase29",
+      "installationThisPhase": "not-run"
+    },
+    {
+      "platform": "windows-x86_64",
+      "file": ".desktop-local/phase28/msix-reviewed/z8-work-development.msix",
+      "sha256": "fa386cbdc3ac2c4cb75d72cb2cd5e0d569bfa510b32a1fa999741e6208311727",
+      "bytes": 172856751,
+      "hashMatchesHistoricalRecord": true,
+      "status": "rebuild-required-for-phase29-fix",
+      "installationThisPhase": "not-run"
+    },
+    {
+      "platform": "windows-x86_64",
+      "file": ".desktop-local/phase28/msix-synthetic-reviewed/z8-work-development.msix",
+      "sha256": "2d4209191779b8b126edf7c626fe42ac8704935ab3c2187c7dea718739a144f0",
+      "bytes": 172856748,
+      "hashMatchesHistoricalRecord": true,
+      "status": "historical-synthetic-upgrade-input",
+      "installationThisPhase": "not-run"
+    },
+    {
+      "platform": "linux-x86_64",
+      "file": ".desktop-local/phase28/snap-lcms-package/z8-work_0.1.0_amd64.snap",
+      "sha256": "ada85b958559b0ff7b5d9caaca50a49beecb9ca7609e9a2cf3b6fbe9c0936edd",
+      "bytes": 206086144,
+      "hashMatchesHistoricalRecord": true,
+      "status": "rebuild-required-for-phase29-fix",
+      "installationThisPhase": "not-run"
+    }
+  ],
+  "macos": "no-native-candidate",
+  "runtimeInputsMatchPhase29": true,
+  "comparedRuntimeInputFiles": 234,
+  "runtimeComparisonScope": "src-tauri/, desktop/src/, src/, desktop/index.html, desktop/vite.config.ts, package.json, bun.lock, LICENSE, rust-toolchain.toml; full tool/material receipts differ",
+  "redistributionApproved": false
+}

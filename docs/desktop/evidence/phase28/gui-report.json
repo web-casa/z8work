@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "platform": "linux/arm64",
+  "binarySha256": "e970986cac25daf947a66a5bac031441a5736fc3ae93eb8759aa1b73458cb010",
+  "routes": [],
+  "checks": [
+    "privacy-native-capability-and-external-url-allowlist",
+    "keyboard-skip-link-focuses-workspace",
+    "saved-image-impact-matches-native-snapshot-and-retry-does-not-accumulate",
+    "keyboard-clear-resets-impact-retains-originals-and-saved-files-restores-focus",
+    "minimum-620x560-and-200-percent-layout-no-horizontal-overflow-keyboard-focus",
+    "visible-language-switch-updates-document-language-and-offline-copy",
+    "bundled-component-notice-matches-backend-text",
+    "offline-license-readable-and-arbitrary-path-rejected"
+  ],
+  "installation": "not-run"
+}

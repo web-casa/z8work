@@ -1,0 +1,31 @@
+[package]
+name = "z8-desktop"
+version = "0.2.0"
+edition = "2021"
+publish = false
+
+[workspace]
+exclude = ["native"]
+
+[features]
+default = ["gtk-dialog"]
+gtk-dialog = ["tauri-plugin-dialog/gtk3"]
+linux-portal = ["tauri-plugin-dialog/xdg-portal"]
+custom-protocol = ["tauri/custom-protocol"]
+store = []
+
+[build-dependencies]
+cc = "1"
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = { version = "2", default-features = false }
+tauri-plugin-single-instance = "2"
+tauri-plugin-opener = "=2.5.4"
+serde = { version = "1", features = ["derive"] }
+tempfile = "3"
+uuid = { version = "1", features = ["v4"] }
+
+[target.'cfg(unix)'.dev-dependencies]
+libc = "0.2"

@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "date": "2026-09-08",
+  "head": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+  "dirty": true,
+  "scope": "Installed Snap acceptance tooling, local preflight and transferable test inputs; native installation not performed",
+  "sourceSha256": {
+    "scripts/desktop-snap-installed.mjs": "b4536be10922f0bda79375cadd5358fd7b9631610b82357b25a912999ac30e4f",
+    "scripts/lib/desktop-snap-installed.mjs": "4e07d809dfab7af8e403a6e95204d6e22cb38caf9dbade72667b3eb20511b428",
+    "scripts/desktop-snap-handoff.mjs": "4de1eddca54cc05024daa71a6e8d76510ae20a923651c36942445aabcb0213ac",
+    "desktop/tests/snap-installed.test.mjs": "6f572eac035a8f18d27cd2c60d6d4f594c53d7bf3d57562ff7f297ec8bf400b3",
+    "package.json": "6fcf4b7ace96dc3b3008157ecbaa49e8dbde9072b7747223774f5a44510b732b"
+  },
+  "candidateSha256": "ecca28eb011ab6121ec24281416ae195165f0bd70c2da3e757020f05f58484fa",
+  "candidateUnchangedFromPhase8": true,
+  "handoff": ".desktop-local/phase9-handoff-ready",
+  "handoffStatus": "prepared-for-native-testing",
+  "preflightExitCode": 2,
+  "installedAttemptExitCode": 2,
+  "handoffPreflightExitCode": 2,
+  "nativeAmd64Execution": false,
+  "storeSubmission": false,
+  "redistributionApproved": false
+}

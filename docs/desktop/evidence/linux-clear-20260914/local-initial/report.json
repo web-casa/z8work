@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "platform": "linux/arm64",
+  "mode": "packaged-product",
+  "binarySha256": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+  "routes": [],
+  "checks": [
+    "native-input-picker-cancel-keeps-queue-empty",
+    "convert-button-save-picker-cancel-does-not-start",
+    "visible-format-and-keyboard-convert-save-decodable-webp-original-unchanged",
+    "native-restart-restores-language-and-history-without-file-authorization",
+    "keyboard-clear-retains-original-and-saved-result",
+    "save-picker-cancel-retains-output-grant-and-cached-bytes",
+    "keyboard-save-only-publishes-identical-cache-with-source-unavailable",
+    "save-recovery-clear-keeps-result-original-and-collision-files",
+    "keyboard-cancel-current-reaps-encoder-and-queued-task-saves",
+    "cancel-current-keeps-originals-existing-results-and-decodable-next-output",
+    "keyboard-cancel-all-stops-running-and-queued-without-new-output",
+    "cancel-all-explicit-single-retry-saves-without-restarting-other-task",
+    "keyboard-cancel-queued-leaves-active-encoder-and-task-running",
+    "cancel-queued-active-attempt-finishes-as-decodable-avif-without-queued-output"
+  ],
+  "installation": "not-run"
+}

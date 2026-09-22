@@ -1,0 +1,1595 @@
+{
+	"schema": 1,
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"selectors": [
+		"fonts-noto-cjk=1:20240730+repack1-1",
+		"fonts-noto=20201225-2",
+		"graphite2=1.3.14-2",
+		"imagemagick=8:7.1.1.43+dfsg1-1+deb13u7",
+		"jpeg-xl=0.11.1-4",
+		"libass=1:0.17.3-1",
+		"libcaca=0.99.beta20-5",
+		"librabbitmq=0.15.0-1",
+		"libsndfile=1.2.2-2",
+		"libsodium=1.0.18-1",
+		"libtasn1-6=4.20.0-2",
+		"libvpx=1.15.0-2.1",
+		"mpg123=1.32.10-1",
+		"openssl=3.5.5-1~deb13u1",
+		"texlive-extra=2024.20250309-2",
+		"xz-utils=5.8.1-1"
+	],
+	"status": "verified-awaiting-source-review",
+	"redistributionApproved": false,
+	"signatureVerification": "not-performed",
+	"sources": [
+		{
+			"source": "fonts-noto-cjk",
+			"version": "1:20240730+repack1-1",
+			"selector": "fonts-noto-cjk=1:20240730+repack1-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/fonts-noto-cjk/1%3A20240730%2Brepack1-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "fonts-noto-cjk_20240730+repack1-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.debian.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/12468664f8c8ada3d4d657e7db5fb201c2425150"
+					],
+					"bytes": 6452,
+					"sha1": "12468664f8c8ada3d4d657e7db5fb201c2425150",
+					"aliases": [
+						{
+							"name": "fonts-noto-cjk_20240730+repack1-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.debian.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/12468664f8c8ada3d4d657e7db5fb201c2425150"
+							]
+						}
+					]
+				},
+				{
+					"name": "fonts-noto-cjk_20240730+repack1.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1.orig.tar.gz",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1.orig.tar.gz",
+						"https://snapshot.debian.org/file/a84d5aa175293b52841fdef2834b75fc823b2bc9"
+					],
+					"bytes": 252156856,
+					"sha1": "a84d5aa175293b52841fdef2834b75fc823b2bc9",
+					"aliases": [
+						{
+							"name": "fonts-noto-cjk_20240730+repack1.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1.orig.tar.gz",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1.orig.tar.gz",
+								"https://snapshot.debian.org/file/a84d5aa175293b52841fdef2834b75fc823b2bc9"
+							]
+						}
+					]
+				},
+				{
+					"name": "fonts-noto-cjk_20240730+repack1-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.dsc",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.dsc",
+						"https://snapshot.debian.org/file/f733df327bd1c72fe7db591b13c9922119833192"
+					],
+					"bytes": 2142,
+					"sha1": "f733df327bd1c72fe7db591b13c9922119833192",
+					"aliases": [
+						{
+							"name": "fonts-noto-cjk_20240730+repack1-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.dsc",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto-cjk/fonts-noto-cjk_20240730%2Brepack1-1.dsc",
+								"https://snapshot.debian.org/file/f733df327bd1c72fe7db591b13c9922119833192"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 2.37,
+			"sourceVersion": "1:20240730+repack1-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "fonts-noto-cjk_20240730+repack1-1.dsc",
+				"sha256": "c55d5261927d5bcfefc498a8884189bce46823f216c83726d21bd78cfa337ddd",
+				"bytes": 2142
+			},
+			"files": [
+				{
+					"file": "fonts-noto-cjk_20240730+repack1.orig.tar.gz",
+					"sha256": "8046de072b10f3b53517b851199a0b2eb679cfab2d3e8165c529f6d29b6ce9c3",
+					"bytes": 252156856
+				},
+				{
+					"file": "fonts-noto-cjk_20240730+repack1-1.debian.tar.xz",
+					"sha256": "730880656be4825c3478fb12f7324c6d3641d7a94d9d6aee642f49174b4396c1",
+					"bytes": 6452
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "fonts-noto",
+			"version": "20201225-2",
+			"selector": "fonts-noto=20201225-2",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/fonts-noto/20201225-2/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "fonts-noto_20201225-2.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225-2.debian.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225-2.debian.tar.xz",
+						"https://snapshot.debian.org/file/00a18f8bb2fc28a3a4059fc21b9572ce0622c1ea"
+					],
+					"bytes": 110764,
+					"sha1": "00a18f8bb2fc28a3a4059fc21b9572ce0622c1ea",
+					"aliases": [
+						{
+							"name": "fonts-noto_20201225-2.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225-2.debian.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225-2.debian.tar.xz",
+								"https://snapshot.debian.org/file/00a18f8bb2fc28a3a4059fc21b9572ce0622c1ea"
+							]
+						}
+					]
+				},
+				{
+					"name": "fonts-noto_20201225-2.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225-2.dsc",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225-2.dsc",
+						"https://snapshot.debian.org/file/5d788b9f2c517e0b40afe05767743c6729023f5f"
+					],
+					"bytes": 2377,
+					"sha1": "5d788b9f2c517e0b40afe05767743c6729023f5f",
+					"aliases": [
+						{
+							"name": "fonts-noto_20201225-2.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225-2.dsc",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225-2.dsc",
+								"https://snapshot.debian.org/file/5d788b9f2c517e0b40afe05767743c6729023f5f"
+							]
+						}
+					]
+				},
+				{
+					"name": "fonts-noto_20201225.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225.orig.tar.gz",
+						"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225.orig.tar.gz",
+						"https://snapshot.debian.org/file/ad5353785a62fa8966dc8b8bb68ee2c4b271f9a9"
+					],
+					"bytes": 903613276,
+					"sha1": "ad5353785a62fa8966dc8b8bb68ee2c4b271f9a9",
+					"aliases": [
+						{
+							"name": "fonts-noto_20201225.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/f/fonts-noto/fonts-noto_20201225.orig.tar.gz",
+								"https://deb.debian.org/debian-security/pool/updates/main/f/fonts-noto/fonts-noto_20201225.orig.tar.gz",
+								"https://snapshot.debian.org/file/ad5353785a62fa8966dc8b8bb68ee2c4b271f9a9"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 3.918,
+			"sourceVersion": "20201225-2",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "fonts-noto_20201225-2.dsc",
+				"sha256": "6f316c8b6a21c0eaf6c7da0fb6decbfbfd77f8af393a70f4ed91fc04d4cc98aa",
+				"bytes": 2377
+			},
+			"files": [
+				{
+					"file": "fonts-noto_20201225.orig.tar.gz",
+					"sha256": "7ef8fc4b10f869de28cfcf3d6cf53345949ed7335d79472810d31787d8aba719",
+					"bytes": 903613276
+				},
+				{
+					"file": "fonts-noto_20201225-2.debian.tar.xz",
+					"sha256": "7bc0a9addabd19ed713c321078a96de4b178fa6a91df4c0d80a8b1b11e3964f8",
+					"bytes": 110764
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "graphite2",
+			"version": "1.3.14-2",
+			"selector": "graphite2=1.3.14-2",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/graphite2/1.3.14-2/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "graphite2_1.3.14-2.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14-2.dsc",
+						"https://snapshot.debian.org/file/457ddc8848b686d323148776fe587b5d44b61b0b"
+					],
+					"bytes": 2568,
+					"sha1": "457ddc8848b686d323148776fe587b5d44b61b0b",
+					"aliases": [
+						{
+							"name": "graphite2_1.3.14-2.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14-2.dsc",
+								"https://snapshot.debian.org/file/457ddc8848b686d323148776fe587b5d44b61b0b"
+							]
+						}
+					]
+				},
+				{
+					"name": "graphite2_1.3.14.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14.orig.tar.gz",
+						"https://snapshot.debian.org/file/768d478d300253a855a7a15ba1e59b56d06ad01c"
+					],
+					"bytes": 6629829,
+					"sha1": "768d478d300253a855a7a15ba1e59b56d06ad01c",
+					"aliases": [
+						{
+							"name": "graphite2_1.3.14.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14.orig.tar.gz",
+								"https://snapshot.debian.org/file/768d478d300253a855a7a15ba1e59b56d06ad01c"
+							]
+						}
+					]
+				},
+				{
+					"name": "graphite2_1.3.14-2.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14-2.debian.tar.xz",
+						"https://snapshot.debian.org/file/b6feb27ea6942f1ba4a547b8b1bb51b012f93942"
+					],
+					"bytes": 14168,
+					"sha1": "b6feb27ea6942f1ba4a547b8b1bb51b012f93942",
+					"aliases": [
+						{
+							"name": "graphite2_1.3.14-2.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/g/graphite2/graphite2_1.3.14-2.debian.tar.xz",
+								"https://snapshot.debian.org/file/b6feb27ea6942f1ba4a547b8b1bb51b012f93942"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.162,
+			"sourceVersion": "1.3.14-2",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "graphite2_1.3.14-2.dsc",
+				"sha256": "98ee6be2e35e2a4f7dbc71a21315399d59c4f79339cb832c6caccf8f62342d26",
+				"bytes": 2568
+			},
+			"files": [
+				{
+					"file": "graphite2_1.3.14.orig.tar.gz",
+					"sha256": "7a3b342c5681921ce2e0c2496509d30b5b078399d5a7bd2358f95166d57d91df",
+					"bytes": 6629829
+				},
+				{
+					"file": "graphite2_1.3.14-2.debian.tar.xz",
+					"sha256": "dc46cc532a54adfc7ed5798061795120325bf0722221b2a6299f49c403ee9cd4",
+					"bytes": 14168
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "imagemagick",
+			"version": "8:7.1.1.43+dfsg1-1+deb13u7",
+			"selector": "imagemagick=8:7.1.1.43+dfsg1-1+deb13u7",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/imagemagick/8%3A7.1.1.43%2Bdfsg1-1%2Bdeb13u7/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "imagemagick_7.1.1.43+dfsg1.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1.orig.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1.orig.tar.xz",
+						"https://snapshot.debian.org/file/103af0af388a733c043845b228cf3031c16d859b"
+					],
+					"bytes": 10501740,
+					"sha1": "103af0af388a733c043845b228cf3031c16d859b",
+					"aliases": [
+						{
+							"name": "imagemagick_7.1.1.43+dfsg1.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1.orig.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1.orig.tar.xz",
+								"https://snapshot.debian.org/file/103af0af388a733c043845b228cf3031c16d859b"
+							]
+						}
+					]
+				},
+				{
+					"name": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.debian.tar.xz",
+						"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.debian.tar.xz",
+						"https://snapshot.debian.org/file/535d099fdebf4a33686355bfca11817cded1af57"
+					],
+					"bytes": 329408,
+					"sha1": "535d099fdebf4a33686355bfca11817cded1af57",
+					"aliases": [
+						{
+							"name": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.debian.tar.xz",
+								"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.debian.tar.xz",
+								"https://snapshot.debian.org/file/535d099fdebf4a33686355bfca11817cded1af57"
+							]
+						}
+					]
+				},
+				{
+					"name": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.dsc",
+					"urls": [
+						"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.dsc",
+						"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.dsc",
+						"https://snapshot.debian.org/file/ff13af1c92fb97043070df2bde8e5bf4f1c6d10a"
+					],
+					"bytes": 5136,
+					"sha1": "ff13af1c92fb97043070df2bde8e5bf4f1c6d10a",
+					"aliases": [
+						{
+							"name": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.dsc",
+							"urls": [
+								"https://deb.debian.org/debian-security/pool/updates/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.dsc",
+								"https://deb.debian.org/debian/pool/main/i/imagemagick/imagemagick_7.1.1.43%2Bdfsg1-1%2Bdeb13u7.dsc",
+								"https://snapshot.debian.org/file/ff13af1c92fb97043070df2bde8e5bf4f1c6d10a"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.377,
+			"sourceVersion": "8:7.1.1.43+dfsg1-1+deb13u7",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.dsc",
+				"sha256": "21d15ec531e5f7a540c3e3a56ec96568c65149a509c3acad4e6d0f857dfeff0a",
+				"bytes": 5136
+			},
+			"files": [
+				{
+					"file": "imagemagick_7.1.1.43+dfsg1.orig.tar.xz",
+					"sha256": "bcb4f3c78a930a608fa4889f889edbcb384974246ad9407fce1858f2c0607bfe",
+					"bytes": 10501740
+				},
+				{
+					"file": "imagemagick_7.1.1.43+dfsg1-1+deb13u7.debian.tar.xz",
+					"sha256": "d96f2576d7e7f2d03819d680a01c9382eae036472026b54b6b6194bec96327c5",
+					"bytes": 329408
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "jpeg-xl",
+			"version": "0.11.1-4",
+			"selector": "jpeg-xl=0.11.1-4",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/jpeg-xl/0.11.1-4/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "jpeg-xl_0.11.1.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1.orig.tar.gz",
+						"https://snapshot.debian.org/file/22cf71721bce4acb4649929db06a9edb754f0295"
+					],
+					"bytes": 1876134,
+					"sha1": "22cf71721bce4acb4649929db06a9edb754f0295",
+					"aliases": [
+						{
+							"name": "jpeg-xl_0.11.1.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1.orig.tar.gz",
+								"https://snapshot.debian.org/file/22cf71721bce4acb4649929db06a9edb754f0295"
+							]
+						}
+					]
+				},
+				{
+					"name": "jpeg-xl_0.11.1-4.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1-4.dsc",
+						"https://snapshot.debian.org/file/d48562712772029298672fb626b422e807af6394"
+					],
+					"bytes": 3251,
+					"sha1": "d48562712772029298672fb626b422e807af6394",
+					"aliases": [
+						{
+							"name": "jpeg-xl_0.11.1-4.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1-4.dsc",
+								"https://snapshot.debian.org/file/d48562712772029298672fb626b422e807af6394"
+							]
+						}
+					]
+				},
+				{
+					"name": "jpeg-xl_0.11.1-4.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1-4.debian.tar.xz",
+						"https://snapshot.debian.org/file/d877eb3aca5f160942f01ffe583fc3eb4fdaca4b"
+					],
+					"bytes": 20376,
+					"sha1": "d877eb3aca5f160942f01ffe583fc3eb4fdaca4b",
+					"aliases": [
+						{
+							"name": "jpeg-xl_0.11.1-4.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/j/jpeg-xl/jpeg-xl_0.11.1-4.debian.tar.xz",
+								"https://snapshot.debian.org/file/d877eb3aca5f160942f01ffe583fc3eb4fdaca4b"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.111,
+			"sourceVersion": "0.11.1-4",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "jpeg-xl_0.11.1-4.dsc",
+				"sha256": "f8d1d17e40a987feb9ffc4da8db0d53d350885708b15e9a543fb64fc41e4ecef",
+				"bytes": 3251
+			},
+			"files": [
+				{
+					"file": "jpeg-xl_0.11.1.orig.tar.gz",
+					"sha256": "1492dfef8dd6c3036446ac3b340005d92ab92f7d48ee3271b5dac1d36945d3d9",
+					"bytes": 1876134
+				},
+				{
+					"file": "jpeg-xl_0.11.1-4.debian.tar.xz",
+					"sha256": "c2c811796800dae6f3e2d58a67b866f7f55c222c1331c05429ec1d953e7d0048",
+					"bytes": 20376
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libass",
+			"version": "1:0.17.3-1",
+			"selector": "libass=1:0.17.3-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libass/1%3A0.17.3-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libass_0.17.3.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3.orig.tar.xz",
+						"https://snapshot.debian.org/file/022a457e71e69086938d401a9ad100c9c884567e"
+					],
+					"bytes": 442744,
+					"sha1": "022a457e71e69086938d401a9ad100c9c884567e",
+					"aliases": [
+						{
+							"name": "libass_0.17.3.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3.orig.tar.xz",
+								"https://snapshot.debian.org/file/022a457e71e69086938d401a9ad100c9c884567e"
+							]
+						}
+					]
+				},
+				{
+					"name": "libass_0.17.3-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3-1.dsc",
+						"https://snapshot.debian.org/file/8b2293f50c1696db3183fb79f843c25227d02314"
+					],
+					"bytes": 1765,
+					"sha1": "8b2293f50c1696db3183fb79f843c25227d02314",
+					"aliases": [
+						{
+							"name": "libass_0.17.3-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3-1.dsc",
+								"https://snapshot.debian.org/file/8b2293f50c1696db3183fb79f843c25227d02314"
+							]
+						}
+					]
+				},
+				{
+					"name": "libass_0.17.3.orig.tar.xz.asc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3.orig.tar.xz.asc",
+						"https://snapshot.debian.org/file/c6af8b9bb3f411540e1d4608af8326f0cf13b0b5"
+					],
+					"bytes": 858,
+					"sha1": "c6af8b9bb3f411540e1d4608af8326f0cf13b0b5",
+					"aliases": [
+						{
+							"name": "libass_0.17.3.orig.tar.xz.asc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3.orig.tar.xz.asc",
+								"https://snapshot.debian.org/file/c6af8b9bb3f411540e1d4608af8326f0cf13b0b5"
+							]
+						}
+					]
+				},
+				{
+					"name": "libass_0.17.3-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/d8a7342f70d07d346ee8abb464a44ef8b68e3d1e"
+					],
+					"bytes": 16772,
+					"sha1": "d8a7342f70d07d346ee8abb464a44ef8b68e3d1e",
+					"aliases": [
+						{
+							"name": "libass_0.17.3-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/liba/libass/libass_0.17.3-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/d8a7342f70d07d346ee8abb464a44ef8b68e3d1e"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.192,
+			"sourceVersion": "1:0.17.3-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libass_0.17.3-1.dsc",
+				"sha256": "e46786cf1e89bb54a07fc97f27bb0b69ac0d83f6a80b3720c6ce3c6ca07c7cd3",
+				"bytes": 1765
+			},
+			"files": [
+				{
+					"file": "libass_0.17.3.orig.tar.xz",
+					"sha256": "eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959",
+					"bytes": 442744
+				},
+				{
+					"file": "libass_0.17.3.orig.tar.xz.asc",
+					"sha256": "71383b2d1138bf13008d2919da911a2c381bb196fe546571e2698e44d336b7b1",
+					"bytes": 858
+				},
+				{
+					"file": "libass_0.17.3-1.debian.tar.xz",
+					"sha256": "2c5202d794459c5ac71251453981e445e84092751435d8d83ac715faf97587f4",
+					"bytes": 16772
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libcaca",
+			"version": "0.99.beta20-5",
+			"selector": "libcaca=0.99.beta20-5",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libcaca/0.99.beta20-5/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libcaca_0.99.beta20-5.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20-5.dsc",
+						"https://snapshot.debian.org/file/3f8af3c25a77b2d18ccdd5358f766a7822a37218"
+					],
+					"bytes": 1625,
+					"sha1": "3f8af3c25a77b2d18ccdd5358f766a7822a37218",
+					"aliases": [
+						{
+							"name": "libcaca_0.99.beta20-5.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20-5.dsc",
+								"https://snapshot.debian.org/file/3f8af3c25a77b2d18ccdd5358f766a7822a37218"
+							]
+						}
+					]
+				},
+				{
+					"name": "libcaca_0.99.beta20.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20.orig.tar.gz",
+						"https://snapshot.debian.org/file/72e6acb77cdd3db467a6841d27367f0e01ffe86e"
+					],
+					"bytes": 729604,
+					"sha1": "72e6acb77cdd3db467a6841d27367f0e01ffe86e",
+					"aliases": [
+						{
+							"name": "libcaca_0.99.beta20.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20.orig.tar.gz",
+								"https://snapshot.debian.org/file/72e6acb77cdd3db467a6841d27367f0e01ffe86e"
+							]
+						}
+					]
+				},
+				{
+					"name": "libcaca_0.99.beta20-5.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20-5.debian.tar.xz",
+						"https://snapshot.debian.org/file/dd18593746bbae137407e465b9c7321ea436e02c"
+					],
+					"bytes": 10704,
+					"sha1": "dd18593746bbae137407e465b9c7321ea436e02c",
+					"aliases": [
+						{
+							"name": "libcaca_0.99.beta20-5.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libc/libcaca/libcaca_0.99.beta20-5.debian.tar.xz",
+								"https://snapshot.debian.org/file/dd18593746bbae137407e465b9c7321ea436e02c"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.191,
+			"sourceVersion": "0.99.beta20-5",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libcaca_0.99.beta20-5.dsc",
+				"sha256": "19e6c23d5def92673f3065d25b5cb5fd9cbaa75cb2f683424a95107f75a71b24",
+				"bytes": 1625
+			},
+			"files": [
+				{
+					"file": "libcaca_0.99.beta20.orig.tar.gz",
+					"sha256": "3edb8763a8f888ed4d4b85b3a056e81c840d5d27f79bdebc0b991688b23084f2",
+					"bytes": 729604
+				},
+				{
+					"file": "libcaca_0.99.beta20-5.debian.tar.xz",
+					"sha256": "8c733077b308681db1f711c4cbeafbab0df7c01a8edbd8f3c2426d083590666a",
+					"bytes": 10704
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "librabbitmq",
+			"version": "0.15.0-1",
+			"selector": "librabbitmq=0.15.0-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/librabbitmq/0.15.0-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "librabbitmq_0.15.0-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0-1.dsc",
+						"https://snapshot.debian.org/file/076162f6065cb21105ef31b429821b7a256cd1b5"
+					],
+					"bytes": 2084,
+					"sha1": "076162f6065cb21105ef31b429821b7a256cd1b5",
+					"aliases": [
+						{
+							"name": "librabbitmq_0.15.0-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0-1.dsc",
+								"https://snapshot.debian.org/file/076162f6065cb21105ef31b429821b7a256cd1b5"
+							]
+						}
+					]
+				},
+				{
+					"name": "librabbitmq_0.15.0-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/0e59f6d409144c5228a7e4257fbecbf9fec4456e"
+					],
+					"bytes": 5944,
+					"sha1": "0e59f6d409144c5228a7e4257fbecbf9fec4456e",
+					"aliases": [
+						{
+							"name": "librabbitmq_0.15.0-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/0e59f6d409144c5228a7e4257fbecbf9fec4456e"
+							]
+						}
+					]
+				},
+				{
+					"name": "librabbitmq_0.15.0.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0.orig.tar.gz",
+						"https://deb.debian.org/debian-security/pool/updates/main/libr/librabbitmq/librabbitmq_0.15.0.orig.tar.gz",
+						"https://snapshot.debian.org/file/26a1d0f61fa1198cbfd22cb246e88f667bb8299e"
+					],
+					"bytes": 131818,
+					"sha1": "26a1d0f61fa1198cbfd22cb246e88f667bb8299e",
+					"aliases": [
+						{
+							"name": "librabbitmq_0.15.0.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libr/librabbitmq/librabbitmq_0.15.0.orig.tar.gz",
+								"https://deb.debian.org/debian-security/pool/updates/main/libr/librabbitmq/librabbitmq_0.15.0.orig.tar.gz",
+								"https://snapshot.debian.org/file/26a1d0f61fa1198cbfd22cb246e88f667bb8299e"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.354,
+			"sourceVersion": "0.15.0-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "librabbitmq_0.15.0-1.dsc",
+				"sha256": "98f2a3c20d3b07cf06ad164ea17eecc2ae524523e0df8455b96602c9fee61fe0",
+				"bytes": 2084
+			},
+			"files": [
+				{
+					"file": "librabbitmq_0.15.0.orig.tar.gz",
+					"sha256": "7b652df52c0de4d19ca36c798ed81378cba7a03a0f0c5d498881ae2d79b241c2",
+					"bytes": 131818
+				},
+				{
+					"file": "librabbitmq_0.15.0-1.debian.tar.xz",
+					"sha256": "a1b6deaa63ece724fe96e49b2f0a05c03a9058084be44dca6e01e2f04376e64c",
+					"bytes": 5944
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libsndfile",
+			"version": "1.2.2-2",
+			"selector": "libsndfile=1.2.2-2",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libsndfile/1.2.2-2/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libsndfile_1.2.2.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2.orig.tar.gz",
+						"https://snapshot.debian.org/file/28acc1c19b06c18f38f906d7efef404b2078a19a"
+					],
+					"bytes": 684875,
+					"sha1": "28acc1c19b06c18f38f906d7efef404b2078a19a",
+					"aliases": [
+						{
+							"name": "libsndfile_1.2.2.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2.orig.tar.gz",
+								"https://snapshot.debian.org/file/28acc1c19b06c18f38f906d7efef404b2078a19a"
+							]
+						}
+					]
+				},
+				{
+					"name": "libsndfile_1.2.2-2.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2-2.debian.tar.xz",
+						"https://snapshot.debian.org/file/aad73652fc4e5fcafc5cf13f21334e6bd658cd29"
+					],
+					"bytes": 29148,
+					"sha1": "aad73652fc4e5fcafc5cf13f21334e6bd658cd29",
+					"aliases": [
+						{
+							"name": "libsndfile_1.2.2-2.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2-2.debian.tar.xz",
+								"https://snapshot.debian.org/file/aad73652fc4e5fcafc5cf13f21334e6bd658cd29"
+							]
+						}
+					]
+				},
+				{
+					"name": "libsndfile_1.2.2-2.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2-2.dsc",
+						"https://snapshot.debian.org/file/ff1ac472e29afab50608235da1d8ffcd106ad9c7"
+					],
+					"bytes": 2481,
+					"sha1": "ff1ac472e29afab50608235da1d8ffcd106ad9c7",
+					"aliases": [
+						{
+							"name": "libsndfile_1.2.2-2.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsndfile/libsndfile_1.2.2-2.dsc",
+								"https://snapshot.debian.org/file/ff1ac472e29afab50608235da1d8ffcd106ad9c7"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.142,
+			"sourceVersion": "1.2.2-2",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libsndfile_1.2.2-2.dsc",
+				"sha256": "00042f9d7e85c3dbf22828141bc181b55ba719ad3550671ed7da9786fdfdd810",
+				"bytes": 2481
+			},
+			"files": [
+				{
+					"file": "libsndfile_1.2.2.orig.tar.gz",
+					"sha256": "ffe12ef8add3eaca876f04087734e6e8e029350082f3251f565fa9da55b52121",
+					"bytes": 684875
+				},
+				{
+					"file": "libsndfile_1.2.2-2.debian.tar.xz",
+					"sha256": "03801793ef488c9bc8579e47600386b4be0e6ac4b85c726e90dcb0ce2338729c",
+					"bytes": 29148
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libsodium",
+			"version": "1.0.18-1",
+			"selector": "libsodium=1.0.18-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libsodium/1.0.18-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libsodium_1.0.18.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18.orig.tar.gz",
+						"https://deb.debian.org/debian-security/pool/updates/main/libs/libsodium/libsodium_1.0.18.orig.tar.gz",
+						"https://snapshot.debian.org/file/cd8a76b79aeb077e8d3eea478ea6241972593dfd"
+					],
+					"bytes": 1619527,
+					"sha1": "cd8a76b79aeb077e8d3eea478ea6241972593dfd",
+					"aliases": [
+						{
+							"name": "libsodium_1.0.18.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18.orig.tar.gz",
+								"https://deb.debian.org/debian-security/pool/updates/main/libs/libsodium/libsodium_1.0.18.orig.tar.gz",
+								"https://snapshot.debian.org/file/cd8a76b79aeb077e8d3eea478ea6241972593dfd"
+							]
+						}
+					]
+				},
+				{
+					"name": "libsodium_1.0.18-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/d805c75f17b06edb4c7bdace7bbcc2fa83efa22c"
+					],
+					"bytes": 7440,
+					"sha1": "d805c75f17b06edb4c7bdace7bbcc2fa83efa22c",
+					"aliases": [
+						{
+							"name": "libsodium_1.0.18-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/d805c75f17b06edb4c7bdace7bbcc2fa83efa22c"
+							]
+						}
+					]
+				},
+				{
+					"name": "libsodium_1.0.18-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18-1.dsc",
+						"https://snapshot.debian.org/file/fd52f9add3cd2b3294471751b38cdee766c42083"
+					],
+					"bytes": 1913,
+					"sha1": "fd52f9add3cd2b3294471751b38cdee766c42083",
+					"aliases": [
+						{
+							"name": "libsodium_1.0.18-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libs/libsodium/libsodium_1.0.18-1.dsc",
+								"https://snapshot.debian.org/file/fd52f9add3cd2b3294471751b38cdee766c42083"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.18,
+			"sourceVersion": "1.0.18-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libsodium_1.0.18-1.dsc",
+				"sha256": "037b3ac05a50409cb462e2c21c7a67f983d193a22d2486f4ab3fdc793f5a731c",
+				"bytes": 1913
+			},
+			"files": [
+				{
+					"file": "libsodium_1.0.18.orig.tar.gz",
+					"sha256": "d59323c6b712a1519a5daf710b68f5e7fde57040845ffec53850911f10a5d4f4",
+					"bytes": 1619527
+				},
+				{
+					"file": "libsodium_1.0.18-1.debian.tar.xz",
+					"sha256": "50863d8fc4f0a2a86f7b69745514455f0b9d74cf45906523c675ffe5b8db0377",
+					"bytes": 7440
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libtasn1-6",
+			"version": "4.20.0-2",
+			"selector": "libtasn1-6=4.20.0-2",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libtasn1-6/4.20.0-2/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libtasn1-6_4.20.0-2.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2.dsc",
+						"https://snapshot.debian.org/file/744cd02ff9b33c80792cfd4f7a0e2326c382cadb"
+					],
+					"bytes": 2665,
+					"sha1": "744cd02ff9b33c80792cfd4f7a0e2326c382cadb",
+					"aliases": [
+						{
+							"name": "libtasn1-6_4.20.0-2.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2.dsc",
+								"https://snapshot.debian.org/file/744cd02ff9b33c80792cfd4f7a0e2326c382cadb"
+							]
+						}
+					]
+				},
+				{
+					"name": "libtasn1-6_4.20.0.orig.tar.gz.asc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0.orig.tar.gz.asc",
+						"https://snapshot.debian.org/file/b59bd89f65680b9da67ebea07982c4d763188170"
+					],
+					"bytes": 1223,
+					"sha1": "b59bd89f65680b9da67ebea07982c4d763188170",
+					"aliases": [
+						{
+							"name": "libtasn1-6_4.20.0.orig.tar.gz.asc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0.orig.tar.gz.asc",
+								"https://snapshot.debian.org/file/b59bd89f65680b9da67ebea07982c4d763188170"
+							]
+						}
+					]
+				},
+				{
+					"name": "libtasn1-6_4.20.0-2.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2.debian.tar.xz",
+						"https://snapshot.debian.org/file/b837c5317d0b9e0768ea29db7f919309e71b3206"
+					],
+					"bytes": 18640,
+					"sha1": "b837c5317d0b9e0768ea29db7f919309e71b3206",
+					"aliases": [
+						{
+							"name": "libtasn1-6_4.20.0-2.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2.debian.tar.xz",
+								"https://snapshot.debian.org/file/b837c5317d0b9e0768ea29db7f919309e71b3206"
+							]
+						}
+					]
+				},
+				{
+					"name": "libtasn1-6_4.20.0.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0.orig.tar.gz",
+						"https://snapshot.debian.org/file/ef6a358e16e056476b4be121ed2fb2ce11d791ed"
+					],
+					"bytes": 1783873,
+					"sha1": "ef6a358e16e056476b4be121ed2fb2ce11d791ed",
+					"aliases": [
+						{
+							"name": "libtasn1-6_4.20.0.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libt/libtasn1-6/libtasn1-6_4.20.0.orig.tar.gz",
+								"https://snapshot.debian.org/file/ef6a358e16e056476b4be121ed2fb2ce11d791ed"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.175,
+			"sourceVersion": "4.20.0-2",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libtasn1-6_4.20.0-2.dsc",
+				"sha256": "54800d16bf3c7eaf675356f2e9d30226991710d78717219bb6425dcc453a55a2",
+				"bytes": 2665
+			},
+			"files": [
+				{
+					"file": "libtasn1-6_4.20.0.orig.tar.gz",
+					"sha256": "92e0e3bd4c02d4aeee76036b2ddd83f0c732ba4cda5cb71d583272b23587a76c",
+					"bytes": 1783873
+				},
+				{
+					"file": "libtasn1-6_4.20.0.orig.tar.gz.asc",
+					"sha256": "0faa628b6a3e4bb84ca5f00f127c6dfa1fc96a7ad88030dd7aa048753cf4b201",
+					"bytes": 1223
+				},
+				{
+					"file": "libtasn1-6_4.20.0-2.debian.tar.xz",
+					"sha256": "d9d911708f4863437b88eeff7f779d39f6b77613dc2851c64db2bd8160a07c30",
+					"bytes": 18640
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "libvpx",
+			"version": "1.15.0-2.1",
+			"selector": "libvpx=1.15.0-2.1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/libvpx/1.15.0-2.1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "libvpx_1.15.0-2.1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0-2.1.dsc",
+						"https://snapshot.debian.org/file/0240f677dc3f16506891623ba17ac8f9347c3469"
+					],
+					"bytes": 2388,
+					"sha1": "0240f677dc3f16506891623ba17ac8f9347c3469",
+					"aliases": [
+						{
+							"name": "libvpx_1.15.0-2.1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0-2.1.dsc",
+								"https://snapshot.debian.org/file/0240f677dc3f16506891623ba17ac8f9347c3469"
+							]
+						}
+					]
+				},
+				{
+					"name": "libvpx_1.15.0.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0.orig.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/libv/libvpx/libvpx_1.15.0.orig.tar.xz",
+						"https://snapshot.debian.org/file/4d7495df8c193aa55af6d709af4c067a3803aafa"
+					],
+					"bytes": 4394516,
+					"sha1": "4d7495df8c193aa55af6d709af4c067a3803aafa",
+					"aliases": [
+						{
+							"name": "libvpx_1.15.0.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0.orig.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/libv/libvpx/libvpx_1.15.0.orig.tar.xz",
+								"https://snapshot.debian.org/file/4d7495df8c193aa55af6d709af4c067a3803aafa"
+							]
+						}
+					]
+				},
+				{
+					"name": "libvpx_1.15.0-2.1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0-2.1.debian.tar.xz",
+						"https://snapshot.debian.org/file/9fda6cfb42a2e1b579d1585404faa7c06d77a604"
+					],
+					"bytes": 14096,
+					"sha1": "9fda6cfb42a2e1b579d1585404faa7c06d77a604",
+					"aliases": [
+						{
+							"name": "libvpx_1.15.0-2.1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/libv/libvpx/libvpx_1.15.0-2.1.debian.tar.xz",
+								"https://snapshot.debian.org/file/9fda6cfb42a2e1b579d1585404faa7c06d77a604"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.252,
+			"sourceVersion": "1.15.0-2.1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "libvpx_1.15.0-2.1.dsc",
+				"sha256": "2d41548d2bdb4d0b13428367642c27d7840fdf3a3d7c32c31a88d249e5289d66",
+				"bytes": 2388
+			},
+			"files": [
+				{
+					"file": "libvpx_1.15.0.orig.tar.xz",
+					"sha256": "a6cfd199c5c567cfa4e6d991ec36690d9af801585b5db959c1494b5b15f821a5",
+					"bytes": 4394516
+				},
+				{
+					"file": "libvpx_1.15.0-2.1.debian.tar.xz",
+					"sha256": "269e4f3c22dc9a930fa0bd160f45d10ced3ea21ac01361c707f89e0cb29c83dd",
+					"bytes": 14096
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "mpg123",
+			"version": "1.32.10-1",
+			"selector": "mpg123=1.32.10-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/mpg123/1.32.10-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "mpg123_1.32.10-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/39dca63daf0feef26c0490218babe87b2129941d"
+					],
+					"bytes": 25656,
+					"sha1": "39dca63daf0feef26c0490218babe87b2129941d",
+					"aliases": [
+						{
+							"name": "mpg123_1.32.10-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/39dca63daf0feef26c0490218babe87b2129941d"
+							]
+						}
+					]
+				},
+				{
+					"name": "mpg123_1.32.10-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10-1.dsc",
+						"https://snapshot.debian.org/file/47fc8cc7f6388e9330dabd0e3199543e4159f7bf"
+					],
+					"bytes": 1787,
+					"sha1": "47fc8cc7f6388e9330dabd0e3199543e4159f7bf",
+					"aliases": [
+						{
+							"name": "mpg123_1.32.10-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10-1.dsc",
+								"https://snapshot.debian.org/file/47fc8cc7f6388e9330dabd0e3199543e4159f7bf"
+							]
+						}
+					]
+				},
+				{
+					"name": "mpg123_1.32.10.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10.orig.tar.xz",
+						"https://snapshot.debian.org/file/e069646e5490eda8c25f304164309109ccaf980e"
+					],
+					"bytes": 930140,
+					"sha1": "e069646e5490eda8c25f304164309109ccaf980e",
+					"aliases": [
+						{
+							"name": "mpg123_1.32.10.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.32.10.orig.tar.xz",
+								"https://snapshot.debian.org/file/e069646e5490eda8c25f304164309109ccaf980e"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.242,
+			"sourceVersion": "1.32.10-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "mpg123_1.32.10-1.dsc",
+				"sha256": "4f7407183a508bebf2559dd3dd41cad4f28ffa75362f9341ca8e7e642786f5d3",
+				"bytes": 1787
+			},
+			"files": [
+				{
+					"file": "mpg123_1.32.10.orig.tar.xz",
+					"sha256": "98867a796fa1eeb161847d211734d585ff61c56712fbc333de416fea7b59de29",
+					"bytes": 930140
+				},
+				{
+					"file": "mpg123_1.32.10-1.debian.tar.xz",
+					"sha256": "4157aa57a6b1c1a568dcae3befdbffede51722f51349a342174fb876b842754d",
+					"bytes": 25656
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "openssl",
+			"version": "3.5.5-1~deb13u1",
+			"selector": "openssl=3.5.5-1~deb13u1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/openssl/3.5.5-1~deb13u1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "openssl_3.5.5.orig.tar.gz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5.orig.tar.gz",
+						"https://deb.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.5.orig.tar.gz",
+						"https://snapshot.debian.org/file/72a5ebbdd30bc28a66f069e2d50c66a007c324d2"
+					],
+					"bytes": 53104821,
+					"sha1": "72a5ebbdd30bc28a66f069e2d50c66a007c324d2",
+					"aliases": [
+						{
+							"name": "openssl_3.5.5.orig.tar.gz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5.orig.tar.gz",
+								"https://deb.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.5.orig.tar.gz",
+								"https://snapshot.debian.org/file/72a5ebbdd30bc28a66f069e2d50c66a007c324d2"
+							]
+						}
+					]
+				},
+				{
+					"name": "openssl_3.5.5-1~deb13u1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5-1~deb13u1.debian.tar.xz",
+						"https://snapshot.debian.org/file/a62cbb3750b0f19f1f5a98e1ae813cbdfce93c49"
+					],
+					"bytes": 50668,
+					"sha1": "a62cbb3750b0f19f1f5a98e1ae813cbdfce93c49",
+					"aliases": [
+						{
+							"name": "openssl_3.5.5-1~deb13u1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5-1~deb13u1.debian.tar.xz",
+								"https://snapshot.debian.org/file/a62cbb3750b0f19f1f5a98e1ae813cbdfce93c49"
+							]
+						}
+					]
+				},
+				{
+					"name": "openssl_3.5.5-1~deb13u1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5-1~deb13u1.dsc",
+						"https://snapshot.debian.org/file/cd9eb1645a51eb7a8869586dfccf7246c3281cb5"
+					],
+					"bytes": 2707,
+					"sha1": "cd9eb1645a51eb7a8869586dfccf7246c3281cb5",
+					"aliases": [
+						{
+							"name": "openssl_3.5.5-1~deb13u1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5-1~deb13u1.dsc",
+								"https://snapshot.debian.org/file/cd9eb1645a51eb7a8869586dfccf7246c3281cb5"
+							]
+						}
+					]
+				},
+				{
+					"name": "openssl_3.5.5.orig.tar.gz.asc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5.orig.tar.gz.asc",
+						"https://deb.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.5.orig.tar.gz.asc",
+						"https://snapshot.debian.org/file/ff7a37d551ce7f25695266d29fb1439ba3f6b43f"
+					],
+					"bytes": 833,
+					"sha1": "ff7a37d551ce7f25695266d29fb1439ba3f6b43f",
+					"aliases": [
+						{
+							"name": "openssl_3.5.5.orig.tar.gz.asc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/o/openssl/openssl_3.5.5.orig.tar.gz.asc",
+								"https://deb.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.5.orig.tar.gz.asc",
+								"https://snapshot.debian.org/file/ff7a37d551ce7f25695266d29fb1439ba3f6b43f"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.553,
+			"sourceVersion": "3.5.5-1~deb13u1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "openssl_3.5.5-1~deb13u1.dsc",
+				"sha256": "9fef06359b7e7f0abfb0ac6869f7bb344ae7f8efb25d5969f004f278a877b146",
+				"bytes": 2707
+			},
+			"files": [
+				{
+					"file": "openssl_3.5.5.orig.tar.gz",
+					"sha256": "b28c91532a8b65a1f983b4c28b7488174e4a01008e29ce8e69bd789f28bc2a89",
+					"bytes": 53104821
+				},
+				{
+					"file": "openssl_3.5.5.orig.tar.gz.asc",
+					"sha256": "eaef5b1054b84b8d1e6c61c9fc8867828be5ce686d0221580faf8bdc16489da9",
+					"bytes": 833
+				},
+				{
+					"file": "openssl_3.5.5-1~deb13u1.debian.tar.xz",
+					"sha256": "87377bad1f77b157bf95ebc18c5dfe70b5d3ab276441f92b66a5338b2500705f",
+					"bytes": 50668
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "texlive-extra",
+			"version": "2024.20250309-2",
+			"selector": "texlive-extra=2024.20250309-2",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/texlive-extra/2024.20250309-2/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "texlive-extra_2024.20250309.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309.orig.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309.orig.tar.xz",
+						"https://snapshot.debian.org/file/2a374089e0528a0ee9cec96eafcf0446e6f06e67"
+					],
+					"bytes": 2840925236,
+					"sha1": "2a374089e0528a0ee9cec96eafcf0446e6f06e67",
+					"aliases": [
+						{
+							"name": "texlive-extra_2024.20250309.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309.orig.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309.orig.tar.xz",
+								"https://snapshot.debian.org/file/2a374089e0528a0ee9cec96eafcf0446e6f06e67"
+							]
+						}
+					]
+				},
+				{
+					"name": "texlive-extra_2024.20250309-2.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309-2.debian.tar.xz",
+						"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309-2.debian.tar.xz",
+						"https://snapshot.debian.org/file/843abb4105099f511caedc69cb8882bd52d57765"
+					],
+					"bytes": 203564,
+					"sha1": "843abb4105099f511caedc69cb8882bd52d57765",
+					"aliases": [
+						{
+							"name": "texlive-extra_2024.20250309-2.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309-2.debian.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309-2.debian.tar.xz",
+								"https://snapshot.debian.org/file/843abb4105099f511caedc69cb8882bd52d57765"
+							]
+						}
+					]
+				},
+				{
+					"name": "texlive-extra_2024.20250309-2.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309-2.dsc",
+						"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309-2.dsc",
+						"https://snapshot.debian.org/file/d54746765869e10ed85d7c99e78cbd844ccdaa3c"
+					],
+					"bytes": 4032,
+					"sha1": "d54746765869e10ed85d7c99e78cbd844ccdaa3c",
+					"aliases": [
+						{
+							"name": "texlive-extra_2024.20250309-2.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309-2.dsc",
+								"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309-2.dsc",
+								"https://snapshot.debian.org/file/d54746765869e10ed85d7c99e78cbd844ccdaa3c"
+							]
+						}
+					]
+				},
+				{
+					"name": "texlive-extra_2024.20240706.orig-tex4ht.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20240706.orig-tex4ht.tar.xz",
+						"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+					],
+					"bytes": 19032,
+					"sha1": "ded6808320cdfaf6b4b277067a5d8a0afd9a7daf",
+					"aliases": [
+						{
+							"name": "texlive-extra_2024.20240706.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20240706.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2024.20240829.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20240829.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2024.20241102.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20241102.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2024.20241115.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20241115.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2024.20250114.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250114.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2024.20250309.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2024.20250309.orig-tex4ht.tar.xz",
+								"https://deb.debian.org/debian-security/pool/updates/main/t/texlive-extra/texlive-extra_2024.20250309.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						},
+						{
+							"name": "texlive-extra_2025.20250727.orig-tex4ht.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/t/texlive-extra/texlive-extra_2025.20250727.orig-tex4ht.tar.xz",
+								"https://snapshot.debian.org/file/ded6808320cdfaf6b4b277067a5d8a0afd9a7daf"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 5.313,
+			"sourceVersion": "2024.20250309-2",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "texlive-extra_2024.20250309-2.dsc",
+				"sha256": "141f26ad12b6f0209809042d6152d6d32d7db5ad67c20d9b27b9876bed22c5f6",
+				"bytes": 4032
+			},
+			"files": [
+				{
+					"file": "texlive-extra_2024.20250309.orig-tex4ht.tar.xz",
+					"sha256": "40c3d6c0715590c041df400a62227216a60f0e15bda8666bc21ebd3345050543",
+					"bytes": 19032
+				},
+				{
+					"file": "texlive-extra_2024.20250309.orig.tar.xz",
+					"sha256": "a3a9902f4c99d3e8cf67c0c0878e9bbf4c9a7f284f7ad0f8d5667b1add7bd21f",
+					"bytes": 2840925236
+				},
+				{
+					"file": "texlive-extra_2024.20250309-2.debian.tar.xz",
+					"sha256": "934b59eaca5c91e91279486faf192818b85554572cb899883c28b493186baf6f",
+					"bytes": 203564
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		},
+		{
+			"source": "xz-utils",
+			"version": "5.8.1-1",
+			"selector": "xz-utils=5.8.1-1",
+			"missing": true,
+			"status": "verified",
+			"metadataUrl": "https://snapshot.debian.org/mr/package/xz-utils/5.8.1-1/srcfiles?fileinfo=1",
+			"snapshotFiles": [
+				{
+					"name": "xz-utils_5.8.1-1.dsc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1-1.dsc",
+						"https://snapshot.debian.org/file/34a25f73512c86b20e7c1d91fa3467f932ec3b04"
+					],
+					"bytes": 2704,
+					"sha1": "34a25f73512c86b20e7c1d91fa3467f932ec3b04",
+					"aliases": [
+						{
+							"name": "xz-utils_5.8.1-1.dsc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1-1.dsc",
+								"https://snapshot.debian.org/file/34a25f73512c86b20e7c1d91fa3467f932ec3b04"
+							]
+						}
+					]
+				},
+				{
+					"name": "xz-utils_5.8.1.orig.tar.xz.asc",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz.asc",
+						"https://snapshot.debian.org/file/3658f92b0eec052a58ca69fa3c12c5b095a05fc6"
+					],
+					"bytes": 833,
+					"sha1": "3658f92b0eec052a58ca69fa3c12c5b095a05fc6",
+					"aliases": [
+						{
+							"name": "xz-utils_5.8.1.orig.tar.xz.asc",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz.asc",
+								"https://snapshot.debian.org/file/3658f92b0eec052a58ca69fa3c12c5b095a05fc6"
+							]
+						}
+					]
+				},
+				{
+					"name": "xz-utils_5.8.1-1.debian.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1-1.debian.tar.xz",
+						"https://snapshot.debian.org/file/c17e6705bc0690a876c85bbf2cce642c39b23785"
+					],
+					"bytes": 24624,
+					"sha1": "c17e6705bc0690a876c85bbf2cce642c39b23785",
+					"aliases": [
+						{
+							"name": "xz-utils_5.8.1-1.debian.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1-1.debian.tar.xz",
+								"https://snapshot.debian.org/file/c17e6705bc0690a876c85bbf2cce642c39b23785"
+							]
+						}
+					]
+				},
+				{
+					"name": "xz-utils_5.8.1.orig.tar.xz",
+					"urls": [
+						"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz",
+						"https://snapshot.debian.org/file/c29df8058b6279bfab2744f3e79b2940229207a3"
+					],
+					"bytes": 1461872,
+					"sha1": "c29df8058b6279bfab2744f3e79b2940229207a3",
+					"aliases": [
+						{
+							"name": "xz-utils_5.8.1.orig.tar.xz",
+							"urls": [
+								"https://deb.debian.org/debian/pool/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz",
+								"https://snapshot.debian.org/file/c29df8058b6279bfab2744f3e79b2940229207a3"
+							]
+						}
+					]
+				}
+			],
+			"seconds": 0.285,
+			"sourceVersion": "5.8.1-1",
+			"format": "3.0 (quilt)",
+			"descriptor": {
+				"file": "xz-utils_5.8.1-1.dsc",
+				"sha256": "a11c19074a9e6b3bd4e566166278d9ebd23915fd0d400fbe6d16eb000d845284",
+				"bytes": 2704
+			},
+			"files": [
+				{
+					"file": "xz-utils_5.8.1.orig.tar.xz",
+					"sha256": "0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e",
+					"bytes": 1461872
+				},
+				{
+					"file": "xz-utils_5.8.1.orig.tar.xz.asc",
+					"sha256": "4138f4ceca1aa7fd2085fb15a23f6d495d27bca6d3c49c429a8520ea622c27ae",
+					"bytes": 833
+				},
+				{
+					"file": "xz-utils_5.8.1-1.debian.tar.xz",
+					"sha256": "a731db6d87e211c7b4e6f1af2fbb5369cd381d8cb0f1e00e8bc30304ae6f00b0",
+					"bytes": 24624
+				}
+			],
+			"signatureVerification": "not-performed",
+			"buildReproduction": "not-performed"
+		}
+	]
+}

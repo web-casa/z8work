@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-configure-tasks"
+description = "Enables the configure_tasks command without any pre-configured scope."
+commands.allow = ["configure_tasks"]
+
+[[permission]]
+identifier = "deny-configure-tasks"
+description = "Denies the configure_tasks command without any pre-configured scope."
+commands.deny = ["configure_tasks"]

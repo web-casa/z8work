@@ -1,0 +1,5 @@
+{
+  "exit": 0,
+  "stdout": "asciidoc\nasciidoctor\nbeamer\nbiblatex\nbibtex\nchunkedhtml\ncommonmark\ncommonmark_x\ncontext\ncsljson\ndocbook\ndocbook4\ndocbook5\ndocx\ndokuwiki\ndzslides\nepub\nepub2\nepub3\nfb2\ngfm\nhaddock\nhtml\nhtml4\nhtml5\nicml\nipynb\njats\njats_archiving\njats_articleauthoring\njats_publishing\njira\njson\nlatex\nman\nmarkdown\nmarkdown_github\nmarkdown_mmd\nmarkdown_phpextra\nmarkdown_strict\nmarkua\nmediawiki\nms\nmuse\nnative\nodt\nopendocument\nopml\norg\npdf\nplain\npptx\nrevealjs\nrst\nrtf\ns5\nslideous\nslidy\ntei\ntexinfo\ntextile\ntypst\nxwiki\nzimwiki\n",
+  "stderr": ""
+}

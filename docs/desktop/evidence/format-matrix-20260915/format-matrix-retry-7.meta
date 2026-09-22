@@ -1,0 +1,8 @@
+started=2026-09-15T11:05:42+08:00
+outer_timeout_seconds=1800
+engine_root=/home/ivmm/z8-format-matrix-source-safe.InnTwe/.desktop-local/linux-preview/build/engines
+validator_sha256=5bf248ef281eab440d4c9e1c67ea5b2dfe43714a33c0efd1d37a299824b0dbc1
+embedded_validator_sha256=5f3379d7dd0cefa8c8c5e32787d352589742f4892ff385862ae5153196ed1aac
+ended=2026-09-15T11:15:50+08:00
+exit=1
+elapsed_ms=608491

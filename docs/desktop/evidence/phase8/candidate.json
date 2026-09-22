@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "artifact": "linux-amd64-snap",
+  "filename": "z8-work_0.1.0_amd64.snap",
+  "sha256": "ecca28eb011ab6121ec24281416ae195165f0bd70c2da3e757020f05f58484fa",
+  "bytes": 204865536,
+  "applicationSha256": "0ab04cd2d437eda8b8bd9c297393dd6b6b2a3dbe10cafc88e87351fa209aad59",
+  "engineManifestSha256": "f80ed771b21d593e7f05a68a54d23b1e177afa62a908303bf8d25029d65569aa",
+  "buildInfo": {
+    "applicationId": "work.z8.desktop.m0",
+    "arch": "x86_64",
+    "customProtocol": true,
+    "debug": false,
+    "engines": "bundled",
+    "fileDialog": "xdg-portal",
+    "os": "linux",
+    "processLifetime": "watchdog-pipe-v1",
+    "resourceDirectoryName": "Z8.Work Desktop Dev",
+    "schema": 1,
+    "updater": false,
+    "version": "0.1.0"
+  },
+  "redistributionApproved": false,
+  "checks": {
+    "integrity": {
+      "status": "passed",
+      "report": "Final Snap extracted; metadata, app hash and full engine inventory match prepared bytes"
+    },
+    "conversion": {
+      "status": "passed",
+      "report": "isolated.json",
+      "scope": "Final extracted Snap engines; scratch, offline, read-only, uid 1000; AMD64 emulated on ARM64; not native strict install acceptance"
+    },
+    "gui": {
+      "status": "not-run"
+    },
+    "install": {
+      "status": "not-run"
+    },
+    "upgrade": {
+      "status": "not-run"
+    },
+    "uninstall": {
+      "status": "not-run"
+    },
+    "licenses": {
+      "status": "not-run"
+    },
+    "strict-confinement": {
+      "status": "not-run"
+    },
+    "portal": {
+      "status": "not-run"
+    }
+  }
+}

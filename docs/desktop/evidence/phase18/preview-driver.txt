@@ -1,0 +1,30 @@
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:34.483: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:36.325: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:43.153: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:45.322: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:47.962: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:49.754: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:49.760: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:51.523: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:51.529: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:55.334: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:55.341: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:57.167: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:04:57.175: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:05:03.717: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed
+
+(z8-desktop:203958): Gtk-CRITICAL **: 14:05:05.582: gtk_widget_event: assertion 'WIDGET_REALIZED_FOR_EVENT (widget, event)' failed

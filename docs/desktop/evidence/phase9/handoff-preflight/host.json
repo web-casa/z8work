@@ -1,0 +1,63 @@
+{
+  "platform": "linux",
+  "arch": "arm64",
+  "uid": 501,
+  "machine": "aarch64",
+  "snapd": {
+    "architecture": "arm64",
+    "confinement": "partial",
+    "kernel-version": "7.0.14-orbstack-00380-ga7e0a2dc9535",
+    "version": "2.76.3",
+    "os-release": {
+      "id": "debian",
+      "version-id": "13"
+    },
+    "sandbox-features": {
+      "configfiles": [
+        "mediated-configfiles"
+      ],
+      "confinement-options": [
+        "classic",
+        "devmode"
+      ],
+      "dbus": [
+        "mediated-bus-access"
+      ],
+      "kmod": [
+        "mediated-modprobe"
+      ],
+      "ldconfig": [
+        "mediated-ldconfig"
+      ],
+      "mount": [
+        "layouts",
+        "mount-namespace",
+        "per-snap-persistency",
+        "per-snap-profiles",
+        "per-snap-updates",
+        "per-snap-user-profiles",
+        "stale-base-invalidation"
+      ],
+      "seccomp": [
+        "bpf-actlog",
+        "bpf-argument-filtering",
+        "kernel:allow",
+        "kernel:errno",
+        "kernel:kill_process",
+        "kernel:kill_thread",
+        "kernel:log",
+        "kernel:trace",
+        "kernel:trap",
+        "kernel:user_notif"
+      ],
+      "symlinks": [
+        "mediated-symlinks"
+      ],
+      "udev": [
+        "device-cgroup-v2",
+        "device-filtering",
+        "tagging"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scope": "windows-engine-bundle",
+  "host": {
+    "os": "linux",
+    "arch": "x64",
+    "machine": "x86_64"
+  },
+  "execution": "wine",
+  "status": "passed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "checks": {
+    "static": "passed",
+    "versions": "passed",
+    "integrity": "passed",
+    "conversions": "passed",
+    "nativeWindows": "not-run",
+    "gui": "not-run",
+    "installer": "not-run",
+    "licenses": "not-run"
+  },
+  "references": {
+    "pe.json": {
+      "sha256": "1135beb567788fd88d6e2a220cbf4141263f5b3f0b728e2a83cd87c3ff3f93d7",
+      "bytes": 31416
+    },
+    "wine-version.txt": {
+      "sha256": "88da7b55dc2f3922463047f6b92f0488c738c9306147cf47b949d1b284bae54a",
+      "bytes": 37
+    },
+    "versions.json": {
+      "sha256": "75331b89632d293a5af384a5caafde8634367e8e26de8956e62bbb75280574c0",
+      "bytes": 3931
+    },
+    "integrity.json": {
+      "sha256": "ff5c351575425f6281285d235cfb70f9f3e3c8f712e3ac45c680e4b249feb620",
+      "bytes": 721
+    },
+    "conversion-stderr.txt": {
+      "sha256": "95793875acd0ead2c3fdca26a4b92222a910fe8f1246e1449cebcfd52e34cf89",
+      "bytes": 259206
+    },
+    "conversions.json": {
+      "sha256": "1fc3d8f61ef341e816729a9b087ec1a83cc78f77d4074fa8ef00c6f27b56618d",
+      "bytes": 220087
+    }
+  },
+  "bundle": {
+    "sha256": "1bccb81d8067e0b7ac7b0fe6aaaffcf25cc8497187826456e0774d192a0fcc8b",
+    "bytes": 95596
+  }
+}

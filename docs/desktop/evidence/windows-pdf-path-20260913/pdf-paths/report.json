@@ -1,0 +1,22 @@
+{
+  "scope": "native-windows-mupdf-paths",
+  "checks": {
+    "absolute": {
+      "passed": true,
+      "stdout": "1\r\n"
+    },
+    "verbatim": {
+      "passed": false,
+      "stderr": "system error: cannot open \\\\input.pdf: No such file or directory\r\n",
+      "code": 1
+    },
+    "relative": {
+      "passed": true,
+      "stdout": "1\r\n"
+    },
+    "render": {
+      "passed": true,
+      "bytes": 3499
+    }
+  }
+}

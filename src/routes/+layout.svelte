@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { localHref } from "$lib/seo/navigation";
 	import { onMount } from "svelte";
+	import {
+		isDesktop,
+		isSavingDesktop,
+		guardDesktopClose,
+	} from "$lib/util/desktop";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
 
 	import { DISABLE_ALL_EXTERNAL_REQUESTS } from "$lib/util/consts.js";
@@ -73,6 +78,23 @@
 	};
 
 	onMount(() => {
+		let disposed = false;
+		let stopCloseGuard: (() => void) | undefined;
+		if (isDesktop()) {
+			void guardDesktopClose(
+				() =>
+					files.files.length > 0 ||
+					files.downloading ||
+					isSavingDesktop(),
+			)
+				.then((stop) => {
+					if (disposed) stop();
+					else stopCloseGuard = stop;
+				})
+				.catch((error) =>
+					ToastManager.add({ type: "error", message: String(error) }),
+				);
+		}
 		const now = new Date();
 		isAprilFools = now.getDate() === 1 && now.getMonth() === 3;
 
@@ -125,6 +147,8 @@
 		}
 
 		return () => {
+			disposed = true;
+			stopCloseGuard?.();
 			window.removeEventListener("paste", handlePaste);
 			window.removeEventListener("resize", handleResize);
 		};

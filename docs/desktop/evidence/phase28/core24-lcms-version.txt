@@ -1,0 +1,6 @@
+Version: ImageMagick 7.1.1-43 Q16-HDRI x86_64 22550 https://imagemagick.org
+Copyright: (C) 1999 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC HDRI Modules 
+Delegates (built-in): bzlib heic jbig jng jpeg lcms ltdl lzma pangocairo png webp xml zlib zstd
+Compiler: gcc (13.3)

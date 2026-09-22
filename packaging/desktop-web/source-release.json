@@ -1,0 +1,99 @@
+{
+	"schema": 1,
+	"status": "published",
+	"updated": "2026-09-21",
+	"purpose": "Reviewable staging plan for public corresponding-source delivery of the five bundled WASM engines. Publication requires owner confirmation of the hosting location and an explicit external release action; this file alone never publishes anything.",
+	"enginesCatalog": "packaging/desktop-web/engines.json",
+	"urlPlan": {
+		"status": "published",
+		"decidedByOwner": "2026-09-21: archives go to GitHub Releases on web-casa/z8work, plus a generated download page at https://z8.work/desktop-source/ on the site",
+		"pattern": "https://github.com/web-casa/z8work/releases/download/<tag>/<file>",
+		"releaseTag": "desktop-source-1",
+		"requirements": [
+			"Upload the GitHub release (with SHA256SUMS as an asset) before deploying the site page that links to it",
+			"Permanent HTTPS URLs that outlive individual product releases",
+			"Free public access without account, interstitial or region block",
+			"Served bytes must hash exactly to the per-artifact sha256 recorded here",
+			"Pandoc archive is ~1.1 GiB; a single GitHub release asset must carry it"
+		],
+		"replacementPolicy": "If bytes ever must change, publish a new tag (desktop-source-2, ...) with new file names and record the supersession here; never mutate published assets."
+	},
+	"retentionPolicy": "Keep every published archive and its exact bytes retrievable for as long as any distributed desktop binary binds to it; if a file must be replaced, publish it under a new name and record the supersession here instead of mutating published bytes.",
+	"artifacts": [
+		{
+			"engine": "pandoc",
+			"version": "3.5",
+			"releaseFileName": "z8work-pandoc-3.5-corresponding-source.tar.gz",
+			"localArchive": ".desktop-local/pandoc-rebuild-20260921/pandoc-corresponding-source-final.tar.gz",
+			"sha256": "0d71a58d3440e62227ef5212f4b5ad484e735014fd4117a9fd638e8ee95b101e",
+			"bytes": 1167506140,
+			"wasmSha256": "e12460b4b7ae74829da41b77b97531ca2eeebbcaf2362d0e1912948b59c21e09",
+			"sourceCommit": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+			"verificationStatus": "verified-rebuilt-replacement",
+			"evidence": "docs/desktop/evidence/pandoc-rebuild-20260921/source-binding.json",
+			"contentsNote": "Pandoc source at the fixed commit, 6 vendored git dependencies, 127 pinned Hackage package tarballs, GHC/WASI toolchain archives, pinned Debian builder image, build scripts and two recorded build digests (not byte-identical).",
+			"publishedUrl": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-pandoc-3.5-corresponding-source.tar.gz",
+			"publishedAt": "2026-09-21T13:34:47Z"
+		},
+		{
+			"engine": "@ffmpeg/core",
+			"version": "0.12.10",
+			"releaseFileName": "z8work-ffmpeg-core-0.12.10-corresponding-source.tar.gz",
+			"localArchive": ".desktop-local/store-source-phase4/ffmpeg-corresponding-source-candidate.tar.gz",
+			"sha256": "17546c1c151ef8e16578f213f9ae0c96381a19445819a213b47d2bd3fc93e663",
+			"bytes": 126377117,
+			"wasmSha256": "9f57947a5bd530d8f00c5b3f2cb2a3492faa7e5d823315342d6a8656d0a6b7b7",
+			"sourceCommit": "71aa99d37c02a7b4c435275ca9ef50e612f6efa1",
+			"verificationStatus": "verified-rebuilt",
+			"evidence": "docs/desktop/evidence/ffmpeg-rebuild-20260920/source-binding.json",
+			"contentsNote": "ffmpeg.wasm wrapper, FFmpeg and 16 pinned dependency trees, Emscripten, build configuration and rebuild instructions; rebuilt WASM and JS are byte-identical to the shipped files.",
+			"publishedUrl": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-ffmpeg-core-0.12.10-corresponding-source.tar.gz",
+			"publishedAt": "2026-09-21T13:34:47Z"
+		},
+		{
+			"engine": "@imagemagick/magick-wasm",
+			"version": "0.0.43",
+			"releaseFileName": "z8work-magick-wasm-0.0.43-corresponding-source.tar.gz",
+			"localArchive": ".desktop-local/store-source-closure-20260920/archives/magick-sources.tar.gz",
+			"sha256": "f4e6e2dd716404916d01f4fc1eb54c35d1d4bdcd80993e94c582efc4535fc339",
+			"bytes": 192143363,
+			"wasmSha256": "5a4ed1017eda113144c86ae839c22c610afebcfebfa22b1da18e00e98d78b0f7",
+			"sourceCommit": "85008a8006a0283ebf7e3cfba67e27e430693254",
+			"verificationStatus": "verified-upstream",
+			"evidence": "docs/desktop/evidence/imagemagick-upstream-20260921/source-binding.json",
+			"contentsNote": "magick-wasm and Magick.Native sources plus the 23 pinned embedded-library dependency trees; shipped WASM is byte-identical to the official upstream release asset.",
+			"publishedUrl": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-magick-wasm-0.0.43-corresponding-source.tar.gz",
+			"publishedAt": "2026-09-21T13:34:47Z"
+		},
+		{
+			"engine": "mupdf",
+			"version": "1.28.1",
+			"releaseFileName": "z8work-mupdf-1.28.1-corresponding-source.tar.gz",
+			"localArchive": ".desktop-local/store-source-phase5/mupdf-corresponding-source.tar.gz",
+			"sha256": "22f86f6e11d2bff9f9ca5664db48c2e0e4e905fe08b37ae483ccb08310345106",
+			"bytes": 133495540,
+			"wasmSha256": "5a30ef7b027f541ea8fc54e7c73f16414b0b59940741a12efe5e55f1fd0a99d7",
+			"sourceCommit": "20061bd45183f5a2bff8f43675e4da91e5ac2901",
+			"verificationStatus": "verified-rebuilt",
+			"evidence": "docs/desktop/evidence/mupdf-rebuild-20260921/source-binding.json",
+			"contentsNote": "MuPDF source with exact third-party submodule trees, git-blob audit metadata, Emscripten toolchain and rebuild scripts; rebuilt WASM and JS files are byte-identical to the shipped files.",
+			"publishedUrl": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-mupdf-1.28.1-corresponding-source.tar.gz",
+			"publishedAt": "2026-09-21T13:34:47Z"
+		},
+		{
+			"engine": "vert-wasm",
+			"version": "0.0.2",
+			"releaseFileName": "z8work-vert-wasm-0.0.2-corresponding-source.tar.gz",
+			"localArchive": ".desktop-local/store-source-closure-20260920/archives/vert-wasm-sources.tar.gz",
+			"sha256": "dca770d88cd72ab606a5be9a875c21eebd019d769ac5ee5a601f53bd5eb9ce78",
+			"bytes": 1281196,
+			"wasmSha256": "5ce6cbfaf8701c82e8dc16a887e01793db962b407897e870849135fe81e24239",
+			"sourceCommit": "4f99ef9abad355a390f1e1dfab4769ef815f54f3",
+			"verificationStatus": "verified-rebuilt",
+			"evidence": "docs/desktop/evidence/store-source-closure-20260920/vert-source-binding.json",
+			"contentsNote": "vert-wasm source with Cargo.lock and 25 vendored crates, plus rebuild toolchain pinning; rebuilt WASM is byte-identical to the shipped file.",
+			"publishedUrl": "https://github.com/web-casa/z8work/releases/download/desktop-source-1/z8work-vert-wasm-0.0.2-corresponding-source.tar.gz",
+			"publishedAt": "2026-09-21T13:34:47Z"
+		}
+	]
+}

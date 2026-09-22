@@ -1,0 +1,2805 @@
+{
+	"schema": 1,
+	"status": "assembled-awaiting-audit",
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"sourceVersions": 170,
+	"bytes": 4804627271,
+	"files": [
+		{
+			"file": "alsa-lib_1.2.14-1/alsa-lib_1.2.14-1.dsc",
+			"sha256": "6ea64563ba6b010e92465d23868f60e70513478d84bea8a2a97f6691f940976f",
+			"bytes": 2919
+		},
+		{
+			"file": "alsa-lib_1.2.14-1/alsa-lib_1.2.14.orig.tar.bz2",
+			"sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32",
+			"bytes": 1115517
+		},
+		{
+			"file": "alsa-lib_1.2.14-1/alsa-lib_1.2.14.orig.tar.bz2.asc",
+			"sha256": "d4d73561754d9e0956a77aa5edf9c7120f80129bda6832257d98c2010915b3e8",
+			"bytes": 833
+		},
+		{
+			"file": "alsa-lib_1.2.14-1/alsa-lib_1.2.14-1.debian.tar.xz",
+			"sha256": "904a04da389db325ae9011f328be4fa3b1cb820554bb41aff0b94721bae8b616",
+			"bytes": 33724
+		},
+		{
+			"file": "aom_3.12.1-1/aom_3.12.1-1.dsc",
+			"sha256": "696b9e32b3fe787e8598811e8b680b829b93e65781e0328f8b5056619454b408",
+			"bytes": 2552
+		},
+		{
+			"file": "aom_3.12.1-1/aom_3.12.1.orig.tar.gz",
+			"sha256": "40c929a41b2a59c24319a699c358351422829b3ae646de31b18cbabed0191962",
+			"bytes": 5504164
+		},
+		{
+			"file": "aom_3.12.1-1/aom_3.12.1-1.debian.tar.xz",
+			"sha256": "ac01db2f3d78d8ba39d5d7546ce4fcc1fa827e7b92387d7234d140d8d9afa5f9",
+			"bytes": 20464
+		},
+		{
+			"file": "brotli_1.1.0-2/brotli_1.1.0-2.dsc",
+			"sha256": "39b06802a852629132d549a7f7449dee7f435e801706714a4bc2ea2f15b28f36",
+			"bytes": 2261
+		},
+		{
+			"file": "brotli_1.1.0-2/brotli_1.1.0.orig.tar.gz",
+			"sha256": "10973f4b4199eafa1d5735ef661ddb2ec2f97319ee9fd1824d4aabe08cff5265",
+			"bytes": 512036
+		},
+		{
+			"file": "brotli_1.1.0-2/brotli_1.1.0-2.debian.tar.xz",
+			"sha256": "3d913a3740bcad9a294007575a6beb1846beadbd62b44fb2bf9fdaeddea3236f",
+			"bytes": 5480
+		},
+		{
+			"file": "bzip2_1.0.8-6/bzip2_1.0.8-6.dsc",
+			"sha256": "cd3bfd77254a6b5ef1be144bdc90a0dd374bc8206afd98ba4abf828741b79820",
+			"bytes": 1604
+		},
+		{
+			"file": "bzip2_1.0.8-6/bzip2_1.0.8.orig.tar.gz",
+			"sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269",
+			"bytes": 810029
+		},
+		{
+			"file": "bzip2_1.0.8-6/bzip2_1.0.8-6.debian.tar.bz2",
+			"sha256": "648ed0dac9a041ba6951e0cca521628aa39947cefee78139f7b934a5dc502095",
+			"bytes": 26991
+		},
+		{
+			"file": "cairo_1.18.4-1/cairo_1.18.4-1.dsc",
+			"sha256": "717ca0717208ae5ef1ab354e47328867ee7038fe65fb75e0ce366139b34bf67f",
+			"bytes": 2763
+		},
+		{
+			"file": "cairo_1.18.4-1/cairo_1.18.4.orig.tar.xz",
+			"sha256": "445ed8208a6e4823de1226a74ca319d3600e83f6369f99b14265006599c32ccb",
+			"bytes": 32578804
+		},
+		{
+			"file": "cairo_1.18.4-1/cairo_1.18.4-1.debian.tar.xz",
+			"sha256": "bf2d9ea10097fd06faf6b4ef2149677e7aa0eb8abf85aa5d46851ea11a713f68",
+			"bytes": 29920
+		},
+		{
+			"file": "chromaprint_1.5.1-7/chromaprint_1.5.1-7.dsc",
+			"sha256": "db50c95a5faddddbf3e73a4c38bdd34c54e49118917ae2147fc04ef92ca72ed2",
+			"bytes": 1651
+		},
+		{
+			"file": "chromaprint_1.5.1-7/chromaprint_1.5.1.orig.tar.gz",
+			"sha256": "a1aad8fa3b8b18b78d3755b3767faff9abb67242e01b478ec9a64e190f335e1c",
+			"bytes": 1581159
+		},
+		{
+			"file": "chromaprint_1.5.1-7/chromaprint_1.5.1-7.debian.tar.xz",
+			"sha256": "7b6e814b4ebaed891d70a070eb4cc3558e5e914a0ecb04ae9ef14f8d2b2fd652",
+			"bytes": 11720
+		},
+		{
+			"file": "cjson_1.7.18-3.1%2Bdeb13u1/cjson_1.7.18-3.1+deb13u1.dsc",
+			"sha256": "57b560dc195f857987986588ba2eb05f5f30d409c8dc715decfb582d5e56ecbf",
+			"bytes": 1974
+		},
+		{
+			"file": "cjson_1.7.18-3.1%2Bdeb13u1/cjson_1.7.18.orig.tar.gz",
+			"sha256": "3aa806844a03442c00769b83e99970be70fbef03735ff898f4811dd03b9f5ee5",
+			"bytes": 354726
+		},
+		{
+			"file": "cjson_1.7.18-3.1%2Bdeb13u1/cjson_1.7.18-3.1+deb13u1.debian.tar.xz",
+			"sha256": "f6daf5b8b2ccd6ca1f96e4b6fcd7a0e3907f820f75b197367b2ced345d01881d",
+			"bytes": 7032
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0-3.dsc",
+			"sha256": "a49d5ee3d195a7d07f5da95bbd1a574fdab521aa765ebb5e16872a25b9a6b3bd",
+			"bytes": 2887
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0.orig-LPCNet.tar.gz",
+			"sha256": "8c01fb69fc5ef1e33b654d811161c3df3759878c7c61c5d66a149751bd680516",
+			"bytes": 5233217
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0.orig-cml.tar.gz",
+			"sha256": "471dc66f4c1a9d55585ac7b2a7831449cf4827ec6e89b351864c4e600656baf8",
+			"bytes": 569648
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0.orig-lpcnet191005.tar.gz",
+			"sha256": "509440924751fdd87ffaa5683ee3dddd937af5c833b9104ccce65d51614926c8",
+			"bytes": 18396516
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0.orig.tar.gz",
+			"sha256": "cbccae52b2c2ecc5d2757e407da567eb681241ff8dadce39d779a7219dbcf449",
+			"bytes": 7688549
+		},
+		{
+			"file": "codec2_1.2.0-3/codec2_1.2.0-3.debian.tar.xz",
+			"sha256": "91693318992daab0486d1325b11a12905a7a58b8ed38890454b0208f9f1e8fb9",
+			"bytes": 48484
+		},
+		{
+			"file": "dav1d_1.5.1-1/dav1d_1.5.1-1.dsc",
+			"sha256": "a418ee8fdc8003feee1ba19391eac250e3ef03106c995c8e25b8a42b56de18cf",
+			"bytes": 2290
+		},
+		{
+			"file": "dav1d_1.5.1-1/dav1d_1.5.1.orig.tar.xz",
+			"sha256": "401813f1f89fa8fd4295805aa5284d9aed9bc7fc1fdbe554af4292f64cbabe21",
+			"bytes": 1020760
+		},
+		{
+			"file": "dav1d_1.5.1-1/dav1d_1.5.1.orig.tar.xz.asc",
+			"sha256": "4cad1d03a19a717562c2c80c1df195b629e43898cd1af19296958847f6212554",
+			"bytes": 195
+		},
+		{
+			"file": "dav1d_1.5.1-1/dav1d_1.5.1-1.debian.tar.xz",
+			"sha256": "41f758fda3a2d9860691cae422365bae656060f42c9a5375f7ac4124005f4e7e",
+			"bytes": 8468
+		},
+		{
+			"file": "db5.3_5.3.28%2Bdfsg2-9/db5.3_5.3.28+dfsg2-9.dsc",
+			"sha256": "045f392c75dffc9d4f3bd44978b90ca8d45b935cf0ae4202bf79a760f2ce07b1",
+			"bytes": 2373
+		},
+		{
+			"file": "db5.3_5.3.28%2Bdfsg2-9/db5.3_5.3.28+dfsg2.orig.tar.xz",
+			"sha256": "ad41b507415dec8316e828b2230242af2251d2c86eefa3c7aa9ef47c5239ef33",
+			"bytes": 21287688
+		},
+		{
+			"file": "db5.3_5.3.28%2Bdfsg2-9/db5.3_5.3.28+dfsg2-9.debian.tar.xz",
+			"sha256": "21fe6ee0491c83d0c34fe52e0e0e423946172eff68262584a0cc8ef880c36b74",
+			"bytes": 36412
+		},
+		{
+			"file": "dbus_1.16.2-2/dbus_1.16.2-2.dsc",
+			"sha256": "4bc35ba286891589d8ed9368da3d81db2a4d387144919850e4ea8e9ae2cf0364",
+			"bytes": 3712
+		},
+		{
+			"file": "dbus_1.16.2-2/dbus_1.16.2.orig.tar.xz",
+			"sha256": "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2",
+			"bytes": 1115644
+		},
+		{
+			"file": "dbus_1.16.2-2/dbus_1.16.2.orig.tar.xz.asc",
+			"sha256": "108723e6bb2b0655abcb8ec7b06d27918bd7ac215f835ba086b45f9780cb529b",
+			"bytes": 833
+		},
+		{
+			"file": "dbus_1.16.2-2/dbus_1.16.2-2.debian.tar.xz",
+			"sha256": "f774fe3bd1ac24265e17c70999bfa26a92a15f2fb72e1fb8c64fa5d436fb9119",
+			"bytes": 66364
+		},
+		{
+			"file": "e2fsprogs_1.47.2-3/e2fsprogs_1.47.2-3.dsc",
+			"sha256": "860abb653ecbe01a11bb7e41c9e09a45e83847bffa585f7a3d3c0f9401c9d4bb",
+			"bytes": 3035
+		},
+		{
+			"file": "e2fsprogs_1.47.2-3/e2fsprogs_1.47.2.orig.tar.gz",
+			"sha256": "6dcd67ff9d8b13274ba3f088e4318be4f5b71412cd863524423fc49d39a6371f",
+			"bytes": 9996725
+		},
+		{
+			"file": "e2fsprogs_1.47.2-3/e2fsprogs_1.47.2.orig.tar.gz.asc",
+			"sha256": "2063f62a198dd3df21f789c990c2cf9b4a5de24ed55f0b78d86e97e98daffc9d",
+			"bytes": 488
+		},
+		{
+			"file": "e2fsprogs_1.47.2-3/e2fsprogs_1.47.2-3.debian.tar.xz",
+			"sha256": "5517aae5ce5196e49fa314492f0639ad7a1692c9521d703b6c81acff77a1564e",
+			"bytes": 103684
+		},
+		{
+			"file": "expat_2.7.1-2/expat_2.7.1-2.dsc",
+			"sha256": "0f6068677eae5a40d223f47cc798210c8227022516d90569f657a793e5b2956f",
+			"bytes": 1964
+		},
+		{
+			"file": "expat_2.7.1-2/expat_2.7.1.orig.tar.gz",
+			"sha256": "85372797ff0673a8fc4a6be16466bb5a0ca28c0dcf3c6f7ac1686b4a3ba2aabb",
+			"bytes": 8433717
+		},
+		{
+			"file": "expat_2.7.1-2/expat_2.7.1-2.debian.tar.xz",
+			"sha256": "3b5417d59688e7759b00af6f92a87415b363ba00f946078201555fa3dd78420d",
+			"bytes": 13264
+		},
+		{
+			"file": "ffmpeg_7%3A7.1.5-0%2Bdeb13u1/ffmpeg_7.1.5-0+deb13u1.dsc",
+			"sha256": "9ed2ed34cbe7f056eeebbe9045c5e2d15e41b5b053fe7c8ba6979a0b6fb081ce",
+			"bytes": 5950
+		},
+		{
+			"file": "ffmpeg_7%3A7.1.5-0%2Bdeb13u1/ffmpeg_7.1.5.orig.tar.xz",
+			"sha256": "de668509caf9e35e3cd162473441fdb29538c6d96ed080292b3cf9e6fc5d558f",
+			"bytes": 11050340
+		},
+		{
+			"file": "ffmpeg_7%3A7.1.5-0%2Bdeb13u1/ffmpeg_7.1.5.orig.tar.xz.asc",
+			"sha256": "7ce4b9d56e3ef0cd4c3a9c0b2c8a034ac91e6c4c011c1f10b05a8aa7292fca35",
+			"bytes": 520
+		},
+		{
+			"file": "ffmpeg_7%3A7.1.5-0%2Bdeb13u1/ffmpeg_7.1.5-0+deb13u1.debian.tar.xz",
+			"sha256": "a1be51d8a10744952fe94fa318bf71bbc8074bed0951382c079ab7ef227f74ef",
+			"bytes": 54176
+		},
+		{
+			"file": "fftw3_3.3.10-2/fftw3_3.3.10-2.dsc",
+			"sha256": "58bdea9754119c591f95e373c1c85ff2b6861383b20bf3bb1e81af9c76a51d71",
+			"bytes": 2754
+		},
+		{
+			"file": "fftw3_3.3.10-2/fftw3_3.3.10.orig.tar.gz",
+			"sha256": "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467",
+			"bytes": 4144100
+		},
+		{
+			"file": "fftw3_3.3.10-2/fftw3_3.3.10-2.debian.tar.xz",
+			"sha256": "369066d9b28af25ac779ad23cce78be8dad3896bcbeb80de30d3d36b7a94fd67",
+			"bytes": 14628
+		},
+		{
+			"file": "flac_1.5.0%2Bds-2/flac_1.5.0+ds-2.dsc",
+			"sha256": "6104c7d69c96e7c8410248d9533bf70df71efd8365966b114c12e9e5cead041a",
+			"bytes": 2366
+		},
+		{
+			"file": "flac_1.5.0%2Bds-2/flac_1.5.0+ds.orig.tar.xz",
+			"sha256": "51d6a5bf5a37b67f9af847daa07c07091f6bf1583d5abb7fbb064bc68428b0f1",
+			"bytes": 811148
+		},
+		{
+			"file": "flac_1.5.0%2Bds-2/flac_1.5.0+ds-2.debian.tar.xz",
+			"sha256": "80abb6595955cb3b590cc64d8037c0a7eba777726a23b5664d06bb1fd870fd51",
+			"bytes": 17620
+		},
+		{
+			"file": "flite_2.2-7/flite_2.2-7.dsc",
+			"sha256": "cbc1a25bf64c5f2a330454186e85bd8b2cf7d63efa627db1e79b7a60563a6660",
+			"bytes": 2130
+		},
+		{
+			"file": "flite_2.2-7/flite_2.2.orig.tar.gz",
+			"sha256": "ab1555fe5adc3f99f1d4a1a0eb1596d329fd6d74f1464a0097c81f53c0cf9e5c",
+			"bytes": 20233792
+		},
+		{
+			"file": "flite_2.2-7/flite_2.2-7.debian.tar.xz",
+			"sha256": "aebf7dcf8fa6600c96e0aa4bb853df8eb09d3756303f3400f9f7e9e190106f7e",
+			"bytes": 49196
+		},
+		{
+			"file": "fontconfig_2.15.0-2.3/fontconfig_2.15.0-2.3.dsc",
+			"sha256": "d5c3b910e470fdd00048813863f2e25e330c61b5cb3c795edf30cb3c52a657d0",
+			"bytes": 2673
+		},
+		{
+			"file": "fontconfig_2.15.0-2.3/fontconfig_2.15.0.orig.tar.xz",
+			"sha256": "63a0658d0e06e0fa886106452b58ef04f21f58202ea02a94c39de0d3335d7c0e",
+			"bytes": 1447820
+		},
+		{
+			"file": "fontconfig_2.15.0-2.3/fontconfig_2.15.0-2.3.debian.tar.xz",
+			"sha256": "af8e98e3801427f8957f86dc18303fcfbae329c0fab5bc06b5d5a0d26a53295f",
+			"bytes": 59516
+		},
+		{
+			"file": "fonts-android_1%3A8.1.0r7-1~1.gbp36536b/fonts-android_8.1.0r7-1~1.gbp36536b.dsc",
+			"sha256": "b87a30851b73a223622d64562b6f2488bf9f03bd164f93dc4f19330cbce19201",
+			"bytes": 2224
+		},
+		{
+			"file": "fonts-android_1%3A8.1.0r7-1~1.gbp36536b/fonts-android_8.1.0r7.orig.tar.gz",
+			"sha256": "5cb12904eb8fefd17fd820f7ca2ca175a6136269a5d65ca92bf334d7feb9cea0",
+			"bytes": 3893961
+		},
+		{
+			"file": "fonts-android_1%3A8.1.0r7-1~1.gbp36536b/fonts-android_8.1.0r7-1~1.gbp36536b.debian.tar.xz",
+			"sha256": "9884c245dd7f7b3f31acfee2cb9292e34069dd1a59b20c658d7fb4980e198a2d",
+			"bytes": 7360
+		},
+		{
+			"file": "fonts-noto-cjk_1%3A20240730%2Brepack1-1/fonts-noto-cjk_20240730+repack1-1.dsc",
+			"sha256": "c55d5261927d5bcfefc498a8884189bce46823f216c83726d21bd78cfa337ddd",
+			"bytes": 2142
+		},
+		{
+			"file": "fonts-noto-cjk_1%3A20240730%2Brepack1-1/fonts-noto-cjk_20240730+repack1.orig.tar.gz",
+			"sha256": "8046de072b10f3b53517b851199a0b2eb679cfab2d3e8165c529f6d29b6ce9c3",
+			"bytes": 252156856
+		},
+		{
+			"file": "fonts-noto-cjk_1%3A20240730%2Brepack1-1/fonts-noto-cjk_20240730+repack1-1.debian.tar.xz",
+			"sha256": "730880656be4825c3478fb12f7324c6d3641d7a94d9d6aee642f49174b4396c1",
+			"bytes": 6452
+		},
+		{
+			"file": "fonts-noto_20201225-2/fonts-noto_20201225-2.dsc",
+			"sha256": "6f316c8b6a21c0eaf6c7da0fb6decbfbfd77f8af393a70f4ed91fc04d4cc98aa",
+			"bytes": 2377
+		},
+		{
+			"file": "fonts-noto_20201225-2/fonts-noto_20201225.orig.tar.gz",
+			"sha256": "7ef8fc4b10f869de28cfcf3d6cf53345949ed7335d79472810d31787d8aba719",
+			"bytes": 903613276
+		},
+		{
+			"file": "fonts-noto_20201225-2/fonts-noto_20201225-2.debian.tar.xz",
+			"sha256": "7bc0a9addabd19ed713c321078a96de4b178fa6a91df4c0d80a8b1b11e3964f8",
+			"bytes": 110764
+		},
+		{
+			"file": "fonts-sil-charis_6.200-1/fonts-sil-charis_6.200-1.dsc",
+			"sha256": "3271a0f337e38aabe877efcc75d15393864051713ad75ff5bae33614a8af731a",
+			"bytes": 2066
+		},
+		{
+			"file": "fonts-sil-charis_6.200-1/fonts-sil-charis_6.200.orig.tar.xz",
+			"sha256": "37343e7ad81303d933b83fcb4cb18e8ea21729d2946e2fe8043506eeeaa16074",
+			"bytes": 4042936
+		},
+		{
+			"file": "fonts-sil-charis_6.200-1/fonts-sil-charis_6.200-1.debian.tar.xz",
+			"sha256": "660780621e0108fddd59d5813c99e62abf3152621c062ddc7f39df5f72d8161c",
+			"bytes": 9500
+		},
+		{
+			"file": "fonts-urw-base35_20200910-8/fonts-urw-base35_20200910-8.dsc",
+			"sha256": "54e700670e335495c702efbda1033681f25848e6d4bb46d47c1c93afb3113aae",
+			"bytes": 2265
+		},
+		{
+			"file": "fonts-urw-base35_20200910-8/fonts-urw-base35_20200910.orig.tar.gz",
+			"sha256": "e0d9b7f11885fdfdc4987f06b2aa0565ad2a4af52b22e5ebf79e1a98abd0ae2f",
+			"bytes": 11190093
+		},
+		{
+			"file": "fonts-urw-base35_20200910-8/fonts-urw-base35_20200910-8.debian.tar.xz",
+			"sha256": "e4a47c315c1690b91984bed3fba03df35ce50d9af4059b9cfef4810e7afac93d",
+			"bytes": 24468
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg-1+deb13u1.dsc",
+			"sha256": "8aa6e936f4b8ce5b1ac530d3c1bc7c5c36e6432ef81385c29ce649a3ed79e8cd",
+			"bytes": 3691
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg.orig-ft2demos.tar.xz",
+			"sha256": "8775e5ffded1a885ba2ccb3ea0e82c73306a03b764080c3e4c79da15b5c9a28a",
+			"bytes": 342404
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg.orig-ft2demos.tar.xz.asc",
+			"sha256": "931bfa17e59c0ec7db391160f43977e0907f36ea3c39d7e6063731cd4612dd51",
+			"bytes": 833
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg.orig-ft2docs.tar.xz",
+			"sha256": "b7b66149bea769e226fd3d6d1eee6160e5b6beb4249b088071434fbe85fd1070",
+			"bytes": 2173852
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg.orig-ft2docs.tar.xz.asc",
+			"sha256": "65c66aec6244d247540430b21d3e80b677f1361906347a5be7fad371d46655da",
+			"bytes": 833
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg.orig.tar.xz",
+			"sha256": "686ec73cbf6783b245dd068a09ce807b729ac0f8a46dd70f7867923c32fdf4de",
+			"bytes": 2201416
+		},
+		{
+			"file": "freetype_2.13.3%2Bdfsg-1%2Bdeb13u1/freetype_2.13.3+dfsg-1+deb13u1.debian.tar.xz",
+			"sha256": "e7a07cad1b9c803457ec310bc87132429f52171c89f9126c09eb62e203c8c84b",
+			"bytes": 44488
+		},
+		{
+			"file": "fribidi_1.0.16-1/fribidi_1.0.16-1.dsc",
+			"sha256": "10f003abcad934adde409c94f2780ec9638517dc1cc495b2a1df03a13c1d4315",
+			"bytes": 2004
+		},
+		{
+			"file": "fribidi_1.0.16-1/fribidi_1.0.16.orig.tar.xz",
+			"sha256": "1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c",
+			"bytes": 1098260
+		},
+		{
+			"file": "fribidi_1.0.16-1/fribidi_1.0.16-1.debian.tar.xz",
+			"sha256": "8d1cd7177a436b25ca8153e3dd2b9fb6da411a2c3cb0105eaadf4e42b777da6f",
+			"bytes": 8928
+		},
+		{
+			"file": "game-music-emu_0.6.3-7/game-music-emu_0.6.3-7.dsc",
+			"sha256": "97f3a9db6ede894fda60f7f40b26af649c7f7e0b461d9ff385bd8cfcf4c7f01a",
+			"bytes": 1996
+		},
+		{
+			"file": "game-music-emu_0.6.3-7/game-music-emu_0.6.3.orig.tar.gz",
+			"sha256": "4c5a7614acaea44e5cb1423817d2889deb82674ddbc4e3e1291614304b86fca0",
+			"bytes": 314980
+		},
+		{
+			"file": "game-music-emu_0.6.3-7/game-music-emu_0.6.3-7.debian.tar.xz",
+			"sha256": "1b28959aaf60e0546bc37625e0a26388faf133f92c88466a6452931268506ef6",
+			"bytes": 5016
+		},
+		{
+			"file": "gcc-14_14.2.0-19/gcc-14_14.2.0-19.dsc",
+			"sha256": "7db1e202cce66617e9134a662c877a3a773de5b612fd52179815877e0ecfb847",
+			"bytes": 47347
+		},
+		{
+			"file": "gcc-14_14.2.0-19/gcc-14_14.2.0.orig.tar.gz",
+			"sha256": "e162a5ef3f0077ecae598c6556908d2ab80841532df3398072a96a6df6e6aa29",
+			"bytes": 94299633
+		},
+		{
+			"file": "gcc-14_14.2.0-19/gcc-14_14.2.0-19.debian.tar.xz",
+			"sha256": "31cbab4bafa48aa1c540497bd8098cbcf98e673778f927651ed944709f687781",
+			"bytes": 2577016
+		},
+		{
+			"file": "gdk-pixbuf_2.42.12%2Bdfsg-4%2Bdeb13u1/gdk-pixbuf_2.42.12+dfsg-4+deb13u1.dsc",
+			"sha256": "2c9ece90468e0273717906b4d57111639be478d300bb41656189366152c429ad",
+			"bytes": 3334
+		},
+		{
+			"file": "gdk-pixbuf_2.42.12%2Bdfsg-4%2Bdeb13u1/gdk-pixbuf_2.42.12+dfsg.orig.tar.xz",
+			"sha256": "2fab7a828f1a017a235cd800cf0b47d83733037bade493337c46ed79e7ef3678",
+			"bytes": 6443656
+		},
+		{
+			"file": "gdk-pixbuf_2.42.12%2Bdfsg-4%2Bdeb13u1/gdk-pixbuf_2.42.12+dfsg-4+deb13u1.debian.tar.xz",
+			"sha256": "427732b792fdcab09f7ef8928fe7039df982f5004e1dba70bd58a69c8c03ece7",
+			"bytes": 23524
+		},
+		{
+			"file": "glib2.0_2.84.4-3~deb13u3/glib2.0_2.84.4-3~deb13u3.dsc",
+			"sha256": "4b9e829d82cb5884e6de4250b4c31fd9030ca1be0c29f9b84e9141ee6d9344c1",
+			"bytes": 4883
+		},
+		{
+			"file": "glib2.0_2.84.4-3~deb13u3/glib2.0_2.84.4.orig-unicode-data.tar.xz",
+			"sha256": "c1742461e8c0e9673a3453a3127671169de9cb0138493e5c916f1b989530efcd",
+			"bytes": 660708
+		},
+		{
+			"file": "glib2.0_2.84.4-3~deb13u3/glib2.0_2.84.4.orig.tar.xz",
+			"sha256": "8a9ea10943c36fc117e253f80c91e477b673525ae45762942858aef57631bb90",
+			"bytes": 5618200
+		},
+		{
+			"file": "glib2.0_2.84.4-3~deb13u3/glib2.0_2.84.4-3~deb13u3.debian.tar.xz",
+			"sha256": "8e35b56abfed5cea96a93d032996efd3a3a5f445a2fc75445f5f42b4d84f42ef",
+			"bytes": 153388
+		},
+		{
+			"file": "glibc_2.41-12%2Bdeb13u3/glibc_2.41-12+deb13u3.dsc",
+			"sha256": "aa1ab10010fcf169454a5c6a123094a3997392922593d86a3a5adc180a07ca40",
+			"bytes": 7576
+		},
+		{
+			"file": "glibc_2.41-12%2Bdeb13u3/glibc_2.41.orig.tar.xz",
+			"sha256": "f24aa441021121a79266f0d75242706cab8843a47901fefe74527491807f1998",
+			"bytes": 20323540
+		},
+		{
+			"file": "glibc_2.41-12%2Bdeb13u3/glibc_2.41-12+deb13u3.debian.tar.xz",
+			"sha256": "de7d715bf7e559b78baebac4115122641842f65faf0a5080a55954877a55cebe",
+			"bytes": 494644
+		},
+		{
+			"file": "gmp_2%3A6.3.0%2Bdfsg-3/gmp_6.3.0+dfsg-3.dsc",
+			"sha256": "f7b64af28f52b7346bb8581e01d3c19daf769639345f234f8ae1e29c42171443",
+			"bytes": 2251
+		},
+		{
+			"file": "gmp_2%3A6.3.0%2Bdfsg-3/gmp_6.3.0+dfsg.orig.tar.xz",
+			"sha256": "bd2966e6d277f79328e894a5a9f3ba3fbf2ed2be81def5f48623e30c23fb1572",
+			"bytes": 1870556
+		},
+		{
+			"file": "gmp_2%3A6.3.0%2Bdfsg-3/gmp_6.3.0+dfsg-3.debian.tar.xz",
+			"sha256": "1d890bbe25dd649d2ddba1926483176520e50f22115a00566f250b613b8c20ad",
+			"bytes": 19912
+		},
+		{
+			"file": "gnutls28_3.8.9-3%2Bdeb13u4/gnutls28_3.8.9-3+deb13u4.dsc",
+			"sha256": "f1153e91212bdf60acf66cb62713ad4ed577f2e85f578a04df31a5619624c1e1",
+			"bytes": 3271
+		},
+		{
+			"file": "gnutls28_3.8.9-3%2Bdeb13u4/gnutls28_3.8.9.orig.tar.xz",
+			"sha256": "69e113d802d1670c4d5ac1b99040b1f2d5c7c05daec5003813c049b5184820ed",
+			"bytes": 6847364
+		},
+		{
+			"file": "gnutls28_3.8.9-3%2Bdeb13u4/gnutls28_3.8.9.orig.tar.xz.asc",
+			"sha256": "7631d47762865d4ef494492cca794cf0fe6a8be892a4aa02f362ae29006d3054",
+			"bytes": 833
+		},
+		{
+			"file": "gnutls28_3.8.9-3%2Bdeb13u4/gnutls28_3.8.9-3+deb13u4.debian.tar.xz",
+			"sha256": "f0b9c7d182072f0bbdb281304686aa6e2bfd343dadefa432ec4dab4893e9841f",
+			"bytes": 140880
+		},
+		{
+			"file": "graphite2_1.3.14-2/graphite2_1.3.14-2.dsc",
+			"sha256": "98ee6be2e35e2a4f7dbc71a21315399d59c4f79339cb832c6caccf8f62342d26",
+			"bytes": 2568
+		},
+		{
+			"file": "graphite2_1.3.14-2/graphite2_1.3.14.orig.tar.gz",
+			"sha256": "7a3b342c5681921ce2e0c2496509d30b5b078399d5a7bd2358f95166d57d91df",
+			"bytes": 6629829
+		},
+		{
+			"file": "graphite2_1.3.14-2/graphite2_1.3.14-2.debian.tar.xz",
+			"sha256": "dc46cc532a54adfc7ed5798061795120325bf0722221b2a6299f49c403ee9cd4",
+			"bytes": 14168
+		},
+		{
+			"file": "gumbo-parser_0.13.0%2Bdfsg-2/gumbo-parser_0.13.0+dfsg-2.dsc",
+			"sha256": "f88f7ae149613e50d6e9aa377bee66d574015c7327adab963f97d6a0ee3596a7",
+			"bytes": 2265
+		},
+		{
+			"file": "gumbo-parser_0.13.0%2Bdfsg-2/gumbo-parser_0.13.0+dfsg.orig.tar.xz",
+			"sha256": "1d01316617df9cefcd3f43235b519f606a5465a526a768734714fcc51ccb79e4",
+			"bytes": 197932
+		},
+		{
+			"file": "gumbo-parser_0.13.0%2Bdfsg-2/gumbo-parser_0.13.0+dfsg-2.debian.tar.xz",
+			"sha256": "dd3d57530bd3e029b5f54a66773628f070045fcaf8f2fa9e992b221f43d36d70",
+			"bytes": 7072
+		},
+		{
+			"file": "harfbuzz_10.2.0-1%2Bdeb13u1/harfbuzz_10.2.0-1+deb13u1.dsc",
+			"sha256": "bdc0f2aa593d42e09a35c1469d2cb9580f0b15bcae4e3a8c4b8ed586c4fb1032",
+			"bytes": 2896
+		},
+		{
+			"file": "harfbuzz_10.2.0-1%2Bdeb13u1/harfbuzz_10.2.0.orig.tar.xz",
+			"sha256": "620e3468faec2ea8685d32c46a58469b850ef63040b3565cde05959825b48227",
+			"bytes": 17957608
+		},
+		{
+			"file": "harfbuzz_10.2.0-1%2Bdeb13u1/harfbuzz_10.2.0-1+deb13u1.debian.tar.xz",
+			"sha256": "7694792ba03256931cbd068b9100d5bcca1d63496434af3c30b56babddd01d90",
+			"bytes": 20656
+		},
+		{
+			"file": "haskell-pandoc_3.1.11.1-3/haskell-pandoc_3.1.11.1-3.dsc",
+			"sha256": "e410127003d3519d0ba7e49d444acc8ac058fb0858d5ce178ad91bd0130d20c6",
+			"bytes": 8698
+		},
+		{
+			"file": "haskell-pandoc_3.1.11.1-3/haskell-pandoc_3.1.11.1.orig.tar.gz",
+			"sha256": "ef968d654000e5b21943573039fee92b132b547790fb1471f363abeb09dbcf79",
+			"bytes": 7336100
+		},
+		{
+			"file": "haskell-pandoc_3.1.11.1-3/haskell-pandoc_3.1.11.1-3.debian.tar.xz",
+			"sha256": "3fca1ad97a03f593c85cd4378625c1301fdaf7af9d7da4c943e414a8061fbad8",
+			"bytes": 9652
+		},
+		{
+			"file": "highway_1.2.0-2/highway_1.2.0-2.dsc",
+			"sha256": "dbb82d12fe7a8a7cae6970d5ccc74d0854ce405dfaab3a7f0d1345cfe351dcd4",
+			"bytes": 2160
+		},
+		{
+			"file": "highway_1.2.0-2/highway_1.2.0.orig.tar.gz",
+			"sha256": "7e0be78b8318e8bdbf6fa545d2ecb4c90f947df03f7aadc42c1967f019e63343",
+			"bytes": 2234665
+		},
+		{
+			"file": "highway_1.2.0-2/highway_1.2.0-2.debian.tar.xz",
+			"sha256": "0f112418716ca1000b19ed86d0c49c8b9edf384ccf966e458790dcea660fec96",
+			"bytes": 9560
+		},
+		{
+			"file": "imagemagick_8%3A7.1.1.43%2Bdfsg1-1%2Bdeb13u7/imagemagick_7.1.1.43+dfsg1-1+deb13u7.dsc",
+			"sha256": "21d15ec531e5f7a540c3e3a56ec96568c65149a509c3acad4e6d0f857dfeff0a",
+			"bytes": 5136
+		},
+		{
+			"file": "imagemagick_8%3A7.1.1.43%2Bdfsg1-1%2Bdeb13u7/imagemagick_7.1.1.43+dfsg1.orig.tar.xz",
+			"sha256": "bcb4f3c78a930a608fa4889f889edbcb384974246ad9407fce1858f2c0607bfe",
+			"bytes": 10501740
+		},
+		{
+			"file": "imagemagick_8%3A7.1.1.43%2Bdfsg1-1%2Bdeb13u7/imagemagick_7.1.1.43+dfsg1-1+deb13u7.debian.tar.xz",
+			"sha256": "d96f2576d7e7f2d03819d680a01c9382eae036472026b54b6b6194bec96327c5",
+			"bytes": 329408
+		},
+		{
+			"file": "jackd2_1.9.22~dfsg-4/jackd2_1.9.22~dfsg-4.dsc",
+			"sha256": "3a50b6ab68fabe08552468bc171c41c2b2abe687795bc9d094d30c737646c904",
+			"bytes": 1802
+		},
+		{
+			"file": "jackd2_1.9.22~dfsg-4/jackd2_1.9.22~dfsg.orig.tar.gz",
+			"sha256": "e9e818a0fbc5d1fd36b0f1a86153ee7cfe10c9d3812fa1f0c6f76b2aa9fb284c",
+			"bytes": 955148
+		},
+		{
+			"file": "jackd2_1.9.22~dfsg-4/jackd2_1.9.22~dfsg-4.debian.tar.xz",
+			"sha256": "865a7f11e4e9fc8deeb5f5a3ce4bcdb1e21f294e1686d90771a95bdaecdb6ef1",
+			"bytes": 66008
+		},
+		{
+			"file": "jbig2dec_0.20-1/jbig2dec_0.20-1.dsc",
+			"sha256": "764cdb37f9d4b200bf452dd95b90a66578fb3edf749a700b567bc6aaf1cd4a5b",
+			"bytes": 2075
+		},
+		{
+			"file": "jbig2dec_0.20-1/jbig2dec_0.20.orig.tar.gz",
+			"sha256": "a9705369a6633aba532693450ec802c562397e1b824662de809ede92f67aff21",
+			"bytes": 149782
+		},
+		{
+			"file": "jbig2dec_0.20-1/jbig2dec_0.20-1.debian.tar.xz",
+			"sha256": "da72d9f85b60cf2a95a6e2cc1b0baee7207a648c8e213331a9415d2911356086",
+			"bytes": 21820
+		},
+		{
+			"file": "jpeg-xl_0.11.1-4/jpeg-xl_0.11.1-4.dsc",
+			"sha256": "f8d1d17e40a987feb9ffc4da8db0d53d350885708b15e9a543fb64fc41e4ecef",
+			"bytes": 3251
+		},
+		{
+			"file": "jpeg-xl_0.11.1-4/jpeg-xl_0.11.1.orig.tar.gz",
+			"sha256": "1492dfef8dd6c3036446ac3b340005d92ab92f7d48ee3271b5dac1d36945d3d9",
+			"bytes": 1876134
+		},
+		{
+			"file": "jpeg-xl_0.11.1-4/jpeg-xl_0.11.1-4.debian.tar.xz",
+			"sha256": "c2c811796800dae6f3e2d58a67b866f7f55c222c1331c05429ec1d953e7d0048",
+			"bytes": 20376
+		},
+		{
+			"file": "keyutils_1.6.3-6/keyutils_1.6.3-6.dsc",
+			"sha256": "e63869474c390d5d5bdee8492f7b2f4d6034ff10d8190da18593620c0f35fbf8",
+			"bytes": 2100
+		},
+		{
+			"file": "keyutils_1.6.3-6/keyutils_1.6.3.orig.tar.gz",
+			"sha256": "a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4",
+			"bytes": 137022
+		},
+		{
+			"file": "keyutils_1.6.3-6/keyutils_1.6.3-6.debian.tar.xz",
+			"sha256": "6fc3c1217b8e92df9dff73e4919c45dff4ada5fd414ab57329af487f4476466a",
+			"bytes": 16588
+		},
+		{
+			"file": "krb5_1.21.3-5%2Bdeb13u1/krb5_1.21.3-5+deb13u1.dsc",
+			"sha256": "d17d2840bc97fea2c2375245569ca67838a2b557ee083c6cbe42b129a317212c",
+			"bytes": 4189
+		},
+		{
+			"file": "krb5_1.21.3-5%2Bdeb13u1/krb5_1.21.3.orig.tar.gz",
+			"sha256": "b7a4cd5ead67fb08b980b21abd150ff7217e85ea320c9ed0c6dadd304840ad35",
+			"bytes": 9136145
+		},
+		{
+			"file": "krb5_1.21.3-5%2Bdeb13u1/krb5_1.21.3.orig.tar.gz.asc",
+			"sha256": "85047c935fe949ef2e275885451b168557b923dd13a5aab0ef8fe6acd27b94d7",
+			"bytes": 833
+		},
+		{
+			"file": "krb5_1.21.3-5%2Bdeb13u1/krb5_1.21.3-5+deb13u1.debian.tar.xz",
+			"sha256": "02b873b239fbe7ddf016dfe44deba4130673f4606c18c93da0622e2bc8500fb4",
+			"bytes": 105252
+		},
+		{
+			"file": "lame_3.100-6/lame_3.100-6.dsc",
+			"sha256": "6a402771625fa80785a2b904697ba9c7e74a1ee4fa536354e9e88f08e2a4073b",
+			"bytes": 2168
+		},
+		{
+			"file": "lame_3.100-6/lame_3.100.orig.tar.gz",
+			"sha256": "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e",
+			"bytes": 1524133
+		},
+		{
+			"file": "lame_3.100-6/lame_3.100-6.debian.tar.xz",
+			"sha256": "35c6af528d139737c8beede450ad99fe0c1f1764455d23321038b5c4a2b4574c",
+			"bytes": 13320
+		},
+		{
+			"file": "lapack_3.12.1-6/lapack_3.12.1-6.dsc",
+			"sha256": "e6c7e3c2413c844ec2953199d4a0828bc42503ee93f6084fb5a207756f4cd2fc",
+			"bytes": 3414
+		},
+		{
+			"file": "lapack_3.12.1-6/lapack_3.12.1.orig.tar.gz",
+			"sha256": "2ca6407a001a474d4d4d35f3a61550156050c48016d949f0da0529c0aa052422",
+			"bytes": 8067087
+		},
+		{
+			"file": "lapack_3.12.1-6/lapack_3.12.1-6.debian.tar.xz",
+			"sha256": "2d9f26479f5d511f8e20632172a87b04e97e1ac06d0c0c0dbfb3356bb43cf575",
+			"bytes": 28628
+		},
+		{
+			"file": "lcms2_2.16-2%2Bdeb13u2/lcms2_2.16-2+deb13u2.dsc",
+			"sha256": "8ff22453843eed5ef7bfb76b4cb2cfe490613337cb197141db658e5195ead9fc",
+			"bytes": 2004
+		},
+		{
+			"file": "lcms2_2.16-2%2Bdeb13u2/lcms2_2.16.orig.tar.gz",
+			"sha256": "d873d34ad8b9b4cea010631f1a6228d2087475e4dc5e763eb81acc23d9d45a51",
+			"bytes": 7632822
+		},
+		{
+			"file": "lcms2_2.16-2%2Bdeb13u2/lcms2_2.16-2+deb13u2.debian.tar.xz",
+			"sha256": "bb72de5dc4164e1023a6d124c57789b6abee866d3b76c878d0771b86fb720de9",
+			"bytes": 12744
+		},
+		{
+			"file": "libass_1%3A0.17.3-1/libass_0.17.3-1.dsc",
+			"sha256": "e46786cf1e89bb54a07fc97f27bb0b69ac0d83f6a80b3720c6ce3c6ca07c7cd3",
+			"bytes": 1765
+		},
+		{
+			"file": "libass_1%3A0.17.3-1/libass_0.17.3.orig.tar.xz",
+			"sha256": "eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959",
+			"bytes": 442744
+		},
+		{
+			"file": "libass_1%3A0.17.3-1/libass_0.17.3.orig.tar.xz.asc",
+			"sha256": "71383b2d1138bf13008d2919da911a2c381bb196fe546571e2698e44d336b7b1",
+			"bytes": 858
+		},
+		{
+			"file": "libass_1%3A0.17.3-1/libass_0.17.3-1.debian.tar.xz",
+			"sha256": "2c5202d794459c5ac71251453981e445e84092751435d8d83ac715faf97587f4",
+			"bytes": 16772
+		},
+		{
+			"file": "libasyncns_0.8-6/libasyncns_0.8-6.dsc",
+			"sha256": "d6a3cccafadceda0bd1542c6325c6238ec34a8ff85276d6f2e5914e282c67dc6",
+			"bytes": 1921
+		},
+		{
+			"file": "libasyncns_0.8-6/libasyncns_0.8.orig.tar.gz",
+			"sha256": "4f1a66e746cbe54ff3c2fbada5843df4fbbbe7481d80be003e8d11161935ab74",
+			"bytes": 341591
+		},
+		{
+			"file": "libasyncns_0.8-6/libasyncns_0.8-6.debian.tar.xz",
+			"sha256": "69b23a155b8a3da3bf68b1e440283e117c55e92bd3b4aa308605fe3f1164485e",
+			"bytes": 4564
+		},
+		{
+			"file": "libavc1394_0.5.4-5/libavc1394_0.5.4-5.dsc",
+			"sha256": "9faa03aa953eecfa46bc4fc98f7c8c2265a1d8cf0b26f04137e196e68b5f2176",
+			"bytes": 2122
+		},
+		{
+			"file": "libavc1394_0.5.4-5/libavc1394_0.5.4.orig.tar.gz",
+			"sha256": "7cb1ff09506ae911ca9860bef4af08c2403f3e131f6c913a2cbd6ddca4215b53",
+			"bytes": 341679
+		},
+		{
+			"file": "libavc1394_0.5.4-5/libavc1394_0.5.4-5.debian.tar.xz",
+			"sha256": "783dde153ec5287c8ca278e0911163ecf4c568f95ac0a9c49307fdd941659ff1",
+			"bytes": 6600
+		},
+		{
+			"file": "libbluray_1%3A1.3.4-1/libbluray_1.3.4-1.dsc",
+			"sha256": "a1aa9cb61f3f0726eecb9d4c331c5ab43694f42c770f80775b6e6d270c485684",
+			"bytes": 2425
+		},
+		{
+			"file": "libbluray_1%3A1.3.4-1/libbluray_1.3.4.orig.tar.bz2",
+			"sha256": "478ffd68a0f5dde8ef6ca989b7f035b5a0a22c599142e5cd3ff7b03bbebe5f2b",
+			"bytes": 756323
+		},
+		{
+			"file": "libbluray_1%3A1.3.4-1/libbluray_1.3.4-1.debian.tar.xz",
+			"sha256": "0f78f2df8d9de559f2fb6be93c899e27c5f53fe2149cefc0691ca98181d0d500",
+			"bytes": 17552
+		},
+		{
+			"file": "libbs2b_3.1.0%2Bdfsg-8/libbs2b_3.1.0+dfsg-8.dsc",
+			"sha256": "66837c0f6614384ed0371484e14dc5d64ce499a041f7e2a4ab051369ed053cea",
+			"bytes": 1989
+		},
+		{
+			"file": "libbs2b_3.1.0%2Bdfsg-8/libbs2b_3.1.0+dfsg.orig.tar.gz",
+			"sha256": "c23faf614f787342c1a1a40f83064f2e5a49391733c029dc31d09fba759cee0a",
+			"bytes": 330675
+		},
+		{
+			"file": "libbs2b_3.1.0%2Bdfsg-8/libbs2b_3.1.0+dfsg-8.debian.tar.xz",
+			"sha256": "796d5dfabafce3d98287d348c5810f3bf31c1bf851b554cf7bcfe88724941e05",
+			"bytes": 5828
+		},
+		{
+			"file": "libbsd_0.12.2-2/libbsd_0.12.2-2.dsc",
+			"sha256": "01eb1d0c896096f9038213f5f00376ecfd1c0d1def21b7042f28ae070e4837e3",
+			"bytes": 2446
+		},
+		{
+			"file": "libbsd_0.12.2-2/libbsd_0.12.2.orig.tar.xz",
+			"sha256": "b88cc9163d0c652aaf39a99991d974ddba1c3a9711db8f1b5838af2a14731014",
+			"bytes": 446032
+		},
+		{
+			"file": "libbsd_0.12.2-2/libbsd_0.12.2.orig.tar.xz.asc",
+			"sha256": "620dc92f158ebe0a650c0e92214a8121b927276895dc9a1dcaa38f627fa0fcb0",
+			"bytes": 833
+		},
+		{
+			"file": "libbsd_0.12.2-2/libbsd_0.12.2-2.debian.tar.xz",
+			"sha256": "36c878a32c1f190ca2cb474de5c6139990a6c029906493d3566770b1ebd569bf",
+			"bytes": 18688
+		},
+		{
+			"file": "libcaca_0.99.beta20-5/libcaca_0.99.beta20-5.dsc",
+			"sha256": "19e6c23d5def92673f3065d25b5cb5fd9cbaa75cb2f683424a95107f75a71b24",
+			"bytes": 1625
+		},
+		{
+			"file": "libcaca_0.99.beta20-5/libcaca_0.99.beta20.orig.tar.gz",
+			"sha256": "3edb8763a8f888ed4d4b85b3a056e81c840d5d27f79bdebc0b991688b23084f2",
+			"bytes": 729604
+		},
+		{
+			"file": "libcaca_0.99.beta20-5/libcaca_0.99.beta20-5.debian.tar.xz",
+			"sha256": "8c733077b308681db1f711c4cbeafbab0df7c01a8edbd8f3c2426d083590666a",
+			"bytes": 10704
+		},
+		{
+			"file": "libcap2_1%3A2.75-10%2Bdeb13u1/libcap2_2.75-10+deb13u1.dsc",
+			"sha256": "cb6af220de216655ec55bb1f5abf3fa8f03e82c9956f120b313056e895c02ea6",
+			"bytes": 2714
+		},
+		{
+			"file": "libcap2_1%3A2.75-10%2Bdeb13u1/libcap2_2.75.orig.tar.xz",
+			"sha256": "de4e7e064c9ba451d5234dd46e897d7c71c96a9ebf9a0c445bc04f4742d83632",
+			"bytes": 197868
+		},
+		{
+			"file": "libcap2_1%3A2.75-10%2Bdeb13u1/libcap2_2.75.orig.tar.xz.asc",
+			"sha256": "c71b593e7c3160fd7f406641074d93462bbc4906c9243937a0e232f42d5c54d2",
+			"bytes": 833
+		},
+		{
+			"file": "libcap2_1%3A2.75-10%2Bdeb13u1/libcap2_2.75-10+deb13u1.debian.tar.xz",
+			"sha256": "d375de2f743f112835fc0eef2a9c305c1109371954cf53e109b7f046fe58c1bc",
+			"bytes": 24628
+		},
+		{
+			"file": "libcdio-paranoia_10.2%2B2.0.2-1/libcdio-paranoia_10.2+2.0.2-1.dsc",
+			"sha256": "53d23bf51ccc53a14a9628cdbd0a6059d71e75f8077aa79e2d3c843b83f32a77",
+			"bytes": 2386
+		},
+		{
+			"file": "libcdio-paranoia_10.2%2B2.0.2-1/libcdio-paranoia_10.2+2.0.2.orig.tar.gz",
+			"sha256": "fe35208811f3edfcb79ae7b4ad1984f3188aea42c4c8ba4d009efafb36734a8b",
+			"bytes": 2296476
+		},
+		{
+			"file": "libcdio-paranoia_10.2%2B2.0.2-1/libcdio-paranoia_10.2+2.0.2-1.debian.tar.xz",
+			"sha256": "5f56838be42f3d855e99961322ff97001344d40f72f1896e2b589630df12b98c",
+			"bytes": 12416
+		},
+		{
+			"file": "libcdio_2.2.0-4.1~deb13u1/libcdio_2.2.0-4.1~deb13u1.dsc",
+			"sha256": "14f82079c4d1bf727e8ea417c898eec384eddc6635ff7a65bbcac316aad32e78",
+			"bytes": 2750
+		},
+		{
+			"file": "libcdio_2.2.0-4.1~deb13u1/libcdio_2.2.0.orig.tar.gz",
+			"sha256": "df007a9b9667797e027e573822cc865e5e106352f8a6fbca67ee8e9e7a1e5b51",
+			"bytes": 1934924
+		},
+		{
+			"file": "libcdio_2.2.0-4.1~deb13u1/libcdio_2.2.0-4.1~deb13u1.debian.tar.xz",
+			"sha256": "44740a18238d0bd796105a2fcf4fe44f28cf69664d29ad838c96d21f6044496b",
+			"bytes": 13308
+		},
+		{
+			"file": "libdatrie_0.2.13-3/libdatrie_0.2.13-3.dsc",
+			"sha256": "6ddcaf319da01cc044f9b335b6b01b608a0380ccdaecb06bda71710b6f4395bb",
+			"bytes": 2236
+		},
+		{
+			"file": "libdatrie_0.2.13-3/libdatrie_0.2.13.orig.tar.xz",
+			"sha256": "12231bb2be2581a7f0fb9904092d24b0ed2a271a16835071ed97bed65267f4be",
+			"bytes": 314072
+		},
+		{
+			"file": "libdatrie_0.2.13-3/libdatrie_0.2.13-3.debian.tar.xz",
+			"sha256": "e656d536beb5db9e52ef92dd1fccd5480ebd21e4eddbfe013c51a1e2ec45cf38",
+			"bytes": 9668
+		},
+		{
+			"file": "libdc1394_2.2.6-5/libdc1394_2.2.6-5.dsc",
+			"sha256": "4542e085d41072284e9ecec9bac3ddd08ec6b9a0afc55230af1397b1148c5bd1",
+			"bytes": 2269
+		},
+		{
+			"file": "libdc1394_2.2.6-5/libdc1394_2.2.6.orig.tar.gz",
+			"sha256": "2b905fc9aa4eec6bdcf6a2ae5f5ba021232739f5be047dec8fe8dd6049c10fed",
+			"bytes": 612067
+		},
+		{
+			"file": "libdc1394_2.2.6-5/libdc1394_2.2.6-5.debian.tar.xz",
+			"sha256": "3e3587f5a21de35ae8be8ffc1e69f9cde458656b22fb208390e18898132827e1",
+			"bytes": 8212
+		},
+		{
+			"file": "libde265_1.0.15-1/libde265_1.0.15-1.dsc",
+			"sha256": "41fe11a559a57a8cdf19978c55f58f0d83de78c61e1367f8b73d05bdcce416eb",
+			"bytes": 1872
+		},
+		{
+			"file": "libde265_1.0.15-1/libde265_1.0.15.orig.tar.gz",
+			"sha256": "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d",
+			"bytes": 846016
+		},
+		{
+			"file": "libde265_1.0.15-1/libde265_1.0.15-1.debian.tar.xz",
+			"sha256": "70cb236e55972d2d1bc062bacd68320ad402e0d378c79c99224a512208c90e5b",
+			"bytes": 136584
+		},
+		{
+			"file": "libdecor-0_0.2.2-2/libdecor-0_0.2.2-2.dsc",
+			"sha256": "7c796af81a53942dd8e206193ee4943170deba5e3a05c6dd24478c8740b18021",
+			"bytes": 2776
+		},
+		{
+			"file": "libdecor-0_0.2.2-2/libdecor-0_0.2.2.orig.tar.gz",
+			"sha256": "40a1d8be07d8b1f66e8fb98a1f4a84549ca6bf992407198a5055952be80a8525",
+			"bytes": 63748
+		},
+		{
+			"file": "libdecor-0_0.2.2-2/libdecor-0_0.2.2-2.debian.tar.xz",
+			"sha256": "f125dba1784bd034acf2d961498c7e4ee120cdacc02fe77d5872caece14cc87f",
+			"bytes": 6416
+		},
+		{
+			"file": "libdrm_2.4.124-2/libdrm_2.4.124-2.dsc",
+			"sha256": "0eed1a7c8557fc6e1637a882753e406685f43d2174fa12c060f3e7c741a12144",
+			"bytes": 3173
+		},
+		{
+			"file": "libdrm_2.4.124-2/libdrm_2.4.124.orig.tar.xz",
+			"sha256": "ac36293f61ca4aafaf4b16a2a7afff312aa4f5c37c9fbd797de9e3c0863ca379",
+			"bytes": 481244
+		},
+		{
+			"file": "libdrm_2.4.124-2/libdrm_2.4.124.orig.tar.xz.asc",
+			"sha256": "147fcfb0650ea0c667c91685da28b6eef0c20989ee1b34e1f00ff3f7f923cc7d",
+			"bytes": 358
+		},
+		{
+			"file": "libdrm_2.4.124-2/libdrm_2.4.124-2.debian.tar.xz",
+			"sha256": "5f593aed87a1814068f8a29ab8b73c78630911a24ed8461d1d0e1c892c4b3c21",
+			"bytes": 76952
+		},
+		{
+			"file": "libdvdnav_6.1.1-3/libdvdnav_6.1.1-3.dsc",
+			"sha256": "71326e4026622b7b8b424e8d381201735764ad87b662e6746cf1d22bd15cd631",
+			"bytes": 2220
+		},
+		{
+			"file": "libdvdnav_6.1.1-3/libdvdnav_6.1.1.orig.tar.bz2",
+			"sha256": "c191a7475947d323ff7680cf92c0fb1be8237701885f37656c64d04e98d18d48",
+			"bytes": 367606
+		},
+		{
+			"file": "libdvdnav_6.1.1-3/libdvdnav_6.1.1-3.debian.tar.xz",
+			"sha256": "5dc3093ddcc22a6002225f73b020e6dc3b34f80c152031659004c377a4f6ad8a",
+			"bytes": 9000
+		},
+		{
+			"file": "libdvdread_6.1.3-2/libdvdread_6.1.3-2.dsc",
+			"sha256": "98990682acb227680fb2d2d027c67521cb348d9e01d98917abd4393d5a8b39c0",
+			"bytes": 2360
+		},
+		{
+			"file": "libdvdread_6.1.3-2/libdvdread_6.1.3.orig.tar.bz2",
+			"sha256": "ce35454997a208cbe50e91232f0e73fb1ac3471965813a13b8730a8f18a15369",
+			"bytes": 395439
+		},
+		{
+			"file": "libdvdread_6.1.3-2/libdvdread_6.1.3.orig.tar.bz2.asc",
+			"sha256": "822ade93d02b3185124261c6d3ed01d3c70f22ad68c102c9171792911726ef65",
+			"bytes": 195
+		},
+		{
+			"file": "libdvdread_6.1.3-2/libdvdread_6.1.3-2.debian.tar.xz",
+			"sha256": "264aff9dd2c700f16fc2078f230f9c4874c8333db86cd8cf67c717ef39f6c65e",
+			"bytes": 11868
+		},
+		{
+			"file": "libffi_3.4.8-2/libffi_3.4.8-2.dsc",
+			"sha256": "4424defe3f37c0084f062e03330b2ba3d3f927367c33be455cfacf7f85a78161",
+			"bytes": 1948
+		},
+		{
+			"file": "libffi_3.4.8-2/libffi_3.4.8.orig.tar.gz",
+			"sha256": "cbb7f0b3b095dc506387ec1e35b891bfb4891d05b90a495bc69a10f2293f80ff",
+			"bytes": 595051
+		},
+		{
+			"file": "libffi_3.4.8-2/libffi_3.4.8-2.debian.tar.xz",
+			"sha256": "f23ac79a19895ebb6bbb539263d0d945ebc2d3e91217a597f5819777f08b401c",
+			"bytes": 11220
+		},
+		{
+			"file": "libglvnd_1.7.0-1/libglvnd_1.7.0-1.dsc",
+			"sha256": "285d789904aa75ea21654bf845dba854ab37727f24c1a2f51326c6e6e5d95cab",
+			"bytes": 2687
+		},
+		{
+			"file": "libglvnd_1.7.0-1/libglvnd_1.7.0.orig.tar.gz",
+			"sha256": "073e7292788d4d3eeb45ea6c7bdcce9bfdb3b3eef8d7dbd47f2f30dce046ef98",
+			"bytes": 839809
+		},
+		{
+			"file": "libglvnd_1.7.0-1/libglvnd_1.7.0-1.debian.tar.xz",
+			"sha256": "ddbeef8899524f1d3136bceda73905f58a16f4fa85ac5b22bb0be9d1930a5eb5",
+			"bytes": 22404
+		},
+		{
+			"file": "libgsm_1.0.22-1/libgsm_1.0.22-1.dsc",
+			"sha256": "170d9b9a0d376d6957733b4845ad35d0e74e0be685dd313f0d2ebea4e3c38144",
+			"bytes": 2188
+		},
+		{
+			"file": "libgsm_1.0.22-1/libgsm_1.0.22.orig.tar.gz",
+			"sha256": "f0072e91f6bb85a878b2f6dbf4a0b7c850c4deb8049d554c65340b3bf69df0ac",
+			"bytes": 66583
+		},
+		{
+			"file": "libgsm_1.0.22-1/libgsm_1.0.22-1.debian.tar.xz",
+			"sha256": "785b5189156b1b6468901eec674b51d47aa04909f92052aa80c430f657177a06",
+			"bytes": 10516
+		},
+		{
+			"file": "libheif_1.19.8-1/libheif_1.19.8-1.dsc",
+			"sha256": "c0fe86feee6e4ffaae774f53c4d33810095fc6c91e48239dbc4fb2d825c3d22e",
+			"bytes": 3631
+		},
+		{
+			"file": "libheif_1.19.8-1/libheif_1.19.8.orig.tar.gz",
+			"sha256": "6c4a5b08e6eae66d199977468859dea3b5e059081db8928f7c7c16e53836c906",
+			"bytes": 1718218
+		},
+		{
+			"file": "libheif_1.19.8-1/libheif_1.19.8-1.debian.tar.xz",
+			"sha256": "a51ba863ca4f99b5aa1c2468f492b75b909449a941459d93fca9e1a1ee904e5f",
+			"bytes": 12260
+		},
+		{
+			"file": "libidn2_2.3.8-2/libidn2_2.3.8-2.dsc",
+			"sha256": "af3327227dbbf12fff281f71b7feb90371d2dbe597f3129e38b93c3faadcea61",
+			"bytes": 2961
+		},
+		{
+			"file": "libidn2_2.3.8-2/libidn2_2.3.8.orig.tar.gz",
+			"sha256": "bbad1678d35d28e2c62e6a2577083829461402d9e47b908791c55314a5cb5e04",
+			"bytes": 718637
+		},
+		{
+			"file": "libidn2_2.3.8-2/libidn2_2.3.8.orig.tar.gz.asc",
+			"sha256": "8995cab7db361d9d6989eab26d9b521c74236960a5d78250121c8d369b013bd8",
+			"bytes": 1223
+		},
+		{
+			"file": "libidn2_2.3.8-2/libidn2_2.3.8-2.debian.tar.xz",
+			"sha256": "ab95c2bab110557505ba437bc162f67a5a85fa9d8a2e55501245dc7f0fe2e412",
+			"bytes": 17532
+		},
+		{
+			"file": "libiec61883_1.2.0-7/libiec61883_1.2.0-7.dsc",
+			"sha256": "deb4dfad3db3db780e74b111a20b96a84854a4ce9b1d978d3cf26be0785a2f9d",
+			"bytes": 1830
+		},
+		{
+			"file": "libiec61883_1.2.0-7/libiec61883_1.2.0.orig.tar.gz",
+			"sha256": "7c7879c6b9add3148baea697dfbfdcefffbc8ac74e8e6bcf46125ec1d21b373a",
+			"bytes": 339064
+		},
+		{
+			"file": "libiec61883_1.2.0-7/libiec61883_1.2.0-7.debian.tar.xz",
+			"sha256": "b1d431c73474802bca0df4ac5b1aaae2d76747a9204633a7bfce2b8793d82f93",
+			"bytes": 7968
+		},
+		{
+			"file": "libjpeg-turbo_1%3A2.1.5-4/libjpeg-turbo_2.1.5-4.dsc",
+			"sha256": "26cbf22aa3b3e327df072513f14a5ddfb4a7b9a3d78c46a5dccfd711c13ac743",
+			"bytes": 2508
+		},
+		{
+			"file": "libjpeg-turbo_1%3A2.1.5-4/libjpeg-turbo_2.1.5.orig.tar.gz",
+			"sha256": "254f3642b04e309fee775123133c6464181addc150499561020312ec61c1bf7c",
+			"bytes": 2264471
+		},
+		{
+			"file": "libjpeg-turbo_1%3A2.1.5-4/libjpeg-turbo_2.1.5-4.debian.tar.xz",
+			"sha256": "739e7dc22904dccdc5ab105de57a6e4c1515c0e841e68226e6410ff4976e0e91",
+			"bytes": 108128
+		},
+		{
+			"file": "liblqr_0.4.2-2.1/liblqr_0.4.2-2.1.dsc",
+			"sha256": "c54c34cd2f7470a29366eeacde2ca4859a97d684a406fb81a918b970c01d617c",
+			"bytes": 2095
+		},
+		{
+			"file": "liblqr_0.4.2-2.1/liblqr_0.4.2.orig.tar.gz",
+			"sha256": "d4c22373432cca749e4326cd41fce365e6ff857c0bfd7a5302b8eb34b69f0336",
+			"bytes": 439884
+		},
+		{
+			"file": "liblqr_0.4.2-2.1/liblqr_0.4.2-2.1.debian.tar.xz",
+			"sha256": "284a002f1ecac63ac17b1aafbb230da9ce7bd9efe2d5b94e8cad49b607eb2564",
+			"bytes": 5300
+		},
+		{
+			"file": "libmd_1.1.0-2/libmd_1.1.0-2.dsc",
+			"sha256": "46cc951cd6d71bbfeff4522de66f968fb92601ec4cc622b07f6ac0a2a36ac5f0",
+			"bytes": 2280
+		},
+		{
+			"file": "libmd_1.1.0-2/libmd_1.1.0.orig.tar.xz",
+			"sha256": "1bd6aa42275313af3141c7cf2e5b964e8b1fd488025caf2f971f43b00776b332",
+			"bytes": 271228
+		},
+		{
+			"file": "libmd_1.1.0-2/libmd_1.1.0.orig.tar.xz.asc",
+			"sha256": "402fd3024e43ab975733d09e661804a58ca58697194e4b15216b1217cfe1dadb",
+			"bytes": 833
+		},
+		{
+			"file": "libmd_1.1.0-2/libmd_1.1.0-2.debian.tar.xz",
+			"sha256": "3b6ff35fc921eb5450fa9bf2d300c9e058e3771f96f8f13f759768fadd53324c",
+			"bytes": 8244
+		},
+		{
+			"file": "libmysofa_1.3.3%2Bdfsg-1/libmysofa_1.3.3+dfsg-1.dsc",
+			"sha256": "4132493ff13280969b8c27a12733f4ffd862c920e2c949964b826ba393965b2c",
+			"bytes": 2386
+		},
+		{
+			"file": "libmysofa_1.3.3%2Bdfsg-1/libmysofa_1.3.3+dfsg.orig.tar.xz",
+			"sha256": "6c922f696a690fc8f18ac453dccf6dba905886da08a2e510653a69649bb75f70",
+			"bytes": 81120528
+		},
+		{
+			"file": "libmysofa_1.3.3%2Bdfsg-1/libmysofa_1.3.3+dfsg-1.debian.tar.xz",
+			"sha256": "375b4e4db1722fae9ad6c445bbb0faa391d987757e75b9573b4d99979888f780",
+			"bytes": 17772
+		},
+		{
+			"file": "libogg_1.3.5-3/libogg_1.3.5-3.dsc",
+			"sha256": "dd0bac7c6961f95290250f82940aba93582edc3924372afc8fd310af5db995a0",
+			"bytes": 2206
+		},
+		{
+			"file": "libogg_1.3.5-3/libogg_1.3.5.orig.tar.xz",
+			"sha256": "c4d91be36fc8e54deae7575241e03f4211eb102afb3fc0775fbbc1b740016705",
+			"bytes": 429076
+		},
+		{
+			"file": "libogg_1.3.5-3/libogg_1.3.5-3.debian.tar.xz",
+			"sha256": "980cc7c95d72d2a9c56cf9d602b8296c6551528890f28fee6769b801ea0e54f3",
+			"bytes": 18012
+		},
+		{
+			"file": "libopenmpt_0.7.13-1/libopenmpt_0.7.13-1.dsc",
+			"sha256": "f6a2a6730f57655c358539eceacb9bc46c8e754fef43a0eb965ada8be012d826",
+			"bytes": 1859
+		},
+		{
+			"file": "libopenmpt_0.7.13-1/libopenmpt_0.7.13.orig.tar.xz",
+			"sha256": "296866dcc3e73c7125bcf21e3bed81f950c7d84a4193a1c4dafb9dfb539d82fb",
+			"bytes": 1156276
+		},
+		{
+			"file": "libopenmpt_0.7.13-1/libopenmpt_0.7.13-1.debian.tar.xz",
+			"sha256": "99d97b4aad4e1e72087494a0783dcebe609b0dd9d0a231731085fb3a71d3fd5c",
+			"bytes": 11768
+		},
+		{
+			"file": "libpgm_5.3.128~dfsg-2.1/libpgm_5.3.128~dfsg-2.1.dsc",
+			"sha256": "987c5517dfbed29477eb3009987d3bb80adea7f704ba24ccd7d2a370e5eb6988",
+			"bytes": 1864
+		},
+		{
+			"file": "libpgm_5.3.128~dfsg-2.1/libpgm_5.3.128~dfsg.orig.tar.xz",
+			"sha256": "f81831dcb05fa57ba6346541372cc04e67e8bbe4ce5d7d9438c9767d31f358f2",
+			"bytes": 393292
+		},
+		{
+			"file": "libpgm_5.3.128~dfsg-2.1/libpgm_5.3.128~dfsg-2.1.debian.tar.xz",
+			"sha256": "ebad936f2156a31e5180f10fb0bd1b3ee77ac2053464c41c5a017d6f3b3fa73d",
+			"bytes": 6392
+		},
+		{
+			"file": "libplacebo_7.349.0-3/libplacebo_7.349.0-3.dsc",
+			"sha256": "4ba8c1f5e3f39f16fbfb853dfcf9fc7cb3c7b8ad54a5dee5cb7296292126400f",
+			"bytes": 1713
+		},
+		{
+			"file": "libplacebo_7.349.0-3/libplacebo_7.349.0.orig.tar.gz",
+			"sha256": "79120e685a1836344b51b13b6a5661622486a84e4d4a35f6c8d01679a20fbc86",
+			"bytes": 846218
+		},
+		{
+			"file": "libplacebo_7.349.0-3/libplacebo_7.349.0-3.debian.tar.xz",
+			"sha256": "31003c3fbf9b739649c070598438805b618e4985f4d8ef27eba97338bd2306f9",
+			"bytes": 10736
+		},
+		{
+			"file": "libpng1.6_1.6.48-1%2Bdeb13u5/libpng1.6_1.6.48-1+deb13u5.dsc",
+			"sha256": "746ec351ac044becb16725b903aee2c53815da9f89630767b6edbb317a50f98e",
+			"bytes": 2305
+		},
+		{
+			"file": "libpng1.6_1.6.48-1%2Bdeb13u5/libpng1.6_1.6.48.orig.tar.gz",
+			"sha256": "b17e99026055727e8cba99160c3a9a7f9af788e9f786daeadded5a42243f1dd0",
+			"bytes": 1572923
+		},
+		{
+			"file": "libpng1.6_1.6.48-1%2Bdeb13u5/libpng1.6_1.6.48-1+deb13u5.debian.tar.xz",
+			"sha256": "b38d5929b9a6139f2ce02a0e831d0f3f5365410b050dc429ea079a73253fe97a",
+			"bytes": 52468
+		},
+		{
+			"file": "librabbitmq_0.15.0-1/librabbitmq_0.15.0-1.dsc",
+			"sha256": "98f2a3c20d3b07cf06ad164ea17eecc2ae524523e0df8455b96602c9fee61fe0",
+			"bytes": 2084
+		},
+		{
+			"file": "librabbitmq_0.15.0-1/librabbitmq_0.15.0.orig.tar.gz",
+			"sha256": "7b652df52c0de4d19ca36c798ed81378cba7a03a0f0c5d498881ae2d79b241c2",
+			"bytes": 131818
+		},
+		{
+			"file": "librabbitmq_0.15.0-1/librabbitmq_0.15.0-1.debian.tar.xz",
+			"sha256": "a1b6deaa63ece724fe96e49b2f0a05c03a9058084be44dca6e01e2f04376e64c",
+			"bytes": 5944
+		},
+		{
+			"file": "libraw1394_2.1.2-2/libraw1394_2.1.2-2.dsc",
+			"sha256": "682c04e351576bb77c6992af4994ed6f20e5ce5b70035a0f8774a1e613654578",
+			"bytes": 1994
+		},
+		{
+			"file": "libraw1394_2.1.2-2/libraw1394_2.1.2.orig.tar.gz",
+			"sha256": "ddc4e32721cdfe680d964aaede68ac606a20cd17dd2ba70e2d7e0692086ab57c",
+			"bytes": 458134
+		},
+		{
+			"file": "libraw1394_2.1.2-2/libraw1394_2.1.2-2.debian.tar.xz",
+			"sha256": "8797ae8f8fd47971ba248e313533006dbb878dba17f239a9b8d42e471d678a77",
+			"bytes": 6740
+		},
+		{
+			"file": "librist_0.2.11%2Bdfsg-1/librist_0.2.11+dfsg-1.dsc",
+			"sha256": "d4577a58124f7b2a27614946201d905e49d99414baac0a987f65bbc3f5565d8b",
+			"bytes": 2165
+		},
+		{
+			"file": "librist_0.2.11%2Bdfsg-1/librist_0.2.11+dfsg.orig.tar.xz",
+			"sha256": "6fe86afe4ba847db7847fe42401d88daf4db9290f5dcfcba0fc29d552f9516bf",
+			"bytes": 159460
+		},
+		{
+			"file": "librist_0.2.11%2Bdfsg-1/librist_0.2.11+dfsg-1.debian.tar.xz",
+			"sha256": "fbc67961e92d55c2104ad81ad44c70aa40f3fafbaa8f02d17074dba2743ca95c",
+			"bytes": 9160
+		},
+		{
+			"file": "librsvg_2.60.0%2Bdfsg-1/librsvg_2.60.0+dfsg-1.dsc",
+			"sha256": "c6584073d5e7b69819e45f14bb0e1b943517ceae7cdecc0068b2f1db22ba913d",
+			"bytes": 3057
+		},
+		{
+			"file": "librsvg_2.60.0%2Bdfsg-1/librsvg_2.60.0+dfsg.orig.tar.xz",
+			"sha256": "1b9f126ad3115e4126c682f3011023a05dcf19a69e5e878fbffb420ade671b81",
+			"bytes": 6735208
+		},
+		{
+			"file": "librsvg_2.60.0%2Bdfsg-1/librsvg_2.60.0+dfsg-1.debian.tar.xz",
+			"sha256": "58db12d59958016e3b114de74ebe137255da9a900593f0a9d5b3392709a7cbe7",
+			"bytes": 10832756
+		},
+		{
+			"file": "libsamplerate_0.2.2-4/libsamplerate_0.2.2-4.dsc",
+			"sha256": "7c7569543c52f5317349fe369190e7d6b7c39c880a7fe4ee8b0c2cca7277ea34",
+			"bytes": 2274
+		},
+		{
+			"file": "libsamplerate_0.2.2-4/libsamplerate_0.2.2.orig.tar.gz",
+			"sha256": "16e881487f184250deb4fcb60432d7556ab12cb58caea71ef23960aec6c0405a",
+			"bytes": 3954784
+		},
+		{
+			"file": "libsamplerate_0.2.2-4/libsamplerate_0.2.2-4.debian.tar.xz",
+			"sha256": "ef1987b0d87a79da66b5dfec3c00f3c2e84f658ccaa7025aa885f4f97e7beb9a",
+			"bytes": 7360
+		},
+		{
+			"file": "libsdl2_2.32.4%2Bdfsg-1/libsdl2_2.32.4+dfsg-1.dsc",
+			"sha256": "b2259e51d2953963d4f81e4b9028d85ffa646d2ac2a657ae19cefc3589d961e7",
+			"bytes": 3238
+		},
+		{
+			"file": "libsdl2_2.32.4%2Bdfsg-1/libsdl2_2.32.4+dfsg.orig.tar.gz",
+			"sha256": "d364cded8bf41f3f503014d3fb6473f1a7077ff468da1638dae4a6bec6ef2277",
+			"bytes": 5230799
+		},
+		{
+			"file": "libsdl2_2.32.4%2Bdfsg-1/libsdl2_2.32.4+dfsg-1.debian.tar.xz",
+			"sha256": "5a503739b28a4ada274e7bba0f9147fe6dff9466e65a7180c0b5a6f0cb64f4fc",
+			"bytes": 44100
+		},
+		{
+			"file": "libselinux_3.8.1-1/libselinux_3.8.1-1.dsc",
+			"sha256": "e430b782a396e266f86c32fa779efadebfd40e6a0d10ddbd786fc47905f723b9",
+			"bytes": 3013
+		},
+		{
+			"file": "libselinux_3.8.1-1/libselinux_3.8.1.orig.tar.gz",
+			"sha256": "ec2d2789f931152d21c1db1eb4bc202ce4eccede34d9be9e360e3b45243cee2c",
+			"bytes": 204411
+		},
+		{
+			"file": "libselinux_3.8.1-1/libselinux_3.8.1.orig.tar.gz.asc",
+			"sha256": "7f983714a780d89f7677e7ba140ce29974022b8ba225f60246b6c33de1477dd6",
+			"bytes": 833
+		},
+		{
+			"file": "libselinux_3.8.1-1/libselinux_3.8.1-1.debian.tar.xz",
+			"sha256": "1af25952374f083cf3d6d0edd5beb938f2e53c30eb404afa1e32fcd1cb127db7",
+			"bytes": 37812
+		},
+		{
+			"file": "libsndfile_1.2.2-2/libsndfile_1.2.2-2.dsc",
+			"sha256": "00042f9d7e85c3dbf22828141bc181b55ba719ad3550671ed7da9786fdfdd810",
+			"bytes": 2481
+		},
+		{
+			"file": "libsndfile_1.2.2-2/libsndfile_1.2.2.orig.tar.gz",
+			"sha256": "ffe12ef8add3eaca876f04087734e6e8e029350082f3251f565fa9da55b52121",
+			"bytes": 684875
+		},
+		{
+			"file": "libsndfile_1.2.2-2/libsndfile_1.2.2-2.debian.tar.xz",
+			"sha256": "03801793ef488c9bc8579e47600386b4be0e6ac4b85c726e90dcb0ce2338729c",
+			"bytes": 29148
+		},
+		{
+			"file": "libsodium_1.0.18-1/libsodium_1.0.18-1.dsc",
+			"sha256": "037b3ac05a50409cb462e2c21c7a67f983d193a22d2486f4ab3fdc793f5a731c",
+			"bytes": 1913
+		},
+		{
+			"file": "libsodium_1.0.18-1/libsodium_1.0.18.orig.tar.gz",
+			"sha256": "d59323c6b712a1519a5daf710b68f5e7fde57040845ffec53850911f10a5d4f4",
+			"bytes": 1619527
+		},
+		{
+			"file": "libsodium_1.0.18-1/libsodium_1.0.18-1.debian.tar.xz",
+			"sha256": "50863d8fc4f0a2a86f7b69745514455f0b9d74cf45906523c675ffe5b8db0377",
+			"bytes": 7440
+		},
+		{
+			"file": "libsoxr_0.1.3-4/libsoxr_0.1.3-4.dsc",
+			"sha256": "ce1af0b2dda238ffb7ad2ccea606d132d4153a2bf1b63994fcebc7e0a8db8970",
+			"bytes": 2146
+		},
+		{
+			"file": "libsoxr_0.1.3-4/libsoxr_0.1.3.orig.tar.xz",
+			"sha256": "b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889",
+			"bytes": 94384
+		},
+		{
+			"file": "libsoxr_0.1.3-4/libsoxr_0.1.3-4.debian.tar.xz",
+			"sha256": "ae691692ccee841407c2fc7ebb2f25908ccd0adb256cf55944c71325cef14e71",
+			"bytes": 5040
+		},
+		{
+			"file": "libssh_0.11.2-1%2Bdeb13u1/libssh_0.11.2-1+deb13u1.dsc",
+			"sha256": "7f06a200c1fb7022bf16ce6845e5bb4afbe31d4caa115cab8897f5012173953a",
+			"bytes": 2615
+		},
+		{
+			"file": "libssh_0.11.2-1%2Bdeb13u1/libssh_0.11.2.orig.tar.xz",
+			"sha256": "69529fc18f5b601f0baf0e5a4501a2bc26df5e2f116f5f8f07f19fafaa6d04e7",
+			"bytes": 619428
+		},
+		{
+			"file": "libssh_0.11.2-1%2Bdeb13u1/libssh_0.11.2.orig.tar.xz.asc",
+			"sha256": "fd0f8ddd79a118a58b04919a6907da81b8ab9a70f5173a4080fbf5484a26d4ea",
+			"bytes": 833
+		},
+		{
+			"file": "libssh_0.11.2-1%2Bdeb13u1/libssh_0.11.2-1+deb13u1.debian.tar.xz",
+			"sha256": "50f9061d9918afe009442b462d433d0469bb5cd2d3bf341910aebbc0f5d88f3b",
+			"bytes": 33056
+		},
+		{
+			"file": "libtasn1-6_4.20.0-2/libtasn1-6_4.20.0-2.dsc",
+			"sha256": "54800d16bf3c7eaf675356f2e9d30226991710d78717219bb6425dcc453a55a2",
+			"bytes": 2665
+		},
+		{
+			"file": "libtasn1-6_4.20.0-2/libtasn1-6_4.20.0.orig.tar.gz",
+			"sha256": "92e0e3bd4c02d4aeee76036b2ddd83f0c732ba4cda5cb71d583272b23587a76c",
+			"bytes": 1783873
+		},
+		{
+			"file": "libtasn1-6_4.20.0-2/libtasn1-6_4.20.0.orig.tar.gz.asc",
+			"sha256": "0faa628b6a3e4bb84ca5f00f127c6dfa1fc96a7ad88030dd7aa048753cf4b201",
+			"bytes": 1223
+		},
+		{
+			"file": "libtasn1-6_4.20.0-2/libtasn1-6_4.20.0-2.debian.tar.xz",
+			"sha256": "d9d911708f4863437b88eeff7f779d39f6b77613dc2851c64db2bd8160a07c30",
+			"bytes": 18640
+		},
+		{
+			"file": "libthai_0.1.29-2/libthai_0.1.29-2.dsc",
+			"sha256": "564814dc31a466566cb50c077c5f6c5926a451594f52a0fc6b6367100445dddb",
+			"bytes": 2319
+		},
+		{
+			"file": "libthai_0.1.29-2/libthai_0.1.29.orig.tar.xz",
+			"sha256": "fc80cc7dcb50e11302b417cebd24f2d30a8b987292e77e003267b9100d0f4bcd",
+			"bytes": 417728
+		},
+		{
+			"file": "libthai_0.1.29-2/libthai_0.1.29-2.debian.tar.xz",
+			"sha256": "18a66bc2e766f475c206492612eabe3a206642bb69866236eb4a0a4126bf4f41",
+			"bytes": 12644
+		},
+		{
+			"file": "libtheora_1.2.0~alpha1%2Bdfsg-6/libtheora_1.2.0~alpha1+dfsg-6.dsc",
+			"sha256": "86ad6c534984f746de4abccbcc0cf762afbab8848298899bd523d9df100c13a4",
+			"bytes": 2726
+		},
+		{
+			"file": "libtheora_1.2.0~alpha1%2Bdfsg-6/libtheora_1.2.0~alpha1+dfsg.orig.tar.xz",
+			"sha256": "590e2b7803ff6b773e50d054113967082719eaab9355b183f18f8b3642933606",
+			"bytes": 1390776
+		},
+		{
+			"file": "libtheora_1.2.0~alpha1%2Bdfsg-6/libtheora_1.2.0~alpha1+dfsg-6.debian.tar.xz",
+			"sha256": "37f7c87dd56059bfe6ed89737476492ccbcc99a9d04b17dd8a275f33e6e469fe",
+			"bytes": 13448
+		},
+		{
+			"file": "libtool_2.5.4-4/libtool_2.5.4-4.dsc",
+			"sha256": "37d98d7c45d1c12c0b7bd55fb6a90fa05aff8aa9ab2bbd9617ce7a6233b1965e",
+			"bytes": 2232
+		},
+		{
+			"file": "libtool_2.5.4-4/libtool_2.5.4.orig.tar.xz",
+			"sha256": "d9189031edeaa6aa74695b2aeb80a8c26df50b29d8b72c991667e01adecea42c",
+			"bytes": 1069572
+		},
+		{
+			"file": "libtool_2.5.4-4/libtool_2.5.4-4.debian.tar.xz",
+			"sha256": "93e8e286db1322a4f17e3120654ec2664a721e6684c017cb37d471daeb380f8e",
+			"bytes": 37504
+		},
+		{
+			"file": "libudfread_1.1.2-1/libudfread_1.1.2-1.dsc",
+			"sha256": "d2c1fad3956ca8c17cec64458a13eeb45809ab454edfc06b42d4cd44cdc8c7eb",
+			"bytes": 2020
+		},
+		{
+			"file": "libudfread_1.1.2-1/libudfread_1.1.2.orig.tar.gz",
+			"sha256": "2bf16726ac98d093156195bb049a663e07d3323e079c26912546f4e05c77bac5",
+			"bytes": 33744
+		},
+		{
+			"file": "libudfread_1.1.2-1/libudfread_1.1.2-1.debian.tar.xz",
+			"sha256": "16bb8892d8317a10843dd9a18748541998878dc7a463864736d78ff55c7df8d7",
+			"bytes": 2920
+		},
+		{
+			"file": "libunibreak_6.1-3/libunibreak_6.1-3.dsc",
+			"sha256": "e8e1281d03862879a3933fb55066da4327c2b0b925645edb1b0ba4a8a3d352d6",
+			"bytes": 2179
+		},
+		{
+			"file": "libunibreak_6.1-3/libunibreak_6.1.orig.tar.gz",
+			"sha256": "890674996168ef5ba143d80d49ab8b61594a4eb70198dcac76caf6e1bd264a41",
+			"bytes": 169640
+		},
+		{
+			"file": "libunibreak_6.1-3/libunibreak_6.1-3.debian.tar.xz",
+			"sha256": "d12ddc4a4a338c56df547351d2e261b64afaaf305dc2c036eb6a0d77d35ad09f",
+			"bytes": 7356
+		},
+		{
+			"file": "libunistring_1.3-2/libunistring_1.3-2.dsc",
+			"sha256": "0c09938cace7fbbf36c73af8bc2243fd2f70d3fe336539e8d4c10d0e61742571",
+			"bytes": 2215
+		},
+		{
+			"file": "libunistring_1.3-2/libunistring_1.3.orig.tar.xz",
+			"sha256": "f245786c831d25150f3dfb4317cda1acc5e3f79a5da4ad073ddca58886569527",
+			"bytes": 2753448
+		},
+		{
+			"file": "libunistring_1.3-2/libunistring_1.3.orig.tar.xz.asc",
+			"sha256": "62201b5b7ce9c0b033c50cefa5d7769dff4b7cee8205572e0cf917653cae9e33",
+			"bytes": 833
+		},
+		{
+			"file": "libunistring_1.3-2/libunistring_1.3-2.debian.tar.xz",
+			"sha256": "feaf9761d365430178ea46feefeb602b435c21acf5924918e2257238e0378fc9",
+			"bytes": 28480
+		},
+		{
+			"file": "libusb-1.0_2%3A1.0.28-1/libusb-1.0_1.0.28-1.dsc",
+			"sha256": "be92b66ffc1784d592a78bf4ae1c5f5776fd3cd96ebbc677341cc71956d3611b",
+			"bytes": 2643
+		},
+		{
+			"file": "libusb-1.0_2%3A1.0.28-1/libusb-1.0_1.0.28.orig.tar.bz2",
+			"sha256": "966bb0d231f94a474eaae2e67da5ec844d3527a1f386456394ff432580634b29",
+			"bytes": 658053
+		},
+		{
+			"file": "libusb-1.0_2%3A1.0.28-1/libusb-1.0_1.0.28.orig.tar.bz2.asc",
+			"sha256": "a92679aa89b24339f554c767cee6e4fb0c16802aef50f1280284f05edbf65d19",
+			"bytes": 833
+		},
+		{
+			"file": "libusb-1.0_2%3A1.0.28-1/libusb-1.0_1.0.28-1.debian.tar.xz",
+			"sha256": "4057d38b4b0766f1de2957f25c98e9e447748c08ba75bc15eb29094b67829f89",
+			"bytes": 18108
+		},
+		{
+			"file": "libva_2.22.0-3/libva_2.22.0-3.dsc",
+			"sha256": "f639e39036a02358c32af3c993bcbc81505c5b2f8dde7ae9e7436e29d7bb4275",
+			"bytes": 2448
+		},
+		{
+			"file": "libva_2.22.0-3/libva_2.22.0.orig.tar.xz",
+			"sha256": "efd30e3581bc09383a02a2943a83c216c94fc8027ed299be49d29e6f71d96ce8",
+			"bytes": 226484
+		},
+		{
+			"file": "libva_2.22.0-3/libva_2.22.0-3.debian.tar.xz",
+			"sha256": "47f09777313403bf55584cbbd57a6eeb85b327f1bfe520b562d3f712d001ec2a",
+			"bytes": 12320
+		},
+		{
+			"file": "libvdpau_1.5-3/libvdpau_1.5-3.dsc",
+			"sha256": "11aacd6add414640221750a28c38e5a2370343c2ad41bd9b04c2f57927e78ceb",
+			"bytes": 2318
+		},
+		{
+			"file": "libvdpau_1.5-3/libvdpau_1.5.orig.tar.bz2",
+			"sha256": "a5d50a42b8c288febc07151ab643ac8de06a18446965c7241f89b4e810821913",
+			"bytes": 143279
+		},
+		{
+			"file": "libvdpau_1.5-3/libvdpau_1.5-3.debian.tar.xz",
+			"sha256": "b2f3f053f1495671a3b9c895986f16aed1b3eb3561c2a116b3ec515b2444469c",
+			"bytes": 9440
+		},
+		{
+			"file": "libvidstab_1.1.0-2/libvidstab_1.1.0-2.dsc",
+			"sha256": "fe500228434c80b7dc3798552a3c4023b1d086eeb18ce8d111f460e608972526",
+			"bytes": 1826
+		},
+		{
+			"file": "libvidstab_1.1.0-2/libvidstab_1.1.0.orig.tar.gz",
+			"sha256": "14d2a053e56edad4f397be0cb3ef8eb1ec3150404ce99a426c4eb641861dc0bb",
+			"bytes": 77736
+		},
+		{
+			"file": "libvidstab_1.1.0-2/libvidstab_1.1.0-2.debian.tar.xz",
+			"sha256": "c7a8ff87c37d68666c69f589929de5d25383f4932b6629af674c60e94f7e2ea6",
+			"bytes": 3876
+		},
+		{
+			"file": "libvorbis_1.3.7-3/libvorbis_1.3.7-3.dsc",
+			"sha256": "14666d60addd93c86bbbf573ef3fbc9f17818235473514c026652073ed1b550b",
+			"bytes": 2356
+		},
+		{
+			"file": "libvorbis_1.3.7-3/libvorbis_1.3.7.orig.tar.gz",
+			"sha256": "0e982409a9c3fc82ee06e08205b1355e5c6aa4c36bca58146ef399621b0ce5ab",
+			"bytes": 1658963
+		},
+		{
+			"file": "libvorbis_1.3.7-3/libvorbis_1.3.7-3.debian.tar.xz",
+			"sha256": "e6bd6b3ba76c784dffddd4e4f531a4e2d249dfef4c64bc4b262d27a0945268ed",
+			"bytes": 11792
+		},
+		{
+			"file": "libvpx_1.15.0-2.1/libvpx_1.15.0-2.1.dsc",
+			"sha256": "2d41548d2bdb4d0b13428367642c27d7840fdf3a3d7c32c31a88d249e5289d66",
+			"bytes": 2388
+		},
+		{
+			"file": "libvpx_1.15.0-2.1/libvpx_1.15.0.orig.tar.xz",
+			"sha256": "a6cfd199c5c567cfa4e6d991ec36690d9af801585b5db959c1494b5b15f821a5",
+			"bytes": 4394516
+		},
+		{
+			"file": "libvpx_1.15.0-2.1/libvpx_1.15.0-2.1.debian.tar.xz",
+			"sha256": "269e4f3c22dc9a930fa0bd160f45d10ced3ea21ac01361c707f89e0cb29c83dd",
+			"bytes": 14096
+		},
+		{
+			"file": "libwebp_1.5.0-0.1/libwebp_1.5.0-0.1.dsc",
+			"sha256": "2e7be6f202ebfaac738278bebc10b151768aef60857e63734018ced4d59b9c9a",
+			"bytes": 2865
+		},
+		{
+			"file": "libwebp_1.5.0-0.1/libwebp_1.5.0.orig.tar.gz",
+			"sha256": "7d6fab70cf844bf6769077bd5d7a74893f8ffd4dfb42861745750c63c2a5c92c",
+			"bytes": 4267494
+		},
+		{
+			"file": "libwebp_1.5.0-0.1/libwebp_1.5.0.orig.tar.gz.asc",
+			"sha256": "1383ff0b093f57d65f5a902e1bc51c550795ce4713b38712c60bb9151e15dcd6",
+			"bytes": 833
+		},
+		{
+			"file": "libwebp_1.5.0-0.1/libwebp_1.5.0-0.1.debian.tar.xz",
+			"sha256": "0dc0e727dc5f5e04ddd41b482f964626e92658099981b57ddd156b530ae01826",
+			"bytes": 11284
+		},
+		{
+			"file": "libx11_2%3A1.8.12-1/libx11_1.8.12-1.dsc",
+			"sha256": "745fb04a4b0f8942183f6ac84ebd9e2dae1416c37f90abeaacabb57dc11286f5",
+			"bytes": 2490
+		},
+		{
+			"file": "libx11_2%3A1.8.12-1/libx11_1.8.12.orig.tar.gz",
+			"sha256": "220fbcf54b6e4d8dc40076ff4ab87954358019982490b33c7802190b62d89ce1",
+			"bytes": 3215077
+		},
+		{
+			"file": "libx11_2%3A1.8.12-1/libx11_1.8.12.orig.tar.gz.asc",
+			"sha256": "c3d177c8efcef9d3a1963956de0edc56ef2dd63d13dc39d3d7473dc9011fca65",
+			"bytes": 833
+		},
+		{
+			"file": "libx11_2%3A1.8.12-1/libx11_1.8.12-1.diff.gz",
+			"sha256": "2231b0ec8ce2eb380256b67eb30c05d90b0e92d75dd583c24e0bf640b3078977",
+			"bytes": 74466
+		},
+		{
+			"file": "libxau_1%3A1.0.11-1/libxau_1.0.11-1.dsc",
+			"sha256": "6058ab58b243ae2b175eee067b868f37b74cd4e8cc40b90607ce6d9ee99c50f9",
+			"bytes": 2213
+		},
+		{
+			"file": "libxau_1%3A1.0.11-1/libxau_1.0.11.orig.tar.gz",
+			"sha256": "3a321aaceb803577a4776a5efe78836eb095a9e44bbc7a465d29463e1a14f189",
+			"bytes": 404973
+		},
+		{
+			"file": "libxau_1%3A1.0.11-1/libxau_1.0.11.orig.tar.gz.asc",
+			"sha256": "72320a0c036cc2d36bebdd7d279c402620e2f3553f639581dfb23736803ce258",
+			"bytes": 358
+		},
+		{
+			"file": "libxau_1%3A1.0.11-1/libxau_1.0.11-1.diff.gz",
+			"sha256": "0af3f94102f73c585c48a6b17f54c92e154f6b560a061871d437bd720edd5314",
+			"bytes": 22671
+		},
+		{
+			"file": "libxcb_1.17.0-2/libxcb_1.17.0-2.dsc",
+			"sha256": "b2728d156f79d2e757e7378cfcefca52bd570739d2efffa87e1aaeaf4f21de3a",
+			"bytes": 5318
+		},
+		{
+			"file": "libxcb_1.17.0-2/libxcb_1.17.0.orig.tar.gz",
+			"sha256": "2c69287424c9e2128cb47ffe92171e10417041ec2963bceafb65cb3fcf8f0b85",
+			"bytes": 661593
+		},
+		{
+			"file": "libxcb_1.17.0-2/libxcb_1.17.0-2.diff.gz",
+			"sha256": "c5b33b67a61d0d1c1b624bf88a8150f4be1ba9b46e855e38f03a8f73858af558",
+			"bytes": 28069
+		},
+		{
+			"file": "libxcursor_1%3A1.2.3-1/libxcursor_1.2.3-1.dsc",
+			"sha256": "4b6e8fc0a324a53acc6eff84944b60416cba376a84031d1ace463f21ea7b596c",
+			"bytes": 2148
+		},
+		{
+			"file": "libxcursor_1%3A1.2.3-1/libxcursor_1.2.3.orig.tar.gz",
+			"sha256": "74e72da27e61cc2cfd2e267c14f500ea47775850048ee0b00362a55c9b60ee9b",
+			"bytes": 433030
+		},
+		{
+			"file": "libxcursor_1%3A1.2.3-1/libxcursor_1.2.3-1.debian.tar.xz",
+			"sha256": "1ad7443c8b166b3ea7b98c38eb7a27ddd8871496e52f80a937c6211da2a01504",
+			"bytes": 9168
+		},
+		{
+			"file": "libxdmcp_1%3A1.1.5-1/libxdmcp_1.1.5-1.dsc",
+			"sha256": "d4a124405528eba3cf8794cc4fb8c4339ad74e79dd916fc0565b3a30c9fc1fe3",
+			"bytes": 2331
+		},
+		{
+			"file": "libxdmcp_1%3A1.1.5-1/libxdmcp_1.1.5.orig.tar.gz",
+			"sha256": "31a7abc4f129dcf6f27ae912c3eedcb94d25ad2e8f317f69df6eda0bc4e4f2f3",
+			"bytes": 442597
+		},
+		{
+			"file": "libxdmcp_1%3A1.1.5-1/libxdmcp_1.1.5.orig.tar.gz.asc",
+			"sha256": "0c7666da02d66ab785584cd16a6f9324f0d949555734e70b3b1385e525c7860b",
+			"bytes": 833
+		},
+		{
+			"file": "libxdmcp_1%3A1.1.5-1/libxdmcp_1.1.5-1.diff.gz",
+			"sha256": "7ec2e7da28c38723aa115ce2bd18389f7d73e716b0f50bec9e6e0d1b24f19954",
+			"bytes": 9764
+		},
+		{
+			"file": "libxext_2%3A1.3.4-1/libxext_1.3.4-1.dsc",
+			"sha256": "25024f57d955739c6b858822bf93ec3c71400b56fc0d666826f440e3661fd7c0",
+			"bytes": 2118
+		},
+		{
+			"file": "libxext_2%3A1.3.4-1/libxext_1.3.4.orig.tar.gz",
+			"sha256": "8ef0789f282826661ff40a8eef22430378516ac580167da35cc948be9041aac1",
+			"bytes": 494434
+		},
+		{
+			"file": "libxext_2%3A1.3.4-1/libxext_1.3.4-1.diff.gz",
+			"sha256": "b975870d6a7b791ffbe2d57efdf6e20c250c5e76d12e45b04c8655f593bb8337",
+			"bytes": 12509
+		},
+		{
+			"file": "libxfixes_1%3A6.0.0-2/libxfixes_6.0.0-2.dsc",
+			"sha256": "d1958d4b89d749c7d05df7d6ec2215bf11527f9ae914c0f2da48672c6165c65e",
+			"bytes": 2240
+		},
+		{
+			"file": "libxfixes_1%3A6.0.0-2/libxfixes_6.0.0.orig.tar.gz",
+			"sha256": "82045da5625350838390c9440598b90d69c882c324ca92f73af9f0e992cb57c7",
+			"bytes": 387810
+		},
+		{
+			"file": "libxfixes_1%3A6.0.0-2/libxfixes_6.0.0.orig.tar.gz.asc",
+			"sha256": "e5598f42aa32140936c7772ab4d99ba35ecb859c29adc1703bb51440e7a54928",
+			"bytes": 195
+		},
+		{
+			"file": "libxfixes_1%3A6.0.0-2/libxfixes_6.0.0-2.diff.gz",
+			"sha256": "24f13645909ecfd63a21568e515cfc962692c468d7dcf8cb97212d2445f60a3b",
+			"bytes": 17318
+		},
+		{
+			"file": "libxi_2%3A1.8.2-1/libxi_1.8.2-1.dsc",
+			"sha256": "06669e65a5a382b97c6c1bf886dca7b6da0ebbcda17862243e53fee700195bb8",
+			"bytes": 2286
+		},
+		{
+			"file": "libxi_2%3A1.8.2-1/libxi_1.8.2.orig.tar.gz",
+			"sha256": "5542daec66febfeb6f51d57abfa915826efe2e3af57534f4105b82240ea3188d",
+			"bytes": 611246
+		},
+		{
+			"file": "libxi_2%3A1.8.2-1/libxi_1.8.2.orig.tar.gz.asc",
+			"sha256": "acfaf42beee3690980632c5ec4d9948276da969f07beea6bd09312d63fa7fb45",
+			"bytes": 195
+		},
+		{
+			"file": "libxi_2%3A1.8.2-1/libxi_1.8.2-1.diff.gz",
+			"sha256": "f7a6b01f918159bc19570470ee315ea32284ae88a9cde269954e5086537716f8",
+			"bytes": 27701
+		},
+		{
+			"file": "libxkbcommon_1.7.0-2/libxkbcommon_1.7.0-2.dsc",
+			"sha256": "f513da93558121b17d0f980d4b24419e5463c6d880c03b31275221c6e83223e8",
+			"bytes": 2802
+		},
+		{
+			"file": "libxkbcommon_1.7.0-2/libxkbcommon_1.7.0.orig.tar.xz",
+			"sha256": "65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247",
+			"bytes": 534312
+		},
+		{
+			"file": "libxkbcommon_1.7.0-2/libxkbcommon_1.7.0-2.debian.tar.xz",
+			"sha256": "fcf3db4a281477b93a3bd2ae00bbbd8ea2e589e12301112547779a17ec7c6b80",
+			"bytes": 8464
+		},
+		{
+			"file": "libxml2_2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3.dsc",
+			"sha256": "04b1da890535b11e3db231f39114ee09e643badceff79441d749d0ca78efaaa5",
+			"bytes": 3085
+		},
+		{
+			"file": "libxml2_2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3/libxml2_2.12.7+dfsg+really2.9.14.orig.tar.xz",
+			"sha256": "4fe913dec8b1ab89d13b489b419a8203176ea39e931eaa0d25b17eafb9c279e9",
+			"bytes": 2351200
+		},
+		{
+			"file": "libxml2_2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u3/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3.debian.tar.xz",
+			"sha256": "3b6d265f482d6a8fbe3c056d2006fb3b563b4a838f7258b388ac5f0b29206921",
+			"bytes": 58040
+		},
+		{
+			"file": "libxrandr_2%3A1.5.4-1/libxrandr_1.5.4-1.dsc",
+			"sha256": "791dfa8b5864c6e67a2f2ed08690154aec38866702eafed4bd5470725bb0f545",
+			"bytes": 2322
+		},
+		{
+			"file": "libxrandr_2%3A1.5.4-1/libxrandr_1.5.4.orig.tar.gz",
+			"sha256": "c72c94dc3373512ceb67f578952c5d10915b38cc9ebb0fd176a49857b8048e22",
+			"bytes": 421566
+		},
+		{
+			"file": "libxrandr_2%3A1.5.4-1/libxrandr_1.5.4.orig.tar.gz.asc",
+			"sha256": "2444694037ee4dc16f1886962a429516682011bbe12e3ca2c59342cbe91fa400",
+			"bytes": 833
+		},
+		{
+			"file": "libxrandr_2%3A1.5.4-1/libxrandr_1.5.4-1.diff.gz",
+			"sha256": "7f784233b35ddcccd582a0d3eb2850fdd1a5d7e5ab5c21856ec1fb35f3734b6b",
+			"bytes": 21350
+		},
+		{
+			"file": "libxrender_1%3A0.9.12-1/libxrender_0.9.12-1.dsc",
+			"sha256": "2980c127d296455f4e9bcaf5ba114284fa0735ce3ef5b613dbe99d854bc87ca3",
+			"bytes": 2258
+		},
+		{
+			"file": "libxrender_1%3A0.9.12-1/libxrender_0.9.12.orig.tar.gz",
+			"sha256": "0fff64125819c02d1102b6236f3d7d861a07b5216d8eea336c3811d31494ecf7",
+			"bytes": 450034
+		},
+		{
+			"file": "libxrender_1%3A0.9.12-1/libxrender_0.9.12.orig.tar.gz.asc",
+			"sha256": "0bbd310ac3974ef398cf4d8a4b362b0b4d60ceb43e6eba393c3cc740b03816fc",
+			"bytes": 833
+		},
+		{
+			"file": "libxrender_1%3A0.9.12-1/libxrender_0.9.12-1.diff.gz",
+			"sha256": "c0d3e91a3aa474772c242dcbb997504dff4c28e177d9b7fbb70c50ce7bf56fc5",
+			"bytes": 21464
+		},
+		{
+			"file": "libxss_1%3A1.2.3-1/libxss_1.2.3-1.dsc",
+			"sha256": "783dbcd49a0934d994693af676ee98734dad070ab2434a6afe831c2de0ecca1d",
+			"bytes": 2203
+		},
+		{
+			"file": "libxss_1%3A1.2.3-1/libxss_1.2.3.orig.tar.gz",
+			"sha256": "4f74e7e412144591d8e0616db27f433cfc9f45aae6669c6c4bb03e6bf9be809a",
+			"bytes": 385215
+		},
+		{
+			"file": "libxss_1%3A1.2.3-1/libxss_1.2.3.orig.tar.gz.asc",
+			"sha256": "4e900524d56c8e7263365267efa91bb3671110c9eb28ccab58f70e2188f0b91b",
+			"bytes": 705
+		},
+		{
+			"file": "libxss_1%3A1.2.3-1/libxss_1.2.3-1.diff.gz",
+			"sha256": "9d381b48f1377f27c506113e1f9b7d6ee286b856421f7f2b27017f01dccfef04",
+			"bytes": 7145
+		},
+		{
+			"file": "libxv_2%3A1.0.11-1.1/libxv_1.0.11-1.1.dsc",
+			"sha256": "27a0931a2d5de783bf975d0c67a52ab6bb036ce85e07943f24fcd05233e14468",
+			"bytes": 1967
+		},
+		{
+			"file": "libxv_2%3A1.0.11-1.1/libxv_1.0.11.orig.tar.gz",
+			"sha256": "c4112532889b210e21cf05f46f0f2f8354ff7e1b58061e12d7a76c95c0d47bb1",
+			"bytes": 387057
+		},
+		{
+			"file": "libxv_2%3A1.0.11-1.1/libxv_1.0.11-1.1.diff.gz",
+			"sha256": "c76718772199b0544ab6105df83c66f485c9f587a76e3d583b0c1c8a29772b22",
+			"bytes": 7899
+		},
+		{
+			"file": "libyaml_0.2.5-2/libyaml_0.2.5-2.dsc",
+			"sha256": "c1c3dab54fe7b355753f46a8c783b74a0a6e1099fb3878f4963a175691351477",
+			"bytes": 2040
+		},
+		{
+			"file": "libyaml_0.2.5-2/libyaml_0.2.5.orig.tar.gz",
+			"sha256": "fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e",
+			"bytes": 85055
+		},
+		{
+			"file": "libyaml_0.2.5-2/libyaml_0.2.5-2.debian.tar.xz",
+			"sha256": "3bdf4ab4a530c66358e44129e0f96183a13fcfef4355a41df296b1c5e0cf63d8",
+			"bytes": 5656
+		},
+		{
+			"file": "libzstd_1.5.7%2Bdfsg-1/libzstd_1.5.7+dfsg-1.dsc",
+			"sha256": "8f6ab97fa772d921334e50fa5756a0951e23c718dc913e43a228f28c1a23adf9",
+			"bytes": 2371
+		},
+		{
+			"file": "libzstd_1.5.7%2Bdfsg-1/libzstd_1.5.7+dfsg.orig.tar.xz",
+			"sha256": "0c092ef267edce57ba7f3f2645c861f72eaf5e76273c6c3632869423464b90a5",
+			"bytes": 1834780
+		},
+		{
+			"file": "libzstd_1.5.7%2Bdfsg-1/libzstd_1.5.7+dfsg-1.debian.tar.xz",
+			"sha256": "5e88424d919941291f79e1bfada6cb1a6f748671d9de7d4b7d931f361f183a15",
+			"bytes": 23036
+		},
+		{
+			"file": "lilv_0.24.26-1/lilv_0.24.26-1.dsc",
+			"sha256": "71720a99fe5b2972b91aa2d24cd953b07afe3d45455f6dc7a4f6caba9b8a2f8b",
+			"bytes": 2680
+		},
+		{
+			"file": "lilv_0.24.26-1/lilv_0.24.26.orig.tar.xz",
+			"sha256": "22feed30bc0f952384a25c2f6f4b04e6d43836408798ed65a8a934c055d5d8ac",
+			"bytes": 106044
+		},
+		{
+			"file": "lilv_0.24.26-1/lilv_0.24.26.orig.tar.xz.asc",
+			"sha256": "1c138611ad60255cf1df692880188d8b3e9bd8a4dbf7bed761d04078ef0049f7",
+			"bytes": 833
+		},
+		{
+			"file": "lilv_0.24.26-1/lilv_0.24.26-1.debian.tar.xz",
+			"sha256": "fcec7160738795c5c063ae873d8e9a0007dfe403fe7d67da67ecb244ad11fd81",
+			"bytes": 13384
+		},
+		{
+			"file": "lua5.4_5.4.7-1/lua5.4_5.4.7-1.dsc",
+			"sha256": "40b41bc566ac7246d748a954573ca9b10afa015112541f8d957bd41d8a56f767",
+			"bytes": 2051
+		},
+		{
+			"file": "lua5.4_5.4.7-1/lua5.4_5.4.7.orig.tar.gz",
+			"sha256": "9fbf5e28ef86c69858f6d3d34eccc32e911c1a28b4120ff3e84aaa70cfbf1e30",
+			"bytes": 374097
+		},
+		{
+			"file": "lua5.4_5.4.7-1/lua5.4_5.4.7-1.debian.tar.xz",
+			"sha256": "e24c2e5e5ea12d90ce0bf88af62a9b2d1bebf204582dab46212370730161a928",
+			"bytes": 13108
+		},
+		{
+			"file": "mbedtls_3.6.5-0.1~deb13u1/mbedtls_3.6.5-0.1~deb13u1.dsc",
+			"sha256": "a141b94159d8eccb9e97631dad083cb531ecd034164f7428fdfc9db6a7859b5f",
+			"bytes": 2490
+		},
+		{
+			"file": "mbedtls_3.6.5-0.1~deb13u1/mbedtls_3.6.5.orig.tar.bz2",
+			"sha256": "4a11f1777bb95bf4ad96721cac945a26e04bf19f57d905f241fe77ebeddf46d8",
+			"bytes": 5367178
+		},
+		{
+			"file": "mbedtls_3.6.5-0.1~deb13u1/mbedtls_3.6.5-0.1~deb13u1.debian.tar.xz",
+			"sha256": "e4c153b9685a6f3a2ad061fe0936309e7d84a6de7c320c45749912d41f3a808d",
+			"bytes": 18856
+		},
+		{
+			"file": "mesa_25.0.7-2%2Bdeb13u1/mesa_25.0.7-2+deb13u1.dsc",
+			"sha256": "c3605bc68cd140db19523c1b80ecd4aa1d77d5b528f15902995ef9ddbbc8f07e",
+			"bytes": 6755
+		},
+		{
+			"file": "mesa_25.0.7-2%2Bdeb13u1/mesa_25.0.7.orig.tar.xz",
+			"sha256": "592272df3cf01e85e7db300c449df5061092574d099da275d19e97ef0510f8a6",
+			"bytes": 46849080
+		},
+		{
+			"file": "mesa_25.0.7-2%2Bdeb13u1/mesa_25.0.7.orig.tar.xz.asc",
+			"sha256": "e997b2207447a4a92167941696c1ff2818161a8ad9df373ec0f1e5407a308df0",
+			"bytes": 488
+		},
+		{
+			"file": "mesa_25.0.7-2%2Bdeb13u1/mesa_25.0.7-2+deb13u1.debian.tar.xz",
+			"sha256": "7ea51db6f4c6a39d28269975b7f652e37333a283819557c5901cbd3eccee446a",
+			"bytes": 112628
+		},
+		{
+			"file": "mpg123_1.32.10-1/mpg123_1.32.10-1.dsc",
+			"sha256": "4f7407183a508bebf2559dd3dd41cad4f28ffa75362f9341ca8e7e642786f5d3",
+			"bytes": 1787
+		},
+		{
+			"file": "mpg123_1.32.10-1/mpg123_1.32.10.orig.tar.xz",
+			"sha256": "98867a796fa1eeb161847d211734d585ff61c56712fbc333de416fea7b59de29",
+			"bytes": 930140
+		},
+		{
+			"file": "mpg123_1.32.10-1/mpg123_1.32.10-1.debian.tar.xz",
+			"sha256": "4157aa57a6b1c1a568dcae3befdbffede51722f51349a342174fb876b842754d",
+			"bytes": 25656
+		},
+		{
+			"file": "mujs_1.3.6-1/mujs_1.3.6-1.dsc",
+			"sha256": "3ddc4c4368be098bf6ae2bf576405b738effe86ed6b7a3c9c12d006671feb582",
+			"bytes": 1920
+		},
+		{
+			"file": "mujs_1.3.6-1/mujs_1.3.6.orig.tar.xz",
+			"sha256": "d52501cd9539e37ef95e8494323da25c7d10d3738cd95757cf71d248447dafa9",
+			"bytes": 101204
+		},
+		{
+			"file": "mujs_1.3.6-1/mujs_1.3.6-1.debian.tar.xz",
+			"sha256": "fb2de1733a44f48f82a160adbd8b3f04decdb92dc56b502e38e2f37c65fcf4fc",
+			"bytes": 6524
+		},
+		{
+			"file": "mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1-6+deb13u1.dsc",
+			"sha256": "8d5417060eb0cc4c0ec8f25a18009034f440b62688b8c647172732ccad63a39f",
+			"bytes": 2819
+		},
+		{
+			"file": "mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1.orig.tar.xz",
+			"sha256": "0c2fb34812a8f470ba4f8581bf1c8fd6de0c31feb64020edd4e541400fce1dc9",
+			"bytes": 4112784
+		},
+		{
+			"file": "mupdf_1.25.1%2Bds1-6%2Bdeb13u1/mupdf_1.25.1+ds1-6+deb13u1.debian.tar.xz",
+			"sha256": "9dcaeec03493204b647e3d030874cce55f0f69db95235de2cf1405e5d194eeef",
+			"bytes": 94772
+		},
+		{
+			"file": "ncurses_6.5%2B20250216-2/ncurses_6.5+20250216-2.dsc",
+			"sha256": "00539cc2bc6bb84be1b8a8a5decf606682e14b6f39b76b9aa090e65d2c2d4580",
+			"bytes": 3890
+		},
+		{
+			"file": "ncurses_6.5%2B20250216-2/ncurses_6.5+20250216.orig.tar.gz",
+			"sha256": "b37baafa436e7133bb12a185cb8f60e1599b1947e9f0181c76f3190acf28b6eb",
+			"bytes": 3774714
+		},
+		{
+			"file": "ncurses_6.5%2B20250216-2/ncurses_6.5+20250216.orig.tar.gz.asc",
+			"sha256": "64f4d17923322176c44079f18f170e2164a59d551d7e4e9c1a6e4eebedc5dd6f",
+			"bytes": 729
+		},
+		{
+			"file": "ncurses_6.5%2B20250216-2/ncurses_6.5+20250216-2.debian.tar.xz",
+			"sha256": "546930a8992ae3325d8c38378f290265d969cf6333cfae9648ac6d69e1e8a8a6",
+			"bytes": 50420
+		},
+		{
+			"file": "nettle_3.10.1-1/nettle_3.10.1-1.dsc",
+			"sha256": "7b440850ce04b341363f3f5e23dfb9f96ebf7d52e0ef7ba2d07120c90ca61b3c",
+			"bytes": 2053
+		},
+		{
+			"file": "nettle_3.10.1-1/nettle_3.10.1.orig.tar.gz",
+			"sha256": "b0fcdd7fc0cdea6e80dcf1dd85ba794af0d5b4a57e26397eee3bc193272d9132",
+			"bytes": 2643267
+		},
+		{
+			"file": "nettle_3.10.1-1/nettle_3.10.1-1.debian.tar.xz",
+			"sha256": "2d40d02ddac5985d8833532a17a0ef96cb685ee0547ee9617ec13793b22e34c6",
+			"bytes": 25036
+		},
+		{
+			"file": "norm_1.5.9%2Bdfsg-3.1/norm_1.5.9+dfsg-3.1.dsc",
+			"sha256": "10d7fa70b0ee75e9760807744aa5dabac63083665171a77a7dbc6c1360cd17b7",
+			"bytes": 2039
+		},
+		{
+			"file": "norm_1.5.9%2Bdfsg-3.1/norm_1.5.9+dfsg.orig.tar.xz",
+			"sha256": "603218491eaafddab44e6a5a5d6f57ff16558df9923fde0c2b21e6e17397394c",
+			"bytes": 1526456
+		},
+		{
+			"file": "norm_1.5.9%2Bdfsg-3.1/norm_1.5.9+dfsg-3.1.debian.tar.xz",
+			"sha256": "de1c2416aca07903d0c1de06c5a63f437b0a6de4c306a53354fea8e0207ec22f",
+			"bytes": 9276
+		},
+		{
+			"file": "numactl_2.0.19-1/numactl_2.0.19-1.dsc",
+			"sha256": "b56e7893fc7da5374946f3767518e8d7b3707e0487a4d92fb76d672a988921e2",
+			"bytes": 1967
+		},
+		{
+			"file": "numactl_2.0.19-1/numactl_2.0.19.orig.tar.gz",
+			"sha256": "8b84ffdebfa0d730fb2fc71bb7ec96bb2d38bf76fb67246fde416a68e04125e4",
+			"bytes": 218333
+		},
+		{
+			"file": "numactl_2.0.19-1/numactl_2.0.19-1.debian.tar.xz",
+			"sha256": "93b4e00d8b7b1e465d931b29e65d220fadd84ac76431437307ecd075277355d3",
+			"bytes": 7340
+		},
+		{
+			"file": "ocl-icd_2.3.3-1/ocl-icd_2.3.3-1.dsc",
+			"sha256": "db19183087770ac58367d70c3427bf53fc3fbb61872d4ca82f3da47ecc1a46e3",
+			"bytes": 2196
+		},
+		{
+			"file": "ocl-icd_2.3.3-1/ocl-icd_2.3.3.orig.tar.gz",
+			"sha256": "8cd8e8e129db3081a64090fc1252bec39dc88cdb7b3f929315e014b75069bd9d",
+			"bytes": 109854
+		},
+		{
+			"file": "ocl-icd_2.3.3-1/ocl-icd_2.3.3-1.debian.tar.xz",
+			"sha256": "e74e0abbe754ac7cce79cd9c633c3bba322bf3ca69e7df16236b525ec5bce565",
+			"bytes": 12456
+		},
+		{
+			"file": "openal-soft_1%3A1.24.2-1/openal-soft_1.24.2-1.dsc",
+			"sha256": "af19e9fbd78745f494bb13cfe7a92369c0bc50d60227245e51d606b0b1d3cfd1",
+			"bytes": 2389
+		},
+		{
+			"file": "openal-soft_1%3A1.24.2-1/openal-soft_1.24.2.orig.tar.gz",
+			"sha256": "7efd383d70508587fbc146e4c508771a2235a5fc8ae05bf6fe721c20a348bd7c",
+			"bytes": 1246875
+		},
+		{
+			"file": "openal-soft_1%3A1.24.2-1/openal-soft_1.24.2-1.debian.tar.xz",
+			"sha256": "81de07bdded43298221f34b43ffcebcd2f1c9a18092b38f0846198d590cc34a8",
+			"bytes": 12132
+		},
+		{
+			"file": "openjpeg2_2.5.3-2.1~deb13u2/openjpeg2_2.5.3-2.1~deb13u2.dsc",
+			"sha256": "7c4f7083a180f1c509c87b39dd017b857468819c7a37d188b9d269624547f58f",
+			"bytes": 2603
+		},
+		{
+			"file": "openjpeg2_2.5.3-2.1~deb13u2/openjpeg2_2.5.3.orig.tar.xz",
+			"sha256": "3100f0316e922630112cf6d72c0c20776896e64ad7eab72c2f713c460287eb92",
+			"bytes": 1393716
+		},
+		{
+			"file": "openjpeg2_2.5.3-2.1~deb13u2/openjpeg2_2.5.3-2.1~deb13u2.debian.tar.xz",
+			"sha256": "a9d861cd8f22249876a589b56ebcceed101a0ea17155258f3d778de13b619441",
+			"bytes": 16136
+		},
+		{
+			"file": "openssl_3.5.5-1~deb13u1/openssl_3.5.5-1~deb13u1.dsc",
+			"sha256": "9fef06359b7e7f0abfb0ac6869f7bb344ae7f8efb25d5969f004f278a877b146",
+			"bytes": 2707
+		},
+		{
+			"file": "openssl_3.5.5-1~deb13u1/openssl_3.5.5.orig.tar.gz",
+			"sha256": "b28c91532a8b65a1f983b4c28b7488174e4a01008e29ce8e69bd789f28bc2a89",
+			"bytes": 53104821
+		},
+		{
+			"file": "openssl_3.5.5-1~deb13u1/openssl_3.5.5.orig.tar.gz.asc",
+			"sha256": "eaef5b1054b84b8d1e6c61c9fc8867828be5ce686d0221580faf8bdc16489da9",
+			"bytes": 833
+		},
+		{
+			"file": "openssl_3.5.5-1~deb13u1/openssl_3.5.5-1~deb13u1.debian.tar.xz",
+			"sha256": "87377bad1f77b157bf95ebc18c5dfe70b5d3ab276441f92b66a5338b2500705f",
+			"bytes": 50668
+		},
+		{
+			"file": "opus_1.5.2-2/opus_1.5.2-2.dsc",
+			"sha256": "cffb4091c9fc81ac4320402c061845200c2c21a63470587fd10c0d08e4f59215",
+			"bytes": 2262
+		},
+		{
+			"file": "opus_1.5.2-2/opus_1.5.2.orig.tar.gz",
+			"sha256": "65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1",
+			"bytes": 7839412
+		},
+		{
+			"file": "opus_1.5.2-2/opus_1.5.2-2.debian.tar.xz",
+			"sha256": "03408f5bbd128564b513ff884b1ddcb3b3ce6ddf0bb0ebe6c4bf46b522b5e78b",
+			"bytes": 110448
+		},
+		{
+			"file": "p11-kit_0.25.5-3/p11-kit_0.25.5-3.dsc",
+			"sha256": "65e21a68dd942741bba82f5bf20901f616b64de91a976d92a54a0cb314896544",
+			"bytes": 2538
+		},
+		{
+			"file": "p11-kit_0.25.5-3/p11-kit_0.25.5.orig.tar.xz",
+			"sha256": "04d0a86450cdb1be018f26af6699857171a188ac6d5b8c90786a60854e1198e5",
+			"bytes": 1002056
+		},
+		{
+			"file": "p11-kit_0.25.5-3/p11-kit_0.25.5.orig.tar.xz.asc",
+			"sha256": "066c92b9d2accb2fda6a2f71e676fb6526fcc153051b1f04ee7d7c8c96a09989",
+			"bytes": 228
+		},
+		{
+			"file": "p11-kit_0.25.5-3/p11-kit_0.25.5-3.debian.tar.xz",
+			"sha256": "3800ea81e4615898813f533834ad37ec270f6f7d4c9413c84e712075a197849c",
+			"bytes": 24184
+		},
+		{
+			"file": "pandoc_3.1.11.1%2Bds-2/pandoc_3.1.11.1+ds-2.dsc",
+			"sha256": "86b5223736e4f700c3838f13bc83d62b2baf95bf4a667b6cd5c78fc5f82aeeae",
+			"bytes": 2378
+		},
+		{
+			"file": "pandoc_3.1.11.1%2Bds-2/pandoc_3.1.11.1+ds.orig.tar.xz",
+			"sha256": "d1d70d1cf2846456c60b89e4a2bd662b9feea231db28270031a098ee91c09f93",
+			"bytes": 119724
+		},
+		{
+			"file": "pandoc_3.1.11.1%2Bds-2/pandoc_3.1.11.1+ds-2.debian.tar.xz",
+			"sha256": "77d7ec95df0d562e30427286cbbf92cf4f989e2d4925f3a43f763d8e9a299fb7",
+			"bytes": 40116
+		},
+		{
+			"file": "pango1.0_1.56.3-1/pango1.0_1.56.3-1.dsc",
+			"sha256": "173af22e6447fd24322d8ffbed4bbafd090b88ea463c416701b9aa37cae75266",
+			"bytes": 3690
+		},
+		{
+			"file": "pango1.0_1.56.3-1/pango1.0_1.56.3.orig.tar.xz",
+			"sha256": "2606252bc25cd8d24e1b7f7e92c3a272b37acd6734347b73b47a482834ba2491",
+			"bytes": 1883584
+		},
+		{
+			"file": "pango1.0_1.56.3-1/pango1.0_1.56.3-1.debian.tar.xz",
+			"sha256": "00576a0cd3fd4ded5edcd5b5e1c710ee8034b00b49907b2d9c3e38906151f816",
+			"bytes": 43788
+		},
+		{
+			"file": "pcre2_10.46-1~deb13u1/pcre2_10.46-1~deb13u1.dsc",
+			"sha256": "15fd556b0182dac4decee5408ab4908654bb6a7f2002774a46e908c1ec7937b8",
+			"bytes": 2377
+		},
+		{
+			"file": "pcre2_10.46-1~deb13u1/pcre2_10.46.orig.tar.gz",
+			"sha256": "8d28d7f2c3b970c3a4bf3776bcbb5adfc923183ce74bc8df1ebaad8c1985bd07",
+			"bytes": 2718545
+		},
+		{
+			"file": "pcre2_10.46-1~deb13u1/pcre2_10.46-1~deb13u1.diff.gz",
+			"sha256": "b1e614d7d31b26314754c563079b6e8400e50fe7a35d21cc0945f41c45965c45",
+			"bytes": 8729
+		},
+		{
+			"file": "pixman_0.44.0-3/pixman_0.44.0-3.dsc",
+			"sha256": "b05388a6cb71550a2ed425e9689b09b1dc458fa06d842f87328ede5e0eb7345f",
+			"bytes": 2019
+		},
+		{
+			"file": "pixman_0.44.0-3/pixman_0.44.0.orig.tar.gz",
+			"sha256": "89a4c1e1e45e0b23dffe708202cb2eaffde0fe3727d7692b2e1739fec78a7dac",
+			"bytes": 812995
+		},
+		{
+			"file": "pixman_0.44.0-3/pixman_0.44.0-3.diff.gz",
+			"sha256": "820f71488852530f2a662bb6bdcc8bd8e065a15800d8b459d7ec69e6ffc98a85",
+			"bytes": 9417
+		},
+		{
+			"file": "pocketsphinx_0.8%2B5prealpha%2B1-15/pocketsphinx_0.8+5prealpha+1-15.dsc",
+			"sha256": "6c40b4ca2ea551eaaac3b033c216c6ca44c143bf92977cd148603ae1d3783821",
+			"bytes": 2624
+		},
+		{
+			"file": "pocketsphinx_0.8%2B5prealpha%2B1-15/pocketsphinx_0.8+5prealpha+1.orig.tar.gz",
+			"sha256": "ef5bb5547e2712bdf571f256490ef42a47962033892efd9d7df8eed7fe573ed9",
+			"bytes": 31354573
+		},
+		{
+			"file": "pocketsphinx_0.8%2B5prealpha%2B1-15/pocketsphinx_0.8+5prealpha+1-15.debian.tar.xz",
+			"sha256": "c53b64c245e6656800d8e6054614c0c6efe69b13d964e0e8183e33042d1a081a",
+			"bytes": 8972
+		},
+		{
+			"file": "pulseaudio_17.0%2Bdfsg1-2/pulseaudio_17.0+dfsg1-2.dsc",
+			"sha256": "f3aa32ade32bf1b3bbd650ebb2ab368f1cef9300636af3b2130db3c8adb9eaca",
+			"bytes": 3774
+		},
+		{
+			"file": "pulseaudio_17.0%2Bdfsg1-2/pulseaudio_17.0+dfsg1.orig.tar.xz",
+			"sha256": "24a25d3cf8fcede801f6b3d05ca6d22b0a43ad2f710a4fbf2ec251debc9cff5b",
+			"bytes": 1459260
+		},
+		{
+			"file": "pulseaudio_17.0%2Bdfsg1-2/pulseaudio_17.0+dfsg1-2.debian.tar.xz",
+			"sha256": "011e00b40902c9401eaf5c61921e2738c1782e7959581526cd701a74bfb6ba92",
+			"bytes": 41188
+		},
+		{
+			"file": "rubberband_3.3.0%2Bdfsg-2/rubberband_3.3.0+dfsg-2.dsc",
+			"sha256": "babed477d468833cf28ec1433e26f39768d73a72e30d52f9794610aac69b12fc",
+			"bytes": 2610
+		},
+		{
+			"file": "rubberband_3.3.0%2Bdfsg-2/rubberband_3.3.0+dfsg.orig.tar.xz",
+			"sha256": "ff6813185ff047abbc48e08ca76d88b22b92928a2ea17dce66f446bcb19a004d",
+			"bytes": 205228
+		},
+		{
+			"file": "rubberband_3.3.0%2Bdfsg-2/rubberband_3.3.0+dfsg-2.debian.tar.xz",
+			"sha256": "c4f087030c4ea61d41213237f9fe9516b6f327d931a829c8462f107ee11a8029",
+			"bytes": 12272
+		},
+		{
+			"file": "rust-rav1e_0.7.1-9/rust-rav1e_0.7.1-9.dsc",
+			"sha256": "bf661313981689fe126bb48b4b2cb36de1b937e48aef8adb66a0b2a631b608cb",
+			"bytes": 3714
+		},
+		{
+			"file": "rust-rav1e_0.7.1-9/rust-rav1e_0.7.1.orig.tar.gz",
+			"sha256": "cd87ce80a7665b1cce111f8a16c1f3929f6547ce91ade6addf4ec86a8dda5ce9",
+			"bytes": 1472522
+		},
+		{
+			"file": "rust-rav1e_0.7.1-9/rust-rav1e_0.7.1-9.debian.tar.xz",
+			"sha256": "0eb6397cfe3dc7ed564336a779944f623fc245e07a62ee0fec77f886a313838e",
+			"bytes": 18556
+		},
+		{
+			"file": "serd_0.32.4-1/serd_0.32.4-1.dsc",
+			"sha256": "698bc84a88a541655becb6cff460ec88fe980a0cdf7d8fec98a355e89dbe96b8",
+			"bytes": 2486
+		},
+		{
+			"file": "serd_0.32.4-1/serd_0.32.4.orig.tar.xz",
+			"sha256": "cbefb569e8db686be8c69cb3866a9538c7cb055e8f24217dd6a4471effa7d349",
+			"bytes": 174476
+		},
+		{
+			"file": "serd_0.32.4-1/serd_0.32.4.orig.tar.xz.asc",
+			"sha256": "6e6bb48341b8c2a9dc98f55dcb5e7f598d233f15155050cf6ecd8b099e8c7c8c",
+			"bytes": 833
+		},
+		{
+			"file": "serd_0.32.4-1/serd_0.32.4-1.debian.tar.xz",
+			"sha256": "7ec6e701933878419978c0ffa9765ecce08becf3f1060b1f38e42d9c08e13f59",
+			"bytes": 20764
+		},
+		{
+			"file": "shine_3.1.1-2/shine_3.1.1-2.dsc",
+			"sha256": "57792862005a2482a7c1ee94544dd30bdeeacbf8b4cad842ad741b65545e8a16",
+			"bytes": 1999
+		},
+		{
+			"file": "shine_3.1.1-2/shine_3.1.1.orig.tar.gz",
+			"sha256": "565b87867d6f8e6616a236445d194e36f4daa9b4e7af823fcf5010af7610c49e",
+			"bytes": 940443
+		},
+		{
+			"file": "shine_3.1.1-2/shine_3.1.1-2.debian.tar.xz",
+			"sha256": "a9f669c5af27f11c0cca98c736decc49b056ccfe32893f85a6064161f36b1b5b",
+			"bytes": 3624
+		},
+		{
+			"file": "slang2_2.3.3-5/slang2_2.3.3-5.dsc",
+			"sha256": "794817e0287e6270527cac0904e2f5ba1097e85c17f8ca5d64b43f80265e5f60",
+			"bytes": 2266
+		},
+		{
+			"file": "slang2_2.3.3-5/slang2_2.3.3.orig.tar.xz",
+			"sha256": "d86128b264933ad88c295b3a58127c2f29c8cb68334dd2e6a310b0a36436c64f",
+			"bytes": 1347116
+		},
+		{
+			"file": "slang2_2.3.3-5/slang2_2.3.3-5.debian.tar.xz",
+			"sha256": "2d86ebf1fae6b19347b418ce67316b4711d0aeb1dffc7b2c6ba3cba74c209e7e",
+			"bytes": 60404
+		},
+		{
+			"file": "snappy_1.2.2-1/snappy_1.2.2-1.dsc",
+			"sha256": "d3e7b1b7a079b78cb631b9c276767e834ab4a3195ab489102d11bd5cfad09123",
+			"bytes": 1842
+		},
+		{
+			"file": "snappy_1.2.2-1/snappy_1.2.2.orig.tar.gz",
+			"sha256": "90f74bc1fbf78a6c56b3c4a082a05103b3a56bb17bca1a27e052ea11723292dc",
+			"bytes": 1108618
+		},
+		{
+			"file": "snappy_1.2.2-1/snappy_1.2.2-1.debian.tar.xz",
+			"sha256": "258080500b87f3976d467c7a425fbbacc7894830457c4f9a85f46c37024d5a00",
+			"bytes": 16180
+		},
+		{
+			"file": "sord_0.16.18-1/sord_0.16.18-1.dsc",
+			"sha256": "5fe7bc97314f1886ce97b49d790336e57229e425df2bcc67d6e76881d27581b3",
+			"bytes": 2510
+		},
+		{
+			"file": "sord_0.16.18-1/sord_0.16.18.orig.tar.xz",
+			"sha256": "4f398b635894491a4774b1498959805a08e11734c324f13d572dea695b13d3b3",
+			"bytes": 102300
+		},
+		{
+			"file": "sord_0.16.18-1/sord_0.16.18.orig.tar.xz.asc",
+			"sha256": "05c21b5ed3e8b6e69478b8d01d474d246cbfc45c10f4aa625b5ef4b0519cc15e",
+			"bytes": 833
+		},
+		{
+			"file": "sord_0.16.18-1/sord_0.16.18-1.debian.tar.xz",
+			"sha256": "6de5e4e28f6e7c0ac787631e2312d39e4054beb84cd9654694f6a4045bdb3491",
+			"bytes": 11012
+		},
+		{
+			"file": "speex_1.2.1-3/speex_1.2.1-3.dsc",
+			"sha256": "b045514ce0dc1031b0b53a0a4321ab6e49212bdf6f37f32cbbec8e71eccac6d7",
+			"bytes": 2621
+		},
+		{
+			"file": "speex_1.2.1-3/speex_1.2.1.orig.tar.gz",
+			"sha256": "4b44d4f2b38a370a2d98a78329fefc56a0cf93d1c1be70029217baae6628feea",
+			"bytes": 1043278
+		},
+		{
+			"file": "speex_1.2.1-3/speex_1.2.1.orig.tar.gz.asc",
+			"sha256": "7d0457864f7dc83f05749b8ebeeafb1192b15f1643b08c38e8084e856a0d7b7f",
+			"bytes": 488
+		},
+		{
+			"file": "speex_1.2.1-3/speex_1.2.1-3.debian.tar.xz",
+			"sha256": "0496084339e4c8b162351c08f368d44f0d7ac039ce63ed2193fe9f6f311bdd54",
+			"bytes": 10264
+		},
+		{
+			"file": "sphinxbase_0.8%2B5prealpha%2B1-21/sphinxbase_0.8+5prealpha+1-21.dsc",
+			"sha256": "0d587b331afe10abd8b8d0d3986bab921c11e9bfee63c2b111939780c60aba15",
+			"bytes": 2671
+		},
+		{
+			"file": "sphinxbase_0.8%2B5prealpha%2B1-21/sphinxbase_0.8+5prealpha+1.orig.tar.gz",
+			"sha256": "f72bdb59e50b558bed47cc2105777200d2b246a0f328e913de16a9b22f9a246f",
+			"bytes": 3401241
+		},
+		{
+			"file": "sphinxbase_0.8%2B5prealpha%2B1-21/sphinxbase_0.8+5prealpha+1-21.debian.tar.xz",
+			"sha256": "6e1238d06bc65b0fe29f7fc54dcff2ed35cdcb786f7cd9a2efb22276d000e2ea",
+			"bytes": 15844
+		},
+		{
+			"file": "sratom_0.6.18-1/sratom_0.6.18-1.dsc",
+			"sha256": "b7a48b5dbd9a5d5ed75151c237e862e1d2c2b6d0fac166159cea1311807600ba",
+			"bytes": 2420
+		},
+		{
+			"file": "sratom_0.6.18-1/sratom_0.6.18.orig.tar.xz",
+			"sha256": "4c6a6d9e0b4d6c01cc06a8849910feceb92e666cb38779c614dd2404a9931e92",
+			"bytes": 19640
+		},
+		{
+			"file": "sratom_0.6.18-1/sratom_0.6.18.orig.tar.xz.asc",
+			"sha256": "67ca7fb7fd4b2469fbf138439550f639274875ba2f9626632d97d29f16c410ba",
+			"bytes": 833
+		},
+		{
+			"file": "sratom_0.6.18-1/sratom_0.6.18-1.debian.tar.xz",
+			"sha256": "d90ff186869bd985ee06a7319dca0e36247debef89f36b631cdc77dae50fc89b",
+			"bytes": 10048
+		},
+		{
+			"file": "srt_1.5.4-1/srt_1.5.4-1.dsc",
+			"sha256": "5e68206001a469176da0d211313542a8f9a015615c366cc691ce0c0cf021ac8f",
+			"bytes": 2317
+		},
+		{
+			"file": "srt_1.5.4-1/srt_1.5.4.orig.tar.gz",
+			"sha256": "d0a8b600fe1b4eaaf6277530e3cfc8f15b8ce4035f16af4a5eb5d4b123640cdd",
+			"bytes": 1743040
+		},
+		{
+			"file": "srt_1.5.4-1/srt_1.5.4-1.debian.tar.xz",
+			"sha256": "c516b205b5a71e500420c8d46e98db757819317ca819ac207e1675ad06fcd845",
+			"bytes": 16200
+		},
+		{
+			"file": "svt-av1_2.3.0%2Bdfsg-1/svt-av1_2.3.0+dfsg-1.dsc",
+			"sha256": "c113f4882ebc41220cd5cfe676834326e1f7ab8a6132026821c5079ffe751301",
+			"bytes": 2093
+		},
+		{
+			"file": "svt-av1_2.3.0%2Bdfsg-1/svt-av1_2.3.0+dfsg.orig.tar.xz",
+			"sha256": "815e88cc539c41b8ebd1a6f362f82ab510147635fc6c3edfa35edcfbed302cd8",
+			"bytes": 9017580
+		},
+		{
+			"file": "svt-av1_2.3.0%2Bdfsg-1/svt-av1_2.3.0+dfsg-1.debian.tar.xz",
+			"sha256": "40054958d7135b2da4de632e7c87b691b2cdf2a6b8e6d3a4e60eab345fdb448a",
+			"bytes": 7424
+		},
+		{
+			"file": "systemd_257.13-1~deb13u1/systemd_257.13-1~deb13u1.dsc",
+			"sha256": "1b3405d671a82d1e20c9d99f52d4336aafe8543b28d04e91b7f1f586d3a667c7",
+			"bytes": 8696
+		},
+		{
+			"file": "systemd_257.13-1~deb13u1/systemd_257.13.orig.tar.gz",
+			"sha256": "1eb7d5f9ff8a426ff880a3cded9ce819613ba8003ac5ddde9eca162f14ddabe7",
+			"bytes": 16543653
+		},
+		{
+			"file": "systemd_257.13-1~deb13u1/systemd_257.13-1~deb13u1.debian.tar.xz",
+			"sha256": "9c6e435d613b996efcdb3b7dd9a4cebaa745333a3f64dc722f3fad646f1fdc1a",
+			"bytes": 183128
+		},
+		{
+			"file": "texlive-extra_2024.20250309-2/texlive-extra_2024.20250309-2.dsc",
+			"sha256": "141f26ad12b6f0209809042d6152d6d32d7db5ad67c20d9b27b9876bed22c5f6",
+			"bytes": 4032
+		},
+		{
+			"file": "texlive-extra_2024.20250309-2/texlive-extra_2024.20250309.orig-tex4ht.tar.xz",
+			"sha256": "40c3d6c0715590c041df400a62227216a60f0e15bda8666bc21ebd3345050543",
+			"bytes": 19032
+		},
+		{
+			"file": "texlive-extra_2024.20250309-2/texlive-extra_2024.20250309.orig.tar.xz",
+			"sha256": "a3a9902f4c99d3e8cf67c0c0878e9bbf4c9a7f284f7ad0f8d5667b1add7bd21f",
+			"bytes": 2840925236
+		},
+		{
+			"file": "texlive-extra_2024.20250309-2/texlive-extra_2024.20250309-2.debian.tar.xz",
+			"sha256": "934b59eaca5c91e91279486faf192818b85554572cb899883c28b493186baf6f",
+			"bytes": 203564
+		},
+		{
+			"file": "twolame_0.4.0-2/twolame_0.4.0-2.dsc",
+			"sha256": "b5e662bbb076be28d1de5004ba6325b2df340eb7812d5071ba9d7f5d64faf7cc",
+			"bytes": 2048
+		},
+		{
+			"file": "twolame_0.4.0-2/twolame_0.4.0.orig.tar.gz",
+			"sha256": "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d",
+			"bytes": 890908
+		},
+		{
+			"file": "twolame_0.4.0-2/twolame_0.4.0-2.debian.tar.xz",
+			"sha256": "c11737831db6c13b0346b5d23d39ab40235ad09373d57356dd8b23263499d67a",
+			"bytes": 4740
+		},
+		{
+			"file": "unicode-data_15.1.0-1/unicode-data_15.1.0-1.dsc",
+			"sha256": "0c9c98aebcfc90b2fdb83090d892ecce53369a4805aa56e9360b0c6c24932470",
+			"bytes": 1794
+		},
+		{
+			"file": "unicode-data_15.1.0-1/unicode-data_15.1.0.orig.tar.xz",
+			"sha256": "67dc72f591397d8b1094b75cec4b56bee1262d2623ac3cf90f23f9581c025367",
+			"bytes": 15772964
+		},
+		{
+			"file": "unicode-data_15.1.0-1/unicode-data_15.1.0-1.debian.tar.xz",
+			"sha256": "89a8a93f8a02b45f223288f1a8814f19f9d2015fb94a3c055804194a8379b62b",
+			"bytes": 3944
+		},
+		{
+			"file": "util-linux_2.41-5/util-linux_2.41-5.dsc",
+			"sha256": "9e84dcc64170262f850aa5fd65902846a1ebf054d556ab5c4ec17fa16b00e628",
+			"bytes": 4942
+		},
+		{
+			"file": "util-linux_2.41-5/util-linux_2.41.orig.tar.xz",
+			"sha256": "81ee93b3cfdfeb7d7c4090cedeba1d7bbce9141fd0b501b686b3fe475ddca4c6",
+			"bytes": 9535724
+		},
+		{
+			"file": "util-linux_2.41-5/util-linux_2.41-5.debian.tar.xz",
+			"sha256": "20ad832160d5ed8de4759ce00652f620ce642ab583c3c1c431b68a15cdba1d07",
+			"bytes": 120144
+		},
+		{
+			"file": "vulkan-loader_1.4.309.0-1/vulkan-loader_1.4.309.0-1.dsc",
+			"sha256": "0f0c958cf579c47b6c8da0332bb37d8dbc86320561e1ce1275238f004f0a1063",
+			"bytes": 2243
+		},
+		{
+			"file": "vulkan-loader_1.4.309.0-1/vulkan-loader_1.4.309.0.orig.tar.xz",
+			"sha256": "6e37284e5c8ef5f06cef273cc207f0b31cb3b63c1ea2875639e843b01da4e6d7",
+			"bytes": 2930248
+		},
+		{
+			"file": "vulkan-loader_1.4.309.0-1/vulkan-loader_1.4.309.0-1.debian.tar.xz",
+			"sha256": "16cf72cbf5318a60403303d5ec5c234fd70d8f5333cdd780775192e6711b051d",
+			"bytes": 9536
+		},
+		{
+			"file": "wayland_1.23.1-3/wayland_1.23.1-3.dsc",
+			"sha256": "03b4da461e507338731b86183e989e0e9c3fa28f34d8739f0b30d8dd9b88bce8",
+			"bytes": 2650
+		},
+		{
+			"file": "wayland_1.23.1-3/wayland_1.23.1.orig.tar.gz",
+			"sha256": "158ec49af498f2558c7fbf7e8b070d010d4e270cc6076003a18a6c813f87e244",
+			"bytes": 370199
+		},
+		{
+			"file": "wayland_1.23.1-3/wayland_1.23.1-3.diff.gz",
+			"sha256": "f48a224e6d744d33ab00378b7a7f2b3ab6461706e30b722e320d047d880e70c8",
+			"bytes": 16437
+		},
+		{
+			"file": "x264_2%3A0.164.3108%2Bgit31e19f9-2/x264_0.164.3108+git31e19f9-2.dsc",
+			"sha256": "323a100cb9942a7a9030e335d77980b1da77947c54778083dc31d99d0fd7b888",
+			"bytes": 1758
+		},
+		{
+			"file": "x264_2%3A0.164.3108%2Bgit31e19f9-2/x264_0.164.3108+git31e19f9.orig.tar.gz",
+			"sha256": "41606cb8e788a7f8c4514290646d4ba5c7bc68d9e1ccd1a73f446a90546913eb",
+			"bytes": 954789
+		},
+		{
+			"file": "x264_2%3A0.164.3108%2Bgit31e19f9-2/x264_0.164.3108+git31e19f9-2.debian.tar.xz",
+			"sha256": "35afd5e6896432acc7ed675eb077f71f37d92d748c41652f19470c18403fcb58",
+			"bytes": 24600
+		},
+		{
+			"file": "x265_4.1-2/x265_4.1-2.dsc",
+			"sha256": "eaa5b43fbc4b6878a0d18751e6e0d8d087b416b2a11c8f1671659b4f8502cb31",
+			"bytes": 1695
+		},
+		{
+			"file": "x265_4.1-2/x265_4.1.orig.tar.xz",
+			"sha256": "85abb8a850000bf693947459c42a666a3ecd6de10a2ac6b3c6647554b14d3270",
+			"bytes": 1113508
+		},
+		{
+			"file": "x265_4.1-2/x265_4.1-2.debian.tar.xz",
+			"sha256": "05daa2bd9395f3e5cc6eed64aa47c044856b38a3dab12cd59008d60ec9f8c3cb",
+			"bytes": 13920
+		},
+		{
+			"file": "xvidcore_2%3A1.3.7-1/xvidcore_1.3.7-1.dsc",
+			"sha256": "163919a59468677ed948011371e93b7183d83d3b0e77bc84ac02fe27b1510548",
+			"bytes": 2129
+		},
+		{
+			"file": "xvidcore_2%3A1.3.7-1/xvidcore_1.3.7.orig.tar.bz2",
+			"sha256": "aeeaae952d4db395249839a3bd03841d6844843f5a4f84c271ff88f7aa1acff7",
+			"bytes": 698615
+		},
+		{
+			"file": "xvidcore_2%3A1.3.7-1/xvidcore_1.3.7-1.debian.tar.xz",
+			"sha256": "0293cfb7f9c9036ffc40647ae81e98f12c880372eafbe58e22810032f9227338",
+			"bytes": 6464
+		},
+		{
+			"file": "xz-utils_5.8.1-1/xz-utils_5.8.1-1.dsc",
+			"sha256": "a11c19074a9e6b3bd4e566166278d9ebd23915fd0d400fbe6d16eb000d845284",
+			"bytes": 2704
+		},
+		{
+			"file": "xz-utils_5.8.1-1/xz-utils_5.8.1.orig.tar.xz",
+			"sha256": "0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e",
+			"bytes": 1461872
+		},
+		{
+			"file": "xz-utils_5.8.1-1/xz-utils_5.8.1.orig.tar.xz.asc",
+			"sha256": "4138f4ceca1aa7fd2085fb15a23f6d495d27bca6d3c49c429a8520ea622c27ae",
+			"bytes": 833
+		},
+		{
+			"file": "xz-utils_5.8.1-1/xz-utils_5.8.1-1.debian.tar.xz",
+			"sha256": "a731db6d87e211c7b4e6f1af2fbb5369cd381d8cb0f1e00e8bc30304ae6f00b0",
+			"bytes": 24624
+		},
+		{
+			"file": "zeromq3_4.3.5-1/zeromq3_4.3.5-1.dsc",
+			"sha256": "0e699fe5f733857c1952a341bc23fa06a12bb773a8424712ca1a479c26a4dfc3",
+			"bytes": 1870
+		},
+		{
+			"file": "zeromq3_4.3.5-1/zeromq3_4.3.5.orig.tar.gz",
+			"sha256": "6c972d1e6a91a0ecd79c3236f04cf0126f2f4dfbbad407d72b4606a7ba93f9c6",
+			"bytes": 875547
+		},
+		{
+			"file": "zeromq3_4.3.5-1/zeromq3_4.3.5-1.debian.tar.xz",
+			"sha256": "965daee5f62496332a64aa46b6b970565da88ad1be0f73d694051427a3366a6a",
+			"bytes": 10900
+		},
+		{
+			"file": "zimg_3.0.5%2Bds1-1/zimg_3.0.5+ds1-1.dsc",
+			"sha256": "21e764f0329785f334637cfb444487ca56c04db28cd17c51c967ba1ce086f355",
+			"bytes": 1369
+		},
+		{
+			"file": "zimg_3.0.5%2Bds1-1/zimg_3.0.5+ds1.orig.tar.xz",
+			"sha256": "aa948d1b605b7f9242791fdbf7023178dc626472897b76d9f541441b40e71ff7",
+			"bytes": 195868
+		},
+		{
+			"file": "zimg_3.0.5%2Bds1-1/zimg_3.0.5+ds1-1.debian.tar.xz",
+			"sha256": "b78b13ebacf10aba67df67ec4bd95e5397bffb5d04218fa7356ae3a3581bd019",
+			"bytes": 3148
+		},
+		{
+			"file": "zix_0.6.2-1/zix_0.6.2-1.dsc",
+			"sha256": "33db3e27fb5dff7798f71f6b42adc70d6732f1c650115dad64a958d6d4aaac21",
+			"bytes": 2216
+		},
+		{
+			"file": "zix_0.6.2-1/zix_0.6.2.orig.tar.xz",
+			"sha256": "4bc771abf4fcf399ea969a1da6b375f0117784f8fd0e2db356a859f635f616a7",
+			"bytes": 81316
+		},
+		{
+			"file": "zix_0.6.2-1/zix_0.6.2.orig.tar.xz.asc",
+			"sha256": "7afe2147fe0cfed307c7cac60d0c43afe296a77fbca99cbffa92509f759a1491",
+			"bytes": 833
+		},
+		{
+			"file": "zix_0.6.2-1/zix_0.6.2-1.debian.tar.xz",
+			"sha256": "9ccf4d0f87cfccd0ce8ae8c7a499bddfd13f8277455b0b605849665c9a47add3",
+			"bytes": 9108
+		},
+		{
+			"file": "zlib_1%3A1.3.dfsg%2Breally1.3.1-1/zlib_1.3.dfsg+really1.3.1-1.dsc",
+			"sha256": "ede2791e29c1d3b422f9208bdd7edf040c20445ea1e7453a72037576e64fa197",
+			"bytes": 2637
+		},
+		{
+			"file": "zlib_1%3A1.3.dfsg%2Breally1.3.1-1/zlib_1.3.dfsg+really1.3.1.orig.tar.gz",
+			"sha256": "60dd315c07f616887caa029408308a018ace66e3d142726a97db164b3b8f69fb",
+			"bytes": 1325737
+		},
+		{
+			"file": "zlib_1%3A1.3.dfsg%2Breally1.3.1-1/zlib_1.3.dfsg+really1.3.1-1.debian.tar.xz",
+			"sha256": "9ed525955ce9fb0c1b39be8ff98f73450dbfc6305a9a27e6149c8972d38a0a9e",
+			"bytes": 16576
+		},
+		{
+			"file": "zvbi_0.2.44-1/zvbi_0.2.44-1.dsc",
+			"sha256": "23dfe1aef47f7195869d605e5bd706abb1a48d8ae182dde442f826d40d83a017",
+			"bytes": 2392
+		},
+		{
+			"file": "zvbi_0.2.44-1/zvbi_0.2.44.orig.tar.gz",
+			"sha256": "bca620ab670328ad732d161e4ce8d9d9fc832533cb7440e98c50e112b805ac5e",
+			"bytes": 942350
+		},
+		{
+			"file": "zvbi_0.2.44-1/zvbi_0.2.44.orig.tar.gz.asc",
+			"sha256": "9f6dc9a991d6b8b90913eb92aed52e40f3ef96f5272fa5380a141bb1cab0f29f",
+			"bytes": 833
+		},
+		{
+			"file": "zvbi_0.2.44-1/zvbi_0.2.44-1.debian.tar.xz",
+			"sha256": "257b833e6f95655c43c12292d30ac0abd506bd297b979af42c1b807de9e3950f",
+			"bytes": 20308
+		}
+	],
+	"redistributionApproved": false
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap rescap">
+  <Identity Name="Z8Work.Desktop.Dev" Publisher="CN=Z8.Work Development" Version="1.0.0.0" ProcessorArchitecture="x64" />
+  <Properties><DisplayName>Z8.Work Desktop Dev</DisplayName><PublisherDisplayName>Z8.Work Development</PublisherDisplayName><Description>Local multi-file conversion tools - development package</Description><Logo>Assets\StoreLogo.png</Logo></Properties>
+  <Resources><Resource Language="en-US" /><Resource Language="zh-CN" /></Resources>
+  <Dependencies><TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.19041.0" /></Dependencies>
+  <Applications><Application Id="Z8Work" Executable="z8-desktop.exe" EntryPoint="Windows.FullTrustApplication"><uap:VisualElements DisplayName="Z8.Work Desktop Dev" Description="Local multi-file conversion tools - development package" BackgroundColor="#086b68" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" /></Application></Applications>
+  <Capabilities><rescap:Capability Name="runFullTrust" /></Capabilities>
+</Package>

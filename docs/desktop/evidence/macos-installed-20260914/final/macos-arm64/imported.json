@@ -1,0 +1,1679 @@
+{
+  "AXRole": "AXApplication",
+  "AXTitle": "Z8.Work",
+  "children": [
+    {
+      "AXRole": "AXWindow",
+      "AXTitle": "Z8.Work — Desktop",
+      "children": [
+        {
+          "AXEnabled": true,
+          "AXRole": "AXGroup",
+          "children": [
+            {
+              "AXRole": "AXGroup",
+              "children": [
+                {
+                  "AXDescription": "",
+                  "AXEnabled": true,
+                  "AXRole": "AXScrollArea",
+                  "AXTitle": "",
+                  "AXValue": "",
+                  "children": [
+                    {
+                      "AXDescription": "Z8.Work · Desktop M0",
+                      "AXEnabled": true,
+                      "AXRole": "AXWebArea",
+                      "AXTitle": "",
+                      "AXValue": "",
+                      "children": [
+                        {
+                          "AXDescription": "",
+                          "AXEnabled": true,
+                          "AXRole": "AXLink",
+                          "AXTitle": "Skip to conversion workspace",
+                          "AXValue": "",
+                          "children": [
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXStaticText",
+                              "AXTitle": "",
+                              "AXValue": "Skip to conversion workspace",
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "AXDescription": "",
+                          "AXEnabled": true,
+                          "AXRole": "AXGroup",
+                          "AXTitle": "",
+                          "AXValue": "",
+                          "children": [
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "Z8.Work",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXStaticText",
+                              "AXTitle": "",
+                              "AXValue": "DESKTOP",
+                              "children": []
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "Language / 语言",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXPopUpButton",
+                                  "AXTitle": "Language / 语言",
+                                  "AXValue": "System language",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "AXDescription": "",
+                          "AXEnabled": true,
+                          "AXRole": "AXGroup",
+                          "AXTitle": "",
+                          "AXValue": "",
+                          "children": [
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "PROCESSED ON THIS DEVICE",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXHeading",
+                              "AXTitle": "Your local file workspace",
+                              "AXValue": 1,
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "Your local file workspace",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "Native conversion on your computer. Your queue continues when the interface reloads.",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXDisclosureTriangle",
+                                  "AXTitle": "Processed on this device · File uploads 0 B",
+                                  "AXValue": false,
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Processed on this device · File uploads 0 B",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "Development prototype · not release ready",
+                                  "children": []
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Images: first frame, lossless PNG, white JPEG background. PDF: all pages, up to 200 pages and 4000 × 4000 pixels per page. Seven audio outputs. Documents: text only. Output may grow. See engine status below.",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Last import",
+                                      "children": []
+                                    },
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": " · Added 1 · Skipped 0",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXButton",
+                                  "AXTitle": "Dismiss import notice",
+                                  "AXValue": "",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "Conversion workspace",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "Conversion workspace",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXButton",
+                                  "AXTitle": "Choose files",
+                                  "AXValue": "",
+                                  "children": []
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXButton",
+                                  "AXTitle": "Save folder",
+                                  "AXValue": "",
+                                  "children": []
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXButton",
+                                  "AXTitle": "Clear file list",
+                                  "AXValue": "",
+                                  "children": []
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Save to: Choose a folder",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXDisclosureTriangle",
+                                      "AXTitle": "Batch settings",
+                                      "AXValue": false,
+                                      "children": [
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXStaticText",
+                                          "AXTitle": "",
+                                          "AXValue": "Batch settings",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXGroup",
+                                      "AXTitle": "",
+                                      "AXValue": "测试 image.png 422 B Image qualityKeep EXIF / XMP / IPTC Ready",
+                                      "children": [
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXGroup",
+                                          "AXTitle": "",
+                                          "AXValue": "",
+                                          "children": [
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXStaticText",
+                                              "AXTitle": "",
+                                              "AXValue": "测试 image.png",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXStaticText",
+                                          "AXTitle": "",
+                                          "AXValue": "422 B",
+                                          "children": []
+                                        },
+                                        {
+                                          "AXDescription": "测试 image.png output format",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXPopUpButton",
+                                          "AXTitle": "测试 image.png output format",
+                                          "AXValue": "WEBP",
+                                          "children": []
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXGroup",
+                                          "AXTitle": "",
+                                          "AXValue": "",
+                                          "children": [
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXButton",
+                                              "AXTitle": "Preview input",
+                                              "AXValue": "",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXGroup",
+                                          "AXTitle": "",
+                                          "AXValue": "",
+                                          "children": [
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXStaticText",
+                                              "AXTitle": "",
+                                              "AXValue": "Image quality",
+                                              "children": []
+                                            },
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXPopUpButton",
+                                              "AXTitle": "Image quality",
+                                              "AXValue": "Balanced",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXGroup",
+                                          "AXTitle": "",
+                                          "AXValue": "",
+                                          "children": [
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXCheckBox",
+                                              "AXTitle": "Keep EXIF / XMP / IPTC",
+                                              "AXValue": 0,
+                                              "children": []
+                                            },
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXStaticText",
+                                              "AXTitle": "",
+                                              "AXValue": "Keep EXIF / XMP / IPTC",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXGroup",
+                                          "AXTitle": "",
+                                          "AXValue": "",
+                                          "children": [
+                                            {
+                                              "AXDescription": "",
+                                              "AXEnabled": true,
+                                              "AXRole": "AXStaticText",
+                                              "AXTitle": "",
+                                              "AXValue": "Ready",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXButton",
+                                          "AXTitle": "Remove task",
+                                          "AXValue": "",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXGroup",
+                                      "AXTitle": "",
+                                      "AXValue": "",
+                                      "children": [
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXStaticText",
+                                          "AXTitle": "",
+                                          "AXValue": "Choose a save folder before converting. Use the conversion button to select a folder and start; cancelling will not start conversion.",
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Clearing cancels tasks and discards unsaved cached results. Originals and saved files are kept. Closing with active tasks or unsaved results asks for confirmation.",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXButton",
+                                  "AXTitle": "Choose save folder and convert",
+                                  "AXValue": "",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXDisclosureTriangle",
+                                  "AXTitle": "Native engine status · macos / aarch64",
+                                  "AXValue": false,
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Native engine status · macos / aarch64",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "Smaller images, less storage demand",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "Smaller images, less storage demand",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXHeading",
+                                  "AXTitle": "Smaller images, less storage demand",
+                                  "AXValue": 2,
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Smaller images, less storage demand",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Saved images in this queue: 0 · Potential reduction compared to originals: 0 B",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Estimated for the one-year storage scenario below: 0 g CO₂",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Originals are retained: this is neither freed disk space nor measured emissions avoided. Only completely saved images in the current queue count; larger results offset reductions. Retries do not accumulate; clearing resets the estimate.",
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXGroup",
+                                  "AXTitle": "",
+                                  "AXValue": "",
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXDisclosureTriangle",
+                                      "AXTitle": "Environmental context and assumptions (available offline)",
+                                      "AXValue": false,
+                                      "children": [
+                                        {
+                                          "AXDescription": "",
+                                          "AXEnabled": true,
+                                          "AXRole": "AXStaticText",
+                                          "AXTitle": "",
+                                          "AXValue": "Environmental context and assumptions (available offline)",
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXDisclosureTriangle",
+                                  "AXTitle": "Troubleshooting",
+                                  "AXValue": false,
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Troubleshooting",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXDisclosureTriangle",
+                                  "AXTitle": "Open-source licenses",
+                                  "AXValue": false,
+                                  "children": [
+                                    {
+                                      "AXDescription": "",
+                                      "AXEnabled": true,
+                                      "AXRole": "AXStaticText",
+                                      "AXTitle": "",
+                                      "AXValue": "Open-source licenses",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "AXDescription": "",
+                              "AXEnabled": true,
+                              "AXRole": "AXGroup",
+                              "AXTitle": "",
+                              "AXValue": "",
+                              "children": [
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "Conversion runs on this device. Clearing removes current queue records; history backups retained during upgrades require separate cleanup.",
+                                  "children": []
+                                },
+                                {
+                                  "AXDescription": "",
+                                  "AXEnabled": true,
+                                  "AXRole": "AXStaticText",
+                                  "AXTitle": "",
+                                  "AXValue": "contact@web.casa",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "AXDescription": "",
+                      "AXEnabled": true,
+                      "AXRole": "AXScrollBar",
+                      "AXTitle": "",
+                      "AXValue": 0,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXButton"
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXButton",
+          "children": [
+            {
+              "AXRole": "AXGroup",
+              "children": [
+                {
+                  "AXRole": "AXGroup",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXButton"
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXStaticText",
+          "AXValue": "Z8.Work — Desktop",
+          "children": []
+        }
+      ]
+    },
+    {
+      "AXEnabled": true,
+      "AXRole": "AXMenuBar",
+      "children": [
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "Apple",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_aboutThisMacRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "About This Mac",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_systemInformationRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "System Information",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_systemSettingsRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "System Settings…, 1 update",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_appStoreRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "App Store",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_recentsRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Recent Items",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXRole": "AXMenu",
+                      "children": [
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Applications",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Installer",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Show “Installer” in Finder",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "System Settings",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Show “System Settings” in Finder",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Z8.Work Desktop Dev",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Show “Z8.Work Desktop Dev” in Finder",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Documents",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "AnkaGuestAddons.pkg",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_recentItemRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Show “AnkaGuestAddons.pkg” in Finder",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Servers",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_clearRecentItemsRequested:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Clear Menu",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_forceQuitPanelRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Force Quit…",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_forceQuitRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Force Quit Z8.Work",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_sleepRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Sleep",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_restartRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Restart…",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_restartNowRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Restart",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_shutDownRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Shut Down…",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_shutDownNowRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Shut Down",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_lockScreenRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Lock Screen",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_logOutRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Log Out Anka…",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_logOutNowRequested:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Log Out Anka",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "Z8.Work",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "fireMenuItemAction:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "About Z8.Work Desktop Dev",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Services",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXRole": "AXMenu",
+                      "children": [
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Activity Monitor",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Allocations & Leaks",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "File Activity",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "System Trace",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Time Profile Active Application",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Time Profile App Under Mouse",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Time Profile Entire System",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_processRequest:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Toggle Instruments Recording",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_configureServicesMenu:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Services Settings…",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "hide:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Hide Z8.Work Desktop Dev",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "hideOtherApplications:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Hide Others",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "terminate:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Quit Z8.Work Desktop Dev",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "NSAlternateQuitMenuItem",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Quit and Keep Windows",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "File",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "performClose:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Close Window",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "closeAll:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Close All",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "Edit",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "undo:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Undo",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "redo:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Redo",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "cut:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Cut",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "copy:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Copy",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "paste:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Paste",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "selectAll:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Select All",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_NSMenuItemAutoFillIdentifier",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "AutoFill",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXRole": "AXMenu",
+                      "children": [
+                        {
+                          "AXEnabled": false,
+                          "AXIdentifier": "_handleInsertFromContactsCommand:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Contact…",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXIdentifier": "_handleInsertFromPasswordsCommand:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Passwords…",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "startDictation:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Start Dictation…",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "orderFrontCharacterPalette:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Emoji & Symbols",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "View",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "toggleFullScreen:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Toggle Full Screen",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "Window",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "performMiniaturize:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Minimize",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "miniaturizeAll:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Minimize All",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "performZoom:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Zoom",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "zoomAll:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Zoom All",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_zoomFill:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Fill",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_zoomCenter:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Center",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Move & Resize",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXRole": "AXMenu",
+                      "children": [
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Halves",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomLeft:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Left",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomRight:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Right",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomTop:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Top",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomBottom:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Bottom",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomTopLeft:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Top Left",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomTopRight:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Top Right",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomBottomLeft:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Bottom Left",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomBottomRight:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Bottom Right",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Arrange",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomLeftAndRight:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Left & Right",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomLeftThreeUp:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Left & Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomRightAndLeft:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Right & Left",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomRightThreeUp:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Right & Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomTopAndBottom:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Top & Bottom",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomTopThreeUp:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Top & Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomBottomAndTop:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Bottom & Top",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomBottomThreeUp:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Bottom & Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": true,
+                          "AXIdentifier": "_zoomQuarters:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Quarters",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXIdentifier": "_zoomUntile:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Return to Previous Size",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Full Screen Tile",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXRole": "AXMenu",
+                      "children": [
+                        {
+                          "AXEnabled": false,
+                          "AXIdentifier": "_tileLeft:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Left of Screen",
+                          "children": []
+                        },
+                        {
+                          "AXEnabled": false,
+                          "AXIdentifier": "_tileRight:",
+                          "AXRole": "AXMenuItem",
+                          "AXTitle": "Right of Screen",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "_removeWindowFromStageManagerSet:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Remove Window from Set",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "performClose:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Close Window",
+                  "children": []
+                },
+                {
+                  "AXEnabled": false,
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "",
+                  "children": []
+                },
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "makeKeyAndOrderFront:",
+                  "AXRole": "AXMenuItem",
+                  "AXTitle": "Z8.Work — Desktop",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "AXEnabled": true,
+          "AXRole": "AXMenuBarItem",
+          "AXTitle": "Help",
+          "children": [
+            {
+              "AXEnabled": true,
+              "AXRole": "AXMenu",
+              "children": [
+                {
+                  "AXEnabled": true,
+                  "AXIdentifier": "searchFieldAction:",
+                  "AXRole": "AXMenuItem",
+                  "children": [
+                    {
+                      "AXEnabled": true,
+                      "AXIdentifier": "_SC_SEARCH_FIELD",
+                      "AXRole": "AXTextField",
+                      "AXValue": ""
+                    },
+                    {
+                      "AXDescription": "search result",
+                      "AXEnabled": true,
+                      "AXIdentifier": "_SC_RESULTS_TABLE",
+                      "AXRole": "AXTable",
+                      "children": [
+                        {
+                          "AXIdentifier": "Title",
+                          "AXRole": "AXColumn"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

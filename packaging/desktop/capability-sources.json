@@ -1,0 +1,68 @@
+[
+	{
+		"id": "linux-amd64",
+		"runner": "ubuntu-24.04",
+		"os": "linux",
+		"arch": "x64",
+		"target": "x86_64-unknown-linux-gnu",
+		"run": "34769213214",
+		"artifact": "linux-amd64-complete-preview",
+		"file": "z8-work_0.1.0~preview1_amd64.deb",
+		"sha256": "44af02707a7cd427e2ee3e8b083ea405bac95ed9ad16713a3002a08c264ab71d"
+	},
+	{
+		"id": "linux-arm64",
+		"runner": "ubuntu-24.04-arm",
+		"os": "linux",
+		"arch": "arm64",
+		"target": "aarch64-unknown-linux-gnu",
+		"run": "34769213214",
+		"artifact": "linux-arm64-complete-preview",
+		"file": "z8-work_0.1.0~preview1_arm64.deb",
+		"sha256": "5ebb729b0a5813d4c21da7bb450c11229e80ac1a396637ed0e1521e9ae5f789f"
+	},
+	{
+		"id": "windows-amd64",
+		"runner": "windows-2025",
+		"os": "win32",
+		"arch": "x64",
+		"target": "x86_64-pc-windows-msvc",
+		"run": "34769462749",
+		"artifact": "windows-x64-preview-and-development-msix",
+		"file": "Z8.Work-windows-x64-preview.zip",
+		"sha256": "ba4f624732737a8ed61806769109e879f77b307224cc687f21db764e987dc4aa"
+	},
+	{
+		"id": "windows-arm64",
+		"runner": "windows-11-arm",
+		"os": "win32",
+		"arch": "arm64",
+		"target": "aarch64-pc-windows-msvc",
+		"run": "34769218259",
+		"artifact": "windows-arm64-complete-preview",
+		"file": "Z8.Work-windows-arm64-preview.zip",
+		"sha256": "f76f311272e1bce9322434b718f7f64c4eb3e9f32ad1750aaeccfe940c2a219c"
+	},
+	{
+		"id": "macos-amd64",
+		"runner": "macos-15-intel",
+		"os": "darwin",
+		"arch": "x64",
+		"target": "x86_64-apple-darwin",
+		"run": "34769210630",
+		"artifact": "macos-amd64-signed-notarized",
+		"file": "Z8.Work-macos-amd64-signed.dmg",
+		"sha256": "357fe4397c259f8a414885487103ad44702c3b9727f6001c276fc75ff1ae821f"
+	},
+	{
+		"id": "macos-arm64",
+		"runner": "macos-15",
+		"os": "darwin",
+		"arch": "arm64",
+		"target": "aarch64-apple-darwin",
+		"run": "34769210630",
+		"artifact": "macos-arm64-signed-notarized",
+		"file": "Z8.Work-macos-arm64-signed.dmg",
+		"sha256": "f6057c69d3783f4548f1b75dd77490de0a0a8df699ed657b6ef7dee2e43b5596"
+	}
+]

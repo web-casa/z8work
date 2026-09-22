@@ -1,0 +1,235 @@
+{
+	"schema": 1,
+	"scope": "v1-format-expansion-3b",
+	"profiles": {
+		"baseline-r6": {
+			"routes": [
+				{
+					"inputs": [
+						"png",
+						"jpg",
+						"jpeg",
+						"webp",
+						"avif",
+						"heic",
+						"heif",
+						"bmp",
+						"tga",
+						"qoi"
+					],
+					"outputs": [
+						"png",
+						"jpeg",
+						"webp",
+						"avif",
+						"bmp",
+						"tga",
+						"qoi"
+					]
+				},
+				{
+					"inputs": ["pdf"],
+					"outputs": [
+						"png",
+						"jpeg",
+						"webp",
+						"avif",
+						"bmp",
+						"tga",
+						"qoi"
+					]
+				},
+				{
+					"inputs": [
+						"mp3",
+						"wav",
+						"flac",
+						"ogg",
+						"m4a",
+						"opus",
+						"mp4",
+						"mov",
+						"mkv",
+						"webm",
+						"aiff",
+						"aif"
+					],
+					"outputs": [
+						"wav",
+						"mp3",
+						"flac",
+						"opus",
+						"m4a",
+						"ogg",
+						"aiff"
+					]
+				},
+				{
+					"inputs": ["md", "docx", "html", "htm", "odt", "epub"],
+					"outputs": ["txt"]
+				}
+			]
+		},
+		"linux-aarch64-expanded-r1": {
+			"routes": [
+				{
+					"inputs": [
+						"png",
+						"jpg",
+						"jpeg",
+						"jpe",
+						"jfif",
+						"webp",
+						"avif",
+						"heic",
+						"heif",
+						"bmp",
+						"tga",
+						"qoi",
+						"pbm",
+						"pgm",
+						"ppm",
+						"pnm",
+						"pam",
+						"gif",
+						"tif",
+						"tiff",
+						"ico",
+						"pcx",
+						"xbm",
+						"xpm",
+						"svg",
+						"jxl",
+						"exr",
+						"hdr",
+						"dpx"
+					],
+					"outputs": [
+						"png",
+						"jpeg",
+						"webp",
+						"avif",
+						"bmp",
+						"tga",
+						"qoi",
+						"pbm",
+						"pgm",
+						"ppm",
+						"pnm",
+						"pam",
+						"gif",
+						"tiff",
+						"ico",
+						"pcx",
+						"xbm",
+						"xpm",
+						"heic",
+						"heif",
+						"jxl"
+					]
+				},
+				{
+					"inputs": ["pdf"],
+					"outputs": [
+						"png",
+						"jpeg",
+						"webp",
+						"avif",
+						"bmp",
+						"tga",
+						"qoi",
+						"pbm",
+						"pgm",
+						"ppm",
+						"pnm",
+						"pam",
+						"gif",
+						"tiff",
+						"ico",
+						"pcx",
+						"xbm",
+						"xpm",
+						"heic",
+						"heif",
+						"jxl",
+						"txt"
+					]
+				},
+				{
+					"inputs": [
+						"mp3",
+						"wav",
+						"flac",
+						"ogg",
+						"m4a",
+						"opus",
+						"mp4",
+						"mov",
+						"mkv",
+						"webm",
+						"aiff",
+						"aif",
+						"oga",
+						"mka",
+						"weba",
+						"aac",
+						"ac3",
+						"amr",
+						"au",
+						"caf",
+						"wma",
+						"mp2",
+						"voc",
+						"wv"
+					],
+					"outputs": [
+						"wav",
+						"mp3",
+						"flac",
+						"opus",
+						"m4a",
+						"ogg",
+						"aiff",
+						"aac",
+						"alac"
+					]
+				},
+				{
+					"inputs": ["txt", "text"],
+					"outputs": ["txt"]
+				},
+				{
+					"inputs": [
+						"md",
+						"markdown",
+						"mdown",
+						"mkdn",
+						"rst",
+						"docx",
+						"html",
+						"htm",
+						"odt",
+						"epub",
+						"csv",
+						"tsv",
+						"docbook",
+						"org"
+					],
+					"outputs": ["txt"]
+				}
+			]
+		}
+	},
+	"targets": [
+		{ "os": "linux", "arch": "x86_64", "profile": "baseline-r6" },
+		{
+			"os": "linux",
+			"arch": "aarch64",
+			"profile": "linux-aarch64-expanded-r1"
+		},
+		{ "os": "windows", "arch": "x86_64", "profile": "baseline-r6" },
+		{ "os": "windows", "arch": "aarch64", "profile": "baseline-r6" },
+		{ "os": "macos", "arch": "x86_64", "profile": "baseline-r6" },
+		{ "os": "macos", "arch": "aarch64", "profile": "baseline-r6" }
+	]
+}

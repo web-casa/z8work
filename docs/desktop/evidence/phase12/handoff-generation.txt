@@ -1,0 +1,1 @@
+{"status":"prepared-for-native-testing","output":"/home/ivmm/VERT/.desktop-local/phase12/delivery","handoff":{"sha256":"9955d2e7f33e79c4adb2e9fd019a332158783c94b6d16676e3a821e78ce0397a","bytes":6669},"acceptance":"incomplete"}

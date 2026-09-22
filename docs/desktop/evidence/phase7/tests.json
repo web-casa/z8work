@@ -1,0 +1,35 @@
+{
+	"schema": 1,
+	"host": "Debian 13 Linux aarch64",
+	"desktopNode24": {
+		"version": "24.18.0",
+		"passed": 61,
+		"failed": 0
+	},
+	"desktopNode22": {
+		"version": "22.22.2",
+		"passed": 61,
+		"failed": 0
+	},
+	"newTests": {
+		"snapshot": 18,
+		"assembly": 3
+	},
+	"web": {
+		"passed": 180,
+		"failed": 0
+	},
+	"typecheck": {
+		"errors": 0,
+		"warnings": 0
+	},
+	"strictAuditExitCode": 0,
+	"eslint": "passed",
+	"prettier": "passed",
+	"limitations": [
+		"No new native binary or installer built",
+		"No remote CI run",
+		"No OpenPGP signature or reproducible build verification",
+		"Disk write failure path reviewed statically, not fault injected"
+	]
+}

@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "engineManifestSha256": "9bc5bcf84e4316819ac14001324d387d6616d85012c0b96bcf87aebdd1a5b4ce",
+  "image": "sha256:0eb02ee395b092b6926cde5d582a4a6551b3e315610b3439d676ab7469ad25c9",
+  "os": "linux",
+  "arch": "aarch64",
+  "exitCode": 0,
+  "network": "none",
+  "rootFilesystem": "read-only",
+  "baseImage": "scratch",
+  "uid": 1000,
+  "installerAcceptance": false
+}

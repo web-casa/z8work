@@ -1,0 +1,3 @@
+# Dedicated source-reconstruction builder; do not modify a shared builder.
+[worker.oci]
+  max-parallelism = 2

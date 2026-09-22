@@ -1,0 +1,17 @@
+{
+	"$schema": "../gen/schemas/desktop-schema.json",
+	"identifier": "main",
+	"description": "Bundled web conversion UI: user-selected output only; no filesystem or process access.",
+	"windows": ["main"],
+	"permissions": [
+		"allow-begin-save",
+		"allow-append-save",
+		"allow-finish-save",
+		"allow-abort-save",
+		"allow-confirm-close",
+		"allow-finish-close",
+		"allow-distribution-channel",
+		"core:event:allow-listen",
+		"core:event:allow-unlisten"
+	]
+}

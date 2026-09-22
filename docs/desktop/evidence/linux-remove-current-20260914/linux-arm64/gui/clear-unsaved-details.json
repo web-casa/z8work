@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "beforeClear": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "save-probe.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "7db98827-929b-49dc-ad68-0bf8aa17b4e6"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 30,
+    "epoch": "bfc810c0-32e0-4362-a118-af697b6f0778",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "dc8c1c92-9f68-4fd4-bf88-e6c210da2ebf",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "7db98827-929b-49dc-ad68-0bf8aa17b4e6": "publish"
+    }
+  },
+  "afterClear": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [],
+    "output_authorized": true,
+    "revision": 32,
+    "epoch": "dd7f51a1-a5e2-496a-9bc7-17098cc46c7c",
+    "processing": false,
+    "import_report": null,
+    "recovery_notice": null
+  },
+  "afterNewConversion": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+              "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/save-probe-z8-2.webp",
+              "bytes": 82
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/runner/work/z8work/z8work/.desktop-local/installed-gui-report/gui/results/save-probe-z8-2.webp",
+          "bytes": 82
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "save-probe.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "772304c6-8ebf-48b5-ac2b-fa7b8ecf91fa"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 39,
+    "epoch": "dd7f51a1-a5e2-496a-9bc7-17098cc46c7c",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "75cd48a6-bb76-4f80-83b8-aaf77d05bfd1",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "appRemainedOpen": true,
+  "cacheRemoved": true,
+  "collisionsPreserved": 1000,
+  "discardedPayload": {
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  },
+  "decoded": [
+    32,
+    32
+  ],
+  "output": {
+    "file": "save-probe-z8-2.webp",
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

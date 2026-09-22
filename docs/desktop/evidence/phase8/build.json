@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "date": "2026-09-08",
+  "sourceHead": "c554d15c578d54713d9ab0cf58e7a6ec221f35a9",
+  "sourceDirty": true,
+  "applicationInputs": "application-inputs.json",
+  "sourceFiles": {
+    "package.json": "a06acb3cd9b64f76310aa4a7d886cfc7bed7d8d3aaf87936d48a0176a79395c5",
+    "bun.lock": "93ac2f86a73b0bcc1663007d605452ba42d852e947bc7b910b33ef454c4ee192",
+    ".github/workflows/desktop.yml": "c7eb97ce9312bb0d20d3cda112623c8a477e25bde6d695c49b74e5370bfba4e6",
+    "packaging/desktop/linux/Dockerfile.core24": "7d26b24e25f33ee4607c18f2d50af2ba7ab9c4b9af81ea860b71b683ae843dfe",
+    "packaging/desktop/linux/build-core24.sh": "042a8675b8612ab567d23db1d802afbe70d189648edaa1a123476ae462f6883d",
+    "packaging/desktop/snap/snapcraft.yaml": "8c6c0ce4383e6756b3f887cf9ed0c56df3aef4341233daee1a17e92e47dcfb54",
+    "packaging/desktop/snap/z8-work.desktop": "1c3795d70f1a74c52dc84fe1bc2c49436a94f1521ad23ade2eef1808cbbd2faf",
+    "scripts/desktop-bundle-linux.mjs": "c4f91990b6c42ee927d390921edff573f7d09efa745946fb6e7b211b3bd4aa0f",
+    "scripts/desktop-snap-prepare.mjs": "9297d32c4eab6ce3a7ddfeeca28cc681d557dfd6b055d2f3898a650b3e9fdeae",
+    "scripts/desktop-snap-pack.mjs": "8c0cae2fffc64f0be088cc9af299d168f09e5928dc7b8e13d44556ecaeb1df6b",
+    "scripts/desktop-snap-check.mjs": "5db4655666bc8d8bd6cf6557d9b519cd7be247c1ade23824d31ac484d2f1fcc6",
+    "scripts/lib/desktop-snap.mjs": "7facd07da2c53c568234c839653ad884af6d3b2509ed81226e8b4867583c903c",
+    "scripts/lib/desktop-artifacts.mjs": "373e6d9e3f56723f0ebdff8c50998c8dafa01b724a0752ecb885ea8faf9261ee",
+    "src-tauri/icons/icon.ico": "1640d20ca4c262cfb7d8cc98772779d6063236f01ccf40b78bdd4fc750dae94e",
+    "src-tauri/icons/icon.icns": "1a645e78bc7d65b1526068a2a4e695edf117908b596eed7488eb8b945fa15beb"
+  },
+  "candidate": "../../../../.desktop-local/phase8-snap/z8-work_0.1.0_amd64.snap",
+  "host": "Debian 13 Linux ARM64, OrbStack/Rosetta AMD64 emulation",
+  "target": "Ubuntu 24.04 Linux AMD64 / core24 / strict / devel",
+  "toolchain": {
+    "rust": "1.96.0",
+    "node": "22.22.2",
+    "bun": "1.4.0",
+    "snapcraft": "9.0.1",
+    "snapd": "2.76.3"
+  },
+  "snapHostConfinement": "partial",
+  "builderImage": "sha256:b024a987052967755ed076d49592b4b1a6aa8aefbdfe6251517f25a59c3910f6",
+  "scratchImage": "sha256:e0b28ef7ed92c0065fbbf7a6c8b455873d50528a054a54a4591a6fe950feef1b",
+  "features": [
+    "packaged-engines",
+    "custom-protocol",
+    "linux-portal"
+  ],
+  "defaultFeatures": false,
+  "applicationInfo": "build-info.json",
+  "builderEngineConversions": "builder-conversions.json",
+  "recovery": [
+    "Added libltdl-dev after configure failure",
+    "Scoped Git safe.directory on provenance reads in sanitized environment",
+    "Corrected Ubuntu HEIF plugins path",
+    "Added libxml2-dev and --with-xml=yes after real XMP failure; reconfigured, rebuilt and installed ImageMagick; regenerated manifest and final engine bundle"
+  ],
+  "imageMagickSourceSha256": {
+    "orig": "bcb4f3c78a930a608fa4889f889edbcb384974246ad9407fce1858f2c0607bfe",
+    "debianPatches": "d96f2576d7e7f2d03819d680a01c9382eae036472026b54b6b6194bec96327c5"
+  },
+  "redistributionApproved": false,
+  "aptSnapshotPinned": false,
+  "nativeAmd64Hardware": false,
+  "priorPhase5ArchiveUnchanged": true,
+  "sourceClosure": "Ubuntu package sources and application/static dependency closure remain pending; Phase7 is a different candidate."
+}

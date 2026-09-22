@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "faultInjection": "SIGSTOP on observed app-owned ImageMagick process",
+  "observedEncoders": [
+    {
+      "pid": 3429033,
+      "state": "R",
+      "parent": 3427319,
+      "start": "84635414"
+    }
+  ],
+  "encoderExecutable": "/home/ivmm/VERT/.desktop-local/packaged-gui-20260914/extracted/usr/lib/Z8.Work Desktop Dev/engines/bin/magick",
+  "elapsedMs": 183.0064820000007,
+  "appExited": true,
+  "observedEncodersExited": true,
+  "outputFiles": 0,
+  "restoredPhase": "cancelled",
+  "original": {
+    "bytes": 21735095,
+    "sha256": "e634a5ff198790b6bfa67dcdfef0a939d5f06343966111413b16977648e4a2ea"
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "plain",
+    "passed": false,
+    "bytes": 12288
+  },
+  {
+    "name": "explicit",
+    "passed": true,
+    "bytes": 480
+  },
+  {
+    "name": "relative",
+    "passed": true,
+    "bytes": 480
+  }
+]

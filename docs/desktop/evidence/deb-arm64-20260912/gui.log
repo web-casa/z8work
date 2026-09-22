@@ -1,0 +1,59 @@
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=501 pid=1217340 comm="/home/ivmm/VERT/.desktop-local/deb-arm64/package/e")
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.3' (uid=501 pid=1217340 comm="/home/ivmm/VERT/.desktop-local/deb-arm64/package/e")
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.4' (uid=501 pid=1217379 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='org.freedesktop.portal.Documents' requested by ':1.4' (uid=501 pid=1217379 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'org.freedesktop.portal.Documents'
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.662: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.4' (uid=501 pid=1217379 comm="/usr/libexec/xdg-desktop-portal")
+dbus-daemon[1217374]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=501 pid=1217402 comm="/usr/libexec/xdg-desktop-portal-gtk")
+dbus-daemon[1217374]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.717: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.717: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.717: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.717: Choosing gtk.portal for org.freedesktop.impl.portal.Settings as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.717: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.718: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.718: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.718: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.719: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.719: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+[W][17:09:47.722077] pw.conf      | [          conf.c: 1182 try_load_conf()] can't load config client.conf: No such file or directory
+[E][17:09:47.722546] pw.conf      | [          conf.c: 1215 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.722: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.722: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.723: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:1217379): xdg-desktop-portal-WARNING **: 17:09:47.723: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Activating service name='ca.desrt.dconf' requested by ':1.3' (uid=501 pid=1217340 comm="/home/ivmm/VERT/.desktop-local/deb-arm64/package/e")
+dbus-daemon[1217312]: [session uid=501 pid=1217312 pidfd=5] Successfully activated service 'ca.desrt.dconf'
+/home/ivmm/VERT/.desktop-local/phase27-gui-cNDEoo
+file:///home/ivmm/VERT/scripts/desktop-preview-gui.mjs:140
+		throw new Error(JSON.stringify(body));
+		      ^
+
+Error: {"value":{"error":"licenses_unavailable","ok":false}}
+    at request (file:///home/ivmm/VERT/scripts/desktop-preview-gui.mjs:140:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async checkProduct (file:///home/ivmm/VERT/scripts/lib/desktop-product-checks.mjs:209:18)
+    at async file:///home/ivmm/VERT/scripts/desktop-preview-gui.mjs:372:3
+
+Node.js v24.18.0

@@ -1,0 +1,6 @@
+
+** (z8-desktop:3550357): WARNING **: 13:11:07.617: atk-bridge: Couldn't listen on dbus server: Socket name too long
+
+
+** (z8-desktop:3552113): WARNING **: 13:11:14.961: atk-bridge: Couldn't listen on dbus server: Socket name too long
+

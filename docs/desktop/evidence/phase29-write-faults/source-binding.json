@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "sourceCommit": "7c00068209c88beaba004220731d581534b58fad",
+  "reviewReceiptHead": "d1258afb7daf51972815f71bf8146935ca31cf03",
+  "sourceFileCount": 451,
+  "sourceFilesUnchangedAfterCommit": true,
+  "note": "Receipt captured after final source changes; does not claim an earlier build-time receipt existed."
+}

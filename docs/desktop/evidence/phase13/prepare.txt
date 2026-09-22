@@ -1,0 +1,1 @@
+{"status":"prepared","output":"/home/ivmm/VERT/.desktop-local/phase13/prepared-final","files":29,"acceptance":"incomplete","storeSubmissionAllowed":false}

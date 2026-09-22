@@ -1,0 +1,948 @@
+{
+  "schema": 1,
+  "compiler": "ghc-9.12.0.20241115",
+  "target": "wasm32-wasi",
+  "indexState": "2024-11-15T08:25:42Z",
+  "planSha256": "2a339131dc7296af1b80d8697cdb883fb8192b8123036b87a4988d37b0969947",
+  "targetUnit": "pandoc-cli-3.5-inplace-pandoc",
+  "unitCount": 171,
+  "packageCount": 127,
+  "packages": [
+    {
+      "name": "Glob",
+      "version": "0.10.2",
+      "cabalSha256": "dd2ddbecae8f84e8f4cacb5b856901a19c25ceaa11f2525d3ee88d034acb0081",
+      "sourceSha256": "6af672ac8427d35cbd42d64142dc288feab266f0be92dae3c696e8860d8173c0",
+      "file": "Glob/0.10.2/Glob-0.10.2.tar.gz"
+    },
+    {
+      "name": "JuicyPixels",
+      "version": "3.3.9",
+      "cabalSha256": "8ccf945dfe1628b63985b0fd3a9b8248e9f5a2c1f2a75808c04b9fd530a04dbc",
+      "sourceSha256": "3e44ac5d3e684b65e9efaf60ca9a907a86edc879dfcf63f86eebc721e542864d",
+      "file": "JuicyPixels/3.3.9/JuicyPixels-3.3.9.tar.gz"
+    },
+    {
+      "name": "OneTuple",
+      "version": "0.4.2",
+      "cabalSha256": "ce39b24139694ee1facfdbf0eed3fbca3444fa3c7bcaa386c65cd4e1b7691a4d",
+      "sourceSha256": "174da8a0f4004d17b08182cb25b0e045fce5de1fdeae84e9d75fdea2867aab55",
+      "file": "OneTuple/0.4.2/OneTuple-0.4.2.tar.gz"
+    },
+    {
+      "name": "Only",
+      "version": "0.1",
+      "cabalSha256": "c6033d181e0f802e9e8543f683fa9c50aeb01cfdf6c83cd5bb72fb47aa863b07",
+      "sourceSha256": "ab7aa193e8c257d3bda6b0b3c1cbcf74cdaa85ab08cb20c2dd62ba248c1ab265",
+      "file": "Only/0.1/Only-0.1.tar.gz"
+    },
+    {
+      "name": "QuickCheck",
+      "version": "2.15.0.1",
+      "cabalSha256": "ff732606dd8b3f76e3cb87a26516583d183729bf540085228c82adf037aca8bf",
+      "sourceSha256": "a3b2216ddbaf481dbc82414b6120f8b726d969db3f0b51f20a7a45425ef36e7f",
+      "file": "QuickCheck/2.15.0.1/QuickCheck-2.15.0.1.tar.gz"
+    },
+    {
+      "name": "StateVar",
+      "version": "1.2.2",
+      "cabalSha256": "3c022c00485fe165e3080d5da6b3ca9c9b02f62c5deebc584d1b3d1309ce673e",
+      "sourceSha256": "5e4b39da395656a59827b0280508aafdc70335798b50e5d6fd52596026251825",
+      "file": "StateVar/1.2.2/StateVar-1.2.2.tar.gz"
+    },
+    {
+      "name": "aeson",
+      "version": "2.2.3.0",
+      "cabalSha256": "011fa2d67d7a821aa5ec5c825adc919bb067d42dde8fac7c6e5db23239a58866",
+      "sourceSha256": "daa25cf428256ad05d21f2bfa44077c1b14d6c784b7930a202ee901f11cc6baa",
+      "file": "aeson/2.2.3.0/aeson-2.2.3.0.tar.gz"
+    },
+    {
+      "name": "aeson-pretty",
+      "version": "0.8.10",
+      "cabalSha256": "6b0d3c1004dc696cdfea45b442dd025b5ca62ecce44bf8669775529d5b672114",
+      "sourceSha256": "2a21f2cd78adcb149ceba770239ed664519552911e7680172b18ff695cfa7ae5",
+      "file": "aeson-pretty/0.8.10/aeson-pretty-0.8.10.tar.gz"
+    },
+    {
+      "name": "alex",
+      "version": "3.5.1.0",
+      "cabalSha256": "de553eefe0b6548a560e9d8100486310548470a403c1fa21108dd03713da5fc7",
+      "sourceSha256": "c92efe86f8eb959ee03be6c04ee57ebc7e4abc75a6c4b26551215d7443e92a07",
+      "file": "alex/3.5.1.0/alex-3.5.1.0.tar.gz"
+    },
+    {
+      "name": "ansi-terminal",
+      "version": "1.1.2",
+      "cabalSha256": "8e669f090aa3b9a62ef78f687dda12a19231ee163d2084522464036980a322ea",
+      "sourceSha256": "a8d04a3e0451e22a6499a92311f0df1196dc65b687df7d10e3f30d92420156b0",
+      "file": "ansi-terminal/1.1.2/ansi-terminal-1.1.2.tar.gz"
+    },
+    {
+      "name": "ansi-terminal-types",
+      "version": "1.1",
+      "cabalSha256": "135f6a381afa19d53d0a3fe40b6dd47e6666c538b09e4300fbb1438759df3248",
+      "sourceSha256": "f2e5333eb78da5f4dd330fca0c81a59276cc150c625647cd20f57b7f297a5d25",
+      "file": "ansi-terminal-types/1.1/ansi-terminal-types-1.1.tar.gz"
+    },
+    {
+      "name": "assoc",
+      "version": "1.1.1",
+      "cabalSha256": "ad458c9e06a23dd275f8dbb02d13e250b8e40ac4858bc67e7992628563d14f5d",
+      "sourceSha256": "231149b7fef09f5dd95af51228615e3b296dbd0faadeca053e0644a4b13b0ff6",
+      "file": "assoc/1.1.1/assoc-1.1.1.tar.gz"
+    },
+    {
+      "name": "async",
+      "version": "2.2.5",
+      "cabalSha256": "b7648c6165729a973d95cb328f9fd874813a81c727707e8b2552b4f03399763b",
+      "sourceSha256": "1818473ebab9212afad2ed76297aefde5fae8b5d4404daf36939aece6a8f16f7",
+      "file": "async/2.2.5/async-2.2.5.tar.gz"
+    },
+    {
+      "name": "attoparsec",
+      "version": "0.14.4",
+      "cabalSha256": "ec709539b881d6431620bd7c40fbfa680aaf4a98c6f35b51536d8f455682b1ae",
+      "sourceSha256": "3f337fe58624565de12426f607c23e60c7b09c86b4e3adfc827ca188c9979e6c",
+      "file": "attoparsec/0.14.4/attoparsec-0.14.4.tar.gz"
+    },
+    {
+      "name": "base-compat",
+      "version": "0.14.0",
+      "cabalSha256": "9e2ca4ccab9b1259891e8bbd7705a7704096e2867e703a9d2442fa4876a10f8f",
+      "sourceSha256": "f146de664ac838ebe18ec9360df82da3660149dc7d51fd29bcb61d653b799c50",
+      "file": "base-compat/0.14.0/base-compat-0.14.0.tar.gz"
+    },
+    {
+      "name": "base-orphans",
+      "version": "0.9.2",
+      "cabalSha256": "455d863c96cf4b1804772c630a235f535fdb52ca9137a4150967b521ee4734ab",
+      "sourceSha256": "6211900916955b84687c61b5e4fa98ce110e511a96086b7a93f06dd63c97ba93",
+      "file": "base-orphans/0.9.2/base-orphans-0.9.2.tar.gz"
+    },
+    {
+      "name": "base16-bytestring",
+      "version": "1.0.2.0",
+      "cabalSha256": "a694e88f9ec9fc79f0b03f233d3fea592b68f70a34aac2ddb5bcaecb6562e2fd",
+      "sourceSha256": "1d5a91143ef0e22157536093ec8e59d226a68220ec89378d5dcaeea86472c784",
+      "file": "base16-bytestring/1.0.2.0/base16-bytestring-1.0.2.0.tar.gz"
+    },
+    {
+      "name": "base64-bytestring",
+      "version": "1.2.1.0",
+      "cabalSha256": "45305ccf8914c66d385b518721472c7b8c858f1986945377f74f85c1e0d49803",
+      "sourceSha256": "fbf8ed30edde271eb605352021431d8f1b055f95a56af31fe2eacf6bdfdc49c9",
+      "file": "base64-bytestring/1.2.1.0/base64-bytestring-1.2.1.0.tar.gz"
+    },
+    {
+      "name": "bifunctors",
+      "version": "5.6.2",
+      "cabalSha256": "e6a6e576b9e027ca374383c2d3a43753bce42c63c72724d3a35208a982d68c0f",
+      "sourceSha256": "1086a9285061eed0c2c5d3cb65aa223defd52fca6d0515bb69ddf2dbc3d9697a",
+      "file": "bifunctors/5.6.2/bifunctors-5.6.2.tar.gz"
+    },
+    {
+      "name": "bitvec",
+      "version": "1.1.5.0",
+      "cabalSha256": "cb3efd76b71a9e8a930f4ce5d8c91adcb63ac0d8dc3d2d4a132d490bd1ecb391",
+      "sourceSha256": "83d27cee5be1d5342ddbf39999d0c8ea54cb433d0891eea5471fbfaa29f8dec5",
+      "file": "bitvec/1.1.5.0/bitvec-1.1.5.0.tar.gz"
+    },
+    {
+      "name": "blaze-builder",
+      "version": "0.4.2.3",
+      "cabalSha256": "3f2ff408e858e3ecac30183f98bbb14ce6cf6314c654bd9107e51defd386d5ef",
+      "sourceSha256": "66291874236b7342adab033e3cddae414a23a2865dfb44095dfc4e0b9d46703b",
+      "file": "blaze-builder/0.4.2.3/blaze-builder-0.4.2.3.tar.gz"
+    },
+    {
+      "name": "blaze-html",
+      "version": "0.9.2.0",
+      "cabalSha256": "85c42f84f4ead2c48844fbe0865069add3bb3bb3322d38607e93d5515a4c9c58",
+      "sourceSha256": "65542ef39f7644a3d76afcadeb976d3e334c6947516b7313fcb59165cea1608f",
+      "file": "blaze-html/0.9.2.0/blaze-html-0.9.2.0.tar.gz"
+    },
+    {
+      "name": "blaze-markup",
+      "version": "0.8.3.0",
+      "cabalSha256": "027f218b81d28a7c0a33b93d456c4e5aa92d145e9dcee14834fbad73a39ad7e4",
+      "sourceSha256": "8606ac8b4a1f7f8f1bbc0770b2752e9b6f88ccc9fbdcbb33aa20577d0e5930e8",
+      "file": "blaze-markup/0.8.3.0/blaze-markup-0.8.3.0.tar.gz"
+    },
+    {
+      "name": "case-insensitive",
+      "version": "1.2.1.0",
+      "cabalSha256": "9dfd3171fc7698cf8d931727d3af3a7b389135b583e46b5adac1f9d2026fff61",
+      "sourceSha256": "296dc17e0c5f3dfb3d82ced83e4c9c44c338ecde749b278b6eae512f1d04e406",
+      "file": "case-insensitive/1.2.1.0/case-insensitive-1.2.1.0.tar.gz"
+    },
+    {
+      "name": "cassava",
+      "version": "0.5.3.2",
+      "cabalSha256": "057df10379aec708cafafdf1c918b86a373d36113964b1a7bc26ec1ed4dee02c",
+      "sourceSha256": "3ad25d225d2c0db54ef17372d8bf206356bcb7e02a0e7ff38f7078f141d0a9c9",
+      "file": "cassava/0.5.3.2/cassava-0.5.3.2.tar.gz"
+    },
+    {
+      "name": "character-ps",
+      "version": "0.1",
+      "cabalSha256": "b38ed1c07ae49e7461e44ca1d00c9ca24d1dcb008424ccd919916f92fd48d9fe",
+      "sourceSha256": "22de71fde38b236d3e9168a832b5e1e75d1fb4f4028667bdf747b3b4c8c1529c",
+      "file": "character-ps/0.1/character-ps-0.1.tar.gz"
+    },
+    {
+      "name": "citeproc",
+      "version": "0.8.1.1",
+      "cabalSha256": "22251433f70a903fe2846ee0a9dc1b9b7afd16e94e34e846531b6bb918a82f24",
+      "sourceSha256": "4fe805629b548884e9b2f59492621823fd928d8a5b4125b6cfd9571edaebf341",
+      "file": "citeproc/0.8.1.1/citeproc-0.8.1.1.tar.gz"
+    },
+    {
+      "name": "colour",
+      "version": "2.3.6",
+      "cabalSha256": "ebdcbf15023958838a527e381ab3c3b1e99ed12d1b25efeb7feaa4ad8c37664a",
+      "sourceSha256": "2cd35dcd6944a5abc9f108a5eb5ee564b6b1fa98a9ec79cefcc20b588991f871",
+      "file": "colour/2.3.6/colour-2.3.6.tar.gz"
+    },
+    {
+      "name": "commonmark",
+      "version": "0.2.6.1",
+      "cabalSha256": "cdc783466e4d24ed49ea95953b9e9311f066b228d72af96e816a06f536c700c6",
+      "sourceSha256": "fbce7dfe801d68c4c65623f35a3b25b47a22d496a08994140ecbd786ab069073",
+      "file": "commonmark/0.2.6.1/commonmark-0.2.6.1.tar.gz"
+    },
+    {
+      "name": "commonmark-extensions",
+      "version": "0.2.5.5",
+      "cabalSha256": "0c3713002fc5c695b3537692e74d041da0f87a38b0d8554559e4a99c8afe4f1d",
+      "sourceSha256": "7d1697acbffa6c417cc9cec897c45d8579d75fd14d5524e44ae333435b36f16b",
+      "file": "commonmark-extensions/0.2.5.5/commonmark-extensions-0.2.5.5.tar.gz"
+    },
+    {
+      "name": "commonmark-pandoc",
+      "version": "0.2.2.2",
+      "cabalSha256": "46122271bade98faa9b59339b4aaac9ad9163b04d922d264ead1f3a3fe32614d",
+      "sourceSha256": "e6400286c6ba0750bf1513405bda13b0447de9c3ae188b40d54f00d5e5037a51",
+      "file": "commonmark-pandoc/0.2.2.2/commonmark-pandoc-0.2.2.2.tar.gz"
+    },
+    {
+      "name": "comonad",
+      "version": "5.0.8",
+      "cabalSha256": "4a4dbfbd03fb4963987710fca994e8b5624bd05a33e5f95b7581b26f8229c5e3",
+      "sourceSha256": "ef6cdf2cc292cc43ee6aa96c581b235fdea8ab44a0bffb24dc79ae2b2ef33d13",
+      "file": "comonad/5.0.8/comonad-5.0.8.tar.gz"
+    },
+    {
+      "name": "conduit",
+      "version": "1.3.6",
+      "cabalSha256": "14ccbb7eb31a28377e8d66baa9a5c94d28b1e63add63d0c1b490dbb731da77aa",
+      "sourceSha256": "33e69a48c742b20c57a854ca9ab9e6e217d5f37387aebbd8f6c068591ede518d",
+      "file": "conduit/1.3.6/conduit-1.3.6.tar.gz"
+    },
+    {
+      "name": "contravariant",
+      "version": "1.5.5",
+      "cabalSha256": "470ed0e040e879e2da4af1b2c8f94e199f6135852a8107858d5ae0a95365835f",
+      "sourceSha256": "062fd66580d7aad0b5ba93e644ffa7feee69276ef50f20d4ed9f1deb7642dffa",
+      "file": "contravariant/1.5.5/contravariant-1.5.5.tar.gz"
+    },
+    {
+      "name": "crypton",
+      "version": "1.0.1",
+      "cabalSha256": "f41316fbc6ad878396e476355e27b70ac35c344d74e3eefafe709e03b192be9e",
+      "sourceSha256": "9142bb14748cc57356cf4dacec822e80eaf6dba8e1538ec93be17ee37027c7a4",
+      "file": "crypton/1.0.1/crypton-1.0.1.tar.gz"
+    },
+    {
+      "name": "data-default",
+      "version": "0.7.1.3",
+      "cabalSha256": "7e0f166c1652c8b531bc433d0084ada414bdea85d30bcbc09bc1b48a6a139952",
+      "sourceSha256": "7604074200e1d4632701e3f196099fcfbf4005b3a6bee275fd6e00f4baaca610",
+      "file": "data-default/0.7.1.3/data-default-0.7.1.3.tar.gz"
+    },
+    {
+      "name": "data-default-class",
+      "version": "0.1.2.2",
+      "cabalSha256": "51400ed341ec87e86a4acf83301c6890e1fc67708e2d0ac519d48e0a14f54c15",
+      "sourceSha256": "f400c2015edf78369f45df4f8da117bcb5d74234e306745ffc19d0d65af7aee3",
+      "file": "data-default-class/0.1.2.2/data-default-class-0.1.2.2.tar.gz"
+    },
+    {
+      "name": "data-default-instances-containers",
+      "version": "0.1.0.3",
+      "cabalSha256": "efd386fd35172883c518f9dfa5bc77ac1873505b3ef1346c3733ca1dfe36725f",
+      "sourceSha256": "b9ddfafd0e639b1b9f70097d2610a220a98b3b9b9d4dc11c668161384b31932b",
+      "file": "data-default-instances-containers/0.1.0.3/data-default-instances-containers-0.1.0.3.tar.gz"
+    },
+    {
+      "name": "data-default-instances-dlist",
+      "version": "0.0.1.2",
+      "cabalSha256": "e754a90b41ff82204f41272e7f07f4f4b1422bca839ead8244ae527137847136",
+      "sourceSha256": "e0bdf190c1a5037a626016169e7dfaabc4bcc2b27c1bdefa85e29766703e9e0b",
+      "file": "data-default-instances-dlist/0.0.1.2/data-default-instances-dlist-0.0.1.2.tar.gz"
+    },
+    {
+      "name": "data-default-instances-old-locale",
+      "version": "0.0.1.2",
+      "cabalSha256": "348f547a5118a65bc2cd0444358a329c49c5917c72bfe3b014e0123ec9264bfb",
+      "sourceSha256": "708098ff0148b786141988858f09a1479b4b7a092e578ac0967d875be1c9b86f",
+      "file": "data-default-instances-old-locale/0.0.1.2/data-default-instances-old-locale-0.0.1.2.tar.gz"
+    },
+    {
+      "name": "data-fix",
+      "version": "0.3.4",
+      "cabalSha256": "49114884d59f74ab62a3fc9ab1fd8888ed81b234e30b5d798be4aec4ddba0113",
+      "sourceSha256": "8df052d18c047ab9e9200536a8799b5af3997ebecbbb091a7384b6be8416ab37",
+      "file": "data-fix/0.3.4/data-fix-0.3.4.tar.gz"
+    },
+    {
+      "name": "digest",
+      "version": "0.0.2.1",
+      "cabalSha256": "938215f33ed3546dc2f059f3707f7370e9e9e1c0285cac16379ebfa45e9054c0",
+      "sourceSha256": "cbf87b02e01f97dfe6d2d7f08065826cf552c8e8467ea990ed0d2f502e0a6498",
+      "file": "digest/0.0.2.1/digest-0.0.2.1.tar.gz"
+    },
+    {
+      "name": "distributive",
+      "version": "0.6.2.1",
+      "cabalSha256": "0f99f5541cca04acf89b64432b03422b6408e830a8dff30e6c4334ef1a48680c",
+      "sourceSha256": "d7351392e078f58caa46630a4b9c643e1e2e9dddee45848c5c8358e7b1316b91",
+      "file": "distributive/0.6.2.1/distributive-0.6.2.1.tar.gz"
+    },
+    {
+      "name": "djot",
+      "version": "0.1.2.2",
+      "cabalSha256": "9f4447e32a6d2e667753660ea791cb3b5557d4177169ea9ce03f619a8ed1302f",
+      "sourceSha256": "d099da4afbcd9d345abd760bd26457af581dcc2942314e938c2a5bcbd4b7d89d",
+      "file": "djot/0.1.2.2/djot-0.1.2.2.tar.gz"
+    },
+    {
+      "name": "dlist",
+      "version": "1.0",
+      "cabalSha256": "854727594c5a816ab3d10f15b1bc4fedaf9e3f7d1ef517a2bb9011f29ba261d2",
+      "sourceSha256": "173d637328bb173fcc365f30d29ff4a94292a1e0e5558aeb3dfc11de81510115",
+      "file": "dlist/1.0/dlist-1.0.tar.gz"
+    },
+    {
+      "name": "doclayout",
+      "version": "0.5",
+      "cabalSha256": "36c81aa3849049588d46c3fb51cf23177e8cc08efab4bf0d0ed2fb0df764cc0e",
+      "sourceSha256": "b030410245d9dea721e5bd75511b95bc0380efe159066f3914916e3ad2af2496",
+      "file": "doclayout/0.5/doclayout-0.5.tar.gz"
+    },
+    {
+      "name": "doctemplates",
+      "version": "0.11.0.1",
+      "cabalSha256": "98000e84cf7acb07c8c62fddee1045b91df66d427d8dd42f61f90ae86194dadc",
+      "sourceSha256": "1150451861aa0592122eb43c21166e6620f1b9c3e6a5c88222f08940db6955fb",
+      "file": "doctemplates/0.11.0.1/doctemplates-0.11.0.1.tar.gz"
+    },
+    {
+      "name": "emojis",
+      "version": "0.1.4.1",
+      "cabalSha256": "2e7006c952aa51fe7757ec6f2749f1bcbb65664da91c0404565381ddc909dbf5",
+      "sourceSha256": "8000d6197b1d43b9b3cd0711c34f120420f358d0425167d2fb7e616d65470ae5",
+      "file": "emojis/0.1.4.1/emojis-0.1.4.1.tar.gz"
+    },
+    {
+      "name": "file-embed",
+      "version": "0.0.16.0",
+      "cabalSha256": "2e8983240c1faae020b4acef6d30f0281f5ec87c2f38736dc1dc5456355e22a5",
+      "sourceSha256": "5f18672eff936355557cdd163905451205d7ee22742edac313dd27cf42a3f415",
+      "file": "file-embed/0.0.16.0/file-embed-0.0.16.0.tar.gz"
+    },
+    {
+      "name": "generically",
+      "version": "0.1.1",
+      "cabalSha256": "3f64278f5c582dd7c6963967b1290079bcd03b8348989f909ac9bd972ddc452e",
+      "sourceSha256": "04c5a436bec4b041f71a733f56a1bd7f435f63dde8d3eb5c1f48d55b4dbc43cf",
+      "file": "generically/0.1.1/generically-0.1.1.tar.gz"
+    },
+    {
+      "name": "gridtables",
+      "version": "0.1.0.0",
+      "cabalSha256": "20f6faa3d75724133253d970daee8ee1e6fb77841d4be4e82273168e22f7c42b",
+      "sourceSha256": "d6ac341bc7997d39a3b1f6cd811f70ab69689d9c3117ce3bc44bfb2ec55ab0ea",
+      "file": "gridtables/0.1.0.0/gridtables-0.1.0.0.tar.gz"
+    },
+    {
+      "name": "happy",
+      "version": "2.1.3",
+      "cabalSha256": "9a6ff473172cd355df75ca271d667e2e81b11be9be88ef78cec5a417759129a2",
+      "sourceSha256": "cd02a093fd0984dcc5398af43ec22870656cfeb05048ca055ecf08c02fbc2c4b",
+      "file": "happy/2.1.3/happy-2.1.3.tar.gz"
+    },
+    {
+      "name": "happy-lib",
+      "version": "2.1.3",
+      "cabalSha256": "4002b62f04a61d675bb09aedf76df2db27cf9ae0ed315c8299c148c1928b0cd5",
+      "sourceSha256": "5d6765aaf1844700a42a9cc4dc5536c357e02dd6428707d5efcd1bc27fc37ebd",
+      "file": "happy-lib/2.1.3/happy-lib-2.1.3.tar.gz"
+    },
+    {
+      "name": "hashable",
+      "version": "1.4.7.0",
+      "cabalSha256": "573f3ab242f75465a0d67ce9d84202650a1606575e6dbd6d31ffcf4767a9a379",
+      "sourceSha256": "3baee4c9027a08830d148ec524cbc0471de645e1e8426d46780ef2758df0e8da",
+      "file": "hashable/1.4.7.0/hashable-1.4.7.0.tar.gz"
+    },
+    {
+      "name": "haskell-lexer",
+      "version": "1.1.2",
+      "cabalSha256": "fc186785c4912a545e8e89ef17abfa60a3c9e924a378589c842c5ec30ec3b414",
+      "sourceSha256": "f3a95b6bffed91a4eeba1354e419474a7ee44af1aefe517fea17a43e64dc681d",
+      "file": "haskell-lexer/1.1.2/haskell-lexer-1.1.2.tar.gz"
+    },
+    {
+      "name": "hsc2hs",
+      "version": "0.68.10",
+      "cabalSha256": "276325277350cd2c2c88916ed3ae5cd35b2b4f494ec594fbd9534081eb7fb759",
+      "sourceSha256": "6f4e34d788fe2ca7091ee0a10307ee8a7c060a1ba890f2bffad16a7d4d5cef76",
+      "file": "hsc2hs/0.68.10/hsc2hs-0.68.10.tar.gz"
+    },
+    {
+      "name": "http-types",
+      "version": "0.12.4",
+      "cabalSha256": "c8bdda528c9d74dea90effb30958fdacdb09b116c61a63b6f1b233ffea72b776",
+      "sourceSha256": "4d4b1bb0cc817e5fef0c9c76c9647f69f4d300c45a105043493eff86381be549",
+      "file": "http-types/0.12.4/http-types-0.12.4.tar.gz"
+    },
+    {
+      "name": "indexed-traversable",
+      "version": "0.1.4",
+      "cabalSha256": "7e6eaeca52197856f3ab878fb31e30233dbb35b52a16441a42e4364b22b421e5",
+      "sourceSha256": "58be09afdf3ad5a25c2aa0d2a7df80d602df09f4e76d3abf2b7cdb0e75d03b22",
+      "file": "indexed-traversable/0.1.4/indexed-traversable-0.1.4.tar.gz"
+    },
+    {
+      "name": "indexed-traversable-instances",
+      "version": "0.1.2",
+      "cabalSha256": "92fb057db6e5bbd4d35029877909b73ae47c8db1072e98d66334c03ac92bac0c",
+      "sourceSha256": "3c2bb62fba141d6696177070d63b88bc56b194bc60f6b73d2263b0244e2fc7c1",
+      "file": "indexed-traversable-instances/0.1.2/indexed-traversable-instances-0.1.2.tar.gz"
+    },
+    {
+      "name": "integer-conversion",
+      "version": "0.1.1",
+      "cabalSha256": "15d6b4bf8ac521d06ed324821b30c8c3baf3d2c2091f01c2370de6903dd4be43",
+      "sourceSha256": "c18164a048073310f6353ebc64c9037b52a4b8299963ce05e027bcf60e22155a",
+      "file": "integer-conversion/0.1.1/integer-conversion-0.1.1.tar.gz"
+    },
+    {
+      "name": "integer-logarithms",
+      "version": "1.0.3.1",
+      "cabalSha256": "0595a16d458c9c5caa425dc8ebbeb5d9adffb0c8daf4720c1d93dfcfc31dd690",
+      "sourceSha256": "9b0a9f9fab609b15cd015865721fb05f744a1bc77ae92fd133872de528bbea7f",
+      "file": "integer-logarithms/1.0.3.1/integer-logarithms-1.0.3.1.tar.gz"
+    },
+    {
+      "name": "ipynb",
+      "version": "0.2",
+      "cabalSha256": "d3ec93f44fac7ddeb06e5419d0577321831cc903ecb176ca6be5015c55e9893a",
+      "sourceSha256": "9a743d74e95ccccfadca4a734f44c7b3e2a5b838da3f9044231590d7355191c7",
+      "file": "ipynb/0.2/ipynb-0.2.tar.gz"
+    },
+    {
+      "name": "jira-wiki-markup",
+      "version": "1.5.1",
+      "cabalSha256": "142a88f49a61911046d5077b05b47cde1e6567d6bcb17e9eccc54b0cffcf93a6",
+      "sourceSha256": "9ca23d369c3ccf1b3ffb209dda8e6288a5f5901fb8235113825fa48d3ae8e520",
+      "file": "jira-wiki-markup/1.5.1/jira-wiki-markup-1.5.1.tar.gz"
+    },
+    {
+      "name": "libyaml",
+      "version": "0.1.4",
+      "cabalSha256": "68a5ed828cedf39f44ad16b7a27a81ef50630e296960a549575477f8db2891eb",
+      "sourceSha256": "d6297ec9b1ebb4e4b580a4357d840d08a6f53e13a10c0c53ee74b973bba6fa13",
+      "file": "libyaml/0.1.4/libyaml-0.1.4.tar.gz"
+    },
+    {
+      "name": "libyaml-clib",
+      "version": "0.2.5",
+      "cabalSha256": "80a148f5ee5017a7b3901be21c0f10391cf1f4374ffbec0cc6bb34dd6c68ef73",
+      "sourceSha256": "04526bc54e5fcf471c2bd22854e6b519e162a6e3d654e866cd8862103c725149",
+      "file": "libyaml-clib/0.2.5/libyaml-clib-0.2.5.tar.gz"
+    },
+    {
+      "name": "mime-types",
+      "version": "0.1.2.0",
+      "cabalSha256": "3ddd330c16da943651db37e237d44dc0593ef9b1a63d39e98a48811644615bf6",
+      "sourceSha256": "013ae48a4c1726a4f91a64e882f3fe1fb903a7d4b8c14da51286fe5e4b974f61",
+      "file": "mime-types/0.1.2.0/mime-types-0.1.2.0.tar.gz"
+    },
+    {
+      "name": "mono-traversable",
+      "version": "1.0.20.0",
+      "cabalSha256": "d5b48c3b3e91c6b447473d146174fea4c1becaff15f640ea907343f3fe2645e5",
+      "sourceSha256": "e621ea953c94b2dafc58286132e9dae7464a07c6967f0c591c916968d3f93545",
+      "file": "mono-traversable/1.0.20.0/mono-traversable-1.0.20.0.tar.gz"
+    },
+    {
+      "name": "network-uri",
+      "version": "2.6.4.2",
+      "cabalSha256": "6fffb57373962b5651a2db8b0af732098b3bf029a7ced76a9855615de2026588",
+      "sourceSha256": "9c188973126e893250b881f20e8811dca06c223c23402b06f7a1f2e995797228",
+      "file": "network-uri/2.6.4.2/network-uri-2.6.4.2.tar.gz"
+    },
+    {
+      "name": "old-locale",
+      "version": "1.0.0.7",
+      "cabalSha256": "fa998be2c7e00cd26a6e9075bea790caaf3932caa3e9497ad69bc20380dd6911",
+      "sourceSha256": "dbaf8bf6b888fb98845705079296a23c3f40ee2f449df7312f7f7f1de18d7b50",
+      "file": "old-locale/1.0.0.7/old-locale-1.0.0.7.tar.gz"
+    },
+    {
+      "name": "ordered-containers",
+      "version": "0.2.4",
+      "cabalSha256": "b232b6fbaad48611ffacf0bb606fbf63367014bbb7c59ff942138524347bbe22",
+      "sourceSha256": "3da1673e24e12902c2879ee08b73e6978f6bfa70693b13995ebf48bfb7aee546",
+      "file": "ordered-containers/0.2.4/ordered-containers-0.2.4.tar.gz"
+    },
+    {
+      "name": "pandoc-types",
+      "version": "1.23.1",
+      "cabalSha256": "2cb4836905406ccbc4c18699b8b551ed33aa15b23309f46ca108fcc209ae1ef2",
+      "sourceSha256": "ad0fa083d28d452b7d37a1c67a2c140137a5f29a2f52fd88e807fac20245a1c1",
+      "file": "pandoc-types/1.23.1/pandoc-types-1.23.1.tar.gz"
+    },
+    {
+      "name": "pretty-show",
+      "version": "1.10",
+      "cabalSha256": "bfef8da0ac4db4fc7f41edfec9e9a701ac206418d70702bff1e40f20d6a2b1f1",
+      "sourceSha256": "307f9086e0b063d439dc4f513e36a145e8a57f23de448aefae2a6c00f6da6fd2",
+      "file": "pretty-show/1.10/pretty-show-1.10.tar.gz"
+    },
+    {
+      "name": "prettyprinter",
+      "version": "1.7.1",
+      "cabalSha256": "9c43c9d8c3cd9f445596e5a2379574bba87f935a4d1fa41b5407ee3cf4edc743",
+      "sourceSha256": "5e6ea6903114fa118fcc359633dfb7ecddecb92c06c853d02a77b72b251f0b45",
+      "file": "prettyprinter/1.7.1/prettyprinter-1.7.1.tar.gz"
+    },
+    {
+      "name": "primitive",
+      "version": "0.9.0.0",
+      "cabalSha256": "de20bf4eff1f972088854c8efda6eaca2d3147aff62232c3707f059152638759",
+      "sourceSha256": "696d4bd291c94d736142d6182117dca4258d3ef28bfefdb649ac8b5ecd0999c7",
+      "file": "primitive/0.9.0.0/primitive-0.9.0.0.tar.gz"
+    },
+    {
+      "name": "random",
+      "version": "1.1",
+      "cabalSha256": "7b67624fd76ddf97c206de0801dc7e888097e9d572974be9b9ea6551d76965df",
+      "sourceSha256": "b718a41057e25a3a71df693ab0fe2263d492e759679b3c2fea6ea33b171d3a5a",
+      "file": "random/1.1/random-1.1.tar.gz"
+    },
+    {
+      "name": "regex-base",
+      "version": "0.94.0.2",
+      "cabalSha256": "0322b2fcd1358f3355e0c8608efa60d27b14d1c9d476451dbcb9181363bd8b27",
+      "sourceSha256": "7b99408f580f5bb67a1c413e0bc735886608251331ad36322020f2169aea2ef1",
+      "file": "regex-base/0.94.0.2/regex-base-0.94.0.2.tar.gz"
+    },
+    {
+      "name": "regex-tdfa",
+      "version": "1.3.2.2",
+      "cabalSha256": "e5ea15b2898c62c63fae798784bc402b3862733d97a4f7ee3ec4f9ae6f447478",
+      "sourceSha256": "933ed5c54246bb50e335d86b884ffb70bc252b5f776fb291f162a80a27bd75b7",
+      "file": "regex-tdfa/1.3.2.2/regex-tdfa-1.3.2.2.tar.gz"
+    },
+    {
+      "name": "resourcet",
+      "version": "1.3.0",
+      "cabalSha256": "faa760fb28fb5c98fbe4867e375a775495cabc00926da81fa102dc991017d2c5",
+      "sourceSha256": "ec601785ee42a201f32adb205b8685c983f18757b1bd33d2e806d571e0f9996b",
+      "file": "resourcet/1.3.0/resourcet-1.3.0.tar.gz"
+    },
+    {
+      "name": "safe",
+      "version": "0.3.21",
+      "cabalSha256": "b928ea1645876788155b38ce85c7e46d157a1bb41d2b05f5770b13d60bc6a3f7",
+      "sourceSha256": "2c81fea42bbe79ec488774043c1ec54f30efba059df9a4f3681ce83d85007f01",
+      "file": "safe/0.3.21/safe-0.3.21.tar.gz"
+    },
+    {
+      "name": "scientific",
+      "version": "0.3.8.0",
+      "cabalSha256": "2148e2e6ab1f1fd2ecee25067e0ee60da886be89736e8a54d49556407d7113ce",
+      "sourceSha256": "13b343bca8aa26d7718e52e622e5a118056653edafcbc7ccc5333be7217218cf",
+      "file": "scientific/0.3.8.0/scientific-0.3.8.0.tar.gz"
+    },
+    {
+      "name": "semialign",
+      "version": "1.3.1",
+      "cabalSha256": "0ebafdb9c3bfac8c5311999ae195115c1452a205b273d54e7b1145a65c1bf610",
+      "sourceSha256": "66e87bc254ffec2ee908bf625c42d3b7363238d6ab1cfba8934bbee7590c9df7",
+      "file": "semialign/1.3.1/semialign-1.3.1.tar.gz"
+    },
+    {
+      "name": "semigroupoids",
+      "version": "6.0.1",
+      "cabalSha256": "f65892f65f941c7368334bdfdcdb9db2ad3952502e94e88785a5a428fa2f3f4e",
+      "sourceSha256": "1d532030862414f5d4f2f6f001783f77aa14e5f05ee8e3c4a2d2129fca29cc1f",
+      "file": "semigroupoids/6.0.1/semigroupoids-6.0.1.tar.gz"
+    },
+    {
+      "name": "skylighting",
+      "version": "0.14.3",
+      "cabalSha256": "08a6b838d2027afff22f7b0a987099148be1ce3142f885da308b39f3d9eb8770",
+      "sourceSha256": "a9ecc860564414a34b10e3fda513610820f4ad84a99ee41c15110ba8364eab08",
+      "file": "skylighting/0.14.3/skylighting-0.14.3.tar.gz"
+    },
+    {
+      "name": "skylighting-core",
+      "version": "0.14.3",
+      "cabalSha256": "e0f14e260f70f3777a319d0aeb324528c4ba219c38c4fb0893ad7e400867e63d",
+      "sourceSha256": "957e7f38f68b8a2607a7bddffb7b652795953f3fb069dfc62462b63ad5dfc40b",
+      "file": "skylighting-core/0.14.3/skylighting-core-0.14.3.tar.gz"
+    },
+    {
+      "name": "skylighting-format-ansi",
+      "version": "0.1",
+      "cabalSha256": "4e525cb8fc5f13d9cf9d1f1d07120cc494d91bbfe39045c41b7ab6cf1c77a361",
+      "sourceSha256": "23dfa86c2ecd2601a2efed4967eb2ec0505a52c14776054ce4d89707c2de0a9b",
+      "file": "skylighting-format-ansi/0.1/skylighting-format-ansi-0.1.tar.gz"
+    },
+    {
+      "name": "skylighting-format-blaze-html",
+      "version": "0.1.1.2",
+      "cabalSha256": "30e290ff4628cdb41fa0f99561dc480224f329d1746fa5bcf5be8288aff0ccc5",
+      "sourceSha256": "125fe5367aef04b1bc720bdff07802e5db288cb3634ac0ba2796ed5cedd98f79",
+      "file": "skylighting-format-blaze-html/0.1.1.2/skylighting-format-blaze-html-0.1.1.2.tar.gz"
+    },
+    {
+      "name": "skylighting-format-context",
+      "version": "0.1.0.2",
+      "cabalSha256": "1eacb2bc470821c7fbe778e92b8915b9e45931a25c6a57e2b5edee3021d908c8",
+      "sourceSha256": "004213e13d89b692ea0912d7ffa6ee98c93146d1a7962a849ad7860697bc88bd",
+      "file": "skylighting-format-context/0.1.0.2/skylighting-format-context-0.1.0.2.tar.gz"
+    },
+    {
+      "name": "skylighting-format-latex",
+      "version": "0.1",
+      "cabalSha256": "8631854e20604e497816b0bfdbcaaed7ff622e58fbbc365d4c3d08ef30052bd3",
+      "sourceSha256": "97b66c9ab60451e41a94aa80a684e792fbe69816835f735224222beea22afb78",
+      "file": "skylighting-format-latex/0.1/skylighting-format-latex-0.1.tar.gz"
+    },
+    {
+      "name": "split",
+      "version": "0.2.5",
+      "cabalSha256": "5bc1ae848bfded3087ea3e568908f1b75f56ecde6f02df3fad1a138dd5c783d5",
+      "sourceSha256": "52da404e8397c1ab238354c8d4fd9a7e9c5cac8849cc2ce2e45facc85e74a913",
+      "file": "split/0.2.5/split-0.2.5.tar.gz"
+    },
+    {
+      "name": "strict",
+      "version": "0.5.1",
+      "cabalSha256": "58c373b7c7748cbb4a5a6c8c15073f99a1c10a9a9bb6894ac33f43a5cdb901f2",
+      "sourceSha256": "77719280c2a86312e748227bfa732eeaae0e7df48d57acc3c2e5b7b07afe2f8b",
+      "file": "strict/0.5.1/strict-0.5.1.tar.gz"
+    },
+    {
+      "name": "syb",
+      "version": "0.7.2.4",
+      "cabalSha256": "936d5a92084ad9d88c5a9dd2e622deab57ce48ce85be93e6273b3f8eb64c12ca",
+      "sourceSha256": "ec7c1e8822d62ab910386361cdcee40a22a26cd344c34741fadd982302291e60",
+      "file": "syb/0.7.2.4/syb-0.7.2.4.tar.gz"
+    },
+    {
+      "name": "tagged",
+      "version": "0.8.8",
+      "cabalSha256": "9193defbde3dda997236ccc11a1db3e073cc531fe523e13e9659df776feb0b32",
+      "sourceSha256": "a083fa7835516203c168433a1c8dfc0290a94b05fedab566ad0640fc9137a6a7",
+      "file": "tagged/0.8.8/tagged-0.8.8.tar.gz"
+    },
+    {
+      "name": "tagsoup",
+      "version": "0.14.8",
+      "cabalSha256": "56b2023d2e9fdbff093719ce9af5285d2436b234c6c684d6a69f14595a8348ae",
+      "sourceSha256": "ba7e5500d853d29f0675b90655b7fdd032a4a7eee82a56e7ee3ef9949fe93ad5",
+      "file": "tagsoup/0.14.8/tagsoup-0.14.8.tar.gz"
+    },
+    {
+      "name": "temporary",
+      "version": "1.3",
+      "cabalSha256": "3a66c136f700dbf42f3c5000ca93e80b26dead51e54322c83272b236c1ec8ef1",
+      "sourceSha256": "8c442993694b5ffca823ce864af95bd2841fb5264ee511c61cf48cc71d879890",
+      "file": "temporary/1.3/temporary-1.3.tar.gz"
+    },
+    {
+      "name": "texmath",
+      "version": "0.12.8.11",
+      "cabalSha256": "d9a8337947fbfca6a119931d87b9f8343691be837bdf884af059327dd0337012",
+      "sourceSha256": "ffe8a6638b616e47e61153ed3baef96c40c5a150a9a51cc7d55007da56c9dd7b",
+      "file": "texmath/0.12.8.11/texmath-0.12.8.11.tar.gz"
+    },
+    {
+      "name": "text-conversions",
+      "version": "0.3.1.1",
+      "cabalSha256": "35dc3ee494275509a3a771d5d27fc02d4af34478a40126cba87cdc6f007d551e",
+      "sourceSha256": "c8770fba789ce80334cae628285103c49abec0fa074773cbb5a88e26f5a7725d",
+      "file": "text-conversions/0.3.1.1/text-conversions-0.3.1.1.tar.gz"
+    },
+    {
+      "name": "text-iso8601",
+      "version": "0.1.1",
+      "cabalSha256": "0af50f6d2e8479b9a956c9c612ec270ea09df4c78c88c5b1bdd98066f576d73d",
+      "sourceSha256": "9dead2b7ceeae40fe0fc060bd54795c32e9926c9d1aebae8f9b9a621fba88202",
+      "file": "text-iso8601/0.1.1/text-iso8601-0.1.1.tar.gz"
+    },
+    {
+      "name": "text-short",
+      "version": "0.1.6",
+      "cabalSha256": "5953dc14c71b6047edab2dc89e922678ff5cbe2e98d16b9e7078150083940be4",
+      "sourceSha256": "8173ea138d7dc398747b636012bf6e79e17186560b8a7a7fc9e6456d78556eab",
+      "file": "text-short/0.1.6/text-short-0.1.6.tar.gz"
+    },
+    {
+      "name": "th-abstraction",
+      "version": "0.7.0.0",
+      "cabalSha256": "4d80fe53ed140866018278c81e1c0c9bc8fc73d8f2a530321a588f24be491fc4",
+      "sourceSha256": "b2854c612f2fa4adfa1ecbb4089a2211fd9cb3210aec17ba4a455ae486b22721",
+      "file": "th-abstraction/0.7.0.0/th-abstraction-0.7.0.0.tar.gz"
+    },
+    {
+      "name": "th-compat",
+      "version": "0.1.5",
+      "cabalSha256": "129a59ba3ccfcd06192fd6da899e2711ae276a466915a047bd6727e4a0321d2e",
+      "sourceSha256": "81f55fafc7afad7763c09cb8b7b4165ca3765edcf70ffa42c7393043a1382a1e",
+      "file": "th-compat/0.1.5/th-compat-0.1.5.tar.gz"
+    },
+    {
+      "name": "th-lift",
+      "version": "0.8.5",
+      "cabalSha256": "d4b51c6324c9a1cfa0b7092fee38c1a385b0a22b28f59dd77cc3b103f441965c",
+      "sourceSha256": "699c5a8d4e02dfe7da5f6a8827268e4feb61150ecd0c53df94e6f88466df1176",
+      "file": "th-lift/0.8.5/th-lift-0.8.5.tar.gz"
+    },
+    {
+      "name": "th-lift-instances",
+      "version": "0.1.20",
+      "cabalSha256": "c7886eb39760825b8861c68e48b2b5efb5eff8d2cb76201fdd0fb04bcbeff78e",
+      "sourceSha256": "f533c3f95addcca461a0ccd1aafef75dd801bfa6599c0d1184d54bfffb61d870",
+      "file": "th-lift-instances/0.1.20/th-lift-instances-0.1.20.tar.gz"
+    },
+    {
+      "name": "these",
+      "version": "1.2.1",
+      "cabalSha256": "c04f573531b37864506b071046e010a7a6aad11650cf895467f9f279d0130b8b",
+      "sourceSha256": "17d6d933365edabf801a16842c1403bdd37cc5300faa2fcca980decdab22e4de",
+      "file": "these/1.2.1/these-1.2.1.tar.gz"
+    },
+    {
+      "name": "time-compat",
+      "version": "1.9.7",
+      "cabalSha256": "f0bff15af6faaeff36b679e6b810fa71534b2f85a91bf98d7541dac6a469b20f",
+      "sourceSha256": "c98fbea21d036c3263af186df0569b8425c87ad353b021353794743e4e631dcc",
+      "file": "time-compat/1.9.7/time-compat-1.9.7.tar.gz"
+    },
+    {
+      "name": "toml-parser",
+      "version": "2.0.1.0",
+      "cabalSha256": "b6dc274c233ab6c3e43e1a3f3c93aa68d340cc73950fff273e1c6fb6ffd3e0dd",
+      "sourceSha256": "03366d727abac9e30055487dbfa07973c321aff571a0de9e504337aa586697e1",
+      "file": "toml-parser/2.0.1.0/toml-parser-2.0.1.0.tar.gz"
+    },
+    {
+      "name": "transformers-compat",
+      "version": "0.7.2",
+      "cabalSha256": "044fb9955f63ee138fcebedfdcbe54afe741f2d5892a2d0bdf3a8052bd342643",
+      "sourceSha256": "b62c7304c9f3cbc9463d0739aa85cb9489f217ea092b9d625d417514fbcc9d6a",
+      "file": "transformers-compat/0.7.2/transformers-compat-0.7.2.tar.gz"
+    },
+    {
+      "name": "typed-process",
+      "version": "0.2.12.0",
+      "cabalSha256": "ef8a3bd94aac6f9823098f49bd8c7199125ae5e61d82b583007180dad17a145d",
+      "sourceSha256": "4cee3d3ae851de720f40ce671510c04b7938ca76552952bd7c5e8b1bec161be1",
+      "file": "typed-process/0.2.12.0/typed-process-0.2.12.0.tar.gz"
+    },
+    {
+      "name": "typst",
+      "version": "0.6",
+      "cabalSha256": "02a4862294524294472d1e33e6c77825adb5e86ad512c2c7a70eb1542f9c2d82",
+      "sourceSha256": "a11f38d8433866e2a62cb221cef460937eaf1ef5ca84f11f587de7894f6f5724",
+      "file": "typst/0.6/typst-0.6.tar.gz"
+    },
+    {
+      "name": "typst-symbols",
+      "version": "0.1.6",
+      "cabalSha256": "02bcb9ae8d9ec8d6ddcffbaeb387e83b29e657ce2b542ccbba62700cf425b2b1",
+      "sourceSha256": "947ff2a09549a6a0387327e6b15c9219947be67ebe5fb190d1fb98495d7e429d",
+      "file": "typst-symbols/0.1.6/typst-symbols-0.1.6.tar.gz"
+    },
+    {
+      "name": "unicode-collation",
+      "version": "0.1.3.6",
+      "cabalSha256": "aef6fc69cea1f6bfcc77c241d2852c1291e3fc61ebee0afcddcbc5259a394707",
+      "sourceSha256": "d64163d64cdf8c872d7ec02b49bc0d0192c70875b8c002765c5142cc880d3a30",
+      "file": "unicode-collation/0.1.3.6/unicode-collation-0.1.3.6.tar.gz"
+    },
+    {
+      "name": "unicode-data",
+      "version": "0.6.0",
+      "cabalSha256": "4a42e51b4c50ffc3960999d3a2e94bcea17a55480fe5fead0904c493a513a9f8",
+      "sourceSha256": "b28733168535a23c068c2554a118f0ba544561f93f37a1c4e8556e3e4d029947",
+      "file": "unicode-data/0.6.0/unicode-data-0.6.0.tar.gz"
+    },
+    {
+      "name": "unicode-transforms",
+      "version": "0.4.0.1",
+      "cabalSha256": "ffb1d1d489dda5248e860e22b13c7523799bc841c2c195cc2aca569a63025451",
+      "sourceSha256": "3278e1e1d648da4bcd7368658ae091a89080e88a2f44db9df5136711e99649fc",
+      "file": "unicode-transforms/0.4.0.1/unicode-transforms-0.4.0.1.tar.gz"
+    },
+    {
+      "name": "uniplate",
+      "version": "1.6.13",
+      "cabalSha256": "c8b715570d0b4baa72512e677552dd3f98372a64bf9de000e779bd4162fd7be7",
+      "sourceSha256": "e777c94628445556a71f135a42cf72d2cfbaccba5849cc42fbfec8b2182e3ad2",
+      "file": "uniplate/1.6.13/uniplate-1.6.13.tar.gz"
+    },
+    {
+      "name": "unliftio-core",
+      "version": "0.2.1.0",
+      "cabalSha256": "f6a2736f858b5390d9384dca43d3ea4d96e9ca17217791791ca4951ba6e8072a",
+      "sourceSha256": "99384cba8d56d9d61b85e38a313a93ebcdb78be6566367f0930ef580597fe3e3",
+      "file": "unliftio-core/0.2.1.0/unliftio-core-0.2.1.0.tar.gz"
+    },
+    {
+      "name": "unordered-containers",
+      "version": "0.2.20",
+      "cabalSha256": "c7fe9cba405ed9905e12d89c7add3b3eb9868dfba7975e70ba0cdd64b7b11abc",
+      "sourceSha256": "d9cfb287cf00592d39dc9c3cac8b99627ea08f2c01798e70130fc39f7c90f11d",
+      "file": "unordered-containers/0.2.20/unordered-containers-0.2.20.tar.gz"
+    },
+    {
+      "name": "utf8-string",
+      "version": "1.0.2",
+      "cabalSha256": "79416292186feeaf1f60e49ac5a1ffae9bf1b120e040a74bf0e81ca7f1d31d3f",
+      "sourceSha256": "ee48deada7600370728c4156cb002441de770d0121ae33a68139a9ed9c19b09a",
+      "file": "utf8-string/1.0.2/utf8-string-1.0.2.tar.gz"
+    },
+    {
+      "name": "uuid-types",
+      "version": "1.0.5.1",
+      "cabalSha256": "918c8a115a0bc427cdaa4d1f51c1634bf3ac53679d0bbe039b77b9c1b62cfcbd",
+      "sourceSha256": "0bec6d6982b3c92bfa5eab1d213be2d4b6696b9a2c3a1f1f05812dc3762dca2c",
+      "file": "uuid-types/1.0.5.1/uuid-types-1.0.5.1.tar.gz"
+    },
+    {
+      "name": "vector",
+      "version": "0.13.1.0",
+      "cabalSha256": "c8564a7d0b2df5a4a8a2c6e69db840ac2fe5aa566babf4a516c370c5d85f2546",
+      "sourceSha256": "63f272279eab8ab9411a0fffb1252ac309b297313f8e33be9ebbc2f981edecee",
+      "file": "vector/0.13.1.0/vector-0.13.1.0.tar.gz"
+    },
+    {
+      "name": "vector-algorithms",
+      "version": "0.9.0.2",
+      "cabalSha256": "636267cf6236c945160779e08c03d52f45bb84f8a0133a97590cb6d0cc6e6e87",
+      "sourceSha256": "82ee0d0cb8734944781d3cac186cc2fe45aac7859b2af365f2f8ea32a17a253a",
+      "file": "vector-algorithms/0.9.0.2/vector-algorithms-0.9.0.2.tar.gz"
+    },
+    {
+      "name": "vector-stream",
+      "version": "0.1.0.1",
+      "cabalSha256": "2d0ebd13a852c3238d1e3a672960756895e770158e1a7eb853b1dd7829df9a51",
+      "sourceSha256": "d0f507334bdea5431a2f07f525a97f29e76522c32210f5de6d5a2b4f1d42bf7c",
+      "file": "vector-stream/0.1.0.1/vector-stream-0.1.0.1.tar.gz"
+    },
+    {
+      "name": "witherable",
+      "version": "0.5",
+      "cabalSha256": "85bab588ebca37996fc3171b9d8b2e065eb0536c9f44224bcf037c0849a881de",
+      "sourceSha256": "48434cc1e465b13cbc0133a90c3ec0d827c93b77ce95807fe0a38b65f4918cd1",
+      "file": "witherable/0.5/witherable-0.5.tar.gz"
+    },
+    {
+      "name": "xml",
+      "version": "1.3.14",
+      "cabalSha256": "c7a33d37c968c769723931a33e4e795f0aadda6cb62e7073ded8a2db52509d95",
+      "sourceSha256": "32d1a1a9f21a59176d84697f96ae3a13a0198420e3e4f1c48abbab7d2425013d",
+      "file": "xml/1.3.14/xml-1.3.14.tar.gz"
+    },
+    {
+      "name": "xml-types",
+      "version": "0.3.8",
+      "cabalSha256": "0d1420f967a5f6439dc03f554b4d77cf15f9ff0aa58fa408efc52ca16459119b",
+      "sourceSha256": "dad5e4ce602b7d1f4be37c0cfd99a261a4573746bfd80d917dc955b72da84c80",
+      "file": "xml-types/0.3.8/xml-types-0.3.8.tar.gz"
+    },
+    {
+      "name": "yaml",
+      "version": "0.11.11.2",
+      "cabalSha256": "6f0a1859e0fb3068e50dbc7fe9bf9a26847741bc24344e35e16a03711a18f88d",
+      "sourceSha256": "ee74923ee5b0fef74413c58aaa20ea59baf5d29d256a62fb47cc279570d9dc2f",
+      "file": "yaml/0.11.11.2/yaml-0.11.11.2.tar.gz"
+    },
+    {
+      "name": "zip-archive",
+      "version": "0.4.3.2",
+      "cabalSha256": "b224f6d0d5527a113fa94fac0b710bc204c544b23d5cca90507fbb73942ce56f",
+      "sourceSha256": "61dae6b47f1d5411f2a7567fa21dc3c5b587d671981601777149e1f18925cb5c",
+      "file": "zip-archive/0.4.3.2/zip-archive-0.4.3.2.tar.gz"
+    },
+    {
+      "name": "zlib",
+      "version": "0.7.1.0",
+      "cabalSha256": "bae1c5a6092d65c5e763246f91e04fef3f43e37cb055130725c9a973c88a250f",
+      "sourceSha256": "6edd38b6b81df8d274952aa85affa6968ae86b2231e1d429ce8bc9083e6a55bc",
+      "file": "zlib/0.7.1.0/zlib-0.7.1.0.tar.gz"
+    },
+    {
+      "name": "zlib-clib",
+      "version": "1.3.1",
+      "cabalSha256": "df08fd02b04d81e3dd8ca914acb4a6421ff9b35ebaecf109dd842cef7ab23d0c",
+      "sourceSha256": "76ba8fa213dd451134419e3809cbd66f64dda7f37fd979fee7c6e38d78a36a94",
+      "file": "zlib-clib/1.3.1/zlib-clib-1.3.1.tar.gz"
+    }
+  ],
+  "repositoryIndex": [
+    {
+      "file": "01-index.cache",
+      "sha256": "abd63a63b56a66b411d9c1ca52cd7291b56908edec79c797f03d2485481e3fae",
+      "bytes": 8928839
+    },
+    {
+      "file": "01-index.tar",
+      "sha256": "812a4e510124cf5240cef9cbc4560e7211846a3379aea6bc46c9419e512aec57",
+      "bytes": 1037394944
+    },
+    {
+      "file": "01-index.tar.gz",
+      "sha256": "8212de2affa7374020ad0f7fa908d709cf7c575596c4d91e7259ae23af890802",
+      "bytes": 138512833
+    },
+    {
+      "file": "01-index.tar.idx",
+      "sha256": "ee93c21151ca217e49f6e2f7b92655b768adb0eb1491cd961755df3a7c771d5c",
+      "bytes": 5814362
+    },
+    {
+      "file": "01-index.timestamp",
+      "sha256": "b5180223165af3583fd0724209986caf2a62692654b74c525027dda592404330",
+      "bytes": 4
+    },
+    {
+      "file": "mirrors.json",
+      "sha256": "672d24b787e96564937fdd0b072a48ef1588f7a4cfe92ad15d6fd8468dfb4d20",
+      "bytes": 409
+    },
+    {
+      "file": "root.json",
+      "sha256": "f62e46cb51d4a499a8336894d7a46071b7e528135ad71614c7102c1de0aeeabc",
+      "bytes": 4603
+    },
+    {
+      "file": "snapshot.json",
+      "sha256": "d08874b0558e77e28103b99e3f78041244799cb80b3052a1ee5c9fe157aac2e8",
+      "bytes": 972
+    },
+    {
+      "file": "timestamp.json",
+      "sha256": "5b69c516b2dbba8275544999f4d20ce69969a0a9a0fb5183b4ef40a885199f40",
+      "bytes": 465
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "candidateSha256": "ecca28eb011ab6121ec24281416ae195165f0bd70c2da3e757020f05f58484fa",
+  "engineManifestSha256": "f80ed771b21d593e7f05a68a54d23b1e177afa62a908303bf8d25029d65569aa",
+  "image": "sha256:e0b28ef7ed92c0065fbbf7a6c8b455873d50528a054a54a4591a6fe950feef1b",
+  "os": "linux",
+  "arch": "x86_64",
+  "hostArch": "aarch64",
+  "execution": "Rosetta emulation",
+  "baseImage": "scratch",
+  "rootFilesystem": "read-only",
+  "network": "none",
+  "uid": 1000,
+  "capabilities": "none",
+  "noNewPrivileges": true,
+  "pidLimit": 128,
+  "memoryLimit": "2g",
+  "cpuLimit": 2,
+  "tmpfs": "/tmp:rw,nosuid,nodev,size=512m",
+  "totalTimeoutSeconds": 1200,
+  "exitCode": 0,
+  "routes": 76,
+  "report": "final-conversions.json",
+  "reportSha256": "2533126eacbce41f82a59b0f619e38be2b7ea00f68b5e9129ab319794c94d7d0",
+  "installerAcceptance": false,
+  "nativeHardwareAcceptance": false,
+  "strictSnapAcceptance": false,
+  "candidateUnchangedAfterRun": true,
+  "notExecutedChecks": [
+    "missing_pandoc_keeps_images (development manifest only)"
+  ]
+}

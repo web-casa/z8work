@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Z8.Work
+Comment=Local file conversion
+Comment[zh_CN]=本地多文件转换处理工具
+Exec=z8-work
+Icon=${SNAP}/usr/share/icons/hicolor/192x192/apps/z8-work.png
+Terminal=false
+Categories=Utility;Graphics;AudioVideo;
+StartupWMClass=Z8.Work Desktop Dev

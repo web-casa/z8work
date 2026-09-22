@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cancel-tasks"
+description = "Enables the cancel_tasks command without any pre-configured scope."
+commands.allow = ["cancel_tasks"]
+
+[[permission]]
+identifier = "deny-cancel-tasks"
+description = "Denies the cancel_tasks command without any pre-configured scope."
+commands.deny = ["cancel_tasks"]

@@ -1,0 +1,831 @@
+{
+  "arch": "aarch64",
+  "controls": [
+    {
+      "cancel": true,
+      "corruptRejected": true,
+      "input": "bmp",
+      "preview": true
+    },
+    {
+      "cancel": true,
+      "corruptRejected": true,
+      "input": "tga",
+      "preview": true
+    },
+    {
+      "cancel": true,
+      "corruptRejected": true,
+      "input": "qoi",
+      "preview": true
+    }
+  ],
+  "engines": [
+    {
+      "available": true,
+      "development": true,
+      "error": null,
+      "id": "magick",
+      "version": "Version: ImageMagick 7.1.1-43 Q16 aarch64 22550 https://imagemagick.org"
+    },
+    {
+      "available": true,
+      "development": true,
+      "error": null,
+      "id": "ffmpeg",
+      "version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": true,
+      "error": null,
+      "id": "ffprobe",
+      "version": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers"
+    },
+    {
+      "available": true,
+      "development": true,
+      "error": null,
+      "id": "pandoc",
+      "version": "pandoc 3.1.11.1"
+    },
+    {
+      "available": true,
+      "development": true,
+      "error": null,
+      "id": "mutool",
+      "version": "mutool version 1.25.1"
+    }
+  ],
+  "platform": "linux",
+  "presets": [
+    {
+      "format": "bmp",
+      "passed": true,
+      "quality": "small"
+    },
+    {
+      "format": "bmp",
+      "passed": true,
+      "quality": "balanced"
+    },
+    {
+      "format": "bmp",
+      "passed": true,
+      "quality": "high"
+    },
+    {
+      "format": "tga",
+      "passed": true,
+      "quality": "small"
+    },
+    {
+      "format": "tga",
+      "passed": true,
+      "quality": "balanced"
+    },
+    {
+      "format": "tga",
+      "passed": true,
+      "quality": "high"
+    },
+    {
+      "format": "qoi",
+      "passed": true,
+      "quality": "small"
+    },
+    {
+      "format": "qoi",
+      "passed": true,
+      "quality": "balanced"
+    },
+    {
+      "format": "qoi",
+      "passed": true,
+      "quality": "high"
+    }
+  ],
+  "routes": [
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "png",
+      "inputSha256": "880f803eb314ec22bb540eb8baba411e94dae0c1c41ff7a3dd275abdf12cc69f",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 462,
+      "decoded": true,
+      "input": "png",
+      "inputSha256": "880f803eb314ec22bb540eb8baba411e94dae0c1c41ff7a3dd275abdf12cc69f",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 70,
+      "decoded": true,
+      "input": "png",
+      "inputSha256": "880f803eb314ec22bb540eb8baba411e94dae0c1c41ff7a3dd275abdf12cc69f",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "jpg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1314,
+      "decoded": true,
+      "input": "jpg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 976,
+      "decoded": true,
+      "input": "jpg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "webp",
+      "inputSha256": "5105c97980ebad987631ba9c91928e76546c197304b57aa8675d9aac88f38792",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1746,
+      "decoded": true,
+      "input": "webp",
+      "inputSha256": "5105c97980ebad987631ba9c91928e76546c197304b57aa8675d9aac88f38792",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 896,
+      "decoded": true,
+      "input": "webp",
+      "inputSha256": "5105c97980ebad987631ba9c91928e76546c197304b57aa8675d9aac88f38792",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "avif",
+      "inputSha256": "b03d0ea321edcbdc9be979c2afec78babdde599199e5f791205f3be59eb84eb1",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1746,
+      "decoded": true,
+      "input": "avif",
+      "inputSha256": "b03d0ea321edcbdc9be979c2afec78babdde599199e5f791205f3be59eb84eb1",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 274,
+      "decoded": true,
+      "input": "avif",
+      "inputSha256": "b03d0ea321edcbdc9be979c2afec78babdde599199e5f791205f3be59eb84eb1",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 335,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "png",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 444,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "jpeg",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.07011790578309714,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 172,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "webp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.06545979954910426,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 300,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "avif",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0661574382917014,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1314,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 68,
+      "decoded": true,
+      "input": "bmp",
+      "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 348,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "png",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 446,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "jpeg",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.07010876659186266,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 208,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "webp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.062045036018549105,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 480,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "avif",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.07068045287244086,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 462,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 70,
+      "decoded": true,
+      "input": "tga",
+      "inputSha256": "686431a722b341712ee809f9dfff7698b43d98adb50a59b6de72f8d989e30057",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 348,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "png",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 446,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "jpeg",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.07010876659186266,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 208,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "webp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.062045036018549105,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 480,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "avif",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.07068045287244086,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1746,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 70,
+      "decoded": true,
+      "input": "qoi",
+      "inputSha256": "07b36932961e4a9b3c8870aaba4d8754df2fa9f223d0c3b6a30d861e14b8951c",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1350,
+      "decoded": true,
+      "input": "jpeg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 1314,
+      "decoded": true,
+      "input": "jpeg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 976,
+      "decoded": true,
+      "input": "jpeg",
+      "inputSha256": "1dcfb75659830c1a03c34d620726da77e2f9d6f340d39e28220b42ea8a0144cb",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "24 18",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 4662,
+      "decoded": true,
+      "input": "heic",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 4626,
+      "decoded": true,
+      "input": "heic",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 152,
+      "decoded": true,
+      "input": "heic",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 4662,
+      "decoded": true,
+      "input": "heif",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "bmp",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 4626,
+      "decoded": true,
+      "input": "heif",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "tga",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 152,
+      "decoded": true,
+      "input": "heif",
+      "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+      "output": "qoi",
+      "semantic": {
+        "alphaLimit": 0.02,
+        "dimensions": "48 32",
+        "maxAlphaError": 0.0,
+        "premultipliedRgbRmse": 0.0,
+        "rmseLimit": 0.15
+      }
+    },
+    {
+      "bytes": 124578,
+      "decoded": true,
+      "input": "pdf",
+      "output": "bmp",
+      "pages": 3
+    },
+    {
+      "bytes": 165942,
+      "decoded": true,
+      "input": "pdf",
+      "output": "tga",
+      "pages": 3
+    },
+    {
+      "bytes": 7224,
+      "decoded": true,
+      "input": "pdf",
+      "output": "qoi",
+      "pages": 3
+    }
+  ],
+  "schema": 1,
+  "scope": "static-raster-expansion-2",
+  "semantics": [
+    {
+      "check": "16-bit",
+      "format": "bmp",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "16-bit",
+      "format": "bmp",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "16-bit",
+      "format": "tga",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "16-bit",
+      "format": "tga",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "16-bit",
+      "format": "qoi",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "16-bit",
+      "format": "qoi",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "bmp",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "bmp",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "tga",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "tga",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "qoi",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "ICC to sRGB",
+      "format": "qoi",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "bmp",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "bmp",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "tga",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "tga",
+      "keep_metadata": true,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "qoi",
+      "keep_metadata": false,
+      "passed": true
+    },
+    {
+      "check": "EXIF orientation 6",
+      "format": "qoi",
+      "keep_metadata": true,
+      "passed": true
+    }
+  ]
+}

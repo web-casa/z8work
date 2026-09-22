@@ -62,7 +62,8 @@ test("zero size and zero duration estimate no operational impact; invalid inputs
 		assert.throws(() => estimateStorage(1, value), RangeError);
 		assert.throws(() => estimateGlobal(value), RangeError);
 	}
-	assert.throws(() => estimateStorage(1, 365, "unknown"), RangeError);
+	for (const kind of ["unknown", "toString", "constructor", "__proto__"])
+		assert.throws(() => estimateStorage(1, 365, kind), RangeError);
 });
 
 test("global daily savings accumulate with distinct retention periods over the first year", () => {

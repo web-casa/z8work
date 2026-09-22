@@ -1,0 +1,30 @@
+{
+	"schema": 1,
+	"status": "passed",
+	"artifactSha256": "3a6fb4001b306a810a769fc0880a6d6912c836130f0c3f3dd584a912b3a18798",
+	"applicationSha256": "b1ca228334bb42363b3da987dfe012a4e5c56dc83a5ed15f71f429d681dbe193",
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"scope": "Unpacked Linux ARM64 tar; not strict Snap or document-portal acceptance",
+	"warning": "Document portal FUSE mount failed in this test session; GTK file picker flows passed",
+	"results": {
+		"platform": "linux / aarch64",
+		"batchSettingsPersisted": true,
+		"pdfSavedPages": 5,
+		"pdfPartialCancellation": true,
+		"pdfRetryAfterReload": true,
+		"pdfResumePreservedOutputs": true,
+		"arbitraryRevealRejected": true,
+		"sizeComparisonRendered": true,
+		"nativeInputPicker": true,
+		"nativeOutputPicker": true,
+		"queueContinuedAcrossReload": true,
+		"savedTasks": 2,
+		"duplicateRequestNoExtraOutput": true,
+		"singleInstanceSecondProcessExited": true,
+		"packagedEngines": true,
+		"application": "/home/ivmm/VERT/.desktop-local/phase5-unpacked/z8-work/usr/bin/z8-desktop",
+		"unauthorizedCommandsRejected": true,
+		"clearWaitedForCancellation": true,
+		"clearPreservedSavedOutputs": true
+	}
+}

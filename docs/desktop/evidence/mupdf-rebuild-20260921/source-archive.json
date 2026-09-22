@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "file": ".desktop-local/store-source-phase5/mupdf-corresponding-source.tar.gz",
+  "bytes": 133495540,
+  "sha256": "22f86f6e11d2bff9f9ca5664db48c2e0e4e905fe08b37ae483ccb08310345106",
+  "sourceTrees": 24,
+  "checkedGitBlobs": 24085,
+  "distribution": "local-only",
+  "licenseReview": "pending",
+  "includes": "MuPDF, recursive submodules, Emscripten, build scripts and pinned npm tool lock"
+}

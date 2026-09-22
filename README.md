@@ -20,6 +20,27 @@ See the [frontend redesign notes](docs/FRONTEND_REDESIGN.md) for the imported de
 
 Current production branding, domain, icons and filename migration are documented in [Branding](docs/BRANDING.md).
 
+## Native desktop prototype
+
+[Phase 24: V1 scope and reproducible source baseline](docs/desktop/PHASE24_IMPLEMENTATION.md) freezes the initial format/language matrix, improves CI and input receipts, and verifies an isolated checkout. [Platform prerequisites and remaining risks](docs/desktop/PHASE24_READINESS.md) remain separate from installed-package acceptance. [Phase 25: save recovery](docs/desktop/PHASE25_IMPLEMENTATION.md) now retains verified single-file results after a save failure and retries saving without re-encoding or reading the input again. The session cache expires after 30 idle minutes and is limited to 1 GiB total. [Phase 26: startup and progress](docs/desktop/PHASE26_IMPLEMENTATION.md) prepares native engines in the background, retains early file selections, reports bounded audio progress and displays stable error categories. [Phase 27: product experience and format quality](docs/desktop/PHASE27_IMPLEMENTATION.md) adds bilingual privacy/environment explanations, keyboard and zoom fixes, and verifies all 84 frozen conversion routes. Local performance measurements are recorded separately from pending target-platform acceptance. [Phase 28: current candidates and offline licenses](docs/desktop/PHASE28_IMPLEMENTATION.md) rebuilds Linux ARM64, development MSIX and AMD64 Snap artifacts and adds an offline license reader. [Phase 29: filesystem faults and platform compatibility](docs/desktop/PHASE29_IMPLEMENTATION.md) verifies bounded Linux filesystem failures and save recovery, fixes inode-exhaustion error classification, and checks actual macOS deployment metadata. A new Linux ARM64 candidate includes the fix; Windows/Snap applications still need rebuilding. [Phase 30: release gate review and handoff preparation](docs/desktop/PHASE30_IMPLEMENTATION.md) binds evidence to individual checks, platforms and source commits, requires fault/performance evidence, and updates bilingual support materials. Native macOS candidates, complete source/license review and installed-package acceptance remain pending; no release candidate is frozen. [Additional R6 write-failure validation](docs/desktop/PHASE29_WRITE_FAILURES.md) exercises real file-size-limit failures, fixes output I/O error categories, and verifies save recovery.
+
+A separate Tauri/Rust desktop prototype runs native ImageMagick, FFmpeg, Pandoc and MuPDF, with a Rust-managed queue and local task-history recovery. It is not a publicly released desktop version or a complete desktop equivalent of the website. Start with the [desktop research overview](docs/desktop/README.md), then see the [latest implementation and tested scope](docs/desktop/PHASE26_IMPLEMENTATION.md), [remaining seven-phase development plan (Phases 24–30)](docs/desktop/REMAINING_V1_PLAN.md), and [plan review and corrections](docs/desktop/REMAINING_V1_REVIEW.md). The [original V1 plan](docs/desktop/V1_PLAN.md) retains the architecture and research background.
+
+[Phase 5: desktop process lifetime hardening and review](docs/desktop/PHASE5_IMPLEMENTATION.md).
+
+[Phase 6: native engine provenance and source material review](docs/desktop/PHASE6_IMPLEMENTATION.md).
+
+[Phase 7: complete historical source collection and resumable downloads](docs/desktop/PHASE7_IMPLEMENTATION.md).
+[Phase 8: core24 AMD64 Snap packaging and portal dialogs](docs/desktop/PHASE8_IMPLEMENTATION.md) now has a local candidate. [Phase 9: installed Snap validation tooling](docs/desktop/PHASE9_IMPLEMENTATION.md) adds host checks and transferable test inputs; native strict installation acceptance remains pending.
+
+[Phase 23: private diagnostic reports](docs/desktop/PHASE23_IMPLEMENTATION.md) adds a reviewable runtime summary that excludes file contents, names, paths and raw logs. Reports are saved locally only when requested. Storage preflight, managed workspaces, native previews and batch imports remain available; Windows/macOS GUI and rebuilt installer acceptance are pending.
+
+[Phase 16: confirmation before quitting active conversions](docs/desktop/PHASE16_IMPLEMENTATION.md) adds a shared close/quit guard, verified in the Linux GUI with cancellation, encoder cleanup and restart recovery. Native Windows/macOS menu behavior and installation acceptance remain pending.
+
+[Phase 15: persistent desktop preferences](docs/desktop/PHASE15_IMPLEMENTATION.md) adds native storage for language and batch settings, verified through Linux application restart and conversion GUI regression.
+
+[Phase 14: MSIX installation acceptance tools](docs/desktop/PHASE14_IMPLEMENTATION.md) adds signed-copy and installed-payload validation, with local preflight against the unsigned Phase 13 MSIX. Native Windows signing, installation, WebView2/GUI, licensing and Store acceptance remain pending.
+
 ## Why Z8.Work?
 
 **File converters have always disappointed us.** They're ugly, riddled with ads, and most importantly; slow. We decided to solve this problem once and for all by making an alternative that solves all those problems, and more.

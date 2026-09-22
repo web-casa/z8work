@@ -1,0 +1,88 @@
+name: Repackage a verified Windows development candidate
+on:
+    workflow_call:
+        inputs:
+            source_run:
+                required: true
+                type: string
+    workflow_dispatch:
+        inputs:
+            source_run:
+                description: Run ID containing assembled inputs and passed native package reports
+                required: true
+                type: string
+permissions:
+    contents: read
+    actions: read
+jobs:
+    repackage:
+        runs-on: windows-2025
+        timeout-minutes: 15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - uses: actions/download-artifact@v4
+              with:
+                  name: windows-x64-assembled-inputs
+                  path: .desktop-local/ci
+                  run-id: ${{ inputs.source_run }}
+                  github-token: ${{ github.token }}
+            - uses: actions/download-artifact@v4
+              with:
+                  name: windows-x64-package-reports
+                  path: .desktop-local/ci/previous-reports
+                  run-id: ${{ inputs.source_run }}
+                  github-token: ${{ github.token }}
+            - name: Verify candidate against successful native evidence
+              run: node scripts/desktop-verify-native-handoff.mjs .desktop-local/ci/handoff .desktop-local/ci/previous-reports/native-check
+            - name: Package and unpack with Windows SDK
+              shell: pwsh
+              run: |
+                  $sdk = Get-ChildItem 'C:\Program Files (x86)\Windows Kits\10\bin' -Directory | Where-Object { $_.Name -match '^10\.0\.\d+\.0$' } | Sort-Object { [version]$_.Name } -Descending
+                  $makeappx = $sdk | ForEach-Object { Join-Path $_.FullName 'x64\makeappx.exe' } | Where-Object { Test-Path $_ } | Select-Object -First 1
+                  if (!$makeappx) { throw 'Windows SDK MakeAppx not found' }
+                  node scripts/desktop-msix-pack.mjs --prepared .desktop-local/ci/msix-prepared --tool "$makeappx" --kind makeappx --python python --output .desktop-local/ci/msix
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+            - name: Create complete Windows preview ZIP and hashes
+              shell: pwsh
+              run: |
+                  New-Item -ItemType Directory .desktop-local/ci/downloads | Out-Null
+                  Copy-Item .desktop-local/ci/msix/z8-work-development.msix .desktop-local/ci/downloads/
+                  $candidate = '.desktop-local/ci/portable'
+                  Copy-Item .desktop-local/ci/handoff/candidate $candidate -Recurse
+                  @'
+                  Z8.Work Windows x64 development preview
+                  Extract the entire ZIP and run z8-desktop.exe. Keep engines beside the EXE.
+                  Requires Microsoft Edge WebView2 Runtime, not included in this archive.
+                  Unsigned development build; native GUI/install/upgrade acceptance is pending.
+                  The development MSIX identity cannot be submitted to Microsoft Store.
+                  '@ | Set-Content "$candidate/README.txt" -Encoding utf8
+                  Compress-Archive -Path "$candidate/*" -DestinationPath .desktop-local/ci/downloads/Z8.Work-windows-x64-preview.zip
+                  python scripts/desktop-ci-zip-check.py --root "$candidate" --zip .desktop-local/ci/downloads/Z8.Work-windows-x64-preview.zip
+                  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+                  Get-ChildItem .desktop-local/ci/downloads -File | ForEach-Object { "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)" } | Set-Content .desktop-local/ci/downloads/SHA256SUMS -Encoding ascii
+            - uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-repacked-preview-and-development-msix
+                  path: .desktop-local/ci/downloads/*
+                  if-no-files-found: error
+                  retention-days: 14
+            - if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  include-hidden-files: true
+                  name: windows-x64-repack-reports
+                  path: |
+                      .desktop-local/ci/native-check/
+                      .desktop-local/ci/pdf-paths/report.json
+                      .desktop-local/ci/msix/*.json
+                      .desktop-local/ci/msix/*.log
+                      .desktop-local/ci/msix/*.xml
+                  if-no-files-found: warn
+                  retention-days: 14

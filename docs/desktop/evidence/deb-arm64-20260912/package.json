@@ -1,0 +1,21 @@
+{
+  "file": "z8-work_0.1.0~preview1_arm64.deb",
+  "sha256": "f4b77f6e9673db2726340cb00e118453b31309dbe563e671d3fd2bd12ccce568",
+  "bytes": 124091940,
+  "architecture": "arm64",
+  "testedDistribution": "Debian 13",
+  "sourceCandidateSha256": "6c7a5683fb097071bfcaed7e08aa9525f4b2919bc3b9056ff43ab3c96d56fb18",
+  "applicationSha256": "38771e1466c6a04834c4fcd81b908427f4ee006e97b6526eb461a96c64d42c08",
+  "sourceEngineManifestSha256": "9f12291d03708117f8c44dc30138f17c9c0e161c303d21a62d410c2c164bc90c",
+  "engineManifestSha256": "55076027e13448dda4ffa86c24b2c49292de002293f1cc46444b43c12776f211",
+  "licenseVolumes": [
+    "licenses/source-build/mupdf-build-notices-1.txt",
+    "licenses/source-build/mupdf-build-notices-2.txt",
+    "licenses/source-build/mupdf-build-notices-3.txt",
+    "licenses/source-build/mupdf-build-notices-4.txt",
+    "licenses/source-build/mupdf-build-notices-5.txt"
+  ],
+  "dependencies": "libc6 (>= 2.39), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.10.0), libdbus-1-3 (>= 1.10), libgcc-s1 (>= 4.2), libgdk-pixbuf-2.0-0 (>= 2.36.9), libglib2.0-0t64 (>= 2.66.0), libgtk-3-0t64 (>= 3.21.5), libjavascriptcoregtk-4.1-0, libpango-1.0-0 (>= 1.14.0), libsoup-3.0-0 (>= 3.0.3), libwebkit2gtk-4.1-0 (>= 2.41.90)",
+  "extractedFilesMatch": true,
+  "redistributionApproved": false
+}

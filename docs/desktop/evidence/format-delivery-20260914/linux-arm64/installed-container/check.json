@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "isolated native ARM64 Ubuntu deb installation and removal; no GUI session",
+  "image": "sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517",
+  "machine": "aarch64",
+  "osRelease": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "ordinaryUserUid": 1001,
+  "installation": "passed",
+  "installedApplicationHash": "e6c6d7317d2af5a0726c71f6198b4df83845a9fb2ba562c7830b2d03ba7ea7ae",
+  "installedAudioReport": "installed-audio.json",
+  "removal": "passed",
+  "unownedFileRetained": true,
+  "gui": "not-run",
+  "upgrade": "not-run",
+  "hostInstallationModified": false
+}

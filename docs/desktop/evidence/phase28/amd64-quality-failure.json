@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "platform": "linux-x86_64",
+  "execution": "emulated AMD64 on ARM64 host",
+  "engineManifestSha256": "e98ec994be2f5ca8a7798ab9ee5b458d5e669d8cd07e5307b19eddddcd3bbce4",
+  "artifactSha256": "8a937843942aba4739b1272edbf890e0253177aa615da7d9cbfd726ccfcf8fa5",
+  "exitCode": 1,
+  "stage": "Image ICC byte preservation",
+  "message": "ImageMagick NoColorProfileIsAvailable while reading output.icc",
+  "finding": "core24 ImageMagick was built without LCMS development dependency",
+  "installerAcceptance": false,
+  "logSha256": "e7521afc56dfc8c2627b39a73fd88cf828ea62eb9a974f08427ee72847b04f04"
+}

@@ -1,0 +1,15 @@
+$ svelte-check --workspace desktop --tsconfig tsconfig.json
+Loading svelte-check in workspace: /home/ivmm/VERT/.desktop-local/phase24/checkout/desktop
+Getting Svelte diagnostics...
+
+▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+
+    tsconfig.json:2:12:
+      2 │   "extends": "./.svelte-kit/tsconfig.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+svelte-check found 0 errors and 0 warnings

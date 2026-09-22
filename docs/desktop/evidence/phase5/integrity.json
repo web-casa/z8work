@@ -1,0 +1,8 @@
+{
+	"schema": 1,
+	"status": "passed",
+	"artifactSha256": "3a6fb4001b306a810a769fc0880a6d6912c836130f0c3f3dd584a912b3a18798",
+	"applicationSha256": "b1ca228334bb42363b3da987dfe012a4e5c56dc83a5ed15f71f429d681dbe193",
+	"engineManifestSha256": "5c31a431c87adfe666050477161ada4248a05b39ad314be9c845ff8fed292fd7",
+	"scope": "Final archive extracted; application and full engine inventory verified by candidate assembler, then application/manifest hashes rechecked in GUI extraction"
+}

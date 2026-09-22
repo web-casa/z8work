@@ -1,0 +1,9 @@
+{
+  "run": "34769210630",
+  "attempt": 2,
+  "artifact": "macos-amd64-signed-notarized",
+  "artifactId": 10322525821,
+  "reportArtifactId": 10322565545,
+  "download": "https://github.com/web-casa/z8work/actions/runs/34769210630/artifacts/10322525821",
+  "file": "Z8.Work-macos-amd64-signed.dmg"
+}

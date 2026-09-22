@@ -1,0 +1,114 @@
+name: Desktop FFmpeg source reconstruction
+on:
+    workflow_dispatch:
+permissions:
+    contents: read
+jobs:
+    reconstruct:
+        runs-on: ubuntu-24.04
+        timeout-minutes: 90
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22.22.2"
+            - uses: actions/setup-python@v5
+              with:
+                  python-version: "3.12"
+            - name: Test source verification tools
+              run: |
+                  python3 tests/desktop-web-git-sources.test.py
+                  python3 tests/desktop-web-ffmpeg-context.test.py
+            - name: Collect and verify pinned source candidates
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  python3 - <<'PY'
+                  import json, subprocess, hashlib
+                  from pathlib import Path
+                  lock = json.loads(Path('packaging/desktop-web/ffmpeg-source-dependencies.json').read_text())
+                  runtime = json.loads(Path('packaging/desktop-web/ffmpeg-runtime-sources.json').read_text())
+                  dependencies = [{'repository': 'ffmpegwasm/ffmpeg.wasm', 'commit': lock['wrapperCommit']}] + lock['dependencies'] + [runtime['emscripten']] + runtime['ports']
+                  for entry in dependencies:
+                      directory = '.desktop-local/ffmpeg-sources/' + entry['repository'].replace('/', '__')
+                      subprocess.run(['python3', 'scripts/desktop-web-git-sources.py', '--repository', entry['repository'], '--commit', entry['commit'], '--output', directory], check=True)
+                      subprocess.run(['python3', 'scripts/desktop-web-git-sources.py', '--audit', directory, '--repair'], check=True)
+                  for port in runtime['ports']:
+                      archive = Path('.desktop-local/ffmpeg-sources') / (port['name'] + '.zip')
+                      subprocess.run(['curl', '--fail', '--location', '--max-time', '120', port['upstreamArchive'], '--output', str(archive)], check=True)
+                      with archive.open('rb') as stream:
+                          if hashlib.file_digest(stream, 'sha512').hexdigest() != port['sha512']:
+                              raise RuntimeError('Emscripten port archive digest mismatch')
+                  PY
+            - name: Prepare local source build context
+              run: python3 scripts/desktop-web-ffmpeg-context.py --collection .desktop-local/ffmpeg-sources --output .desktop-local/ffmpeg-context
+            - name: Preserve verified source candidates
+              run: tar --no-wildcards-match-slash --exclude='.desktop-local/ffmpeg-sources/*/archives' --exclude='.desktop-local/ffmpeg-sources/*/staging' -czf .desktop-local/ffmpeg-source-candidates.tar.gz .desktop-local/ffmpeg-sources packaging/desktop-web/ffmpeg-source-dependencies.json packaging/desktop-web/ffmpeg-runtime-sources.json scripts/desktop-web-ffmpeg-context.py scripts/desktop-web-git-sources.py
+            - uses: docker/setup-buildx-action@v3
+              with:
+                  buildkitd-config: packaging/desktop-web/buildkitd.toml
+                  driver-opts: |
+                      memory=6g
+                      memory-swap=6g
+                      cpu-period=100000
+                      cpu-quota=400000
+            - name: Build single-thread core from source
+              run: |
+                  set -o pipefail
+                  docker buildx build --platform linux/amd64 --progress plain \
+                    --build-arg FFMPEG_ST=yes --build-arg 'EXTRA_CFLAGS=-O3 -msimd128' \
+                    --output type=local,dest=.desktop-local/ffmpeg-rebuilt \
+                    .desktop-local/ffmpeg-context 2>&1 | tee .desktop-local/ffmpeg-build.log
+            - name: Exercise rebuilt audio and video core
+              run: node scripts/desktop-web-ffmpeg-smoke.mjs --core-dir .desktop-local/ffmpeg-rebuilt/dist/esm --output .desktop-local/ffmpeg-smoke.json
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.0"
+            - name: Build application and verify candidate in offline browser
+              run: |
+                  set -o pipefail
+                  bun install --frozen-lockfile
+                  node scripts/desktop-web-ffmpeg-inventory.mjs --core-dir node_modules/@ffmpeg/core/dist/esm --output .desktop-local/ffmpeg-original-inventory.json
+                  node scripts/desktop-web-ffmpeg-inventory.mjs --core-dir .desktop-local/ffmpeg-rebuilt/dist/esm --baseline .desktop-local/ffmpeg-original-inventory.json --output .desktop-local/ffmpeg-candidate-inventory.json
+                  npm run desktop:build
+                  bunx playwright install --with-deps chromium
+                  node scripts/desktop-web-browser.mjs --ffmpeg-core-dir .desktop-local/ffmpeg-rebuilt/dist/esm --video-fixture tests/fixtures/ffmpeg-hevc-audio.mp4 2>&1 | tee .desktop-local/ffmpeg-browser.log
+            - name: Record exact byte comparison without approving replacement
+              run: |
+                  python3 - <<'PY'
+                  from pathlib import Path
+                  import hashlib, json
+                  engines = json.loads(Path('packaging/desktop-web/engines.json').read_text())['engines']
+                  expected = next(e['sha256'] for e in engines if e['name'] == '@ffmpeg/core')
+                  wasm = Path('.desktop-local/ffmpeg-rebuilt/dist/esm/ffmpeg-core.wasm')
+                  actual = hashlib.sha256(wasm.read_bytes()).hexdigest()
+                  js_hash = hashlib.sha256(wasm.with_suffix('.js').read_bytes()).hexdigest()
+                  for filename in ['ffmpeg-smoke.json', 'ffmpeg-candidate-inventory.json']:
+                      evidence = json.loads((Path('.desktop-local') / filename).read_text())
+                      assert evidence['status'] == 'passed' and evidence['wasmSha256'] == actual, filename
+                  browser = [json.loads(line) for line in Path('.desktop-local/ffmpeg-browser.log').read_text().splitlines() if line.startswith('{"candidateFfmpeg":')][-1]
+                  assert browser['candidateFfmpeg'] == 'passed' and browser['hashes'] == {'js': js_hash, 'wasm': actual}
+                  baseline = json.loads(Path('.desktop-local/ffmpeg-original-inventory.json').read_text())
+                  assert baseline['wasmSha256'] == expected
+                  report = {'build': 'passed', 'expectedSha256': expected, 'actualSha256': actual, 'jsSha256': js_hash, 'byteIdentical': actual == expected, 'runtimeAcceptance': 'core-smoke-and-offline-browser-passed; native-package-not-run', 'releaseReady': False}
+                  Path('.desktop-local/ffmpeg-comparison.json').write_text(json.dumps(report, indent=2) + '\n')
+                  print(json.dumps(report))
+                  PY
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: ffmpeg-source-reconstruction
+                  path: |
+                      .desktop-local/ffmpeg-build.log
+                      .desktop-local/ffmpeg-browser.log
+                      .desktop-local/ffmpeg-original-inventory.json
+                      .desktop-local/ffmpeg-candidate-inventory.json
+                      .desktop-local/ffmpeg-source-candidates.tar.gz
+                      .desktop-local/ffmpeg-comparison.json
+                      .desktop-local/ffmpeg-smoke.json
+                      .desktop-local/ffmpeg-context/report.json
+                      .desktop-local/ffmpeg-context/source-lock.json
+                      .desktop-local/ffmpeg-rebuilt/
+                  include-hidden-files: true
+                  if-no-files-found: warn
+                  retention-days: 14

@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "scope": "local-development-validation-only",
+  "sourceBaseline": "28a19b3",
+  "workingTree": "uncommitted changes; no final package produced",
+  "host": "Linux ARM64",
+  "javascriptTests": 198,
+  "legacyStoreAndAcceptanceTests": 34,
+  "legacyMsixTests": 5,
+  "rustTests": {
+    "default": 8,
+    "store": 8,
+    "mas": 8
+  },
+  "svelte": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "frontendBuild": "passed before final static policy wording update; policy generator subsequently checked",
+  "offlineBrowser": "passed with mocked native channel; not Store runtime evidence",
+  "configSchema": "merged Windows configuration and synthetic-identity MAS configuration passed installed Tauri schema",
+  "releaseGate": {
+    "exitCode": 1,
+    "ready": false,
+    "issues": 5
+  },
+  "nativeStoreInstallation": "not-run",
+  "signing": "not-run",
+  "submission": "not-run",
+  "logs": {
+    "javascript-tests.log": "efa142be7a1ee5b9cbd00c63f71e713e690d720380b169d75c6d6c78555cec0c",
+    "browser.log": "3fc1a7e36bbdea0271d0ff6ea9a9058f4440e0941540f36aec6e5e9c084145a9",
+    "legacy-regression.log": "8e94bb9e967936b42390a615915b8e2d7605291304b19e243851e363ea472b46"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "scope": "synthetic-migration-inputs-only",
+  "published": false,
+  "from": {
+    "application": "0.0.9",
+    "developmentMsix": "1.0.0.0",
+    "published": false,
+    "macosBundle": "1.0.0"
+  },
+  "to": {
+    "application": "0.1.0",
+    "developmentMsix": "1.0.1.0",
+    "macosBundle": "1.0.1"
+  },
+  "applicationId": "work.z8.desktop.m0",
+  "msixIdentity": "Z8Work.Desktop.Dev",
+  "msixPublisher": "CN=Z8.Work Development",
+  "snapName": "z8-work",
+  "packagesBuilt": false
+}

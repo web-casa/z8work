@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "scope": "Linux ARM64 debug development reference; not installed-package acceptance",
+  "startup": [
+    {
+      "mode": "ready",
+      "metric": "interactiveMs",
+      "count": 20,
+      "medianMs": 869.7655085000006,
+      "maximumMs": 937.8140219999987,
+      "referenceLimitMs": 2000
+    },
+    {
+      "mode": "ready",
+      "metric": "independentEnginesMs",
+      "count": 20,
+      "medianMs": 16731.354441499992,
+      "maximumMs": 17148.035337000038,
+      "referenceLimitMs": 25000
+    },
+    {
+      "mode": "blocked-magick",
+      "metric": "interactiveMs",
+      "count": 20,
+      "medianMs": 879.9874274999602,
+      "maximumMs": 940.5406859999639,
+      "referenceLimitMs": 2000
+    },
+    {
+      "mode": "blocked-magick",
+      "metric": "independentEnginesMs",
+      "count": 20,
+      "medianMs": 16759.347492500034,
+      "maximumMs": 17421.556041999953,
+      "referenceLimitMs": 25000
+    },
+    {
+      "mode": "missing-magick",
+      "metric": "interactiveMs",
+      "count": 20,
+      "medianMs": 860.586563000048,
+      "maximumMs": 921.202500000014,
+      "referenceLimitMs": 2000
+    },
+    {
+      "mode": "missing-magick",
+      "metric": "independentEnginesMs",
+      "count": 20,
+      "medianMs": 16720.813697500038,
+      "maximumMs": 17019.85707499995,
+      "referenceLimitMs": 25000
+    }
+  ],
+  "images": [
+    {
+      "fixture": "10-bit HEIC seed",
+      "count": 60,
+      "medianMs": 55.05852599999999,
+      "maximumMs": 61.078007,
+      "referenceLimitMs": 200
+    },
+    {
+      "fixture": "16-bit gradient 256x64",
+      "count": 60,
+      "medianMs": 56.100165,
+      "maximumMs": 78.69001300000001,
+      "referenceLimitMs": 200
+    },
+    {
+      "fixture": "ImageMagick rose:",
+      "count": 60,
+      "medianMs": 56.86663849999999,
+      "maximumMs": 77.178106,
+      "referenceLimitMs": 200
+    },
+    {
+      "fixture": "alpha 128x96",
+      "count": 60,
+      "medianMs": 56.00943649999999,
+      "maximumMs": 146.850265,
+      "referenceLimitMs": 300
+    }
+  ]
+}

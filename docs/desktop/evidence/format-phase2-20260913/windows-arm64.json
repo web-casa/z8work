@@ -1,0 +1,1144 @@
+{
+  "source": {
+    "id": "windows-arm64",
+    "runner": "windows-11-arm",
+    "os": "win32",
+    "arch": "arm64",
+    "target": "aarch64-pc-windows-msvc",
+    "run": "34712677526",
+    "artifact": "windows-arm64-complete-preview",
+    "file": "Z8.Work-windows-arm64-preview.zip",
+    "sha256": "6efa8a02a3946e19fcf5334e7e1cb57894165f45d254fc6843292415f01ddcbf"
+  },
+  "artifact": {
+    "sha256": "6efa8a02a3946e19fcf5334e7e1cb57894165f45d254fc6843292415f01ddcbf",
+    "bytes": 169937208
+  },
+  "tool": {
+    "sha256": "870867b41f0d44c8f204764505f5b5a12010d7c868d15d347337872b3d18246a",
+    "bytes": 1224704
+  },
+  "commit": "6feb6d93b2cd94e7e6fb29d189c142e04deb2eca",
+  "report": {
+    "arch": "aarch64",
+    "engines": [
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "magick",
+        "version": "Version: ImageMagick 7.1.2-31 Q16-HDRI arm64 fb965f1:20260903 https://imagemagick.org"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffmpeg",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffprobe",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "pandoc",
+        "version": "3.11"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "mutool",
+        "version": "1.28.0"
+      }
+    ],
+    "notes": [
+      "Enumerated readers/writers/codecs do not authorize additional routes.",
+      "Hardware availability, external delegates, rendering fidelity and real conversions require separate tests.",
+      "Pandoc PDF output listing does not establish that a PDF typesetting engine is packaged."
+    ],
+    "platform": "windows",
+    "probes": [
+      {
+        "engine": "magick",
+        "kind": "image-formats",
+        "raw": "   Format  Mode  Description\r\n-------------------------------------------------------------------------------\r\n      3FR  r--   Hasselblad CFV/H3D39II Raw Format (0.22.2-Release)\r\n      3G2  r--   Media Container\r\n      3GP  r--   Media Container\r\n        A* rw+   Raw alpha samples\r\n      AAI* rw+   AAI Dune image\r\n       AI  rw-   Adobe Illustrator CS2\r\n     APNG  rw+   Animated Portable Network Graphics\r\n      ART* rw-   PFS: 1st Publisher Clip Art\r\n      ARW  r--   Sony Alpha Raw Format (0.22.2-Release)\r\n      ASE* rw+   Aseprite Sprite Format\r\n ASEPRITE* rw+   Aseprite Sprite Format\r\n   ASHLAR* -w+   Image sequence laid out in continuous irregular courses\r\n     AVCI  r--   AVC Image File Format (1.23.2)\r\n      AVI  r--   Microsoft Audio/Visual Interleaved\r\n     AVIF  rw+   AV1 Image File Format (1.23.2)\r\n      AVS* rw+   AVS X image\r\n        B* rw+   Raw blue samples\r\n    BAYER* rw+   Raw mosaiced samples\r\n   BAYERA* rw+   Raw mosaiced and alpha samples\r\n      BGR* rw+   Raw blue, green, and red samples\r\n     BGRA* rw+   Raw blue, green, red, and alpha samples\r\n     BGRO* rw+   Raw blue, green, red, and opacity samples\r\n      BMP* rw-   Microsoft Windows bitmap image\r\n     BMP2* rw-   Microsoft Windows bitmap image (V2)\r\n     BMP3* rw-   Microsoft Windows bitmap image (V3)\r\n      BRF* -w-   BRF ASCII Braille format\r\n        C* rw+   Raw cyan samples\r\n     C2PA  r--   C2PA Provenance Metadata\r\n      CAL* rw-   Continuous Acquisition and Life-cycle Support Type 1\r\n             Specified in MIL-R-28002 and MIL-PRF-28002\r\n     CALS* rw-   Continuous Acquisition and Life-cycle Support Type 1\r\n             Specified in MIL-R-28002 and MIL-PRF-28002\r\n   CANVAS* r--   Constant image uniform color\r\n  CAPTION* r--   Caption\r\n      CIN* rw-   Cineon Image File\r\n      CIP* -w-   Cisco IP phone image format\r\n     CLIP* rw+   Image Clip Mask\r\nCLIPBOARD* rw-   The system clipboard\r\n     CMYK* rw+   Raw cyan, magenta, yellow, and black samples\r\n    CMYKA* rw+   Raw cyan, magenta, yellow, black, and alpha samples\r\n      CR2  r--   Canon Digital Camera Raw Format (0.22.2-Release)\r\n      CR3  r--   Canon Digital Camera Raw Format (0.22.2-Release)\r\n      CRW  r--   Canon Digital Camera Raw Format (0.22.2-Release)\r\n     CUBE* r--   Cube LUT\r\n      CUR* rw-   Microsoft icon\r\n      CUT* r--   DR Halo\r\n     DATA* rw+   Base64-encoded inline images\r\n      DCM* r--   Digital Imaging and Communications in Medicine image\r\n             DICOM is used by the medical community for images like X-rays.  The\r\n             specification, \"Digital Imaging and Communications in Medicine\r\n             (DICOM)\", is available at http://medical.nema.org/.  In particular,\r\n             see part 5 which describes the image encoding (RLE, JPEG, JPEG-LS),\r\n             and supplement 61 which adds JPEG-2000 encoding.\r\n      DCR  r--   Kodak Digital Camera Raw Format (0.22.2-Release)\r\n    DCRAW  r--   Raw Photo Decoder (dcraw) (0.22.2-Release)\r\n      DCX* rw+   ZSoft IBM PC multi-page Paintbrush\r\n      DDS* rw+   Microsoft DirectDraw Surface\r\n    DFONT* r--   Multi-face font package (Freetype 2.14.3)\r\n      DNG  r--   Digital Negative Raw Format (0.22.2-Release)\r\n      DPX* rw-   SMPTE 268M-2003 (DPX 2.0)\r\n             Digital Moving Picture Exchange Bitmap, Version 2.0.\r\n             See SMPTE 268M-2003 specification at http://www.smtpe.org\r\n             \r\n     DXT1* rw+   Microsoft DirectDraw Surface\r\n     DXT5* rw+   Microsoft DirectDraw Surface\r\n      EMF  r--   Windows Enhanced Meta File\r\n     EPDF  rw-   Encapsulated Portable Document Format\r\n      EPI  rw-   Encapsulated PostScript Interchange format\r\n      EPS  rw-   Encapsulated PostScript\r\n     EPS2  -w-   Level II Encapsulated PostScript\r\n     EPS3  -w+   Level III Encapsulated PostScript\r\n     EPSF  rw-   Encapsulated PostScript\r\n     EPSI  rw-   Encapsulated PostScript Interchange format\r\n      EPT  rw-   Encapsulated PostScript with TIFF preview\r\n     EPT2  rw-   Encapsulated PostScript Level II with TIFF preview\r\n     EPT3  rw+   Encapsulated PostScript Level III with TIFF preview\r\n      ERF  r--   Epson Raw Format (0.22.2-Release)\r\n      EXR  rw-   High Dynamic-range (HDR) (OpenEXR 3.4.15)\r\n FARBFELD* rw-   Farbfeld\r\n      FAX* rw+   Group 3 FAX\r\n             FAX machines use non-square pixels which are 1.5 times wider than\r\n             they are tall but computer displays use square pixels, therefore\r\n             FAX images may appear to be narrow unless they are explicitly\r\n             resized using a geometry of \"150x100%\".\r\n             \r\n       FF* rw-   Farbfeld\r\n      FFF  r--   Hasselblad CFV/H3D39II Raw Format (0.22.2-Release)\r\n     FILE* r--   Uniform Resource Locator (file://)\r\n     FITS* rw+   Flexible Image Transport System\r\n     FL32* rw-   FilmLight\r\n      FLV  rw+   Flash Video Stream\r\n  FRACTAL* r--   Plasma fractal image\r\n      FTP* r--   Uniform Resource Locator (ftp://)\r\n      FTS* rw+   Flexible Image Transport System\r\n     FTXT* rw-   Formatted text image\r\n        G* rw+   Raw green samples\r\n       G3* rw-   Group 3 FAX\r\n       G4* rw-   Group 4 FAX\r\n      GIF* rw+   CompuServe graphics interchange format\r\n    GIF87* rw-   CompuServe graphics interchange format (version 87a)\r\n GRADIENT* r--   Gradual linear passing from one shade to another\r\n     GRAY* rw+   Raw gray samples\r\n    GRAYA* rw+   Raw gray and alpha samples\r\n   GROUP4* rw-   Raw CCITT Group4\r\n             Compression options: None, Fax/Group3, Group4, JBIG, JPEG, LERC, LZW, LZMA, RLE, ZIP, ZSTD, WEBP\r\n     HALD* r--   Identity Hald color lookup table image\r\n      HDR* rw+   Radiance RGBE image format\r\n     HEIC  r--   High Efficiency Image Format (1.23.2)\r\n     HEIF  r--   High Efficiency Image Format (1.23.2)\r\nHISTOGRAM* -w-   Histogram of the image\r\n      HRZ* rw-   Slow Scan TeleVision\r\n      HTM* -w-   Hypertext Markup Language and a client-side image map\r\n     HTML* -w-   Hypertext Markup Language and a client-side image map\r\n     HTTP* r--   Uniform Resource Locator (http://)\r\n    HTTPS* r--   Uniform Resource Locator (https://)\r\n      ICB* rw-   Truevision Targa image\r\n      ICN* rw-   Microsoft icon\r\n      ICO* rw+   Microsoft icon\r\n     ICON* rw-   Microsoft icon\r\n      IIQ  r--   Phase One Raw Format (0.22.2-Release)\r\n     INFO  -w+   The image format and characteristics\r\n   INLINE* rw+   Base64-encoded inline images\r\n      IPL* rw+   IPL Image Sequence\r\n   ISOBRL* -w-   ISO/TR 11548-1 format\r\n  ISOBRL6* -w-   ISO/TR 11548-1 format 6dot\r\n      J2C* rw-   JPEG-2000 Code Stream Syntax (2.5.4)\r\n      J2K* rw-   JPEG-2000 Code Stream Syntax (2.5.4)\r\n      JNG* rw-   JPEG Network Graphics\r\n             See http://www.libpng.org/pub/mng/ for details about the JNG\r\n             format.\r\n      JNX* r--   Garmin tile format\r\n      JP2* rw-   JPEG-2000 File Format Syntax (2.5.4)\r\n      JPC* rw-   JPEG-2000 Code Stream Syntax (2.5.4)\r\n      JPE* rw-   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n     JPEG* rw-   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n      JPG* rw-   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n      JPM* rw-   JPEG-2000 File Format Syntax (2.5.4)\r\n      JPS* rw-   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n      JPT* rw-   JPEG-2000 File Format Syntax (2.5.4)\r\n     JSON  -w+   The image format and characteristics\r\n      JXL* rw+   JPEG XL (ISO/IEC 18181) (libjxl 0.12.0)\r\n        K* rw+   Raw black samples\r\n      K25  r--   Kodak Digital Camera Raw Format (0.22.2-Release)\r\n      KDC  r--   Kodak Digital Camera Raw Format (0.22.2-Release)\r\n   KERNEL* -w-   Morphology Kernel\r\n    LABEL* r--   Image label\r\n        M* rw+   Raw magenta samples\r\n      M2V  rw+   MPEG Video Stream\r\n      M4V  rw+   Raw VIDEO-4 Video\r\n      MAC* r--   MAC Paint\r\n      MAP* rw-   Colormap intensities and indices\r\n     MASK* rw+   Image Clip Mask\r\n      MAT  rw+   MATLAB level 5 image format\r\n    MATTE* -w+   MATTE format\r\n      MDC  r--   Minolta Digital Camera Raw Format (0.22.2-Release)\r\n      MEF  r--   Mamiya Raw Format (0.22.2-Release)\r\n     MIFF* rw+   Magick Image File Format\r\n      MKV  rw+   Multimedia Container\r\n      MNG* rw+   Multiple-image Network Graphics (libpng 1.6.58)\r\n             See http://www.libpng.org/pub/mng/ for details about the MNG\r\n             format.\r\n     MONO* rw-   Raw bi-level bitmap\r\n      MOS  r--   Aptus Leaf Raw Format (0.22.2-Release)\r\n      MOV  rw+   MPEG Video Stream\r\n      MP4  rw+   VIDEO-4 Video Stream\r\n      MPC* rw+   Magick Pixel Cache image format\r\n     MPEG  rw+   MPEG Video Stream\r\n      MPG  rw+   MPEG Video Stream\r\n      MPO* r--   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n      MRW  r--   Sony (Minolta) Raw Format (0.22.2-Release)\r\n      MSL  r--   Magick Scripting Language\r\n     MSVG* rw+   ImageMagick's own SVG internal renderer\r\n      MTV* rw+   MTV Raytracing image format\r\n      MVG* rw-   Magick Vector Graphics\r\n      NEF  r--   Nikon Digital SLR Camera Raw Format (0.22.2-Release)\r\n      NRW  r--   Nikon Digital SLR Camera Raw Format (0.22.2-Release)\r\n     NULL* rw-   Constant image of uniform color\r\n        O* rw+   Raw opacity samples\r\n      ORA  r--   OpenRaster format\r\n      ORF  r--   Olympus Digital Camera Raw Format (0.22.2-Release)\r\n      OTB* rw-   On-the-air bitmap\r\n      OTF* r--   Open Type font (Freetype 2.14.3)\r\n      PAL* rw-   16bit/pixel interleaved YUV\r\n     PALM* rw+   Palm pixmap\r\n      PAM* rw+   Common 2-dimensional bitmap format\r\n    PANGO* r--   Pango Markup Language (Pangocairo 1.45.2)\r\n  PATTERN* r--   Predefined pattern\r\n      PBM* rw+   Portable bitmap format (black and white)\r\n      PCD* rw-   Photo CD\r\n     PCDS* rw-   Photo CD\r\n      PCL  rw+   Printer Control Language\r\n      PCT* rw-   Apple Macintosh QuickDraw/PICT\r\n      PCX* rw-   ZSoft IBM PC Paintbrush\r\n      PDB* rw+   Palm Database ImageViewer Format\r\n      PDF  rw+   Portable Document Format\r\n     PDFA  rw+   Portable Document Archive Format\r\n      PEF  r--   Pentax Electronic Raw Format (0.22.2-Release)\r\n      PES* r--   Embrid Embroidery Format\r\n      PFA* r--   Postscript Type 1 font (ASCII) (Freetype 2.14.3)\r\n      PFB* r--   Postscript Type 1 font (binary) (Freetype 2.14.3)\r\n      PFM* rw+   Portable float format\r\n      PGM* rw+   Portable graymap format (gray scale)\r\n      PGX* rw-   JPEG 2000 uncompressed format\r\n      PHM* rw+   Portable half float format\r\n    PICON* rw-   Personal Icon\r\n     PICT* rw-   Apple Macintosh QuickDraw/PICT\r\n      PIX* r--   Alias/Wavefront RLE image format\r\n    PJPEG* rw-   Joint Photographic Experts Group JFIF format (libjpeg-turbo 3.2.0)\r\n   PLASMA* r--   Plasma fractal image\r\n      PNG* rw-   Portable Network Graphics (libpng 1.6.58)\r\n             See http://www.libpng.org/ for details about the PNG format.\r\n    PNG00* rw-   PNG inheriting bit-depth, color-type from original, if possible\r\n    PNG24* rw-   opaque or binary transparent 24-bit RGB\r\n    PNG32* rw-   opaque or transparent 32-bit RGBA\r\n    PNG48* rw-   opaque or binary transparent 48-bit RGB\r\n    PNG64* rw-   opaque or transparent 64-bit RGBA\r\n     PNG8* rw-   8-bit indexed with optional binary transparency\r\n      PNM* rw+   Portable anymap\r\nPOCKETMOD  rw+   Pocketmod Personal Organizer\r\n      PPM* rw+   Portable pixmap format (color)\r\n       PS  rw+   PostScript\r\n      PS2  -w+   Level II PostScript\r\n      PS3  -w+   Level III PostScript\r\n      PSB* rw+   Adobe Large Document Format\r\n      PSD* rw+   Adobe Photoshop bitmap\r\n     PTIF* rw+   Pyramid encoded TIFF\r\n             Compression options: None, Fax/Group3, Group4, JBIG, JPEG, LERC, LZW, LZMA, RLE, ZIP, ZSTD, WEBP\r\n      PWP* r--   Seattle Film Works\r\n      QOI* rw-   Quite OK image format\r\n        R* rw+   Raw red samples\r\nRADIAL-GRADIENT* r--   Gradual radial passing from one shade to another\r\n      RAF  r--   Fuji CCD-RAW Graphic Raw Format (0.22.2-Release)\r\n      RAS* rw+   SUN Rasterfile\r\n      RAW  r--   Raw (0.22.2-Release)\r\n      RGB* rw+   Raw red, green, and blue samples\r\n   RGB565* r--   Raw red, green, blue samples in 565 format\r\n     RGBA* rw+   Raw red, green, blue, and alpha samples\r\n     RGBO* rw+   Raw red, green, blue, and opacity samples\r\n      RGF* rw-   LEGO Mindstorms EV3 Robot Graphic Format (black and white)\r\n      RLA* r--   Alias/Wavefront image\r\n      RLE* r--   Utah Run length encoded image\r\n      RMF  r--   Raw Media Format (0.22.2-Release)\r\n     RSVG* rw+   Librsvg SVG renderer (RSVG 2.40.20)\r\n      RW2  r--   Panasonic Lumix Raw Format (0.22.2-Release)\r\n      RWL  r--   Leica Raw Format (0.22.2-Release)\r\n      SCR* r--   ZX-Spectrum SCREEN$\r\nSCREENSHOT* r--   Screen shot\r\n      SCT* r--   Scitex HandShake\r\n      SF3* rw+   Simple File Format Family Images\r\n             See https://shirakumo.org/docs/sf3/ for information on the SF3 file formats.\r\n      SFW* r--   Seattle Film Works\r\n      SGI* rw+   Irix RGB image\r\n    SHTML* -w-   Hypertext Markup Language and a client-side image map\r\n      SIX* rw-   DEC SIXEL Graphics Format\r\n    SIXEL* rw-   DEC SIXEL Graphics Format\r\nSPARSE-COLOR* -w+   Sparse Color\r\n      SR2  r--   Sony Raw Format 2 (0.22.2-Release)\r\n      SRF  r--   Sony Raw Format (0.22.2-Release)\r\n      SRW  r--   Samsung Raw Format (0.22.2-Release)\r\n  STEGANO* r--   Steganographic image\r\n      STI  r--   Sinar CaptureShop Raw Format (0.22.2-Release)\r\n   STRIMG* rw-   String to image and back\r\n      SUN* rw+   SUN Rasterfile\r\n      SVG  rw+   Scalable Vector Graphics (RSVG 2.40.20)\r\n     SVGZ* rw+   Compressed Scalable Vector Graphics (RSVG 2.40.20)\r\n     TEXT* r--   Text\r\n      TGA* rw-   Truevision Targa image\r\nTHUMBNAIL* -w+   EXIF Profile Thumbnail\r\n     TIFF* rw+   Tagged Image File Format (LIBTIFF, Version 4.7.2)\r\n             Compression options: None, Fax/Group3, Group4, JBIG, JPEG, LERC, LZW, LZMA, RLE, ZIP, ZSTD, WEBP\r\n   TIFF64* rw+   Tagged Image File Format (64-bit) (LIBTIFF, Version 4.7.2)\r\n             Compression options: None, Fax/Group3, Group4, JBIG, JPEG, LERC, LZW, LZMA, RLE, ZIP, ZSTD, WEBP\r\n     TILE* r--   Tile image with a texture\r\n      TIM* r--   PSX TIM\r\n      TM2* r--   PS2 TIM2\r\n      TTC* r--   TrueType font collection (Freetype 2.14.3)\r\n      TTF* r--   TrueType font (Freetype 2.14.3)\r\n      TXT* rw+   Text\r\n     UBRL* -w-   Unicode Text format\r\n    UBRL6* -w-   Unicode Text format 6dot\r\n      UIL* -w-   X-Motif UIL table\r\n     UYVY* rw-   16bit/pixel interleaved YUV\r\n      VDA* rw-   Truevision Targa image\r\n    VICAR* rw-   Video Image Communication And Retrieval\r\n      VID* rw+   Visual Image Directory\r\n     VIFF* rw+   Khoros Visualization image\r\n     VIPS* rw+   VIPS image\r\n      VST* rw-   Truevision Targa image\r\n   WBINFO* r--   Amiga Workbench Icon\r\n     WBMP* rw-   Wireless Bitmap (level 0) image\r\n     WEBM  rw+   Open Web Media\r\n     WEBP* rw+   WebP Image Format (libwebp 1.6.0 [0210])\r\n      WMF  r--   Windows Meta File\r\n      WMV  rw+   Windows Media Video\r\n      WPG* rw-   Word Perfect Graphics\r\n      X3F  r--   Sigma Camera RAW Format (0.22.2-Release)\r\n      XBM* rw-   X Windows system bitmap (black and white)\r\n       XC* r--   Constant image uniform color\r\n      XCF* r--   GIMP image\r\n      XPM* rw-   X Windows system pixmap (color)\r\n      XPS  r--   Microsoft XML Paper Specification\r\n       XV* rw+   Khoros Visualization image\r\n        Y* rw+   Raw yellow samples\r\n     YAML  -w+   The image format and characteristics\r\n    YCBCR* rw+   Raw Y, Cb, and Cr samples\r\n   YCBCRA* rw+   Raw Y, Cb, Cr, and alpha samples\r\n      YUV* rw-   CCIR 601 4:1:1 or 4:2:2\r\n\r\n* native blob support\r\nr read support\r\nw write support\r\n+ support for multiple images\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "ffmpeg",
+        "kind": "decoders",
+        "raw": "Decoders:\r\n V..... = Video\r\n A..... = Audio\r\n S..... = Subtitle\r\n .F.... = Frame-level multithreading\r\n ..S... = Slice-level multithreading\r\n ...X.. = Codec is experimental\r\n ....B. = Supports draw_horiz_band\r\n .....D = Supports direct rendering method 1\r\n ------\r\n V....D 012v                 Uncompressed 4:2:2 10-bit\r\n V....D 4xm                  4X Movie\r\n V....D 8bps                 QuickTime 8BPS video\r\n V....D aasc                 Autodesk RLE\r\n V....D agm                  Amuse Graphics Movie\r\n VF...D aic                  Apple Intermediate Codec\r\n V....D alias_pix            Alias/Wavefront PIX image\r\n V....D amv                  AMV Video\r\n V....D anm                  Deluxe Paint Animation\r\n V....D ansi                 ASCII/ANSI art\r\n VF...D apng                 APNG (Animated Portable Network Graphics) image\r\n VFS..D apv                  Advanced Professional Video\r\n V....D arbc                 Gryphon's Anim Compressor\r\n V....D argo                 Argonaut Games Video\r\n V....D asv1                 ASUS V1\r\n V....D asv2                 ASUS V2\r\n V....D aura                 Auravision AURA\r\n V....D aura2                Auravision Aura 2\r\n V....D libaom-av1           libaom AV1 (codec av1)\r\n V....D av1                  Alliance for Open Media AV1\r\n V..... av1_cuvid            Nvidia CUVID AV1 decoder (codec av1)\r\n V....D av1_qsv              AV1 video (Intel Quick Sync Video acceleration) (codec av1)\r\n V..... av1_amf              AV1 AMD AMF video decoder (codec av1)\r\n V....D avrn                 Avid AVI Codec\r\n V....D avrp                 Avid 1:1 10-bit RGB Packer\r\n V....D avs                  AVS (Audio Video Standard) video\r\n V....D avui                 Avid Meridien Uncompressed\r\n V....D bethsoftvid          Bethesda VID video\r\n V....D bfi                  Brute Force & Ignorance\r\n V....D binkvideo            Bink video\r\n V....D bintext              Binary text\r\n VF.... bitpacked            Bitpacked\r\n V....D bmp                  BMP (Windows and OS/2 bitmap)\r\n V....D bmv_video            Discworld II BMV video\r\n V....D brender_pix          BRender PIX image\r\n V....D c93                  Interplay C93\r\n V....D cavs                 Chinese AVS (Audio Video Standard) (AVS1-P2, JiZhun profile)\r\n V....D cdgraphics           CD Graphics video\r\n V....D cdtoons              CDToons video\r\n V....D cdxl                 Commodore CDXL video\r\n VF...D cfhd                 GoPro CineForm HD\r\n V....D cinepak              Cinepak\r\n V....D clearvideo           Iterated Systems ClearVideo\r\n V....D cljr                 Cirrus Logic AccuPak\r\n VF...D cllc                 Canopus Lossless Codec\r\n V....D eacmv                Electronic Arts CMV video (codec cmv)\r\n V....D cpia                 CPiA video format\r\n VF...D cri                  Cintel RAW\r\n V....D camstudio            CamStudio (codec cscd)\r\n V....D cyuv                 Creative YUV (CYUV)\r\n V.S..D dds                  DirectDraw Surface image decoder\r\n V....D dfa                  Chronomaster DFA\r\n V.S..D dirac                BBC Dirac VC-2\r\n VFS..D dnxhd                VC3/DNxHD\r\n VF...D dpx                  DPX (Digital Picture Exchange) image\r\n V....D dsicinvideo          Delphine Software International CIN video\r\n VFS..D dvvideo              DV (Digital Video)\r\n V....D dxa                  Feeble Files/ScummVM DXA\r\n VF...D dxtory               Dxtory\r\n VFS..D dxv                  Resolume DXV\r\n V....D escape124            Escape 124\r\n V....D escape130            Escape 130\r\n VFS..D exr                  OpenEXR image\r\n VFS..D ffv1                 FFmpeg video codec #1\r\n VF..BD ffvhuff              Huffyuv FFmpeg variant\r\n V.S..D fic                  Mirillis FIC\r\n V....D fits                 Flexible Image Transport System\r\n V....D flashsv              Flash Screen Video v1\r\n V....D flashsv2             Flash Screen Video v2\r\n V....D flic                 Autodesk Animator Flic video\r\n V...BD flv                  FLV / Sorenson Spark / Sorenson H.263 (Flash Video) (codec flv1)\r\n V....D fmvc                 FM Screen Capture Codec\r\n VF...D fraps                Fraps\r\n V....D frwu                 Forward Uncompressed\r\n V....D g2m                  Go2Meeting\r\n V....D gdv                  Gremlin Digital Video\r\n V....D gem                  GEM Raster image\r\n V....D gif                  GIF (Graphics Interchange Format)\r\n V....D h261                 H.261\r\n V...BD h263                 H.263 / H.263-1996, H.263+ / H.263-1998 / H.263 version 2\r\n V...BD h263i                Intel H.263\r\n V...BD h263p                H.263 / H.263-1996, H.263+ / H.263-1998 / H.263 version 2\r\n VFS..D h264                 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10\r\n V....D h264_qsv             H264 video (Intel Quick Sync Video acceleration) (codec h264)\r\n V..... h264_amf             H264 AMD AMF video decoder (codec h264)\r\n V..... h264_cuvid           Nvidia CUVID H264 decoder (codec h264)\r\n VFS..D hap                  Vidvox Hap\r\n VF...D hdr                  HDR (Radiance RGBE format) image\r\n VFS..D hevc                 HEVC (High Efficiency Video Coding)\r\n V....D hevc_qsv             HEVC video (Intel Quick Sync Video acceleration) (codec hevc)\r\n V..... hevc_amf             HEVC AMD AMF video decoder (codec hevc)\r\n V..... hevc_cuvid           Nvidia CUVID HEVC decoder (codec hevc)\r\n V....D hnm4video            HNM 4 video\r\n V....D hq_hqa               Canopus HQ/HQA\r\n VFS..D hqx                  Canopus HQX\r\n VF..BD huffyuv              Huffyuv / HuffYUV\r\n VF..BD hymt                 HuffYUV MT\r\n V....D idcinvideo           id Quake II CIN video (codec idcin)\r\n V....D idf                  iCEDraw text\r\n V....D iff                  IFF ACBM/ANIM/DEEP/ILBM/PBM/RGB8/RGBN (codec iff_ilbm)\r\n V....D imm4                 Infinity IMM4\r\n V..... imm5                 Infinity IMM5\r\n V....D indeo2               Intel Indeo 2\r\n V....D indeo3               Intel Indeo 3\r\n V....D indeo4               Intel Indeo Video Interactive 4\r\n V....D indeo5               Intel Indeo Video Interactive 5\r\n V....D interplayvideo       Interplay MVE video\r\n V....D ipu                  IPU Video\r\n VFS..D jpeg2000             JPEG 2000\r\n V....D jpegls               JPEG-LS\r\n V....D jv                   Bitmap Brothers JV video\r\n V....D kgv1                 Kega Game Video\r\n V....D kmvc                 Karl Morton's video codec\r\n VF...D lagarith             Lagarith lossless\r\n V....D lead                 LEAD MCMP\r\n V....D loco                 LOCO\r\n V....D lscr                 LEAD Screen Capture\r\n V....D m101                 Matrox Uncompressed SD\r\n V....D eamad                Electronic Arts Madcow Video (codec mad)\r\n VFS..D magicyuv             MagicYUV video\r\n VF...D mdec                 Sony PlayStation MDEC (Motion DECoder)\r\n V....D media100             Media 100\r\n VF...D mimic                Mimic\r\n V....D mjpeg                MJPEG (Motion JPEG)\r\n V..... mjpeg_cuvid          Nvidia CUVID MJPEG decoder (codec mjpeg)\r\n V....D mjpeg_qsv            MJPEG video (Intel Quick Sync Video acceleration) (codec mjpeg)\r\n V....D mjpegb               Apple MJPEG-B\r\n V....D mmvideo              American Laser Games MM Video\r\n V....D mobiclip             MobiClip Video\r\n V....D motionpixels         Motion Pixels video\r\n V.S.BD mpeg1video           MPEG-1 video\r\n V..... mpeg1_cuvid          Nvidia CUVID MPEG1VIDEO decoder (codec mpeg1video)\r\n V.S.BD mpeg2video           MPEG-2 video\r\n V.S.BD mpegvideo            MPEG-1 video (codec mpeg2video)\r\n V....D mpeg2_qsv            MPEG2VIDEO video (Intel Quick Sync Video acceleration) (codec mpeg2video)\r\n V..... mpeg2_cuvid          Nvidia CUVID MPEG2VIDEO decoder (codec mpeg2video)\r\n VF..BD mpeg4                MPEG-4 part 2\r\n V..... mpeg4_cuvid          Nvidia CUVID MPEG4 decoder (codec mpeg4)\r\n V....D msa1                 MS ATC Screen\r\n V....D mscc                 Mandsoft Screen Capture Codec\r\n V...BD msmpeg4v1            MPEG-4 part 2 Microsoft variant version 1\r\n V...BD msmpeg4v2            MPEG-4 part 2 Microsoft variant version 2\r\n V...BD msmpeg4              MPEG-4 part 2 Microsoft variant version 3 (codec msmpeg4v3)\r\n V....D msp2                 Microsoft Paint (MSP) version 2\r\n V....D msrle                Microsoft RLE\r\n V....D mss1                 MS Screen 1\r\n V....D mss2                 MS Windows Media Video V9 Screen\r\n V....D msvideo1             Microsoft Video 1\r\n VF...D mszh                 LCL (LossLess Codec Library) MSZH\r\n V....D mts2                 MS Expression Encoder Screen\r\n V....D mv30                 MidiVid 3.0\r\n V....D mvc1                 Silicon Graphics Motion Video Compressor 1\r\n V....D mvc2                 Silicon Graphics Motion Video Compressor 2\r\n V....D mvdv                 MidiVid VQ\r\n V....D mvha                 MidiVid Archive Codec\r\n V....D mwsc                 MatchWare Screen Capture Codec\r\n V....D mxpeg                Mobotix MxPEG video\r\n VF...D notchlc              NotchLC\r\n V....D nuv                  NuppelVideo/RTJPEG\r\n V....D paf_video            Amazing Studio Packed Animation File Video\r\n V....D pam                  PAM (Portable AnyMap) image\r\n V....D pbm                  PBM (Portable BitMap) image\r\n V....D pcx                  PC Paintbrush PCX image\r\n V....D pdv                  PDV (PlayDate Video)\r\n V....D pfm                  PFM (Portable FloatMap) image\r\n V....D pgm                  PGM (Portable GrayMap) image\r\n V....D pgmyuv               PGMYUV (Portable GrayMap YUV) image\r\n V....D pgx                  PGX (JPEG2000 Test Format)\r\n V....D phm                  PHM (Portable HalfFloatMap) image\r\n VF...D photocd              Kodak Photo CD\r\n V....D pictor               Pictor/PC Paint\r\n VF...D pixlet               Apple Pixlet\r\n VF...D png                  PNG (Portable Network Graphics) image\r\n V....D ppm                  PPM (Portable PixelMap) image\r\n VFS..D prores               Apple ProRes (iCodec Pro)\r\n VFS..D prores_raw           Apple ProRes RAW\r\n V....D prosumer             Brooktree ProSumer Video\r\n VF...D psd                  Photoshop PSD file\r\n V....D ptx                  V.Flash PTX image\r\n V....D qdraw                Apple QuickDraw\r\n VF...D qoi                  QOI (Quite OK Image format) image\r\n V....D qpeg                 Q-team QPEG\r\n V....D qtrle                QuickTime Animation (RLE) video\r\n V....D r10k                 AJA Kona 10-bit RGB Codec\r\n V....D r210                 Uncompressed RGB 10-bit\r\n V....D rasc                 RemotelyAnywhere Screen Capture\r\n V..... rawvideo             raw video\r\n V....D rl2                  RL2 video\r\n V....D roqvideo             id RoQ video (codec roq)\r\n V....D rpza                 QuickTime video (RPZA)\r\n V....D rscc                 innoHeim/Rsupport Screen Capture Codec\r\n VF...D rtv1                 RTV1 (RivaTuner Video)\r\n V....D rv10                 RealVideo 1.0\r\n V....D rv20                 RealVideo 2.0\r\n VF...D rv30                 RealVideo 3.0\r\n VF...D rv40                 RealVideo 4.0\r\n V.S..D rv60                 RealVideo 6.0\r\n V....D sanm                 LucasArts SANM/Smush video\r\n V....D scpr                 ScreenPressor\r\n V....D screenpresso         Screenpresso\r\n V....D sga                  Digital Pictures SGA Video\r\n V....D sgi                  SGI image\r\n V....D sgirle               Silicon Graphics RLE 8-bit video\r\n VF...D sheervideo           BitJazz SheerVideo\r\n V....D simbiosis_imx        Simbiosis Interactive IMX Video\r\n V....D smackvid             Smacker video (codec smackvideo)\r\n V....D smc                  QuickTime Graphics (SMC)\r\n V....D smvjpeg              SMV JPEG\r\n V....D snow                 Snow\r\n V....D sp5x                 Sunplus JPEG (SP5X)\r\n VFS..D speedhq              NewTek SpeedHQ\r\n V....D srgc                 Screen Recorder Gold Codec\r\n V....D sunrast              Sun Rasterfile image\r\n V....D svq1                 Sorenson Vector Quantizer 1 / Sorenson Video 1 / SVQ1\r\n V...BD svq3                 Sorenson Vector Quantizer 3 / Sorenson Video 3 / SVQ3\r\n V....D targa                Truevision Targa image\r\n V....D targa_y216           Pinnacle TARGA CineWave YUV16\r\n V....D tdsc                 TDSC\r\n V....D eatgq                Electronic Arts TGQ video (codec tgq)\r\n V....D eatgv                Electronic Arts TGV video (codec tgv)\r\n VF..BD theora               Theora\r\n V....D thp                  Nintendo Gamecube THP video\r\n V....D tiertexseqvideo      Tiertex Limited SEQ video\r\n VF...D tiff                 TIFF image\r\n V....D tmv                  8088flex TMV\r\n V....D eatqi                Electronic Arts TQI Video (codec tqi)\r\n V....D truemotion1          Duck TrueMotion 1.0\r\n V....D truemotion2          Duck TrueMotion 2.0\r\n V....D truemotion2rt        Duck TrueMotion 2.0 Real Time\r\n V....D camtasia             TechSmith Screen Capture Codec (codec tscc)\r\n V....D tscc2                TechSmith Screen Codec 2\r\n V....D txd                  Renderware TXD (TeXture Dictionary) image\r\n V....D ultimotion           IBM UltiMotion (codec ulti)\r\n VF...D utvideo              Ut Video\r\n VFS..D v210                 Uncompressed 4:2:2 10-bit\r\n V....D v210x                Uncompressed 4:2:2 10-bit\r\n V....D vb                   Beam Software VB\r\n VF...D vble                 VBLE Lossless Codec\r\n V.S..D vbn                  Vizrt Binary Image\r\n V....D vc1                  SMPTE VC-1\r\n V....D vc1_qsv              VC1 video (Intel Quick Sync Video acceleration) (codec vc1)\r\n V..... vc1_cuvid            Nvidia CUVID VC1 decoder (codec vc1)\r\n V....D vc1image             Windows Media Video 9 Image v2\r\n V....D vcr1                 ATI VCR1\r\n V....D xl                   Miro VideoXL (codec vixl)\r\n V....D vmdvideo             Sierra VMD video\r\n VFS..D vmix                 vMix Video\r\n V....D vmnc                 VMware Screen Codec / VMware Video\r\n V....D vnull                null video\r\n VF..BD vp3                  On2 VP3\r\n VF..BD vp4                  On2 VP4\r\n V....D vp5                  On2 VP5\r\n V....D vp6                  On2 VP6\r\n V.S..D vp6a                 On2 VP6 (Flash version, with alpha channel)\r\n V....D vp6f                 On2 VP6 (Flash version)\r\n V....D vp7                  On2 VP7\r\n VFS..D vp8                  On2 VP8\r\n V....D libvpx               libvpx VP8 (codec vp8)\r\n V..... vp8_cuvid            Nvidia CUVID VP8 decoder (codec vp8)\r\n V....D vp8_qsv              VP8 video (Intel Quick Sync Video acceleration) (codec vp8)\r\n VFS..D vp9                  Google VP9\r\n V..... libvpx-vp9           libvpx VP9 (codec vp9)\r\n V..... vp9_amf              VP9 AMD AMF video decoder (codec vp9)\r\n V..... vp9_cuvid            Nvidia CUVID VP9 decoder (codec vp9)\r\n V....D vp9_qsv              VP9 video (Intel Quick Sync Video acceleration) (codec vp9)\r\n V....D vqc                  ViewQuest VQC\r\n V....D vvc                  VVC (Versatile Video Coding)\r\n V....D vvc_qsv              VVC video (Intel Quick Sync Video acceleration) (codec vvc)\r\n VF...D wbmp                 WBMP (Wireless Application Protocol Bitmap) image\r\n V....D wcmv                 WinCAM Motion Video\r\n VF...D webp                 WebP image\r\n V.S..D webp_anim            Animated WebP image\r\n V...BD wmv1                 Windows Media Video 7\r\n V...BD wmv2                 Windows Media Video 8\r\n V....D wmv3                 Windows Media Video 9\r\n V....D wmv3image            Windows Media Video 9 Image\r\n V....D wnv1                 Winnov WNV1\r\n V..... wrapped_avframe      AVPacket to AVFrame passthrough\r\n V....D vqavideo             Westwood Studios VQA (Vector Quantized Animation) video (codec ws_vqa)\r\n V....D xan_wc3              Wing Commander III / Xan\r\n V....D xan_wc4              Wing Commander IV / Xxan\r\n V....D xbin                 eXtended BINary text\r\n V....D xbm                  XBM (X BitMap) image\r\n V....D xface                X-face image\r\n V....D xpm                  XPM (X PixMap) image\r\n V....D xwd                  XWD (X Window Dump) image\r\n V....D y41p                 Uncompressed YUV 4:1:1 12-bit\r\n VF...D ylc                  YUY2 Lossless Codec\r\n V....D yop                  Psygnosis YOP Video\r\n V....D yuv4                 Uncompressed packed 4:2:0\r\n V....D zerocodec            ZeroCodec Lossless Video\r\n VF...D zlib                 LCL (LossLess Codec Library) ZLIB\r\n V....D zmbv                 Zip Motion Blocks Video\r\n A....D 8svx_exp             8SVX exponential\r\n A....D 8svx_fib             8SVX fibonacci\r\n A....D aac                  AAC (Advanced Audio Coding)\r\n A....D aac_fixed            AAC (Advanced Audio Coding) (codec aac)\r\n A....D aac_latm             AAC LATM (Advanced Audio Coding LATM syntax)\r\n A....D ac3                  ATSC A/52A (AC-3)\r\n A....D ac3_fixed            ATSC A/52A (AC-3) (codec ac3)\r\n A....D acelp.kelvin         Sipro ACELP.KELVIN\r\n A....D adpcm_4xm            ADPCM 4X Movie\r\n A....D adpcm_adx            SEGA CRI ADX ADPCM\r\n A....D adpcm_afc            ADPCM Nintendo Gamecube AFC\r\n A....D adpcm_agm            ADPCM AmuseGraphics Movie\r\n A....D adpcm_aica           ADPCM Yamaha AICA\r\n A....D adpcm_argo           ADPCM Argonaut Games\r\n A....D adpcm_circus         ADPCM Circus\r\n A....D adpcm_ct             ADPCM Creative Technology\r\n A....D adpcm_dtk            ADPCM Nintendo Gamecube DTK\r\n A....D adpcm_ea             ADPCM Electronic Arts\r\n A....D adpcm_ea_maxis_xa    ADPCM Electronic Arts Maxis CDROM XA\r\n A....D adpcm_ea_r1          ADPCM Electronic Arts R1\r\n A....D adpcm_ea_r2          ADPCM Electronic Arts R2\r\n A....D adpcm_ea_r3          ADPCM Electronic Arts R3\r\n A....D adpcm_ea_xas         ADPCM Electronic Arts XAS\r\n A....D g722                 G.722 ADPCM (codec adpcm_g722)\r\n A....D g726                 G.726 ADPCM (codec adpcm_g726)\r\n A....D g726le               G.726 ADPCM little-endian (codec adpcm_g726le)\r\n A....D adpcm_ima_acorn      ADPCM IMA Acorn Replay\r\n A....D adpcm_ima_alp        ADPCM IMA High Voltage Software ALP\r\n A....D adpcm_ima_amv        ADPCM IMA AMV\r\n A....D adpcm_ima_apc        ADPCM IMA CRYO APC\r\n A....D adpcm_ima_apm        ADPCM IMA Ubisoft APM\r\n A....D adpcm_ima_cunning    ADPCM IMA Cunning Developments\r\n A....D adpcm_ima_dat4       ADPCM IMA Eurocom DAT4\r\n A....D adpcm_ima_dk3        ADPCM IMA Duck DK3\r\n A....D adpcm_ima_dk4        ADPCM IMA Duck DK4\r\n A....D adpcm_ima_ea_eacs    ADPCM IMA Electronic Arts EACS\r\n A....D adpcm_ima_ea_sead    ADPCM IMA Electronic Arts SEAD\r\n A....D adpcm_ima_escape     ADPCM IMA Acorn Escape\r\n A....D adpcm_ima_hvqm2      ADPCM IMA HVQM2\r\n A....D adpcm_ima_hvqm4      ADPCM IMA HVQM4\r\n A....D adpcm_ima_iss        ADPCM IMA Funcom ISS\r\n A....D adpcm_ima_magix      ADPCM IMA Magix\r\n A....D adpcm_ima_moflex     ADPCM IMA MobiClip MOFLEX\r\n A....D adpcm_ima_mtf        ADPCM IMA Capcom's MT Framework\r\n A....D adpcm_ima_oki        ADPCM IMA Dialogic OKI\r\n A....D adpcm_ima_pda        ADPCM IMA PlayDate\r\n A....D adpcm_ima_qt         ADPCM IMA QuickTime\r\n A....D adpcm_ima_rad        ADPCM IMA Radical\r\n A....D adpcm_ima_smjpeg     ADPCM IMA Loki SDL MJPEG\r\n A....D adpcm_ima_ssi        ADPCM IMA Simon & Schuster Interactive\r\n A....D adpcm_ima_wav        ADPCM IMA WAV\r\n A....D adpcm_ima_ws         ADPCM IMA Westwood\r\n A....D adpcm_ima_xbox       ADPCM IMA Xbox\r\n A....D adpcm_ms             ADPCM Microsoft\r\n A....D adpcm_mtaf           ADPCM MTAF\r\n A....D adpcm_n64            ADPCM Silicon Graphics N64\r\n A....D adpcm_psx            ADPCM Playstation\r\n A....D adpcm_psxc           ADPCM Playstation C\r\n A....D adpcm_sanyo          ADPCM Sanyo\r\n A....D adpcm_sbpro_2        ADPCM Sound Blaster Pro 2-bit\r\n A....D adpcm_sbpro_3        ADPCM Sound Blaster Pro 2.6-bit\r\n A....D adpcm_sbpro_4        ADPCM Sound Blaster Pro 4-bit\r\n A....D adpcm_swf            ADPCM Shockwave Flash\r\n A....D adpcm_thp            ADPCM Nintendo THP\r\n A....D adpcm_thp_le         ADPCM Nintendo THP (little-endian)\r\n A....D adpcm_vima           LucasArts VIMA audio\r\n A....D adpcm_xa             ADPCM CDROM XA\r\n A....D adpcm_xmd            ADPCM Konami XMD\r\n A....D adpcm_yamaha         ADPCM Yamaha\r\n A....D adpcm_zork           ADPCM Zork\r\n A....D ahx                  CRI AHX\r\n AF...D alac                 ALAC (Apple Lossless Audio Codec)\r\n A....D amrnb                AMR-NB (Adaptive Multi-Rate NarrowBand) (codec amr_nb)\r\n A....D libopencore_amrnb    OpenCORE AMR-NB (Adaptive Multi-Rate Narrow-Band) (codec amr_nb)\r\n A....D amrwb                AMR-WB (Adaptive Multi-Rate WideBand) (codec amr_wb)\r\n A....D libopencore_amrwb    OpenCORE AMR-WB (Adaptive Multi-Rate Wide-Band) (codec amr_wb)\r\n A....D anull                null audio\r\n A....D apac                 Marian's A-pac audio\r\n A....D ape                  Monkey's Audio\r\n A....D aptx                 aptX (Audio Processing Technology for Bluetooth)\r\n A....D aptx_hd              aptX HD (Audio Processing Technology for Bluetooth)\r\n A....D atrac1               ATRAC1 (Adaptive TRansform Acoustic Coding)\r\n A....D atrac3               ATRAC3 (Adaptive TRansform Acoustic Coding 3)\r\n A....D atrac3al             ATRAC3 AL (Adaptive TRansform Acoustic Coding 3 Advanced Lossless)\r\n A....D atrac3plus           ATRAC3+ (Adaptive TRansform Acoustic Coding 3+) (codec atrac3p)\r\n A....D atrac3plusal         ATRAC3+ AL (Adaptive TRansform Acoustic Coding 3+ Advanced Lossless) (codec atrac3pal)\r\n A....D atrac9               ATRAC9 (Adaptive TRansform Acoustic Coding 9)\r\n A....D on2avc               On2 Audio for Video Codec (codec avc)\r\n A....D binkaudio_dct        Bink Audio (DCT)\r\n A....D binkaudio_rdft       Bink Audio (RDFT)\r\n A....D bmv_audio            Discworld II BMV audio\r\n A....D bonk                 Bonk audio\r\n A....D cbd2_dpcm            DPCM Cuberoot-Delta-Exact\r\n A....D comfortnoise         RFC 3389 comfort noise generator\r\n A....D cook                 Cook / Cooker / Gecko (RealAudio G2)\r\n A....D derf_dpcm            DPCM Xilam DERF\r\n A....D dfpwm                DFPWM1a audio\r\n A....D dolby_e              Dolby E\r\n A.S..D dsd_lsbf             DSD (Direct Stream Digital), least significant bit first\r\n A.S..D dsd_lsbf_planar      DSD (Direct Stream Digital), least significant bit first, planar\r\n A.S..D dsd_msbf             DSD (Direct Stream Digital), most significant bit first\r\n A.S..D dsd_msbf_planar      DSD (Direct Stream Digital), most significant bit first, planar\r\n A....D dsicinaudio          Delphine Software International CIN audio\r\n A....D dss_sp               Digital Speech Standard - Standard Play mode (DSS SP)\r\n A....D dst                  DST (Digital Stream Transfer)\r\n A....D dca                  DCA (DTS Coherent Acoustics) (codec dts)\r\n A....D dvaudio              Ulead DV Audio\r\n A....D eac3                 ATSC A/52B (AC-3, E-AC-3)\r\n A....D evrc                 EVRC (Enhanced Variable Rate Codec)\r\n A....D fastaudio            MobiClip FastAudio\r\n AF...D flac                 FLAC (Free Lossless Audio Codec)\r\n A....D ftr                  FTR Voice\r\n A....D g723_1               G.723.1\r\n A....D g728                 G.728)\r\n A....D g729                 G.729\r\n A....D gremlin_dpcm         DPCM Gremlin\r\n A....D gsm                  GSM\r\n A....D libgsm               libgsm GSM (codec gsm)\r\n A....D gsm_ms               GSM Microsoft variant\r\n A....D libgsm_ms            libgsm GSM Microsoft variant (codec gsm_ms)\r\n A....D hca                  CRI HCA\r\n A....D hcom                 HCOM Audio\r\n A....D iac                  IAC (Indeo Audio Coder)\r\n A....D ilbc                 iLBC (Internet Low Bitrate Codec)\r\n A....D imc                  IMC (Intel Music Coder)\r\n A....D interplay_dpcm       DPCM Interplay\r\n A....D interplayacm         Interplay ACM\r\n A....D mace3                MACE (Macintosh Audio Compression/Expansion) 3:1\r\n A....D mace6                MACE (Macintosh Audio Compression/Expansion) 6:1\r\n A....D metasound            Voxware MetaSound\r\n A....D misc4                Micronas SC-4 Audio\r\n A....D mlp                  MLP (Meridian Lossless Packing)\r\n A....D mp1                  MP1 (MPEG audio layer 1)\r\n A....D mp1float             MP1 (MPEG audio layer 1) (codec mp1)\r\n A....D mp2                  MP2 (MPEG audio layer 2)\r\n A....D mp2float             MP2 (MPEG audio layer 2) (codec mp2)\r\n A....D mp3float             MP3 (MPEG audio layer 3) (codec mp3)\r\n A....D mp3                  MP3 (MPEG audio layer 3)\r\n A....D mp3adufloat          ADU (Application Data Unit) MP3 (MPEG audio layer 3) (codec mp3adu)\r\n A....D mp3adu               ADU (Application Data Unit) MP3 (MPEG audio layer 3)\r\n A....D mp3on4float          MP3onMP4 (codec mp3on4)\r\n A....D mp3on4               MP3onMP4\r\n A....D als                  MPEG-4 Audio Lossless Coding (ALS) (codec mp4als)\r\n A....D msnsiren             MSN Siren\r\n A....D mpc7                 Musepack SV7 (codec musepack7)\r\n A....D mpc8                 Musepack SV8 (codec musepack8)\r\n A....D nellymoser           Nellymoser Asao\r\n A....D opus                 Opus\r\n A....D libopus              libopus Opus (codec opus)\r\n A....D osq                  OSQ (Original Sound Quality)\r\n A....D paf_audio            Amazing Studio Packed Animation File Audio\r\n A....D pcm_alaw             PCM A-law / G.711 A-law\r\n A....D pcm_bluray           PCM signed 16|20|24-bit big-endian for Blu-ray media\r\n A....D pcm_dvd              PCM signed 16|20|24-bit big-endian for DVD media\r\n A....D pcm_f16le            PCM 16.8 floating point little-endian\r\n A....D pcm_f24le            PCM 24.0 floating point little-endian\r\n A....D pcm_f32be            PCM 32-bit floating point big-endian\r\n A....D pcm_f32le            PCM 32-bit floating point little-endian\r\n A....D pcm_f64be            PCM 64-bit floating point big-endian\r\n A....D pcm_f64le            PCM 64-bit floating point little-endian\r\n A....D pcm_lxf              PCM signed 20-bit little-endian planar\r\n A....D pcm_mulaw            PCM mu-law / G.711 mu-law\r\n A....D pcm_s16be            PCM signed 16-bit big-endian\r\n A....D pcm_s16be_planar     PCM signed 16-bit big-endian planar\r\n A....D pcm_s16le            PCM signed 16-bit little-endian\r\n A....D pcm_s16le_planar     PCM signed 16-bit little-endian planar\r\n A....D pcm_s24be            PCM signed 24-bit big-endian\r\n A....D pcm_s24daud          PCM D-Cinema audio signed 24-bit\r\n A....D pcm_s24le            PCM signed 24-bit little-endian\r\n A....D pcm_s24le_planar     PCM signed 24-bit little-endian planar\r\n A....D pcm_s32be            PCM signed 32-bit big-endian\r\n A....D pcm_s32le            PCM signed 32-bit little-endian\r\n A....D pcm_s32le_planar     PCM signed 32-bit little-endian planar\r\n A....D pcm_s64be            PCM signed 64-bit big-endian\r\n A....D pcm_s64le            PCM signed 64-bit little-endian\r\n A....D pcm_s8               PCM signed 8-bit\r\n A....D pcm_s8_planar        PCM signed 8-bit planar\r\n A....D pcm_sga              PCM SGA\r\n A....D pcm_u16be            PCM unsigned 16-bit big-endian\r\n A....D pcm_u16le            PCM unsigned 16-bit little-endian\r\n A....D pcm_u24be            PCM unsigned 24-bit big-endian\r\n A....D pcm_u24le            PCM unsigned 24-bit little-endian\r\n A....D pcm_u32be            PCM unsigned 32-bit big-endian\r\n A....D pcm_u32le            PCM unsigned 32-bit little-endian\r\n A....D pcm_u8               PCM unsigned 8-bit\r\n A....D pcm_vidc             PCM Archimedes VIDC\r\n A....D qcelp                QCELP / PureVoice\r\n A....D qdm2                 QDesign Music Codec 2\r\n A....D qdmc                 QDesign Music Codec 1\r\n A....D qoa                  QOA (Quite OK Audio)\r\n A....D real_144             RealAudio 1.0 (14.4K) (codec ra_144)\r\n A....D real_288             RealAudio 2.0 (28.8K) (codec ra_288)\r\n A....D ralf                 RealAudio Lossless\r\n A....D rka                  RKA (RK Audio)\r\n A....D roq_dpcm             DPCM id RoQ\r\n A....D s302m                SMPTE 302M\r\n A....D sbc                  SBC (low-complexity subband codec)\r\n A....D sdx2_dpcm            DPCM Squareroot-Delta-Exact\r\n A....D shorten              Shorten\r\n A....D sipr                 RealAudio SIPR / ACELP.NET\r\n A....D siren                Siren\r\n A....D smackaud             Smacker audio (codec smackaudio)\r\n A....D sol_dpcm             DPCM Sol\r\n A....D speex                Speex\r\n A....D libspeex             libspeex Speex (codec speex)\r\n AF...D tak                  TAK (Tom's lossless Audio Kompressor)\r\n A....D truehd               TrueHD\r\n A....D truespeech           DSP Group TrueSpeech\r\n AF...D tta                  TTA (True Audio)\r\n A....D twinvq               VQF TwinVQ\r\n A....D vmdaudio             Sierra VMD audio\r\n A....D vorbis               Vorbis\r\n A..... libvorbis            libvorbis (codec vorbis)\r\n A....D wady_dpcm            DPCM Marble WADY\r\n A....D wavarc               Waveform Archiver\r\n A....D wavesynth            Wave synthesis pseudo-codec\r\n AFS..D wavpack              WavPack\r\n A....D ws_snd1              Westwood Audio (SND1) (codec westwood_snd1)\r\n A....D wmalossless          Windows Media Audio Lossless\r\n A....D wmapro               Windows Media Audio 9 Professional\r\n A....D wmav1                Windows Media Audio 1\r\n A....D wmav2                Windows Media Audio 2\r\n A....D wmavoice             Windows Media Audio Voice\r\n A....D xan_dpcm             DPCM Xan\r\n A....D xma1                 Xbox Media Audio 1\r\n A....D xma2                 Xbox Media Audio 2\r\n S..... ssa                  ASS (Advanced SubStation Alpha) subtitle (codec ass)\r\n S..... ass                  ASS (Advanced SubStation Alpha) subtitle\r\n S..... dvbsub               DVB subtitles (codec dvb_subtitle)\r\n S..... dvdsub               DVD subtitles (codec dvd_subtitle)\r\n S..... cc_dec               Closed Captions (EIA-608 / CEA-708) (codec eia_608)\r\n S..... pgssub               HDMV Presentation Graphic Stream subtitles (codec hdmv_pgs_subtitle)\r\n S..... jacosub              JACOsub subtitle\r\n S..... microdvd             MicroDVD subtitle\r\n S..... mov_text             3GPP Timed Text subtitle\r\n S..... mpl2                 MPL2 subtitle\r\n S..... pjs                  PJS subtitle\r\n S..... realtext             RealText subtitle\r\n S..... sami                 SAMI subtitle\r\n S..... stl                  Spruce subtitle format\r\n S..... srt                  SubRip subtitle (codec subrip)\r\n S..... subrip               SubRip subtitle\r\n S..... subviewer            SubViewer subtitle\r\n S..... subviewer1           SubViewer1 subtitle\r\n S..... text                 Raw text subtitle\r\n S..... vplayer              VPlayer subtitle\r\n S..... webvtt               WebVTT subtitle\r\n S..... xsub                 XSUB\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "ffmpeg",
+        "kind": "encoders",
+        "raw": "Encoders:\r\n V..... = Video\r\n A..... = Audio\r\n S..... = Subtitle\r\n .F.... = Frame-level multithreading\r\n ..S... = Slice-level multithreading\r\n ...X.. = Codec is experimental\r\n ....B. = Supports draw_horiz_band\r\n .....D = Supports direct rendering method 1\r\n ------\r\n V....D a64multi             Multicolor charset for Commodore 64 (codec a64_multi)\r\n V....D a64multi5            Multicolor charset for Commodore 64, extended with 5th color (colram) (codec a64_multi5)\r\n V....D alias_pix            Alias/Wavefront PIX image\r\n V....D amv                  AMV Video\r\n V....D apng                 APNG (Animated Portable Network Graphics) image\r\n V....D asv1                 ASUS V1\r\n V....D asv2                 ASUS V2\r\n V....D libaom-av1           libaom AV1 (codec av1)\r\n V....D av1_d3d12va          D3D12VA av1 encoder (codec av1)\r\n V....D av1_nvenc            NVIDIA NVENC av1 encoder (codec av1)\r\n V..... av1_qsv              AV1 (Intel Quick Sync Video acceleration) (codec av1)\r\n V....D av1_amf              AMD AMF AV1 encoder (codec av1)\r\n V....D av1_mf               AV1 via MediaFoundation (codec av1)\r\n V....D av1_vaapi            AV1 (VAAPI) (codec av1)\r\n V....D avrp                 Avid 1:1 10-bit RGB Packer\r\n V..X.D avui                 Avid Meridien Uncompressed\r\n VF...D bitpacked            Bitpacked\r\n V....D bmp                  BMP (Windows and OS/2 bitmap)\r\n VF...D cfhd                 GoPro CineForm HD\r\n V....D cinepak              Cinepak\r\n V....D cljr                 Cirrus Logic AccuPak\r\n V.S..D vc2                  SMPTE VC-2 (codec dirac)\r\n VFS..D dnxhd                VC3/DNxHD\r\n V....D dpx                  DPX (Digital Picture Exchange) image\r\n VFS..D dvvideo              DV (Digital Video)\r\n VFS..D dxv                  Resolume DXV\r\n VF...D exr                  OpenEXR image\r\n V.S..D ffv1                 FFmpeg video codec #1\r\n VF...D ffvhuff              Huffyuv FFmpeg variant\r\n V....D fits                 Flexible Image Transport System\r\n V....D flashsv              Flash Screen Video\r\n V....D flashsv2             Flash Screen Video Version 2\r\n V....D flv                  FLV / Sorenson Spark / Sorenson H.263 (Flash Video) (codec flv1)\r\n V....D gif                  GIF (Graphics Interchange Format)\r\n V....D h261                 H.261\r\n V....D h263                 H.263 / H.263-1996\r\n V.S..D h263p                H.263+ / H.263-1998 / H.263 version 2\r\n V....D libx264              libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (codec h264)\r\n V....D libx264rgb           libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 RGB (codec h264)\r\n V....D h264_amf             AMD AMF H.264 Encoder (codec h264)\r\n V....D h264_d3d12va         D3D12VA h264 encoder (codec h264)\r\n V....D h264_mf              H264 via MediaFoundation (codec h264)\r\n V....D h264_nvenc           NVIDIA NVENC H.264 encoder (codec h264)\r\n V..... h264_qsv             H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (Intel Quick Sync Video acceleration) (codec h264)\r\n V....D h264_vaapi           H.264/AVC (VAAPI) (codec h264)\r\n VF...D hdr                  HDR (Radiance RGBE format) image\r\n V....D libx265              libx265 H.265 / HEVC (codec hevc)\r\n V....D hevc_amf             AMD AMF HEVC encoder (codec hevc)\r\n V....D hevc_d3d12va         D3D12VA hevc encoder (codec hevc)\r\n V....D hevc_mf              HEVC via MediaFoundation (codec hevc)\r\n V....D hevc_nvenc           NVIDIA NVENC hevc encoder (codec hevc)\r\n V..... hevc_qsv             HEVC (Intel Quick Sync Video acceleration) (codec hevc)\r\n V....D hevc_vaapi           H.265/HEVC (VAAPI) (codec hevc)\r\n VF...D huffyuv              Huffyuv / HuffYUV\r\n VF...D jpeg2000             JPEG 2000\r\n VF.... libopenjpeg          OpenJPEG JPEG 2000 (codec jpeg2000)\r\n VF...D jpegls               JPEG-LS\r\n VF...D ljpeg                Lossless JPEG\r\n VFS..D magicyuv             MagicYUV video\r\n VFS..D mjpeg                MJPEG (Motion JPEG)\r\n V..... mjpeg_qsv            MJPEG (Intel Quick Sync Video acceleration) (codec mjpeg)\r\n V....D mjpeg_vaapi          MJPEG (VAAPI) (codec mjpeg)\r\n V.S..D mpeg1video           MPEG-1 video\r\n V.S..D mpeg2video           MPEG-2 video\r\n V..... mpeg2_qsv            MPEG-2 video (Intel Quick Sync Video acceleration) (codec mpeg2video)\r\n V....D mpeg2_vaapi          MPEG-2 (VAAPI) (codec mpeg2video)\r\n V.S..D mpeg4                MPEG-4 part 2\r\n V....D libxvid              libxvidcore MPEG-4 part 2 (codec mpeg4)\r\n V....D msmpeg4v2            MPEG-4 part 2 Microsoft variant version 2\r\n V....D msmpeg4              MPEG-4 part 2 Microsoft variant version 3 (codec msmpeg4v3)\r\n V....D msrle                Microsoft RLE\r\n V..... msvideo1             Microsoft Video-1\r\n V....D pam                  PAM (Portable AnyMap) image\r\n V....D pbm                  PBM (Portable BitMap) image\r\n V....D pcx                  PC Paintbrush PCX image\r\n V..X.D pdv                  PDV (PlayDate Video)\r\n V....D pfm                  PFM (Portable FloatMap) image\r\n V....D pgm                  PGM (Portable GrayMap) image\r\n V....D pgmyuv               PGMYUV (Portable GrayMap YUV) image\r\n V....D phm                  PHM (Portable HalfFloatMap) image\r\n VF...D png                  PNG (Portable Network Graphics) image\r\n V....D ppm                  PPM (Portable PixelMap) image\r\n VF...D prores               Apple ProRes\r\n VF...D prores_aw            Apple ProRes (codec prores)\r\n VFS... prores_ks            Apple ProRes (iCodec Pro) (codec prores)\r\n VF...D qoi                  QOI (Quite OK Image format) image\r\n V....D qtrle                QuickTime Animation (RLE) video\r\n V....D r10k                 AJA Kona 10-bit RGB Codec\r\n V....D r210                 Uncompressed RGB 10-bit\r\n VF...D rawvideo             raw video\r\n V....D roqvideo             id RoQ video (codec roq)\r\n V....D rpza                 QuickTime video (RPZA)\r\n V....D rv10                 RealVideo 1.0\r\n V....D rv20                 RealVideo 2.0\r\n V....D sgi                  SGI image\r\n V....D smc                  QuickTime Graphics (SMC)\r\n V....D snow                 Snow\r\n V....D speedhq              NewTek SpeedHQ\r\n V....D sunrast              Sun Rasterfile image\r\n V....D svq1                 Sorenson Vector Quantizer 1 / Sorenson Video 1 / SVQ1\r\n V....D targa                Truevision Targa image\r\n V....D libtheora            libtheora Theora (codec theora)\r\n VF...D tiff                 TIFF image\r\n VF...D utvideo              Ut Video\r\n VF...D v210                 Uncompressed 4:2:2 10-bit\r\n V.S..D vbn                  Vizrt Binary Image\r\n V..... vnull                null video\r\n V....D libvpx               libvpx VP8 (codec vp8)\r\n V....D vp8_vaapi            VP8 (VAAPI) (codec vp8)\r\n V....D libvpx-vp9           libvpx VP9 (codec vp9)\r\n V....D vp9_vaapi            VP9 (VAAPI) (codec vp9)\r\n V..... vp9_qsv              VP9 video (Intel Quick Sync Video acceleration) (codec vp9)\r\n VF...D wbmp                 WBMP (Wireless Application Protocol Bitmap) image\r\n V....D libwebp_anim         libwebp WebP image (codec webp)\r\n V....D libwebp              libwebp WebP image (codec webp)\r\n V....D wmv1                 Windows Media Video 7\r\n V....D wmv2                 Windows Media Video 8\r\n V..... wrapped_avframe      AVFrame to AVPacket passthrough\r\n V....D xbm                  XBM (X BitMap) image\r\n V....D xface                X-face image\r\n V....D xwd                  XWD (X Window Dump) image\r\n V....D y41p                 Uncompressed YUV 4:1:1 12-bit\r\n V....D yuv4                 Uncompressed packed 4:2:0\r\n VF...D zlib                 LCL (LossLess Codec Library) ZLIB\r\n V....D zmbv                 Zip Motion Blocks Video\r\n A....D aac                  AAC (Advanced Audio Coding)\r\n A....D aac_mf               AAC via MediaFoundation (codec aac)\r\n A....D ac3                  ATSC A/52A (AC-3)\r\n A....D ac3_fixed            ATSC A/52A (AC-3) (codec ac3)\r\n A....D ac3_mf               AC3 via MediaFoundation (codec ac3)\r\n A....D adpcm_adx            SEGA CRI ADX ADPCM\r\n A....D adpcm_argo           ADPCM Argonaut Games\r\n A....D g722                 G.722 ADPCM (codec adpcm_g722)\r\n A....D g726                 G.726 ADPCM (codec adpcm_g726)\r\n A....D g726le               G.726 little endian ADPCM (\"right-justified\") (codec adpcm_g726le)\r\n A....D adpcm_ima_alp        ADPCM IMA High Voltage Software ALP\r\n A....D adpcm_ima_amv        ADPCM IMA AMV\r\n A....D adpcm_ima_apm        ADPCM IMA Ubisoft APM\r\n A....D adpcm_ima_qt         ADPCM IMA QuickTime\r\n A....D adpcm_ima_ssi        ADPCM IMA Simon & Schuster Interactive\r\n A....D adpcm_ima_wav        ADPCM IMA WAV\r\n A....D adpcm_ima_ws         ADPCM IMA Westwood\r\n A....D adpcm_ms             ADPCM Microsoft\r\n A....D adpcm_swf            ADPCM Shockwave Flash\r\n A....D adpcm_yamaha         ADPCM Yamaha\r\n A....D alac                 ALAC (Apple Lossless Audio Codec)\r\n A....D libopencore_amrnb    OpenCORE AMR-NB (Adaptive Multi-Rate Narrow-Band) (codec amr_nb)\r\n A....D libvo_amrwbenc       Android VisualOn AMR-WB (Adaptive Multi-Rate Wide-Band) (codec amr_wb)\r\n A..... anull                null audio\r\n A....D aptx                 aptX (Audio Processing Technology for Bluetooth)\r\n A....D aptx_hd              aptX HD (Audio Processing Technology for Bluetooth)\r\n A....D comfortnoise         RFC 3389 comfort noise generator\r\n A....D dfpwm                DFPWM1a audio\r\n A..X.D dca                  DCA (DTS Coherent Acoustics) (codec dts)\r\n A....D eac3                 ATSC A/52 E-AC-3\r\n A....D flac                 FLAC (Free Lossless Audio Codec)\r\n A....D g723_1               G.723.1\r\n A....D libgsm               libgsm GSM (codec gsm)\r\n A....D libgsm_ms            libgsm GSM Microsoft variant (codec gsm_ms)\r\n A..X.D mlp                  MLP (Meridian Lossless Packing)\r\n A....D mp2                  MP2 (MPEG audio layer 2)\r\n A....D mp2fixed             MP2 fixed point (MPEG audio layer 2) (codec mp2)\r\n A....D libmp3lame           libmp3lame MP3 (MPEG audio layer 3) (codec mp3)\r\n A....D mp3_mf               MP3 via MediaFoundation (codec mp3)\r\n A....D nellymoser           Nellymoser Asao\r\n A..X.D opus                 Opus\r\n A....D libopus              libopus Opus (codec opus)\r\n A....D pcm_alaw             PCM A-law / G.711 A-law\r\n A....D pcm_bluray           PCM signed 16|20|24-bit big-endian for Blu-ray media\r\n A....D pcm_dvd              PCM signed 16|20|24-bit big-endian for DVD media\r\n A....D pcm_f32be            PCM 32-bit floating point big-endian\r\n A....D pcm_f32le            PCM 32-bit floating point little-endian\r\n A....D pcm_f64be            PCM 64-bit floating point big-endian\r\n A....D pcm_f64le            PCM 64-bit floating point little-endian\r\n A....D pcm_mulaw            PCM mu-law / G.711 mu-law\r\n A....D pcm_s16be            PCM signed 16-bit big-endian\r\n A....D pcm_s16be_planar     PCM signed 16-bit big-endian planar\r\n A....D pcm_s16le            PCM signed 16-bit little-endian\r\n A....D pcm_s16le_planar     PCM signed 16-bit little-endian planar\r\n A....D pcm_s24be            PCM signed 24-bit big-endian\r\n A....D pcm_s24daud          PCM D-Cinema audio signed 24-bit\r\n A....D pcm_s24le            PCM signed 24-bit little-endian\r\n A....D pcm_s24le_planar     PCM signed 24-bit little-endian planar\r\n A....D pcm_s32be            PCM signed 32-bit big-endian\r\n A....D pcm_s32le            PCM signed 32-bit little-endian\r\n A....D pcm_s32le_planar     PCM signed 32-bit little-endian planar\r\n A....D pcm_s64be            PCM signed 64-bit big-endian\r\n A....D pcm_s64le            PCM signed 64-bit little-endian\r\n A....D pcm_s8               PCM signed 8-bit\r\n A....D pcm_s8_planar        PCM signed 8-bit planar\r\n A....D pcm_u16be            PCM unsigned 16-bit big-endian\r\n A....D pcm_u16le            PCM unsigned 16-bit little-endian\r\n A....D pcm_u24be            PCM unsigned 24-bit big-endian\r\n A....D pcm_u24le            PCM unsigned 24-bit little-endian\r\n A....D pcm_u32be            PCM unsigned 32-bit big-endian\r\n A....D pcm_u32le            PCM unsigned 32-bit little-endian\r\n A....D pcm_u8               PCM unsigned 8-bit\r\n A....D pcm_vidc             PCM Archimedes VIDC\r\n A....D real_144             RealAudio 1.0 (14.4K) (codec ra_144)\r\n A....D roq_dpcm             id RoQ DPCM\r\n A..X.D s302m                SMPTE 302M\r\n A....D sbc                  SBC (low-complexity subband codec)\r\n A....D libspeex             libspeex Speex (codec speex)\r\n A..X.D truehd               TrueHD\r\n A....D tta                  TTA (True Audio)\r\n A..X.D vorbis               Vorbis\r\n A....D libvorbis            libvorbis (codec vorbis)\r\n A....D wavpack              WavPack\r\n A....D wmav1                Windows Media Audio 1\r\n A....D wmav2                Windows Media Audio 2\r\n S..... ssa                  ASS (Advanced SubStation Alpha) subtitle (codec ass)\r\n S..... ass                  ASS (Advanced SubStation Alpha) subtitle\r\n S..... dvbsub               DVB subtitles (codec dvb_subtitle)\r\n S..... dvdsub               DVD subtitles (codec dvd_subtitle)\r\n S..... mov_text             3GPP Timed Text subtitle\r\n S..... srt                  SubRip subtitle (codec subrip)\r\n S..... subrip               SubRip subtitle\r\n S..... text                 Raw text subtitle\r\n S..... ttml                 TTML subtitle\r\n S..... webvtt               WebVTT subtitle\r\n S..... xsub                 DivX subtitles (XSUB)\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "ffmpeg",
+        "kind": "demuxers",
+        "raw": "Formats:\r\n D.. = Demuxing supported\r\n .E. = Muxing supported\r\n ..d = Is a device\r\n ---\r\n D   3dostr          3DO STR\r\n D   4xm             4X Technologies\r\n D   aa              Audible AA format files\r\n D   aac             raw ADTS AAC (Advanced Audio Coding)\r\n D   aax             CRI AAX\r\n D   ac3             raw AC-3\r\n D   ac4             raw AC-4\r\n D   ace             tri-Ace Audio Container\r\n D   acm             Interplay ACM\r\n D   act             ACT Voice file format\r\n D   adf             Artworx Data Format\r\n D   adp             ADP\r\n D   ads             Sony PS2 ADS\r\n D   adx             CRI ADX\r\n D   aea             MD STUDIO audio\r\n D   afc             AFC\r\n D   aiff            Audio IFF\r\n D   aix             CRI AIX\r\n D   alaw            PCM A-law\r\n D   alias_pix       Alias/Wavefront PIX image\r\n D   alp             LEGO Racers ALP\r\n D   amr             3GPP AMR\r\n D   amrnb           raw AMR-NB\r\n D   amrwb           raw AMR-WB\r\n D   anm             Deluxe Paint Animation\r\n D   apac            raw APAC\r\n D   apc             CRYO APC\r\n D   ape             Monkey's Audio\r\n D   apm             Ubisoft Rayman 2 APM\r\n D   apng            Animated Portable Network Graphics\r\n D   aptx            raw aptX\r\n D   aptx_hd         raw aptX HD\r\n D   apv             APV raw bitstream\r\n D   aqtitle         AQTitle subtitles\r\n D   argo_asf        Argonaut Games ASF\r\n D   argo_brp        Argonaut Games BRP\r\n D   argo_cvg        Argonaut Games CVG\r\n D   asf             ASF (Advanced / Active Streaming Format)\r\n D   asf_o           ASF (Advanced / Active Streaming Format)\r\n D   ass             SSA (SubStation Alpha) subtitle\r\n D   ast             AST (Audio Stream)\r\n D   au              Sun AU\r\n D   av1             AV1 Annex B\r\n D   avi             AVI (Audio Video Interleaved)\r\n D   avisynth        AviSynth script\r\n D   avr             AVR (Audio Visual Research)\r\n D   avs             Argonaut Games Creature Shock\r\n D   avs2            raw AVS2-P2/IEEE1857.4\r\n D   avs3            raw AVS3-P2/IEEE1857.10\r\n D   bethsoftvid     Bethesda Softworks VID\r\n D   bfi             Brute Force & Ignorance\r\n D   bfstm           BFSTM (Binary Cafe Stream)\r\n D   bin             Binary text\r\n D   bink            Bink\r\n D   binka           Bink Audio\r\n D   bit             G.729 BIT file format\r\n D   bitpacked       Bitpacked\r\n D   bmp_pipe        piped bmp sequence\r\n D   bmv             Discworld II BMV\r\n D   boa             Black Ops Audio\r\n D   bonk            raw Bonk\r\n D   brender_pix     BRender PIX image\r\n D   brstm           BRSTM (Binary Revolution Stream)\r\n D   c93             Interplay C93\r\n D   caf             Apple CAF (Core Audio Format)\r\n D   cavsvideo       raw Chinese AVS (Audio Video Standard)\r\n D   cdg             CD Graphics\r\n D   cdxl            Commodore CDXL video\r\n D   cine            Phantom Cine\r\n D   codec2          codec2 .c2 demuxer\r\n D   codec2raw       raw codec2 demuxer\r\n D   concat          Virtual concatenation script\r\n D   cri_pipe        piped cri sequence\r\n D   dash            Dynamic Adaptive Streaming over HTTP\r\n D   data            raw data\r\n D   daud            D-Cinema audio\r\n D   dcstr           Sega DC STR\r\n D   dds_pipe        piped dds sequence\r\n D   derf            Xilam DERF\r\n D   dfa             Chronomaster DFA\r\n D   dfpwm           raw DFPWM1a\r\n D   dhav            Video DAV\r\n D   dirac           raw Dirac\r\n D   dnxhd           raw DNxHD (SMPTE VC-3)\r\n D   dpx_pipe        piped dpx sequence\r\n D   dsf             DSD Stream File (DSF)\r\n D d dshow           DirectShow capture\r\n D   dsicin          Delphine Software International CIN\r\n D   dss             Digital Speech Standard (DSS)\r\n D   dts             raw DTS\r\n D   dtshd           raw DTS-HD\r\n D   dv              DV (Digital Video)\r\n D   dvbsub          raw dvbsub\r\n D   dvbtxt          dvbtxt\r\n D   dxa             DXA\r\n D   ea              Electronic Arts Multimedia\r\n D   ea_cdata        Electronic Arts cdata\r\n D   eac3            raw E-AC-3\r\n D   epaf            Ensoniq Paris Audio File\r\n D   evc             EVC Annex B\r\n D   exr_pipe        piped exr sequence\r\n D   f32be           PCM 32-bit floating-point big-endian\r\n D   f32le           PCM 32-bit floating-point little-endian\r\n D   f64be           PCM 64-bit floating-point big-endian\r\n D   f64le           PCM 64-bit floating-point little-endian\r\n D   ffmetadata      FFmpeg metadata in text\r\n D   film_cpk        Sega FILM / CPK\r\n D   filmstrip       Adobe Filmstrip\r\n D   fits            Flexible Image Transport System\r\n D   flac            raw FLAC\r\n D   flic            FLI/FLC/FLX animation\r\n D   flv             FLV (Flash Video)\r\n D   frm             Megalux Frame\r\n D   fsb             FMOD Sample Bank\r\n D   fwse            Capcom's MT Framework sound\r\n D   g722            raw G.722\r\n D   g723_1          G.723.1\r\n D   g726            raw big-endian G.726 (\"left aligned\")\r\n D   g726le          raw little-endian G.726 (\"right aligned\")\r\n D   g728            raw G.728\r\n D   g729            G.729 raw format demuxer\r\n D d gdigrab         GDI API Windows frame grabber\r\n D   gdv             Gremlin Digital Video\r\n D   gem_pipe        piped gem sequence\r\n D   genh            GENeric Header\r\n D   gif             CompuServe Graphics Interchange Format (GIF)\r\n D   gif_pipe        piped gif sequence\r\n D   gsm             raw GSM\r\n D   gxf             GXF (General eXchange Format)\r\n D   h261            raw H.261\r\n D   h263            raw H.263\r\n D   h264            raw H.264 video\r\n D   hca             CRI HCA\r\n D   hcom            Macintosh HCOM\r\n D   hdr_pipe        piped hdr sequence\r\n D   hevc            raw HEVC video\r\n D   hls             Apple HTTP Live Streaming\r\n D   hnm             Cryo HNM v4\r\n D   hxvs            HXVF/HXVS IP camera format\r\n D   iamf            Raw Immersive Audio Model and Formats\r\n D   ico             Microsoft Windows ICO\r\n D   idcin           id Cinematic\r\n D   idf             iCE Draw File\r\n D   iff             IFF (Interchange File Format)\r\n D   ifv             IFV CCTV DVR\r\n D   ilbc            iLBC storage\r\n D   image2          image2 sequence\r\n D   image2pipe      piped image2 sequence\r\n D   imf             IMF (Interoperable Master Format)\r\n D   ingenient       raw Ingenient MJPEG\r\n D   ipmovie         Interplay MVE\r\n D   ipu             raw IPU Video\r\n D   ircam           Berkeley/IRCAM/CARL Sound Format\r\n D   iss             Funcom ISS\r\n D   iv8             IndigoVision 8000 video\r\n D   ivf             On2 IVF\r\n D   ivr             IVR (Internet Video Recording)\r\n D   j2k_pipe        piped j2k sequence\r\n D   jacosub         JACOsub subtitle format\r\n D   jpeg_pipe       piped jpeg sequence\r\n D   jpegls_pipe     piped jpegls sequence\r\n D   jpegxl_anim     Animated JPEG XL\r\n D   jpegxl_pipe     piped jpegxl sequence\r\n D   jpegxs_pipe     piped jpegxs sequence\r\n D   jv              Bitmap Brothers JV\r\n D   kux             KUX (YouKu)\r\n D   kvag            Simon & Schuster Interactive VAG\r\n D   laf             LAF (Limitless Audio Format)\r\n D d lavfi           Libavfilter virtual input device\r\n D   lc3             LC3 (Low Complexity Communication Codec)\r\n D   libgme          Game Music Emu demuxer\r\n D   libopenmpt      Tracker formats (libopenmpt)\r\n D   live_flv        live RTMP FLV (Flash Video)\r\n D   lmlm4           raw lmlm4\r\n D   loas            LOAS AudioSyncStream\r\n D   lrc             LRC lyrics\r\n D   luodat          Video CCTV DAT\r\n D   lvf             LVF\r\n D   lxf             VR native stream (LXF)\r\n D   m4v             raw MPEG-4 video\r\n D   matroska,webm   Matroska / WebM\r\n D   mca             MCA Audio Format\r\n D   mcc             MacCaption\r\n D   mgsts           Metal Gear Solid: The Twin Snakes\r\n D   microdvd        MicroDVD subtitle format\r\n D   mjpeg           raw MJPEG video\r\n D   mjpeg_2000      raw MJPEG 2000 video\r\n D   mlp             raw MLP\r\n D   mlv             Magic Lantern Video (MLV)\r\n D   mm              American Laser Games MM\r\n D   mmf             Yamaha SMAF\r\n D   mods            MobiClip MODS\r\n D   moflex          MobiClip MOFLEX\r\n D   mov,mp4,m4a,3gp,3g2,mj2 QuickTime / MOV\r\n D   mp3             MP2/3 (MPEG audio layer 2/3)\r\n D   mpc             Musepack\r\n D   mpc8            Musepack SV8\r\n D   mpeg            MPEG-PS (MPEG-2 Program Stream)\r\n D   mpegts          MPEG-TS (MPEG-2 Transport Stream)\r\n D   mpegtsraw       raw MPEG-TS (MPEG-2 Transport Stream)\r\n D   mpegvideo       raw MPEG video\r\n D   mpjpeg          MIME multipart JPEG\r\n D   mpl2            MPL2 subtitles\r\n D   mpsub           MPlayer subtitles\r\n D   msf             Sony PS3 MSF\r\n D   msnwctcp        MSN TCP Webcam stream\r\n D   msp             Microsoft Paint (MSP))\r\n D   mtaf            Konami PS2 MTAF\r\n D   mtv             MTV\r\n D   mulaw           PCM mu-law\r\n D   musx            Eurocom MUSX\r\n D   mv              Silicon Graphics Movie\r\n D   mvi             Motion Pixels MVI\r\n D   mxf             MXF (Material eXchange Format)\r\n D   mxg             MxPEG clip\r\n D   nc              NC camera feed\r\n D   nistsphere      NIST SPeech HEader REsources\r\n D   nsp             Computerized Speech Lab NSP\r\n D   nsv             Nullsoft Streaming Video\r\n D   nut             NUT\r\n D   nuv             NuppelVideo\r\n D   obu             AV1 low overhead OBU\r\n D   ogg             Ogg\r\n D   oma             Sony OpenMG audio\r\n D d openal          OpenAL audio capture device\r\n D   osq             raw OSQ\r\n D   paf             Amazing Studio Packed Animation File\r\n D   pam_pipe        piped pam sequence\r\n D   pbm_pipe        piped pbm sequence\r\n D   pcx_pipe        piped pcx sequence\r\n D   pdv             PlayDate Video\r\n D   pfm_pipe        piped pfm sequence\r\n D   pgm_pipe        piped pgm sequence\r\n D   pgmyuv_pipe     piped pgmyuv sequence\r\n D   pgx_pipe        piped pgx sequence\r\n D   phm_pipe        piped phm sequence\r\n D   photocd_pipe    piped photocd sequence\r\n D   pictor_pipe     piped pictor sequence\r\n D   pjs             PJS (Phoenix Japanimation Society) subtitles\r\n D   pmp             Playstation Portable PMP\r\n D   png_pipe        piped png sequence\r\n D   pp_bnk          Pro Pinball Series Soundbank\r\n D   ppm_pipe        piped ppm sequence\r\n D   psd_pipe        piped psd sequence\r\n D   psxstr          Sony Playstation STR\r\n D   pva             TechnoTrend PVA\r\n D   pvf             PVF (Portable Voice Format)\r\n D   qcp             QCP\r\n D   qdraw_pipe      piped qdraw sequence\r\n D   qoa             QOA\r\n D   qoi_pipe        piped qoi sequence\r\n D   r3d             REDCODE R3D\r\n D   rawvideo        raw video\r\n D   rcwt            RCWT (Raw Captions With Time)\r\n D   realtext        RealText subtitle format\r\n D   redspark        RedSpark\r\n D   rka             RKA (RK Audio)\r\n D   rl2             RL2\r\n D   rm              RealMedia\r\n D   roq             id RoQ\r\n D   rpl             RPL / ARMovie\r\n D   rsd             GameCube RSD\r\n D   rso             Lego Mindstorms RSO\r\n D   rtp             RTP input\r\n D   rtsp            RTSP input\r\n D   s16be           PCM signed 16-bit big-endian\r\n D   s16le           PCM signed 16-bit little-endian\r\n D   s24be           PCM signed 24-bit big-endian\r\n D   s24le           PCM signed 24-bit little-endian\r\n D   s32be           PCM signed 32-bit big-endian\r\n D   s32le           PCM signed 32-bit little-endian\r\n D   s337m           SMPTE 337M\r\n D   s8              PCM signed 8-bit\r\n D   sami            SAMI subtitle format\r\n D   sap             SAP input\r\n D   sbc             raw SBC (low-complexity subband codec)\r\n D   sbg             SBaGen binaural beats script\r\n D   scc             Scenarist Closed Captions\r\n D   scd             Square Enix SCD\r\n D   sdns            Xbox SDNS\r\n D   sdp             SDP\r\n D   sdr2            SDR2\r\n D   sds             MIDI Sample Dump Standard\r\n D   sdx             Sample Dump eXchange\r\n D   ser             SER (Simple uncompressed video format for astronomical capturing)\r\n D   sga             Digital Pictures SGA\r\n D   sgi_pipe        piped sgi sequence\r\n D   shn             raw Shorten\r\n D   siff            Beam Software SIFF\r\n D   simbiosis_imx   Simbiosis Interactive IMX\r\n D   sln             Asterisk raw pcm\r\n D   smjpeg          Loki SDL MJPEG\r\n D   smk             Smacker\r\n D   smush           LucasArts Smush\r\n D   sol             Sierra SOL\r\n D   sox             SoX (Sound eXchange) native\r\n D   spdif           IEC 61937 (compressed data in S/PDIF)\r\n D   srt             SubRip subtitle\r\n D   stl             Spruce subtitle format\r\n D   subviewer       SubViewer subtitle format\r\n D   subviewer1      SubViewer v1 subtitle format\r\n D   sunrast_pipe    piped sunrast sequence\r\n D   sup             raw HDMV Presentation Graphic Stream subtitles\r\n D   svag            Konami PS2 SVAG\r\n D   svg_pipe        piped svg sequence\r\n D   svs             Square SVS\r\n D   swf             SWF (ShockWave Flash)\r\n D   tak             raw TAK\r\n D   tedcaptions     TED Talks captions\r\n D   thp             THP\r\n D   tiertexseq      Tiertex Limited SEQ\r\n D   tiff_pipe       piped tiff sequence\r\n D   tmv             8088flex TMV\r\n D   truehd          raw TrueHD\r\n D   tta             TTA (True Audio)\r\n D   tty             Tele-typewriter\r\n D   txd             Renderware TeXture Dictionary\r\n D   ty              TiVo TY Stream\r\n D   u16be           PCM unsigned 16-bit big-endian\r\n D   u16le           PCM unsigned 16-bit little-endian\r\n D   u24be           PCM unsigned 24-bit big-endian\r\n D   u24le           PCM unsigned 24-bit little-endian\r\n D   u32be           PCM unsigned 32-bit big-endian\r\n D   u32le           PCM unsigned 32-bit little-endian\r\n D   u8              PCM unsigned 8-bit\r\n D   usm             CRI USM\r\n D   v210            Uncompressed 4:2:2 10-bit\r\n D   v210x           Uncompressed 4:2:2 10-bit\r\n D   vag             Sony PS2 VAG\r\n D   vbn_pipe        piped vbn sequence\r\n D   vc1             raw VC-1\r\n D   vc1test         VC-1 test bitstream\r\n D d vfwcap          VfW video capture\r\n D   vidc            PCM Archimedes VIDC\r\n D   vividas         Vividas VIV\r\n D   vivo            Vivo\r\n D   vmd             Sierra VMD\r\n D   vobsub          VobSub subtitle format\r\n D   voc             Creative Voice\r\n D   vpk             Sony PS2 VPK\r\n D   vplayer         VPlayer subtitles\r\n D   vqf             Nippon Telegraph and Telephone Corporation (NTT) TwinVQ\r\n D   vvc             raw H.266/VVC video\r\n D   w64             Sony Wave64\r\n D   wady            Marble WADY\r\n D   wav             WAV / WAVE (Waveform Audio)\r\n D   wavarc          Waveform Archiver\r\n D   wc3movie        Wing Commander III movie\r\n D   webm_dash_manifest WebM DASH Manifest\r\n D   webp_anim       Animated WebP\r\n D   webp_pipe       piped webp sequence\r\n D   webvtt          WebVTT subtitle\r\n D   wsaud           Westwood Studios audio\r\n D   wsd             Wideband Single-bit Data (WSD)\r\n D   wsvqa           Westwood Studios VQA\r\n D   wtv             Windows Television (WTV)\r\n D   wv              WavPack\r\n D   wve             Psion 3 audio\r\n D   xa              Maxis XA\r\n D   xbin            eXtended BINary text (XBIN)\r\n D   xbm_pipe        piped xbm sequence\r\n D   xmd             Konami XMD\r\n D   xmv             Microsoft XMV\r\n D   xpm_pipe        piped xpm sequence\r\n D   xvag            Sony PS3 XVAG\r\n D   xwd_pipe        piped xwd sequence\r\n D   xwma            Microsoft xWMA\r\n D   yop             Psygnosis YOP\r\n D   yuv4mpegpipe    YUV4MPEG pipe\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "ffmpeg",
+        "kind": "muxers",
+        "raw": "Formats:\r\n D.. = Demuxing supported\r\n .E. = Muxing supported\r\n ..d = Is a device\r\n ---\r\n  E  3g2             3GP2 (3GPP2 file format)\r\n  E  3gp             3GP (3GPP file format)\r\n  E  a64             a64 - video for Commodore 64\r\n  E  ac3             raw AC-3\r\n  E  ac4             raw AC-4\r\n  E  adts            ADTS AAC (Advanced Audio Coding)\r\n  E  adx             CRI ADX\r\n  E  aea             MD STUDIO audio\r\n  E  aiff            Audio IFF\r\n  E  alaw            PCM A-law\r\n  E  alp             LEGO Racers ALP\r\n  E  amr             3GPP AMR\r\n  E  amv             AMV\r\n  E  apm             Ubisoft Rayman 2 APM\r\n  E  apng            Animated Portable Network Graphics\r\n  E  aptx            raw aptX (Audio Processing Technology for Bluetooth)\r\n  E  aptx_hd         raw aptX HD (Audio Processing Technology for Bluetooth)\r\n  E  apv             APV raw bitstream\r\n  E  argo_asf        Argonaut Games ASF\r\n  E  argo_cvg        Argonaut Games CVG\r\n  E  asf             ASF (Advanced / Active Streaming Format)\r\n  E  asf_stream      ASF (Advanced / Active Streaming Format)\r\n  E  ass             SSA (SubStation Alpha) subtitle\r\n  E  ast             AST (Audio Stream)\r\n  E  au              Sun AU\r\n  E  avi             AVI (Audio Video Interleaved)\r\n  E  avif            AVIF\r\n  E  avm2            SWF (ShockWave Flash) (AVM2)\r\n  E  avs2            raw AVS2-P2/IEEE1857.4 video\r\n  E  avs3            AVS3-P2/IEEE1857.10\r\n  E  bit             G.729 BIT file format\r\n  E  caf             Apple CAF (Core Audio Format)\r\n  E  cavsvideo       raw Chinese AVS (Audio Video Standard) video\r\n  E  codec2          codec2 .c2 muxer\r\n  E  codec2raw       raw codec2 muxer\r\n  E  crc             CRC testing\r\n  E  dash            DASH Muxer\r\n  E  data            raw data\r\n  E  daud            D-Cinema audio\r\n  E  dfpwm           raw DFPWM1a\r\n  E  dirac           raw Dirac\r\n  E  dnxhd           raw DNxHD (SMPTE VC-3)\r\n  E  dts             raw DTS\r\n  E  dv              DV (Digital Video)\r\n  E  dvd             MPEG-2 PS (DVD VOB)\r\n  E  eac3            raw E-AC-3\r\n  E  evc             raw EVC video\r\n  E  f32be           PCM 32-bit floating-point big-endian\r\n  E  f32le           PCM 32-bit floating-point little-endian\r\n  E  f4v             F4V Adobe Flash Video\r\n  E  f64be           PCM 64-bit floating-point big-endian\r\n  E  f64le           PCM 64-bit floating-point little-endian\r\n  E  ffmetadata      FFmpeg metadata in text\r\n  E  fifo            FIFO queue pseudo-muxer\r\n  E  film_cpk        Sega FILM / CPK\r\n  E  filmstrip       Adobe Filmstrip\r\n  E  fits            Flexible Image Transport System\r\n  E  flac            raw FLAC\r\n  E  flv             FLV (Flash Video)\r\n  E  framecrc        framecrc testing\r\n  E  framehash       Per-frame hash testing\r\n  E  framemd5        Per-frame MD5 testing\r\n  E  g722            raw G.722\r\n  E  g723_1          raw G.723.1\r\n  E  g726            raw big-endian G.726 (\"left-justified\")\r\n  E  g726le          raw little-endian G.726 (\"right-justified\")\r\n  E  gif             CompuServe Graphics Interchange Format (GIF)\r\n  E  gsm             raw GSM\r\n  E  gxf             GXF (General eXchange Format)\r\n  E  h261            raw H.261\r\n  E  h263            raw H.263\r\n  E  h264            raw H.264 video\r\n  E  hash            Hash testing\r\n  E  hds             HDS Muxer\r\n  E  hevc            raw HEVC video\r\n  E  hls             Apple HTTP Live Streaming\r\n  E  iamf            Raw Immersive Audio Model and Formats\r\n  E  ico             Microsoft Windows ICO\r\n  E  ilbc            iLBC storage\r\n  E  image2          image2 sequence\r\n  E  image2pipe      piped image2 sequence\r\n  E  ipod            iPod H.264 MP4 (MPEG-4 Part 14)\r\n  E  ircam           Berkeley/IRCAM/CARL Sound Format\r\n  E  ismv            ISMV/ISMA (Smooth Streaming)\r\n  E  ivf             On2 IVF\r\n  E  jacosub         JACOsub subtitle format\r\n  E  kvag            Simon & Schuster Interactive VAG\r\n  E  latm            LOAS/LATM\r\n  E  lc3             LC3 (Low Complexity Communication Codec)\r\n  E  lrc             LRC lyrics\r\n  E  m4v             raw MPEG-4 video\r\n  E  matroska        Matroska\r\n  E  mcc             MacCaption\r\n  E  md5             MD5 testing\r\n  E  microdvd        MicroDVD subtitle format\r\n  E  mjpeg           raw MJPEG video\r\n  E  mkvtimestamp_v2 extract pts as timecode v2 format, as defined by mkvtoolnix\r\n  E  mlp             raw MLP\r\n  E  mmf             Yamaha SMAF\r\n  E  mov             QuickTime / MOV\r\n  E  mp2             MP2 (MPEG audio layer 2)\r\n  E  mp3             MP3 (MPEG audio layer 3)\r\n  E  mp4             MP4 (MPEG-4 Part 14)\r\n  E  mpeg            MPEG-1 Systems / MPEG program stream\r\n  E  mpeg1video      raw MPEG-1 video\r\n  E  mpeg2video      raw MPEG-2 video\r\n  E  mpegts          MPEG-TS (MPEG-2 Transport Stream)\r\n  E  mpjpeg          MIME multipart JPEG\r\n  E  mulaw           PCM mu-law\r\n  E  mxf             MXF (Material eXchange Format)\r\n  E  mxf_d10         MXF (Material eXchange Format) D-10 Mapping\r\n  E  mxf_opatom      MXF (Material eXchange Format) Operational Pattern Atom\r\n  E  null            raw null video\r\n  E  nut             NUT\r\n  E  obu             AV1 low overhead OBU\r\n  E  oga             Ogg Audio\r\n  E  ogg             Ogg\r\n  E  ogv             Ogg Video\r\n  E  oma             Sony OpenMG audio\r\n  E  opus            Ogg Opus\r\n  E  pdv             PlayDate Video\r\n  E  psp             PSP MP4 (MPEG-4 Part 14)\r\n  E  rawvideo        raw video\r\n  E  rcwt            RCWT (Raw Captions With Time)\r\n  E  rm              RealMedia\r\n  E  roq             raw id RoQ\r\n  E  rso             Lego Mindstorms RSO\r\n  E  rtp             RTP output\r\n  E  rtp_mpegts      RTP/mpegts output format\r\n  E  rtsp            RTSP output\r\n  E  s16be           PCM signed 16-bit big-endian\r\n  E  s16le           PCM signed 16-bit little-endian\r\n  E  s24be           PCM signed 24-bit big-endian\r\n  E  s24le           PCM signed 24-bit little-endian\r\n  E  s32be           PCM signed 32-bit big-endian\r\n  E  s32le           PCM signed 32-bit little-endian\r\n  E  s8              PCM signed 8-bit\r\n  E  sap             SAP output\r\n  E  sbc             raw SBC\r\n  E  scc             Scenarist Closed Captions\r\n  E  segment         segment\r\n  E  smjpeg          Loki SDL MJPEG\r\n  E  smoothstreaming Smooth Streaming Muxer\r\n  E  sox             SoX (Sound eXchange) native\r\n  E  spdif           IEC 61937 (used on S/PDIF - IEC958)\r\n  E  spx             Ogg Speex\r\n  E  srt             SubRip subtitle\r\n  E  stream_segment,ssegment streaming segment muxer\r\n  E  streamhash      Per-stream hash testing\r\n  E  sup             raw HDMV Presentation Graphic Stream subtitles\r\n  E  svcd            MPEG-2 PS (SVCD)\r\n  E  swf             SWF (ShockWave Flash)\r\n  E  tee             Multiple muxer tee\r\n  E  truehd          raw TrueHD\r\n  E  tta             TTA (True Audio)\r\n  E  ttml            TTML subtitle\r\n  E  u16be           PCM unsigned 16-bit big-endian\r\n  E  u16le           PCM unsigned 16-bit little-endian\r\n  E  u24be           PCM unsigned 24-bit big-endian\r\n  E  u24le           PCM unsigned 24-bit little-endian\r\n  E  u32be           PCM unsigned 32-bit big-endian\r\n  E  u32le           PCM unsigned 32-bit little-endian\r\n  E  u8              PCM unsigned 8-bit\r\n  E  uncodedframecrc uncoded framecrc testing\r\n  E  vc1             raw VC-1 video\r\n  E  vc1test         VC-1 test bitstream\r\n  E  vcd             MPEG-1 Systems / MPEG program stream (VCD)\r\n  E  vidc            PCM Archimedes VIDC\r\n  E  vob             MPEG-2 PS (VOB)\r\n  E  voc             Creative Voice\r\n  E  vvc             raw H.266/VVC video\r\n  E  w64             Sony Wave64\r\n  E  wav             WAV / WAVE (Waveform Audio)\r\n  E  webm            WebM\r\n  E  webm_chunk      WebM Chunk Muxer\r\n  E  webm_dash_manifest WebM DASH Manifest\r\n  E  webp            WebP\r\n  E  webvtt          WebVTT subtitle\r\n  E  whip            WHIP(WebRTC-HTTP ingestion protocol) muxer\r\n  E  wsaud           Westwood Studios audio\r\n  E  wtv             Windows Television (WTV)\r\n  E  wv              raw WavPack\r\n  E  yuv4mpegpipe    YUV4MPEG pipe\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "pandoc",
+        "kind": "document-inputs",
+        "raw": "asciidoc\r\nbiblatex\r\nbibtex\r\nbits\r\ncommonmark\r\ncommonmark_x\r\ncreole\r\ncsljson\r\ncsv\r\ndjot\r\ndocbook\r\ndocx\r\ndokuwiki\r\nendnotexml\r\nepub\r\nfb2\r\ngfm\r\nhaddock\r\nhtml\r\nipynb\r\njats\r\njira\r\njson\r\nlatex\r\nman\r\nmarkdown\r\nmarkdown_github\r\nmarkdown_mmd\r\nmarkdown_phpextra\r\nmarkdown_strict\r\nmdoc\r\nmediawiki\r\nmuse\r\nnative\r\nodt\r\nopml\r\norg\r\npod\r\npptx\r\nris\r\nrst\r\nrtf\r\nt2t\r\ntextile\r\ntikiwiki\r\ntsv\r\ntwiki\r\ntypst\r\nvimwiki\r\nxlsx\r\nxml\r\n",
+        "status": "listed"
+      },
+      {
+        "engine": "pandoc",
+        "kind": "document-outputs",
+        "raw": "ansi\r\nasciidoc\r\nasciidoc_legacy\r\nasciidoctor\r\nbbcode\r\nbbcode_fluxbb\r\nbbcode_hubzilla\r\nbbcode_phpbb\r\nbbcode_steam\r\nbbcode_xenforo\r\nbeamer\r\nbiblatex\r\nbibtex\r\nchunkedhtml\r\ncommonmark\r\ncommonmark_x\r\ncontext\r\ncsljson\r\ndjot\r\ndocbook\r\ndocbook4\r\ndocbook5\r\ndocx\r\ndokuwiki\r\ndzslides\r\nepub\r\nepub2\r\nepub3\r\nfb2\r\ngfm\r\nhaddock\r\nhtml\r\nhtml4\r\nhtml5\r\nicml\r\nipynb\r\njats\r\njats_archiving\r\njats_articleauthoring\r\njats_publishing\r\njira\r\njson\r\nlatex\r\nman\r\nmarkdown\r\nmarkdown_github\r\nmarkdown_mmd\r\nmarkdown_phpextra\r\nmarkdown_strict\r\nmarkua\r\nmediawiki\r\nms\r\nmuse\r\nnative\r\nodt\r\nopendocument\r\nopml\r\norg\r\npdf\r\nplain\r\npptx\r\nrevealjs\r\nrst\r\nrtf\r\ns5\r\nslideous\r\nslidy\r\nt2t\r\ntei\r\ntexinfo\r\ntextile\r\ntypst\r\nvimdoc\r\nxml\r\nxwiki\r\nzimwiki\r\n",
+        "status": "listed"
+      }
+    ],
+    "productRoutes": [
+      {
+        "engines": [
+          "magick"
+        ],
+        "group": "images",
+        "inputs": [
+          "png",
+          "jpg",
+          "jpeg",
+          "webp",
+          "avif",
+          "heic",
+          "heif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "outputs": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ]
+      },
+      {
+        "engines": [
+          "mutool",
+          "magick"
+        ],
+        "group": "pdf",
+        "inputs": [
+          "pdf"
+        ],
+        "outputs": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ]
+      },
+      {
+        "engines": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "group": "media",
+        "inputs": [
+          "mp3",
+          "wav",
+          "flac",
+          "ogg",
+          "m4a",
+          "opus",
+          "mp4",
+          "mov",
+          "mkv",
+          "webm"
+        ],
+        "outputs": [
+          "wav",
+          "mp3",
+          "flac",
+          "opus",
+          "m4a"
+        ]
+      },
+      {
+        "engines": [
+          "pandoc"
+        ],
+        "group": "documents",
+        "inputs": [
+          "md",
+          "docx"
+        ],
+        "outputs": [
+          "txt"
+        ]
+      }
+    ],
+    "schema": 1,
+    "scope": "engine-discovery-not-conversion-acceptance"
+  },
+  "expansion": {
+    "arch": "aarch64",
+    "controls": [
+      {
+        "cancel": true,
+        "corruptRejected": true,
+        "input": "bmp",
+        "preview": true
+      },
+      {
+        "cancel": true,
+        "corruptRejected": true,
+        "input": "tga",
+        "preview": true
+      },
+      {
+        "cancel": true,
+        "corruptRejected": true,
+        "input": "qoi",
+        "preview": true
+      }
+    ],
+    "engines": [
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "magick",
+        "version": "Version: ImageMagick 7.1.2-31 Q16-HDRI arm64 fb965f1:20260903 https://imagemagick.org"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffmpeg",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "ffprobe",
+        "version": "9.0.1"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "pandoc",
+        "version": "3.11"
+      },
+      {
+        "available": true,
+        "development": false,
+        "error": null,
+        "id": "mutool",
+        "version": "1.28.0"
+      }
+    ],
+    "platform": "windows",
+    "presets": [
+      {
+        "format": "bmp",
+        "passed": true,
+        "quality": "small"
+      },
+      {
+        "format": "bmp",
+        "passed": true,
+        "quality": "balanced"
+      },
+      {
+        "format": "bmp",
+        "passed": true,
+        "quality": "high"
+      },
+      {
+        "format": "tga",
+        "passed": true,
+        "quality": "small"
+      },
+      {
+        "format": "tga",
+        "passed": true,
+        "quality": "balanced"
+      },
+      {
+        "format": "tga",
+        "passed": true,
+        "quality": "high"
+      },
+      {
+        "format": "qoi",
+        "passed": true,
+        "quality": "small"
+      },
+      {
+        "format": "qoi",
+        "passed": true,
+        "quality": "balanced"
+      },
+      {
+        "format": "qoi",
+        "passed": true,
+        "quality": "high"
+      }
+    ],
+    "routes": [
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "png",
+        "inputSha256": "a1384ae9675de4398b25146a7e578846cefbae99867174770ed3ebc1c879946d",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 458,
+        "decoded": true,
+        "input": "png",
+        "inputSha256": "a1384ae9675de4398b25146a7e578846cefbae99867174770ed3ebc1c879946d",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 70,
+        "decoded": true,
+        "input": "png",
+        "inputSha256": "a1384ae9675de4398b25146a7e578846cefbae99867174770ed3ebc1c879946d",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "jpg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1314,
+        "decoded": true,
+        "input": "jpg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 970,
+        "decoded": true,
+        "input": "jpg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "webp",
+        "inputSha256": "4c5dbe76d5edf146cb08c6042354655e2446c9857a63cd2223af700ae7191654",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1746,
+        "decoded": true,
+        "input": "webp",
+        "inputSha256": "4c5dbe76d5edf146cb08c6042354655e2446c9857a63cd2223af700ae7191654",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 900,
+        "decoded": true,
+        "input": "webp",
+        "inputSha256": "4c5dbe76d5edf146cb08c6042354655e2446c9857a63cd2223af700ae7191654",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "avif",
+        "inputSha256": "3136f4079471203e8d256e851dc75386719276ba72218bfc3fcdb57a1f1c4958",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1746,
+        "decoded": true,
+        "input": "avif",
+        "inputSha256": "3136f4079471203e8d256e851dc75386719276ba72218bfc3fcdb57a1f1c4958",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 449,
+        "decoded": true,
+        "input": "avif",
+        "inputSha256": "3136f4079471203e8d256e851dc75386719276ba72218bfc3fcdb57a1f1c4958",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 318,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "png",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 444,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "jpeg",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.07011790578309714,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 172,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "webp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.06545979954910426,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 312,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "avif",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.06614236997621344,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1314,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 68,
+        "decoded": true,
+        "input": "bmp",
+        "inputSha256": "9c3cbd31f6d88ce41c7807ea1d9c73eabff21dd2722a32473cb114c0fb94d64c",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 331,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "png",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 444,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "jpeg",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.07011790578309714,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 208,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "webp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.062193439018956895,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 511,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "avif",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.06950069715114937,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 458,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 70,
+        "decoded": true,
+        "input": "tga",
+        "inputSha256": "cd75999d5fc56185b131afc990f597b247217134bcd1a5ca9b8fc66eb47688bc",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 331,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "png",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 444,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "jpeg",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.07011790578309714,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 208,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "webp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.062193439018956895,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 511,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "avif",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0.06950069715114937,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1746,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 70,
+        "decoded": true,
+        "input": "qoi",
+        "inputSha256": "c51f32e709331e53cb105d275785d9796d660dd72f4570c5da6915e91cd91a0b",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1350,
+        "decoded": true,
+        "input": "jpeg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 1314,
+        "decoded": true,
+        "input": "jpeg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 970,
+        "decoded": true,
+        "input": "jpeg",
+        "inputSha256": "2da9b2a24b6caf01b4f41f2a5a372b0016abfab1b7937bc656d65ac065d8567c",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "24 18",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 4662,
+        "decoded": true,
+        "input": "heic",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 4626,
+        "decoded": true,
+        "input": "heic",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 146,
+        "decoded": true,
+        "input": "heic",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 4662,
+        "decoded": true,
+        "input": "heif",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "bmp",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 4626,
+        "decoded": true,
+        "input": "heif",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "tga",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 146,
+        "decoded": true,
+        "input": "heif",
+        "inputSha256": "45d5aac828d58c6e093331bdfb9892d47d3632b8bd0ccea9273bb255ce8ce756",
+        "output": "qoi",
+        "semantic": {
+          "alphaLimit": 0.02,
+          "dimensions": "48 32",
+          "maxAlphaError": 0,
+          "premultipliedRgbRmse": 0,
+          "rmseLimit": 0.15
+        }
+      },
+      {
+        "bytes": 124578,
+        "decoded": true,
+        "input": "pdf",
+        "output": "bmp",
+        "pages": 3
+      },
+      {
+        "bytes": 165942,
+        "decoded": true,
+        "input": "pdf",
+        "output": "tga",
+        "pages": 3
+      },
+      {
+        "bytes": 7224,
+        "decoded": true,
+        "input": "pdf",
+        "output": "qoi",
+        "pages": 3
+      }
+    ],
+    "schema": 1,
+    "scope": "static-raster-expansion-2",
+    "semantics": [
+      {
+        "check": "16-bit",
+        "format": "bmp",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "16-bit",
+        "format": "bmp",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "16-bit",
+        "format": "tga",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "16-bit",
+        "format": "tga",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "16-bit",
+        "format": "qoi",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "16-bit",
+        "format": "qoi",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "bmp",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "bmp",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "tga",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "tga",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "qoi",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "ICC to sRGB",
+        "format": "qoi",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "bmp",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "bmp",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "tga",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "tga",
+        "keep_metadata": true,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "qoi",
+        "keep_metadata": false,
+        "passed": true
+      },
+      {
+        "check": "EXIF orientation 6",
+        "format": "qoi",
+        "keep_metadata": true,
+        "passed": true
+      }
+    ]
+  },
+  "summary": {
+    "scope": "listed-capabilities-not-tested-routes",
+    "images": {
+      "PNG": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "JPEG": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "WEBP": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "AVIF": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "BMP": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "GIF": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "TIFF": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "ICO": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "TGA": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "QOI": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "JXL": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "JP2": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "EXR": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": false
+      },
+      "SVG": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "PSD": {
+        "status": "listed",
+        "read": true,
+        "write": true,
+        "multiImage": true
+      },
+      "HEIC": {
+        "status": "listed",
+        "read": true,
+        "write": false,
+        "multiImage": false
+      }
+    },
+    "encoders": {
+      "libx264": "listed",
+      "libx265": "listed",
+      "libvpx-vp9": "listed",
+      "libsvtav1": "not-listed",
+      "libaom-av1": "listed",
+      "aac": "listed",
+      "libvorbis": "listed",
+      "alac": "listed",
+      "pcm_s16be": "listed"
+    }
+  }
+}

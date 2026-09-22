@@ -1,0 +1,126 @@
+{
+	"schema": 1,
+	"repository": "haskell-wasm/pandoc",
+	"commit": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+	"version": "3.5",
+	"indexState": "2024-11-15T08:25:42Z",
+	"projectSha256": "f0bde0111e1e58b51384a264fb54dbab9900452e95157c99c396cec27c144e05",
+	"buildTarget": "pandoc-cli:exe:pandoc",
+	"sources": [
+		{
+			"name": "pandoc",
+			"repository": "haskell-wasm/pandoc",
+			"commit": "336228bb8d5e9bf35750cfe6b546ffb4bcd86c15",
+			"archiveSha256": "4f80e40611f531d7370d989b20082d5a891755de22cfe1197d44ea0b2b10b59e"
+		},
+		{
+			"name": "conduit",
+			"repository": "haskell-wasm/conduit",
+			"commit": "ff33329247f2ef321dcab836e98c1bcfaff2bd13",
+			"archiveSha256": "0cb8e56a9495b982bde8cbdbe86ad5ba3cf342b37681d69ac681b9523beaf1b8",
+			"localPackage": "conduit-extra",
+			"upstreamSubdir": "conduit-extra"
+		},
+		{
+			"name": "foundation",
+			"repository": "haskell-wasm/foundation",
+			"commit": "8e6dd48527fb429c1922083a5030ef88e3d58dd3",
+			"archiveSha256": "e11c4be88cc211ce757ddaafde921bfc89161019a668b607333d9873581efa2d",
+			"localPackage": "basement",
+			"upstreamSubdir": "basement"
+		},
+		{
+			"name": "hs-memory",
+			"repository": "haskell-wasm/hs-memory",
+			"commit": "a198a76c584dc2cfdcde6b431968de92a5fed65e",
+			"archiveSha256": "4dff8cdf6e5f93a7b4e8119326a100171a9995360929842387a3246c19d8e2a7",
+			"localPackage": "."
+		},
+		{
+			"name": "streaming-commons",
+			"repository": "haskell-wasm/streaming-commons",
+			"commit": "7e9c38b2fd55ce50d3f74fe708ca47db8c9bb315",
+			"archiveSha256": "bf14315e8857272eb008a970cd3e494f7b48019845c82471a196a1b013a9b0fd",
+			"localPackage": "."
+		},
+		{
+			"name": "xml",
+			"repository": "haskell-wasm/xml",
+			"commit": "bc793dc9bc29c92245d3482a54d326abd3ae1403",
+			"archiveSha256": "561e4c4a9454e391ef4c5f064ba55c029afa4e2e85c8cba91c1e56e9c76340a1",
+			"localPackage": "xml-conduit",
+			"upstreamSubdir": "xml-conduit"
+		},
+		{
+			"name": "splitmix",
+			"repository": "amesgen/splitmix",
+			"commit": "5f5b766d97dc735ac228215d240a3bb90bc2ff75",
+			"archiveSha256": "95677d7c16c653110f0f8afa85e3d76145b9d777f5d38218941cbe167ec38b23",
+			"localPackage": "."
+		}
+	],
+	"toolchain": {
+		"metadataRepository": "haskell-wasm/ghc-wasm-meta",
+		"metadataCommit": "e6d85703b27578012c4db2282d631e1cae3166a4",
+		"metadataArchiveSha256": "98e59470fa7727abb30aacc3bdec9578bbfbce1a2b455edddf2faaa4dd381ffb",
+		"metadataFiles": {
+			"autogen.json": "1d27204f93abd6fde05658daa884e417f4947fd7cfbb98675112d42df1674bea",
+			"cabal.th.config": "c2d64c4d5c2df44cd072d08a5cbfbe53d5938a2f9cc36c14c436529065533205",
+			"setup.sh": "435d994570b4bea3c7914a2065a9fa5ba6e8c523751ad595eeccc30879927bed"
+		},
+		"ghcVersion": "9.12.0.20241115",
+		"cabalVersion": "3.14.0.0",
+		"clangVersion": "19.1.4-wasi-sdk",
+		"binaryenVersion": "119",
+		"archives": [
+			{
+				"name": "ghc-9.12.tar.xz",
+				"url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241115T133246/wasm32-wasi-ghc-9.12.tar.xz",
+				"sha256": "6974dd8aee3b03520a86ddf5847936e03bbf77499efd681313a0a06c7a9fc066"
+			},
+			{
+				"name": "wasi-sdk.tar.gz",
+				"url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk.tar.gz",
+				"sha256": "bd347ffee2123bc7eeeeb90d41d52da8a3ad67a141c1bd9bde78818488cef185"
+			},
+			{
+				"name": "libffi-wasm.zip",
+				"url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240930T111148/libffi-wasm",
+				"sha256": "9e9a4b0339225493448d800fb45a766d749b964ed6af7d21a8a1d8f164cbe3ad"
+			},
+			{
+				"name": "cabal.tar.xz",
+				"url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241104T112309/cabal.tar.xz",
+				"sha256": "4922f6b08178f252e4c03a07dc33c8e2abbc623522c1ccd1aa8d651d3240f061"
+			},
+			{
+				"name": "node.tar.xz",
+				"url": "https://github.com/tweag/node-static/releases/download/v23.1.0/node-v23.1.0-linux-x64-static.tar.xz",
+				"sha256": "956f57ae2355fadfee3ccd686574767b1d841f89ba537bda6c13ab8e252309eb"
+			},
+			{
+				"name": "binaryen.tar.gz",
+				"url": "https://github.com/TerrorJack/binaryen/releases/download/version_119/binaryen-version_119-x86_64-linux-static.tar.gz",
+				"sha256": "6e69a96f29b605e00b9db85b6ead2bc058b8cf99b71e4ba14e92480d84e9a929"
+			}
+		]
+	},
+	"builder": {
+		"platform": "linux/amd64",
+		"baseImage": "debian@sha256:f37a335e82bca302e955fa39f9dfe28f1be618f016f8a2b56318e5a5111afc26",
+		"dockerfile": "packaging/desktop-web/pandoc.Dockerfile",
+		"packages": {
+			"alex": "3.2.7.1-3",
+			"build-essential": "12.9",
+			"ca-certificates": "20250419~deb12u1",
+			"curl": "7.88.1-10+deb12u15",
+			"happy": "1.20.0-1",
+			"libgmp-dev:amd64": "2:6.2.1+dfsg1-1.1",
+			"pkg-config:amd64": "1.8.1-1",
+			"unzip": "6.0-28+deb12u1",
+			"xz-utils": "5.4.1-1+deb12u2",
+			"zlib1g-dev:amd64": "1:1.2.13.dfsg-1"
+		}
+	},
+	"hackageLock": "packaging/desktop-web/pandoc-hackage-lock.json"
+}

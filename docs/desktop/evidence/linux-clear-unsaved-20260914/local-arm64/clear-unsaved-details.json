@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "beforeClear": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-unsaved-clear-20260914/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": null,
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "awaiting_save",
+        "name": "save-probe.png",
+        "error": "Too many output filename collisions",
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "ce5c55f3-0f91-4e37-aee5-0cc999e2203e"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 30,
+    "epoch": "332263e4-2b04-4634-9f87-4c6049c8b0ed",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "8af69ab5-2672-4454-a833-d65d3683f6eb",
+      "issues": []
+    },
+    "recovery_notice": null,
+    "failures": {
+      "ce5c55f3-0f91-4e37-aee5-0cc999e2203e": "publish"
+    }
+  },
+  "afterClear": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-unsaved-clear-20260914/gui/save-collisions",
+    "persistence_error": null,
+    "tasks": [],
+    "output_authorized": true,
+    "revision": 32,
+    "epoch": "61c93ad6-cc5d-4b66-9e86-045e29b2a81f",
+    "processing": false,
+    "import_report": null,
+    "recovery_notice": null
+  },
+  "afterNewConversion": {
+    "clearing": false,
+    "closing": false,
+    "schema": 3,
+    "output": "/home/ivmm/VERT/.desktop-local/packaged-unsaved-clear-20260914/gui/results",
+    "persistence_error": null,
+    "tasks": [
+      {
+        "bytes": 119,
+        "attempt": 1,
+        "authorized": true,
+        "result": {
+          "files": [
+            {
+              "page": 1,
+              "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf",
+              "path": "/home/ivmm/VERT/.desktop-local/packaged-unsaved-clear-20260914/gui/results/save-probe-z8-2.webp",
+              "bytes": 82
+            }
+          ],
+          "total": 1,
+          "note": "First frame only. JPEG uses a white background; PNG preserves pixels. EXIF/XMP/IPTC are optional; ICC is retained. Output may be larger.",
+          "fingerprint": "",
+          "complete": true,
+          "path": "/home/ivmm/VERT/.desktop-local/packaged-unsaved-clear-20260914/gui/results/save-probe-z8-2.webp",
+          "bytes": 82
+        },
+        "formats": [
+          "png",
+          "jpeg",
+          "webp",
+          "avif",
+          "bmp",
+          "tga",
+          "qoi"
+        ],
+        "phase": "saved",
+        "name": "save-probe.png",
+        "error": null,
+        "options": {
+          "pdf_dpi": 144,
+          "quality": "balanced",
+          "keep_metadata": false
+        },
+        "format": "webp",
+        "id": "3314080e-970d-4945-81b6-df52ef46001c"
+      }
+    ],
+    "output_authorized": true,
+    "revision": 39,
+    "epoch": "61c93ad6-cc5d-4b66-9e86-045e29b2a81f",
+    "processing": false,
+    "import_report": {
+      "accepted": 1,
+      "id": "3af84a7a-38e9-4050-b873-8476645136f7",
+      "issues": []
+    },
+    "recovery_notice": null
+  },
+  "appRemainedOpen": true,
+  "cacheRemoved": true,
+  "collisionsPreserved": 1000,
+  "discardedPayload": {
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  },
+  "decoded": [
+    32,
+    32
+  ],
+  "output": {
+    "file": "save-probe-z8-2.webp",
+    "bytes": 82,
+    "sha256": "7793a622ab517be11a800b3183dd508dfc9c4c9de57ddc2142009a5bc9207ecf"
+  }
+}

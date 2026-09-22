@@ -1,0 +1,15 @@
+   Compiling z8-native v0.1.0 (/home/ivmm/VERT/src-tauri/native)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.10s
+     Running unittests src/lib.rs (src-tauri/target/debug/deps/z8_native-ee7d48fed65d6cf7)
+
+running 7 tests
+test preferences::tests::first_read_does_not_write_and_restart_restores_preferences ... ok
+test preferences::tests::invalid_or_future_records_are_never_overwritten ... ok
+test preferences::tests::concurrent_same_revision_saves_have_one_winner ... ok
+test preferences::tests::invalid_dpi_and_revision_exhaustion_preserve_previous_bytes ... ok
+test preferences::tests::stale_save_cannot_replace_a_newer_choice ... ok
+test preferences::tests::symlink_preferences_do_not_follow_or_replace_the_target ... ok
+test preferences::tests::unavailable_directory_can_be_retried_without_advancing_revision ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 48 filtered out; finished in 0.00s
+

@@ -1,0 +1,11 @@
+{
+	"architecture": "linux / aarch64",
+	"engineCount": 5,
+	"rendered": true,
+	"localeSwitch": true,
+	"denied": [
+		"Unknown input; choose it in the native file picker",
+		"fs.read_text_file not allowed. Plugin not found"
+	],
+	"scope": "native WebKit window and IPC; file picker IO is a separate interactive check"
+}

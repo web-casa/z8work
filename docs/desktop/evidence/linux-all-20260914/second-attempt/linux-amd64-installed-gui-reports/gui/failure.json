@@ -1,0 +1,4 @@
+{
+  "message": "Picker did not open",
+  "stack": "Error: Picker did not open\n    at until (file:///home/runner/work/z8work/z8work/scripts/desktop-preview-gui.mjs:159:8)\n    at async choose (file:///home/runner/work/z8work/z8work/scripts/desktop-preview-gui.mjs:255:14)\n    at async checkPackagedActiveQuit (file:///home/runner/work/z8work/z8work/scripts/lib/desktop-packaged-active-quit.mjs:94:2)\n    at async checkPackagedGui (file:///home/runner/work/z8work/z8work/scripts/lib/desktop-packaged-gui-checks.mjs:202:2)\n    at async file:///home/runner/work/z8work/z8work/scripts/desktop-preview-gui.mjs:391:3"
+}

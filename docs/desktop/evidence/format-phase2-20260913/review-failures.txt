@@ -1,0 +1,6 @@
+First Linux build: https://github.com/web-casa/z8work/actions/runs/34761035844
+Source: 00056c2. Both jobs failed before producing packages.
+amd64 build.log SHA256 73a7ec17f72e5e1c18312e4ea3500c350bfede5212206c1d68b9fb97fd5f60f3
+Error: "Missing/duplicate frozen route \"png\" -> \"bmp\""
+arm64 build.log SHA256 f54d604c6985cc6ac93f5b05adb8ef92f427fcac7d262dbcda92bab3700488ed
+Error: "Missing/duplicate frozen route \"png\" -> \"bmp\""

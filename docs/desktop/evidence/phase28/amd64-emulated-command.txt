@@ -1,0 +1,7 @@
+Ran from /home/ivmm/VERT on a Linux ARM64 host. Explicit AMD64 emulation, not native Snap acceptance.
+
+sudo -n docker build --network=none --platform linux/amd64 -t z8-phase28-amd64-lcms-quality:local -f .desktop-local/phase28/Dockerfile.amd64-quality .desktop-local/phase28/core24-input/.desktop-local/bundled-lcms
+
+timeout 1800 sudo -n docker run --rm --name z8-phase28-amd64-lcms-quality --platform linux/amd64 --network=none --read-only --user 1000:1000 --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=128 --memory=2g --cpus=4 --tmpfs /tmp:rw,nosuid,nodev,size=512m z8-phase28-amd64-lcms-quality:local
+
+Captured stdout JSON, stderr and actual exit status separately. After exit, validateQuality enforces all 84 routes, 20 quality checks and 240 calibration samples; the image's source engine manifest hash must equal the final extracted Snap check. The Dockerfile uses FROM scratch, COPY . /engines, and ENTRYPOINT ["/engines/lib/ld-linux-x86-64.so.2","--library-path","/engines/lib","/engines/validation/bundle-check","/engines","--quality"].

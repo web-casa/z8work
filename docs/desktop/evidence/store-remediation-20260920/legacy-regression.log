@@ -1,0 +1,42 @@
+✔ MSIX native execution refuses Wine, Linux and Windows ARM emulation (0.613426ms)
+✔ Windows registration must match identity, version, architecture and actual install folder (2.969087ms)
+✔ MSIX receipt rejects null fingerprints, alias paths and missing executable (0.95089ms)
+✔ MSIX default preflight never signs, installs or claims runtime acceptance (0.789762ms)
+✔ successful installed workflow rechecks payload then removes its owned registration (0.171419ms)
+✔ MSIX verifyInput failure remains observable and respects cleanup ownership (0.117085ms)
+✔ MSIX preflight failure remains observable and respects cleanup ownership (0.065043ms)
+✔ MSIX sign failure remains observable and respects cleanup ownership (0.07221ms)
+✔ MSIX checkSigned failure remains observable and respects cleanup ownership (0.077585ms)
+✔ MSIX install failure remains observable and respects cleanup ownership (0.183461ms)
+✔ MSIX checkInstalled failure remains observable and respects cleanup ownership (0.122877ms)
+✔ MSIX runtime failure remains observable and respects cleanup ownership (0.091335ms)
+✔ MSIX uninstall failure remains observable and respects cleanup ownership (0.087418ms)
+✔ MSIX verifyOriginal failure remains observable and respects cleanup ownership (0.047376ms)
+✔ runtime and cleanup failures are both preserved (0.111001ms)
+✔ an incomplete runtime report cannot pass even when the subprocess adapter resolves (0.098793ms)
+✔ missing WebView2 keeps native acceptance blocked after conversions and cleanup (0.086335ms)
+✔ non-Windows execute request stops before any signing or installation (0.047751ms)
+✔ current store drafts retain all unresolved acceptance and account gates (4.235356ms)
+✔ listing languages, supported text and store field limits are checked (0.955639ms)
+✔ privacy/support pages escape text, work without scripts and match checked-in output (1.614525ms)
+✔ PNG validation rejects truncation, forged dimensions and corrupt image bytes (9.731981ms)
+✔ hashed references reject stale files and paths outside the dossier workspace (5.797754ms)
+✔ synthetic complete metadata reaches human review, not store approval (14.040213ms)
+✔ a passed string without a hashed check report cannot release a candidate (11.876388ms)
+✔ another platform's screenshot and a stale public policy stay blocked (13.809126ms)
+✔ candidate swap invalidates every previous acceptance report (4.193855ms)
+✔ an explicit incomplete redistribution review blocks even passing check reports (13.023614ms)
+✔ package validation streams candidates larger than the JSON evidence limit (38.635919ms)
+✔ one acceptance report cannot stand in for a different check (15.202356ms)
+✔ foreign, emulated, stale-source and unsupported check reports remain blocked (93.214955ms)
+✔ missing fault or performance acceptance blocks an otherwise complete dossier (26.007144ms)
+✔ raw evidence must exist and retain its reviewed bytes (23.148101ms)
+✔ standalone candidate gate also verifies concrete report references (49.207621ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 358.4246

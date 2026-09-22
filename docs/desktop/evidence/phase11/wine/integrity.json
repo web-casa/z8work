@@ -1,0 +1,40 @@
+{
+  "engines": [
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "magick",
+      "version": "7.1.2-31"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffmpeg",
+      "version": "9.0.1"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "ffprobe",
+      "version": "9.0.1"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "pandoc",
+      "version": "3.11"
+    },
+    {
+      "available": true,
+      "development": false,
+      "error": null,
+      "id": "mutool",
+      "version": "1.28.0"
+    }
+  ],
+  "integrity": "passed"
+}

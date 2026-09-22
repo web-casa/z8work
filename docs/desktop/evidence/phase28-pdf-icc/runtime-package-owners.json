@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "scope": "Exact builder runtime library bytes and dpkg owners only; not complete license acceptance",
+  "libraries": [
+    {
+      "file": "ld-linux-aarch64.so.1",
+      "sha256": "1d8b77f28b7cec0329dca107a28fb0a850193b1dcce59be68fa0b06b514548cc",
+      "package": "libc6:arm64",
+      "version": "2.41-12+deb13u3",
+      "source": "glibc",
+      "sourceVersion": "2.41-12+deb13u3"
+    },
+    {
+      "file": "libatomic.so.1",
+      "sha256": "6465c95aef505776652e9caf582d54c67b8e6314ae5a26973bd188b8f5d56c8e",
+      "package": "libatomic1:arm64",
+      "version": "14.2.0-19",
+      "source": "gcc-14",
+      "sourceVersion": "14.2.0-19"
+    },
+    {
+      "file": "libbrotlicommon.so.1",
+      "sha256": "077a32bb1d3d9b50d74d03aec2758c6ef94a422f28baab5fa6f3c04f1a0bc69e",
+      "package": "libbrotli1:arm64",
+      "version": "1.1.0-2+b7",
+      "source": "brotli",
+      "sourceVersion": "1.1.0-2"
+    },
+    {
+      "file": "libbrotlidec.so.1",
+      "sha256": "3ac5116be503e51a11954f9b4dff0932319368501eb26be8ff06f0618eac624e",
+      "package": "libbrotli1:arm64",
+      "version": "1.1.0-2+b7",
+      "source": "brotli",
+      "sourceVersion": "1.1.0-2"
+    },
+    {
+      "file": "libbz2.so.1.0",
+      "sha256": "810fa9b02adc39be4a7542bde79f1da0575e9bbdf8fc3c27deeb1ee97f59fe46",
+      "package": "libbz2-1.0:arm64",
+      "version": "1.0.8-6",
+      "source": "bzip2",
+      "sourceVersion": "1.0.8-6"
+    },
+    {
+      "file": "libc.so.6",
+      "sha256": "9a325944115b36e74077786b29531963d96cd55cd6c82f11750a352cdb58fab0",
+      "package": "libc6:arm64",
+      "version": "2.41-12+deb13u3",
+      "source": "glibc",
+      "sourceVersion": "2.41-12+deb13u3"
+    },
+    {
+      "file": "libfreetype.so.6",
+      "sha256": "037c1e131385f08bf00cf6159b5f4a8063876312787d754407ca228d75dafc3e",
+      "package": "libfreetype6:arm64",
+      "version": "2.13.3+dfsg-1+deb13u1",
+      "source": "freetype",
+      "sourceVersion": "2.13.3+dfsg-1+deb13u1"
+    },
+    {
+      "file": "libglib-2.0.so.0",
+      "sha256": "8771ab503cdf5c411ce634b9567f1fc28d8a21914681e8fa434313b02adecc1e",
+      "package": "libglib2.0-0t64:arm64",
+      "version": "2.84.4-3~deb13u3",
+      "source": "glib2.0",
+      "sourceVersion": "2.84.4-3~deb13u3"
+    },
+    {
+      "file": "libgraphite2.so.3",
+      "sha256": "42e818b1b54b1aab4093206e99bc03a5f1b7d9bf60b0303acc504013f4e16402",
+      "package": "libgraphite2-3:arm64",
+      "version": "1.3.14-2+deb13u1",
+      "source": "graphite2",
+      "sourceVersion": "1.3.14-2+deb13u1"
+    },
+    {
+      "file": "libgumbo.so.3",
+      "sha256": "4b2805395676198bf209be4d9300cd9d1bfb96400fbe4577b667ec8b438bef4c",
+      "package": "libgumbo3:arm64",
+      "version": "0.13.0+dfsg-2",
+      "source": "gumbo-parser",
+      "sourceVersion": "0.13.0+dfsg-2"
+    },
+    {
+      "file": "libharfbuzz.so.0",
+      "sha256": "49fa0c14f82e02af0e147b86be18055f28b85539cf3f151adf552b1d9885458c",
+      "package": "libharfbuzz0b:arm64",
+      "version": "10.2.0-1+deb13u1",
+      "source": "harfbuzz",
+      "sourceVersion": "10.2.0-1+deb13u1"
+    },
+    {
+      "file": "libjbig2dec.so.0",
+      "sha256": "0154315b9be33f5e45e656418942ea7ee9f512e9fb60b66c4e273b612eb21298",
+      "package": "libjbig2dec0:arm64",
+      "version": "0.20-1+deb13u1",
+      "source": "jbig2dec",
+      "sourceVersion": "0.20-1+deb13u1"
+    },
+    {
+      "file": "libjpeg.so.62",
+      "sha256": "c16e513a19cbc9a5a296d71000cf59b0221c66ae3c0d0305110a44662a4b9b87",
+      "package": "libjpeg62-turbo:arm64",
+      "version": "1:2.1.5-4",
+      "source": "libjpeg-turbo",
+      "sourceVersion": "1:2.1.5-4"
+    },
+    {
+      "file": "libm.so.6",
+      "sha256": "a8afb2d1f4a0c5e14c0fc82f794ec839eafe29738907aa92895410f57630bbe2",
+      "package": "libc6:arm64",
+      "version": "2.41-12+deb13u3",
+      "source": "glibc",
+      "sourceVersion": "2.41-12+deb13u3"
+    },
+    {
+      "file": "libmujs.so.3",
+      "sha256": "0a6273e97b8939fe66d9bf1cf007bdda596f15690b9268db495894102fb404f5",
+      "package": "libmujs3:arm64",
+      "version": "1.3.6-1",
+      "source": "mujs",
+      "sourceVersion": "1.3.6-1"
+    },
+    {
+      "file": "libopenjp2.so.7",
+      "sha256": "4aef3d9074095224e3fe50176cdd3a72390ab7d134ccd1d05c7ea4b30dcfee7d",
+      "package": "libopenjp2-7:arm64",
+      "version": "2.5.3-2.1~deb13u2",
+      "source": "openjpeg2",
+      "sourceVersion": "2.5.3-2.1~deb13u2"
+    },
+    {
+      "file": "libpcre2-8.so.0",
+      "sha256": "6f937b0f6b5f1ad86f9a30022f357f838f552a21f948e8ebbe515b0e6dc7b3d7",
+      "package": "libpcre2-8-0:arm64",
+      "version": "10.46-1~deb13u1",
+      "source": "pcre2",
+      "sourceVersion": "10.46-1~deb13u1"
+    },
+    {
+      "file": "libpng16.so.16",
+      "sha256": "7113982f81eef42c185f09262d20cd7024da0919df0b092f7918768bad7d6e1e",
+      "package": "libpng16-16t64:arm64",
+      "version": "1.6.48-1+deb13u5",
+      "source": "libpng1.6",
+      "sourceVersion": "1.6.48-1+deb13u5"
+    },
+    {
+      "file": "libz.so.1",
+      "sha256": "6fe00acadf8119ff245855e5dcc7f26c6c0ffaf4bfa2baa88feab58f23727d65",
+      "package": "zlib1g:arm64",
+      "version": "1:1.3.dfsg+really1.3.1-1+b1",
+      "source": "zlib",
+      "sourceVersion": "1:1.3.dfsg+really1.3.1-1"
+    }
+  ]
+}

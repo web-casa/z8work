@@ -1,0 +1,164 @@
+[
+  {
+    "tree": "mupdf",
+    "status": "passed",
+    "checkedBlobs": 11368,
+    "issues": []
+  },
+  {
+    "tree": "magick-native",
+    "status": "passed",
+    "checkedBlobs": 178,
+    "issues": []
+  },
+  {
+    "tree": "imagemagick",
+    "status": "passed",
+    "checkedBlobs": 1723,
+    "issues": []
+  },
+  {
+    "tree": "magick-dependencies",
+    "status": "passed",
+    "checkedBlobs": 70,
+    "issues": []
+  },
+  {
+    "tree": "aom",
+    "status": "passed",
+    "checkedBlobs": 1453,
+    "issues": []
+  },
+  {
+    "tree": "brotli",
+    "status": "passed",
+    "checkedBlobs": 170,
+    "issues": []
+  },
+  {
+    "tree": "bzip2",
+    "status": "passed",
+    "checkedBlobs": 59,
+    "issues": []
+  },
+  {
+    "tree": "de265",
+    "status": "passed",
+    "checkedBlobs": 139,
+    "issues": []
+  },
+  {
+    "tree": "exr",
+    "status": "passed",
+    "checkedBlobs": 1128,
+    "issues": []
+  },
+  {
+    "tree": "ffi",
+    "status": "passed",
+    "checkedBlobs": 491,
+    "issues": []
+  },
+  {
+    "tree": "freetype",
+    "status": "passed",
+    "checkedBlobs": 857,
+    "issues": []
+  },
+  {
+    "tree": "glib",
+    "status": "passed",
+    "checkedBlobs": 1971,
+    "issues": []
+  },
+  {
+    "tree": "heif",
+    "status": "passed",
+    "checkedBlobs": 704,
+    "issues": []
+  },
+  {
+    "tree": "highway",
+    "status": "passed",
+    "checkedBlobs": 275,
+    "issues": []
+  },
+  {
+    "tree": "imath",
+    "status": "passed",
+    "checkedBlobs": 390,
+    "issues": []
+  },
+  {
+    "tree": "jpeg-turbo",
+    "status": "passed",
+    "checkedBlobs": 618,
+    "issues": []
+  },
+  {
+    "tree": "jpeg-xl",
+    "status": "passed",
+    "checkedBlobs": 849,
+    "issues": []
+  },
+  {
+    "tree": "lcms",
+    "status": "passed",
+    "checkedBlobs": 338,
+    "issues": []
+  },
+  {
+    "tree": "lqr",
+    "status": "passed",
+    "checkedBlobs": 223,
+    "issues": []
+  },
+  {
+    "tree": "openjpeg",
+    "status": "passed",
+    "checkedBlobs": 466,
+    "issues": []
+  },
+  {
+    "tree": "openjph",
+    "status": "passed",
+    "checkedBlobs": 151,
+    "issues": []
+  },
+  {
+    "tree": "png",
+    "status": "passed",
+    "checkedBlobs": 610,
+    "issues": []
+  },
+  {
+    "tree": "raw",
+    "status": "passed",
+    "checkedBlobs": 227,
+    "issues": []
+  },
+  {
+    "tree": "tiff",
+    "status": "passed",
+    "checkedBlobs": 653,
+    "issues": []
+  },
+  {
+    "tree": "webp",
+    "status": "passed",
+    "checkedBlobs": 346,
+    "issues": []
+  },
+  {
+    "tree": "xml",
+    "status": "passed",
+    "checkedBlobs": 3883,
+    "issues": []
+  },
+  {
+    "tree": "zlib",
+    "status": "passed",
+    "checkedBlobs": 256,
+    "issues": []
+  }
+]

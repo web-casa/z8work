@@ -1,0 +1,7 @@
+{
+  "terserVersion": "5.39.2",
+  "status": "byte-comparison-failed",
+  "file": ".desktop-local/store-source-phase5/minified-mupdf-wasm.js",
+  "sha256": "3c8c50b005990f9e566d7ff73c86d3dc78607d2efcfebdf2a43b80df17648c7b",
+  "resolution": "Terser 5.51.2 produces exact installed loader; see js-rebuild.json"
+}

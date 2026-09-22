@@ -1,0 +1,28 @@
+✔ artifact matrix keeps store targets separate from local ARM evidence (2.749889ms)
+✔ package validator rejects another architecture and malformed ELF (0.37921ms)
+✔ acceptance cannot borrow an older candidate or count not-run checks as passed (1.662217ms)
+✔ candidate build gate rejects development, debug, updater and mismatched version (0.519961ms)
+✔ Windows candidate requires the compiled job-close strategy (0.499378ms)
+✔ current store drafts retain all unresolved acceptance and account gates (3.097475ms)
+✔ listing languages, supported text and store field limits are checked (1.069923ms)
+✔ privacy/support pages escape text, work without scripts and match checked-in output (1.782926ms)
+✔ PNG validation rejects truncation, forged dimensions and corrupt image bytes (8.933048ms)
+✔ hashed references reject stale files and paths outside the dossier workspace (7.567207ms)
+✔ synthetic complete metadata reaches human review, not store approval (19.725813ms)
+✔ a passed string without a hashed check report cannot release a candidate (13.894741ms)
+✔ another platform's screenshot and a stale public policy stay blocked (16.102211ms)
+✔ candidate swap invalidates every previous acceptance report (4.152939ms)
+✔ an explicit incomplete redistribution review blocks even passing check reports (13.720365ms)
+✔ package validation streams candidates larger than the JSON evidence limit (37.448324ms)
+✔ one acceptance report cannot stand in for a different check (15.146039ms)
+✔ foreign, emulated, stale-source and unsupported check reports remain blocked (88.540055ms)
+✔ missing fault or performance acceptance blocks an otherwise complete dossier (22.144368ms)
+✔ raw evidence must exist and retain its reviewed bytes (25.815513ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 315.806807

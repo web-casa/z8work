@@ -1,0 +1,9 @@
+{
+	"version": "0.2.0",
+	"runId": "35505026289",
+	"sourceCommit": "6f166c4a271a9cb49c1d5133efd038bf3bb8bc11",
+	"artifactName": "z8-work-web-macos-arm64-preview",
+	"appName": "Z8.Work Desktop Dev.app",
+	"zip": "Z8.Work-0.2.0-macos-arm64-preview.app.zip",
+	"zipSha256": "58e65a320fed3c1eb51dd3d27d5ce7c4ec59b83ed2299345dfa1e0a42d2e63e7"
+}

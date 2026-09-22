@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "phase": 25,
+  "date": "2026-09-09",
+  "status": "passed-local-development",
+  "source": {
+    "testedBaseHead": "14f155e164b07323dbc6a75da0e7e0abba216fc5",
+    "implementationCommit": "15a8a82c260749cf59f890aafd02b95b192f0933",
+    "inputCount": 372,
+    "committedFilesMatchTestedFiles": true,
+    "testedReceipt": "inputs.json",
+    "committedReceipt": "inputs-committed.json",
+    "note": "Code was tested as a worktree patch over testedBaseHead. All 372 input hashes match the implementation commit receipt; later documentation does not change build inputs."
+  },
+  "environment": {
+    "os": "Linux-7.0.14-orbstack-00380-ga7e0a2dc9535-aarch64-with-glibc2.41",
+    "distribution": "Debian GNU/Linux 13 (trixie)",
+    "architecture": "aarch64",
+    "rust": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+    "node": [
+      "22.22.2",
+      "24.18.0"
+    ],
+    "bun": "1.4.0",
+    "gui": "Xvfb 1280x900x24, D-Bus, WebKitGTK / tauri-driver; development app, not installed package",
+    "temporaryDirectory": ".desktop-local/phase25/tmp"
+  },
+  "binary": {
+    "path": "src-tauri/target/debug/z8-desktop",
+    "bytes": 253692480,
+    "sha256": "b1e0f66177f6be613c7a076ca14ebd9930a1adbcea332a007f07c87ddad4b361",
+    "features": [
+      "development-engines",
+      "custom-protocol"
+    ],
+    "profile": "debug"
+  },
+  "engines": {
+    "magick": {
+      "version": "Version: ImageMagick 7.1.1-43 Q16 aarch64 22550 https://imagemagick.org",
+      "sha256": "a16990a12cbb08e0c8bf6eea74bb6d4c3bd81ebd34ac987038d15f231e404df6"
+    },
+    "ffmpeg": {
+      "version": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "sha256": "74f28ebfa9c5758614c9457e680bb13610ba6d11f22858c4e3259751b383294d"
+    },
+    "ffprobe": {
+      "version": "ffprobe version 7.1.5-0+deb13u1 Copyright (c) 2007-2026 the FFmpeg developers",
+      "sha256": "501fbdc51c0b8fa4ecc90d0562c678262eef62b0141806940d186f0b71f9f1c4"
+    },
+    "pandoc": {
+      "version": "pandoc 3.1.11.1",
+      "sha256": "794220bcee16cd281cbc14d32b645ebfd51236918bbb61c5b4a1540b39565d50"
+    },
+    "mutool": {
+      "version": "mutool version 1.25.1",
+      "sha256": "d10f870880737b514b6aad7e7139f9cb0832719301d5f900701bbc3acb19ad82"
+    }
+  },
+  "tests": {
+    "native": {
+      "passed": 102,
+      "ignored": 3,
+      "log": "native.txt"
+    },
+    "nativeDevelopment": {
+      "passed": 101,
+      "ignored": 3,
+      "log": "native-development.txt"
+    },
+    "app": {
+      "passed": 7,
+      "log": "app-tests.txt"
+    },
+    "node22": {
+      "passed": 156,
+      "log": "node22.txt"
+    },
+    "node24": {
+      "passed": 156,
+      "log": "node24.txt"
+    },
+    "svelte": {
+      "errors": 0,
+      "warnings": 0,
+      "log": "svelte-check.txt"
+    },
+    "gui": {
+      "status": "passed",
+      "checks": 67,
+      "sampleRoutes": 20,
+      "log": "gui.txt",
+      "report": "gui-report.json",
+      "root": ".desktop-local/phase25-gui-m51cA6",
+      "installation": "not-run"
+    },
+    "logicalCachePressure": {
+      "status": "passed",
+      "report": "cache-pressure.json",
+      "note": "Explicit ignored test executed on final source; sparse logical bytes, not actual full-disk or GUI peak-memory test"
+    },
+    "crossCheck": {
+      "status": "passed",
+      "targets": [
+        "x86_64-pc-windows-msvc",
+        "aarch64-apple-darwin"
+      ],
+      "scope": "z8-native with test targets; no app linking/native execution/installer acceptance"
+    }
+  },
+  "review": {
+    "fixed": [
+      "cache charge follows final result owner",
+      "expired state only published after cache deletion",
+      "journal reread after dropping lock to preserve concurrent changes",
+      "same options preserve cache",
+      "native picker detection handles changing existing output",
+      "test fixture follows journal scheduling",
+      "Retainer alias and development smoke request compatibility"
+    ],
+    "preservedFailureLogs": [
+      "review-scheduler-failure.txt",
+      "review-expiry-failure.txt",
+      "review-clippy-failure.txt",
+      "review-smoke-failure.txt"
+    ]
+  },
+  "notRun": [
+    "Windows/macOS native app/GUI",
+    "Linux AMD64 strict Snap",
+    "three-platform installed-package acceptance",
+    "isolated real full-disk/disconnect/sleep fault tests",
+    "remote CI",
+    "store submission"
+  ],
+  "nextPhase": 26,
+  "externalWrites": "none; local commits only",
+  "documentation": {
+    "localLinksChecked": 111,
+    "prettier": "passed",
+    "gitDiffCheck": "passed"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "execution": "wine",
+  "status": "passed",
+  "gui": "not-run",
+  "cases": [
+    {
+      "args": [
+        "--runtime-info-file",
+        "Z:\\work\\runtime-delivery.json"
+      ],
+      "exitCode": 0
+    },
+    {
+      "args": [
+        "--runtime-info-file",
+        "Z:\\work\\runtime-delivery.json"
+      ],
+      "exitCode": 1
+    },
+    {
+      "args": [
+        "--runtime-info-file"
+      ],
+      "exitCode": 2
+    },
+    {
+      "args": [
+        "--runtime-info-file",
+        "relative-probe.json"
+      ],
+      "exitCode": 1
+    },
+    {
+      "args": [
+        "--build-info-file",
+        "Z:\\work\\build-info-delivery.json"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

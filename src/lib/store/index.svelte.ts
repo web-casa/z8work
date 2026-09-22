@@ -1,3 +1,4 @@
+import { isDesktop } from "$lib/util/desktop";
 import { supportedBufferLimit } from "$lib/util/buffer-limit";
 import { browser } from "$app/environment";
 import { goto } from "$app/navigation";
@@ -374,7 +375,7 @@ class Files {
 		if (this.batch) return this.batch;
 		const batchFiles = batchTargets(this.files, targets);
 		for (const file of batchFiles) file.queued = true;
-		const coreCount = navigator.hardwareConcurrency || 4;
+		const coreCount = isDesktop() ? 1 : navigator.hardwareConcurrency || 4;
 		const queue = new PQueue({ concurrency: coreCount });
 		this.batch = Promise.all(
 			batchFiles.map((file) =>
@@ -413,7 +414,7 @@ class Files {
 			);
 			const { downloadZip } = await import("client-zip");
 			const blob = await downloadZip(zipEntries(snapshot)).blob();
-			saveDownload(blob, filename);
+			await saveDownload(blob, filename);
 		} finally {
 			this.downloading = false;
 		}

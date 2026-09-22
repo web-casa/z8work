@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scope": "development-msix-acceptance",
+  "mode": "preflight",
+  "host": {
+    "os": "linux",
+    "arch": "arm64",
+    "machine": "aarch64"
+  },
+  "status": "passed",
+  "acceptance": "incomplete",
+  "redistributionApproved": false,
+  "storeSubmissionAllowed": false,
+  "checks": {
+    "input": "passed",
+    "signature": "not-run",
+    "signedContent": "not-run",
+    "installation": "not-run",
+    "installedContent": "not-run",
+    "buildInfo": "not-run",
+    "webview2": "not-run",
+    "conversions": "not-run",
+    "uninstall": "not-run",
+    "originalUnchanged": "passed",
+    "gui": "not-run",
+    "permissions": "not-run",
+    "upgrade": "not-run",
+    "wack": "not-run",
+    "licenses": "not-run",
+    "lifecycle": "not-run"
+  },
+  "original": {
+    "sha256": "6116490e6a00735064d32cbef7358a33c1aa520d2b41dcfbf1df3d150fda288d",
+    "bytes": 171320297
+  },
+  "prepared": {
+    "sha256": "03dce88d7306f040fca8e76caab4687745881ff4bad8771ea7a58311bc1a5b88",
+    "bytes": 5237
+  }
+}
