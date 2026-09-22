@@ -41,6 +41,7 @@ jobs:
               run: |
                   set -euo pipefail
                   flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+                  flatpak install --user --noninteractive flathub org.gnome.Platform//47 org.gnome.Sdk//47
                   flatpak-builder --user --force-clean --repo=flatpak-repo build-dir packaging/flatpak/work.z8.desktop.yml
                   flatpak build-bundle flatpak-repo z8-work.flatpak work.z8.desktop
                   sha256sum z8-work.flatpak > SHA256SUMS
