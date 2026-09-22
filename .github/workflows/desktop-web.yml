@@ -52,16 +52,21 @@ jobs:
                           runner: ubuntu-24.04,
                           target: x86_64-unknown-linux-gnu,
                           bundles: deb,
+                          rpm,
+                          appimage,
                       }
                     - {
                           runner: ubuntu-24.04-arm,
                           target: aarch64-unknown-linux-gnu,
                           bundles: deb,
+                          rpm,
+                          appimage,
                       }
                     - {
                           runner: windows-2025,
                           target: x86_64-pc-windows-msvc,
                           bundles: nsis,
+                          msi,
                       }
                     - {
                           runner: windows-11-arm,
@@ -80,6 +85,8 @@ jobs:
                       }
         runs-on: ${{ matrix.runner }}
         timeout-minutes: 45
+        env:
+            APPIMAGE_EXTRACT_AND_RUN: "1"
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
@@ -106,9 +113,67 @@ jobs:
             - if: matrix.target == 'x86_64-unknown-linux-gnu'
               run: npm run desktop:test:browser
             - run: npm run desktop:package -- --target ${{ matrix.target }} --bundles ${{ matrix.bundles }}
+            - if: runner.os == 'Linux'
+              name: Build strict snap from the deb payload
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  deb=$(find src-tauri/target/${{ matrix.target }}/release/bundle/deb -name '*.deb' | head -1)
+                  mkdir -p snap-staging/deb-root
+                  ar x "$deb" data.tar.gz 2>/dev/null || ar x "$deb" data.tar.zst
+                  tar -xf data.tar.* -C snap-staging/deb-root
+                  sudo snap install snapcraft --channel=8.x --classic
+                  snapcraft --use-lxd 2>/dev/null || snapcraft
+                  mkdir -p snap-output
+                  cp ./*.snap snap-output/
+                  sha256sum snap-output/*.snap | sed "s|snap-output/||" > snap-output/SHA256SUMS
+            - if: runner.os == 'Linux'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: desktop-web-${{ matrix.target }}-snap
+                  path: snap-output/
+                  if-no-files-found: error
+                  retention-days: 14
             - uses: actions/upload-artifact@v4
               with:
                   name: desktop-web-${{ matrix.target }}-unsigned
                   path: src-tauri/target/${{ matrix.target }}/release/bundle/
+                  if-no-files-found: error
+                  retention-days: 14
+
+    flatpak:
+        runs-on: ubuntu-24.04
+        needs: package
+        timeout-minutes: 30
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/download-artifact@v4
+              with:
+                  name: desktop-web-x86_64-unknown-linux-gnu-unsigned
+                  path: bundle-artifact
+            - run: sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder
+            - name: Extract the deb payload
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  deb=$(find bundle-artifact/deb -name '*.deb' | head -1)
+                  mkdir -p packaging/flatpak/payload
+                  cd packaging/flatpak/payload
+                  ar x "$deb" data.tar.zst 2>/dev/null || ar x "$deb" data.tar.gz
+                  tar -xf data.tar.*
+            - name: Build the flatpak bundle
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+                  flatpak-builder --user --force-clean --repo=flatpak-repo build-dir packaging/flatpak/work.z8.desktop.yml
+                  flatpak build-bundle flatpak-repo z8-work.flatpak work.z8.desktop
+                  sha256sum z8-work.flatpak > SHA256SUMS
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: z8-work-flatpak
+                  path: |
+                      z8-work.flatpak
+                      SHA256SUMS
                   if-no-files-found: error
                   retention-days: 14

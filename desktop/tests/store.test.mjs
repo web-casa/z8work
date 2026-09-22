@@ -168,7 +168,8 @@ test("current store drafts retain all unresolved acceptance and account gates", 
 		);
 		assert.equal(report.status, "blocked");
 		assert.ok(report.blockers.some((s) => s.includes("candidate")));
-		assert.ok(report.blockers.some((s) => s.includes("deployed")));
+		// Public pages went live and verified on 2026-09-22; that gate is closed.
+		assert.ok(!report.blockers.some((s) => s.includes("deployed")));
 	}
 });
 test("listing languages, supported text and store field limits are checked", async () => {

@@ -31,8 +31,11 @@
 		}
 	},
 	"publicPages": {
-		"status": "not-deployed",
-		"evidence": null
+		"status": "verified",
+		"evidence": {
+			"file": "docs/desktop/evidence/public-pages-20260922b/pages-verification.json",
+			"sha256": "3d6b78b62909eda7f5d5c39e3d778d69904823d1188b2fa425b88595d87003e3"
+		}
 	},
 	"encryptionDeclaration": {
 		"status": "draft-for-partner-center",

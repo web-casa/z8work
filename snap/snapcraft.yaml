@@ -1,0 +1,23 @@
+name: z8-work
+base: core24
+version: "0.2.0"
+summary: Local file conversion with bundled web engines
+description: |
+    Z8.Work converts images, audio, documents and PDFs on your device.
+    Every conversion runs inside bundled WebAssembly engines: no account,
+    no analytics, no upload server, fully offline after install.
+
+    引擎随附完整对应源码：https://z8.work/desktop-source/
+grade: stable
+confinement: strict
+icon: src-tauri/icons/icon.png
+apps:
+    z8-work:
+        command: bin/z8-desktop
+        extensions: [gnome]
+        plugs:
+            - network
+parts:
+    desktop-app:
+        plugin: dump
+        source: snap-staging/deb-root/usr

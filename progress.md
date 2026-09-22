@@ -1,5 +1,7 @@
 # 实施记录
 
+2026-09-22 第二十一批（合并 + 公开页闭环 + 打包矩阵扩展）：PR #1 已合并（merge commit 0bb2fde），main 自带全部 desktop 静态页，生产站点由 Git 构建接管。所有者关闭 zone Email Obfuscation 后，desktop-store-verify-pages 首次 **passed**（四页 200+逐字节 match，证据 docs/desktop/evidence/public-pages-20260922b/），submission.json publicPages 置 verified + 哈希引用，store 测试断言同步（deployed 阻塞已消失、candidate 仍在）。打包矩阵扩展：Windows x64 加 msi（ARM64 仅 nsis——WiX 无 ARM64 目标）、Linux x64/ARM64 加 rpm+appimage（APPIMAGE_EXTRACT_AND_RUN 兜底）；新增 strict snap（snap/snapcraft.yaml，core24+gnome 扩展供 WebKitGTK，dump 插件装 tauri deb payload，Linux 双架构 CI 产出）与 flatpak（packaging/flatpak/work.z8.desktop.yml，org.gnome.Platform 47 运行时，simple 模块从 deb payload 安装至 /app，x64 CI 产出 bundle）。全部推送 main（自动触发六平台矩阵验证新打包目标）。
+
 2026-09-22 第二十批（PR 全绿）：PR #1 全部检查通过（exit 0）——六平台矩阵（macos×2/ubuntu×2/windows×2）、quality verify（3m17s，格式修复生效）、Cloudflare Pages 预览。PR 处于 MERGEABLE；合并动作与时机归所有者。合并后生产站点由 Git 构建自带 desktop 静态页。剩余外部依赖不变：zone Email Obfuscation 关闭（公开页字节证据）、Windows 实机+签名材料（§3 矩阵）、macOS Developer ID 环境（正式候选）。
 
 2026-09-22 第十九批（矩阵全绿）：第四次矩阵运行（35631580846）六平台全部成功——Windows x64/ARM64（cargo test --features store 含修复的 web_save 测试在 Windows 通过 + NSIS 打包）、macOS x64/ARM64（app）、Linux x64/ARM64（deb）。加上 quality.yml（分支 dispatch）通过，PR #1 的分支已获得完整六平台 + 质量门验证，处于可合并状态（合并是所有者动作；合并后生产站点由 Git 构建自带 desktop 静态页，不再被直传覆盖）。逐层验证最终账：三层真实缺陷（JS 分隔符×2、EOL smudge、vite receipt、Rust 保存文案平台差异）全部修复并在多平台实证。
