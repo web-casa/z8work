@@ -97,7 +97,7 @@ jobs:
                   bun-version: "1.4.0"
             - uses: dtolnay/rust-toolchain@stable
             - if: runner.os == 'Linux'
-              run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+              run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf xdg-utils
             - run: bun install --frozen-lockfile
             - run: npm run i18n:compile
             - run: npm run desktop:check
@@ -122,7 +122,11 @@ jobs:
                   mkdir -p snap-staging/deb-root
                   ar x "$deb" data.tar.gz 2>/dev/null || ar x "$deb" data.tar.zst
                   tar -xf data.tar.* -C snap-staging/deb-root
+                  # Seed the content snap before snapcraft: installing snapcraft
+                  # restarts snapd, and installs issued immediately after fail.
+                  sudo snap install gtk-common-themes
                   sudo snap install snapcraft --channel=8.x --classic
+                  sleep 20
                   snapcraft pack --destructive-mode
                   mkdir -p snap-output
                   cp ./*.snap snap-output/
