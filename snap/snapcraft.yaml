@@ -13,11 +13,17 @@ confinement: strict
 icon: src-tauri/icons/icon.png
 apps:
     z8-work:
-        command: bin/z8-desktop
+        command: usr/bin/z8-desktop
+        desktop: usr/share/applications/z8-work.desktop
         extensions: [gnome]
         plugs:
             - network
 parts:
     desktop-app:
         plugin: dump
-        source: snap-staging/deb-root/usr
+        source: snap-staging/deb-root
+        organize:
+            usr/share/applications/Z8.Work.desktop: usr/share/applications/z8-work.desktop
+        override-prime: |
+            craftctl default
+            sed -i 's|^Icon=.*|Icon=${SNAPCRAFT_PROJECT_NAME}|' usr/share/applications/z8-work.desktop

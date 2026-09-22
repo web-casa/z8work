@@ -10,7 +10,6 @@ finish-args:
     - --device=dri
     - --socket=pulseaudio
     - --filesystem=home
-    - --talk-name=org.freedesktop.portal.Desktop
 modules:
     - name: z8-work
       buildsystem: simple
@@ -19,5 +18,8 @@ modules:
             path: payload/usr
       build-commands:
           - install -Dm755 bin/z8-desktop /app/bin/z8-desktop
-          - mkdir -p /app/lib
-          - cp -r lib/. /app/lib/
+          - install -Dm644 share/applications/Z8.Work.desktop /app/share/applications/work.z8.desktop.desktop
+          - sed -i 's|^Icon=.*|Icon=work.z8.desktop|' /app/share/applications/work.z8.desktop.desktop
+          - >-
+              install -Dm644 share/icons/hicolor/192x192/apps/z8-desktop.png
+              /app/share/icons/hicolor/192x192/apps/work.z8.desktop.png

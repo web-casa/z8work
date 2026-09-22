@@ -112,7 +112,7 @@ jobs:
               run: bunx playwright install --with-deps chromium
             - if: matrix.target == 'x86_64-unknown-linux-gnu'
               run: npm run desktop:test:browser
-            - run: npm run desktop:package -- --target ${{ matrix.target }} --bundles ${{ matrix.bundles }}
+            - run: npm run desktop:package -- --config packaging/desktop-web/tauri.direct-download-ci.json --target ${{ matrix.target }} --bundles ${{ matrix.bundles }}
             - if: runner.os == 'Linux'
               name: Build strict snap from the deb payload
               shell: bash
