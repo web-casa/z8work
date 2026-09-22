@@ -51,21 +51,21 @@ jobs:
                     - {
                           runner: ubuntu-24.04,
                           target: x86_64-unknown-linux-gnu,
-                          bundles: deb,
+                          bundles: "deb rpm appimage",
                           rpm,
                           appimage,
                       }
                     - {
                           runner: ubuntu-24.04-arm,
                           target: aarch64-unknown-linux-gnu,
-                          bundles: deb,
+                          bundles: "deb rpm appimage",
                           rpm,
                           appimage,
                       }
                     - {
                           runner: windows-2025,
                           target: x86_64-pc-windows-msvc,
-                          bundles: nsis,
+                          bundles: "nsis msi",
                           msi,
                       }
                     - {
@@ -123,7 +123,7 @@ jobs:
                   ar x "$deb" data.tar.gz 2>/dev/null || ar x "$deb" data.tar.zst
                   tar -xf data.tar.* -C snap-staging/deb-root
                   sudo snap install snapcraft --channel=8.x --classic
-                  snapcraft --use-lxd 2>/dev/null || snapcraft
+                  snapcraft pack
                   mkdir -p snap-output
                   cp ./*.snap snap-output/
                   sha256sum snap-output/*.snap | sed "s|snap-output/||" > snap-output/SHA256SUMS
