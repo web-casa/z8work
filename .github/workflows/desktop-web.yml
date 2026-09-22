@@ -160,7 +160,7 @@ jobs:
               shell: bash
               run: |
                   set -euo pipefail
-                  deb=$(find bundle-artifact/deb -name '*.deb' | head -1)
+                  deb=$(find bundle-artifact -name '*.deb' | head -1)
                   mkdir -p packaging/flatpak/payload
                   cd packaging/flatpak/payload
                   ar x "$deb" data.tar.zst 2>/dev/null || ar x "$deb" data.tar.gz
