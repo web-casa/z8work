@@ -1,0 +1,20 @@
+{
+	"flatpak": {
+		"run": "https://github.com/web-casa/z8work/actions/runs/35741725762",
+		"workflow": "desktop-web-flatpak.yml (dispatch-only, x64)",
+		"sourceCommit": "bf1a58a",
+		"file": "z8-work.flatpak",
+		"sha256": "23f203b5cef4aa4c2599810a458f9c12ad8de1f5238ddec6a71b34967f1bdb6c",
+		"appId": "work.z8.desktop",
+		"runtime": "org.gnome.Platform 47",
+		"verified": "artifact SHA256SUMS rechecked locally"
+	},
+	"windows": {
+		"msixCandidates": "docs/desktop/evidence/windows-msix-20260921/candidates.json",
+		"nsisMsi": "desktop-web.yml matrix runs; nsis x64/arm64 + msi x64, repeatedly green"
+	},
+	"linuxDirect": {
+		"debRpmAppimage": "desktop-web.yml matrix: x64 + arm64, deb/rpm/appimage all bundles green across multiple runs",
+		"snap": "strict core24 snap, destructive build with seeded gtk-common-themes, green on x64; arm64 validated through appimage, snap on arm64 hit one transient archive drop"
+	}
+}
