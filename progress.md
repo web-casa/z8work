@@ -1,5 +1,7 @@
 # 实施记录
 
+2026-09-22 第二十批（PR 全绿）：PR #1 全部检查通过（exit 0）——六平台矩阵（macos×2/ubuntu×2/windows×2）、quality verify（3m17s，格式修复生效）、Cloudflare Pages 预览。PR 处于 MERGEABLE；合并动作与时机归所有者。合并后生产站点由 Git 构建自带 desktop 静态页。剩余外部依赖不变：zone Email Obfuscation 关闭（公开页字节证据）、Windows 实机+签名材料（§3 矩阵）、macOS Developer ID 环境（正式候选）。
+
 2026-09-22 第十九批（矩阵全绿）：第四次矩阵运行（35631580846）六平台全部成功——Windows x64/ARM64（cargo test --features store 含修复的 web_save 测试在 Windows 通过 + NSIS 打包）、macOS x64/ARM64（app）、Linux x64/ARM64（deb）。加上 quality.yml（分支 dispatch）通过，PR #1 的分支已获得完整六平台 + 质量门验证，处于可合并状态（合并是所有者动作；合并后生产站点由 Git 构建自带 desktop 静态页，不再被直传覆盖）。逐层验证最终账：三层真实缺陷（JS 分隔符×2、EOL smudge、vite receipt、Rust 保存文案平台差异）全部修复并在多平台实证。
 
 2026-09-22 第十八批（矩阵第三层）：修复后的矩阵（35629270129）JS/MSIX 侧全绿（201+22，分隔符修复生效），揭出第三层——Rust web_save 测试在 Windows 失败：rename 覆盖目录报 Access Denied → PermissionDenied 文案缺 retry 引导。按产品语义修复（权限拒绝统一含"重试"引导，Unix rust 测试仍过），推送后重新 dispatch 矩阵（第四次，等结果）。gh run rerun --failed 不带新提交的事实已记录。
