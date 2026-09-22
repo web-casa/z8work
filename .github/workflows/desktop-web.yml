@@ -97,7 +97,7 @@ jobs:
                   bun-version: "1.4.0"
             - uses: dtolnay/rust-toolchain@stable
             - if: runner.os == 'Linux'
-              run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf xdg-utils
+              run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf xdg-utils zstd xz-utils
             - run: bun install --frozen-lockfile
             - run: npm run i18n:compile
             - run: npm run desktop:check
@@ -120,8 +120,9 @@ jobs:
                   set -euo pipefail
                   deb=$(find src-tauri/target/${{ matrix.target }}/release/bundle/deb -name '*.deb' | head -1)
                   mkdir -p snap-staging/deb-root
-                  ar x "$deb" data.tar.gz 2>/dev/null || ar x "$deb" data.tar.zst
-                  tar -xf data.tar.* -C snap-staging/deb-root
+                  member=$(ar t "$deb" | grep '^data\.tar' | head -1)
+                  ar x "$deb" "$member"
+                  tar --auto-compress -xf "$member" -C snap-staging/deb-root
                   # Seed the content snap before snapcraft: installing snapcraft
                   # restarts snapd, and installs issued immediately after fail.
                   sudo snap install gtk-common-themes
