@@ -127,7 +127,11 @@ jobs:
                   sudo snap install gtk-common-themes
                   sudo snap install snapcraft --channel=8.x --classic
                   sleep 20
-                  snapcraft pack --destructive-mode
+                  # The Ubuntu archive occasionally drops connections mid-fetch.
+                  snapcraft pack --destructive-mode || {
+                      sleep 60
+                      snapcraft pack --destructive-mode
+                  }
                   mkdir -p snap-output
                   cp ./*.snap snap-output/
                   sha256sum snap-output/*.snap | sed "s|snap-output/||" > snap-output/SHA256SUMS
