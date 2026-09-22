@@ -11,13 +11,31 @@ description: |
 grade: stable
 confinement: strict
 icon: src-tauri/icons/icon.png
+plugs:
+    gtk-3-themes:
+        interface: content
+        target: $SNAP/data-dir/themes
+        default-provider: gtk-common-themes
+    icon-themes:
+        interface: content
+        target: $SNAP/data-dir/icons
+        default-provider: gtk-common-themes
 apps:
     z8-work:
         command: usr/bin/z8-desktop
         desktop: usr/share/applications/z8-work.desktop
-        extensions: [gnome]
         plugs:
             - network
+            - desktop
+            - desktop-legacy
+            - x11
+            - wayland
+            - unity7
+            - gsettings
+            - opengl
+            - pulseaudio
+            - gtk-3-themes
+            - icon-themes
 parts:
     desktop-app:
         plugin: dump
@@ -27,3 +45,11 @@ parts:
         override-prime: |
             craftctl default
             sed -i 's|^Icon=.*|Icon=${SNAPCRAFT_PROJECT_NAME}|' usr/share/applications/z8-work.desktop
+    webkit:
+        plugin: nil
+        stage-packages:
+            - libwebkit2gtk-4.1-0
+            - libgtk-3-0
+            - libgl1
+            - libegl1
+            - libasound2t64
