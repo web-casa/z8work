@@ -123,7 +123,7 @@ jobs:
                   ar x "$deb" data.tar.gz 2>/dev/null || ar x "$deb" data.tar.zst
                   tar -xf data.tar.* -C snap-staging/deb-root
                   sudo snap install snapcraft --channel=8.x --classic
-                  snapcraft pack
+                  snapcraft pack --destructive-mode
                   mkdir -p snap-output
                   cp ./*.snap snap-output/
                   sha256sum snap-output/*.snap | sed "s|snap-output/||" > snap-output/SHA256SUMS
