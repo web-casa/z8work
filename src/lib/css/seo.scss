@@ -30,10 +30,123 @@
 	margin: 2.5rem 0 1rem;
 }
 .seo-tools h2,
-.seo-guide h2 {
+.seo-guide h2,
+.seo-hub-links h2,
+.seo-faq h2,
+.seo-home-picker h2 {
 	font-size: 1.25rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
+}
+.seo-home-picker {
+	margin: 2.5rem clamp(1rem, 4vw, 3rem) 1rem;
+}
+.seo-home-browse {
+	display: inline-block;
+	margin-top: 1.1rem;
+	color: var(--fg-muted);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.seo-home-browse:hover {
+	color: var(--fg);
+}
+.seo-picker {
+	display: flex;
+	align-items: center;
+	gap: clamp(0.9rem, 3vw, 2.2rem);
+}
+.seo-picker-card {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+}
+.seo-picker-card select {
+	appearance: none;
+	border: 2px solid var(--pixel-line);
+	background: var(--bg-panel);
+	color: var(--fg);
+	font: inherit;
+	font-size: clamp(1rem, 2.4vw, 1.35rem);
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-align: center;
+	text-align-last: center;
+	padding: 1rem 2.6rem;
+	min-width: min(11.5rem, 36vw);
+	cursor: pointer;
+}
+.seo-picker-card select:hover:not(:disabled) {
+	background: var(--bg-panel-highlight);
+}
+.seo-picker-card select:disabled {
+	cursor: default;
+	opacity: 0.55;
+}
+.seo-picker-card > .pixel-icon {
+	position: absolute;
+	right: 0.9rem;
+	pointer-events: none;
+	opacity: 0.65;
+}
+.seo-picker-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+.seo-picker-to {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.2rem;
+	color: var(--fg-muted);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+@media (max-width: 640px) {
+	.seo-picker {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.seo-picker-card select {
+		width: 100%;
+		min-width: 0;
+	}
+	.seo-picker-to {
+		padding: 0.2rem 0;
+	}
+	.seo-picker-to > .pixel-icon {
+		transform: rotate(90deg);
+	}
+}
+.seo-hub-links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+	margin: 2.5rem clamp(1rem, 4vw, 3rem) 0;
+}
+.seo-hub-links .seo-tool-links {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.seo-faq {
+	margin: 2.5rem clamp(1rem, 4vw, 3rem) 0;
+	padding-top: 1.5rem;
+	border-top: 2px solid var(--pixel-line);
+	max-width: 68rem;
+}
+.seo-faq h3 {
+	font-weight: 600;
+	margin: 1.2rem 0 0.4rem;
+}
+.seo-faq p {
+	line-height: 1.8;
+	color: var(--fg-muted);
 }
 .seo-tool-links {
 	display: grid;
@@ -88,6 +201,13 @@
 @media (max-width: 800px) {
 	.seo-tool-links {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.seo-hub-links {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	.seo-hub-links .seo-tool-links {
+		grid-template-columns: 1fr;
 	}
 	.seo-guide {
 		grid-template-columns: 1fr;

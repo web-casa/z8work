@@ -5,15 +5,17 @@
 ## 页面与收录范围
 
 - 英语使用根路径，西班牙语、简体中文、繁体中文分别使用 `/es/`、`/zh-Hans/`、`/zh-Hant/`。标题、描述、H1、Open Graph、Twitter 卡片与页面语言一致。
-- 15 种语言共预渲染 195 个页面；目前完整提供新功能翻译的四种语言共 44 页进入站点地图，其余语言仍可使用，但暂设 `noindex, follow`，避免把英语回退内容当成完整翻译发布。
+- 15 种语言共预渲染 1230 个页面；目前完整提供新功能翻译的四种语言共 320 页进入站点地图，其余语言仍可使用，但暂设 `noindex, follow`，避免把英语回退内容当成完整翻译发布。
 - `/convert/`、`/settings/` 及其语言版本不收录。转换队列仅在内存中，不进入 URL、站点地图或结构化数据。
 - 每个可收录页面有自身 canonical、四种语言的相互 `hreflang` 和英语 `x-default`。统一域名为 `https://z8.work`，忽略查询参数产生的重复地址。
-- `sitemap.xml` 从同一份路由定义生成，包含 44 个规范网址；`robots.txt` 声明其地址。不使用虚构的更新时间。
+- `sitemap.xml` 从同一份路由定义生成，包含 320 个规范网址；`robots.txt` 声明其地址。不使用虚构的更新时间。
 - JSON-LD 包含 WebSite、WebPage、首页 SoftwareApplication 和工具页 BreadcrumbList；不添加虚构评分或承诺搜索结果一定显示富媒体样式。序列化时转义 `<`，避免脚本标签注入。
 
-实现入口：`src/lib/seo/`、`src/routes/sitemap.xml/+server.ts`。新增可收录页面时，同时更新 `routes.mjs` 和四种语言的 `content.ts`，运行生成 HTML 检查。
+实现入口：`src/lib/seo/`、`src/routes/sitemap.xml/+server.ts`。新增可收录页面时，同时更新 `routes.mjs` 和四种语言的 `content.ts`（文案现按语言拆分在 `src/lib/seo/copy/`），运行生成 HTML 检查。`tests/seo-routes.test.mjs` 固化路由不变量：slug 唯一、每个 hub 至少可达两条转换、相关链接去重且排除自身。
 
-## 六个可以直接使用的入口
+## 工具入口（三批扩展后共 74 页，另设 /tools/ 索引页）
+
+三批落地页扩展后，`/tools/` 下有 74 个页面：64 个格式对/工具页与 10 个 hub 页，全部预选浏览器端真实支持的格式组合。第三批基于 DataForSEO 美区关键词数据选词（mp3-to-ogg、png/jpg-to-ico、gif-to-png/jpg、jpg-to-webp、compress-png/jpeg、mp3-compressor、ico-converter hub、audio-extractor 组 hub）；相机 RAW（CR2/ARW/NEF）经查 WASM 引擎不含解码器，确认不上页面。首页的 "Choose a conversion" 已从全量链接网格改为 FROM→TO 格式选择器（`FormatPicker.svelte`，数据来自 `routes.mjs` 的 `pickerEntries()`，扩展名别名如 .jpg/.jpeg 归一为一个选项），每个 FROM/TO 组合都对应真实存在的工具页；全量目录移至 `/tools/` 索引页，按格式指南（hub）与图片/视频转音频/音频/文档/PDF 分组展示。首轮的 6 个入口如下：
 
 | 路径                       | 匹配输入的默认输出 |
 | -------------------------- | ------------------ |
@@ -24,7 +26,7 @@
 | `/tools/pdf-to-jpg/`       | PDF → JPG          |
 | `/tools/image-compressor/` | 常见图片 → WebP    |
 
-入口包含实际工作区、操作说明、格式限制及相关工具链接。预设只作用于从当前入口新添加且符合输入类型的文件，不覆盖队列内已有文件和用户选择。压缩页允许调整输出与画质，不保证每个文件都会变小。PDF 页面明确 144 DPI、100 MiB、200 页及其他资源限制，不宣称支持 OCR。
+完整清单见 `src/lib/seo/routes.mjs`（`tools` 与 `hubs` 数组）。扩展按类别分批上线，每页内容包含：内嵌工作区、该格式对专属的说明与提示、可见 FAQ（三个问答，不加 FAQPage 结构化数据——Google 已于 2026-05 全面停用其富媒体展示）、同源格式与反向转换的相关链接；hub 页含 "Convert from/to X" 双向链接列表，单方向无内容时该区块整体不渲染（如 heic-converter 仅有转出方向）。页面文案只描述真实支持的能力与限制（如 DRM 文件不可转换、重编码不保证变小、2 GiB 缓冲上限、PSD 合成图层压平、多页 TIFF 取第一页），不承诺转换效果。能力存疑的格式组合（相机 RAW、遗留 .doc）在浏览器端验证前不上页面。上线节奏遵守分批原则：每批观察 Search Console 索引率后再扩下一批。
 
 ## 语言切换与队列
 
@@ -75,6 +77,15 @@ CHROMIUM_PATH=/usr/bin/chromium npm run test:pages
 - Pages 本地运行时验证通过：未知地址 HTTP 404、引擎解压后哈希一致、HEAD / 304、真实文档转换和 Service Worker 离线缓存。
 - 320 / 390 / 1366 像素宽度及深浅主题检查；修复首页工作区与工具入口并排、说明区缺少边距，以及工具链接样式误作用于图标导致文字挤窄的问题。
 - 复查移除了重复 metadata、首次语言水合导致的界面重建，以及启动时的大内存分配探测。未扩大上传权限或加入第三方统计。
+
+### 2026-09 第一、二批扩展的复验
+
+- 211 项单元测试（含落地页 ↔ 引擎格式表交叉验证）、`svelte-check` 0 errors / 0 warnings、变更文件 Prettier 与 ESLint 通过；12 组 Chromium 回归通过，含首页选择器流程与 /tools/ 目录页导航；`build-pages/_routes.json` 确认为动态生成，全部工具路径均正常产出。
+- 1230 个生成页面检查通过，320 条 sitemap URL（80 个可收录路径 × 4 种语言）：唯一标题、单 H1、canonical、收录范围、hreflang、JSON-LD 与静态 404 均符合预期。
+- 第一批 25 个路径（20 格式对 + 5 hub）、第二批 32 个路径（29 格式对 + 3 hub）、第三批 11 个路径（9 格式对/工具 + ico-converter 与 audio-extractor 两个 hub）× 15 种语言全部预渲染；四语言文案在 `src/lib/seo/copy/` 按语言分文件维护，`content.ts` 保持 `seoCopy` 入口不变。hub 页新增两类形态：组 hub（audio-extractor 按 `linksFromGroup` 汇总视频提音频工具，标题可用 `hubFromTitle` 覆盖）与同格式压缩页（compress-png/jpeg、mp3-compressor，输入输出同格式，靠画质/码率设置缩小体积；首页选择器按设计排除同格式目标）。
+- 桌面与移动端、明暗主题截图抽查：首页选择器、/tools/ 索引页、pair 页、hub 页与中文页的 FAQ、双向列表、相关链接与图标分组渲染正确；文档组图标错用图片图标的问题已修复。
+- Codex review 复审后修正：JPG hub 页的透明度表述（JPG→PNG 不能找回未存储的透明区域）、SVG 转 PNG 的尺寸 FAQ（按实现如实说明纯整数宽高 → viewBox → 512×512 兜底）、西语目标选择框的完整可访问名称；新增 `tests/seo-routes.test.mjs` 能力交叉验证，将全部落地页的输入/输出逐一对照四个转换器声明的格式表，防止页面承诺引擎不支持的能力。
+- 未验证项：`npm run test:pages` 需要另起 wrangler Pages 运行时，本轮未执行；正式域名的索引表现需在 Search Console 验证后观察。
 
 ## 性能测量的边界
 

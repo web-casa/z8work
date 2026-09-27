@@ -294,7 +294,9 @@ class Files {
 				return;
 			}
 			const vf = new VertFile(file, to);
-			if (preset?.inputs.includes(vf.from)) vf.setTarget(preset.target);
+			// Format hubs have no inputs/target; only pair pages preselect.
+			if (preset && "target" in preset && preset.inputs.includes(vf.from))
+				vf.setTarget(preset.target);
 			this.files.push(vf);
 			this._addThumbnail(vf);
 

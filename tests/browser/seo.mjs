@@ -123,9 +123,8 @@ try {
 		"Locale changes preserve the document and results",
 	);
 	await page.locator(".pixel-wordmark").click();
-	await page
-		.getByRole("link", { name: "Convertir PNG a WebP", exact: true })
-		.click();
+	await page.locator(".seo-picker select").first().selectOption(".png");
+	await page.locator(".seo-picker select").nth(1).selectOption("png-to-webp");
 	await page.waitForURL("**/es/tools/png-to-webp/");
 	await page.locator("input[type=file]:enabled").first().setInputFiles({
 		name: "second.png",
@@ -163,7 +162,10 @@ try {
 	);
 	assert.equal(await rows.count(), 2);
 	await page.locator(".pixel-wordmark").click();
+	await page.getByRole("link", { name: "瀏覽全部轉換工具" }).click();
+	await page.waitForURL("**/zh-Hant/tools/");
 	await page.getByRole("link", { name: "PNG 轉 AVIF", exact: true }).click();
+	await page.waitForURL("**/zh-Hant/tools/png-to-avif/");
 	for (const width of [1366, 390, 320]) {
 		await page.setViewportSize({ width, height: 900 });
 		await page.waitForTimeout(100);
