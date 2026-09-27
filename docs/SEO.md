@@ -85,7 +85,7 @@ CHROMIUM_PATH=/usr/bin/chromium npm run test:pages
 - 第一批 25 个路径（20 格式对 + 5 hub）、第二批 32 个路径（29 格式对 + 3 hub）、第三批 11 个路径（9 格式对/工具 + ico-converter 与 audio-extractor 两个 hub）× 15 种语言全部预渲染；四语言文案在 `src/lib/seo/copy/` 按语言分文件维护，`content.ts` 保持 `seoCopy` 入口不变。hub 页新增两类形态：组 hub（audio-extractor 按 `linksFromGroup` 汇总视频提音频工具，标题可用 `hubFromTitle` 覆盖）与同格式压缩页（compress-png/jpeg、mp3-compressor，输入输出同格式，靠画质/码率设置缩小体积；首页选择器按设计排除同格式目标）。
 - 桌面与移动端、明暗主题截图抽查：首页选择器、/tools/ 索引页、pair 页、hub 页与中文页的 FAQ、双向列表、相关链接与图标分组渲染正确；文档组图标错用图片图标的问题已修复。
 - Codex review 复审后修正：JPG hub 页的透明度表述（JPG→PNG 不能找回未存储的透明区域）、SVG 转 PNG 的尺寸 FAQ（按实现如实说明纯整数宽高 → viewBox → 512×512 兜底）、西语目标选择框的完整可访问名称；新增 `tests/seo-routes.test.mjs` 能力交叉验证，将全部落地页的输入/输出逐一对照四个转换器声明的格式表，防止页面承诺引擎不支持的能力。
-- 未验证项：`npm run test:pages` 需要另起 wrangler Pages 运行时，本轮未执行；正式域名的索引表现需在 Search Console 验证后观察。
+- Pages 运行时验证通过（2026-09-27，`wrangler pages dev` + `npm run test:pages`）：未知地址 HTTP 404 与 noindex、引擎解压后哈希一致、HEAD / 304、真实文档转换和 Service Worker 离线引擎缓存。同日三批落地页随 commit `054eab8` 推送 `main`，由 Pages Git 集成构建并发布至 z8.work 生产，线上抽查：sitemap 320 条 URL、新旧页面 200、未知地址 404。正式域名的索引表现需在 Search Console 验证后观察。
 
 ## 性能测量的边界
 
